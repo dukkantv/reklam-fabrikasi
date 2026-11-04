@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#111;font-family:"Inter Display","Inter","DejaVu Sans",sans-serif}
+:root{--vurgu:#e3121b}
+.vurgu{color:var(--vurgu)}
+.scene{position:absolute;inset:0;display:none;overflow:hidden}
+.c{position:absolute;left:0;right:0;text-align:center;padding:0 40px}
+.big{font-weight:900;letter-spacing:-2px;line-height:1.04}
+.cone-wrap{position:absolute;left:50%;top:700px;width:360px;height:620px;margin-left:-180px}
+.scoop{position:absolute;border-radius:50%}
+.cone{position:absolute;left:60px;top:250px;width:0;height:0;border-left:120px solid transparent;border-right:120px solid transparent;border-top:360px solid #e0a458}
+.cone-lines{position:absolute;left:60px;top:250px;width:240px;height:360px;clip-path:polygon(0 0,100% 0,50% 100%);
+ background:repeating-linear-gradient(45deg,transparent 0 34px,rgba(120,60,10,.35) 34px 40px),repeating-linear-gradient(-45deg,transparent 0 34px,rgba(120,60,10,.35) 34px 40px)}
+.emoji{position:absolute;left:0;right:0;top:760px;text-align:center;font-size:380px;line-height:1}
+.phone{position:absolute;left:50%;top:640px;width:300px;height:560px;margin-left:-150px;border-radius:48px;background:#1b1b1b;border:12px solid #333;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.phone .scr{position:absolute;inset:18px;border-radius:30px;background:linear-gradient(#2b2b2b,#141414);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
+.ring{position:absolute;left:50%;top:920px;border:8px solid var(--vurgu);border-radius:50%}
+.stamp{display:inline-block;background:var(--vurgu);color:#fff;padding:18px 40px;border-radius:14px;font-weight:900;font-size:86px}
+.card{position:absolute;left:70px;right:70px;background:#fff;border-radius:36px;box-shadow:0 30px 90px rgba(0,0,0,.35)}
+.row{display:flex;align-items:center;gap:28px;font-size:46px;font-weight:600;color:#1a1a1a;padding:18px 0}
+.ico{width:76px;height:76px;border-radius:20px;background:var(--vurgu);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:38px;flex:none}
+</style></head><body>
+
+<div class="scene" id="s1">
+  <div class="c big" id="s1a" style="top:250px;font-size:96px;color:#2a1600"></div>
+  <div class="cone-wrap" id="s1cone" style="display:none">
+    <div class="cone"></div><div class="cone-lines"></div>
+    <div class="scoop" style="left:70px;top:150px;width:220px;height:170px;background:#fff3d6"></div>
+    <div class="scoop" style="left:40px;top:60px;width:180px;height:170px;background:#ff8fb1"></div>
+    <div class="scoop" style="left:140px;top:30px;width:180px;height:170px;background:#7a4a2a"></div>
+  </div>
+  <div class="emoji" id="s1emoji" style="display:none"></div>
+  <div class="c big" id="s1b" style="top:1450px;font-size:84px;color:#2a1600"></div>
+</div>
+
+<div class="scene" id="s2" style="background:#111">
+  <div id="s2flash" style="position:absolute;inset:0;background:var(--vurgu)"></div>
+  <div class="c" style="top:560px">
+    <div style="display:inline-block;width:520px;height:360px;background:#c98d4a;border:10px solid #8a5a26;border-radius:18px;position:relative">
+      <div id="s2kutu" style="position:absolute;left:0;right:0;top:120px;font-size:64px;font-weight:900;color:#5a3510"></div>
+      <div id="s2lid" style="position:absolute;left:-10px;right:-10px;top:-70px;height:80px;background:#b07a3a;border:10px solid #8a5a26;border-radius:12px;transform-origin:left bottom"></div>
+    </div>
+    <div id="s2empty" style="font-size:44px;color:#ffb3b3;margin-top:24px;font-weight:700"></div>
+  </div>
+  <div class="c big" id="s2t" style="top:1100px;font-size:170px;color:#fff"></div>
+  <div class="c" id="s2s" style="top:1520px;font-size:54px;color:#ffd0d0;font-weight:700"></div>
+</div>
+
+<div class="scene" id="s3" style="background:linear-gradient(#1c1c1c,#2a0a0a)">
+  <div class="c big" id="s3a" style="top:260px;font-size:80px;color:#fff"></div>
+  <div class="ring" id="r1"></div><div class="ring" id="r2"></div>
+  <div class="phone" id="s3p"><div class="scr">
+    <img id="s3foto" style="width:190px;height:190px;border-radius:50%;object-fit:cover;object-position:48% 30%;border:6px solid var(--vurgu)">
+    <div id="s3kisi" style="font-size:42px;font-weight:800;margin-top:26px"></div>
+    <div id="s3firma" style="font-size:30px;color:#bbb;margin-top:8px"></div>
+    <div id="s3call" style="font-size:30px;margin-top:40px"></div>
+  </div></div>
+  <div class="c big" id="s3b" style="top:1400px;font-size:104px;color:#fff"></div>
+</div>
+
+<div class="scene" id="s4" style="background:#000">
+  <img id="s4img" style="position:absolute;left:50%;top:50%;width:1500px;transform-origin:center">
+  <div style="position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.1) 35%,rgba(0,0,0,.1) 60%,rgba(0,0,0,.85))"></div>
+  <div class="c big" id="s4a" style="top:200px;font-size:92px;color:#fff"></div>
+  <div class="c big" id="s4b" style="top:1330px;font-size:82px;color:#fff"></div>
+  <div class="c" id="s4c" style="top:1620px"><span class="stamp" id="s4damga"></span></div>
+</div>
+
+<div class="scene" id="s5" style="background:#111">
+  <div style="position:absolute;left:0;right:0;top:0;height:16px;background:var(--vurgu)"></div>
+  <div class="c" id="s5logo" style="top:170px"><div style="display:inline-block;background:#fff;border-radius:30px;padding:20px 26px"><img id="s5logoimg" style="width:840px;max-height:420px;object-fit:contain;display:block"></div></div>
+  <div class="c big" id="s5t" style="top:720px;font-size:66px;color:#fff"></div>
+  <div class="card" id="s5card" style="top:960px;padding:40px 50px">
+    <div class="row"><div class="ico">📍</div><div id="k_adres"></div></div>
+    <div class="row"><div class="ico">☎</div><div id="k_tel" style="font-weight:900;font-size:58px"></div></div>
+    <div class="row" id="k_webrow"><div class="ico" style="font-size:24px">www</div><div id="k_web"></div></div>
+  </div>
+  <div class="c big" id="s5s" style="top:1480px;font-size:72px;color:#fff"></div>
+  <div class="c" style="top:1810px;font-size:30px;color:#888;font-weight:600">Dükkan TV ile hazırlandı</div>
+</div>
+
+<script>
+// Sahne süreleri (kare, 30 kare = 1 saniye)
+const S=[["s1",0,105],["s2",105,210],["s3",210,330],["s4",330,480],["s5",480,690]];
+window.TOTAL=690; window.SAHNELER=S;
+const $=id=>document.getElementById(id);
+
+window.yukle=function(D,klasor){
+  document.documentElement.style.setProperty('--vurgu',D.renk||'#e3121b');
+  const a=D.sahne1,b=D.sahne2,c=D.sahne3,d=D.sahne4,k=D.kart;
+  $("s1").style.background=`radial-gradient(circle at 50% 30%,${a.arka1||'#ffd34d'},${a.arka2||'#ff9a1f'} 70%)`;
+  $("s1a").innerHTML=a.ust; $("s1b").innerHTML=a.alt;
+  if(a.ikon==="dondurma"){$("s1cone").style.display="block"} else {$("s1emoji").style.display="block";$("s1emoji").textContent=a.ikon||"🏪"}
+  $("s2kutu").innerHTML=b.kutu; $("s2empty").innerHTML=b.bos||""; $("s2t").innerHTML=b.baslik; $("s2s").innerHTML=b.alt;
+  $("s3a").innerHTML=c.ust; $("s3kisi").innerHTML=c.kisi; $("s3firma").innerHTML=c.firma_kisa||""; $("s3b").innerHTML=c.baslik;
+  $("s3foto").src=klasor+"/"+c.foto;
+  $("s4img").src=klasor+"/"+d.foto; $("s4a").innerHTML=d.ust; $("s4b").innerHTML=d.alt; $("s4damga").innerHTML=d.damga||"";
+  if(!d.damga) $("s4c").style.display="none";
+  $("s5logoimg").src=klasor+"/"+k.logo; $("s5t").innerHTML=k.slogan1; $("s5s").innerHTML=k.slogan2;
+  $("k_adres").innerHTML=k.adres; $("k_tel").innerHTML=k.telefon;
+  if(k.web) $("k_web").innerHTML=k.web; else $("k_webrow").style.display="none";
+};
+
+const cl=(x,a,b)=>Math.max(a,Math.min(b,x));
+const lin=(f,f0,f1,v0,v1)=>v0+(v1-v0)*cl((f-f0)/(f1-f0),0,1);
+const ease=t=>1-Math.pow(1-t,3);
+const pop=(f,f0,d=12)=>{const t=cl((f-f0)/d,0,1);return t<1?ease(t)*(1+0.12*Math.sin(t*Math.PI)):1};
+function inUp(el,f,f0,d=12,dist=60){const t=ease(cl((f-f0)/d,0,1));el.style.opacity=t;el.style.transform=`translateY(${(1-t)*dist}px)`}
+
+window.setFrame=function(F){
+  for(const [id,a,b] of S){const on=F>=a&&F<b;$(id).style.display=on?"block":"none";if(!on)continue;const f=F-a;
+  if(id==="s1"){inUp($("s1a"),f,0);const p=pop(f,8,16),t=`scale(${p}) rotate(${Math.sin(f/6)*3}deg)`;$("s1cone").style.transform=t;$("s1emoji").style.transform=t;inUp($("s1b"),f,40)}
+  if(id==="s2"){$("s2flash").style.opacity=f<4?1-f/4:(f>=30&&f<34?0.8-(f-30)*0.2:0);
+    $("s2lid").style.transform=`rotate(${-lin(f,4,16,0,35)}deg)`;inUp($("s2empty"),f,14,10,20);
+    const p=pop(f,28,10),sh=f>=28&&f<60?Math.sin(f*2.3)*14*(1-(f-28)/32):0;$("s2t").style.transform=`translateX(${sh}px) scale(${p})`;$("s2t").style.opacity=f>=28?1:0;
+    inUp($("s2s"),f,55)}
+  if(id==="s3"){inUp($("s3a"),f,0);const p=pop(f,10,14);$("s3p").style.transform=`scale(${p}) rotate(${f>24&&f<80?Math.sin(f*1.8)*4:0}deg)`;
+    for(const [r,o] of [["r1",0],["r2",14]]){const t=((f+o)%28)/28,s=200+t*700;Object.assign($(r).style,{width:s+"px",height:s+"px",marginLeft:-s/2+"px",marginTop:-s/2+"px",opacity:f>20?(1-t)*0.7:0})}
+    $("s3call").textContent=f<70?"aranıyor…":"bağlandı ✓";$("s3call").style.color=f<70?"#bbb":"#6fdc8c";
+    inUp($("s3b"),f,60)}
+  if(id==="s4"){const s=lin(f,0,150,1.25,1.05);$("s4img").style.transform=`translate(-50%,-50%) scale(${s})`;
+    inUp($("s4a"),f,8);inUp($("s4b"),f,50);const p=pop(f,90,10);$("s4c").style.transform=`scale(${f>=90?p:0}) rotate(-6deg)`}
+  if(id==="s5"){const p=pop(f,0,14);$("s5logo").style.transform=`scale(${p})`;inUp($("s5t"),f,18);inUp($("s5card"),f,34,14,80);inUp($("s5s"),f,70)}
+  }
+};
+</script></body></html>

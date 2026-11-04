@@ -1,0 +1,61 @@
+name: Reklam Üret
+
+on:
+  workflow_dispatch:
+    inputs:
+      klasor:
+        description: "Reklam klasörünün adı (reklamlar/ içindeki, örn: eserim)"
+        required: true
+        default: "eserim"
+
+jobs:
+  uret:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Araçları kur (tarayıcı, yazı tipi, ffmpeg, ses)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-inter fonts-noto-color-emoji
+          npm install playwright@1.47.2
+          npx playwright install --with-deps chromium
+          pip install edge-tts==6.1.12
+
+      - name: Videoyu çiz
+        run: node uret.js "${{ github.event.inputs.klasor }}"
+
+      - name: Seslendir
+        run: python seslendir.py "${{ github.event.inputs.klasor }}"
+
+      - name: Videoyu indirilebilir olarak sakla
+        uses: actions/upload-artifact@v4
+        with:
+          name: reklam-${{ github.event.inputs.klasor }}
+          path: cikti/*.mp4
+          retention-days: 30
+
+      - name: Telegram'a gönder
+        env:
+          TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$TOKEN" ] || [ -z "$CHAT" ]; then
+            echo "Telegram anahtarları eklenmemiş, bu adım atlandı. Video Actions sayfasından indirilebilir."
+            exit 0
+          fi
+          for f in cikti/*.mp4; do
+            case "$f" in *_sessiz.mp4) continue;; esac
+            curl -sS -F chat_id="$CHAT" -F video=@"$f" -F supports_streaming=true \
+              -F caption="🎬 Dükkan TV: $(basename "$f") hazır" \
+              "https://api.telegram.org/bot$TOKEN/sendVideo" | head -c 300
+          done

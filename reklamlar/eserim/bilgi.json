@@ -1,0 +1,48 @@
+{
+  "dosya_adi": "Eserim_Kulah_Bitti",
+  "renk": "#e3121b",
+  "ses": "tr-TR-AhmetNeural",
+
+  "sahne1": {
+    "ust": "Sezonun en<br>yoğun günü…",
+    "alt": "Kuyruk kapıya<br>kadar uzamış!",
+    "ikon": "dondurma",
+    "arka1": "#ffd34d",
+    "arka2": "#ff9a1f"
+  },
+  "sahne2": {
+    "kutu": "KÜLAH",
+    "bos": "…kutu bomboş",
+    "baslik": "KÜLAH<br>BİTTİ!",
+    "alt": "Usta: “Şimdi ne yapacağım?!”"
+  },
+  "sahne3": {
+    "ust": "Panik yok.<br>Tek telefon yeter:",
+    "kisi": "Erkan Abi",
+    "firma_kisa": "Eserim<br>Toptan Gıda",
+    "foto": "erkan.jpg",
+    "baslik": "“Erkan Abi,<br><span class=\"vurgu\">yetiş!</span>”"
+  },
+  "sahne4": {
+    "foto": "depo.jpg",
+    "ust": "Külahtan<br>malzemeye…",
+    "alt": "dondurmacının<br>ihtiyacı burada!",
+    "damga": "TOPTAN"
+  },
+  "kart": {
+    "logo": "logo.jpg",
+    "slogan1": "Dondurma malzemelerinde<br><span class=\"vurgu\">toptancınız</span>",
+    "adres": "Millet Mah., Yıldırım / Bursa",
+    "telefon": "0532 643 67 54",
+    "web": "eserimgida.com",
+    "slogan2": "Malzemen bitmesin,<br><span class=\"vurgu\">Eserim yetişir!</span>"
+  },
+
+  "seslendirme": [
+    { "sahne": 1, "saniye": 0.3, "metin": "Sezonun en yoğun günü. Kuyruk kapıya kadar uzamış!" },
+    { "sahne": 2, "saniye": 1.0, "metin": "Külah bitti! Şimdi ne yapacağım?" },
+    { "sahne": 3, "saniye": 0.5, "metin": "Panik yok. Tek telefon yeter. Erkan Abi, yetiş!" },
+    { "sahne": 4, "saniye": 0.4, "metin": "Külahtan malzemeye, dondurmacının ihtiyacı burada. Toptan!" },
+    { "sahne": 5, "saniye": 0.6, "metin": "Eserim Toptan Gıda. Malzemen bitmesin, Eserim yetişir!" }
+  ]
+}
