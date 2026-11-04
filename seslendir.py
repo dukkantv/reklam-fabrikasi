@@ -30,13 +30,13 @@ async def main(klasor):
         baslangic_karesi = sahneler[s["sahne"] - 1][1]
         ms = int((baslangic_karesi / FPS + s.get("saniye", 0)) * 1000)
         girdiler += ["-i", dosya]
-        filtreler.append(f"[{i + 1}:a]adelay={ms}|{ms}[a{i}]")
+        filtreler.append(f"[{i + 1}:a]aresample=44100,aformat=channel_layouts=stereo,adelay=delays={ms}:all=1[a{i}]")
         print(f"Ses {i + 1}: sahne {s['sahne']}, {ms / 1000:.1f}. saniye -> {s['metin']}")
 
     karisim = "".join(f"[a{i}]" for i in range(len(satirlar)))
     filtre = ";".join(filtreler) + f";{karisim}amix=inputs={len(satirlar)}:normalize=0,apad[ses]"
     gecici = os.path.join(cikti, ad + "_yaziliyor.mp4")
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", sessiz, *girdiler, "-filter_complex", filtre,
+    subprocess.run(["ffmpeg", "-v", "warning", "-y", "-i", sessiz, *girdiler, "-filter_complex", filtre,
                     "-map", "0:v", "-map", "[ses]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
                     "-shortest", gecici], check=True)
     os.replace(gecici, os.path.join(cikti, ad + ".mp4"))

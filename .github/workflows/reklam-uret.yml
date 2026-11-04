@@ -39,6 +39,7 @@ jobs:
         run: |
           if ! python seslendir.py "${{ github.event.inputs.klasor }}"; then
             echo "::warning::Seslendirme başarısız oldu, sessiz video gönderilecek"
+            rm -f cikti/*_yaziliyor.mp4
             for f in cikti/*_sessiz.mp4; do cp "$f" "${f%_sessiz.mp4}.mp4"; done
           fi
         shell: bash
@@ -60,7 +61,7 @@ jobs:
             exit 0
           fi
           for f in cikti/*.mp4; do
-            case "$f" in *_sessiz.mp4) continue;; esac
+            case "$f" in *_sessiz.mp4|*_yaziliyor.mp4) continue;; esac
             curl -sS -F chat_id="$CHAT" -F video=@"$f" -F supports_streaming=true \
               -F caption="🎬 Dükkan TV: $(basename "$f") hazır" \
               "https://api.telegram.org/bot$TOKEN/sendVideo" | head -c 300
