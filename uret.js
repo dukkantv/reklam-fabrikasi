@@ -13,7 +13,8 @@ const path = require('path');
   fs.mkdirSync(path.join(kok, 'cikti'), { recursive: true });
   const ad = veri.dosya_adi || klasor;
   const gecici = path.join(kok, 'cikti', ad + '_yaziliyor.mp4');
-  const hedef = path.join(kok, 'cikti', ad + '_sessiz.mp4');
+  // İsteğe bağlı: sadece bir kare aralığını çiz (örn. bölüm sonundaki bilgi kartı için)
+  const hedef = process.env.CIKTI || path.join(kok, 'cikti', ad + '_sessiz.mp4');
 
   const tarayici = await chromium.launch();
   const sayfa = await tarayici.newPage({ viewport: { width: 1080, height: 1920 } });
@@ -21,14 +22,15 @@ const path = require('path');
   await sayfa.evaluate(([d, k]) => yukle(d, k), [veri, '../reklamlar/' + klasor]);
   await sayfa.evaluate(() => Promise.all([...document.images].map(i => i.complete ? 1 : new Promise(r => { i.onload = i.onerror = r; }))));
   await sayfa.evaluate(() => document.fonts.ready);
-  const toplam = await sayfa.evaluate(() => TOTAL);
+  const toplam = process.env.KARE_BIT ? +process.env.KARE_BIT : await sayfa.evaluate(() => TOTAL);
+  const ilk = process.env.KARE_BAS ? +process.env.KARE_BAS : 0;
   // Seslendirme adımı sahne başlangıçlarını bilsin diye kaydediyoruz
   fs.writeFileSync(path.join(kok, 'cikti', 'sahneler.json'), JSON.stringify(await sayfa.evaluate(() => SAHNELER)));
 
   const ff = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'image2pipe', '-framerate', '30', '-c:v', 'mjpeg', '-i', '-',
     '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', gecici],
     { stdio: ['pipe', 'inherit', 'inherit'] });
-  for (let f = 0; f < toplam; f++) {
+  for (let f = ilk; f < toplam; f++) {
     await sayfa.evaluate(x => setFrame(x), f);
     const kare = await sayfa.screenshot({ type: 'jpeg', quality: 92 });
     if (!ff.stdin.write(kare)) await new Promise(r => ff.stdin.once('drain', r));

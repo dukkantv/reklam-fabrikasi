@@ -1,0 +1,17 @@
+{
+  "dosya_adi": "Levent_Bolum1_Kulah_Krizi",
+  "akis": [
+    { "tip": "kart", "yazi": "<span>LEVENT'İN MACERALARI</span>Külah Krizi", "stil": "baslik", "sure": 2 },
+    { "tip": "klip", "no": 1 },
+    { "tip": "klip", "no": 2 },
+    { "tip": "kart", "yazi": "Birkaç dakika sonra…", "sure": 1.5 },
+    { "tip": "klip", "no": 3 },
+    { "tip": "klip", "no": 4 },
+    { "tip": "klip", "no": 5 },
+    { "tip": "kart", "yazi": "Az sonra…", "sure": 1.5 },
+    { "tip": "klip", "no": 6 },
+    { "tip": "klip", "no": 7 },
+    { "tip": "klip", "no": 8 },
+    { "tip": "bilgi_karti" }
+  ]
+}
