@@ -1,7 +1,7 @@
 # Kullanım: python bolum.py eserim
 # Levent'in Maceraları gibi çizgi film bölümlerini birleştirir:
-#  1) Telegram botuna gönderilen klipleri (gönderiliş sırasıyla) indirir
-#     (ya da reklamlar/<klasor>/klipler/ içindeki 01.mp4, 02.mp4 ... dosyalarını kullanır)
+#  1) Önce reklamlar/<klasor>/klipler/ içindeki 01.mp4, 02.mp4 ... dosyalarını, ardından
+#     Telegram botuna gönderilen klipleri (gönderiliş sırasıyla) kullanır
 #  2) bolum.json'daki akışa göre klipleri, yazı kartlarını ve esnafın bilgi kartını dizer
 #  3) Hepsini dikey 1080x1920 tek videoya çevirir: cikti/<dosya_adi>.mp4
 import glob, json, os, subprocess, sys, urllib.request
@@ -79,9 +79,11 @@ def main(klasor):
     bolum = json.load(open(os.path.join(kok, "bolum.json"), encoding="utf-8"))
     renk = json.load(open(os.path.join(kok, "bilgi.json"), encoding="utf-8")).get("renk", "#e3121b")
 
-    klipler, son_update = telegramdan_klipler(os.path.join(CIKTI, "klipler"))
-    if not klipler:
-        klipler = sorted(glob.glob(os.path.join(kok, "klipler", "*.mp4")))
+    # Önce depodaki hazır klipler (reklamlar/<klasor>/klipler/01.mp4 ...), sonra Telegram'dan gelenler
+    depodaki = sorted(glob.glob(os.path.join(kok, "klipler", "*.mp4")))
+    telegramdan, son_update = telegramdan_klipler(os.path.join(CIKTI, "klipler"))
+    klipler = depodaki + telegramdan
+    print(f"Depodan {len(depodaki)}, Telegram'dan {len(telegramdan)} klip")
     if not klipler:
         sys.exit("Hiç klip bulunamadı. Klipleri sırayla Dükkan TV botuna gönder, sonra tekrar çalıştır.")
     print(f"{len(klipler)} klip bulundu")
