@@ -583,7 +583,8 @@ def taslak(klasor, konu, yeniden=""):
                        f"{p.get('duygu', 'neutral')}. Any other character is seen only from behind or out of focus.")
         temel = (f"{stil}. {p['gorsel']}{konusan} Characters: {'; '.join(tarif)}. Every character must look EXACTLY "
                  f"like their reference sheet (same face, hair, outfit, colors, proportions). Each character appears "
-                 f"only once. No subtitles, captions, speech bubbles or watermark.")
+                 f"only once. No subtitles, captions, speech bubbles or watermark. The story takes place in Bursa, Turkey: any signs, "
+                 f"banners or labels in the background must be in TURKISH (never English), or left blank.")
         hedef = os.path.join(oto, f"plan_{no:02d}.jpg")
         istem, en_iyi = temel, (-1, None)
         for d in range(EN_FAZLA_YENIDEN + 1):
