@@ -1,9 +1,11 @@
 {
   "levent": {
-    "voice_id": "DUnzBkwtjRWXPr6wRbmL",
-    "ad": "Mark - Cartoonish, Funny and Cheerful",
-    "sira": 0,
-    "aciklama": "Great for game characters, cartoons, animations, stories for children,  Fits perfectly for all languages. "
+    "voice_id": "7VqWGAWwo2HMrylfKrcm",
+    "ad": "Fatih Yıldırım - Deep, Clear and Rich",
+    "denenen": [
+      "DUnzBkwtjRWXPr6wRbmL"
+    ],
+    "aciklama": "A young Turkish energetic male voice with a clear and dynamic tone , perfect for tutorials, tech reviews and engaging ,c"
   },
   "cemo": {
     "voice_id": "IuRRIAcbQK5AQk1XevPj",
