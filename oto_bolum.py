@@ -231,10 +231,68 @@ def ses_rolleri():
     return roller
 
 
+def ses_adaylari(rol, mevcut):
+    """Rol için puana göre sıralı aday sesler (seçili ve önceden denenmiş olanlar hariç)."""
+    arama = ses_rolleri()[rol]
+    kullanilan = {v["voice_id"] for r, v in mevcut.items()}
+    denenen = set(mevcut.get(rol, {}).get("denenen", [])) | {a["voice_id"] for a in mevcut.get(rol, {}).get("adaylar", [])}
+    params = {"language": "tr", "page_size": 100, "sort": "cloned_by_count", **arama.get("filtre", {})}
+    adaylar = eleven("/v1/shared-voices", params=params).json().get("voices", [])
+    adaylar = [a for a in adaylar if a["voice_id"] not in kullanilan | denenen and a.get("category") != "famous"]
+    adaylar.sort(key=lambda a: (-ses_puani(a, arama), -(a.get("cloned_by_count") or 0)))
+    return adaylar
+
+
+def ses_hesaba_ekle(rol, a):
+    try:
+        eleven(f"/v1/voices/add/{a['public_owner_id']}/{a['voice_id']}", "POST",
+               json={"new_name": f"DTV {rol} {a['name']}"[:40]})
+    except RuntimeError as e:
+        if "already" not in str(e).lower():
+            print("Ses eklenemedi:", e)
+
+
+def ses_aday_dinlet(rol, adet):
+    """Seçili sesi değiştirmeden 'adet' kadar yeni aday sesi Telegram'a örnek olarak gönderir."""
+    mevcut = sesler_oku()
+    adaylar = ses_adaylari(rol, mevcut)[:adet]
+    ornek = ses_roller_ornek(rol)
+    kayit = []
+    for i, a in enumerate(adaylar, 1):
+        ses_hesaba_ekle(rol, a)
+        yol = os.path.join(CIKTI, f"aday_{rol}_{i}.mp3")
+        seslendir(ornek, rol, yol, voice_id=a["voice_id"])
+        tg("sendAudio", dosyalar={"audio": open(yol, "rb")},
+           caption=f"🎙 {rol} — ADAY {i}: {a.get('name')}\n{(a.get('description') or '')[:150]}")
+        kayit.append({"voice_id": a["voice_id"], "ad": a.get("name"), "aciklama": (a.get("description") or "")[:120]})
+    mevcut.setdefault(rol, {})["adaylar"] = kayit
+    json.dump(mevcut, open(SESLER_YOL, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    simdiki = mevcut[rol].get("ad", "-")
+    tg_mesaj(f"🎧 {rol} için {len(kayit)} aday gönderildi. Şu anki ses: {simdiki}.\n"
+             f"Seçmek için: aşama ses, yeniden kutusuna {rol}:1 ya da {rol}:2 yaz.")
+
+
+def ses_aday_sec(rol, no):
+    mevcut = sesler_oku()
+    adaylar = mevcut.get(rol, {}).get("adaylar", [])
+    if not 1 <= no <= len(adaylar):
+        sys.exit(f"{rol} için {no}. aday yok. Önce {rol}:aday2 ile aday dinlet.")
+    eski = mevcut[rol]
+    sec = adaylar[no - 1]
+    mevcut[rol] = {**sec, "denenen": [d for d in eski.get("denenen", []) + [eski.get("voice_id")] if d]}
+    json.dump(mevcut, open(SESLER_YOL, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    tg_mesaj(f"✅ {rol} sesi artık: {sec['ad']}. Bundan sonraki bütün bölümlerde bu ses kullanılacak.")
+
+
 def ses(degistir=""):
     if not ELEVEN_KEY:
         tg_mesaj("ELEVENLABS_API_KEY yok; ücretsiz edge-tts sesleri kullanılacak (dudak senkronu yine çalışır).")
         return
+    os.makedirs(CIKTI, exist_ok=True)
+    m = re.fullmatch(r"\s*(\w+)\s*:\s*(aday)?\s*(\d+)\s*", degistir or "")
+    if m:
+        rol, aday, sayi = m.group(1), m.group(2), int(m.group(3))
+        return ses_aday_dinlet(rol, sayi) if aday else ses_aday_sec(rol, sayi)
     os.makedirs(CIKTI, exist_ok=True)
     mevcut = sesler_oku()
     degisecek = {x.strip() for x in degistir.split(",") if x.strip()}
@@ -304,9 +362,9 @@ def ses_ayari(kim):
     return KARAKTERLER["diger_sesler"].get(kim, KARAKTERLER["diger_sesler"]["erkek"])
 
 
-def seslendir(metin, kim, hedef):
+def seslendir(metin, kim, hedef, voice_id=None):
     """Repliği karakterin sabit sesiyle mp3'e çevirir."""
-    secili = sesler_oku().get(kim) or sesler_oku().get("erkek")
+    secili = {"voice_id": voice_id} if voice_id else (sesler_oku().get(kim) or sesler_oku().get("erkek"))
     if ELEVEN_KEY and secili:
         a = ses_ayari(kim).get("eleven", {})
         r = eleven(f"/v1/text-to-speech/{secili['voice_id']}", "POST", params={"output_format": "mp3_44100_128"},
