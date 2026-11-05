@@ -1,7 +1,8 @@
 name: Otomatik Bölüm
 
-# Levent'in Maceraları — tam otomatik bölüm üretimi (fal.ai + Gemini + edge-tts)
-# Sıra: 1) karakter (bir kez)  2) taslak (senaryo + resimler, ~100 TL)  3) video (~150-400 TL)
+# Levent'in Maceraları — tam otomatik, dudak senkronlu bölüm üretimi
+# (fal.ai: Nano Banana Pro + Kling AI Avatar + Seedance · Gemini senaryo/kontrol · ElevenLabs sesler)
+# Sıra: karakter (bir kez) -> ses (bir kez) -> taslak -> video. 'hepsi' = taslak + video onaysız.
 # "hepsi" seçilirse onay beklemeden taslak + video birlikte yapılır.
 
 on:
@@ -18,6 +19,7 @@ on:
           - hepsi
           - karakter
           - karakter-yenile
+          - ses
       klasor:
         description: "Esnaf klasörü (reklamlar/ içindeki, örn: eserim)"
         required: true
@@ -27,18 +29,17 @@ on:
         required: false
         default: ""
       yeniden:
-        description: "Sadece bu sahneleri yeniden çiz (örn: 3,7) — taslak aşamasında"
+        description: "Taslakta: yeniden çizilecek planlar (örn 3,7) · Seste: değişecek roller (örn cemo)"
         required: false
         default: ""
       kalite:
         description: "Video kalitesi"
         required: true
         type: choice
-        default: "seedance-720p"
+        default: "standart"
         options:
-          - seedance-720p
-          - seedance-1080p
-          - kling
+          - standart
+          - pro
 
 permissions:
   contents: write
@@ -53,6 +54,8 @@ jobs:
     env:
       FAL_KEY: ${{ secrets.FAL_KEY }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      KALITE: ${{ github.event.inputs.kalite }}
       TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
     steps:
@@ -75,19 +78,17 @@ jobs:
           npm install playwright@1.47.2
           npx playwright install --with-deps chromium
 
-      - name: Kalite ayarı
-        run: |
-          case "${{ github.event.inputs.kalite }}" in
-            seedance-1080p) echo "VIDEO_MODEL=seedance" >> $GITHUB_ENV; echo "VIDEO_COZUNURLUK=1080p" >> $GITHUB_ENV;;
-            kling)          echo "VIDEO_MODEL=kling"    >> $GITHUB_ENV; echo "VIDEO_COZUNURLUK=1080p" >> $GITHUB_ENV;;
-            *)              echo "VIDEO_MODEL=seedance" >> $GITHUB_ENV; echo "VIDEO_COZUNURLUK=720p"  >> $GITHUB_ENV;;
-          esac
-
       - name: Karakterler
         if: startsWith(github.event.inputs.asama, 'karakter')
         run: python oto_bolum.py karakter ${{ github.event.inputs.asama == 'karakter-yenile' && 'yenile' || '' }}
 
-      - name: Taslak (senaryo + sahne resimleri)
+      - name: Sesler
+        if: github.event.inputs.asama == 'ses'
+        env:
+          YENIDEN: ${{ github.event.inputs.yeniden }}
+        run: python oto_bolum.py ses "$YENIDEN"
+
+      - name: Taslak (senaryo + plan resimleri + yüz kontrolü)
         if: github.event.inputs.asama == 'taslak' || github.event.inputs.asama == 'hepsi'
         env:
           KONU: ${{ github.event.inputs.konu }}

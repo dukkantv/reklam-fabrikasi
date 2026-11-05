@@ -1,12 +1,13 @@
-# Dükkan TV · Tam otomatik çizgi film bölümü ("Levent'in Maceraları")
+# Dükkan TV · Tam otomatik çizgi film bölümü ("Levent'in Maceraları") — dudak senkronlu sürüm
 #
-# Kullanım (GitHub Actions'taki "Otomatik Bölüm" düğmesi bunları çağırır):
-#   python oto_bolum.py karakter                    -> Levent'in yeni kostümlü hâli + Cemo çizilir
-#   python oto_bolum.py taslak eserim "konu"        -> senaryo (Gemini) + sahne resimleri (fal.ai) -> Telegram
-#   python oto_bolum.py taslak eserim "" "3,7"      -> sadece 3. ve 7. sahne resmini yeniden çizer
-#   python oto_bolum.py video eserim                -> resimleri hareketlendirir, seslendirir, altyazı + KASA ekler -> Telegram
+# Aşamalar (GitHub Actions > "Otomatik Bölüm" düğmesi bunları çağırır):
+#   python oto_bolum.py karakter [yenile]          -> karakter kartları (Nano Banana Pro) — bir kez
+#   python oto_bolum.py ses ["cemo,levent"]        -> ElevenLabs Türkçe ses kütüphanesinden her karaktere sabit ses — bir kez
+#   python oto_bolum.py taslak eserim "konu" ["3,7"] -> senaryo (Gemini) + plan resimleri + yüz tutarlılık kontrolü
+#   python oto_bolum.py video eserim               -> konuşan planlar: ses + dudak senkronu (Kling AI Avatar),
+#                                                     aksiyon planları: Seedance; altyazı + KASA + kartlar
 #
-# Gizli anahtarlar (GitHub > Settings > Secrets): FAL_KEY, GEMINI_API_KEY, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+# Gizli anahtarlar: FAL_KEY, GEMINI_API_KEY, ELEVENLABS_API_KEY, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
 import asyncio, base64, json, math, os, re, subprocess, sys, time
 from concurrent.futures import ThreadPoolExecutor
 
@@ -14,34 +15,40 @@ import requests
 
 KOK = os.path.dirname(os.path.abspath(__file__))
 KARAKTER_KLASOR = os.path.join(KOK, "karakterler")
+SESLER_YOL = os.path.join(KARAKTER_KLASOR, "sesler.json")
 CIKTI = os.path.join(KOK, "cikti")
 FAL_KEY = os.environ.get("FAL_KEY", "")
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "")
+ELEVEN_KEY = os.environ.get("ELEVENLABS_API_KEY", "")
 TOKEN = os.environ.get("TOKEN", "")
 CHAT = os.environ.get("CHAT", "")
 
-# ---- Ayarlar (kalite / fiyat buradan değişir) ----
-RESIM_MODEL = "fal-ai/nano-banana-2/edit"        # referanslı çizim, 1K resim ~0.08 $
-RESIM_MODEL_YAZIDAN = "fal-ai/nano-banana-2"     # referanssız çizim (Cemo ilk kez)
-VIDEO_MODEL = os.environ.get("VIDEO_MODEL", "seedance")   # seedance (ucuz) | kling (daha pahalı)
-VIDEO_COZUNURLUK = os.environ.get("VIDEO_COZUNURLUK", "720p")  # 720p | 1080p
-SANIYE_UCRETI = {("seedance", "720p"): 0.0216, ("seedance", "1080p"): 0.049, ("kling", "720p"): 0.07, ("kling", "1080p"): 0.07}
-RESIM_UCRETI = 0.08
+# ---- Kalite ayarı: standart | pro ----
+KALITE = os.environ.get("KALITE", "standart")
+RESIM_MODEL = "fal-ai/nano-banana-pro/edit"
+RESIM_MODEL_YAZIDAN = "fal-ai/nano-banana-pro"
+AVATAR_MODEL = {"standart": "fal-ai/kling-video/ai-avatar/v2/standard",
+                "pro": "fal-ai/kling-video/ai-avatar/v2/pro"}[KALITE]
+AKSIYON_COZUNURLUK = {"standart": "720p", "pro": "1080p"}[KALITE]
+UCRET = {"resim": 0.15, "avatar": {"standart": 0.0562, "pro": 0.115}[KALITE],
+         "aksiyon": {"720p": 0.0216, "1080p": 0.049}[AKSIYON_COZUNURLUK]}
 DOLAR_TL = float(os.environ.get("DOLAR_TL", "50"))
 AYNI_ANDA = 6
+KONTROL_ESIGI = 7          # yüz tutarlılık puanı (10 üzerinden) bunun altındaysa resim yeniden çizilir
+EN_FAZLA_YENIDEN = 2
 
 KARAKTERLER = json.load(open(os.path.join(KARAKTER_KLASOR, "karakterler.json"), encoding="utf-8"))
-harcama = {"resim": 0, "video_sn": 0.0}
+KAR = KARAKTERLER["karakterler"]
+harcama = {"resim": 0, "avatar_sn": 0.0, "aksiyon_sn": 0.0, "karakter_harf": 0}
 
 
-# ------------------------------------------------------------------ yardımcılar
+# ------------------------------------------------------------------ genel yardımcılar
 def tg(metod, dosyalar=None, **veri):
     if not TOKEN:
         return None
     try:
-        r = requests.post(f"https://api.telegram.org/bot{TOKEN}/{metod}", data={"chat_id": CHAT, **veri},
-                          files=dosyalar, timeout=300)
-        return r.json()
+        return requests.post(f"https://api.telegram.org/bot{TOKEN}/{metod}", data={"chat_id": CHAT, **veri},
+                             files=dosyalar, timeout=300).json()
     except Exception as e:
         print("Telegram hatası:", e)
 
@@ -53,25 +60,39 @@ def tg_mesaj(metin):
 
 
 def tg_albumler(resimler, basliklar=None):
-    """Resimleri 10'arlı albümler hâlinde gönderir."""
     for bas in range(0, len(resimler), 10):
         grup = resimler[bas:bas + 10]
         medya, dosyalar = [], {}
         for j, yol in enumerate(grup):
-            ad = f"r{j}"
-            dosyalar[ad] = open(yol, "rb")
-            m = {"type": "photo", "media": f"attach://{ad}"}
+            dosyalar[f"r{j}"] = open(yol, "rb")
+            m = {"type": "photo", "media": f"attach://r{j}"}
             if basliklar:
                 m["caption"] = basliklar[bas + j][:1000]
             medya.append(m)
         tg("sendMediaGroup", dosyalar=dosyalar, media=json.dumps(medya))
 
 
-def veri_uri(yol, en=1024):
-    """Resmi küçültüp fal.ai'ye gönderilecek base64 data URI'ye çevirir."""
-    gecici = os.path.join(CIKTI, "ref_" + os.path.basename(yol) + ".jpg")
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", yol, "-vf", f"scale='min({en},iw)':-2", "-q:v", "3", gecici], check=True)
-    return "data:image/jpeg;base64," + base64.b64encode(open(gecici, "rb").read()).decode()
+def calistir(*komut):
+    subprocess.run(["ffmpeg", "-v", "error", "-y", *komut], check=True)
+
+
+def sure(dosya):
+    return float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                                          "-of", "csv=p=0", dosya]).strip())
+
+
+def kucult(yol, en=1024):
+    gecici = os.path.join(CIKTI, "ref_" + re.sub(r"\W", "_", yol[-60:]) + ".jpg")
+    calistir("-i", yol, "-vf", f"scale='min({en},iw)':-2", "-q:v", "3", gecici)
+    return gecici
+
+
+def veri_uri(yol, tur="image/jpeg"):
+    return f"data:{tur};base64," + base64.b64encode(open(yol, "rb").read()).decode()
+
+
+def resim_uri(yol, en=1024):
+    return veri_uri(kucult(yol, en))
 
 
 def fal(model, girdi, deneme=2):
@@ -81,25 +102,27 @@ def fal(model, girdi, deneme=2):
     bas = {"Authorization": f"Key {FAL_KEY}", "Content-Type": "application/json"}
     for d in range(deneme + 1):
         try:
-            is_ = requests.post(f"https://queue.fal.run/{model}", headers=bas, json=girdi, timeout=120)
-            is_.raise_for_status()
-            is_ = is_.json()
-            bitis = time.time() + 900
+            r = requests.post(f"https://queue.fal.run/{model}", headers=bas, json=girdi, timeout=180)
+            if r.status_code >= 400:
+                raise RuntimeError(f"{r.status_code} {r.text[:300]}")
+            is_ = r.json()
+            bitis = time.time() + 1200
             while time.time() < bitis:
                 durum = requests.get(is_["status_url"], headers=bas, timeout=60).json()
                 if durum.get("status") == "COMPLETED":
-                    sonuc = requests.get(is_["response_url"], headers=bas, timeout=120)
-                    sonuc.raise_for_status()
+                    sonuc = requests.get(is_["response_url"], headers=bas, timeout=180)
+                    if sonuc.status_code >= 400:
+                        raise RuntimeError(f"{sonuc.status_code} {sonuc.text[:300]}")
                     return sonuc.json()
                 if durum.get("status") in ("FAILED", "ERROR"):
                     raise RuntimeError(str(durum)[:300])
                 time.sleep(4)
-            raise TimeoutError("fal.ai 15 dakikada bitirmedi")
+            raise TimeoutError("fal.ai 20 dakikada bitirmedi")
         except Exception as e:
             print(f"fal.ai hatası ({model}, deneme {d + 1}): {str(e)[:300]}")
             if d == deneme:
                 raise
-            time.sleep(8)
+            time.sleep(10)
 
 
 def indir(url, hedef):
@@ -111,241 +134,395 @@ def indir(url, hedef):
     return hedef
 
 
-def resim_ciz(prompt, referanslar, hedef, oran="9:16"):
-    if referanslar:
-        sonuc = fal(RESIM_MODEL, {"prompt": prompt, "image_urls": [veri_uri(r) for r in referanslar],
-                                  "aspect_ratio": oran, "resolution": "1K", "output_format": "jpeg", "num_images": 1})
-    else:
-        sonuc = fal(RESIM_MODEL_YAZIDAN, {"prompt": prompt, "aspect_ratio": oran, "resolution": "1K",
-                                          "output_format": "jpeg", "num_images": 1})
-    harcama["resim"] += 1
-    return indir(sonuc["images"][0]["url"], hedef)
-
-
-def maliyet_ozeti():
-    rs = harcama["resim"] * RESIM_UCRETI
-    vs = harcama["video_sn"] * SANIYE_UCRETI[(VIDEO_MODEL, VIDEO_COZUNURLUK)]
-    top = rs + vs
-    return (f"💰 Bu çalışmanın tahmini maliyeti: {top:.2f} $ ≈ {top * DOLAR_TL:.0f} TL\n"
-            f"   • {harcama['resim']} resim: {rs:.2f} $\n   • {harcama['video_sn']:.0f} sn video: {vs:.2f} $")
-
-
-def sure(dosya):
-    return float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration",
-                                          "-of", "csv=p=0", dosya]).strip())
-
-
-# ------------------------------------------------------------------ 1) karakterler
-def karakter(yenile=False):
-    os.makedirs(CIKTI, exist_ok=True)
-    stil = KARAKTERLER["stil"].replace(", vertical 9:16 frame", "")
-    cizilen = []
-    for kid, k in KARAKTERLER["karakterler"].items():
-        hedef = os.path.join(KARAKTER_KLASOR, kid + ".jpg")
-        if os.path.exists(hedef) and not yenile:
-            print(f"{k['ad']} zaten hazır: {hedef}")
-            continue
-        refs = [os.path.join(KARAKTER_KLASOR, r) for r in k["kaynak"]]
-        prompt = (f"{stil}. Character reference sheet on a plain light grey background: the same character shown "
-                  f"full body front view on the left and a close-up of the face on the right. {k['kostum']} "
-                  f"No text, no logos except the 'DTV' cube if mentioned.")
-        resim_ciz(prompt, refs, hedef, oran="16:9")
-        cizilen.append(hedef)
-        print(f"{k['ad']} çizildi")
-    if cizilen:
-        tg_albumler(cizilen, [f"Karakter: {os.path.basename(c)}" for c in cizilen])
-        tg_mesaj("🎨 Karakterler hazır. Beğenmezsen 'Otomatik Bölüm' > aşama: karakter-yenile ile tekrar çizdir.\n" + maliyet_ozeti())
-
-
-# ------------------------------------------------------------------ 2) senaryo + sahne resimleri
-def gemini(prompt):
+def gemini(parcalar, json_mu=True, sicaklik=1.0):
     if not GEMINI_KEY:
         sys.exit("GEMINI_API_KEY gizli anahtarı yok.")
+    if isinstance(parcalar, str):
+        parcalar = [{"text": parcalar}]
+    ayar = {"temperature": sicaklik}
+    if json_mu:
+        ayar["responseMimeType"] = "application/json"
     for model in ["gemini-2.5-flash", "gemini-2.5-flash-lite", "gemini-2.0-flash"]:
         for d in range(3):
             try:
                 r = requests.post(
                     f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_KEY}",
-                    json={"contents": [{"parts": [{"text": prompt}]}],
-                          "generationConfig": {"responseMimeType": "application/json", "temperature": 1.0}},
-                    timeout=180)
+                    json={"contents": [{"parts": parcalar}], "generationConfig": ayar}, timeout=180)
                 if r.status_code in (429, 500, 503):
                     raise RuntimeError(f"{r.status_code} {r.text[:200]}")
                 r.raise_for_status()
                 metin = r.json()["candidates"][0]["content"]["parts"][0]["text"]
                 metin = re.sub(r"^```(json)?|```$", "", metin.strip()).strip()
-                return json.loads(metin)
+                return json.loads(metin) if json_mu else metin
             except Exception as e:
                 print(f"Gemini ({model}) deneme {d + 1}: {str(e)[:200]}")
                 time.sleep(5 * (d + 1))
-    sys.exit("Gemini senaryo yazamadı.")
+    raise RuntimeError("Gemini cevap vermedi")
 
 
+def maliyet_ozeti():
+    r = harcama["resim"] * UCRET["resim"]
+    a = harcama["avatar_sn"] * UCRET["avatar"]
+    k = harcama["aksiyon_sn"] * UCRET["aksiyon"]
+    t = r + a + k
+    return (f"💰 Bu çalışma: {t:.2f} $ ≈ {t * DOLAR_TL:.0f} TL (kalite: {KALITE})\n"
+            f"   • {harcama['resim']} resim: {r:.2f} $\n"
+            f"   • {harcama['avatar_sn']:.0f} sn konuşan plan (dudak senkronu): {a:.2f} $\n"
+            f"   • {harcama['aksiyon_sn']:.0f} sn aksiyon planı: {k:.2f} $\n"
+            f"   • ElevenLabs: {harcama['karakter_harf']} karakter (aylık paketten düşer)")
+
+
+def etiketsiz(metin):
+    """[laughs] gibi ses etiketlerini altyazıdan siler."""
+    return re.sub(r"\s*\[[^\]]+\]\s*", " ", metin).strip()
+
+
+# ------------------------------------------------------------------ 1) karakter kartları
+def karakter_karti(kid):
+    return os.path.join(KARAKTER_KLASOR, kid + ".jpg")
+
+
+def karakter(yenile=False):
+    os.makedirs(CIKTI, exist_ok=True)
+    stil = KARAKTERLER["stil"].replace(", vertical 9:16 frame", "")
+    cizilen = []
+    for kid, k in KAR.items():
+        hedef = karakter_karti(kid)
+        if os.path.exists(hedef) and not yenile:
+            continue
+        refs = [os.path.join(KARAKTER_KLASOR, r) for r in k["kaynak"]]
+        prompt = (f"{stil}. Professional animation CHARACTER MODEL SHEET on a plain light grey background. Top row: "
+                  f"full body front view, 3/4 view, side view, back view. Bottom row: five head close-ups with "
+                  f"expressions: neutral, big smile talking, surprised, worried, laughing. Same character in every "
+                  f"drawing, identical face, hair and outfit. {k['kostum']} No text labels.")
+        if refs:
+            sonuc = fal(RESIM_MODEL, {"prompt": prompt, "image_urls": [resim_uri(r) for r in refs],
+                                      "aspect_ratio": "16:9", "resolution": "2K", "output_format": "jpeg"})
+        else:
+            sonuc = fal(RESIM_MODEL_YAZIDAN, {"prompt": prompt, "aspect_ratio": "16:9", "resolution": "2K",
+                                              "output_format": "jpeg"})
+        harcama["resim"] += 1
+        indir(sonuc["images"][0]["url"], hedef)
+        cizilen.append(hedef)
+        print(f"{k['ad']} karakter kartı çizildi")
+    if cizilen:
+        tg_albumler(cizilen, [f"Karakter kartı: {os.path.basename(c)}" for c in cizilen])
+        tg_mesaj("🎨 Karakter kartları hazır. Bundan sonra her sahne bu kartlara bakılarak çizilecek.\n"
+                 "Beğenmezsen aşama: karakter-yenile.\n" + maliyet_ozeti())
+    else:
+        print("Karakter kartları zaten hazır.")
+
+
+# ------------------------------------------------------------------ 2) sesler (ElevenLabs)
+def eleven(yol, metod="GET", **kw):
+    r = requests.request(metod, "https://api.elevenlabs.io" + yol, headers={"xi-api-key": ELEVEN_KEY}, timeout=180, **kw)
+    if r.status_code >= 400:
+        raise RuntimeError(f"ElevenLabs {r.status_code}: {r.text[:300]}")
+    return r
+
+
+def sesler_oku():
+    return json.load(open(SESLER_YOL, encoding="utf-8")) if os.path.exists(SESLER_YOL) else {}
+
+
+def ses_rolleri():
+    roller = {kid: k["ses_arama"] for kid, k in KAR.items()}
+    roller.update({rol: a["ses_arama"] for rol, a in KARAKTERLER["diger_sesler"].items()})
+    return roller
+
+
+def ses(degistir=""):
+    if not ELEVEN_KEY:
+        tg_mesaj("ELEVENLABS_API_KEY yok; ücretsiz edge-tts sesleri kullanılacak (dudak senkronu yine çalışır).")
+        return
+    os.makedirs(CIKTI, exist_ok=True)
+    mevcut = sesler_oku()
+    degisecek = {x.strip() for x in degistir.split(",") if x.strip()}
+    kullanilan = {v["voice_id"] for r, v in mevcut.items() if r not in degisecek}
+    yeni = []
+    for rol, arama in ses_rolleri().items():
+        if rol in mevcut and rol not in degisecek:
+            continue
+        sira = mevcut.get(rol, {}).get("sira", -1) + 1 if rol in degisecek else 0
+        params = {"language": "tr", "page_size": 100, "sort": "cloned_by_count", **arama.get("filtre", {})}
+        adaylar = eleven("/v1/shared-voices", params=params).json().get("voices", [])
+        if not adaylar:  # filtre çok darsa sadece dil + cinsiyetle ara
+            params = {"language": "tr", "page_size": 100, "gender": arama.get("filtre", {}).get("gender", "male")}
+            adaylar = eleven("/v1/shared-voices", params=params).json().get("voices", [])
+        adaylar = [a for a in adaylar if a["voice_id"] not in kullanilan and a.get("category") != "famous"]
+        if not adaylar:
+            print(f"{rol} için ses bulunamadı")
+            continue
+        sec = adaylar[sira % len(adaylar)]
+        try:
+            eleven(f"/v1/voices/add/{sec['public_owner_id']}/{sec['voice_id']}", "POST",
+                   json={"new_name": f"DTV {rol} {sec['name']}"[:40]})
+        except RuntimeError as e:
+            if "already" not in str(e).lower():
+                print("Ses eklenemedi:", e)
+        mevcut[rol] = {"voice_id": sec["voice_id"], "ad": sec.get("name"), "sira": sira,
+                       "aciklama": sec.get("description", "")[:120]}
+        kullanilan.add(sec["voice_id"])
+        yeni.append(rol)
+    json.dump(mevcut, open(SESLER_YOL, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    for rol in yeni:
+        ornek = ses_roller_ornek(rol)
+        yol = os.path.join(CIKTI, f"ornek_{rol}.mp3")
+        seslendir(ornek, rol, yol)
+        tg("sendAudio", dosyalar={"audio": open(yol, "rb")},
+           caption=f"🎙 {rol}: {mevcut[rol]['ad']} — \"{etiketsiz(ornek)}\"")
+    if yeni:
+        tg_mesaj("🎙 Sesler seçildi. Bir sesi beğenmezsen aşama: ses, 'yeniden' kutusuna rolü yaz (ör. cemo). "
+                 "Seçilen sesler kaydedildi, her bölümde aynı ses kullanılacak.")
+
+
+def ses_roller_ornek(rol):
+    if rol in KAR:
+        return KAR[rol].get("ornek_cumle", "Merhaba, ben " + KAR[rol]["ad"] + "!")
+    return KARAKTERLER["diger_sesler"][rol].get("ornek_cumle", "Hoş geldiniz, buyurun!")
+
+
+def ses_ayari(kim):
+    if kim in KAR:
+        return KAR[kim]
+    return KARAKTERLER["diger_sesler"].get(kim, KARAKTERLER["diger_sesler"]["erkek"])
+
+
+def seslendir(metin, kim, hedef):
+    """Repliği karakterin sabit sesiyle mp3'e çevirir."""
+    secili = sesler_oku().get(kim) or sesler_oku().get("erkek")
+    if ELEVEN_KEY and secili:
+        a = ses_ayari(kim).get("eleven", {})
+        r = eleven(f"/v1/text-to-speech/{secili['voice_id']}", "POST", params={"output_format": "mp3_44100_128"},
+                   json={"text": metin, "model_id": "eleven_v3", "language_code": "tr",
+                         "voice_settings": {"stability": a.get("stability", 0.5),
+                                            "similarity_boost": a.get("similarity_boost", 0.8),
+                                            "speed": a.get("speed", 1.0)}})
+        open(hedef, "wb").write(r.content)
+        harcama["karakter_harf"] += len(metin)
+        return hedef
+    import edge_tts
+    a = ses_ayari(kim)
+    asyncio.run(edge_tts.Communicate(etiketsiz(metin), a["ses"], rate=a.get("hiz", "+0%"),
+                                     pitch=a.get("perde", "+0Hz")).save(hedef))
+    return hedef
+
+
+# ------------------------------------------------------------------ 3) senaryo + plan resimleri
 def esnaf_bilgisi(klasor):
     kok = os.path.join(KOK, "reklamlar", klasor)
     b = json.load(open(os.path.join(kok, "bilgi.json"), encoding="utf-8"))
-    oto = b.get("oto", {})
-    kart = b.get("kart", {})
-    temiz = lambda s: re.sub(r"<[^>]+>", " ", s or "").replace("  ", " ").strip()
+    oto, kart = b.get("oto", {}), b.get("kart", {})
+    temiz = lambda s: re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", s or "")).strip()
     return kok, b, {
-        "firma": oto.get("firma", temiz(kart.get("slogan1", klasor))),
-        "sektor": oto.get("sektor", ""),
-        "esnaf_adi": oto.get("esnaf_adi", ""),
-        "esnaf_cinsiyet": oto.get("esnaf_cinsiyet", "erkek"),
-        "esnaf_tarif": oto.get("esnaf_tarif", ""),
-        "esnaf_foto": oto.get("esnaf_foto"),
-        "dukkan_fotolari": oto.get("dukkan_fotolari", []),
-        "logo": oto.get("logo", kart.get("logo")),
-        "urunler": oto.get("urunler", ""),
-        "adres": kart.get("adres", ""),
-        "telefon": kart.get("telefon", ""),
-        "slogan": temiz(kart.get("slogan2", "")),
-        "notlar": oto.get("notlar", ""),
+        "firma": oto.get("firma", klasor), "sektor": oto.get("sektor", ""),
+        "esnaf_adi": oto.get("esnaf_adi", "Esnaf"), "esnaf_cinsiyet": oto.get("esnaf_cinsiyet", "erkek"),
+        "esnaf_tarif": oto.get("esnaf_tarif", ""), "esnaf_foto": oto.get("esnaf_foto"),
+        "dukkan_fotolari": oto.get("dukkan_fotolari", []), "logo": oto.get("logo", kart.get("logo")),
+        "urunler": oto.get("urunler", ""), "adres": temiz(kart.get("adres", "")),
+        "telefon": kart.get("telefon", ""), "slogan": temiz(kart.get("slogan2", "")), "notlar": oto.get("notlar", ""),
     }
 
 
-SENARYO_ISTEMI = """Sen Türkiye'de çok izlenen, Pixar tarzı 3D yapay zekâ çizgi film skeçleri yazan komik bir senaristsin.
-Dizinin adı "Levent'in Maceraları". Dikey (9:16) TikTok/Instagram bölümü yazacaksın, toplam ~90-100 saniye.
+SENARYO_ISTEMI = """Sen Türkiye'de çok izlenen, Pixar tarzı 3D çizgi film skeçleri yazan komik bir senaristsin.
+Dizi: "Levent'in Maceraları". Dikey (9:16) TikTok/Instagram bölümü, toplam 90-105 saniye.
+Film dili: plan / karşı plan. Her KONUŞMA planında kamerada SADECE konuşan karakterin yüzü net görünür
+(diğerleri arkadan, omuz üstünden ya da kadraj dışında). Böylece dudak senkronu kusursuz olur.
 
-KARAKTERLER
-- levent: {levent_rol} Görünüş: {levent_tarif}
-- cemo: {cemo_rol} Görünüş: {cemo_tarif}
-- esnaf: {esnaf_adi} — {firma} işletmesinin sahibi ({esnaf_cinsiyet}). {esnaf_tarif}
-- erkek / kadin: gerekirse kısa görünen yan karakterler (müşteri, komşu vb.)
+KARAKTERLER (konuşma tarzlarına sadık kal)
+- levent: {levent_rol} Konuşma tarzı: {levent_tarz}
+- cemo: {cemo_rol} Konuşma tarzı: {cemo_tarz}
+- esnaf: {esnaf_adi} — {firma} sahibi ({esnaf_cinsiyet}). {esnaf_tarif} Konuşma tarzı: sıcak, esnaf ağzı, misafirperver.
+- erkek / kadin: gerekirse kısa görünen yan karakterler.
 
-SPONSOR ESNAF (hikâyenin doğal bir parçası olmalı, reklam kokmamalı ama ürün ve dükkân net görünmeli)
-- İşletme: {firma}  Sektör: {sektor}
-- Ürün/hizmetler: {urunler}
-- Adres: {adres}  Telefon: {telefon}  Slogan: {slogan}
-- Notlar: {notlar}
+SPONSOR ESNAF (hikâyenin doğal parçası; reklam kokmasın ama ürün ve dükkân net görünsün)
+İşletme: {firma} | Sektör: {sektor} | Ürünler: {urunler} | Adres: {adres} | Telefon: {telefon}
+Slogan: {slogan} | Notlar: {notlar}
 
 BÖLÜM KONUSU: {konu}
 
 KURALLAR
-- 16 ile 20 arası sahne. Her sahne 4-8 saniye. Bir sahnede EN FAZLA 2 replik, sahne başına toplam en fazla 16 kelime.
-- 1. sahne merak uyandıran güçlü bir kanca olsun (ilk 2 saniyede izleyiciyi yakala).
-- 3 perde: dert/macera başlar -> yolları esnafa düşer (en az 5 sahne dükkânda, ürünler gösterilir, esnaf da konuşur) -> komik çözüm + başa dönen bir espriyle kapanış.
-- Ekranda bir "KASA" (Levent ile Cemo'nun bütçesi, TL) olsun: ilk sahnede başlangıç değeri, para harcanan/kazanılan sahnelerde yeni değer. Değişmeyen sahnelerde kasa: null.
-- Günlük, samimi İstanbul/Bursa Türkçesi; abartısız, herkesin güleceği temiz mizah. Siyaset, din alayı, +18, kumar, şiddet, sağlık iddiası, rakip kötüleme YOK. Fiyat/indirim uydurma YOK.
-- Son sahnede Levent esnafın sloganını ya da adını doğal bir şekilde söylesin.
-- "gorsel": İngilizce, tek bir kareyi tarif et: mekân, kamera açısı, karakterlerin ne yaptığı ve yüz ifadesi. Karakterleri sadece "Levent", "Cemo", "the shop owner" diye an; kıyafetlerini tarif etme (referans resimler eklenecek). Resimde yazı/altyazı olmasın; sadece dükkân tabelasında işletme adı yazabilir.
-- "hareket": İngilizce, o 5 saniyelik klipte ne hareket edeceğini kısa yaz (ör. "Levent turns to camera and talks excitedly, Cemo yawns, slow push-in").
-- "dukkan": sahne esnafın dükkânında/işinde geçiyorsa true.
+- 22-28 plan. Plan türleri:
+  * "konusma": tek karakter, tek replik (en fazla 18 kelime, ~2-6 sn). Replikte duyguyu ElevenLabs ses etiketleriyle
+    verebilirsin: [laughs], [sighs], [excited], [whispers], [surprised] (en fazla bir etiket, cümle başında).
+  * "aksiyon": konuşmasız 3-4 saniyelik geçiş/aksiyon (yürüme, dükkânın dışı, ürün yakın çekimi, komik tepki).
+- Planların en az %70'i konuşma olsun. İlk plan güçlü bir kanca (merak/komedi).
+- 3 perde: dert/macera -> yol esnafa düşer (en az 7 plan dükkânda; ürünler ve esnaf konuşur) -> komik çözüm + başa dönen espri.
+- KASA: Levent ile Cemo'nun bütçesi (TL). İlk planda başlangıç değeri; para harcanınca/kazanılınca yeni değer; diğerlerinde null.
+- Temiz, herkesin güleceği mizah. Siyaset, din alayı, +18, kumar, şiddet, sağlık iddiası, rakip kötüleme, uydurma fiyat YOK.
+- Son konuşmada Levent esnafın adını/sloganını doğal biçimde söylesin.
+- "gorsel": İngilizce tek kare tarifi: mekân, kamera açısı (konuşmada "medium close-up of <speaker> facing the camera,
+  mouth clearly visible"), ifade, arka plan. Karakterleri sadece "Levent", "Cemo", "the shop owner" diye an; kıyafet tarif etme.
+- "hareket": sadece aksiyon planlarında, İngilizce kısa hareket tarifi.
+- "karakterler": karede görünen herkes (konuşan ilk sırada).
 
-SADECE şu JSON'u döndür:
+SADECE şu JSON:
 {{"baslik": "kısa bölüm adı",
-  "sahneler": [
-    {{"karakterler": ["levent","cemo"], "dukkan": false,
-      "gorsel": "...", "hareket": "...",
-      "replikler": [{{"kim": "levent", "metin": "..."}}, {{"kim": "cemo", "metin": "..."}}],
-      "kasa": 3000}}
+  "planlar": [
+    {{"tip": "konusma", "kim": "levent", "metin": "[excited] ...", "duygu": "excited",
+      "karakterler": ["levent", "cemo"], "dukkan": false, "gorsel": "...", "kasa": 3000}},
+    {{"tip": "aksiyon", "karakterler": ["levent", "cemo"], "dukkan": true, "gorsel": "...", "hareket": "...",
+      "sure": 3, "kasa": null}}
   ]}}"""
+
+
+def tutarlilik_kontrolu(resim, kimler):
+    """Gemini'ye karakter kartlarıyla üretilen kareyi karşılaştırtır. Döndürür: (puan, sorun)."""
+    if not kimler:
+        return 10, ""
+    parcalar = [{"text": "Reference character sheets:"}]
+    for kid in kimler:
+        parcalar += [{"text": f"{KAR[kid]['ad']}:"},
+                     {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(
+                         open(kucult(karakter_karti(kid), 768), "rb").read()).decode()}}]
+    parcalar += [{"text": "Generated frame:"},
+                 {"inline_data": {"mime_type": "image/jpeg",
+                                  "data": base64.b64encode(open(kucult(resim, 768), "rb").read()).decode()}},
+                 {"text": "Compare each named character in the generated frame with their reference sheet: face shape, "
+                          "eyes, nose, hair, mustache/glasses, outfit and colors, body proportions. Also fail if a "
+                          "character appears twice, if a face is deformed, or if there is any written text/caption "
+                          "except a shop sign. Return JSON {\"puan\": 1-10, \"sorun\": \"short English description\"}."}]
+    try:
+        c = gemini(parcalar, sicaklik=0.1)
+        return int(c.get("puan", 10)), c.get("sorun", "")
+    except Exception as e:
+        print("Kontrol yapılamadı:", e)
+        return 10, ""
 
 
 def taslak(klasor, konu, yeniden=""):
     os.makedirs(CIKTI, exist_ok=True)
+    if any(not os.path.exists(karakter_karti(k)) for k in KAR):
+        karakter()
+    if ELEVEN_KEY and not all(r in sesler_oku() for r in ses_rolleri()):
+        ses()
     kok, bilgi, e = esnaf_bilgisi(klasor)
     oto = os.path.join(kok, "oto")
     os.makedirs(oto, exist_ok=True)
     senaryo_yol = os.path.join(oto, "senaryo.json")
-    kar = KARAKTERLER["karakterler"]
-    for kid in kar:
-        if not os.path.exists(os.path.join(KARAKTER_KLASOR, kid + ".jpg")):
-            karakter()
-            break
 
     if yeniden.strip() and os.path.exists(senaryo_yol):
         senaryo = json.load(open(senaryo_yol, encoding="utf-8"))
         cizilecek = [int(x) for x in re.findall(r"\d+", yeniden)]
     else:
-        istem = SENARYO_ISTEMI.format(
-            levent_rol=kar["levent"]["rol"], levent_tarif=kar["levent"]["tarif"],
-            cemo_rol=kar["cemo"]["rol"], cemo_tarif=kar["cemo"]["tarif"],
-            konu=konu or "Levent ile Cemo'nun başı derde girer, çözüm bu esnafta çıkar.", **e)
-        senaryo = gemini(istem)
+        senaryo = gemini(SENARYO_ISTEMI.format(
+            levent_rol=KAR["levent"]["rol"], levent_tarz=KAR["levent"]["konusma_tarzi"],
+            cemo_rol=KAR["cemo"]["rol"], cemo_tarz=KAR["cemo"]["konusma_tarzi"],
+            konu=konu or "Levent ile Cemo'nun başı derde girer, çözüm bu esnafta çıkar.", **e))
         json.dump(senaryo, open(senaryo_yol, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
         for eski in os.listdir(oto):
-            if eski.startswith("sahne_"):
+            if eski.startswith("plan_"):
                 os.remove(os.path.join(oto, eski))
-        cizilecek = list(range(1, len(senaryo["sahneler"]) + 1))
+        cizilecek = list(range(1, len(senaryo["planlar"]) + 1))
 
     stil = KARAKTERLER["stil"]
+    uyarilar = []
 
     def ciz(no):
-        s = senaryo["sahneler"][no - 1]
-        refs, kim = [], []
-        for kid in s.get("karakterler", []):
-            if kid in kar:
-                refs.append(os.path.join(KARAKTER_KLASOR, kid + ".jpg"))
-                kim.append(f"{kar[kid]['ad']} is {kar[kid]['tarif']} (see reference image {len(refs)})")
-        if "esnaf" in s.get("karakterler", []) and e["esnaf_foto"]:
-            refs.append(os.path.join(kok, e["esnaf_foto"]))
-            kim.append(f"the shop owner looks like the person in reference image {len(refs)}, drawn as a Pixar-style 3D cartoon")
-        elif "esnaf" in s.get("karakterler", []) and e["esnaf_tarif"]:
-            kim.append(f"the shop owner is {e['esnaf_tarif']}")
-        if s.get("dukkan"):
+        p = senaryo["planlar"][no - 1]
+        gorunen = [k for k in p.get("karakterler", []) if k in KAR]
+        refs, tarif = [], []
+        for kid in gorunen:
+            refs.append(karakter_karti(kid))
+            tarif.append(f"{KAR[kid]['ad']} = the character on reference sheet {len(refs)} ({KAR[kid]['tarif']})")
+        if "esnaf" in p.get("karakterler", []):
+            if e["esnaf_foto"]:
+                refs.append(os.path.join(kok, e["esnaf_foto"]))
+                tarif.append(f"the shop owner = the person in reference image {len(refs)}, as a Pixar-style 3D cartoon")
+            elif e["esnaf_tarif"]:
+                tarif.append(f"the shop owner is {e['esnaf_tarif']}")
+        if p.get("dukkan"):
             for f in e["dukkan_fotolari"][:2] + ([e["logo"]] if e["logo"] else []):
                 refs.append(os.path.join(kok, f))
-            kim.append(f"the shop is '{e['firma']}'; use the shop/product photos and logo references for the real look of the "
-                       f"place and its sign, redrawn in the same 3D animated style")
-        prompt = (f"{stil}. {s['gorsel']} Characters: {'; '.join(kim)}. Keep every character exactly consistent with "
-                  f"their reference (face, hair, outfit). No subtitles, no captions, no watermark.")
-        hedef = os.path.join(oto, f"sahne_{no:02d}.jpg")
-        resim_ciz(prompt, refs[:10], hedef)
-        print(f"Sahne {no} çizildi")
+            tarif.append(f"the place is the shop '{e['firma']}': match the real shop/products/logo from the photo "
+                         f"references, redrawn in the same 3D animated style")
+        konusan = ""
+        if p["tip"] == "konusma":
+            konusan = (f" The speaker {KAR.get(p['kim'], {}).get('ad', 'the shop owner')} faces the camera in medium "
+                       f"close-up with the mouth clearly visible and closed in a neutral position, expression: "
+                       f"{p.get('duygu', 'neutral')}. Any other character is seen only from behind or out of focus.")
+        temel = (f"{stil}. {p['gorsel']}{konusan} Characters: {'; '.join(tarif)}. Every character must look EXACTLY "
+                 f"like their reference sheet (same face, hair, outfit, colors, proportions). Each character appears "
+                 f"only once. No subtitles, captions, speech bubbles or watermark.")
+        hedef = os.path.join(oto, f"plan_{no:02d}.jpg")
+        istem, en_iyi = temel, (-1, None)
+        for d in range(EN_FAZLA_YENIDEN + 1):
+            sonuc = fal(RESIM_MODEL, {"prompt": istem, "image_urls": [resim_uri(r) for r in refs[:12]],
+                                      "aspect_ratio": "9:16", "resolution": "1K", "output_format": "jpeg"})
+            harcama["resim"] += 1
+            aday = os.path.join(CIKTI, f"aday_{no:02d}_{d}.jpg")
+            indir(sonuc["images"][0]["url"], aday)
+            puan, sorun = tutarlilik_kontrolu(aday, gorunen)
+            print(f"Plan {no} deneme {d + 1}: tutarlılık {puan}/10 {sorun}")
+            if puan > en_iyi[0]:
+                en_iyi = (puan, aday)
+            if puan >= KONTROL_ESIGI:
+                break
+            istem = temel + f" Fix this problem from the previous attempt: {sorun}"
+        os.replace(en_iyi[1], hedef)
+        if en_iyi[0] < KONTROL_ESIGI:
+            uyarilar.append(f"{no}. plan ({en_iyi[0]}/10)")
         return hedef
 
     with ThreadPoolExecutor(AYNI_ANDA) as h:
         list(h.map(ciz, cizilecek))
 
-    # Telegram'a hikâye taslağı
-    satirlar = [f"📝 {senaryo.get('baslik', '')} — {len(senaryo['sahneler'])} sahne"]
     basliklar = []
-    for i, s in enumerate(senaryo["sahneler"], 1):
-        rep = " / ".join(f"{r['kim'].capitalize()}: {r['metin']}" for r in s.get("replikler", []))
-        kasa = f" [KASA {s['kasa']:,} TL]".replace(",", ".") if s.get("kasa") is not None else ""
-        satirlar.append(f"{i}. {rep}{kasa}")
-        basliklar.append(f"{i}. {rep}{kasa}")
-    tg_mesaj("\n".join(satirlar))
-    tg_albumler([os.path.join(oto, f"sahne_{n:02d}.jpg") for n in cizilecek], [basliklar[n - 1] for n in cizilecek])
-    sn = sum(tahmini_sure(s) for s in senaryo["sahneler"])
-    tahmin = sn * SANIYE_UCRETI[(VIDEO_MODEL, VIDEO_COZUNURLUK)]
-    tg_mesaj(maliyet_ozeti() + f"\n\n▶️ Beğendiysen 'Otomatik Bölüm' > aşama: video. Videolaştırma ≈ {tahmin:.2f} $ "
-             f"(≈ {tahmin * DOLAR_TL:.0f} TL) tutar.\n🔁 Bazı sahneler kötü ise aşama: taslak, 'yeniden çiz' kutusuna "
-             f"sahne numaralarını yaz (ör. 3,7).")
+    for i, p in enumerate(senaryo["planlar"], 1):
+        kasa = f" [KASA {p['kasa']:,} TL]".replace(",", ".") if p.get("kasa") is not None else ""
+        if p["tip"] == "konusma":
+            basliklar.append(f"{i}. {p['kim'].capitalize()}: {etiketsiz(p['metin'])}{kasa}")
+        else:
+            basliklar.append(f"{i}. (aksiyon) {p.get('hareket', '')}{kasa}")
+    tg_mesaj(f"📝 {senaryo.get('baslik', '')} — {len(senaryo['planlar'])} plan\n" + "\n".join(basliklar))
+    tg_albumler([os.path.join(oto, f"plan_{n:02d}.jpg") for n in cizilecek], [basliklar[n - 1] for n in cizilecek])
+    tahmin = tahmini_video_maliyeti(senaryo)
+    tg_mesaj(maliyet_ozeti()
+             + (f"\n⚠️ Yüzü tam tutmayan planlar: {', '.join(uyarilar)} — 'yeniden' kutusuyla tekrar çizdirebilirsin."
+                if uyarilar else "\n✅ Tüm planlar karakter kartlarıyla uyumlu.")
+             + f"\n\n▶️ Beğendiysen aşama: video. Tahmini video maliyeti ≈ {tahmin:.2f} $ (≈ {tahmin * DOLAR_TL:.0f} TL).")
 
 
-def tahmini_sure(s):
-    kelime = sum(len(r["metin"].split()) for r in s.get("replikler", []))
-    return max(4, min(10, math.ceil(kelime / 2.6 + 1.2)))
+def tahmini_video_maliyeti(senaryo):
+    t = 0.0
+    for p in senaryo["planlar"]:
+        if p["tip"] == "konusma":
+            t += (len(etiketsiz(p["metin"]).split()) / 2.6 + 0.6) * UCRET["avatar"]
+        else:
+            t += p.get("sure", 3) * UCRET["aksiyon"]
+    return t
 
 
-# ------------------------------------------------------------------ 3) video
-def ses_ayari(kim):
-    kar = KARAKTERLER["karakterler"]
-    if kim in kar:
-        return kar[kim]
-    return KARAKTERLER["diger_sesler"].get(kim, KARAKTERLER["diger_sesler"]["erkek"])
+# ------------------------------------------------------------------ 4) video
+def konusma_klibi(no, p, resim, klasor_cikti):
+    ham = os.path.join(klasor_cikti, f"ses_{no:02d}.mp3")
+    seslendir(p["metin"], p["kim"], ham)
+    # Başa 0.25 sn, sona 0.4 sn sessizlik: karakter konuşmaya doğal girip çıksın
+    pay = os.path.join(klasor_cikti, f"ses_{no:02d}_pay.mp3")
+    calistir("-i", ham, "-af", "adelay=250:all=1,apad=pad_dur=0.4,aresample=44100", "-ac", "2", "-b:a", "192k", pay)
+    konusan = KAR.get(p["kim"], {}).get("ad", "the shop owner")
+    prompt = (f"{konusan} speaks with precise lip sync, {p.get('duygu', 'natural')} expression, natural head and "
+              f"hand movement, blinking. Only {konusan} talks; everyone else keeps their mouth closed. "
+              f"Pixar-style 3D animation, stable face and outfit.")
+    sonuc = fal(AVATAR_MODEL, {"image_url": resim_uri(resim, 1280), "audio_url": veri_uri(pay, "audio/mpeg"),
+                               "prompt": prompt})
+    hedef = os.path.join(klasor_cikti, f"klip_{no:02d}.mp4")
+    indir(sonuc["video"]["url"], hedef)
+    harcama["avatar_sn"] += sure(pay)
+    return hedef, pay, (0.25, 0.25 + sure(ham))
 
 
-async def seslendir(metin, kim, hedef):
-    import edge_tts
-    a = ses_ayari(kim)
-    await edge_tts.Communicate(metin, a["ses"], rate=a.get("hiz", "+0%"), pitch=a.get("perde", "+0Hz")).save(hedef)
-
-
-def klip_uret(resim, hareket, saniye, hedef):
-    uri = veri_uri(resim, en=1280)
-    if VIDEO_MODEL == "kling":
-        saniye = 5 if saniye <= 5 else 10
-        sonuc = fal("fal-ai/kling-video/v2.5-turbo/pro/image-to-video",
-                    {"prompt": hareket, "image_url": uri, "duration": str(saniye)})
-    else:
-        sonuc = fal("fal-ai/bytedance/seedance/v1/pro/fast/image-to-video",
-                    {"prompt": hareket, "image_url": uri, "duration": str(saniye), "resolution": VIDEO_COZUNURLUK,
-                     "aspect_ratio": "9:16"})
-    harcama["video_sn"] += saniye
-    return indir(sonuc["video"]["url"], hedef)
+def aksiyon_klibi(no, p, resim, klasor_cikti):
+    saniye = max(2, min(6, int(p.get("sure", 3))))
+    sonuc = fal("fal-ai/bytedance/seedance/v1/pro/fast/image-to-video",
+                {"prompt": (p.get("hareket") or "subtle natural motion") + ". Pixar-style 3D animation, characters keep "
+                           "their exact faces and outfits, nobody talks, no text.",
+                 "image_url": resim_uri(resim, 1280), "duration": str(saniye),
+                 "resolution": AKSIYON_COZUNURLUK, "aspect_ratio": "9:16"})
+    hedef = os.path.join(klasor_cikti, f"klip_{no:02d}.mp4")
+    indir(sonuc["video"]["url"], hedef)
+    harcama["aksiyon_sn"] += saniye
+    return hedef, None, None
 
 
 def ass_zaman(t):
@@ -354,82 +531,54 @@ def ass_zaman(t):
 
 def video(klasor):
     sys.path.insert(0, KOK)
-    from bolum import calistir, resimden_video, VIDEO_AYAR, SES_AYAR
+    from bolum import resimden_video, VIDEO_AYAR, SES_AYAR
 
     os.makedirs(CIKTI, exist_ok=True)
     kok, bilgi, e = esnaf_bilgisi(klasor)
     oto = os.path.join(kok, "oto")
     senaryo = json.load(open(os.path.join(oto, "senaryo.json"), encoding="utf-8"))
-    sahneler = senaryo["sahneler"]
+    planlar = senaryo["planlar"]
 
-    # a) Sesler: her sahnenin repliklerini seslendir, sahne süresini konuşmaya göre belirle
-    plan = []
-    for i, s in enumerate(sahneler, 1):
-        t, parcalar = 0.35, []
-        for j, r in enumerate(s.get("replikler", [])):
-            yol = os.path.join(CIKTI, f"ses_{i:02d}_{j}.mp3")
-            asyncio.run(seslendir(r["metin"], r["kim"], yol))
-            d = sure(yol)
-            parcalar.append((yol, t, t + d, r["metin"]))
-            t += d + 0.25
-        saniye = max(4, min(12, math.ceil(t + 0.3)))
-        plan.append({"no": i, "saniye": saniye, "sesler": parcalar, "kasa": s.get("kasa")})
-    toplam = sum(p["saniye"] for p in plan)
-    print(f"Toplam süre ≈ {toplam} sn")
-
-    # b) Klipler: tüm sahneleri aynı anda fal.ai'de hareketlendir
-    def uret(p):
-        hedef = os.path.join(CIKTI, f"klip_{p['no']:02d}.mp4")
-        resim = os.path.join(oto, f"sahne_{p['no']:02d}.jpg")
-        s = sahneler[p["no"] - 1]
-        hareket = (s.get("hareket", "") + ". Characters' mouths move naturally while talking. Pixar-style 3D animation, "
-                   "smooth, no text.")
-        klip_uret(resim, hareket, p["saniye"], hedef)
-        print(f"Klip {p['no']} hazır")
-        return hedef
+    def uret(no):
+        p = planlar[no - 1]
+        resim = os.path.join(oto, f"plan_{no:02d}.jpg")
+        fn = konusma_klibi if p["tip"] == "konusma" else aksiyon_klibi
+        sonuc = fn(no, p, resim, CIKTI)
+        print(f"Plan {no} klibi hazır ({p['tip']})")
+        return sonuc
 
     with ThreadPoolExecutor(AYNI_ANDA) as h:
-        klipler = list(h.map(uret, plan))
+        klipler = list(h.map(uret, range(1, len(planlar) + 1)))
 
-    # c) Her sahne: klibi 1080x1920'ye oturt, süreye kes, seslerini ekle
-    govde_parcalari, ass_satirlari, zaman, son_kasa = [], [], 0.0, None
-    for p, klip in zip(plan, klipler):
-        cikis = os.path.join(CIKTI, f"sahne_{p['no']:02d}.mp4")
-        d = p["saniye"]
-        girdiler = ["-i", klip]
-        for yol, bas, _, _ in p["sesler"]:
-            girdiler += ["-i", yol]
-        filtre = (f"[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30,"
-                  f"tpad=stop_mode=clone:stop_duration=12,trim=duration={d}[v]")
-        if p["sesler"]:
-            sesler = []
-            for k, (_, bas, _, _) in enumerate(p["sesler"]):
-                filtre += (f";[{k + 1}:a]aresample=44100,aformat=channel_layouts=stereo,"
-                           f"adelay=delays={int(bas * 1000)}:all=1[s{k}]")
-                sesler.append(f"[s{k}]")
-            filtre += f";{''.join(sesler)}amix=inputs={len(sesler)}:normalize=0,apad,atrim=duration={d}[a]"
-            calistir(*girdiler, "-filter_complex", filtre, "-map", "[v]", "-map", "[a]", "-t", str(d),
-                     *VIDEO_AYAR, *SES_AYAR, cikis)
+    parcalar, ass, zaman, son_kasa = [], [], 0.0, None
+    for no, (p, (klip, ses_dosya, konusma_araligi)) in enumerate(zip(planlar, klipler), 1):
+        d = sure(ses_dosya) if ses_dosya else min(sure(klip), max(2, p.get("sure", 3)))
+        cikis = os.path.join(CIKTI, f"parca_{no:02d}.mp4")
+        vf = (f"[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30,"
+              f"tpad=stop_mode=clone:stop_duration=3,trim=duration={d:.3f},setpts=PTS-STARTPTS[v]")
+        if ses_dosya:  # temiz ElevenLabs sesi; video zaten bu sese göre konuşuyor
+            calistir("-i", klip, "-i", ses_dosya, "-filter_complex",
+                     vf + f";[1:a]aresample=44100,aformat=channel_layouts=stereo,apad,atrim=duration={d:.3f}[a]",
+                     "-map", "[v]", "-map", "[a]", *VIDEO_AYAR, *SES_AYAR, cikis)
+            b, s = konusma_araligi
+            ass.append(f"Dialogue: 0,{ass_zaman(zaman + b)},{ass_zaman(zaman + s)},Alt,,0,0,0,,{etiketsiz(p['metin'])}")
         else:
-            calistir(*girdiler, "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-filter_complex", filtre,
-                     "-map", "[v]", "-map", f"{len(girdiler) // 2}:a", "-t", str(d), *VIDEO_AYAR, *SES_AYAR, cikis)
-        for _, bas, bit, metin in p["sesler"]:
-            ass_satirlari.append(f"Dialogue: 0,{ass_zaman(zaman + bas)},{ass_zaman(zaman + bit)},Alt,,0,0,0,,{metin}")
-        if p["kasa"] is not None:
+            calistir("-i", klip, "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-filter_complex", vf,
+                     "-map", "[v]", "-map", "1:a", "-t", f"{d:.3f}", *VIDEO_AYAR, *SES_AYAR, cikis)
+        if p.get("kasa") is not None:
             son_kasa = p["kasa"]
         if son_kasa is not None:
-            yazi = f"KASA: {son_kasa:,} TL".replace(",", ".")
-            ass_satirlari.append(f"Dialogue: 1,{ass_zaman(zaman)},{ass_zaman(zaman + d)},Kasa,,0,0,0,,{yazi}")
+            ass.append(f"Dialogue: 1,{ass_zaman(zaman)},{ass_zaman(zaman + d)},Kasa,,0,0,0,,"
+                       + f"KASA: {son_kasa:,} TL".replace(",", "."))
         zaman += d
-        govde_parcalari.append(cikis)
+        parcalar.append(cikis)
 
-    # d) Gövdeyi birleştir + altyazı ve KASA yaz
     liste = os.path.join(CIKTI, "govde.txt")
-    open(liste, "w").writelines(f"file '{p}'\n" for p in govde_parcalari)
+    open(liste, "w").writelines(f"file '{x}'\n" for x in parcalar)
     govde = os.path.join(CIKTI, "govde.mp4")
     calistir("-f", "concat", "-safe", "0", "-i", liste, "-c", "copy", govde)
-    ass = os.path.join(CIKTI, "altyazi.ass")
-    open(ass, "w", encoding="utf-8").write(
+    ass_yol = os.path.join(CIKTI, "altyazi.ass")
+    open(ass_yol, "w", encoding="utf-8").write(
         "[Script Info]\nScriptType: v4.00+\nPlayResX: 1080\nPlayResY: 1920\nWrapStyle: 0\n\n"
         "[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, "
         "Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, "
@@ -437,18 +586,17 @@ def video(klasor):
         "Style: Alt,Inter,66,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,-1,0,0,0,100,100,0,0,1,6,2,2,70,70,360,1\n"
         "Style: Kasa,Inter,54,&H00FFFFFF,&H00FFFFFF,&H003130D6,&H003130D6,-1,0,0,0,100,100,0,0,3,14,0,9,40,50,170,1\n\n"
         "[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n"
-        + "\n".join(ass_satirlari) + "\n")
+        + "\n".join(ass) + "\n")
     govde_yazili = os.path.join(CIKTI, "govde_yazili.mp4")
-    calistir("-i", govde, "-vf", f"ass={ass}", *VIDEO_AYAR, "-c:a", "copy", govde_yazili)
+    calistir("-i", govde, "-vf", f"ass={ass_yol}", *VIDEO_AYAR, "-c:a", "copy", govde_yazili)
 
-    # e) Başlık kartı + gövde + esnaf bilgi kartı
     renk = bilgi.get("renk", "#e3121b")
     baslik_png = os.path.join(CIKTI, "baslik.png")
     subprocess.run(["node", os.path.join(KOK, "kart.js"),
                     f"<span>LEVENT'İN MACERALARI</span>{senaryo.get('baslik', '')}", baslik_png, "baslik", renk], check=True)
     baslik = os.path.join(CIKTI, "baslik.mp4")
     resimden_video(baslik_png, 1.8, baslik)
-    parcalar = [baslik, govde_yazili]
+    sira = [baslik, govde_yazili]
     if bilgi.get("kart"):
         sessiz = os.path.join(CIKTI, "bilgi_sessiz.mp4")
         subprocess.run(["node", os.path.join(KOK, "uret.js"), klasor], check=True,
@@ -456,29 +604,31 @@ def video(klasor):
         bilgi_mp4 = os.path.join(CIKTI, "bilgi.mp4")
         calistir("-i", sessiz, "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-map", "0:v", "-map", "1:a",
                  "-shortest", *VIDEO_AYAR, *SES_AYAR, bilgi_mp4)
-        parcalar.append(bilgi_mp4)
+        sira.append(bilgi_mp4)
     liste2 = os.path.join(CIKTI, "son.txt")
-    open(liste2, "w").writelines(f"file '{p}'\n" for p in parcalar)
+    open(liste2, "w").writelines(f"file '{x}'\n" for x in sira)
     ad = re.sub(r"[^A-Za-z0-9_]+", "_", f"Levent_{klasor}_{senaryo.get('baslik', 'bolum')}".translate(
         str.maketrans("çğıöşüÇĞİÖŞÜ", "cgiosuCGIOSU")))[:60]
     son = os.path.join(CIKTI, ad + ".mp4")
     calistir("-f", "concat", "-safe", "0", "-i", liste2, "-c", "copy", "-movflags", "+faststart", son)
     print(f"Bölüm hazır: {son} ({sure(son):.0f} sn)")
-
     if TOKEN:
         with open(son, "rb") as f:
             tg("sendVideo", dosyalar={"video": f}, supports_streaming="true",
                caption=f"🎬 Levent'in Maceraları: {senaryo.get('baslik', '')} ({sure(son):.0f} sn)")
-        tg_mesaj(maliyet_ozeti())
+    tg_mesaj(maliyet_ozeti())
 
 
 if __name__ == "__main__":
     komut = sys.argv[1]
+    arg = sys.argv[2:] + ["", "", ""]
     if komut == "karakter":
-        karakter(yenile="yenile" in sys.argv[2:])
+        karakter(yenile=arg[0] == "yenile")
+    elif komut == "ses":
+        ses(arg[0])
     elif komut == "taslak":
-        taslak(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else "", sys.argv[4] if len(sys.argv) > 4 else "")
+        taslak(arg[0], arg[1], arg[2])
     elif komut == "video":
-        video(sys.argv[2])
+        video(arg[0])
     else:
-        sys.exit("Komut: karakter | taslak | video")
+        sys.exit("Komut: karakter | ses | taslak | video")

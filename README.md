@@ -23,12 +23,13 @@ Esnaf reklam videolarını otomatik üretir: animasyonlu sahneler + Türkçe ses
 2. **Actions** → **Bölüm Üret** → klasör adı (örn. `eserim`) → **Run workflow**.
 3. Sistem klipleri bottan alır; `reklamlar/<klasor>/bolum.json` akışına göre başlık kartı, "Birkaç dakika sonra…" kartları ve esnafın bilgi kartıyla birleştirip Telegram'a gönderir. Kullanılan klipler bot kuyruğundan silinir.
 
-## Tam otomatik bölüm (Levent'in Maceraları) — elle klip üretmek YOK
-Gizli anahtarlar: `FAL_KEY` (fal.ai), `GEMINI_API_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
-1. **Actions → Otomatik Bölüm → Run workflow**, aşama: `karakter` (sadece ilk sefer: Levent'in yeni kostümü + Cemo çizilir, Telegram'a gelir).
-2. Aşama: `taslak`, klasör: `eserim`, konu: (isteğe bağlı). Senaryo + 16-20 sahne resmi Telegram'a gelir (~100 TL).
-3. Beğenmediğin sahne varsa aşama: `taslak`, "yeniden" kutusuna `3,7` yaz.
-4. Aşama: `video` → sahneler hareketlendirilir, seslendirilir, altyazı + KASA + esnaf kartı eklenir, ~90-100 sn bölüm Telegram'a gelir.
-- `hepsi` seçilirse onay beklemeden taslak + video birlikte yapılır.
-- Kalite: `seedance-720p` (en ucuz) · `seedance-1080p` · `kling`.
+## Tam otomatik bölüm (Levent'in Maceraları) — dudak senkronlu
+Gizli anahtarlar: `FAL_KEY`, `GEMINI_API_KEY`, `ELEVENLABS_API_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
+
+**Actions → Otomatik Bölüm → Run workflow**
+1. `karakter` (bir kez): Levent (yeni kostüm) ve Cemo için karakter kartları (önden/yandan/arkadan + 5 ifade). Her sahne bu kartlara bakılarak çizilir.
+2. `ses` (bir kez): ElevenLabs Türkçe ses kütüphanesinden her role (levent, cemo, esnaf, erkek, kadin) ayrı, sabit bir ses seçilir; örnekler Telegram'a gelir. Beğenmediğin ses için "yeniden" kutusuna rolü yaz (ör. `cemo`).
+3. `taslak`: Gemini senaryoyu plan/karşı plan olarak yazar (22-28 plan). Her plan çizilir ve Gemini yüzleri karakter kartıyla karşılaştırır; tutmayan plan otomatik yeniden çizilir. Beğenmediğin planlar için "yeniden" kutusuna `3,7` yaz.
+4. `video`: konuşan planlar = karakterin sabit sesi + Kling AI Avatar ile birebir dudak senkronu; aksiyon planları = Seedance. Altyazı, KASA, başlık ve esnaf kartı eklenir, ~100 sn bölüm Telegram'a gelir.
+- `hepsi`: taslak + video onaysız.  Kalite: `standart` · `pro` (daha net yüz/dudak).
 - Yeni esnaf için `bilgi.json` içine `oto` bölümü ekle (`reklamlar/eserim/bilgi.json` örnek).

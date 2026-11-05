@@ -4,26 +4,46 @@
     "levent": {
       "ad": "Levent",
       "rol": "Dükkan TV muhabiri, ana kahraman. Meraklı, enerjik, iyi kalpli, biraz saf; her dükkâna mikrofonla röportaja girer.",
+      "konusma_tarzi": "Hızlı ve heyecanlı konuşur, cümlelerini 'Arkadaşlar!' ya da 'Bakın bakın!' diye açmayı sever, her şeye hayran kalır, abartılı övgüler yapar, kibar ve esprili.",
+      "ornek_cumle": "[excited] Arkadaşlar, bakın bakın! Bugün yine harika bir yerdeyiz!",
       "kaynak": ["levent_yuz.png", "levent_boy.png"],
-      "kostum": "The same young man (same face, same curly brown hair, same proportions). Change ONLY his outfit to: a mustard-yellow (#FFC43D) multi-pocket vest over a red (#D63031) crew-neck t-shirt, cream chino trousers, red sneakers. He holds a small handheld microphone with a yellow cube on it that reads 'DTV'.",
-      "tarif": "a young man with curly brown hair and big friendly eyes, wearing a mustard-yellow multi-pocket vest over a red t-shirt, cream trousers and red sneakers, holding a small microphone with a yellow 'DTV' cube",
-      "ses": "tr-TR-AhmetNeural",
-      "hiz": "+10%",
-      "perde": "+0Hz"
+      "kostum": "The same young man as in the reference images (same face, same curly brown hair, same proportions). Change ONLY his outfit to: a mustard-yellow (#FFC43D) multi-pocket vest over a red (#D63031) crew-neck t-shirt, cream chino trousers, red sneakers. He holds a small handheld microphone with a yellow cube on it that reads 'DTV'.",
+      "tarif": "young man, curly brown hair, big friendly eyes, mustard-yellow multi-pocket vest over a red t-shirt, cream trousers, red sneakers, small microphone with a yellow 'DTV' cube",
+      "ses_arama": { "filtre": { "gender": "male", "age": "young" } },
+      "eleven": { "stability": 0.4, "similarity_boost": 0.85, "speed": 1.05 },
+      "ses": "tr-TR-AhmetNeural", "hiz": "+10%", "perde": "+0Hz"
     },
     "cemo": {
       "ad": "Cemo",
-      "rol": "Kameraman, Levent'in yol arkadaşı. Kısa boylu, tombul, kasketli; tembel, sürekli aç, ikram bekler, KASA'dan (bütçeden) sorumludur, kuru espriler yapar.",
+      "rol": "Kameraman, Levent'in yol arkadaşı. Kısa boylu, tombul, kasketli; tembel, sürekli aç, ikram bekler, KASA'dan (bütçeden) sorumludur.",
+      "konusma_tarzi": "Yavaş, kalın sesli, ağır ağır ve isteksiz konuşur; sık sık iç çeker, kuru ve kısa espriler yapar, Levent'e 'Abi...' diye başlar, her fırsatta yemekten ve bütçeden bahseder.",
+      "ornek_cumle": "[sighs] Abi... ben acıktım ya. Kasada da para kalmadı, haberin olsun.",
       "kaynak": [],
-      "kostum": "Design a new original cartoon character: a short, chubby Turkish man in his late 30s, round glasses, thick black mustache, grey flat cap (kasket), olive-green bomber jacket over a striped t-shirt, dark jeans, worn brown shoes, an old shoulder-mounted video camera on his shoulder. Friendly but lazy, sleepy eyes. Full body, plain light grey background.",
-      "tarif": "a short chubby man in his late 30s with round glasses, a thick black mustache, a grey flat cap, an olive-green bomber jacket over a striped t-shirt, carrying an old shoulder-mounted video camera",
-      "ses": "tr-TR-AhmetNeural",
-      "hiz": "-4%",
-      "perde": "-18Hz"
+      "kostum": "Design a NEW ORIGINAL cartoon character: a short, chubby Turkish man in his late 30s, round glasses, thick black mustache, grey flat cap (kasket), olive-green bomber jacket over a navy-white striped t-shirt, dark jeans, worn brown shoes, an old shoulder-mounted video camera. Friendly but lazy, sleepy half-closed eyes.",
+      "tarif": "short chubby man in his late 30s, round glasses, thick black mustache, grey flat cap, olive-green bomber jacket over a striped t-shirt, old shoulder-mounted video camera",
+      "ses_arama": { "filtre": { "gender": "male", "age": "middle_aged" } },
+      "eleven": { "stability": 0.55, "similarity_boost": 0.85, "speed": 0.92 },
+      "ses": "tr-TR-AhmetNeural", "hiz": "-4%", "perde": "-18Hz"
     }
   },
   "diger_sesler": {
-    "erkek": { "ses": "tr-TR-AhmetNeural", "hiz": "+0%", "perde": "+12Hz" },
-    "kadin": { "ses": "tr-TR-EmelNeural", "hiz": "+5%", "perde": "+0Hz" }
+    "esnaf": {
+      "ses_arama": { "filtre": { "gender": "male", "age": "middle_aged" } },
+      "ornek_cumle": "Hoş geldiniz gençler, buyurun buyurun, ne ikram edelim?",
+      "eleven": { "stability": 0.5, "similarity_boost": 0.8, "speed": 1.0 },
+      "ses": "tr-TR-AhmetNeural", "hiz": "+0%", "perde": "+8Hz"
+    },
+    "erkek": {
+      "ses_arama": { "filtre": { "gender": "male", "age": "old" } },
+      "ornek_cumle": "Evladım, buralarda ne arıyorsunuz?",
+      "eleven": { "stability": 0.5, "similarity_boost": 0.8, "speed": 1.0 },
+      "ses": "tr-TR-AhmetNeural", "hiz": "+0%", "perde": "+12Hz"
+    },
+    "kadin": {
+      "ses_arama": { "filtre": { "gender": "female", "age": "young" } },
+      "ornek_cumle": "Merhaba, size nasıl yardımcı olabilirim?",
+      "eleven": { "stability": 0.5, "similarity_boost": 0.8, "speed": 1.0 },
+      "ses": "tr-TR-EmelNeural", "hiz": "+5%", "perde": "+0Hz"
+    }
   }
 }
