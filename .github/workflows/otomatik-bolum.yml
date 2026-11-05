@@ -107,6 +107,14 @@ jobs:
         if: github.event.inputs.asama == 'video' || github.event.inputs.asama == 'hepsi'
         run: python oto_bolum.py video "${{ github.event.inputs.klasor }}"
 
+      - name: Klipleri depoya kaydet (tekrar ödeme olmasın)
+        if: always() && (github.event.inputs.asama == 'video' || github.event.inputs.asama == 'hepsi')
+        run: |
+          git config user.name "dukkan-tv-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add reklamlar
+          git diff --cached --quiet || (git commit -m "Otomatik bölüm klipleri: ${{ github.event.inputs.klasor }}" && (git push || (git pull --rebase origin main && git push)))
+
       - name: Videoyu indirilebilir olarak sakla
         if: github.event.inputs.asama == 'video' || github.event.inputs.asama == 'hepsi'
         uses: actions/upload-artifact@v4

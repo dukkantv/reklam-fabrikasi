@@ -8,7 +8,7 @@
 #                                                     aksiyon planları: Seedance; altyazı + KASA + kartlar
 #
 # Gizli anahtarlar: FAL_KEY, GEMINI_API_KEY, ELEVENLABS_API_KEY, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
-import asyncio, base64, json, math, os, re, subprocess, sys, time
+import asyncio, base64, hashlib, json, math, os, re, shutil, subprocess, sys, threading, time
 from concurrent.futures import ThreadPoolExecutor
 
 import requests
@@ -168,7 +168,6 @@ def gemini_modelleri():
     return _MODELLER
 
 
-import threading
 _GEMINI_KILIT = threading.Lock()
 _GEMINI_SON = [0.0]
 GEMINI_ARALIK = float(os.environ.get("GEMINI_ARALIK", "7"))  # ücretsiz kota: istekler arası en az bu kadar saniye
@@ -276,11 +275,22 @@ def karakter(yenile=False):
 
 
 # ------------------------------------------------------------------ 2) sesler (ElevenLabs)
+_ELEVEN_SINIR = threading.Semaphore(2)  # Starter paket: aynı anda en fazla 3 istek; 2 ile güvenli kalıyoruz
+
+
 def eleven(yol, metod="GET", **kw):
-    r = requests.request(metod, "https://api.elevenlabs.io" + yol, headers={"xi-api-key": ELEVEN_KEY}, timeout=180, **kw)
-    if r.status_code >= 400:
-        raise RuntimeError(f"ElevenLabs {r.status_code}: {r.text[:300]}")
-    return r
+    for d in range(8):
+        with _ELEVEN_SINIR:
+            r = requests.request(metod, "https://api.elevenlabs.io" + yol, headers={"xi-api-key": ELEVEN_KEY},
+                                 timeout=180, **kw)
+        if r.status_code == 429 or r.status_code >= 500:
+            print(f"ElevenLabs meşgul ({r.status_code}), {5 * (d + 1)} sn bekleniyor")
+            time.sleep(5 * (d + 1))
+            continue
+        if r.status_code >= 400:
+            raise RuntimeError(f"ElevenLabs {r.status_code}: {r.text[:300]}")
+        return r
+    raise RuntimeError(f"ElevenLabs {r.status_code}: {r.text[:300]}")
 
 
 def sesler_oku():
@@ -637,6 +647,46 @@ def tahmini_video_maliyeti(senaryo):
 
 
 # ------------------------------------------------------------------ 4) video
+_ONBELLEK_KILIT = threading.Lock()
+
+
+def onbellek_anahtari(p, resim):
+    ses_id = (sesler_oku().get(p.get("kim")) or {}).get("voice_id", "") if p["tip"] == "konusma" else ""
+    model = AVATAR_MODEL if p["tip"] == "konusma" else f"seedance-{AKSIYON_COZUNURLUK}"
+    h = hashlib.sha1(open(resim, "rb").read())
+    h.update(json.dumps([p["tip"], p.get("metin"), p.get("kim"), p.get("hareket"), p.get("sure"), ses_id, model],
+                        ensure_ascii=False).encode())
+    return h.hexdigest()[:16]
+
+
+def onbellekten(klasor_klip, no, anahtar):
+    try:
+        dizin = json.load(open(os.path.join(klasor_klip, "dizin.json"), encoding="utf-8"))
+    except Exception:
+        return None
+    k = dizin.get(str(no))
+    if not k or k.get("anahtar") != anahtar or not os.path.exists(os.path.join(klasor_klip, k["klip"])):
+        return None
+    klip = os.path.join(klasor_klip, k["klip"])
+    ses = os.path.join(klasor_klip, k["ses"]) if k.get("ses") else None
+    return klip, ses, tuple(k["aralik"]) if k.get("aralik") else None
+
+
+def onbellege_yaz(klasor_klip, no, anahtar, sonuc):
+    klip, ses, aralik = sonuc
+    os.makedirs(klasor_klip, exist_ok=True)
+    shutil.copy(klip, os.path.join(klasor_klip, f"klip_{no:02d}.mp4"))
+    kayit = {"anahtar": anahtar, "klip": f"klip_{no:02d}.mp4", "aralik": list(aralik) if aralik else None}
+    if ses:
+        shutil.copy(ses, os.path.join(klasor_klip, f"ses_{no:02d}.mp3"))
+        kayit["ses"] = f"ses_{no:02d}.mp3"
+    with _ONBELLEK_KILIT:
+        yol = os.path.join(klasor_klip, "dizin.json")
+        dizin = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else {}
+        dizin[str(no)] = kayit
+        json.dump(dizin, open(yol, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+
 def konusma_klibi(no, p, resim, klasor_cikti):
     ham = os.path.join(klasor_cikti, f"ses_{no:02d}.mp3")
     seslendir(p["metin"], p["kim"], ham)
@@ -682,16 +732,34 @@ def video(klasor):
     senaryo = json.load(open(os.path.join(oto, "senaryo.json"), encoding="utf-8"))
     planlar = senaryo["planlar"]
 
+    klasor_klip = os.path.join(oto, "klipler")
+    hatalar = []
+
     def uret(no):
         p = planlar[no - 1]
         resim = os.path.join(oto, f"plan_{no:02d}.jpg")
+        anahtar = onbellek_anahtari(p, resim)
+        hazir = onbellekten(klasor_klip, no, anahtar)
+        if hazir:
+            print(f"Plan {no} klibi önbellekten alındı (ücret yok)")
+            return hazir
         fn = konusma_klibi if p["tip"] == "konusma" else aksiyon_klibi
-        sonuc = fn(no, p, resim, CIKTI)
+        try:
+            sonuc = fn(no, p, resim, CIKTI)
+        except Exception as e:
+            print(f"Plan {no} üretilemedi: {str(e)[:200]}")
+            hatalar.append(no)
+            return None
+        onbellege_yaz(klasor_klip, no, anahtar, sonuc)
         print(f"Plan {no} klibi hazır ({p['tip']})")
         return sonuc
 
     with ThreadPoolExecutor(AYNI_ANDA) as h:
         klipler = list(h.map(uret, range(1, len(planlar) + 1)))
+    if hatalar:
+        tg_mesaj(f"⚠️ {sorted(hatalar)} numaralı planlar üretilemedi. Hazır olanlar kaydedildi; 'video' aşamasını "
+                 f"tekrar çalıştırınca SADECE eksikler üretilir (hazırlar için tekrar ödeme yok).\n" + maliyet_ozeti())
+        sys.exit(1)
 
     parcalar, ass, zaman, son_kasa = [], [], 0.0, None
     for no, (p, (klip, ses_dosya, konusma_araligi)) in enumerate(zip(planlar, klipler), 1):
