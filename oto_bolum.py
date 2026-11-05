@@ -826,9 +826,20 @@ def video(klasor):
     # Bölüm başarıyla bitti: klip önbelleği artık gereksiz, depo şişmesin diye silinir
     shutil.rmtree(klasor_klip, ignore_errors=True)
     if TOKEN:
-        with open(son, "rb") as f:
-            tg("sendVideo", dosyalar={"video": f}, supports_streaming="true",
-               caption=f"🎬 Levent'in Maceraları: {senaryo.get('baslik', '')} ({sure(son):.0f} sn)")
+        gonderilecek = son
+        if os.path.getsize(son) > 45 * 1024 * 1024:  # Telegram botları en fazla 50 MB gönderebilir
+            gonderilecek = os.path.join(CIKTI, ad + "_telegram.mp4")
+            hedef_kbps = int(44 * 8 * 1024 / max(sure(son), 1)) - 160
+            calistir("-i", son, "-vf", "scale=720:1280", "-c:v", "libx264", "-preset", "veryfast",
+                     "-b:v", f"{max(hedef_kbps, 600)}k", "-maxrate", f"{max(hedef_kbps, 600)}k", "-bufsize", "4M",
+                     "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", gonderilecek)
+            print(f"Telegram kopyası: {os.path.getsize(gonderilecek) / 1048576:.1f} MB")
+        with open(gonderilecek, "rb") as f:
+            cevap = tg("sendVideo", dosyalar={"video": f}, supports_streaming="true",
+                       caption=f"🎬 Levent'in Maceraları: {senaryo.get('baslik', '')} ({sure(son):.0f} sn)")
+        if not (cevap or {}).get("ok"):
+            print("Telegram video gönderemedi:", str(cevap)[:300])
+            tg_mesaj("⚠️ Video Telegram'a gönderilemedi. GitHub'da bu çalışmanın sayfasındaki 'Artifacts' kısmından indir.")
     tg_mesaj(maliyet_ozeti())
 
 
