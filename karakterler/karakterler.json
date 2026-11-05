@@ -6,12 +6,52 @@
       "rol": "Dükkan TV muhabiri, ana kahraman. Meraklı, enerjik, iyi kalpli, biraz saf; her dükkâna mikrofonla röportaja girer.",
       "konusma_tarzi": "Hızlı ve heyecanlı konuşur, cümlelerini 'Arkadaşlar!' ya da 'Bakın bakın!' diye açmayı sever, her şeye hayran kalır, abartılı övgüler yapar, kibar ve esprili.",
       "ornek_cumle": "[excited] Arkadaşlar, bakın bakın! Bugün yine harika bir yerdeyiz!",
-      "kaynak": ["levent_yuz.png", "levent_boy.png"],
+      "kaynak": [
+        "levent_yuz.png",
+        "levent_boy.png"
+      ],
       "kostum": "The same young man as in the reference images (same face, same curly brown hair, same proportions). Change ONLY his outfit to: a mustard-yellow (#FFC43D) multi-pocket vest over a red (#D63031) crew-neck t-shirt, cream chino trousers, red sneakers. He holds a small handheld microphone with a yellow cube on it that reads 'DTV'.",
       "tarif": "young man, curly brown hair, big friendly eyes, mustard-yellow multi-pocket vest over a red t-shirt, cream trousers, red sneakers, small microphone with a yellow 'DTV' cube",
-      "ses_arama": { "filtre": { "gender": "male", "age": "young" } },
-      "eleven": { "stability": 0.4, "similarity_boost": 0.85, "speed": 1.05 },
-      "ses": "tr-TR-AhmetNeural", "hiz": "+10%", "perde": "+0Hz"
+      "ses_arama": {
+        "filtre": {
+          "gender": "male"
+        },
+        "tercih": [
+          "deep",
+          "warm",
+          "charismatic",
+          "confident",
+          "rich",
+          "smooth",
+          "baritone",
+          "engaging",
+          "natural",
+          "conversational",
+          "sıcak",
+          "tok",
+          "karizmatik"
+        ],
+        "kacin": [
+          "cartoon",
+          "child",
+          "kid",
+          "funny",
+          "squeaky",
+          "high-pitched",
+          "old",
+          "elderly",
+          "whisper",
+          "asmr"
+        ]
+      },
+      "eleven": {
+        "stability": 0.45,
+        "similarity_boost": 0.85,
+        "speed": 1.0
+      },
+      "ses": "tr-TR-AhmetNeural",
+      "hiz": "+10%",
+      "perde": "+0Hz"
     },
     "cemo": {
       "ad": "Cemo",
@@ -21,29 +61,101 @@
       "kaynak": [],
       "kostum": "Design a NEW ORIGINAL cartoon character: a short, chubby Turkish man in his late 30s, round glasses, thick black mustache, grey flat cap (kasket), olive-green bomber jacket over a navy-white striped t-shirt, dark jeans, worn brown shoes, an old shoulder-mounted video camera. Friendly but lazy, sleepy half-closed eyes.",
       "tarif": "short chubby man in his late 30s, round glasses, thick black mustache, grey flat cap, olive-green bomber jacket over a striped t-shirt, old shoulder-mounted video camera",
-      "ses_arama": { "filtre": { "gender": "male", "age": "middle_aged" } },
-      "eleven": { "stability": 0.55, "similarity_boost": 0.85, "speed": 0.92 },
-      "ses": "tr-TR-AhmetNeural", "hiz": "-4%", "perde": "-18Hz"
+      "ses_arama": {
+        "filtre": {
+          "gender": "male",
+          "age": "middle_aged"
+        },
+        "kacin": [
+          "cartoon",
+          "child",
+          "kid",
+          "whisper",
+          "asmr"
+        ]
+      },
+      "eleven": {
+        "stability": 0.55,
+        "similarity_boost": 0.85,
+        "speed": 0.92
+      },
+      "ses": "tr-TR-AhmetNeural",
+      "hiz": "-4%",
+      "perde": "-18Hz"
     }
   },
   "diger_sesler": {
     "esnaf": {
-      "ses_arama": { "filtre": { "gender": "male", "age": "middle_aged" } },
+      "ses_arama": {
+        "filtre": {
+          "gender": "male",
+          "age": "middle_aged"
+        },
+        "kacin": [
+          "cartoon",
+          "child",
+          "kid",
+          "whisper",
+          "asmr"
+        ]
+      },
       "ornek_cumle": "Hoş geldiniz gençler, buyurun buyurun, ne ikram edelim?",
-      "eleven": { "stability": 0.5, "similarity_boost": 0.8, "speed": 1.0 },
-      "ses": "tr-TR-AhmetNeural", "hiz": "+0%", "perde": "+8Hz"
+      "eleven": {
+        "stability": 0.5,
+        "similarity_boost": 0.8,
+        "speed": 1.0
+      },
+      "ses": "tr-TR-AhmetNeural",
+      "hiz": "+0%",
+      "perde": "+8Hz"
     },
     "erkek": {
-      "ses_arama": { "filtre": { "gender": "male", "age": "old" } },
+      "ses_arama": {
+        "filtre": {
+          "gender": "male",
+          "age": "old"
+        },
+        "kacin": [
+          "cartoon",
+          "child",
+          "kid",
+          "whisper",
+          "asmr"
+        ]
+      },
       "ornek_cumle": "Evladım, buralarda ne arıyorsunuz?",
-      "eleven": { "stability": 0.5, "similarity_boost": 0.8, "speed": 1.0 },
-      "ses": "tr-TR-AhmetNeural", "hiz": "+0%", "perde": "+12Hz"
+      "eleven": {
+        "stability": 0.5,
+        "similarity_boost": 0.8,
+        "speed": 1.0
+      },
+      "ses": "tr-TR-AhmetNeural",
+      "hiz": "+0%",
+      "perde": "+12Hz"
     },
     "kadin": {
-      "ses_arama": { "filtre": { "gender": "female", "age": "young" } },
+      "ses_arama": {
+        "filtre": {
+          "gender": "female",
+          "age": "young"
+        },
+        "kacin": [
+          "cartoon",
+          "child",
+          "kid",
+          "whisper",
+          "asmr"
+        ]
+      },
       "ornek_cumle": "Merhaba, size nasıl yardımcı olabilirim?",
-      "eleven": { "stability": 0.5, "similarity_boost": 0.8, "speed": 1.0 },
-      "ses": "tr-TR-EmelNeural", "hiz": "+5%", "perde": "+0Hz"
+      "eleven": {
+        "stability": 0.5,
+        "similarity_boost": 0.8,
+        "speed": 1.0
+      },
+      "ses": "tr-TR-EmelNeural",
+      "hiz": "+5%",
+      "perde": "+0Hz"
     }
   }
 }

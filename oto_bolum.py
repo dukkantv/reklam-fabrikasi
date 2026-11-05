@@ -243,16 +243,21 @@ def ses(degistir=""):
     for rol, arama in ses_rolleri().items():
         if rol in mevcut and rol not in degisecek:
             continue
-        sira = mevcut.get(rol, {}).get("sira", -1) + 1 if rol in degisecek else 0
+        denenen = (mevcut.get(rol, {}).get("denenen", []) + [mevcut.get(rol, {}).get("voice_id")]) if rol in degisecek else []
+        sira = 0
         params = {"language": "tr", "page_size": 100, "sort": "cloned_by_count", **arama.get("filtre", {})}
         adaylar = eleven("/v1/shared-voices", params=params).json().get("voices", [])
         if not adaylar:  # filtre çok darsa sadece dil + cinsiyetle ara
             params = {"language": "tr", "page_size": 100, "gender": arama.get("filtre", {}).get("gender", "male")}
             adaylar = eleven("/v1/shared-voices", params=params).json().get("voices", [])
-        adaylar = [a for a in adaylar if a["voice_id"] not in kullanilan and a.get("category") != "famous"]
+        adaylar = [a for a in adaylar if a["voice_id"] not in kullanilan and a["voice_id"] not in denenen
+                   and a.get("category") != "famous"]
         if not adaylar:
             print(f"{rol} için ses bulunamadı")
             continue
+        adaylar.sort(key=lambda a: (-ses_puani(a, arama), -(a.get("cloned_by_count") or 0)))
+        for a in adaylar[:5]:
+            print(f"  aday {rol}: {a.get('name')} | puan {ses_puani(a, arama)}")
         sec = adaylar[sira % len(adaylar)]
         try:
             eleven(f"/v1/voices/add/{sec['public_owner_id']}/{sec['voice_id']}", "POST",
@@ -260,7 +265,7 @@ def ses(degistir=""):
         except RuntimeError as e:
             if "already" not in str(e).lower():
                 print("Ses eklenemedi:", e)
-        mevcut[rol] = {"voice_id": sec["voice_id"], "ad": sec.get("name"), "sira": sira,
+        mevcut[rol] = {"voice_id": sec["voice_id"], "ad": sec.get("name"), "denenen": [d for d in denenen if d],
                        "aciklama": sec.get("description", "")[:120]}
         kullanilan.add(sec["voice_id"])
         yeni.append(rol)
@@ -274,6 +279,17 @@ def ses(degistir=""):
     if yeni:
         tg_mesaj("🎙 Sesler seçildi. Bir sesi beğenmezsen aşama: ses, 'yeniden' kutusuna rolü yaz (ör. cemo). "
                  "Seçilen sesler kaydedildi, her bölümde aynı ses kullanılacak.")
+
+
+def ses_puani(a, arama):
+    """Ses açıklamasındaki kelimelere göre puan: Türkçe anadil + istenen özellikler artı, istenmeyenler eksi."""
+    metin = " ".join(str(a.get(k) or "") for k in ("name", "description", "descriptive", "accent", "use_case")).lower()
+    puan = 0
+    if any(k in metin for k in ("türk", "turk", "istanbul", "anadolu")):
+        puan += 4
+    puan += 3 * sum(1 for k in arama.get("tercih", []) if k in metin)
+    puan -= 6 * sum(1 for k in arama.get("kacin", []) if k in metin)
+    return puan
 
 
 def ses_roller_ornek(rol):
