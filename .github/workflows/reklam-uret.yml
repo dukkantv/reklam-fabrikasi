@@ -7,6 +7,13 @@ on:
         description: "Reklam klasörünün adı (reklamlar/ içindeki, örn: eserim)"
         required: true
         default: "eserim"
+      ornek:
+        description: "Web sitesinde örnek olarak kullanılsın mı? (videoyu depoya da kaydeder)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
 
 jobs:
   uret:
@@ -66,3 +73,16 @@ jobs:
               -F caption="🎬 Dükkan TV: $(basename "$f") hazır" \
               "https://api.telegram.org/bot$TOKEN/sendVideo" | head -c 300
           done
+
+      - name: Örnek olarak depoya kaydet
+        if: github.event.inputs.ornek == 'true'
+        run: |
+          mkdir -p ornekler
+          for f in cikti/*.mp4; do
+            case "$f" in *_sessiz.mp4|*_yaziliyor.mp4) continue;; esac
+            cp "$f" "ornekler/ekonomik_${{ github.event.inputs.klasor }}.mp4"
+          done
+          git config user.name "dukkan-tv-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add ornekler
+          git diff --cached --quiet || (git commit -m "Örnek video: ${{ github.event.inputs.klasor }}" && (git push || (git pull --rebase origin main && git push)))
