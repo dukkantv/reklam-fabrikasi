@@ -134,6 +134,40 @@ def indir(url, hedef):
     return hedef
 
 
+_MODELLER = []
+
+
+def gemini_modelleri():
+    """Google'a hangi modellerin açık olduğunu sorar; en yeni 'flash' modelleri öne alır (ad sabit yazılmaz)."""
+    if _MODELLER:
+        return _MODELLER
+    try:
+        r = requests.get(f"https://generativelanguage.googleapis.com/v1beta/models?key={GEMINI_KEY}&pageSize=200", timeout=60)
+        r.raise_for_status()
+        adlar = [m["name"].split("/", 1)[1] for m in r.json().get("models", [])
+                 if "generateContent" in m.get("supportedGenerationMethods", [])]
+    except Exception as e:
+        print("Model listesi alınamadı:", e)
+        adlar = []
+    yasak = ("image", "tts", "audio", "live", "embedding", "vision", "learnlm", "gemma", "robotics", "computer")
+
+    def surum(ad):
+        m = re.search(r"gemini-(\d+(?:\.\d+)?)", ad)
+        return float(m.group(1)) if m else 0.0
+
+    uygun = [a for a in adlar if a.startswith("gemini") and not any(y in a for y in yasak)]
+    flash = [a for a in uygun if "flash" in a]
+    # sıralama: önce kararlı (preview/exp değil) ve lite olmayan, sonra en yeni sürüm
+    flash.sort(key=lambda a: (("preview" in a or "exp" in a), "lite" in a, -surum(a), a.endswith("latest")))
+    secim = flash[:3] or uygun[:3]
+    for yedek in ["gemini-flash-latest", "gemini-flash-lite-latest"]:
+        if yedek not in secim:
+            secim.append(yedek)
+    print("Kullanılacak Gemini modelleri:", secim)
+    _MODELLER.extend(secim)
+    return _MODELLER
+
+
 def gemini(parcalar, json_mu=True, sicaklik=1.0):
     if not GEMINI_KEY:
         sys.exit("GEMINI_API_KEY gizli anahtarı yok.")
@@ -142,12 +176,15 @@ def gemini(parcalar, json_mu=True, sicaklik=1.0):
     ayar = {"temperature": sicaklik}
     if json_mu:
         ayar["responseMimeType"] = "application/json"
-    for model in ["gemini-2.5-flash", "gemini-2.5-flash-lite", "gemini-2.0-flash"]:
+    for model in gemini_modelleri():
         for d in range(3):
             try:
                 r = requests.post(
                     f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_KEY}",
                     json={"contents": [{"parts": parcalar}], "generationConfig": ayar}, timeout=180)
+                if r.status_code == 404:
+                    print(f"Gemini modeli yok: {model}")
+                    break
                 if r.status_code in (429, 500, 503):
                     raise RuntimeError(f"{r.status_code} {r.text[:200]}")
                 r.raise_for_status()
