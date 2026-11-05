@@ -1,0 +1,32 @@
+{
+  "levent": {
+    "voice_id": "DUnzBkwtjRWXPr6wRbmL",
+    "ad": "Mark - Cartoonish, Funny and Cheerful",
+    "sira": 0,
+    "aciklama": "Great for game characters, cartoons, animations, stories for children,  Fits perfectly for all languages. "
+  },
+  "cemo": {
+    "voice_id": "IuRRIAcbQK5AQk1XevPj",
+    "ad": "Doga - Upbeat and Rich",
+    "sira": 0,
+    "aciklama": "Middle aged British - Turkish voice with an Istanbul accent. This broadcast quality audio data was processed from sample"
+  },
+  "esnaf": {
+    "voice_id": "J17lijyP1BHYcM7ld0Rg",
+    "ad": "Adam - Deep, Professional and Serious",
+    "sira": 0,
+    "aciklama": "Türk male with a thick and strong voice."
+  },
+  "erkek": {
+    "voice_id": "mF7tIc9VLrznhGooGjaT",
+    "ad": "Seyfullah Kartal - Deep and Muffled",
+    "sira": 0,
+    "aciklama": "A professional voice with a full and effective Turkish, Istanbul accent. With its natural intonations and wide range of "
+  },
+  "kadin": {
+    "voice_id": "NNn9dv8zq2kUo7d3JSGG",
+    "ad": "Derya - Dynamic and Friendly Narrator",
+    "sira": 0,
+    "aciklama": "Dynamic and friendly female voice - suitable for storytelling. Perfect for audiobooks and social media trends."
+  }
+}
