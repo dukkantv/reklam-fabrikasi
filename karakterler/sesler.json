@@ -5,7 +5,19 @@
     "denenen": [
       "DUnzBkwtjRWXPr6wRbmL"
     ],
-    "aciklama": "A young Turkish energetic male voice with a clear and dynamic tone , perfect for tutorials, tech reviews and engaging ,c"
+    "aciklama": "A young Turkish energetic male voice with a clear and dynamic tone , perfect for tutorials, tech reviews and engaging ,c",
+    "adaylar": [
+      {
+        "voice_id": "5HEFEBb9WCCpCdgZE77B",
+        "ad": "Eyüp Tulûhan Etker - Deep and Rich",
+        "aciklama": "This voice provides a natural and fluent Turkish speech experience with a native accent. It features a strong, clear, an"
+      },
+      {
+        "voice_id": "tOqnHSMt5y3uRBgH7e8J",
+        "ad": "Yusuf Suratlı - Storyteller",
+        "aciklama": "A young- to middle-aged male voice with a deep, resonant voice. Its timbre is warm, reassuring, and emotionally profound"
+      }
+    ]
   },
   "cemo": {
     "voice_id": "IuRRIAcbQK5AQk1XevPj",
