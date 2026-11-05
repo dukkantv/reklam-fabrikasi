@@ -168,7 +168,26 @@ def gemini_modelleri():
     return _MODELLER
 
 
-def gemini(parcalar, json_mu=True, sicaklik=1.0):
+import threading
+_GEMINI_KILIT = threading.Lock()
+_GEMINI_SON = [0.0]
+GEMINI_ARALIK = float(os.environ.get("GEMINI_ARALIK", "7"))  # ücretsiz kota: istekler arası en az bu kadar saniye
+KOTA_DOLDU = [False]
+
+
+def gemini(parcalar, json_mu=True, sicaklik=1.0, hizli_vazgec=False):
+    """hizli_vazgec=True: kota doluysa uzun uzun deneme, hemen vazgeç (yüz kontrolü için)."""
+    if hizli_vazgec and KOTA_DOLDU[0]:
+        raise RuntimeError("Gemini kotası dolu, kontrol atlandı")
+    with _GEMINI_KILIT:  # istekleri sıraya koy ve aralarına bekleme koy
+        bekle = _GEMINI_SON[0] + GEMINI_ARALIK - time.time()
+        if bekle > 0:
+            time.sleep(bekle)
+        _GEMINI_SON[0] = time.time()
+        return _gemini_istek(parcalar, json_mu, sicaklik, hizli_vazgec)
+
+
+def _gemini_istek(parcalar, json_mu=True, sicaklik=1.0, hizli_vazgec=False):
     if not GEMINI_KEY:
         sys.exit("GEMINI_API_KEY gizli anahtarı yok.")
     if isinstance(parcalar, str):
@@ -185,6 +204,10 @@ def gemini(parcalar, json_mu=True, sicaklik=1.0):
                 if r.status_code == 404:
                     print(f"Gemini modeli yok: {model}")
                     break
+                if r.status_code == 429 and hizli_vazgec:
+                    if "PerDay" in r.text or "per day" in r.text.lower():
+                        KOTA_DOLDU[0] = True
+                    break
                 if r.status_code in (429, 500, 503):
                     raise RuntimeError(f"{r.status_code} {r.text[:200]}")
                 r.raise_for_status()
@@ -194,6 +217,8 @@ def gemini(parcalar, json_mu=True, sicaklik=1.0):
             except Exception as e:
                 print(f"Gemini ({model}) deneme {d + 1}: {str(e)[:200]}")
                 time.sleep(5 * (d + 1))
+    if hizli_vazgec:
+        KOTA_DOLDU[0] = True
     raise RuntimeError("Gemini cevap vermedi")
 
 
@@ -477,6 +502,9 @@ SADECE şu JSON:
   ]}}"""
 
 
+KONTROLSUZ = [0]
+
+
 def tutarlilik_kontrolu(resim, kimler):
     """Gemini'ye karakter kartlarıyla üretilen kareyi karşılaştırtır. Döndürür: (puan, sorun)."""
     if not kimler:
@@ -494,10 +522,11 @@ def tutarlilik_kontrolu(resim, kimler):
                           "character appears twice, if a face is deformed, or if there is any written text/caption "
                           "except a shop sign. Return JSON {\"puan\": 1-10, \"sorun\": \"short English description\"}."}]
     try:
-        c = gemini(parcalar, sicaklik=0.1)
+        c = gemini(parcalar, sicaklik=0.1, hizli_vazgec=True)
         return int(c.get("puan", 10)), c.get("sorun", "")
     except Exception as e:
-        print("Kontrol yapılamadı:", e)
+        print("Kontrol yapılamadı:", str(e)[:120])
+        KONTROLSUZ[0] += 1
         return 10, ""
 
 
@@ -590,7 +619,9 @@ def taslak(klasor, konu, yeniden=""):
     tahmin = tahmini_video_maliyeti(senaryo)
     tg_mesaj(maliyet_ozeti()
              + (f"\n⚠️ Yüzü tam tutmayan planlar: {', '.join(uyarilar)} — 'yeniden' kutusuyla tekrar çizdirebilirsin."
-                if uyarilar else "\n✅ Tüm planlar karakter kartlarıyla uyumlu.")
+                if uyarilar else "\n✅ Kontrol edilen planlar karakter kartlarıyla uyumlu.")
+             + (f"\n👀 {KONTROLSUZ[0]} plan Google kotası yüzünden otomatik kontrol edilemedi, gözle bak."
+                if KONTROLSUZ[0] else "")
              + f"\n\n▶️ Beğendiysen aşama: video. Tahmini video maliyeti ≈ {tahmin:.2f} $ (≈ {tahmin * DOLAR_TL:.0f} TL).")
 
 
