@@ -823,6 +823,8 @@ def video(klasor):
     son = os.path.join(CIKTI, ad + ".mp4")
     calistir("-f", "concat", "-safe", "0", "-i", liste2, "-c", "copy", "-movflags", "+faststart", son)
     print(f"Bölüm hazır: {son} ({sure(son):.0f} sn)")
+    # Bölüm başarıyla bitti: klip önbelleği artık gereksiz, depo şişmesin diye silinir
+    shutil.rmtree(klasor_klip, ignore_errors=True)
     if TOKEN:
         with open(son, "rb") as f:
             tg("sendVideo", dosyalar={"video": f}, supports_streaming="true",
