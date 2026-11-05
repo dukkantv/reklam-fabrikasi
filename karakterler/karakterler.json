@@ -1,0 +1,29 @@
+{
+  "stil": "Pixar-style 3D animated feature film still, soft cinematic lighting, rich detail, expressive cartoon faces, vertical 9:16 frame",
+  "karakterler": {
+    "levent": {
+      "ad": "Levent",
+      "rol": "Dükkan TV muhabiri, ana kahraman. Meraklı, enerjik, iyi kalpli, biraz saf; her dükkâna mikrofonla röportaja girer.",
+      "kaynak": ["levent_yuz.png", "levent_boy.png"],
+      "kostum": "The same young man (same face, same curly brown hair, same proportions). Change ONLY his outfit to: a mustard-yellow (#FFC43D) multi-pocket vest over a red (#D63031) crew-neck t-shirt, cream chino trousers, red sneakers. He holds a small handheld microphone with a yellow cube on it that reads 'DTV'.",
+      "tarif": "a young man with curly brown hair and big friendly eyes, wearing a mustard-yellow multi-pocket vest over a red t-shirt, cream trousers and red sneakers, holding a small microphone with a yellow 'DTV' cube",
+      "ses": "tr-TR-AhmetNeural",
+      "hiz": "+10%",
+      "perde": "+0Hz"
+    },
+    "cemo": {
+      "ad": "Cemo",
+      "rol": "Kameraman, Levent'in yol arkadaşı. Kısa boylu, tombul, kasketli; tembel, sürekli aç, ikram bekler, KASA'dan (bütçeden) sorumludur, kuru espriler yapar.",
+      "kaynak": [],
+      "kostum": "Design a new original cartoon character: a short, chubby Turkish man in his late 30s, round glasses, thick black mustache, grey flat cap (kasket), olive-green bomber jacket over a striped t-shirt, dark jeans, worn brown shoes, an old shoulder-mounted video camera on his shoulder. Friendly but lazy, sleepy eyes. Full body, plain light grey background.",
+      "tarif": "a short chubby man in his late 30s with round glasses, a thick black mustache, a grey flat cap, an olive-green bomber jacket over a striped t-shirt, carrying an old shoulder-mounted video camera",
+      "ses": "tr-TR-AhmetNeural",
+      "hiz": "-4%",
+      "perde": "-18Hz"
+    }
+  },
+  "diger_sesler": {
+    "erkek": { "ses": "tr-TR-AhmetNeural", "hiz": "+0%", "perde": "+12Hz" },
+    "kadin": { "ses": "tr-TR-EmelNeural", "hiz": "+5%", "perde": "+0Hz" }
+  }
+}

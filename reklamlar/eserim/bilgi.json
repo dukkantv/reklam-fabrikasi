@@ -70,5 +70,18 @@
       "efekt": "zil",
       "sure": 1.4
     }
-  ]
+  ],
+  "oto": {
+    "firma": "Eserim Toptan Gıda",
+    "sektor": "Dondurma malzemeleri toptancısı (Bursa Yıldırım)",
+    "esnaf_adi": "Erkan Abi",
+    "esnaf_cinsiyet": "erkek",
+    "esnaf_foto": "erkan.jpg",
+    "dukkan_fotolari": [
+      "depo.jpg"
+    ],
+    "logo": "logo.jpg",
+    "urunler": "Dondurma külahı, dondurma malzemeleri, dondurmacıların ihtiyacı olan her şey (toptan)",
+    "notlar": "Dondurmacılara ve kafelere toptan satış yapar. Esnafın kendi fotoğrafı izinle kullanılıyor."
+  }
 }

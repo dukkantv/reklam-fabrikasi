@@ -22,3 +22,13 @@ Esnaf reklam videolarını otomatik üretir: animasyonlu sahneler + Türkçe ses
 1. Gemini/Kling'de ürettiğin klipleri **sırayla** Dükkan TV Telegram botuna gönder (1. klip önce).
 2. **Actions** → **Bölüm Üret** → klasör adı (örn. `eserim`) → **Run workflow**.
 3. Sistem klipleri bottan alır; `reklamlar/<klasor>/bolum.json` akışına göre başlık kartı, "Birkaç dakika sonra…" kartları ve esnafın bilgi kartıyla birleştirip Telegram'a gönderir. Kullanılan klipler bot kuyruğundan silinir.
+
+## Tam otomatik bölüm (Levent'in Maceraları) — elle klip üretmek YOK
+Gizli anahtarlar: `FAL_KEY` (fal.ai), `GEMINI_API_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
+1. **Actions → Otomatik Bölüm → Run workflow**, aşama: `karakter` (sadece ilk sefer: Levent'in yeni kostümü + Cemo çizilir, Telegram'a gelir).
+2. Aşama: `taslak`, klasör: `eserim`, konu: (isteğe bağlı). Senaryo + 16-20 sahne resmi Telegram'a gelir (~100 TL).
+3. Beğenmediğin sahne varsa aşama: `taslak`, "yeniden" kutusuna `3,7` yaz.
+4. Aşama: `video` → sahneler hareketlendirilir, seslendirilir, altyazı + KASA + esnaf kartı eklenir, ~90-100 sn bölüm Telegram'a gelir.
+- `hepsi` seçilirse onay beklemeden taslak + video birlikte yapılır.
+- Kalite: `seedance-720p` (en ucuz) · `seedance-1080p` · `kling`.
+- Yeni esnaf için `bilgi.json` içine `oto` bölümü ekle (`reklamlar/eserim/bilgi.json` örnek).

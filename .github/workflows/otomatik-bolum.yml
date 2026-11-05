@@ -1,0 +1,115 @@
+name: Otomatik Bölüm
+
+# Levent'in Maceraları — tam otomatik bölüm üretimi (fal.ai + Gemini + edge-tts)
+# Sıra: 1) karakter (bir kez)  2) taslak (senaryo + resimler, ~100 TL)  3) video (~150-400 TL)
+# "hepsi" seçilirse onay beklemeden taslak + video birlikte yapılır.
+
+on:
+  workflow_dispatch:
+    inputs:
+      asama:
+        description: "Ne yapılsın?"
+        required: true
+        type: choice
+        default: taslak
+        options:
+          - taslak
+          - video
+          - hepsi
+          - karakter
+          - karakter-yenile
+      klasor:
+        description: "Esnaf klasörü (reklamlar/ içindeki, örn: eserim)"
+        required: true
+        default: "eserim"
+      konu:
+        description: "Bölümün konusu (boş bırakırsan yapay zekâ seçer)"
+        required: false
+        default: ""
+      yeniden:
+        description: "Sadece bu sahneleri yeniden çiz (örn: 3,7) — taslak aşamasında"
+        required: false
+        default: ""
+      kalite:
+        description: "Video kalitesi"
+        required: true
+        type: choice
+        default: "seedance-720p"
+        options:
+          - seedance-720p
+          - seedance-1080p
+          - kling
+
+permissions:
+  contents: write
+
+concurrency:
+  group: otomatik-bolum-${{ github.event.inputs.klasor }}
+
+jobs:
+  uret:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      FAL_KEY: ${{ secrets.FAL_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Araçları kur
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          sudo apt-get install -y fonts-inter fonts-noto-color-emoji || echo "Yazı tipi kurulamadı, yedek kullanılacak"
+          pip install edge-tts requests
+          npm install playwright@1.47.2
+          npx playwright install --with-deps chromium
+
+      - name: Kalite ayarı
+        run: |
+          case "${{ github.event.inputs.kalite }}" in
+            seedance-1080p) echo "VIDEO_MODEL=seedance" >> $GITHUB_ENV; echo "VIDEO_COZUNURLUK=1080p" >> $GITHUB_ENV;;
+            kling)          echo "VIDEO_MODEL=kling"    >> $GITHUB_ENV; echo "VIDEO_COZUNURLUK=1080p" >> $GITHUB_ENV;;
+            *)              echo "VIDEO_MODEL=seedance" >> $GITHUB_ENV; echo "VIDEO_COZUNURLUK=720p"  >> $GITHUB_ENV;;
+          esac
+
+      - name: Karakterler
+        if: startsWith(github.event.inputs.asama, 'karakter')
+        run: python oto_bolum.py karakter ${{ github.event.inputs.asama == 'karakter-yenile' && 'yenile' || '' }}
+
+      - name: Taslak (senaryo + sahne resimleri)
+        if: github.event.inputs.asama == 'taslak' || github.event.inputs.asama == 'hepsi'
+        env:
+          KONU: ${{ github.event.inputs.konu }}
+          YENIDEN: ${{ github.event.inputs.yeniden }}
+        run: python oto_bolum.py taslak "${{ github.event.inputs.klasor }}" "$KONU" "$YENIDEN"
+
+      - name: Resimleri depoya kaydet
+        if: always()
+        run: |
+          git config user.name "dukkan-tv-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add karakterler reklamlar
+          git diff --cached --quiet || (git commit -m "Otomatik bölüm: ${{ github.event.inputs.asama }} / ${{ github.event.inputs.klasor }}" && git push)
+
+      - name: Video (hareketlendir + seslendir + birleştir)
+        if: github.event.inputs.asama == 'video' || github.event.inputs.asama == 'hepsi'
+        run: python oto_bolum.py video "${{ github.event.inputs.klasor }}"
+
+      - name: Videoyu indirilebilir olarak sakla
+        if: github.event.inputs.asama == 'video' || github.event.inputs.asama == 'hepsi'
+        uses: actions/upload-artifact@v4
+        with:
+          name: otomatik-bolum-${{ github.event.inputs.klasor }}
+          path: cikti/Levent_*.mp4
+          retention-days: 30
