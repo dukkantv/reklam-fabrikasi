@@ -1,0 +1,148 @@
+{
+  "baslik": "Dükkan TV Bursa Çıkarması",
+  "planlar": [
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "[sighs] Abi karnım sırtıma yapıştı, Bursa sokaklarında açlıktan bayılacağız şimdi...",
+      "duygu": "sighs",
+      "karakterler": [
+        "cemo",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Vertical 9:16 frame, medium close-up of Cemo facing the camera, mouth clearly visible, holding a video camera on his shoulder, tired and hungry expression, historic Bursa street slightly blurred behind him.",
+      "kasa": 50
+    },
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "[excited] Arkadaşlar bakın bakın! Karşımızda dumanı tüten Bursa simidi ve koca bir lezzet durağı var!",
+      "duygu": "excited",
+      "karakterler": [
+        "levent",
+        "cemo"
+      ],
+      "dukkan": false,
+      "gorsel": "Vertical 9:16 frame, medium close-up of Levent facing the camera, mouth clearly visible, holding a microphone eagerly, wide sparkling eyes and energetic smile, historic square blurred in the background.",
+      "kasa": null
+    },
+    {
+      "tip": "aksiyon",
+      "karakterler": [
+        "levent",
+        "cemo",
+        "esnaf"
+      ],
+      "dukkan": true,
+      "gorsel": "Vertical 9:16 frame, wide shot showing a traditional red glass simit cart with freshly baked sesame simits inside, Ulu Cami and snowy Uludağ visible in the Bursa background, the shop owner waiting patiently.",
+      "hareket": "Levent and Cemo quickly approach the red simit cart, steaming hot simits visible through the clean glass.",
+      "sure": 3,
+      "kasa": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "[sighs] Hoş geldiniz evlatlar... Simitler nar gibi çıtır ama sokakta in cin top oynuyor bugün.",
+      "duygu": "sighs",
+      "karakterler": [
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": true,
+      "gorsel": "Vertical 9:16 frame, medium close-up of the shop owner facing the camera, mouth clearly visible, kind and slightly worried expression, red glass simit cart details behind him.",
+      "kasa": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "Abi simitler efsane kokuyor, paramız yetiyorsa iki tane kapalım hemen.",
+      "duygu": null,
+      "karakterler": [
+        "cemo",
+        "levent"
+      ],
+      "dukkan": true,
+      "gorsel": "Vertical 9:16 frame, medium close-up of Cemo facing the camera, mouth clearly visible, staring hungrily at the food, counting coins in his hand.",
+      "kasa": 20
+    },
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "[excited] Dur Cemo! Biz Dükkan TV'yiz! Hasan Amca'ya öyle bir video çekelim ki tüm Bursa buraya aksın!",
+      "duygu": "excited",
+      "karakterler": [
+        "levent",
+        "cemo",
+        "esnaf"
+      ],
+      "dukkan": true,
+      "gorsel": "Vertical 9:16 frame, medium close-up of Levent facing the camera, mouth clearly visible, eyes glowing with inspiration as he points up his microphone like a magic wand.",
+      "kasa": null
+    },
+    {
+      "tip": "aksiyon",
+      "karakterler": [
+        "levent",
+        "cemo",
+        "esnaf"
+      ],
+      "dukkan": true,
+      "gorsel": "Vertical 9:16 frame, dynamic split perspective showing filming in progress with smartphone flashlights, steam rising from warm simit being cracked open.",
+      "hareket": "Levent energetically directs with comic gestures while Cemo films cinematic slow-motion angles of the shop owner proudly holding warm simits.",
+      "sure": 3,
+      "kasa": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "[surprised] Evlatlar ne yaptınız siz öyle! İnternette gören arabanın önünde sıraya girdi!",
+      "duygu": "surprised",
+      "karakterler": [
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": true,
+      "gorsel": "Vertical 9:16 frame, medium close-up of the shop owner facing the camera, mouth clearly visible, hands on cheeks in happy disbelief, bright cheerful smile.",
+      "kasa": null
+    },
+    {
+      "tip": "aksiyon",
+      "karakterler": [
+        "esnaf",
+        "levent",
+        "cemo"
+      ],
+      "dukkan": true,
+      "gorsel": "Vertical 9:16 frame, high angle shot showing a huge, colorful, smiling crowd waiting in a long winding line in front of the red simit cart in Bursa.",
+      "hareket": "Dozens of cheerful locals wave phones showing the video and queue up enthusiastically around the cart.",
+      "sure": 3,
+      "kasa": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "[sighs] Abi reklam tuttuktan sonra bize simit kalmadı ya, bütçe kurtuldu ama ben yine açım...",
+      "duygu": "sighs",
+      "karakterler": [
+        "cemo",
+        "levent"
+      ],
+      "dukkan": true,
+      "gorsel": "Vertical 9:16 frame, medium close-up of Cemo facing the camera, mouth clearly visible, holding an empty paper bag with a disappointed, comic pout.",
+      "kasa": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "[excited] Senin dükkânın da bir videoyu hak ediyor! Dükkan TV'yi takip edin, sıradaki yıldız siz olun!",
+      "duygu": "excited",
+      "karakterler": [
+        "levent"
+      ],
+      "dukkan": true,
+      "gorsel": "Vertical 9:16 frame, medium close-up of Levent facing the camera, mouth clearly visible, winking cheerfully and pointing directly to the viewer with his microphone, Bursa backdrop glowing in sunlight.",
+      "kasa": null
+    }
+  ]
+}
