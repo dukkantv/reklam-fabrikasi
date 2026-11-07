@@ -548,21 +548,26 @@ def konusan_ad(p):
     return KAR[p["kim"]]["ad"] if p.get("kim") in KAR else "the shop owner"
 
 
-def tutarlilik_kontrolu(resim, kimler, konusan=None):
+def tutarlilik_kontrolu(resim, kimler, konusan=None, esnaf_ref=None, esnaf_tarif=""):
     """Gemini'ye karakter kartlarıyla üretilen kareyi karşılaştırtır. Döndürür: (puan, sorun).
     Konuşma planında karede konuşandan başka yüz/ağız görünürse düşük puan verir (dudak senkronu karışmasın)."""
-    if not kimler and not konusan:
+    if not kimler and not konusan and not esnaf_ref:
         return 10, ""
     parcalar = [{"text": "Reference character sheets:"}]
     for kid in kimler:
         parcalar += [{"text": f"{KAR[kid]['ad']}:"},
                      {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(
                          open(kucult(karakter_karti(kid), 768), "rb").read()).decode()}}]
+    if esnaf_ref:  # esnaf da her sahnede aynı olmalı (bıyık, kep, yelek, yüz)
+        parcalar += [{"text": f"The shop owner ({esnaf_tarif}):"},
+                     {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(
+                         open(kucult(esnaf_ref, 768), "rb").read()).decode()}}]
     parcalar += [{"text": "Generated frame:"},
                  {"inline_data": {"mime_type": "image/jpeg",
                                   "data": base64.b64encode(open(kucult(resim, 768), "rb").read()).decode()}},
                  {"text": "Compare each named character in the generated frame with their reference sheet: face shape, "
-                          "eyes, nose, hair, mustache/glasses, outfit and colors, body proportions. Also fail if a "
+                          "eyes, nose, hair, facial hair (a mustache present or ABSENT must match exactly), "
+                          "glasses, headwear, outfit and colors, body proportions. Also fail if a "
                           "character appears twice, if a face is deformed, or if there is any written text/caption "
                           "except a shop sign."
                           + (f" This is a LIP-SYNC dialogue shot: count the faces whose mouth is visible. Exactly ONE "
@@ -621,7 +626,8 @@ def taslak(klasor, konu, yeniden=""):
                 tarif.append("the shop owner is seen ONLY from behind, his face is NOT visible")
             if e["esnaf_foto"]:
                 refs.append(os.path.join(kok, e["esnaf_foto"]))
-                tarif.append(f"the shop owner = the person in reference image {len(refs)}, as a Pixar-style 3D cartoon")
+                tarif.append(f"the shop owner = the person in reference image {len(refs)}, as a Pixar-style 3D cartoon"
+                             + (f" ({e['esnaf_tarif']})" if e["esnaf_tarif"] else ""))
             elif e["esnaf_tarif"]:
                 tarif.append(f"the shop owner is {e['esnaf_tarif']}")
         if p.get("dukkan"):
@@ -654,7 +660,9 @@ def taslak(klasor, konu, yeniden=""):
             harcama["resim"] += 1
             aday = os.path.join(CIKTI, f"aday_{no:02d}_{d}.jpg")
             indir(sonuc["images"][0]["url"], aday)
-            puan, sorun = tutarlilik_kontrolu(aday, gorunen, konusan_ad(p))
+            esnaf_ref = (os.path.join(kok, e["esnaf_foto"])
+                         if e["esnaf_foto"] and "esnaf" in p.get("karakterler", []) else None)
+            puan, sorun = tutarlilik_kontrolu(aday, gorunen, konusan_ad(p), esnaf_ref, e["esnaf_tarif"])
             print(f"Plan {no} deneme {d + 1}: tutarlılık {puan}/10 {sorun}")
             if puan > en_iyi[0]:
                 en_iyi = (puan, aday)
