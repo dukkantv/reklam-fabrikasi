@@ -81,10 +81,23 @@ def sure(dosya):
                                           "-of", "csv=p=0", dosya]).strip())
 
 
+_KUCULT_KILIT = threading.Lock()
+_KUCULT_HAZIR = {}
+
+
 def kucult(yol, en=1024):
-    gecici = os.path.join(CIKTI, "ref_" + re.sub(r"\W", "_", yol[-60:]) + ".jpg")
-    calistir("-i", yol, "-vf", f"scale='min({en},iw)':-2", "-q:v", "3", gecici)
-    return gecici
+    # Birkaç plan aynı anda çizildiği için aynı resmi (ör. logo) aynı anda küçültmeye çalışabilir;
+    # yarım yazılmış dosya fal.ai'ye gidip "Failed to load the image" hatası veriyordu.
+    # Bu yüzden her resim bir kez, kilit altında küçültülür ve sonra hazır dosya kullanılır.
+    anahtar = (os.path.abspath(yol), en, os.path.getmtime(yol))
+    with _KUCULT_KILIT:
+        gecici = _KUCULT_HAZIR.get(anahtar)
+        if gecici and os.path.exists(gecici):
+            return gecici
+        gecici = os.path.join(CIKTI, f"ref_{en}_" + re.sub(r"\W", "_", yol[-60:]) + ".jpg")
+        calistir("-i", yol, "-vf", f"scale='min({en},iw)':-2", "-pix_fmt", "yuvj420p", "-q:v", "3", gecici)
+        _KUCULT_HAZIR[anahtar] = gecici
+        return gecici
 
 
 def veri_uri(yol, tur="image/jpeg"):
