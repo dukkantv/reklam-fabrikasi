@@ -488,6 +488,8 @@ def esnaf_bilgisi(klasor):
         # False ise logo sahnelere çizilmez (yalnızca kapanış kartında görünür)
         "logo_sahnede": oto.get("logo_sahnede", True),
         "kelime": oto.get("kelime_siniri", 18),
+        # False ise KASA sayacı videoya yazılmaz (ör. Dükkan TV'nin kendi reklamı)
+        "kasa_goster": oto.get("kasa_goster", True),
     }
 
 
@@ -788,6 +790,44 @@ def efekt_uret(tarif, sure_sn, oto):
         return None
 
 
+def klip(klasor, liste):
+    """Sadece verilen planların kliplerini (ve senaryodaki tüm ses efektlerini) üretip önbelleğe yazar; montaj yapmaz.
+    Örn: python oto_bolum.py klip dukkantv 4,5,6  -> düzeltme için en ucuz yol."""
+    kok, bilgi, e = esnaf_bilgisi(klasor)
+    oto = os.path.join(kok, "oto")
+    os.makedirs(CIKTI, exist_ok=True)
+    senaryo = json.load(open(os.path.join(oto, "senaryo.json"), encoding="utf-8"))
+    planlar = senaryo["planlar"]
+    klasor_klip = os.path.join(oto, "klipler")
+    istenen = [int(x) for x in re.findall(r"\d+", liste)] or list(range(1, len(planlar) + 1))
+    hatalar = []
+
+    def uret(no):
+        p = planlar[no - 1]
+        resim = os.path.join(oto, f"plan_{no:02d}.jpg")
+        anahtar = onbellek_anahtari(p, resim)
+        if onbellekten(klasor_klip, no, anahtar):
+            print(f"Plan {no} klibi zaten hazır (ücret yok)")
+            return
+        fn = konusma_klibi if p["tip"] == "konusma" else aksiyon_klibi
+        try:
+            onbellege_yaz(klasor_klip, no, anahtar, fn(no, p, resim, CIKTI))
+            print(f"Plan {no} klibi hazır ({p['tip']})")
+        except Exception as hata:
+            print(f"Plan {no} üretilemedi: {str(hata)[:200]}")
+            hatalar.append(no)
+
+    with ThreadPoolExecutor(AYNI_ANDA) as h:
+        list(h.map(uret, istenen))
+    for p in planlar:
+        if p.get("efekt"):
+            efekt_uret(p["efekt"], p.get("sure", 3) if p["tip"] == "aksiyon" else 4, oto)
+    tg_mesaj(f"🎞 Klipler hazır: {istenen}" + (f"\n⚠️ Üretilemeyen: {sorted(hatalar)}" if hatalar else "")
+             + "\n" + maliyet_ozeti())
+    if hatalar:
+        sys.exit(1)
+
+
 def ass_zaman(t):
     return f"{int(t // 3600)}:{int(t % 3600 // 60):02d}:{t % 60:05.2f}"
 
@@ -856,7 +896,7 @@ def video(klasor):
         else:
             calistir("-i", klip, "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-filter_complex", vf,
                      "-map", "[v]", "-map", "1:a", "-t", f"{d:.3f}", *VIDEO_AYAR, *SES_AYAR, cikis)
-        if p.get("kasa") is not None:
+        if p.get("kasa") is not None and e["kasa_goster"]:
             son_kasa = p["kasa"]
         if son_kasa is not None:
             ass.append(f"Dialogue: 1,{ass_zaman(zaman)},{ass_zaman(zaman + d)},Kasa,,0,0,0,,"
@@ -915,8 +955,7 @@ def video(klasor):
     except Exception as hata:
         print("Müzik eklenemedi, müziksiz devam:", hata)
     print(f"Bölüm hazır: {son} ({sure(son):.0f} sn)")
-    # Bölüm başarıyla bitti: klip önbelleği artık gereksiz, depo şişmesin diye silinir
-    shutil.rmtree(klasor_klip, ignore_errors=True)
+    # Klip önbelleği SİLİNMEZ: sonradan bir sahne/altyazı/müzik düzeltmesi gerekirse tekrar ödeme yapılmasın.
     if TOKEN:
         gonderilecek = son
         if os.path.getsize(son) > 45 * 1024 * 1024:  # Telegram botları en fazla 50 MB gönderebilir
@@ -946,5 +985,7 @@ if __name__ == "__main__":
         taslak(arg[0], arg[1], arg[2])
     elif komut == "video":
         video(arg[0])
+    elif komut == "klip":
+        klip(arg[0], arg[1])
     else:
         sys.exit("Komut: karakter | ses | taslak | video")

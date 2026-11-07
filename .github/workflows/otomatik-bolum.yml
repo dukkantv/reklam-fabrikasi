@@ -16,6 +16,7 @@ on:
         options:
           - taslak
           - video
+          - klip
           - hepsi
           - karakter
           - karakter-yenile
@@ -29,7 +30,7 @@ on:
         required: false
         default: ""
       yeniden:
-        description: "Taslakta: yeniden çizilecek planlar (örn 3,7) · Seste: değişecek roller (örn cemo)"
+        description: "Taslakta: yeniden çizilecek planlar (örn 3,7) · Klipte: üretilecek planlar · Seste: değişecek roller"
         required: false
         default: ""
       kalite:
@@ -103,12 +104,18 @@ jobs:
           git add karakterler reklamlar
           git diff --cached --quiet || (git commit -m "Otomatik bölüm: ${{ github.event.inputs.asama }} / ${{ github.event.inputs.klasor }}" && (git push || (git pull --rebase origin main && git push)))
 
+      - name: Sadece seçili planların klipleri (montajsız, düzeltme için)
+        if: github.event.inputs.asama == 'klip'
+        env:
+          YENIDEN: ${{ github.event.inputs.yeniden }}
+        run: python oto_bolum.py klip "${{ github.event.inputs.klasor }}" "$YENIDEN"
+
       - name: Video (hareketlendir + seslendir + birleştir)
         if: github.event.inputs.asama == 'video' || github.event.inputs.asama == 'hepsi'
         run: python oto_bolum.py video "${{ github.event.inputs.klasor }}"
 
       - name: Klipleri depoya kaydet (tekrar ödeme olmasın)
-        if: always() && (github.event.inputs.asama == 'video' || github.event.inputs.asama == 'hepsi')
+        if: always() && (github.event.inputs.asama == 'video' || github.event.inputs.asama == 'hepsi' || github.event.inputs.asama == 'klip')
         run: |
           git config user.name "dukkan-tv-bot"
           git config user.email "actions@users.noreply.github.com"

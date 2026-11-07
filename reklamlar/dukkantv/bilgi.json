@@ -21,8 +21,9 @@
     "toplam_sure": "35-45",
     "plan_sayisi": "10-13",
     "dukkanda_en_az": 4,
-    "dukkan_adi": "Hasan Amca'nın kırmızı simit arabası (sokakta, Bursa)",
+    "dukkan_adi": "Hasan Amca's red glass simit cart on a historic cobblestone street in Bursa (outdoors, not a shop interior)",
     "logo_sahnede": false,
-    "kelime_siniri": 10
+    "kelime_siniri": 10,
+    "kasa_goster": false
   }
 }

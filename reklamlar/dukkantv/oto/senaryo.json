@@ -12,7 +12,8 @@
       ],
       "dukkan": false,
       "gorsel": "Vertical 9:16 frame, medium close-up of Cemo facing the camera, mouth clearly visible, holding a video camera on his shoulder, tired and hungry expression, historic Bursa street slightly blurred behind him.",
-      "kasa": 50
+      "kasa": null,
+      "efekt": null
     },
     {
       "tip": "konusma",
@@ -25,7 +26,8 @@
       ],
       "dukkan": false,
       "gorsel": "Vertical 9:16 frame, medium close-up of Levent facing the camera, mouth clearly visible, holding a microphone eagerly, wide sparkling eyes and energetic smile, historic square blurred in the background.",
-      "kasa": null
+      "kasa": null,
+      "efekt": null
     },
     {
       "tip": "aksiyon",
@@ -38,7 +40,8 @@
       "gorsel": "Vertical 9:16 frame, wide shot showing a traditional red glass simit cart with freshly baked sesame simits inside, Ulu Cami and snowy Uludağ visible in the Bursa background, the shop owner waiting patiently.",
       "hareket": "Levent and Cemo quickly approach the red simit cart, steaming hot simits visible through the clean glass.",
       "sure": 3,
-      "kasa": null
+      "kasa": null,
+      "efekt": "footsteps on cobblestones and a calm street ambience with distant birds"
     },
     {
       "tip": "konusma",
@@ -46,12 +49,12 @@
       "metin": "[sighs] Hoş geldiniz evlatlar... Simitler nar gibi çıtır ama sokakta in cin top oynuyor bugün.",
       "duygu": "sighs",
       "karakterler": [
-        "esnaf",
-        "levent"
+        "esnaf"
       ],
       "dukkan": true,
-      "gorsel": "Vertical 9:16 frame, medium close-up of the shop owner facing the camera, mouth clearly visible, kind and slightly worried expression, red glass simit cart details behind him.",
-      "kasa": null
+      "gorsel": "Vertical 9:16 frame, medium close-up of the shop owner standing behind his red glass simit cart full of sesame simits, facing the camera, mouth clearly visible, kind and slightly worried expression, the empty quiet cobblestone street behind him. Levent and Cemo are NOT in the frame.",
+      "kasa": null,
+      "efekt": null
     },
     {
       "tip": "konusma",
@@ -59,12 +62,12 @@
       "metin": "Abi simitler efsane kokuyor, paramız yetiyorsa iki tane kapalım hemen.",
       "duygu": null,
       "karakterler": [
-        "cemo",
-        "levent"
+        "cemo"
       ],
       "dukkan": true,
-      "gorsel": "Vertical 9:16 frame, medium close-up of Cemo facing the camera, mouth clearly visible, staring hungrily at the food, counting coins in his hand.",
-      "kasa": 20
+      "gorsel": "Vertical 9:16 frame, medium close-up of Cemo facing the camera, mouth clearly visible, staring hungrily at the simits, counting a few coins in his palm, video camera on his shoulder. Outdoors on a historic cobblestone street in Bursa, right next to Hasan Amca's red glass simit cart; no shop interior, no shelves. Nobody else's face is visible.",
+      "kasa": null,
+      "efekt": null
     },
     {
       "tip": "konusma",
@@ -73,12 +76,12 @@
       "duygu": "excited",
       "karakterler": [
         "levent",
-        "cemo",
-        "esnaf"
+        "cemo"
       ],
       "dukkan": true,
-      "gorsel": "Vertical 9:16 frame, medium close-up of Levent facing the camera, mouth clearly visible, eyes glowing with inspiration as he points up his microphone like a magic wand.",
-      "kasa": null
+      "gorsel": "Vertical 9:16 frame, medium close-up of Levent facing the camera, mouth clearly visible, excited inspired expression, raising his microphone like a magic wand. Outdoors on a historic cobblestone street in Bursa, right next to Hasan Amca's red glass simit cart; no shop interior, no shelves. Cemo is seen only from behind at the edge of the frame; the shop owner is not visible.",
+      "kasa": null,
+      "efekt": null
     },
     {
       "tip": "aksiyon",
@@ -88,10 +91,11 @@
         "esnaf"
       ],
       "dukkan": true,
-      "gorsel": "Vertical 9:16 frame, dynamic split perspective showing filming in progress with smartphone flashlights, steam rising from warm simit being cracked open.",
-      "hareket": "Levent energetically directs with comic gestures while Cemo films cinematic slow-motion angles of the shop owner proudly holding warm simits.",
+      "gorsel": "Vertical 9:16 frame, single wide shot (NOT split, no panels) on the historic Bursa street: the shop owner proudly holds up a warm simit with steam rising, beside his red glass simit cart, while Cemo films him with his shoulder camera and Levent gestures excitedly next to them.",
+      "hareket": "Levent energetically directs with comic gestures while Cemo films the shop owner, who proudly lifts a steaming warm simit and smiles at the camera.",
       "sure": 3,
-      "kasa": null
+      "kasa": null,
+      "efekt": "camera shutter clicks and a cheerful outdoor street ambience"
     },
     {
       "tip": "konusma",
@@ -99,12 +103,12 @@
       "metin": "[surprised] Evlatlar ne yaptınız siz öyle! İnternette gören arabanın önünde sıraya girdi!",
       "duygu": "surprised",
       "karakterler": [
-        "esnaf",
-        "levent"
+        "esnaf"
       ],
       "dukkan": true,
-      "gorsel": "Vertical 9:16 frame, medium close-up of the shop owner facing the camera, mouth clearly visible, hands on cheeks in happy disbelief, bright cheerful smile.",
-      "kasa": null
+      "gorsel": "Vertical 9:16 frame, medium close-up of the shop owner facing the camera, mouth clearly visible, hands on his cheeks in happy disbelief, bright cheerful smile, his red glass simit cart beside him on the cobblestone street, a long queue of people seen ONLY from behind in the blurred background. Levent and Cemo are NOT in the frame.",
+      "kasa": null,
+      "efekt": null
     },
     {
       "tip": "aksiyon",
@@ -114,10 +118,11 @@
         "cemo"
       ],
       "dukkan": true,
-      "gorsel": "Vertical 9:16 frame, high angle shot showing a huge, colorful, smiling crowd waiting in a long winding line in front of the red simit cart in Bursa.",
+      "gorsel": "Vertical 9:16 frame, high angle wide shot of a long, happy queue of local people in front of Hasan Amca's red glass simit cart on a historic cobblestone street in Bursa, Ulu Cami minarets in the background, the shop owner handing out simits, Levent and Cemo watching proudly at the side.",
       "hareket": "Dozens of cheerful locals wave phones showing the video and queue up enthusiastically around the cart.",
       "sure": 3,
-      "kasa": null
+      "kasa": null,
+      "efekt": "lively happy crowd chatter on a city street"
     },
     {
       "tip": "konusma",
@@ -125,24 +130,25 @@
       "metin": "[sighs] Abi reklam tuttuktan sonra bize simit kalmadı ya, bütçe kurtuldu ama ben yine açım...",
       "duygu": "sighs",
       "karakterler": [
-        "cemo",
-        "levent"
+        "cemo"
       ],
       "dukkan": true,
-      "gorsel": "Vertical 9:16 frame, medium close-up of Cemo facing the camera, mouth clearly visible, holding an empty paper bag with a disappointed, comic pout.",
-      "kasa": null
+      "gorsel": "Vertical 9:16 frame, medium close-up of Cemo facing the camera, mouth clearly visible, holding an empty paper bag with a disappointed comic pout, video camera on his shoulder, the red simit cart and a busy queue blurred behind him with everyone facing away from the camera.",
+      "kasa": null,
+      "efekt": null
     },
     {
       "tip": "konusma",
       "kim": "levent",
-      "metin": "[excited] Senin dükkânın da bir videoyu hak ediyor! Dükkan TV'yi takip edin, sıradaki yıldız siz olun!",
+      "metin": "[excited] Senin dükkânın da bir videoyu hak ediyor! Dükkan TV'yi takip et, sıradaki yıldız sen ol!",
       "duygu": "excited",
       "karakterler": [
         "levent"
       ],
       "dukkan": true,
       "gorsel": "Vertical 9:16 frame, medium close-up of Levent facing the camera, mouth clearly visible, winking cheerfully and pointing directly to the viewer with his microphone, Bursa backdrop glowing in sunlight.",
-      "kasa": null
+      "kasa": null,
+      "efekt": null
     }
   ]
 }
