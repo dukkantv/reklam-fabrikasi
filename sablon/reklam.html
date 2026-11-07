@@ -73,8 +73,9 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#111;font-family
   <div class="c" id="s5logo" style="top:170px"><div style="display:inline-block;background:#fff;border-radius:30px;padding:20px 26px"><img id="s5logoimg" style="width:840px;max-height:420px;object-fit:contain;display:block"></div></div>
   <div class="c big" id="s5t" style="top:720px;font-size:66px;color:#fff"></div>
   <div class="card" id="s5card" style="top:960px;padding:40px 50px">
-    <div class="row"><div class="ico">📍</div><div id="k_adres"></div></div>
-    <div class="row"><div class="ico">☎</div><div id="k_tel" style="font-weight:900;font-size:58px"></div></div>
+    <div class="row" id="k_adresrow"><div class="ico">📍</div><div id="k_adres"></div></div>
+    <div class="row" id="k_telrow"><div class="ico">☎</div><div id="k_tel" style="font-weight:900;font-size:58px"></div></div>
+    <div class="row" id="k_sosyalrow" style="display:none"><div class="ico">📱</div><div id="k_sosyal"></div></div>
     <div class="row" id="k_webrow"><div class="ico" style="font-size:24px">www</div><div id="k_web"></div></div>
   </div>
   <div class="c big" id="s5s" style="top:1480px;font-size:72px;color:#fff"></div>
@@ -90,16 +91,19 @@ const $=id=>document.getElementById(id);
 window.yukle=function(D,klasor){
   document.documentElement.style.setProperty('--vurgu',D.renk||'#e3121b');
   const a=D.sahne1,b=D.sahne2,c=D.sahne3,d=D.sahne4,k=D.kart;
-  $("s1").style.background=`radial-gradient(circle at 50% 30%,${a.arka1||'#ffd34d'},${a.arka2||'#ff9a1f'} 70%)`;
+  // Sahne 1-4 bilgileri yoksa (ör. sadece kapanış kartı kullanılıyorsa) atlanır
+  if(a){$("s1").style.background=`radial-gradient(circle at 50% 30%,${a.arka1||'#ffd34d'},${a.arka2||'#ff9a1f'} 70%)`;
   $("s1a").innerHTML=a.ust; $("s1b").innerHTML=a.alt;
-  if(a.ikon==="dondurma"){$("s1cone").style.display="block"} else {$("s1emoji").style.display="block";$("s1emoji").textContent=a.ikon||"🏪"}
-  $("s2kutu").innerHTML=b.kutu; $("s2empty").innerHTML=b.bos||""; $("s2t").innerHTML=b.baslik; $("s2s").innerHTML=b.alt;
-  $("s3a").innerHTML=c.ust; $("s3kisi").innerHTML=c.kisi; $("s3firma").innerHTML=c.firma_kisa||""; $("s3b").innerHTML=c.baslik;
-  $("s3foto").src=klasor+"/"+c.foto;
-  $("s4img").src=klasor+"/"+d.foto; $("s4a").innerHTML=d.ust; $("s4b").innerHTML=d.alt; $("s4damga").innerHTML=d.damga||"";
-  if(!d.damga) $("s4c").style.display="none";
+  if(a.ikon==="dondurma"){$("s1cone").style.display="block"} else {$("s1emoji").style.display="block";$("s1emoji").textContent=a.ikon||"🏪"}}
+  if(b){$("s2kutu").innerHTML=b.kutu; $("s2empty").innerHTML=b.bos||""; $("s2t").innerHTML=b.baslik; $("s2s").innerHTML=b.alt;}
+  if(c){$("s3a").innerHTML=c.ust; $("s3kisi").innerHTML=c.kisi; $("s3firma").innerHTML=c.firma_kisa||""; $("s3b").innerHTML=c.baslik;
+  $("s3foto").src=klasor+"/"+c.foto;}
+  if(d){$("s4img").src=klasor+"/"+d.foto; $("s4a").innerHTML=d.ust; $("s4b").innerHTML=d.alt; $("s4damga").innerHTML=d.damga||"";
+  if(!d.damga) $("s4c").style.display="none";}
   $("s5logoimg").src=klasor+"/"+k.logo; $("s5t").innerHTML=k.slogan1; $("s5s").innerHTML=k.slogan2;
-  $("k_adres").innerHTML=k.adres; $("k_tel").innerHTML=k.telefon;
+  if(k.adres) $("k_adres").innerHTML=k.adres; else $("k_adresrow").style.display="none";
+  if(k.telefon) $("k_tel").innerHTML=k.telefon; else $("k_telrow").style.display="none";
+  if(k.sosyal){$("k_sosyal").innerHTML=k.sosyal; $("k_sosyalrow").style.display="";}
   if(k.web) $("k_web").innerHTML=k.web; else $("k_webrow").style.display="none";
 };
 

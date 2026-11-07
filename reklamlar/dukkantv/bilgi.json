@@ -1,0 +1,25 @@
+{
+  "dosya_adi": "DukkanTV_Tanitim",
+  "renk": "#D63031",
+  "kart": {
+    "logo": "logo.png",
+    "slogan1": "Dükkânınıza<br><span class=\"vurgu\">reklam videosu</span>",
+    "adres": "",
+    "telefon": "",
+    "sosyal": "TikTok · Instagram: <b>@dukkan.tv</b><br>YouTube: <b>@dukkantvstudio</b>",
+    "web": "dukkantv.github.io",
+    "slogan2": "Senin dükkânın da<br><span class=\"vurgu\">bir videoyu hak ediyor!</span>"
+  },
+  "oto": {
+    "firma": "Dükkan TV",
+    "sektor": "Esnafa kısa reklam videosu hazırlayan Bursa'daki tanıtım kanalı. Bu bölüm Dükkan TV'nin KENDİ tanıtımı; hikâyedeki esnaf hayali bir simitçidir, gerçek bir işletme değildir.",
+    "esnaf_adi": "Hasan Amca",
+    "esnaf_cinsiyet": "erkek",
+    "esnaf_tarif": "Hayali, güler yüzlü, tombul, orta yaşlı Bursalı simitçi; beyaz simitçi kepi, beyaz gömlek üstüne kırmızı yelek, kırmızı camlı simit arabası.",
+    "urunler": "Hikâyedeki simitçi: taze simit ve sıcak çay. Dükkan TV: esnafa özel komik reklam videosu, TikTok/Instagram/YouTube'da paylaşım.",
+    "notlar": "Konu: Bursa'da (Ulu Cami, Uludağ manzarası) simitçi Hasan Amca'nın simitleri en tazesi ama kimse bilmiyor. Levent ile Cemo onun için kısa bir reklam videosu çeker; ertesi gün arabanın önünde kuyruk olur. Son konuşmada Levent kameraya dönüp izleyiciye 'Senin dükkânın da bir videoyu hak ediyor, Dükkan TV'yi takip et!' gibi bir cümle söylesin. Telefon numarası ve fiyat SÖYLENMEYECEK; sadece Dükkan TV adı, site ve hesaplar.",
+    "toplam_sure": "35-45",
+    "plan_sayisi": "10-13",
+    "dukkanda_en_az": 4
+  }
+}

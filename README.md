@@ -33,3 +33,9 @@ Gizli anahtarlar: `FAL_KEY`, `GEMINI_API_KEY`, `ELEVENLABS_API_KEY`, `TELEGRAM_B
 4. `video`: konuşan planlar = karakterin sabit sesi + Kling AI Avatar ile birebir dudak senkronu; aksiyon planları = Seedance. Altyazı, KASA, başlık ve esnaf kartı eklenir, ~100 sn bölüm Telegram'a gelir.
 - `hepsi`: taslak + video onaysız.  Kalite: `standart` · `pro` (daha net yüz/dudak).
 - Yeni esnaf için `bilgi.json` içine `oto` bölümü ekle (`reklamlar/eserim/bilgi.json` örnek).
+
+## Dükkan TV kendi tanıtım bölümü (kısa)
+`reklamlar/dukkantv` klasörü Dükkan TV'nin kendi tanıtımıdır: hayali simitçi Hasan Amca, ~40 sn, telefon numarası yok (kapanışta site + hesaplar).
+**Actions → Otomatik Bölüm → Run workflow** · klasör: `dukkantv` · aşama: `taslak` → planlar Telegram'a gelir → beğenince aşama: `video`.
+Herhangi bir esnaf için kısa bölüm: `bilgi.json` → `oto` içine `"toplam_sure": "35-45"`, `"plan_sayisi": "10-13"`, `"dukkanda_en_az": 4` ekle.
+Kapanış kartında `telefon`/`adres` boş bırakılırsa o satır gizlenir; `sosyal` satırı eklenebilir.

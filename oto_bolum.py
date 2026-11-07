@@ -467,11 +467,14 @@ def esnaf_bilgisi(klasor):
         "dukkan_fotolari": oto.get("dukkan_fotolari", []), "logo": oto.get("logo", kart.get("logo")),
         "urunler": oto.get("urunler", ""), "adres": temiz(kart.get("adres", "")),
         "telefon": kart.get("telefon", ""), "slogan": temiz(kart.get("slogan2", "")), "notlar": oto.get("notlar", ""),
+        # Bölüm uzunluğu: bilgi.json "oto" içinde verilmezse normal (~100 sn) bölüm yapılır
+        "toplam_sure": oto.get("toplam_sure", "90-105"), "plan_sayisi": oto.get("plan_sayisi", "22-28"),
+        "dukkanda": oto.get("dukkanda_en_az", 7),
     }
 
 
 SENARYO_ISTEMI = """Sen Türkiye'de çok izlenen, Pixar tarzı 3D çizgi film skeçleri yazan komik bir senaristsin.
-Dizi: "Levent'in Maceraları". Dikey (9:16) TikTok/Instagram bölümü, toplam 90-105 saniye.
+Dizi: "Levent'in Maceraları". Dikey (9:16) TikTok/Instagram bölümü, toplam {toplam_sure} saniye.
 Film dili: plan / karşı plan. Her KONUŞMA planında kamerada SADECE konuşan karakterin yüzü net görünür
 (diğerleri arkadan, omuz üstünden ya da kadraj dışında). Böylece dudak senkronu kusursuz olur.
 
@@ -488,12 +491,12 @@ Slogan: {slogan} | Notlar: {notlar}
 BÖLÜM KONUSU: {konu}
 
 KURALLAR
-- 22-28 plan. Plan türleri:
+- {plan_sayisi} plan. Plan türleri:
   * "konusma": tek karakter, tek replik (en fazla 18 kelime, ~2-6 sn). Replikte duyguyu ElevenLabs ses etiketleriyle
     verebilirsin: [laughs], [sighs], [excited], [whispers], [surprised] (en fazla bir etiket, cümle başında).
   * "aksiyon": konuşmasız 3-4 saniyelik geçiş/aksiyon (yürüme, dükkânın dışı, ürün yakın çekimi, komik tepki).
 - Planların en az %70'i konuşma olsun. İlk plan güçlü bir kanca (merak/komedi).
-- 3 perde: dert/macera -> yol esnafa düşer (en az 7 plan dükkânda; ürünler ve esnaf konuşur) -> komik çözüm + başa dönen espri.
+- 3 perde: dert/macera -> yol esnafa düşer (en az {dukkanda} plan dükkânda; ürünler ve esnaf konuşur) -> komik çözüm + başa dönen espri.
 - KASA: Levent ile Cemo'nun bütçesi (TL). İlk planda başlangıç değeri; para harcanınca/kazanılınca yeni değer; diğerlerinde null.
 - Temiz, herkesin güleceği mizah. Siyaset, din alayı, +18, kumar, şiddet, sağlık iddiası, rakip kötüleme, uydurma fiyat YOK.
 - Son konuşmada Levent esnafın adını/sloganını doğal biçimde söylesin.
