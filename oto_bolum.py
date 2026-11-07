@@ -522,23 +522,34 @@ KURALLAR
   mouth clearly visible"), ifade, arka plan. Karakterleri sadece "Levent", "Cemo", "the shop owner" diye an; kıyafet tarif etme.
 - "hareket": sadece aksiyon planlarında, İngilizce kısa hareket tarifi.
 - "karakterler": karede görünen herkes (konuşan ilk sırada).
+- "efekt": İngilizce, kısa ve somut ses efekti tarifi (ElevenLabs ses efekti için). Her AKSİYON planında ZORUNLU
+  (ör. "small car pulls up and brakes on cobblestones", "car engine revs and speeds away", "shop door bell rings",
+  "lively crowd chatter in a street", "camera shutter click"). Konuşma planında sadece gerçekten gerekiyorsa
+  (telefon zili, kapı, korna...), yoksa null. Müzik veya konuşma tarif etme.
 
 SADECE şu JSON:
 {{"baslik": "kısa bölüm adı",
   "planlar": [
     {{"tip": "konusma", "kim": "levent", "metin": "[excited] ...", "duygu": "excited",
-      "karakterler": ["levent", "cemo"], "dukkan": false, "gorsel": "...", "kasa": 3000}},
+      "karakterler": ["levent", "cemo"], "dukkan": false, "gorsel": "...", "kasa": 3000, "efekt": null}},
     {{"tip": "aksiyon", "karakterler": ["levent", "cemo"], "dukkan": true, "gorsel": "...", "hareket": "...",
-      "sure": 3, "kasa": null}}
+      "sure": 3, "kasa": null, "efekt": "small car pulls up and brakes on cobblestones"}}
   ]}}"""
 
 
 KONTROLSUZ = [0]
 
 
-def tutarlilik_kontrolu(resim, kimler):
-    """Gemini'ye karakter kartlarıyla üretilen kareyi karşılaştırtır. Döndürür: (puan, sorun)."""
-    if not kimler:
+def konusan_ad(p):
+    if p["tip"] != "konusma":
+        return None
+    return KAR[p["kim"]]["ad"] if p.get("kim") in KAR else "the shop owner"
+
+
+def tutarlilik_kontrolu(resim, kimler, konusan=None):
+    """Gemini'ye karakter kartlarıyla üretilen kareyi karşılaştırtır. Döndürür: (puan, sorun).
+    Konuşma planında karede konuşandan başka yüz/ağız görünürse düşük puan verir (dudak senkronu karışmasın)."""
+    if not kimler and not konusan:
         return 10, ""
     parcalar = [{"text": "Reference character sheets:"}]
     for kid in kimler:
@@ -551,7 +562,12 @@ def tutarlilik_kontrolu(resim, kimler):
                  {"text": "Compare each named character in the generated frame with their reference sheet: face shape, "
                           "eyes, nose, hair, mustache/glasses, outfit and colors, body proportions. Also fail if a "
                           "character appears twice, if a face is deformed, or if there is any written text/caption "
-                          "except a shop sign. Return JSON {\"puan\": 1-10, \"sorun\": \"short English description\"}."}]
+                          "except a shop sign."
+                          + (f" This is a LIP-SYNC dialogue shot: count the faces whose mouth is visible. Exactly ONE "
+                             f"(the speaker, {konusan}) is allowed. If any other character or background person shows "
+                             f"a visible face/mouth, or the image is split into panels, give puan 4 or lower and say so."
+                             if konusan else "")
+                          + " Return JSON {\"puan\": 1-10, \"sorun\": \"short English description\"}."}]
     try:
         c = gemini(parcalar, sicaklik=0.1, hizli_vazgec=True)
         return int(c.get("puan", 10)), c.get("sorun", "")
@@ -595,8 +611,12 @@ def taslak(klasor, konu, yeniden=""):
         refs, tarif = [], []
         for kid in gorunen:
             refs.append(karakter_karti(kid))
-            tarif.append(f"{KAR[kid]['ad']} = the character on reference sheet {len(refs)} ({KAR[kid]['tarif']})")
+            arkadan = p["tip"] == "konusma" and kid != p.get("kim")
+            tarif.append(f"{KAR[kid]['ad']} = the character on reference sheet {len(refs)} ({KAR[kid]['tarif']})"
+                         + ("; seen ONLY from behind, his face is NOT visible" if arkadan else ""))
         if "esnaf" in p.get("karakterler", []):
+            if p["tip"] == "konusma" and p.get("kim") != "esnaf":
+                tarif.append("the shop owner is seen ONLY from behind, his face is NOT visible")
             if e["esnaf_foto"]:
                 refs.append(os.path.join(kok, e["esnaf_foto"]))
                 tarif.append(f"the shop owner = the person in reference image {len(refs)}, as a Pixar-style 3D cartoon")
@@ -617,7 +637,9 @@ def taslak(klasor, konu, yeniden=""):
         if p["tip"] == "konusma":
             konusan = (f" The speaker {KAR.get(p['kim'], {}).get('ad', 'the shop owner')} faces the camera in medium "
                        f"close-up with the mouth clearly visible and closed in a neutral position, expression: "
-                       f"{p.get('duygu', 'neutral')}. Any other character is seen only from behind or out of focus.")
+                       f"{p.get('duygu', 'neutral')}. LIP-SYNC SHOT: exactly ONE face may be visible in the whole frame, the speaker's. "
+                       f"Every other character and every background person must face AWAY from the camera (back of the "
+                       f"head / over-the-shoulder) or be cropped out; no other mouth may be visible.")
         temel = (f"{stil}. {p['gorsel']}{konusan} Characters: {'; '.join(tarif)}. Every character must look EXACTLY "
                  f"like their reference sheet (same face, hair, outfit, colors, proportions). Each character appears "
                  f"only once. No subtitles, captions, speech bubbles or watermark. The story takes place in Bursa, Turkey: any signs, "
@@ -630,7 +652,7 @@ def taslak(klasor, konu, yeniden=""):
             harcama["resim"] += 1
             aday = os.path.join(CIKTI, f"aday_{no:02d}_{d}.jpg")
             indir(sonuc["images"][0]["url"], aday)
-            puan, sorun = tutarlilik_kontrolu(aday, gorunen)
+            puan, sorun = tutarlilik_kontrolu(aday, gorunen, konusan_ad(p))
             print(f"Plan {no} deneme {d + 1}: tutarlılık {puan}/10 {sorun}")
             if puan > en_iyi[0]:
                 en_iyi = (puan, aday)
@@ -745,6 +767,27 @@ def aksiyon_klibi(no, p, resim, klasor_cikti):
     return hedef, None, None
 
 
+def efekt_uret(tarif, sure_sn, oto):
+    """ElevenLabs ses efekti; oto/efektler/ içinde saklanır, aynı tarif için tekrar ücret ödenmez."""
+    if not tarif or not ELEVEN_KEY:
+        return None
+    sure_sn = round(max(0.5, min(22.0, sure_sn)), 1)
+    klasor = os.path.join(oto, "efektler"); os.makedirs(klasor, exist_ok=True)
+    ad = hashlib.sha1(f"{tarif}|{sure_sn}".encode()).hexdigest()[:12]
+    hedef = os.path.join(klasor, ad + ".mp3")
+    if os.path.exists(hedef) and os.path.getsize(hedef) > 1000:
+        return hedef
+    try:
+        r = eleven("/v1/sound-generation", "POST", params={"output_format": "mp3_44100_128"},
+                   json={"text": tarif, "duration_seconds": sure_sn, "prompt_influence": 0.5})
+        open(hedef, "wb").write(r.content)
+        print(f"Efekt hazır ({sure_sn} sn): {tarif}")
+        return hedef
+    except Exception as hata:
+        print("Efekt üretilemedi, efektsiz devam:", str(hata)[:200])
+        return None
+
+
 def ass_zaman(t):
     return f"{int(t // 3600)}:{int(t % 3600 // 60):02d}:{t % 60:05.2f}"
 
@@ -794,12 +837,22 @@ def video(klasor):
         cikis = os.path.join(CIKTI, f"parca_{no:02d}.mp4")
         vf = (f"[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30,"
               f"tpad=stop_mode=clone:stop_duration=3,trim=duration={d:.3f},setpts=PTS-STARTPTS[v]")
+        efekt = efekt_uret(p.get("efekt"), d, oto)
+        efekt_girdi = ["-i", efekt] if efekt else []
         if ses_dosya:  # temiz ElevenLabs sesi; video zaten bu sese göre konuşuyor
-            calistir("-i", klip, "-i", ses_dosya, "-filter_complex",
-                     vf + f";[1:a]aresample=44100,aformat=channel_layouts=stereo,apad,atrim=duration={d:.3f}[a]",
+            ses_f = f";[1:a]aresample=44100,aformat=channel_layouts=stereo,apad,atrim=duration={d:.3f}"
+            if efekt:  # konuşmanın altında kısık efekt
+                ses_f += (f"[k];[2:a]aresample=44100,aformat=channel_layouts=stereo,volume=0.35,apad,"
+                          f"atrim=duration={d:.3f}[e];[k][e]amix=inputs=2:normalize=0:duration=first")
+            calistir("-i", klip, "-i", ses_dosya, *efekt_girdi, "-filter_complex", vf + ses_f + "[a]",
                      "-map", "[v]", "-map", "[a]", *VIDEO_AYAR, *SES_AYAR, cikis)
             b, s = konusma_araligi
             ass.append(f"Dialogue: 0,{ass_zaman(zaman + b)},{ass_zaman(zaman + s)},Alt,,0,0,0,,{etiketsiz(p['metin'])}")
+        elif efekt:  # aksiyon planı: sahnenin ses efekti
+            calistir("-i", klip, "-i", efekt, "-filter_complex",
+                     vf + f";[1:a]aresample=44100,aformat=channel_layouts=stereo,volume=0.9,apad,"
+                          f"atrim=duration={d:.3f},afade=t=out:st={max(0, d - 0.3):.3f}:d=0.3[a]",
+                     "-map", "[v]", "-map", "[a]", *VIDEO_AYAR, *SES_AYAR, cikis)
         else:
             calistir("-i", klip, "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-filter_complex", vf,
                      "-map", "[v]", "-map", "1:a", "-t", f"{d:.3f}", *VIDEO_AYAR, *SES_AYAR, cikis)
