@@ -483,6 +483,11 @@ def esnaf_bilgisi(klasor):
         # Bölüm uzunluğu: bilgi.json "oto" içinde verilmezse normal (~100 sn) bölüm yapılır
         "toplam_sure": oto.get("toplam_sure", "90-105"), "plan_sayisi": oto.get("plan_sayisi", "22-28"),
         "dukkanda": oto.get("dukkanda_en_az", 7),
+        # Sahnelerde görünen dükkânın adı (Dükkan TV tanıtımında hayali simitçi; varsayılan: firma adı)
+        "dukkan_adi": oto.get("dukkan_adi", oto.get("firma", klasor)),
+        # False ise logo sahnelere çizilmez (yalnızca kapanış kartında görünür)
+        "logo_sahnede": oto.get("logo_sahnede", True),
+        "kelime": oto.get("kelime_siniri", 18),
     }
 
 
@@ -505,7 +510,7 @@ BÖLÜM KONUSU: {konu}
 
 KURALLAR
 - {plan_sayisi} plan. Plan türleri:
-  * "konusma": tek karakter, tek replik (en fazla 18 kelime, ~2-6 sn). Replikte duyguyu ElevenLabs ses etiketleriyle
+  * "konusma": tek karakter, tek replik (en fazla {kelime} kelime, ~2-6 sn). Replikte duyguyu ElevenLabs ses etiketleriyle
     verebilirsin: [laughs], [sighs], [excited], [whispers], [surprised] (en fazla bir etiket, cümle başında).
   * "aksiyon": konuşmasız 3-4 saniyelik geçiş/aksiyon (yürüme, dükkânın dışı, ürün yakın çekimi, komik tepki).
 - Planların en az %70'i konuşma olsun. İlk plan güçlü bir kanca (merak/komedi).
@@ -598,10 +603,16 @@ def taslak(klasor, konu, yeniden=""):
             elif e["esnaf_tarif"]:
                 tarif.append(f"the shop owner is {e['esnaf_tarif']}")
         if p.get("dukkan"):
-            for f in e["dukkan_fotolari"][:2] + ([e["logo"]] if e["logo"] else []):
+            logolu = e["logo"] if (e["logo"] and e["logo_sahnede"]) else None
+            fotolar = e["dukkan_fotolari"][:2] + ([logolu] if logolu else [])
+            for f in fotolar:
                 refs.append(os.path.join(kok, f))
-            tarif.append(f"the place is the shop '{e['firma']}': match the real shop/products/logo from the photo "
-                         f"references, redrawn in the same 3D animated style")
+            if fotolar:
+                tarif.append(f"the place is the shop '{e['dukkan_adi']}': match the real shop/products/logo from the photo "
+                             f"references, redrawn in the same 3D animated style")
+            else:
+                tarif.append(f"the place is {e['dukkan_adi']}. Do NOT show any logo, brand name or the words "
+                             f"'Dükkan TV' or 'TV' on signs; shop signs may only say things like 'TAZE SİMİT'")
         konusan = ""
         if p["tip"] == "konusma":
             konusan = (f" The speaker {KAR.get(p['kim'], {}).get('ad', 'the shop owner')} faces the camera in medium "
@@ -838,6 +849,18 @@ def video(klasor):
         str.maketrans("çğıöşüÇĞİÖŞÜ", "cgiosuCGIOSU")))[:60]
     son = os.path.join(CIKTI, ad + ".mp4")
     calistir("-f", "concat", "-safe", "0", "-i", liste2, "-c", "copy", "-movflags", "+faststart", son)
+    try:  # Telifsiz arka plan müziği: konuşma varken kendiliğinden kısılır, sessiz aksiyon/kart anlarını doldurur
+        import muzik
+        bas_muzik = muzik.uret(sure(son), os.path.join(CIKTI, "muzik.wav"))
+        muzikli = os.path.join(CIKTI, "muzikli.mp4")
+        calistir("-i", son, "-i", bas_muzik, "-filter_complex",
+                 "[1:a]aformat=channel_layouts=stereo,volume=0.22,afade=t=in:d=0.8[m];[0:a]asplit=2[v][sc];"
+                 "[m][sc]sidechaincompress=threshold=0.03:ratio=6:attack=20:release=400[md];"
+                 "[v][md]amix=inputs=2:normalize=0,alimiter=limit=0.95[a]",
+                 "-map", "0:v", "-map", "[a]", "-c:v", "copy", *SES_AYAR, "-movflags", "+faststart", muzikli)
+        os.replace(muzikli, son)
+    except Exception as hata:
+        print("Müzik eklenemedi, müziksiz devam:", hata)
     print(f"Bölüm hazır: {son} ({sure(son):.0f} sn)")
     # Bölüm başarıyla bitti: klip önbelleği artık gereksiz, depo şişmesin diye silinir
     shutil.rmtree(klasor_klip, ignore_errors=True)
