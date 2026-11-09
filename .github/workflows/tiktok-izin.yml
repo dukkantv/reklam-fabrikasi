@@ -13,6 +13,9 @@ on:
       kod:
         description: "İzin sayfasındaki kod (ilk seferde boş bırak)"
         required: false
+      durum:
+        description: "(Teknik) gönderim numarasının durumunu sorgula"
+        required: false
 
 permissions:
   contents: write
@@ -29,11 +32,13 @@ jobs:
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       KANAL: ${{ inputs.kanal }}
       KOD: ${{ inputs.kod }}
+      DURUM: ${{ inputs.durum }}
     steps:
       - uses: actions/checkout@v4
       - name: İzin bağlantısı ya da kurulum
         run: |
-          if [ -z "$KOD" ]; then python3 tt_ortak.py link "$KANAL"
+          if [ -n "$DURUM" ]; then python3 tt_ortak.py durum "$KANAL" "$DURUM"
+          elif [ -z "$KOD" ]; then python3 tt_ortak.py link "$KANAL"
           else python3 tt_ortak.py kurulum "$KANAL" "$KOD"; fi
       - name: Kaydet
         run: |

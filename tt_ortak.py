@@ -133,8 +133,20 @@ def taslak_yukle(kanal, video_yolu):
     return pid
 
 
+def durum(kanal, pid):
+    tok = erisim_anahtari(kanal)
+    _, _, d = istek(f"{API}/post/publish/status/fetch/", json_govde={"publish_id": pid},
+                    headers={"Authorization": f"Bearer {tok}"})
+    _, _, k = istek(f"{API}/user/info/?fields=open_id,display_name,username",
+                    headers={"Authorization": f"Bearer {tok}"})
+    print("DURUM:", d)
+    print("HESAP:", k)
+
+
 if __name__ == "__main__":
-    if len(sys.argv) >= 3 and sys.argv[1] == "link":
+    if len(sys.argv) >= 4 and sys.argv[1] == "durum":
+        durum(sys.argv[2], sys.argv[3])
+    elif len(sys.argv) >= 3 and sys.argv[1] == "link":
         link(sys.argv[2])
     elif len(sys.argv) >= 4 and sys.argv[1] == "kurulum":
         kurulum(sys.argv[2], sys.argv[3])
