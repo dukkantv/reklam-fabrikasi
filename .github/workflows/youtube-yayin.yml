@@ -1,0 +1,63 @@
+name: YouTube Yayın
+
+# Onay bekleyen videoları kontrol eder; Levent'in Telegram'da "Onayla" dediklerini
+# YouTube'a 19:00'a planlı yükler. Ayrıca elle video eklemek için de kullanılır.
+on:
+  schedule:
+    - cron: "13 6-16 * * *"   # 09:13–19:13 arası her saat (Türkiye)
+  workflow_dispatch:
+    inputs:
+      kanal:
+        description: "Elle ekleme: kanal (boş = sadece onayları kontrol et)"
+        required: false
+        type: choice
+        default: ""
+        options: ["", dukkantv, kasakurgu, dramabite]
+      video_url:
+        description: "Elle ekleme: videonun indirme adresi (mp4)"
+        required: false
+      baslik:
+        description: "Elle ekleme: başlık"
+        required: false
+      aciklama:
+        description: "Elle ekleme: açıklama"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: youtube-yayin
+
+jobs:
+  yayin:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Elle ekle
+        if: inputs.kanal != '' && inputs.video_url != ''
+        env:
+          KANAL: ${{ inputs.kanal }}
+          URL: ${{ inputs.video_url }}
+          BASLIK: ${{ inputs.baslik }}
+          ACIKLAMA: ${{ inputs.aciklama }}
+        run: |
+          curl -fsSL "$URL" -o /tmp/elle.mp4
+          python3 yt_kuyruk.py ekle "$KANAL" /tmp/elle.mp4 "$BASLIK" "$ACIKLAMA" ""
+      - name: Onayları kontrol et ve yükle
+        run: python3 yt_kuyruk.py kontrol
+      - name: Kuyruğu kaydet
+        run: |
+          git config user.name "Dükkan TV Bot"
+          git config user.email "dukkan.tvstudio@gmail.com"
+          git add -A kuyruk
+          git diff --cached --quiet && exit 0
+          git commit -m "Yayın kuyruğu güncellendi"
+          git pull --rebase -q && git push

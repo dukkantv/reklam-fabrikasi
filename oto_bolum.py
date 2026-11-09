@@ -963,6 +963,13 @@ def video(klasor):
     except Exception as hata:
         print("Müzik eklenemedi, müziksiz devam:", hata)
     print(f"Bölüm hazır: {son} ({sure(son):.0f} sn)")
+    # YouTube yayın kuyruğu için bilgi bırak (workflow 'Yayın kuyruğuna ekle' adımı okur; onaysız yayın olmaz)
+    json.dump({"video": son, "baslik": f"{senaryo.get('baslik', 'Levent ve Cemo')} | Levent & Cemo #shorts",
+               "aciklama": (f"{senaryo.get('baslik', '')}\n\nDükkan TV — esnafın televizyonu 📺\n"
+                            "Senin dükkânın da bir videoyu hak ediyor 👉 https://dukkantv.github.io\n\n"
+                            "#dükkantv #bursa #esnaf #çizgifilm #shorts"),
+               "etiketler": "dükkan tv,bursa,esnaf,çizgi film,komedi,levent ve cemo"},
+              open(os.path.join(CIKTI, "yayin.json"), "w", encoding="utf-8"), ensure_ascii=False)
     # Klip önbelleği SİLİNMEZ: sonradan bir sahne/altyazı/müzik düzeltmesi gerekirse tekrar ödeme yapılmasın.
     if TOKEN:
         gonderilecek = son
