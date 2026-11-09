@@ -1,19 +1,24 @@
-name: Instagram Elle Paylaş
+name: Elle Paylaş (Instagram / TikTok)
 
 # Kuyruktan kaçmış bir videoyu Instagram'a Reels olarak paylaşır.
 # Video, onu üreten çalışmanın (ör. Otomatik Bölüm) Artifacts kısmından alınır.
 on:
   workflow_dispatch:
     inputs:
+      platform:
+        description: "Nereye"
+        type: choice
+        default: instagram
+        options: [instagram, tiktok]
       kanal:
-        description: "Instagram hesabı"
+        description: "Hesap"
         type: choice
         options: [dukkantv, kasakurgu, dramabite]
       run_id:
         description: "Videoyu üreten çalışmanın numarası (Actions adresindeki sayı)"
         required: true
       aciklama:
-        description: "Instagram açıklaması"
+        description: "Açıklama (TikTok'ta Telegram'a gelir, sen yapıştırırsın)"
         required: true
 
 permissions:
@@ -23,6 +28,9 @@ permissions:
 jobs:
   paylas:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
@@ -35,6 +43,9 @@ jobs:
         env:
           KANAL: ${{ inputs.kanal }}
           ACIKLAMA: ${{ inputs.aciklama }}
+          PLATFORM: ${{ inputs.platform }}
+          TT_CLIENT_KEY: ${{ secrets.TT_CLIENT_KEY }}
+          TT_CLIENT_SECRET: ${{ secrets.TT_CLIENT_SECRET }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -48,7 +59,23 @@ jobs:
           if not dosyalar:
               raise SystemExit("Çalışmada mp4 bulunamadı")
           kanal = os.environ["KANAL"]
-          mid, link = reels_yukle(kanal, dosyalar[-1], os.environ["ACIKLAMA"])
-          print("Paylaşıldı:", link)
-          telegram(f"📸 {kanal}: video Instagram'da Reels olarak paylaşıldı (elle).\n{link}")
+          if os.environ.get("PLATFORM") == "tiktok":
+              from tt_ortak import taslak_yukle
+              pid = taslak_yukle(kanal, dosyalar[-1])
+              print("TikTok taslak:", pid)
+              telegram(f"🎵 {kanal}: video TikTok'a taslak olarak gönderildi. TikTok'ta bildirimi aç → "
+                       f"açıklamayı yapıştır → Paylaş.\n\nAçıklama (kopyala):\n{os.environ['ACIKLAMA']}")
+          else:
+              mid, link = reels_yukle(kanal, dosyalar[-1], os.environ["ACIKLAMA"])
+              print("Paylaşıldı:", link)
+              telegram(f"📸 {kanal}: video Instagram'da Reels olarak paylaşıldı (elle).\n{link}")
           EOF
+      - name: TikTok anahtarını kaydet
+        if: inputs.platform == 'tiktok'
+        run: |
+          git config user.name "Dükkan TV Bot"
+          git config user.email "dukkan.tvstudio@gmail.com"
+          git add tokens/
+          git diff --cached --quiet && exit 0
+          git commit -m "TikTok anahtarı yenilendi"
+          git pull --rebase -q && git push
