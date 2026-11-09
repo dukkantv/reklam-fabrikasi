@@ -109,6 +109,33 @@ def reels_yukle(kanal, video_yolu, aciklama):
     return yay["id"], (p or {}).get("permalink", "")
 
 
+def teshis(kanal):
+    """Instagram hesabının paylaşım durumunu ve küçük bir deneme yüklemesini (yayınlamadan) kontrol eder."""
+    h = ig_hesap(kanal)
+    tok, ig = h["token"], h["ig_id"]
+    print("Hesap:", istek(f"{API}/{ig}?fields=username,name,media_count,followers_count&access_token={tok}")[2])
+    print("Paylaşım sınırı:", istek(f"{API}/{ig}/content_publishing_limit?fields=config,quota_usage&access_token={tok}")[2])
+    print("Anahtar:", istek(f"{API}/debug_token?input_token={tok}&access_token={tok}")[2])
+    deneme = "/tmp/ig_deneme.mp4"
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i", "testsrc2=s=1080x1920:r=30:d=5",
+                    "-f", "lavfi", "-i", "sine=f=440:d=5", "-c:v", "libx264", "-pix_fmt", "yuv420p",
+                    "-c:a", "aac", "-shortest", "-movflags", "+faststart", deneme], check=True)
+    kod, _, kap = istek(f"{API}/{ig}/media", veri={"media_type": "REELS", "upload_type": "resumable",
+                                                   "caption": "deneme", "access_token": tok})
+    print("Kapsayıcı:", kod, kap)
+    if "id" not in (kap or {}):
+        return
+    with open(deneme, "rb") as f:
+        veri = f.read()
+    kod, _, cev = istek(f"https://rupload.facebook.com/ig-api-upload/v25.0/{kap['id']}", method="POST", ham=veri,
+                        headers={"Authorization": f"OAuth {tok}", "offset": "0", "file_size": str(len(veri))})
+    print("Deneme yükleme (yayınlanmaz):", kod, cev)
+    time.sleep(20)
+    print("Durum:", istek(f"{API}/{kap['id']}?fields=status_code,status&access_token={tok}")[2])
+
+
 if __name__ == "__main__":
     if sys.argv[1] == "kurulum":
         kurulum()
+    elif sys.argv[1] == "teshis":
+        teshis(sys.argv[2])

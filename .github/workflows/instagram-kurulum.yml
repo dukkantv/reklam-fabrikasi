@@ -4,6 +4,11 @@ name: Instagram Kurulum
 # Instagram hesaplarının SÜRESİZ sayfa anahtarlarını alır ve şifreli olarak tokens/ klasörüne kaydeder.
 on:
   workflow_dispatch:
+    inputs:
+      teshis:
+        description: "Sadece teşhis (kanal adı, örn. dramabite). Boşsa kurulum yapılır."
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -21,7 +26,12 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python3 ig_ortak.py kurulum
+        run: |
+          if [ -n "${{ inputs.teshis }}" ]; then
+            for k in ${{ inputs.teshis }}; do echo "===== $k"; python3 ig_ortak.py teshis $k; done
+          else
+            python3 ig_ortak.py kurulum
+          fi
       - name: Kaydet
         run: |
           git config user.name "Dükkan TV Bot"
