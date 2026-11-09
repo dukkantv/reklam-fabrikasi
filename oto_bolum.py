@@ -1007,11 +1007,14 @@ def video(klasor):
                     f"<span>LEVENT'İN MACERALARI</span>{senaryo.get('baslik', '')}", baslik_png, "baslik", renk], check=True)
     baslik = os.path.join(CIKTI, "baslik.mp4")
     resimden_video(baslik_png, 1.8, baslik)
-    sira = [baslik, govde_yazili]
+    # Başlık kartı varsayılan olarak KAPALI: Shorts'ta izleyicinin çoğu ilk saniyede kaydırıyor,
+    # video doğrudan kancayla (1. plan) başlamalı. İstenirse bilgi.json "oto": {"baslik_karti": true}
+    sira = ([baslik] if bilgi.get("oto", {}).get("baslik_karti") else []) + [govde_yazili]
     if bilgi.get("kart"):
         sessiz = os.path.join(CIKTI, "bilgi_sessiz.mp4")
         subprocess.run(["node", os.path.join(KOK, "uret.js"), klasor], check=True,
-                       env={**os.environ, "KARE_BAS": "480", "KARE_BIT": "690", "CIKTI": sessiz})
+                       env={**os.environ, "KARE_BAS": str(bilgi.get("oto", {}).get("kart_kare_bas", 600)),
+                                            "KARE_BIT": "690", "CIKTI": sessiz})  # kapanış kartı ~3 sn
         bilgi_mp4 = os.path.join(CIKTI, "bilgi.mp4")
         calistir("-i", sessiz, "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-map", "0:v", "-map", "1:a",
                  "-shortest", *VIDEO_AYAR, *SES_AYAR, bilgi_mp4)
