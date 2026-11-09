@@ -1,0 +1,161 @@
+{
+ "tarih": "2026-11-09",
+ "kanallar": {
+  "dramabite": {
+   "ad": "Drama Bite",
+   "abone": 14,
+   "toplam_izlenme": 14523,
+   "video_sayisi": 15,
+   "son28": {
+    "views": 13423,
+    "estimatedMinutesWatched": 1657,
+    "subscribersGained": 13,
+    "subscribersLost": 0
+   },
+   "uzun_video_saat_365": null,
+   "shorts_izlenme_90": null,
+   "en_iyi_7gun": [
+    {
+     "video": "wiwkVtdTYuA",
+     "views": 1542,
+     "averageViewDuration": 22,
+     "averageViewPercentage": 17.99,
+     "likes": 5,
+     "comments": 0,
+     "baslik": "Eski bir mumara"
+    },
+    {
+     "video": "zT9xwhLsFaM",
+     "views": 1465,
+     "averageViewDuration": 13,
+     "averageViewPercentage": 16.69,
+     "likes": 4,
+     "comments": 0,
+     "baslik": "Cevapsız Arama"
+    },
+    {
+     "video": "YSRfISrQbGQ",
+     "views": 1398,
+     "averageViewDuration": 25,
+     "averageViewPercentage": 21.16,
+     "likes": 10,
+     "comments": 0,
+     "baslik": "Paslı Anahtar"
+    },
+    {
+     "video": "UNdrv7XlLrg",
+     "views": 837,
+     "averageViewDuration": 21,
+     "averageViewPercentage": 14.21,
+     "likes": 1,
+     "comments": 0,
+     "baslik": "Gece 03:20 Borcu"
+    },
+    {
+     "video": "ve1aLzR2fjY",
+     "views": 116,
+     "averageViewDuration": 19,
+     "averageViewPercentage": 19.89,
+     "likes": 1,
+     "comments": 0,
+     "baslik": "Durmuş Saat"
+    }
+   ]
+  },
+  "dukkantv": {
+   "ad": "Dükkan Tv",
+   "abone": 1,
+   "toplam_izlenme": 1444,
+   "video_sayisi": 3,
+   "son28": {
+    "views": 275,
+    "estimatedMinutesWatched": 11,
+    "subscribersGained": 1,
+    "subscribersLost": 0
+   },
+   "uzun_video_saat_365": null,
+   "shorts_izlenme_90": null,
+   "en_iyi_7gun": [
+    {
+     "video": "ex5YlHYsu60",
+     "views": 224,
+     "averageViewDuration": 12,
+     "averageViewPercentage": 52.51,
+     "likes": 0,
+     "comments": 0,
+     "baslik": "Külah bitti, kuyruk kapıya kadar! 🍦 Erkan Abi yetişir | Bursa Yıldırım #shorts"
+    },
+    {
+     "video": "smItcUOoEso",
+     "views": 51,
+     "averageViewDuration": 51,
+     "averageViewPercentage": 37.74,
+     "likes": 0,
+     "comments": 0,
+     "baslik": "Külah bitti, kuyruk kapıya kadar! 🍦 Erkan Abi yetişir | Bursa Yıldırım #shorts"
+    }
+   ]
+  },
+  "kasakurgu": {
+   "ad": "Kasa kurgu",
+   "abone": 7,
+   "toplam_izlenme": 5220,
+   "video_sayisi": 11,
+   "son28": {
+    "views": 1717,
+    "estimatedMinutesWatched": 304,
+    "subscribersGained": 6,
+    "subscribersLost": 0
+   },
+   "uzun_video_saat_365": null,
+   "shorts_izlenme_90": null,
+   "en_iyi_7gun": [
+    {
+     "video": "xRxUcoShyRI",
+     "views": 556,
+     "averageViewDuration": 16,
+     "averageViewPercentage": 40.97,
+     "likes": 1,
+     "comments": 2,
+     "baslik": "Katil Kim? 🕵️ Dosya #01: Antikacıdaki Saat | Yorumlara A, B veya C yaz!"
+    },
+    {
+     "video": "tKby4UMT9tY",
+     "views": 321,
+     "averageViewDuration": 21,
+     "averageViewPercentage": 17.19,
+     "likes": 2,
+     "comments": 2,
+     "baslik": "500 TL ile 50.000 TL Hedefi | Gün 3/30 | Kararı Siz Verin! 💸"
+    },
+    {
+     "video": "fM_QgRIJ8_8",
+     "views": 317,
+     "averageViewDuration": 27,
+     "averageViewPercentage": 49.54,
+     "likes": 3,
+     "comments": 1,
+     "baslik": "Kirayı ödeyebilecekmiyim acaba? #para ##girişimci #kurgu"
+    },
+    {
+     "video": "jjpaagaFnf0",
+     "views": 230,
+     "averageViewDuration": 19,
+     "averageViewPercentage": 31.81,
+     "likes": 0,
+     "comments": 0,
+     "baslik": "Gün 5 bakalım neler olacak."
+    },
+    {
+     "video": "Ns6F6Bvkvgs",
+     "views": 157,
+     "averageViewDuration": 26,
+     "averageViewPercentage": 20.97,
+     "likes": 2,
+     "comments": 1,
+     "baslik": "Kurgusal  hikayedir"
+    }
+   ]
+  }
+ }
+}
