@@ -11,7 +11,10 @@
   "huzun"
  ],
  "dosya": "20261109-130002-dramabite.mp4",
- "durum": "bekliyor",
+ "durum": "yuklendi",
  "eklendi": "2026-11-09T13:00:02.648529+03:00",
- "mesaj_id": 132
+ "mesaj_id": 132,
+ "video_id": "nUKah7cRv0Q",
+ "yayin": "2026-11-09T19:00:00+03:00",
+ "hata": "<urlopen error [Errno 104] Connection reset by peer>"
 }
