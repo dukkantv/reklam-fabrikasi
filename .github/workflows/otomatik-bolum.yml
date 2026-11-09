@@ -101,7 +101,7 @@ jobs:
         run: |
           git config user.name "dukkan-tv-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add karakterler reklamlar
+          git add karakterler reklamlar harcama
           git diff --cached --quiet || (git commit -m "Otomatik bölüm: ${{ github.event.inputs.asama }} / ${{ github.event.inputs.klasor }}" && (git push || (git pull --rebase origin main && git push)))
 
       - name: Sadece seçili planların klipleri (montajsız, düzeltme için)
@@ -119,7 +119,7 @@ jobs:
         run: |
           git config user.name "dukkan-tv-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add reklamlar
+          git add reklamlar harcama
           git diff --cached --quiet || (git commit -m "Otomatik bölüm klipleri: ${{ github.event.inputs.klasor }}" && (git push || (git pull --rebase origin main && git push)))
 
       - name: Videoyu indirilebilir olarak sakla

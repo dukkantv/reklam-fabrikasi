@@ -25,12 +25,14 @@ CHAT = os.environ.get("CHAT", "").strip()
 
 # ---- Kalite ayarı: standart | pro ----
 KALITE = os.environ.get("KALITE", "standart")
-RESIM_MODEL = "fal-ai/nano-banana-pro/edit"
+RESIM_MODEL = "fal-ai/nano-banana-pro/edit"          # karakter kartları (bir kez, en yüksek kalite)
 RESIM_MODEL_YAZIDAN = "fal-ai/nano-banana-pro"
+SAHNE_MODEL = "fal-ai/nano-banana-2/edit"            # sahne kareleri: yarı fiyatına, Pro'ya yakın kalite
+AYLIK_LIMIT = float(os.environ.get("AYLIK_LIMIT", "30"))   # $ — bu ay bu tutar aşılacaksa iş başlamaz
 AVATAR_MODEL = {"standart": "fal-ai/kling-video/ai-avatar/v2/standard",
                 "pro": "fal-ai/kling-video/ai-avatar/v2/pro"}[KALITE]
 AKSIYON_COZUNURLUK = {"standart": "720p", "pro": "1080p"}[KALITE]
-UCRET = {"resim": 0.15, "avatar": {"standart": 0.0562, "pro": 0.115}[KALITE],
+UCRET = {"resim": 0.15, "sahne": 0.08, "avatar": {"standart": 0.0562, "pro": 0.115}[KALITE],
          "aksiyon": {"720p": 0.0216, "1080p": 0.049}[AKSIYON_COZUNURLUK]}
 DOLAR_TL = float(os.environ.get("DOLAR_TL", "50"))
 AYNI_ANDA = 6
@@ -39,7 +41,58 @@ EN_FAZLA_YENIDEN = 2
 
 KARAKTERLER = json.load(open(os.path.join(KARAKTER_KLASOR, "karakterler.json"), encoding="utf-8"))
 KAR = KARAKTERLER["karakterler"]
-harcama = {"resim": 0, "avatar_sn": 0.0, "aksiyon_sn": 0.0, "karakter_harf": 0}
+harcama = {"resim": 0, "sahne": 0, "avatar_sn": 0.0, "aksiyon_sn": 0.0, "karakter_harf": 0}
+DEFTER = os.path.join(KOK, "harcama", "aylik.json")
+
+
+def bu_ay():
+    return time.strftime("%Y-%m")
+
+
+def aylik_harcanan():
+    try:
+        return float(json.load(open(DEFTER, encoding="utf-8")).get(bu_ay(), 0))
+    except Exception:
+        return 0.0
+
+
+def calisma_tutari():
+    return (harcama["resim"] * UCRET["resim"] + harcama["sahne"] * UCRET["sahne"]
+            + harcama["avatar_sn"] * UCRET["avatar"] + harcama["aksiyon_sn"] * UCRET["aksiyon"])
+
+
+def _deftere_yaz():
+    """Çalışma bitince (hata olsa bile) harcanan tutarı aylık deftere ekler."""
+    t = calisma_tutari()
+    if t <= 0:
+        return
+    os.makedirs(os.path.dirname(DEFTER), exist_ok=True)
+    try:
+        d = json.load(open(DEFTER, encoding="utf-8"))
+    except Exception:
+        d = {}
+    d[bu_ay()] = round(float(d.get(bu_ay(), 0)) + t, 2)
+    json.dump(d, open(DEFTER, "w", encoding="utf-8"), indent=1)
+
+
+import atexit
+atexit.register(_deftere_yaz)
+
+
+def butce_kontrol(tahmin, is_adi):
+    """Bütçe kilidi: bu ayki harcama + tahmin, aylık limiti aşacaksa işi başlatmaz."""
+    harcanan = aylik_harcanan()
+    if harcanan + tahmin > AYLIK_LIMIT:
+        mesaj = (f"🔒 Bütçe kilidi: {is_adi} başlatılmadı.\nBu ay harcanan: {harcanan:.2f} $ · "
+                 f"bu iş ≈ {tahmin:.2f} $ · aylık limit: {AYLIK_LIMIT:.0f} $.\n"
+                 f"Limit yeni ayda sıfırlanır. Artırmak istersen Claude'a söyle.")
+        print(mesaj)
+        try:
+            tg_mesaj(mesaj)
+        except Exception:
+            pass
+        sys.exit(1)
+    print(f"Bütçe: bu ay {harcanan:.2f} $ harcandı, bu iş ≈ {tahmin:.2f} $, limit {AYLIK_LIMIT:.0f} $")
 
 
 # ------------------------------------------------------------------ genel yardımcılar
@@ -235,15 +288,17 @@ def _gemini_istek(parcalar, json_mu=True, sicaklik=1.0, hizli_vazgec=False):
 
 
 def maliyet_ozeti():
-    r = harcama["resim"] * UCRET["resim"]
+    r = harcama["resim"] * UCRET["resim"] + harcama["sahne"] * UCRET["sahne"]
     a = harcama["avatar_sn"] * UCRET["avatar"]
     k = harcama["aksiyon_sn"] * UCRET["aksiyon"]
     t = r + a + k
+    ay = aylik_harcanan() + t
     return (f"💰 Bu çalışma: {t:.2f} $ ≈ {t * DOLAR_TL:.0f} TL (kalite: {KALITE})\n"
-            f"   • {harcama['resim']} resim: {r:.2f} $\n"
+            f"   • {harcama['resim'] + harcama['sahne']} resim: {r:.2f} $\n"
             f"   • {harcama['avatar_sn']:.0f} sn konuşan plan (dudak senkronu): {a:.2f} $\n"
             f"   • {harcama['aksiyon_sn']:.0f} sn aksiyon planı: {k:.2f} $\n"
-            f"   • ElevenLabs: {harcama['karakter_harf']} karakter (aylık paketten düşer)")
+            f"   • ElevenLabs: {harcama['karakter_harf']} karakter (aylık paketten düşer)\n"
+            f"📒 Bu ay toplam: {ay:.2f} $ / {AYLIK_LIMIT:.0f} $ limit")
 
 
 def etiketsiz(metin):
@@ -481,8 +536,8 @@ def esnaf_bilgisi(klasor):
         "urunler": oto.get("urunler", ""), "adres": temiz(kart.get("adres", "")),
         "telefon": kart.get("telefon", ""), "slogan": temiz(kart.get("slogan2", "")), "notlar": oto.get("notlar", ""),
         # Bölüm uzunluğu: bilgi.json "oto" içinde verilmezse normal (~100 sn) bölüm yapılır
-        "toplam_sure": oto.get("toplam_sure", "90-105"), "plan_sayisi": oto.get("plan_sayisi", "22-28"),
-        "dukkanda": oto.get("dukkanda_en_az", 7),
+        "toplam_sure": oto.get("toplam_sure", "30-40"), "plan_sayisi": oto.get("plan_sayisi", "10-13"),
+        "dukkanda": oto.get("dukkanda_en_az", 4),
         # Sahnelerde görünen dükkânın adı (Dükkan TV tanıtımında hayali simitçi; varsayılan: firma adı)
         "dukkan_adi": oto.get("dukkan_adi", oto.get("firma", klasor)),
         # False ise logo sahnelere çizilmez (yalnızca kapanış kartında görünür)
@@ -515,7 +570,11 @@ KURALLAR
   * "konusma": tek karakter, tek replik (en fazla {kelime} kelime, ~2-6 sn). Replikte duyguyu ElevenLabs ses etiketleriyle
     verebilirsin: [laughs], [sighs], [excited], [whispers], [surprised] (en fazla bir etiket, cümle başında).
   * "aksiyon": konuşmasız 3-4 saniyelik geçiş/aksiyon (yürüme, dükkânın dışı, ürün yakın çekimi, komik tepki).
-- Planların en az %70'i konuşma olsun. İlk plan güçlü bir kanca (merak/komedi).
+- Planların en az %70'i konuşma olsun.
+- KANCA (çok önemli — izleyicilerin çoğu ilk 1 saniyede kaydırıp geçiyor): 1. plan bölümün EN ŞAŞIRTICI / EN KOMİK
+  anını gösterir (ör. dükkânın önünde kapıya kadar kuyruk, şaşkın esnaf yüzü), replik ilk saniyede başlar, en fazla
+  8 kelime, iç çekme ya da yavaş giriş YOK. 2. plandan itibaren "nasıl oldu?" anlatılır (geri dönüş).
+- Son plan izleyiciye yorum yazdıracak kısa bir soruyla biter (ör. "Sizce sıradaki dükkân hangisi?").
 - 3 perde: dert/macera -> yol esnafa düşer (en az {dukkanda} plan dükkânda; ürünler ve esnaf konuşur) -> komik çözüm + başa dönen espri.
 - KASA: Levent ile Cemo'nun bütçesi (TL). İlk planda başlangıç değeri; para harcanınca/kazanılınca yeni değer; diğerlerinde null.
 - Temiz, herkesin güleceği mizah. Siyaset, din alayı, +18, kumar, şiddet, sağlık iddiası, rakip kötüleme, uydurma fiyat YOK.
@@ -586,6 +645,7 @@ def tutarlilik_kontrolu(resim, kimler, konusan=None, esnaf_ref=None, esnaf_tarif
 
 def taslak(klasor, konu, yeniden=""):
     os.makedirs(CIKTI, exist_ok=True)
+    butce_kontrol(1.6 if not yeniden.strip() else 0.4 * max(1, len(re.findall(r"\d+", yeniden))), "Taslak")
     if any(not os.path.exists(karakter_karti(k)) for k in KAR):
         karakter()
     if ELEVEN_KEY and not all(r in sesler_oku() for r in ses_rolleri()):
@@ -655,9 +715,15 @@ def taslak(klasor, konu, yeniden=""):
         hedef = os.path.join(oto, f"plan_{no:02d}.jpg")
         istem, en_iyi = temel, (-1, None)
         for d in range(EN_FAZLA_YENIDEN + 1):
-            sonuc = fal(RESIM_MODEL, {"prompt": istem, "image_urls": [resim_uri(r) for r in refs[:12]],
-                                      "aspect_ratio": "9:16", "resolution": "1K", "output_format": "jpeg"})
-            harcama["resim"] += 1
+            girdi = {"prompt": istem, "image_urls": [resim_uri(r) for r in refs[:12]],
+                     "aspect_ratio": "9:16", "resolution": "1K", "output_format": "jpeg"}
+            try:
+                sonuc = fal(SAHNE_MODEL, girdi)
+                harcama["sahne"] += 1
+            except Exception as hata:  # ucuz model hata verirse Pro ile devam
+                print("Sahne modeli hata verdi, Pro deneniyor:", str(hata)[:200])
+                sonuc = fal(RESIM_MODEL, girdi)
+                harcama["resim"] += 1
             aday = os.path.join(CIKTI, f"aday_{no:02d}_{d}.jpg")
             indir(sonuc["images"][0]["url"], aday)
             esnaf_ref = (os.path.join(kok, e["esnaf_foto"])
@@ -849,6 +915,7 @@ def video(klasor):
     oto = os.path.join(kok, "oto")
     senaryo = json.load(open(os.path.join(oto, "senaryo.json"), encoding="utf-8"))
     planlar = senaryo["planlar"]
+    butce_kontrol(tahmini_video_maliyeti(senaryo), "Video")
 
     klasor_klip = os.path.join(oto, "klipler")
     hatalar = []

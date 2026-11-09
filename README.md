@@ -39,3 +39,10 @@ Gizli anahtarlar: `FAL_KEY`, `GEMINI_API_KEY`, `ELEVENLABS_API_KEY`, `TELEGRAM_B
 **Actions → Otomatik Bölüm → Run workflow** · klasör: `dukkantv` · aşama: `taslak` → planlar Telegram'a gelir → beğenince aşama: `video`.
 Herhangi bir esnaf için kısa bölüm: `bilgi.json` → `oto` içine `"toplam_sure": "35-45"`, `"plan_sayisi": "10-13"`, `"dukkanda_en_az": 4` ekle.
 Kapanış kartında `telefon`/`adres` boş bırakılırsa o satır gizlenir; `sosyal` satırı eklenebilir.
+
+## YouTube otomasyonu (bilgisayar gerekmez)
+- **YouTube Rapor**: her sabah 08:47 üç kanalın istatistiği Telegram'a gelir (`rapor/son.json`).
+- **Yayın onayı**: Otomatik Bölüm videosu bitince Telegram'a "YouTube'a yüklensin mi?" mesajı gelir. ✅ Onayla → 19:00'da yayında. Cevapsız/iptal → yayınlanmaz.
+- **YouTube İzin**: kanal izni (bir kez yapıldı: dukkantv, kasakurgu, dramabite).
+- **Bütçe kilidi**: fal.ai harcaması `harcama/aylik.json` defterine yazılır; aylık limit 30 $ (`AYLIK_LIMIT`). Aşılacaksa iş başlamaz.
+- Sahne kareleri artık Nano Banana 2 ile (0,08 $), bölümler varsayılan 30–40 sn, ilk plan en şaşırtıcı an (kanca).
