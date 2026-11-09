@@ -1,0 +1,35 @@
+name: YouTube İzin
+
+on:
+  workflow_dispatch:
+    inputs:
+      kanal:
+        description: "Hangi kanal?"
+        required: true
+        type: choice
+        options: [dukkantv, kasakurgu, dramabite]
+
+permissions:
+  contents: write
+
+jobs:
+  izin:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - name: İzin al (Telegram'a kod gelir)
+        env:
+          KANAL: ${{ inputs.kanal }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 yt_izin.py
+      - name: Şifreli izni kaydet
+        run: |
+          git config user.name "Dükkan TV Bot"
+          git config user.email "dukkan.tvstudio@gmail.com"
+          git add tokens/
+          git commit -m "YouTube izni: ${{ inputs.kanal }}"
+          git push
