@@ -44,6 +44,8 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
       YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      TT_CLIENT_KEY: ${{ secrets.TT_CLIENT_KEY }}
+      TT_CLIENT_SECRET: ${{ secrets.TT_CLIENT_SECRET }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
     steps:
@@ -67,7 +69,7 @@ jobs:
         run: |
           git config user.name "Dükkan TV Bot"
           git config user.email "dukkan.tvstudio@gmail.com"
-          git add -A kuyruk
+          git add -A kuyruk tokens
           git diff --cached --quiet && exit 0
           git commit -m "Yayın kuyruğu güncellendi"
           git pull --rebase -q && git push

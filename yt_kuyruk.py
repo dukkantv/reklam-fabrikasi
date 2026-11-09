@@ -20,6 +20,22 @@ import sys
 
 from yt_ortak import KOK, erisim_anahtari, istek, kanal_bilgi, telegram
 from ig_ortak import ig_hesap, reels_yukle
+from tt_ortak import taslak_yukle, tt_hesap
+
+
+def tt_bekliyor(kayit):
+    """Bu kanal için TikTok bağlıysa ve video henüz gönderilmediyse True."""
+    if kayit.get("tt") in ("taslak", "hata"):
+        return False
+    try:
+        return tt_hesap(kayit["kanal"]) is not None
+    except Exception:
+        return False
+
+
+def tt_aciklama(kayit):
+    return kayit["baslik"].replace("#shorts", "").replace("#Shorts", "").strip(" |") + "\n\n" + \
+        " ".join("#" + e.replace(" ", "") for e in kayit.get("etiketler", [])[:6]) + " #fyp #keşfet"
 
 
 def ig_bekliyor(kayit):
@@ -198,39 +214,56 @@ def kontrol():
             except subprocess.CalledProcessError:
                 pass
             os.remove(os.path.join(KUYRUK, f"{kayit['id']}.json"))
-        elif kayit["durum"] == "yuklendi" and ig_bekliyor(kayit):
-            # YouTube'a planlı yüklendi; Instagram'a da yayın saatinde (19:00) Reels olarak paylaşılır
+        elif kayit["durum"] == "yuklendi" and (ig_bekliyor(kayit) or tt_bekliyor(kayit)):
+            # YouTube'a planlı yüklendi; yayın saatinde Instagram'a Reels, TikTok'a taslak olarak gider
             if simdi < dt.datetime.fromisoformat(kayit["yayin"]):
                 continue
-            try:
-                gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
-                yol = os.path.join("/tmp", kayit["dosya"])
+            if ig_bekliyor(kayit):
                 try:
-                    mid, link = reels_yukle(kayit["kanal"], yol, ig_aciklama(kayit))
-                except RuntimeError as e1:
-                    # Instagram bazı videoları "ProcessingFailedError" ile reddediyor (ör. çok düşük bit hızı).
-                    # Instagram'ın önerdiği ayarlarla yeniden kodlayıp bir kez daha dene.
-                    print(f"Instagram ilk deneme ({kayit['id']}):", str(e1)[:300], "→ yeniden kodlanıyor")
-                    yeni = yol[:-4] + "_ig.mp4"
-                    if subprocess.run(["which", "ffmpeg"], capture_output=True).returncode != 0:
-                        subprocess.run("sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg",
-                                       shell=True, check=True)
-                    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", yol, "-c:v", "libx264",
-                                    "-profile:v", "high", "-pix_fmt", "yuv420p", "-r", "30", "-g", "60",
-                                    "-b:v", "3500k", "-maxrate", "5000k", "-bufsize", "7000k",
-                                    "-c:a", "aac", "-ar", "48000", "-ac", "2", "-b:a", "128k",
-                                    "-movflags", "+faststart", yeni], check=True)
-                    mid, link = reels_yukle(kayit["kanal"], yeni, ig_aciklama(kayit))
-                kayit.update(ig="paylasildi", ig_id=mid, ig_link=link)
-                kaydet(kayit)
-                telegram(f"📸 {ad}: \"{kayit['baslik']}\" Instagram'da Reels olarak paylaşıldı.\n{link}")
-            except Exception as e:
-                print(f"Instagram hatası ({kayit['id']}):", str(e)[:400])
-                kayit["ig_deneme"] = kayit.get("ig_deneme", 0) + 1
-                if kayit["ig_deneme"] >= 3:
-                    kayit["ig"] = "hata"
-                    telegram(f"⚠️ {ad}: Instagram paylaşımı 3 kez başarısız: {str(e)[:200]}")
-                kaydet(kayit)
+                    gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
+                    yol = os.path.join("/tmp", kayit["dosya"])
+                    try:
+                        mid, link = reels_yukle(kayit["kanal"], yol, ig_aciklama(kayit))
+                    except RuntimeError as e1:
+                        # Instagram bazı videoları "ProcessingFailedError" ile reddediyor (ör. çok düşük bit hızı).
+                        # Instagram'ın önerdiği ayarlarla yeniden kodlayıp bir kez daha dene.
+                        print(f"Instagram ilk deneme ({kayit['id']}):", str(e1)[:300], "→ yeniden kodlanıyor")
+                        yeni = yol[:-4] + "_ig.mp4"
+                        if subprocess.run(["which", "ffmpeg"], capture_output=True).returncode != 0:
+                            subprocess.run("sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg",
+                                           shell=True, check=True)
+                        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", yol, "-c:v", "libx264",
+                                        "-profile:v", "high", "-pix_fmt", "yuv420p", "-r", "30", "-g", "60",
+                                        "-b:v", "3500k", "-maxrate", "5000k", "-bufsize", "7000k",
+                                        "-c:a", "aac", "-ar", "48000", "-ac", "2", "-b:a", "128k",
+                                        "-movflags", "+faststart", yeni], check=True)
+                        mid, link = reels_yukle(kayit["kanal"], yeni, ig_aciklama(kayit))
+                    kayit.update(ig="paylasildi", ig_id=mid, ig_link=link)
+                    kaydet(kayit)
+                    telegram(f"📸 {ad}: \"{kayit['baslik']}\" Instagram'da Reels olarak paylaşıldı.\n{link}")
+                except Exception as e:
+                    print(f"Instagram hatası ({kayit['id']}):", str(e)[:400])
+                    kayit["ig_deneme"] = kayit.get("ig_deneme", 0) + 1
+                    if kayit["ig_deneme"] >= 3:
+                        kayit["ig"] = "hata"
+                        telegram(f"⚠️ {ad}: Instagram paylaşımı 3 kez başarısız: {str(e)[:200]}")
+                    kaydet(kayit)
+            if tt_bekliyor(kayit):
+                try:
+                    gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
+                    pid = taslak_yukle(kayit["kanal"], os.path.join("/tmp", kayit["dosya"]))
+                    kayit.update(tt="taslak", tt_id=pid)
+                    kaydet(kayit)
+                    telegram(f"🎵 {ad}: \"{kayit['baslik']}\" TikTok'a taslak olarak gönderildi.\n"
+                             f"TikTok uygulamasında bildirimi aç → açıklamayı yapıştır → Paylaş.\n\n"
+                             f"Açıklama (kopyala):\n{tt_aciklama(kayit)}")
+                except Exception as e:
+                    print(f"TikTok hatası ({kayit['id']}):", str(e)[:400])
+                    kayit["tt_deneme"] = kayit.get("tt_deneme", 0) + 1
+                    if kayit["tt_deneme"] >= 3:
+                        kayit["tt"] = "hata"
+                        telegram(f"⚠️ {ad}: TikTok gönderimi 3 kez başarısız: {str(e)[:200]}")
+                    kaydet(kayit)
         elif kayit["durum"] == "yuklendi":
             try:
                 gh("release", "delete-asset", "kuyruk", kayit["dosya"], "-y")

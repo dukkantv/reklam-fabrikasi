@@ -1,0 +1,48 @@
+name: TikTok İzin
+
+# 1) Kod boş bırakılırsa: TikTok izin bağlantısı Telegram'a gelir.
+# 2) Bağlantıda izin verince açılan sayfadaki kodu buraya yapıştır: bağlantı kurulur.
+on:
+  workflow_dispatch:
+    inputs:
+      kanal:
+        description: "Hangi kanalın TikTok hesabı"
+        type: choice
+        default: dukkantv
+        options: [dukkantv, kasakurgu, dramabite]
+      kod:
+        description: "İzin sayfasındaki kod (ilk seferde boş bırak)"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: youtube-yayin
+
+jobs:
+  izin:
+    runs-on: ubuntu-latest
+    env:
+      TT_CLIENT_KEY: ${{ secrets.TT_CLIENT_KEY }}
+      TT_CLIENT_SECRET: ${{ secrets.TT_CLIENT_SECRET }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      KANAL: ${{ inputs.kanal }}
+      KOD: ${{ inputs.kod }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: İzin bağlantısı ya da kurulum
+        run: |
+          if [ -z "$KOD" ]; then python3 tt_ortak.py link "$KANAL"
+          else python3 tt_ortak.py kurulum "$KANAL" "$KOD"; fi
+      - name: Kaydet
+        run: |
+          git config user.name "Dükkan TV Bot"
+          git config user.email "dukkan.tvstudio@gmail.com"
+          git add tokens/
+          git diff --cached --quiet && exit 0
+          git commit -m "TikTok bağlantısı"
+          git pull --rebase -q && git push

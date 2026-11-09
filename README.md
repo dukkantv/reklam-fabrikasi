@@ -46,3 +46,9 @@ Kapanış kartında `telefon`/`adres` boş bırakılırsa o satır gizlenir; `so
 - **YouTube İzin**: kanal izni (bir kez yapıldı: dukkantv, kasakurgu, dramabite).
 - **Bütçe kilidi**: fal.ai harcaması `harcama/aylik.json` defterine yazılır; aylık limit 30 $ (`AYLIK_LIMIT`). Aşılacaksa iş başlamaz.
 - Sahne kareleri artık Nano Banana 2 ile (0,08 $), bölümler varsayılan 30–40 sn, ilk plan en şaşırtıcı an (kanca).
+
+## TikTok (taslak olarak)
+- Gizli anahtarlar: `TT_CLIENT_KEY`, `TT_CLIENT_SECRET` (developers.tiktok.com → uygulama).
+- **Actions → TikTok İzin** → kanal seç, kod boş → izin bağlantısı Telegram'a gelir → izin ver → açılan sayfadaki kodu kopyala → aynı işi kodla tekrar çalıştır.
+- Yayın saatinde (19:00) video TikTok uygulamasına **taslak** olarak düşer; Telegram'a açıklama metni gelir. TikTok'ta bildirimi aç → açıklamayı yapıştır → Paylaş.
+- TikTok denetimi onaylanınca doğrudan (otomatik) paylaşıma geçilecek.
