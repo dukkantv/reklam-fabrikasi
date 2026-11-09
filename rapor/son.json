@@ -4,7 +4,7 @@
   "dramabite": {
    "ad": "Drama Bite",
    "abone": 14,
-   "toplam_izlenme": 14523,
+   "toplam_izlenme": 14536,
    "video_sayisi": 15,
    "son28": {
     "views": 13423,
@@ -12,8 +12,8 @@
     "subscribersGained": 13,
     "subscribersLost": 0
    },
-   "uzun_video_saat_365": null,
-   "shorts_izlenme_90": null,
+   "uzun_video_saat_365": 0.0,
+   "shorts_izlenme_90": 13435,
    "en_iyi_7gun": [
     {
      "video": "wiwkVtdTYuA",
@@ -65,7 +65,7 @@
   "dukkantv": {
    "ad": "Dükkan Tv",
    "abone": 1,
-   "toplam_izlenme": 1444,
+   "toplam_izlenme": 1467,
    "video_sayisi": 3,
    "son28": {
     "views": 275,
@@ -73,8 +73,8 @@
     "subscribersGained": 1,
     "subscribersLost": 0
    },
-   "uzun_video_saat_365": null,
-   "shorts_izlenme_90": null,
+   "uzun_video_saat_365": 0.0,
+   "shorts_izlenme_90": 275,
    "en_iyi_7gun": [
     {
      "video": "ex5YlHYsu60",
@@ -107,8 +107,8 @@
     "subscribersGained": 6,
     "subscribersLost": 0
    },
-   "uzun_video_saat_365": null,
-   "shorts_izlenme_90": null,
+   "uzun_video_saat_365": 0.0,
+   "shorts_izlenme_90": 1720,
    "en_iyi_7gun": [
     {
      "video": "xRxUcoShyRI",
