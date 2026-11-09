@@ -5,6 +5,10 @@ name: Instagram Kurulum
 on:
   workflow_dispatch:
     inputs:
+      video:
+        description: "Teşhis için kuyruk sürümündeki video adı (isteğe bağlı)"
+        required: false
+        default: ""
       teshis:
         description: "Sadece teşhis (kanal adı, örn. dramabite). Boşsa kurulum yapılır."
         required: false
@@ -20,6 +24,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Sayfa anahtarlarını al
         env:
+          GH_TOKEN: ${{ github.token }}
           IG_USER_TOKEN: ${{ secrets.IG_USER_TOKEN }}
           IG_APP_ID: ${{ secrets.IG_APP_ID }}
           IG_APP_SECRET: ${{ secrets.IG_APP_SECRET }}
@@ -29,6 +34,11 @@ jobs:
         run: |
           if [ -n "${{ inputs.teshis }}" ]; then
             sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+            if [ -n "${{ inputs.video }}" ]; then
+              gh release download kuyruk -p "${{ inputs.video }}" -D /tmp
+              python3 ig_ortak.py teshis_video ${{ inputs.teshis }} /tmp/${{ inputs.video }}
+              exit 0
+            fi
             for k in ${{ inputs.teshis }}; do echo "===== $k"; python3 ig_ortak.py teshis $k; done
           else
             python3 ig_ortak.py kurulum

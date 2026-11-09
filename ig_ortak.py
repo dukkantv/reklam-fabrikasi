@@ -134,8 +134,50 @@ def teshis(kanal):
     print("Durum:", istek(f"{API}/{kap['id']}?fields=status_code,status&access_token={tok}")[2])
 
 
+def _sadece_yukle(tok, ig, yol):
+    kod, _, kap = istek(f"{API}/{ig}/media", veri={"media_type": "REELS", "upload_type": "resumable",
+                                                   "caption": "deneme", "access_token": tok})
+    with open(yol, "rb") as f:
+        veri = f.read()
+    kod, _, cev = istek(f"https://rupload.facebook.com/ig-api-upload/v25.0/{kap['id']}", method="POST", ham=veri,
+                        zaman=900, headers={"Authorization": f"OAuth {tok}", "offset": "0", "file_size": str(len(veri))})
+    if kod != 200:
+        return f"YÜKLEME {kod} {str(cev)[:150]}"
+    for _ in range(18):
+        time.sleep(10)
+        d = istek(f"{API}/{kap['id']}?fields=status_code,status&access_token={tok}")[2]
+        if d.get("status_code") in ("FINISHED", "ERROR", "EXPIRED"):
+            return f"{d.get('status_code')} {d.get('status')}"
+    return "zaman aşımı"
+
+
+def teshis_video(kanal, yol):
+    """Gerçek videonun farklı kodlamalarını yayınlamadan yükleyip hangisinin kabul edildiğini gösterir."""
+    h = ig_hesap(kanal)
+    tok, ig = h["token"], h["ig_id"]
+    print(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "stream=codec_name,profile,level,pix_fmt,width,height,"
+                          "r_frame_rate,sample_rate,channels,duration,start_time:format=duration",
+                          "-of", "compact", yol], capture_output=True, text=True).stdout)
+    s = ["ffmpeg", "-y", "-loglevel", "error", "-i", yol]
+    secenekler = {
+        "orijinal": None,
+        "ilk20sn": s + ["-t", "20", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac", "-movflags", "+faststart"],
+        "sessiz": s + ["-an", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-movflags", "+faststart"],
+        "720p_48k": s + ["-vf", "scale=720:1280,fps=30", "-c:v", "libx264", "-profile:v", "main", "-level", "4.0",
+                         "-pix_fmt", "yuv420p", "-b:v", "2500k", "-c:a", "aac", "-ar", "48000", "-ac", "2",
+                         "-b:a", "128k", "-movflags", "+faststart"],
+    }
+    for ad, komut in secenekler.items():
+        hedef = yol if komut is None else f"/tmp/t_{ad}.mp4"
+        if komut:
+            subprocess.run(komut + [hedef], check=True)
+        print(f"{ad}: {_sadece_yukle(tok, ig, hedef)}", flush=True)
+
+
 if __name__ == "__main__":
     if sys.argv[1] == "kurulum":
         kurulum()
     elif sys.argv[1] == "teshis":
         teshis(sys.argv[2])
+    elif sys.argv[1] == "teshis_video":
+        teshis_video(sys.argv[2], sys.argv[3])
