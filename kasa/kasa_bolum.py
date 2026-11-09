@@ -64,6 +64,19 @@ def son_kasa(v):
     return deger
 
 
+def yorumlar(vid, **ek):
+    """Yorumları YT_API_KEY ile okur (yükleme izni yorum okumayı kapsamıyor)."""
+    deger = os.environ.get("YT_API_KEY", "")
+    m = re.search(r"AIza[\w-]{35}", deger)
+    anahtar = m.group(0) if m else deger.strip()
+    q = dict(part="snippet", videoId=vid, maxResults=100, textFormat="plainText", key=anahtar, **ek)
+    r = requests.get("https://www.googleapis.com/youtube/v3/commentThreads", params=q, timeout=60)
+    if r.status_code == 403 and "commentsDisabled" in r.text:
+        return {"items": []}
+    r.raise_for_status()
+    return r.json()
+
+
 def oy_say(gun):
     """Gün N videosundaki yorumlardan A/B oylarını sayar."""
     try:
@@ -80,7 +93,7 @@ def oy_say(gun):
         sayfa = None
         while True:
             ek = {"pageToken": sayfa} if sayfa else {}
-            c = yt(tok, "commentThreads", part="snippet", videoId=vid, maxResults=100, textFormat="plainText", **ek)
+            c = yorumlar(vid, **ek)
             for t in c.get("items", []):
                 metin = t["snippet"]["topLevelComment"]["snippet"]["textDisplay"].strip().upper()
                 if re.match(r"^\W*A\b", metin):
