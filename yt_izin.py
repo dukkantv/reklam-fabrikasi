@@ -46,6 +46,7 @@ if "user_code" not in kod:
     telegram(f"❌ YouTube izin kodu alınamadı: {kod}")
     sys.exit(f"device/code hatası: {kod}")
 
+print("ONAY KODU:", kod["user_code"], flush=True)
 telegram(
     f"📺 YouTube izni — {KANAL}\n\n"
     f"1) Telefonda şu adresi aç: {kod['verification_url']}\n"
