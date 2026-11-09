@@ -1,0 +1,57 @@
+name: Drama Bite Hikaye
+
+# Drama Bite kanalı için duygusal hikâye videosu üretir, Telegram'a gönderir ve
+# YouTube onay kuyruğuna ekler (Levent onaylarsa 19:00'da yayında).
+on:
+  schedule:
+    - cron: "7 9 * * *"   # her gün 12:07 (Türkiye)
+  workflow_dispatch:
+    inputs:
+      konu:
+        description: "Konu (rastgele yazarsan listeden seçer)"
+        default: "rastgele"
+
+permissions:
+  contents: write
+
+jobs:
+  uret:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Gerekli paketler
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-liberation fonts-dejavu-core ffmpeg
+          pip install requests pillow edge-tts
+      - name: Hikaye üret
+        env:
+          KONU: ${{ github.event.inputs.konu || 'rastgele' }}
+          DIL: tr
+          SERI: tek
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python hikaye_atolyesi.py
+      - name: Yayın kuyruğuna ekle (Telegram'da onay butonu gelir)
+        if: success() && hashFiles('cikti/yayin.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 - <<'PY'
+          import json, subprocess
+          y = json.load(open("cikti/yayin.json", encoding="utf-8"))
+          subprocess.run(["python3", "yt_kuyruk.py", "ekle", "dramabite", y["video"], y["baslik"], y["aciklama"], y["etiketler"]], check=True)
+          PY
+          git config user.name "dukkan-tv-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add kuyruk
+          git diff --cached --quiet || (git commit -m "Yayın kuyruğu: Drama Bite hikâyesi" && (git push || (git pull --rebase origin main && git push)))
