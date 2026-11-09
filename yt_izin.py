@@ -18,6 +18,7 @@ import re
 CID = (re.search(r"[\w-]+\.apps\.googleusercontent\.com", os.environ["YT_CLIENT_ID"]) or re.search(r"\S+", os.environ["YT_CLIENT_ID"])).group(0)
 CSEC = (re.search(r"GOCSPX-[\w-]+", os.environ["YT_CLIENT_SECRET"]) or re.search(r"\S+", os.environ["YT_CLIENT_SECRET"])).group(0)
 os.environ["YT_CLIENT_SECRET"] = CSEC
+print(f"Kontrol: client id sonu {CID[-27:]}, secret uzunluğu {len(CSEC)}, GOCSPX ile başlıyor: {CSEC.startswith('GOCSPX-')}")
 TG_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TG_CHAT = os.environ["TELEGRAM_CHAT_ID"]
 SCOPE = "https://www.googleapis.com/auth/youtube"
