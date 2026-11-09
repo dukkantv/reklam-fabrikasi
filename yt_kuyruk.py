@@ -155,7 +155,7 @@ def kontrol():
     if not kayitlar:
         print("Kuyruk boş.")
         return
-    kod, _, guncel = istek(f"{TG}/getUpdates?timeout=0")
+    kod, _, guncel = istek(f"{TG}/getUpdates?timeout=0&allowed_updates=%5B%22message%22%2C%22callback_query%22%5D")
     sonuc = (guncel or {}).get("result", []) if isinstance(guncel, dict) else []
     print(f"Telegram getUpdates: kod={kod}, {len(sonuc)} güncelleme,",
           "butonlar:", [(u.get("callback_query") or {}).get("data") for u in sonuc if u.get("callback_query")],
