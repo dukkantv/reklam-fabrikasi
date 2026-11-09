@@ -155,8 +155,15 @@ def kontrol():
     if not kayitlar:
         print("Kuyruk boş.")
         return
-    _, _, guncel = istek(f"{TG}/getUpdates?timeout=0")
-    for u in (guncel or {}).get("result", []):
+    kod, _, guncel = istek(f"{TG}/getUpdates?timeout=0")
+    sonuc = (guncel or {}).get("result", []) if isinstance(guncel, dict) else []
+    print(f"Telegram getUpdates: kod={kod}, {len(sonuc)} güncelleme,",
+          "butonlar:", [(u.get("callback_query") or {}).get("data") for u in sonuc if u.get("callback_query")],
+          "" if sonuc or kod == 200 else str(guncel)[:200])
+    if kod == 409:
+        _, _, wh = istek(f"{TG}/getWebhookInfo")
+        print("Webhook:", str(wh)[:200])
+    for u in sonuc:
         cq = u.get("callback_query") or {}
         parca = (cq.get("data") or "").split(":")
         if len(parca) != 3 or parca[0] != "yt" or parca[2] not in kayitlar:
