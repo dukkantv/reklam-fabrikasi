@@ -18,7 +18,7 @@ KLASOR = os.path.dirname(os.path.abspath(__file__))
 VAKALAR = os.path.join(KLASOR, "vakalar_v2.json")
 DURUM = os.path.join(KLASOR, "state.json")
 ANAHTAR = "".join(os.environ.get("GEMINI_API_KEY", "").split())
-ESIK = int(os.environ.get("STOK_ESIGI", "7"))      # kalan vaka bundan azsa yenisi yazılır
+ESIK = int(os.environ.get("STOK_ESIGI", "14"))  # erken başla: günlük az ama sürekli ekler      # kalan vaka bundan azsa yenisi yazılır
 ADET = int(os.environ.get("YENI_VAKA", "6"))      # bir seferde kaç vaka yazılsın
 MODELLER = ["gemini-flash-latest", "gemini-2.5-flash", "gemini-flash-lite-latest"]
 
@@ -109,10 +109,11 @@ def main():
         f"Örnek biçim: {json.dumps(ORNEK, ensure_ascii=False)}\n"
         f"Tam olarak {ADET + 3} vaka yaz. SADECE JSON dizi döndür."
     )
+    baslangic = time.time()
     adaylar = json.loads(gemini(istem))
     eklenen = []
     for v in adaylar:
-        if len(eklenen) >= ADET:
+        if len(eklenen) >= ADET or time.time() - baslangic > 540:  # ~9 dk: kalanı yarın dener
             break
         v = {k: v.get(k) for k in ORNEK}
         if not bicim_dogru(v, basliklar):
@@ -123,9 +124,9 @@ def main():
             continue
         basliklar.add(v["baslik"].lower())
         eklenen.append(v)
+        vakalar.append(v)
+        json.dump(vakalar, open(VAKALAR, "w", encoding="utf-8"), ensure_ascii=False, indent=2)  # hemen kaydet
         print("Eklendi:", v["baslik"])
-    vakalar += eklenen
-    json.dump(vakalar, open(VAKALAR, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     print(f"{len(eklenen)} yeni vaka eklendi. Toplam {len(vakalar)}.")
 
 
