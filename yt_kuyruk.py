@@ -204,8 +204,20 @@ def kontrol():
                 continue
             try:
                 gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
-                mid, link = reels_yukle(kayit["kanal"], os.path.join("/tmp", kayit["dosya"]),
-                                        ig_aciklama(kayit))
+                yol = os.path.join("/tmp", kayit["dosya"])
+                try:
+                    mid, link = reels_yukle(kayit["kanal"], yol, ig_aciklama(kayit))
+                except RuntimeError as e1:
+                    # Instagram bazı videoları "ProcessingFailedError" ile reddediyor (ör. çok düşük bit hızı).
+                    # Instagram'ın önerdiği ayarlarla yeniden kodlayıp bir kez daha dene.
+                    print(f"Instagram ilk deneme ({kayit['id']}):", str(e1)[:300], "→ yeniden kodlanıyor")
+                    yeni = yol[:-4] + "_ig.mp4"
+                    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", yol, "-c:v", "libx264",
+                                    "-profile:v", "high", "-pix_fmt", "yuv420p", "-r", "30", "-g", "60",
+                                    "-b:v", "3500k", "-maxrate", "5000k", "-bufsize", "7000k",
+                                    "-c:a", "aac", "-ar", "48000", "-ac", "2", "-b:a", "128k",
+                                    "-movflags", "+faststart", yeni], check=True)
+                    mid, link = reels_yukle(kayit["kanal"], yeni, ig_aciklama(kayit))
                 kayit.update(ig="paylasildi", ig_id=mid, ig_link=link)
                 kaydet(kayit)
                 telegram(f"📸 {ad}: \"{kayit['baslik']}\" Instagram'da Reels olarak paylaşıldı.\n{link}")
