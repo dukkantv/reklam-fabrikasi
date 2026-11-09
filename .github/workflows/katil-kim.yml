@@ -1,0 +1,63 @@
+name: Katil Kim Vakası
+
+# Kasa kurgu kanalı için sıradaki "Katil Kim?" vaka videosunu üretir, Telegram'a gönderir ve
+# YouTube onay kuyruğuna ekler (Levent onaylarsa 19:00'da yayında).
+on:
+  schedule:
+    - cron: "37 9 * * *"   # her gün 12:37 (Türkiye)
+  workflow_dispatch:
+    inputs:
+      vaka_no:
+        description: "Vaka numarası (boş = sıradaki)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  uret:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: dedektif
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Araçlar
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu
+          pip install requests pillow numpy edge-tts
+      - name: Vaka videosunu üret
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          VAKA_NO: ${{ inputs.vaka_no }}
+        run: python generator.py
+      - name: Yayın kuyruğuna ekle
+        if: success() && hashFiles('dedektif/yayin.json') != ''
+        working-directory: .
+        env:
+          GH_TOKEN: ${{ github.token }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 - <<'PY'
+          import json, subprocess
+          y = json.load(open("dedektif/yayin.json", encoding="utf-8"))
+          subprocess.run(["python3", "yt_kuyruk.py", "ekle", "kasakurgu", y["video"], y["baslik"], y["aciklama"], y["etiketler"]], check=True)
+          PY
+      - name: Sırayı ve kuyruğu kaydet
+        if: always()
+        working-directory: .
+        run: |
+          git config user.name "dukkan-tv-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add dedektif/state.json kuyruk
+          git diff --cached --quiet || (git commit -m "Katil Kim: vaka sırası / yayın kuyruğu" && (git push || (git pull --rebase origin main && git push)))
