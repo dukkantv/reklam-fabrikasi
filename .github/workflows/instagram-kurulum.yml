@@ -1,0 +1,30 @@
+name: Instagram Kurulum
+
+# IG_USER_TOKEN gizli anahtarındaki (60 günlük) kullanıcı anahtarıyla, Facebook sayfalarına bağlı
+# Instagram hesaplarının SÜRESİZ sayfa anahtarlarını alır ve şifreli olarak tokens/ klasörüne kaydeder.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  kurulum:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sayfa anahtarlarını al
+        env:
+          IG_USER_TOKEN: ${{ secrets.IG_USER_TOKEN }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 ig_ortak.py kurulum
+      - name: Kaydet
+        run: |
+          git config user.name "Dükkan TV Bot"
+          git config user.email "dukkan.tvstudio@gmail.com"
+          git add tokens/
+          git diff --cached --quiet && exit 0
+          git commit -m "Instagram bağlantısı"
+          git pull --rebase -q && git push

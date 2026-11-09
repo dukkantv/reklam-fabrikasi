@@ -19,6 +19,23 @@ import subprocess
 import sys
 
 from yt_ortak import KOK, erisim_anahtari, istek, kanal_bilgi, telegram
+from ig_ortak import ig_hesap, reels_yukle
+
+
+def ig_bekliyor(kayit):
+    """Bu kanal için Instagram bağlıysa ve henüz paylaşılmadıysa True."""
+    if kayit.get("ig") in ("paylasildi", "hata"):
+        return False
+    try:
+        return ig_hesap(kayit["kanal"]) is not None
+    except Exception:
+        return False
+
+
+def ig_aciklama(kayit):
+    baslik = kayit["baslik"].replace("#shorts", "").replace("#Shorts", "").strip(" |")
+    etiket = " ".join("#" + e.replace(" ", "") for e in kayit.get("etiketler", [])[:8])
+    return f"{baslik}\n\n{etiket}".strip()
 
 KUYRUK = os.path.join(KOK, "kuyruk")
 TR = dt.timezone(dt.timedelta(hours=3))
@@ -144,6 +161,23 @@ def kontrol():
             except subprocess.CalledProcessError:
                 pass
             os.remove(os.path.join(KUYRUK, f"{kayit['id']}.json"))
+        elif kayit["durum"] == "yuklendi" and ig_bekliyor(kayit):
+            # YouTube'a planlı yüklendi; Instagram'a da yayın saatinde (19:00) Reels olarak paylaşılır
+            if simdi < dt.datetime.fromisoformat(kayit["yayin"]):
+                continue
+            try:
+                gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
+                mid, link = reels_yukle(kayit["kanal"], os.path.join("/tmp", kayit["dosya"]),
+                                        ig_aciklama(kayit))
+                kayit.update(ig="paylasildi", ig_id=mid, ig_link=link)
+                kaydet(kayit)
+                telegram(f"📸 {ad}: \"{kayit['baslik']}\" Instagram'da Reels olarak paylaşıldı.\n{link}")
+            except Exception as e:
+                kayit["ig_deneme"] = kayit.get("ig_deneme", 0) + 1
+                if kayit["ig_deneme"] >= 3:
+                    kayit["ig"] = "hata"
+                    telegram(f"⚠️ {ad}: Instagram paylaşımı 3 kez başarısız: {str(e)[:200]}")
+                kaydet(kayit)
         elif kayit["durum"] == "yuklendi":
             try:
                 gh("release", "delete-asset", "kuyruk", kayit["dosya"], "-y")
