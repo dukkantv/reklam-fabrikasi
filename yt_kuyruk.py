@@ -210,6 +210,7 @@ def kontrol():
                 kaydet(kayit)
                 telegram(f"📸 {ad}: \"{kayit['baslik']}\" Instagram'da Reels olarak paylaşıldı.\n{link}")
             except Exception as e:
+                print(f"Instagram hatası ({kayit['id']}):", str(e)[:400])
                 kayit["ig_deneme"] = kayit.get("ig_deneme", 0) + 1
                 if kayit["ig_deneme"] >= 3:
                     kayit["ig"] = "hata"
