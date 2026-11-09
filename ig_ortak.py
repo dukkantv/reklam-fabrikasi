@@ -39,6 +39,19 @@ def kurulum():
     tok = "".join(os.environ.get("IG_USER_TOKEN", "").split())
     if not tok:
         sys.exit("IG_USER_TOKEN gizli anahtarı yok")
+    # Graph API Explorer'ın verdiği anahtar 1-2 saatliktir; ondan alınan sayfa anahtarları da çabuk biter.
+    # Uygulama kimliği + gizli anahtarıyla önce 60 günlük anahtara çevrilir; ondan alınan sayfa anahtarları SÜRESİZDİR.
+    app_id = os.environ.get("IG_APP_ID", "").strip()
+    app_sec = os.environ.get("IG_APP_SECRET", "").strip()
+    if not (app_id and app_sec):
+        telegram("❌ Instagram kurulumu: IG_APP_ID ve IG_APP_SECRET gizli anahtarları eksik (anahtar birkaç saatte biterdi).")
+        sys.exit("IG_APP_ID / IG_APP_SECRET yok")
+    kod, _, uzun = istek(f"{API}/oauth/access_token?grant_type=fb_exchange_token&client_id={app_id}"
+                         f"&client_secret={app_sec}&fb_exchange_token={tok}")
+    if kod != 200 or "access_token" not in (uzun or {}):
+        telegram(f"❌ Instagram: uzun süreli anahtar alınamadı: {str(uzun)[:300]}")
+        sys.exit(f"hata: {uzun}")
+    tok = uzun["access_token"]
     kod, _, veri = istek(f"{API}/me/accounts?fields=name,access_token,instagram_business_account%7Busername%7D"
                          f"&limit=50&access_token={tok}")
     if kod != 200:
