@@ -71,7 +71,7 @@ def ekle(kanal, video, baslik, aciklama="", etiketler=""):
     klavye = {"inline_keyboard": [[{"text": "✅ Onayla", "callback_data": f"yt:onay:{kid}"},
                                    {"text": "❌ Yayınlama", "callback_data": f"yt:iptal:{kid}"}]]}
     cevap = telegram(f"📺 YouTube'a yüklensin mi? → {ad}\n\n🎬 {kayit['baslik']}\n\n"
-                     f"Onaylarsan 19:00'da yayına girer (18:30'dan sonra onaylarsan yarın 19:00).\n"
+                     f"Onaylarsan ilk boş akşam saatinde (18:00–21:30 arası, diğer videolarla çakışmadan) yayına girer.\n"
                      f"Video yukarıda Telegram'a gelen son video.",
                      reply_markup=json.dumps(klavye))
     kayit["mesaj_id"] = (cevap.get("result") or {}).get("message_id")
@@ -79,12 +79,42 @@ def ekle(kanal, video, baslik, aciklama="", etiketler=""):
     print("Kuyruğa eklendi:", kid)
 
 
-def yayin_zamani():
+# Yayın saatleri: videolar aynı anda çıkmasın, izleyici birinde takılı kalmasın diye aralıklı.
+# Her kanalın tercih ettiği saatler; boş olan ilk saat seçilir. Kanallar arası en az 30 dk,
+# aynı kanalın iki videosu arası en az 60 dk.
+SAATLER = ["18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30"]
+TERCIH = {"dukkantv": ["19:00", "18:00", "20:00", "21:00"],
+          "kasakurgu": ["19:30", "20:30", "18:30", "21:30"],
+          "dramabite": ["20:00", "21:00", "18:00", "19:00"]}
+
+
+def dolu_zamanlar():
+    zamanlar = []
+    for p in glob.glob(os.path.join(KUYRUK, "*.json")) + glob.glob(os.path.join(KUYRUK, "arsiv", "*.json")):
+        try:
+            k = json.load(open(p, encoding="utf-8"))
+            if k.get("yayin"):
+                zamanlar.append((k["kanal"], dt.datetime.fromisoformat(k["yayin"])))
+        except Exception:
+            pass
+    return zamanlar
+
+
+def yayin_zamani(kanal="dukkantv"):
     simdi = dt.datetime.now(TR)
-    hedef = simdi.replace(hour=19, minute=0, second=0, microsecond=0)
-    if simdi > hedef - dt.timedelta(minutes=30):
-        hedef += dt.timedelta(days=1)
-    return hedef
+    dolu = dolu_zamanlar()
+    sira = TERCIH.get(kanal, []) + [x for x in SAATLER if x not in TERCIH.get(kanal, [])]
+    for gun in range(0, 14):
+        tarih = (simdi + dt.timedelta(days=gun)).date()
+        for saat in sira:
+            hh, mm = map(int, saat.split(":"))
+            aday = dt.datetime(tarih.year, tarih.month, tarih.day, hh, mm, tzinfo=TR)
+            if aday < simdi + dt.timedelta(minutes=30):
+                continue
+            cakisma = any(abs((aday - z).total_seconds()) < (3600 if k == kanal else 1800) for k, z in dolu)
+            if not cakisma:
+                return aday
+    return simdi.replace(hour=19, minute=0, second=0, microsecond=0) + dt.timedelta(days=1)
 
 
 def youtube_yukle(kayit):
@@ -92,7 +122,7 @@ def youtube_yukle(kayit):
     yerel = os.path.join("/tmp", kayit["dosya"])
     gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
     boyut = os.path.getsize(yerel)
-    zaman = yayin_zamani()
+    zaman = yayin_zamani(kayit["kanal"])
     ust = {"snippet": {"title": kayit["baslik"], "description": kayit["aciklama"], "tags": kayit["etiketler"],
                        "categoryId": "24", "defaultLanguage": "tr", "defaultAudioLanguage": "tr"},
            "status": {"privacyStatus": "private", "publishAt": zaman.astimezone(dt.timezone.utc).isoformat()
@@ -188,8 +218,45 @@ def kontrol():
                        os.path.join(KUYRUK, "arsiv", f"{kayit['id']}.json"))
 
 
+def yeniden_planla():
+    """Planlanmış (henüz yayınlanmamış) videoları aralıklı saatlere yeniden dağıtır."""
+    simdi = dt.datetime.now(TR)
+    yollar = sorted(glob.glob(os.path.join(KUYRUK, "*.json")) + glob.glob(os.path.join(KUYRUK, "arsiv", "*.json")))
+    bekleyen = []
+    for p in yollar:
+        k = json.load(open(p, encoding="utf-8"))
+        if k.get("video_id") and k.get("yayin") and dt.datetime.fromisoformat(k["yayin"]) > simdi + dt.timedelta(minutes=20):
+            bekleyen.append((p, k))
+    # önce hepsinin saatini boşalt, sonra sırayla (Dükkan TV önce) yeni saat ver
+    for p, k in bekleyen:
+        k["yayin"] = None
+        json.dump(k, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    oncelik = {"dukkantv": 0, "kasakurgu": 1, "dramabite": 2}
+    satirlar = []
+    for p, k in sorted(bekleyen, key=lambda x: (oncelik.get(x[1]["kanal"], 9), x[1]["id"])):
+        zaman = yayin_zamani(k["kanal"])
+        token = erisim_anahtari(k["kanal"])
+        kod, _, veri = istek("https://www.googleapis.com/youtube/v3/videos?part=status", method="PUT",
+                             headers={"Authorization": f"Bearer {token}"},
+                             json_govde={"id": k["video_id"], "status": {
+                                 "privacyStatus": "private", "selfDeclaredMadeForKids": False,
+                                 "publishAt": zaman.astimezone(dt.timezone.utc).isoformat().replace("+00:00", "Z")}})
+        if kod != 200:
+            satirlar.append(f"⚠️ {k['baslik'][:40]}: saat değiştirilemedi ({kod})")
+            k["yayin"] = dt.datetime.fromisoformat(k.get("eski_yayin") or zaman.isoformat()).isoformat()
+            continue
+        k["yayin"] = zaman.isoformat()
+        json.dump(k, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        satirlar.append(f"🕖 {zaman:%d.%m %H:%M} — {kanal_bilgi(k['kanal'])['ad']}: {k['baslik'][:45]}")
+    if satirlar:
+        telegram("📅 Yayın saatleri aralıklı olacak şekilde güncellendi:\n" + "\n".join(satirlar))
+    print("\n".join(satirlar) or "Planlı video yok.")
+
+
 if __name__ == "__main__":
     if sys.argv[1] == "ekle":
         ekle(*sys.argv[2:7])
     elif sys.argv[1] == "kontrol":
         kontrol()
+    elif sys.argv[1] == "planla":
+        yeniden_planla()

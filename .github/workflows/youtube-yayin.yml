@@ -4,7 +4,8 @@ name: YouTube Yayın
 # YouTube'a 19:00'a planlı yükler. Ayrıca elle video eklemek için de kullanılır.
 on:
   schedule:
-    - cron: "13 6-16 * * *"   # 09:13–19:13 arası her saat (Türkiye)
+    - cron: "13 6-14 * * *"    # 09:13–17:13 her saat (onaylar)
+    - cron: "3,33 15-18 * * *" # 18:03–21:33 yarım saatte bir (onay + Instagram paylaşımı)
   workflow_dispatch:
     inputs:
       kanal:
@@ -22,6 +23,10 @@ on:
       aciklama:
         description: "Elle ekleme: açıklama"
         required: false
+      planla:
+        description: "Planlı videoların saatlerini aralıklı olacak şekilde yeniden dağıt"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -51,6 +56,9 @@ jobs:
         run: |
           curl -fsSL "$URL" -o /tmp/elle.mp4
           python3 yt_kuyruk.py ekle "$KANAL" /tmp/elle.mp4 "$BASLIK" "$ACIKLAMA" ""
+      - name: Saatleri yeniden dağıt
+        if: inputs.planla
+        run: python3 yt_kuyruk.py planla
       - name: Onayları kontrol et ve yükle
         run: python3 yt_kuyruk.py kontrol
       - name: Kuyruğu kaydet
