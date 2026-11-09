@@ -19,7 +19,7 @@ VAKALAR = os.path.join(KLASOR, "vakalar_v2.json")
 DURUM = os.path.join(KLASOR, "state.json")
 ANAHTAR = "".join(os.environ.get("GEMINI_API_KEY", "").split())
 ESIK = int(os.environ.get("STOK_ESIGI", "7"))      # kalan vaka bundan azsa yenisi yazılır
-ADET = int(os.environ.get("YENI_VAKA", "10"))      # bir seferde kaç vaka yazılsın
+ADET = int(os.environ.get("YENI_VAKA", "6"))      # bir seferde kaç vaka yazılsın
 MODELLER = ["gemini-flash-latest", "gemini-2.5-flash", "gemini-flash-lite-latest"]
 
 ORNEK = {
@@ -42,11 +42,12 @@ def gemini(istem, json_mod=True):
                     json={"contents": [{"parts": [{"text": istem}]}],
                           "generationConfig": {"temperature": 0.9 if json_mod else 0.0,
                                                **({"responseMimeType": "application/json"} if json_mod else {})}},
-                    timeout=120)
+                    timeout=90)
                 if r.status_code == 404:
                     break
                 if r.status_code == 429:
-                    time.sleep(20 * (deneme + 1))
+                    print(f"Gemini ({model}) kota sınırı, bekleniyor...", flush=True)
+                    time.sleep(15)
                     continue
                 r.raise_for_status()
                 return r.json()["candidates"][0]["content"]["parts"][0]["text"]
@@ -79,7 +80,7 @@ def adil_mi(v):
              f"Şüpheliler:\n{sec}\nSadece ipuçlarına dayanarak suçlu kim? Tek harf yaz: A, B ya da C. "
              f"İpuçları tek bir kişiyi kesin göstermiyorsa X yaz.")
     cevaplar = []
-    for _ in range(2):
+    for _ in range(1):
         m = re.search(r"\b([ABCX])\b", gemini(istem, json_mod=False).strip().upper())
         cevaplar.append(m.group(1) if m else "X")
     return all(c == "ABC"[v["dogru"]] for c in cevaplar)
@@ -106,7 +107,7 @@ def main():
         f"Mekân fikirleri: {', '.join(random.sample(mekanlar, 10))}.\n"
         f"Şu başlıkları KULLANMA: {', '.join(sorted(basliklar))}.\n"
         f"Örnek biçim: {json.dumps(ORNEK, ensure_ascii=False)}\n"
-        f"Tam olarak {ADET + 4} vaka yaz. SADECE JSON dizi döndür."
+        f"Tam olarak {ADET + 3} vaka yaz. SADECE JSON dizi döndür."
     )
     adaylar = json.loads(gemini(istem))
     eklenen = []

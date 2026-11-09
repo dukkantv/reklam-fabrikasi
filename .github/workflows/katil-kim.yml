@@ -38,7 +38,9 @@ jobs:
           pip install requests pillow numpy edge-tts
       - name: Vaka stoku (azalınca Gemini yeni vakalar yazar)
         continue-on-error: true
+        timeout-minutes: 12
         env:
+          PYTHONUNBUFFERED: "1"
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python vaka_uret.py ${{ inputs.sadece_stok && '--zorla' || '' }}
       - name: Vaka videosunu üret
