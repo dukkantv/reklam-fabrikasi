@@ -37,8 +37,18 @@ for k in kanallar():
         ch = yt(token, "channels", part="statistics,snippet", mine="true")["items"][0]
         ist = ch["statistics"]
         son28 = toplam(token, gun(28), "views,estimatedMinutesWatched,subscribersGained,subscribersLost") or {}
-        yil_uzun = toplam(token, gun(365), "estimatedMinutesWatched", "creatorContentType==VIDEO_ON_DEMAND")
-        shorts90 = toplam(token, gun(90), "views", "creatorContentType==SHORTS")
+        def tur_bazli(bas, metrik):
+            try:
+                return {r["creatorContentType"]: r[metrik] for r in
+                        tablo(analiz(token, bas, gun(0), metrik, dimensions="creatorContentType"))}
+            except Exception as e:
+                print("tür tablosu alınamadı:", e)
+                return None
+        t365 = tur_bazli(gun(365), "estimatedMinutesWatched")
+        t90 = tur_bazli(gun(90), "views")
+        yil_uzun = None if t365 is None else {"estimatedMinutesWatched": t365.get("videoOnDemand", t365.get("VIDEO_ON_DEMAND", 0))}
+        shorts90 = None if t90 is None else {"views": t90.get("shorts", t90.get("SHORTS", 0))}
+        print(k, "türler:", t365, t90)
 
         # Son 7 günün en çok izlenen videoları
         enler = []
