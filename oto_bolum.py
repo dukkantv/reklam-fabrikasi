@@ -717,10 +717,15 @@ def taslak(klasor, konu, yeniden=""):
         for d in range(EN_FAZLA_YENIDEN + 1):
             girdi = {"prompt": istem, "image_urls": [resim_uri(r) for r in refs[:12]],
                      "aspect_ratio": "9:16", "resolution": "1K", "output_format": "jpeg"}
-            try:
+            if not girdi["image_urls"]:  # karede karakter yoksa (ör. sadece ipucu/martı): yazıdan çiz
+                girdi.pop("image_urls")
+                sonuc = fal(SAHNE_MODEL.replace("/edit", ""), girdi)
+                harcama["sahne"] += 1
+            else:
+              try:
                 sonuc = fal(SAHNE_MODEL, girdi)
                 harcama["sahne"] += 1
-            except Exception as hata:  # ucuz model hata verirse Pro ile devam
+              except Exception as hata:  # ucuz model hata verirse Pro ile devam
                 print("Sahne modeli hata verdi, Pro deneniyor:", str(hata)[:200])
                 sonuc = fal(RESIM_MODEL, girdi)
                 harcama["resim"] += 1
