@@ -212,6 +212,9 @@ def kontrol():
                     # Instagram'ın önerdiği ayarlarla yeniden kodlayıp bir kez daha dene.
                     print(f"Instagram ilk deneme ({kayit['id']}):", str(e1)[:300], "→ yeniden kodlanıyor")
                     yeni = yol[:-4] + "_ig.mp4"
+                    if subprocess.run(["which", "ffmpeg"], capture_output=True).returncode != 0:
+                        subprocess.run("sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg",
+                                       shell=True, check=True)
                     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", yol, "-c:v", "libx264",
                                     "-profile:v", "high", "-pix_fmt", "yuv420p", "-r", "30", "-g", "60",
                                     "-b:v", "3500k", "-maxrate", "5000k", "-bufsize", "7000k",
