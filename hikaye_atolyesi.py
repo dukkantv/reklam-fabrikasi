@@ -110,14 +110,14 @@ Dil: {DIL_ADI}
 
 TikTok, Instagram ve YouTube Shorts'ta kaydirmali slayt ve kisa video olarak paylasilacak KURGU bir hikaye yaz.
 Kurallar:
-- 7 slayt olsun (en fazla 8).
+- 6 slayt olsun (en fazla 7). Video 45-55 saniyeyi gecmesin.
 - {kanca}
 - 1. slayt EN FAZLA 18 kelime olsun. "Merhaba" gibi giris, mekan tasvirleriyle yavas acilis yok: dogrudan catismayla ac.
 - "kanca_adaylari" alanina 3 farkli 1. slayt metni yaz; en guclusunu 1. slayt yap.
 - Anlatim bicimi: {bicim}
 {seri_kural}
 - Sade, samimi, gunluk dil kullan. Klise cumlelerden kacin, somut ayrintilar ver (bir esya, bir koku, bir saat gibi). Karakterlere gercekci, dile uygun isimler ver.
-- Her slaytta 15 ile 25 kelime olsun, 25'i ASLA gecme. Cumleler kisa olsun.
+- Her slaytta 12 ile 20 kelime olsun, 20'yi ASLA gecme. Cumleler kisa olsun.
 - Her slaytta 1 ile 2 paragraf olsun. Vurucu cumleler "k": true (kalin) olsun.
 - Her slaytta EN FAZLA BIR cumle icin "v": true (vurgu rengi) kullan, en onemli cumle olsun.
 - Gercek kisi, marka veya siyaset kullanma. Siddet, cinsellik, nefret yok.
@@ -430,7 +430,7 @@ SESLER = {
     "es": ("es-MX-DaliaNeural", "Kore"),
 }
 EDGE_SES, GEMINI_SES = SESLER.get(DIL, SESLER["tr"])
-EDGE_HIZ = "-8%"          # biraz yavas okuma, duygulu hikaye icin
+EDGE_HIZ = "+8%"   # biraz daha akıcı (Shorts)
 SES_SEVIYE = 1.0          # anlatici ses seviyesi
 MUZIK_SEVIYE_SESLI = 0.15  # anlatim varken fon muzigi seviyesi
 
@@ -482,7 +482,7 @@ def ses_gemini(metin, yol, modeller):
                     url,
                     headers={"x-goog-api-key": GEMINI_KEY, "Content-Type": "application/json"},
                     json={
-                        "contents": [{"parts": [{"text": "Say in a soft, slow, emotional storytelling voice: " + metin}]}],
+                        "contents": [{"parts": [{"text": "Say in a warm, emotional storytelling voice at a natural, slightly brisk pace: " + metin}]}],
                         "generationConfig": {
                             "responseModalities": ["AUDIO"],
                             "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": GEMINI_SES}}},
@@ -649,10 +649,10 @@ def slayt_suresi(slayt):
 def sureleri_hesapla(slaytlar, sesler):
     # Anlatim varsa slayt, anlatim bitene kadar ekranda kalir
     if sesler:
-        sureler = [max(5.0, sure + 2.0) for _, sure in sesler]
+        sureler = [max(3.0, sure + 0.7) for _, sure in sesler]  # Shorts: bekleme kısa, izleyici kaydırmasın
     else:
         sureler = [slayt_suresi(s) for s in slaytlar]
-    return sureler + [5.5]  # kapanis slayti
+    return sureler + [3.0]  # kapanis slayti
 
 
 def video_yap(resimler, sureler, sesler=None, duygu="huzun", cikis="hikaye.mp4"):
@@ -829,7 +829,7 @@ def main():
 
     prompt = prompt_olustur(konu, BICIMLER[bicim_ad], FINALLER[final_ad], KANCALAR[kanca_ad], seri, OZET)
     veri = gemini_hikaye(prompt)
-    slaytlar = veri["slaytlar"][:8]
+    slaytlar = veri["slaytlar"][:7]
     duygu = str(veri.get("duygu", "huzun")).strip().lower()
     if duygu not in STILLER:
         duygu = "huzun"
