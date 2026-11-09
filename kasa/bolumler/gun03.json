@@ -1,0 +1,26 @@
+{
+  "gun": 3,
+  "toplam_gun": 30,
+  "kasa_basi": 1400,
+  "hedef": 50000,
+  "hedef_adi": "DÜKKÂN KİRASI",
+  "sahneler": [
+    {"tema": "gece", "gorsel": "para", "ifade": "saskin", "baslik": "KEMAL BEY'İN CEVABI", "anlatim": "Dün sizin oyunuzla Kemal Bey'e ortaklık teklif ettim. Cevabı beni gerçekten şaşırttı. Sonuna kadar izle."},
+    {"tema": "sabah", "gorsel": "kalabalik", "ifade": "dusunceli", "baslik": "PAZARIN KRALI", "anlatim": "Sabah pazarın girişine gittim. Kemal Bey'in tezgâhı benimkinin üç katıydı. Önünde uzun bir kuyruk vardı."},
+    {"tema": "sabah", "gorsel": "tezgah", "gorsel_yazi": "50 TL", "ifade": "saskin", "baslik": "ELİMİ UZATTIM", "anlatim": "Yanına gittim ve elimi uzattım. Ortak olalım dedim. Kemal Bey uzun uzun güldü."},
+    {"tema": "sabah", "gorsel": "tezgah", "gorsel_yazi": "50 TL", "ifade": "dusunceli", "baslik": "SENİ İZLİYORDUM", "anlatim": "Dün seni izliyordum, dedi. Çileği nasıl sattığını gördüm. Zekisin. Ortak olabiliriz ama şartlarım var."},
+    {"tema": "sabah", "gorsel": "etiket", "gorsel_yazi": "50/50", "ifade": "dusunceli", "baslik": "ŞART: HER ŞEY YARI YARIYA", "anlatim": "İlk şart, mal parasını yarı yarıya vereceğiz. İkinci şart, kâr da yarı yarıya. Üçüncü şartı sonra söyleyeceğim."},
+    {"tema": "sabah", "gorsel": "hal", "ifade": "saskin", "baslik": "BİRLİKTE HALE GİTTİK", "anlatim": "Birlikte hale gittik. Kemal Bey'i herkes tanıyordu. Domates kasasını on beş liraya verdiler. Ben yirmi beşe alıyordum."},
+    {"tema": "sabah", "gorsel": "domates", "ifade": "gulen", "kasa": 950, "baslik": "60 KASA, 900 TL", "anlatim": "Altmış kasa aldık, toplam dokuz yüz lira. Benim payıma dört yüz elli lira düştü. Cebimde dokuz yüz elli lira kaldı."},
+    {"tema": "gun", "gorsel": "kalabalik", "ifade": "mutlu", "baslik": "KUYRUK BAŞLADI", "anlatim": "Tezgâh açılır açılmaz kuyruk oluştu. Kemal Bey'in müşterileri bana da güvendi. Kasalar su gibi gidiyordu."},
+    {"tema": "gun", "gorsel": "tezgah", "gorsel_yazi": "40 TL", "ifade": "mutlu", "kasa": 1750, "baslik": "40 KASA SATILDI", "anlatim": "Öğlene kadar kırk kasa gitti. Kasası kırk lira. Bin altı yüz lira kasaya girdi, benim payım sekiz yüz lira."},
+    {"tema": "gun", "gorsel": "tezgah", "gorsel_yazi": "40 TL", "ifade": "saskin", "baslik": "HASAN USTA FISILDADI", "anlatim": "Tam o sırada Hasan Usta yanıma geldi. Kulağıma fısıldadı. Kemal'in üçüncü şartına sakın evet deme."},
+    {"tema": "gun", "gorsel": "tezgah", "gorsel_yazi": "40 TL", "ifade": "dusunceli", "baslik": "ÜÇÜNCÜ ŞART NE?", "anlatim": "Ne demek istediğini sormak istedim ama Kemal Bey yanımıza geldi. Hasan Usta hemen uzaklaştı. İçime kurt düştü."},
+    {"tema": "aksam", "gorsel": "tezgah", "gorsel_yazi": "35 TL", "ifade": "mutlu", "kasa": 2100, "damga": "SATILDI", "baslik": "HEPSİ SATILDI", "anlatim": "Öğleden sonra kalan yirmi kasayı otuz beşe sattık. Yedi yüz lira daha girdi, benim payım üç yüz elli. Cebimde iki bin yüz lira var!"},
+    {"tema": "hesap", "gorsel": "defter", "gorsel_yazi": "+700 TL", "ifade": "mutlu", "baslik": "BUGÜNÜN KÂRI: 700 TL", "anlatim": "Dokuz yüz liraya mal aldık, iki bin üç yüz lira sattık. Kâr bin dört yüz, benim payım yedi yüz lira."},
+    {"tema": "aksam", "gorsel": "kalabalik", "ifade": "dusunceli", "baslik": "KEMAL BEY GÜLDÜ", "anlatim": "Akşam Kemal Bey omzuma vurdu. Ortaklık harika gidiyor, dedi. Şimdi üçüncü şartı söyleme zamanı."},
+    {"tema": "gece", "gorsel": "para", "ifade": "saskin", "baslik": "ÜÇÜNCÜ ŞART", "anlatim": "Pazarın tamamını kiralamak istiyorum, dedi. Bunun için senin adına imza atman lazım. Yarın sabah cevap ver."},
+    {"tema": "oylama", "secenek": ["Kabul et", "Reddet"], "baslik": "İMZA ATSIN MI?", "anlatim": "Karar sizde. Kemal Bey'in teklifini kabul edip imza atayım mı, yoksa reddedeyim mi? Yorumuna A veya B yaz."},
+    {"tema": "gece", "gorsel": "para", "ifade": "dusunceli", "baslik": "YARIN GÜN 4", "anlatim": "En çok yazılan seçenek yarınki kararım olacak. Hasan Usta'nın uyarısının anlamını öğrenmek için takipte kal."}
+  ]
+}

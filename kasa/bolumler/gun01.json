@@ -1,0 +1,27 @@
+{
+  "gun": 1,
+  "toplam_gun": 30,
+  "kasa_basi": 500,
+  "hedef": 50000,
+  "hedef_adi": "DÜKKÂN KİRASI",
+  "sahneler": [
+    {"tema": "gece", "gorsel": "para", "ifade": "saskin", "baslik": "BUGÜN BİR ŞEY OLDU", "anlatim": "Cebimde sadece beş yüz lira var. Ama bugün öyle bir şey oldu ki hâlâ inanamıyorum. Sonuna kadar izle, o adamı göreceksin."},
+    {"tema": "hesap", "gorsel": "defter", "gorsel_yazi": "50.000 TL", "ifade": "dusunceli", "baslik": "30 GÜN, 50 BİN LİRA", "anlatim": "Otuz günde elli bin lira biriktirmezsem dükkân hayalim biter. Kurallar basit. Kararları siz veriyorsunuz."},
+    {"tema": "gece", "gorsel": "hal", "ifade": "saskin", "baslik": "SABAH 05:00 TOPTANCI HALİ", "anlatim": "Sabah beşte hale girdim. Herkes bağırıyordu. Bir satıcı bana baktı ve güldü. Çocuk, ilk günde batarsın dedi."},
+    {"tema": "sabah", "gorsel": "etiket", "gorsel_yazi": "25 TL", "ifade": "dusunceli", "baslik": "RİSKLİ KARAR", "anlatim": "Domates kasası yirmi beş lira. Paramın çoğunu tek ürüne yatırmak delilik. Ama başka şansım yoktu."},
+    {"tema": "sabah", "gorsel": "domates", "ifade": "gulen", "kasa": 150, "baslik": "14 KASA, 350 TL", "anlatim": "On dört kasa aldım. Üç yüz elli lira gitti. Cebimde yüz elli lira kaldı. Artık geri dönüş yok."},
+    {"tema": "gun", "gorsel": "tezgah", "gorsel_yazi": "50 TL", "ifade": "gulen", "baslik": "TEZGÂH HAZIR", "anlatim": "Tezgâhı kurdum ve fiyatı yazdım. Kasası elli lira. Şimdi sıra müşterilerde."},
+    {"tema": "gun", "gorsel": "tezgah", "gorsel_yazi": "50 TL", "ifade": "uzgun", "kasa": 250, "baslik": "İLK SAATLER FELAKET", "anlatim": "İki saat boyunca kimse bakmadı bile. Sonunda sadece iki kasa sattım. Yanlış mı yaptım diye düşünüyordum."},
+    {"tema": "gun", "gorsel": "etiket", "gorsel_yazi": "250 TL", "ifade": "uzgun", "baslik": "CEBİMDE 250 TL KALDI", "anlatim": "Yarın hale yeniden gidecek param bile zor yetecekti. Kalbim hızlı hızlı atmaya başladı."},
+    {"tema": "gun", "gorsel": "kalabalik", "ifade": "saskin", "baslik": "BİRDEN HER ŞEY DEĞİŞTİ", "anlatim": "Sonra bir kadın bağırdı. Bu domatesler çok taze! Bir anda yirmi kişi tezgâhın önüne doluştu."},
+    {"tema": "gun", "gorsel": "kalabalik", "ifade": "mutlu", "kasa": 650, "baslik": "8 KASA, 400 TL", "anlatim": "Sekiz kasa daha gitti. Dört yüz lira cebime girdi. Tam sevinecektim ki biri omzuma dokundu."},
+    {"tema": "gun", "gorsel": "tezgah", "gorsel_yazi": "50 TL", "ifade": "saskin", "baslik": "OMZUMDA BİR EL", "anlatim": "Döndüm. Yan tezgâhtaki Hasan Usta'ydı. Yüzü çok ciddiydi. Akşam toplanmadan önce yanıma gel, dedi."},
+    {"tema": "aksam", "gorsel": "domates", "ifade": "dusunceli", "baslik": "ZAMAN DARALIYOR", "anlatim": "Akşam olmaya başlamıştı. Tezgâhta hâlâ dört kasa vardı. Satamazsam hepsi çürüyecekti."},
+    {"tema": "aksam", "gorsel": "tezgah", "gorsel_yazi": "40 TL", "ifade": "mutlu", "kasa": 810, "damga": "SATILDI", "baslik": "AKŞAMA İNDİRİM", "anlatim": "Dört kasa kalmıştı. Fiyatı kırka indirdim ve hepsi satıldı. Cebimde sekiz yüz on lira var!"},
+    {"tema": "hesap", "gorsel": "defter", "gorsel_yazi": "+310 TL", "ifade": "mutlu", "baslik": "İLK GÜN KÂRI: 310 TL", "anlatim": "Beş yüzle başladım, sekiz yüz on liraya çıktım. Ama asıl mesele şimdi başlıyordu."},
+    {"tema": "gece", "gorsel": "hal", "ifade": "dusunceli", "baslik": "HASAN USTA NE DEDİ?", "anlatim": "Hasan Usta'nın yanına gittim. Yarın sabah beşte halin arka kapısına gel, dedi. Sana kimsenin bilmediği bir fırsat göstereceğim."},
+    {"tema": "gece", "gorsel": "para", "ifade": "uzgun", "baslik": "İYİ NİYETLİ Mİ?", "anlatim": "Bütün gece düşündüm. Hasan Usta bana yardım mı ediyordu, yoksa beni tuzağa mı çekiyordu?"},
+    {"tema": "oylama", "secenek": ["Güven", "Şüphelen"], "baslik": "HASAN USTAYA GÜVEN Mİ?", "anlatim": "Şimdi karar sizde. Hasan Usta'ya güvenip gideyim mi, yoksa şüphelenip uzak mı durayım? Yorumuna A veya B yaz."},
+    {"tema": "gece", "gorsel": "para", "ifade": "dusunceli", "baslik": "YARIN GÜN 2", "anlatim": "En çok yazılan seçenek yarınki kararım olacak. Hasan Usta'nın fırsatını görmek için takipte kal."}
+  ]
+}

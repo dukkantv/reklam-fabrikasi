@@ -1,0 +1,23 @@
+{
+  "gun": 6,
+  "toplam_gun": 30,
+  "kasa_basi": 300,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {"tema": "hesap", "gorsel": "defter", "gorsel_yazi": "ALICI: ???", "ifade": "dusunceli", "baslik": "KASADA 300 TL KALDI",
+     "anlatim": "Kasada üç yüz lira kaldı ama cevap istiyordum. Makbuzu alıp Hasan Usta'ya gösterdim."},
+    {"tema": "gece", "gorsel": "etiket", "gorsel_yazi": "SERDAR TUNÇ", "ifade": "saskin", "damga": "Sustu", "baslik": "HASAN USTA SUSTU",
+     "anlatim": "Hasan Usta bir süre hiçbir şey demedi. Sonra alçak sesle bir isim söyledi: Serdar Tunç."},
+    {"tema": "hesap", "gorsel": "defter", "gorsel_yazi": "BORÇ", "ifade": "uzgun", "baslik": "HALİN GERÇEK SAHİBİ",
+     "anlatim": "Serdar Tunç, halin gerçek sahibiymiş. Kemal Bey ona büyük bir borç bırakıp ortadan kaybolmuş."},
+    {"tema": "gun", "gorsel": "kalabalik", "ifade": "mutlu", "kasa": 1200, "baslik": "+900 TL",
+     "anlatim": "Gün boyunca teslimat yaptım. Dokuz yüz lira kazandım. Kasa bin iki yüze çıktı."},
+    {"tema": "gece", "gorsel": "etiket", "gorsel_yazi": "3. KAPI", "ifade": "saskin", "baslik": "KİLİTLİ KAPI AÇIK",
+     "anlatim": "Akşam hal boşalırken üçüncü kapının kilidi açıktı. İçeriden bir ses geliyordu."},
+    {"tema": "gece", "gorsel": "hal", "gorsel_yazi": "HAL", "ifade": "saskin", "damga": "Karşılaşma", "baslik": "SENİ BEKLİYORDUM",
+     "anlatim": "Kapıyı araladım. Karşımdaki adam gülümsedi: Ben Serdar Tunç. Seni bekliyordum."},
+    {"tema": "oylama", "ifade": "dusunceli", "secenek": ["Konuş", "Kaç"], "baslik": "SENCE NE YAPAYIM?",
+     "anlatim": "İçeri girip konuşayım mı, yoksa hemen kaçayım mı? Yoruma A veya B yaz. Yarın gün yedi!"}
+  ]
+}

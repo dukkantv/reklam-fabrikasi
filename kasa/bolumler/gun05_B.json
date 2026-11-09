@@ -1,0 +1,25 @@
+{
+  "gun": 5,
+  "toplam_gun": 30,
+  "kasa_basi": 3300,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {"tema": "hesap", "gorsel": "para", "gorsel_yazi": "6.000 TL", "ifade": "dusunceli", "baslik": "KİRA 6.000, KASA 3.300",
+     "anlatim": "Kirayı ödemeye karar verdim. Ama cebimde sadece üç bin üç yüz lira vardı."},
+    {"tema": "sabah", "gorsel": "defter", "gorsel_yazi": "PAZARTESİ", "ifade": "saskin", "damga": "Son gün", "baslik": "2.700 TL EKSİK",
+     "anlatim": "Hasan Usta saati gösterdi. Pazartesi akşamına kadar iki bin yedi yüz lira daha bulmam gerekiyordu."},
+    {"tema": "gun", "gorsel": "domates", "gorsel_yazi": "ÇİLEK", "ifade": "mutlu", "baslik": "ÇİLEKTE İNDİRİM",
+     "anlatim": "Çileği yarı fiyatına çıkardım. Kuyruk dakikalar içinde sokağı sardı."},
+    {"tema": "gun", "gorsel": "kalabalik", "ifade": "mutlu", "kasa": 4700, "baslik": "+1.400 TL",
+     "anlatim": "Öğlene kadar bin dört yüz lira kazandım. Ama hâlâ yetmiyordu."},
+    {"tema": "aksam", "gorsel": "hal", "gorsel_yazi": "TOPTAN", "ifade": "gulen", "kasa": 6300, "baslik": "SON SİPARİŞ",
+     "anlatim": "Akşam bir restoran, bütün çileği toptan aldı. Kasaya bin altı yüz lira daha girdi. Altı bin üç yüz!"},
+    {"tema": "hesap", "gorsel": "para", "gorsel_yazi": "KİRA ÖDENDİ", "ifade": "uzgun", "kasa": 300, "damga": "Ödendi", "baslik": "KASA: 300 TL",
+     "anlatim": "Kirayı tek kuruş eksiksiz ödedim. Kasada üç yüz lira kaldı."},
+    {"tema": "hesap", "gorsel": "defter", "gorsel_yazi": "ALICI: ???", "ifade": "saskin", "damga": "Garip", "baslik": "BU İMZA KİMİN?",
+     "anlatim": "Makbuza baktım. Alıcı kısmında Kemal Bey'in adı yoktu. Orada başka biri yazıyordu."},
+    {"tema": "oylama", "ifade": "dusunceli", "secenek": ["Sor", "Bekle"], "baslik": "SENCE NE YAPAYIM?",
+     "anlatim": "Hasan Usta'ya bunu sorayım mı, yoksa sessizce bekleyip izleyeyim mi? Yoruma A veya B yaz. Yarın gün altı!"}
+  ]
+}

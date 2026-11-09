@@ -1,0 +1,26 @@
+{
+  "gun": 2,
+  "toplam_gun": 30,
+  "kasa_basi": 810,
+  "hedef": 50000,
+  "hedef_adi": "DÜKKÂN KİRASI",
+  "sahneler": [
+    {"tema": "gece", "gorsel": "hal", "ifade": "saskin", "baslik": "ARKA KAPIYI İZLEDİM", "anlatim": "Dün sizin oyunuzla şüphelendim. Hasan Usta'nın yanına gitmedim ama arka kapıyı uzaktan izledim. Gördüklerim şaşırtıcıydı."},
+    {"tema": "gece", "gorsel": "hal", "ifade": "dusunceli", "baslik": "SABAH 05:00 SAKLANDIM", "anlatim": "Sabah beşte halin köşesine saklandım. Hasan Usta arka kapıda bekliyordu. Bir kamyon geldi, ışıkları kapalıydı."},
+    {"tema": "gece", "gorsel": "domates", "ifade": "saskin", "baslik": "IŞIKSIZ KAMYON", "anlatim": "Şoför sessizce kasaları indirdi. Ne etiket vardı ne fatura. Hasan Usta tek tek sayıyordu."},
+    {"tema": "gece", "gorsel": "domates", "ifade": "dusunceli", "baslik": "ŞÜPHEM HAKLIYDI", "anlatim": "Demek bana göstereceği fırsat buydu. Faturasız, kaynağı belli olmayan mal. İyi ki gitmedim dedim."},
+    {"tema": "gece", "gorsel": "hal", "ifade": "saskin", "baslik": "GÖZ GÖZE GELDİK", "anlatim": "Sonra Hasan Usta başını çevirdi. Göz göze geldik. Kaçmak için çok geçti."},
+    {"tema": "gece", "gorsel": "hal", "ifade": "dusunceli", "baslik": "HASAN USTA KONUŞTU", "anlatim": "Yanıma geldi. Gelmediğine sevindim, dedi. Bu malı kamyoncu bıraktı, nereden geldiğini ben de bilmiyorum."},
+    {"tema": "gece", "gorsel": "para", "ifade": "mutlu", "baslik": "İYİ Kİ GELMEDİN", "anlatim": "Seni çağırdım ama sonra vazgeçtim. Mal şüpheliydi. Sabah yetkililere haber verecekmiş. Hasan Usta düşündüğümden dürüst çıktı."},
+    {"tema": "sabah", "gorsel": "etiket", "gorsel_yazi": "25 TL", "ifade": "gulen", "kasa": 310, "baslik": "NORMAL ALIŞVERİŞ", "anlatim": "Ben de normal alışverişime döndüm. Domates kasası yine yirmi beş lira. Yirmi kasa aldım, beş yüz lira verdim."},
+    {"tema": "gun", "gorsel": "tezgah", "gorsel_yazi": "50 TL", "ifade": "gulen", "baslik": "TEZGÂH HAZIR", "anlatim": "Tezgâhı kurdum, kasası elli lira. Dünkü müşteriler beni hatırladı ve geri geldi."},
+    {"tema": "gun", "gorsel": "kalabalik", "ifade": "mutlu", "kasa": 910, "baslik": "12 KASA, 600 TL", "anlatim": "Öğlene kadar on iki kasa gitti. Altı yüz lira girdi cebime."},
+    {"tema": "gun", "gorsel": "tezgah", "gorsel_yazi": "35 TL", "ifade": "uzgun", "baslik": "YAĞMUR BASTIRDI", "anlatim": "Öğleden sonra yağmur bastırdı ve pazar boşaldı. Kalan sekiz kasayı otuz beşe indirmek zorunda kaldım."},
+    {"tema": "aksam", "gorsel": "tezgah", "gorsel_yazi": "35 TL", "ifade": "mutlu", "kasa": 1190, "damga": "SATILDI", "baslik": "HEPSİ SATILDI", "anlatim": "Akşama kadar hepsi satıldı. İki yüz seksen lira daha girdi. Cebimde bin yüz doksan lira var!"},
+    {"tema": "hesap", "gorsel": "defter", "gorsel_yazi": "+380 TL", "ifade": "mutlu", "baslik": "BUGÜNÜN KÂRI: 380 TL", "anlatim": "Beş yüz lira yatırdım, sekiz yüz seksen lira kazandım. Bugünün kârı üç yüz seksen lira."},
+    {"tema": "aksam", "gorsel": "tezgah", "gorsel_yazi": "50 TL", "ifade": "saskin", "baslik": "ŞIK GİYİMLİ ADAM", "anlatim": "Tezgâhı toplarken şık giyimli bir adam yaklaştı. Dünkü domatesleri nerede alırım, diye sordu. Restoran sahibiymiş."},
+    {"tema": "aksam", "gorsel": "para", "ifade": "dusunceli", "baslik": "GÜNDE 15 KASA TEKLİFİ", "anlatim": "Her gün on beş kasa istiyorum, kasasını kırk liradan alırım, dedi. Garanti satış ama kazanç düşük."},
+    {"tema": "oylama", "secenek": ["Restoran", "Pazar"], "baslik": "GÜVENLİ Mİ, RİSKLİ Mİ?", "anlatim": "Karar sizde. Restorana garanti satış yapıp güvenli mi gideyim, yoksa pazarda tezgâhla riski mi göze alayım? Yorumuna A veya B yaz."},
+    {"tema": "gece", "gorsel": "para", "ifade": "dusunceli", "baslik": "YARIN GÜN 3", "anlatim": "En çok yazılan seçenek yarınki planım olacak. Restoran sahibinin cevabını duymak için takipte kal."}
+  ]
+}

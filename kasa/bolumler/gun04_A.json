@@ -1,0 +1,27 @@
+{
+  "gun": 4,
+  "toplam_gun": 30,
+  "kasa_basi": 2100,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {"tema": "gun", "gorsel": "tezgah", "ifade": "mutlu", "baslik": "3 saatte +1.200 TL?",
+     "anlatim": "Ortaklığı kabul ettim. Üç saat sonra kasada bin iki yüz lira fazlam vardı. Ama bir sorun çıktı."},
+    {"tema": "sabah", "gorsel": "hal", "gorsel_yazi": "HAL", "ifade": "gulen", "damga": "İmzalandı", "baslik": "İMZAYI ATTIM",
+     "anlatim": "Dün gece imzayı attım. Kemal Bey bana tam on tezgah verdi."},
+    {"tema": "gun", "gorsel": "tezgah", "ifade": "saskin", "kasa": 2850, "baslik": "10 TEZGAH KİRADA",
+     "anlatim": "On tezgahı kiraya verdim. Yedi yüz elli lira cebime girdi."},
+    {"tema": "gun", "gorsel": "kalabalik", "ifade": "mutlu", "kasa": 3300, "baslik": "KUYRUK BİTMİYOR",
+     "anlatim": "Öğlene kadar kuyruk bitmedi. Kasa üç bin üç yüze dayandı!"},
+    {"tema": "hesap", "gorsel": "defter", "gorsel_yazi": "MADDE 7", "ifade": "dusunceli", "baslik": "ASIL ŞOK GELİYOR",
+     "anlatim": "Sonra Hasan Usta sözleşmeyi gösterdi. Yedinci madde gizli yazılmış."},
+    {"tema": "hesap", "gorsel": "para", "gorsel_yazi": "6.000 TL", "ifade": "saskin", "damga": "Gizli madde", "baslik": "HAFTALIK KİRA",
+     "anlatim": "Haftalık kira altı bin lira! Pazartesiye kadar ödemezsem her şey elden gider."},
+    {"tema": "aksam", "gorsel": "hal", "gorsel_yazi": "HAL", "ifade": "uzgun", "baslik": "KEMAL BEY NEREDE?",
+     "anlatim": "Peki Kemal Bey nerede? Telefonu kapalı. Sabahtan beri kimse onu görmedi."},
+    {"tema": "gece", "gorsel": "etiket", "gorsel_yazi": "3. KAPI", "ifade": "dusunceli", "baslik": "SON GÖRÜLDÜĞÜ YER",
+     "anlatim": "Son görüldüğü yer, halin üçüncü kapısı. Orası yıllardır kilitli."},
+    {"tema": "oylama", "ifade": "dusunceli", "secenek": ["Ara", "Öde"], "baslik": "SENCE NE YAPAYIM?",
+     "anlatim": "Elimde üç bin üç yüz lira var, kira altı bin. Kemal Bey'i arayayım mı, yoksa kirayı ödeyeyim mi? Yoruma A veya B yaz. Yarın gün beş!"}
+  ]
+}

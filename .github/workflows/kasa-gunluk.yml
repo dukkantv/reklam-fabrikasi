@@ -1,0 +1,61 @@
+name: Kasa Kurgu Günlük
+
+# "500 TL ile 50.000 TL Hedefi" dizisi: dünkü videonun yorumlarındaki A/B oylarını sayar,
+# Gemini ile sıradaki günü yazar, videoyu üretir, Telegram'a gönderir ve onay kuyruğuna ekler.
+on:
+  schedule:
+    - cron: "17 8 * * *"   # her gün 11:17 (Türkiye)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  uret:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      PYTHONUNBUFFERED: "1"
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GH_TOKEN: ${{ github.token }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Araçlar
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu fonts-liberation
+          pip install requests pillow numpy edge-tts
+      - name: Oyları say ve yeni günü yaz
+        run: python kasa/kasa_bolum.py
+      - name: Videoyu üret
+        if: hashFiles('kasa/yayin.json') != ''
+        working-directory: kasa
+        run: |
+          BOLUM=$(python3 -c "import json;print(json.load(open('yayin.json'))['bolum'])")
+          python uret.py "$BOLUM"
+      - name: Telegram'a gönder ve onay kuyruğuna ekle
+        if: hashFiles('kasa/cikti.mp4') != ''
+        run: |
+          BASLIK=$(python3 -c "import json;print(json.load(open('kasa/yayin.json'))['baslik'])")
+          curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F video=@kasa/cikti.mp4 -F caption="🎬 Kasa Kurgu — $BASLIK" \
+            "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendVideo" > /dev/null
+          python3 - <<'PY'
+          import json, os, subprocess
+          y = json.load(open("kasa/yayin.json", encoding="utf-8"))
+          subprocess.run(["python3", "yt_kuyruk.py", "ekle", "kasakurgu", os.path.abspath("kasa/cikti.mp4"),
+                          y["baslik"], y["aciklama"], y["etiketler"]], check=True)
+          PY
+      - name: Kaydet
+        if: always()
+        run: |
+          git config user.name "dukkan-tv-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add kasa/bolumler kuyruk
+          git diff --cached --quiet || (git commit -m "Kasa Kurgu: yeni gün" && (git push || (git pull --rebase origin main && git push)))

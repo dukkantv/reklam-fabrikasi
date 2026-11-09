@@ -1,0 +1,23 @@
+{
+  "gun": 7,
+  "toplam_gun": 30,
+  "kasa_basi": 1200,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {"tema": "gece", "gorsel": "etiket", "gorsel_yazi": "BORÇ 20.000", "ifade": "saskin", "baslik": "BORÇ: 20.000 TL",
+     "anlatim": "İçeri girdim. Serdar Tunç masaya bir kâğıt koydu. Kemal Bey'in borcu yirmi bin liraydı."},
+    {"tema": "hesap", "gorsel": "defter", "gorsel_yazi": "İMZA: SEN", "ifade": "saskin", "damga": "İmzalı", "baslik": "İMZA BENİMDİ",
+     "anlatim": "Sözleşmedeki imza benimdi. Yedinci madde, borcun ortağa da geçtiğini yazıyordu."},
+    {"tema": "gece", "gorsel": "hal", "gorsel_yazi": "HAL", "ifade": "dusunceli", "baslik": "AMA BİR TEKLİF VAR",
+     "anlatim": "Ama Serdar Tunç sakin görünüyordu. Bana bir teklifi olduğunu söyledi."},
+    {"tema": "hesap", "gorsel": "para", "gorsel_yazi": "2.000 TL", "ifade": "mutlu", "kasa": 3200, "baslik": "AVANS TEKLİFİ",
+     "anlatim": "Önüme iki bin lira koydu. Bunu al, dedi. Karşılığında Kemal Bey'i bul."},
+    {"tema": "gece", "gorsel": "defter", "gorsel_yazi": "3 GÜN", "ifade": "dusunceli", "damga": "Süre", "baslik": "ÜÇ GÜNÜM VAR",
+     "anlatim": "Üç günüm vardı. Kemal Bey'i bulamazsam borç tamamen benim olacaktı."},
+    {"tema": "gece", "gorsel": "etiket", "gorsel_yazi": "NEDEN BEN?", "ifade": "saskin", "baslik": "NEDEN BEN?",
+     "anlatim": "Neden ben, diye sordum. Adam gülümsedi: Çünkü Kemal Bey en çok sana güveniyordu."},
+    {"tema": "oylama", "ifade": "dusunceli", "secenek": ["Evet", "Hayır"], "baslik": "TEKLİFİ KABUL EDEYİM Mİ?",
+     "anlatim": "Teklifi kabul edip Kemal Bey'i arayayım mı? Yoruma A veya B yaz. Yarın gün sekiz!"}
+  ]
+}
