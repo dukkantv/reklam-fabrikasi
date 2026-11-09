@@ -134,9 +134,11 @@ def teshis(kanal):
     print("Durum:", istek(f"{API}/{kap['id']}?fields=status_code,status&access_token={tok}")[2])
 
 
-def _sadece_yukle(tok, ig, yol):
-    kod, _, kap = istek(f"{API}/{ig}/media", veri={"media_type": "REELS", "upload_type": "resumable",
-                                                   "caption": "deneme", "access_token": tok})
+def _sadece_yukle(tok, ig, yol, aciklama="deneme", akis=None):
+    v = {"media_type": "REELS", "upload_type": "resumable", "caption": aciklama, "access_token": tok}
+    if akis:
+        v["share_to_feed"] = akis
+    kod, _, kap = istek(f"{API}/{ig}/media", veri=v)
     with open(yol, "rb") as f:
         veri = f.read()
     kod, _, cev = istek(f"https://rupload.facebook.com/ig-api-upload/v25.0/{kap['id']}", method="POST", ham=veri,
@@ -158,21 +160,16 @@ def teshis_video(kanal, yol):
     print(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "stream=codec_name,profile,level,pix_fmt,width,height,"
                           "r_frame_rate,sample_rate,channels,duration,start_time:format=duration",
                           "-of", "compact", yol], capture_output=True, text=True).stdout)
-    s = ["ffmpeg", "-y", "-loglevel", "error", "-i", yol]
-    secenekler = {
-        "orijinal": None,
-        "ilk20sn": s + ["-t", "20", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac", "-movflags", "+faststart"],
-        "sessiz": s + ["-an", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-movflags", "+faststart"],
-        "720p_48k": s + ["-vf", "scale=720:1280,fps=30", "-c:v", "libx264", "-profile:v", "main", "-level", "4.0",
-                         "-pix_fmt", "yuv420p", "-b:v", "2500k", "-c:a", "aac", "-ar", "48000", "-ac", "2",
-                         "-b:a", "128k", "-movflags", "+faststart"],
-    }
-    for ad, komut in secenekler.items():
-        hedef = yol if komut is None else f"/tmp/t_{ad}.mp4"
-        if komut:
-            subprocess.run(komut + [hedef], check=True)
-        print(f"{ad}: {_sadece_yukle(tok, ig, hedef)}", flush=True)
-
+    import glob as _g
+    from yt_kuyruk import ig_aciklama
+    kid = os.path.basename(yol)[:-4]
+    yollar = _g.glob(os.path.join(KOK, "kuyruk", f"{kid}.json")) + _g.glob(os.path.join(KOK, "kuyruk", "arsiv", f"{kid}.json"))
+    gercek = ig_aciklama(json.load(open(yollar[0], encoding="utf-8"))) if yollar else "deneme"
+    print("Gerçek açıklama:", repr(gercek))
+    for ad, ac, ak in [("deneme_aciklama", "deneme", None), ("gercek_aciklama", gercek, None),
+                       ("gercek+akis", gercek, "true"), ("deneme+akis", "deneme", "true"),
+                       ("tekrar_gercek+akis", gercek, "true")]:
+        print(f"{ad}: {_sadece_yukle(tok, ig, yol, ac, ak)}", flush=True)
 
 if __name__ == "__main__":
     if sys.argv[1] == "kurulum":
