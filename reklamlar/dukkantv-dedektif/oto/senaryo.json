@@ -3,50 +3,45 @@
   "planlar": [
     {
       "tip": "konusma",
-      "kim": "levent",
-      "metin": "[surprised] Hasan Amca, tezgahtaki bütün taze simitler nerede?!",
+      "kim": "esnaf",
+      "metin": "[surprised] Simitlerim yine yok! Kim aldı bunları?!",
       "duygu": "surprised",
       "karakterler": [
-        "levent",
-        "cemo",
         "esnaf"
       ],
       "dukkan": true,
-      "gorsel": "In a historic Bursa square near Ulu Cami, medium close-up of Levent facing the camera, mouth clearly visible, holding his microphone with wide shocked eyes.",
-      "kasa": 450,
+      "gorsel": "Vertical 9:16 frame, medium close-up of the shop owner facing the camera, mouth clearly visible, shocked wide eyes, holding up a completely EMPTY wooden simit tray with only a few sesame seeds on it; the glass case of his red simit cart behind him is EMPTY. Historic Bursa cobblestone street. Levent and Cemo are NOT in the frame.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "[excited] Korkmayın Hasan Amca, Bursa Dedektifleri burada!",
+      "duygu": "excited",
+      "karakterler": [
+        "levent"
+      ],
+      "dukkan": true,
+      "gorsel": "Vertical 9:16 frame, medium close-up of Levent facing the camera, mouth clearly visible, confident detective pose holding a big round magnifying glass up next to his face, a brown detective deerstalker hat on his head, red simit cart blurred behind him.",
+      "kasa": null,
       "efekt": null
     },
     {
       "tip": "aksiyon",
-      "karakterler": [
-        "esnaf"
-      ],
+      "karakterler": [],
       "dukkan": true,
-      "gorsel": "Flashback shot of a traditional red street simit cart in Bursa with Uludağ mountain visible in the distance.",
-      "hareket": "A cheeky, chubby cartoon seagull swoops down fast and snatches a golden sesame simit right off the cart.",
+      "gorsel": "Vertical 9:16 frame, extreme close-up from above of grey cobblestones: a trail of sesame seeds leads away from the red cart wheel, and a single small white-grey bird feather lies on the stones; the edge of a big round magnifying glass is held over the clues. No faces.",
+      "hareket": "The magnifying glass slowly moves along the sesame seed trail and stops over the white feather.",
       "sure": 3,
       "kasa": null,
-      "efekt": "seagull squawking loudly with sudden fluttering wing flaps"
-    },
-    {
-      "tip": "konusma",
-      "kim": "esnaf",
-      "metin": "[sighs] Her sabah bu martı çıtır simitlerimi aşırıyor!",
-      "duygu": "sighs",
-      "karakterler": [
-        "esnaf",
-        "levent"
-      ],
-      "dukkan": true,
-      "gorsel": "Medium close-up of the shop owner facing the camera, mouth clearly visible, clean-shaven wearing a white paper cap and red vest, gesturing sadly beside his empty glass display.",
-      "kasa": null,
-      "efekt": null
+      "efekt": "magnifying glass whoosh and a soft mysterious detective sting"
     },
     {
       "tip": "konusma",
       "kim": "cemo",
-      "metin": "[sighs] Abi martı haklı, susamlar mis gibi kokuyor...",
-      "duygu": "sighs",
+      "metin": "[whispers] Abi şüpheli çok: çaycı, kedi, bir de ben...",
+      "duygu": "whispers",
       "karakterler": [
         "cemo",
         "levent"
@@ -59,8 +54,8 @@
     {
       "tip": "konusma",
       "kim": "levent",
-      "metin": "[excited] Bakın bakın, Dükkan TV bu hırsızı yakalar!",
-      "duygu": "excited",
+      "metin": "[laughs] Sen değilsin Cemo, ağzında susam yok!",
+      "duygu": "laughs",
       "karakterler": [
         "levent",
         "cemo"
@@ -72,22 +67,57 @@
     },
     {
       "tip": "aksiyon",
+      "karakterler": [],
+      "dukkan": false,
+      "gorsel": "Vertical 9:16 frame, a cheeky chubby cartoon seagull with big expressive eyes sits on top of an old iron street lamp, a whole golden sesame simit in its beak, looking guilty at the camera; historic Bursa rooftops and Uludağ mountain behind. No people.",
+      "hareket": "The seagull freezes, its eyes dart left and right guiltily, then it gulps the simit.",
+      "sure": 3,
+      "kasa": null,
+      "efekt": "seagull squawk and a comic gulp sound"
+    },
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "[surprised] Suçlu bulundu: aç bir martı!",
+      "duygu": "surprised",
       "karakterler": [
-        "levent",
-        "cemo",
+        "levent"
+      ],
+      "dukkan": true,
+      "gorsel": "Vertical 9:16 frame, medium close-up of Levent facing the camera, mouth clearly visible, surprised and amused, pointing up with one hand while holding the magnifying glass in the other, wearing the brown detective deerstalker hat; red simit cart blurred behind him.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "[laughs] Madem öyle, martıya özel simit köşesi açıyorum!",
+      "duygu": "laughs",
+      "karakterler": [
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": true,
+      "gorsel": "Medium close-up of the shop owner facing the camera, mouth clearly visible, beaming with joy while holding two traditional tulip-shaped glasses of steaming tea.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "aksiyon",
+      "karakterler": [
         "esnaf"
       ],
       "dukkan": true,
-      "gorsel": "Dynamic production scene at the simit cart in Bursa cobblestone plaza.",
-      "hareket": "Levent playfully interviews the cheeky seagull while Cemo zooms into steaming hot tea and fresh crispy simits.",
+      "gorsel": "Vertical 9:16 frame, wide shot of a LONG cheerful queue of at least fifteen customers lined up across the cobblestone square in front of the red glass simit cart; the shop owner hands out simits; at the side a small wooden sign reads 'MARTI KÖŞESİ' next to a little dish where the chubby seagull happily eats a simit. Ulu Cami and Uludağ in the background.",
+      "hareket": "The queue shuffles forward happily while the seagull nibbles its own simit on the little dish.",
       "sure": 3,
       "kasa": null,
-      "efekt": "camera shutter clicking rapidly with gentle city breeze"
+      "efekt": "lively crowd chatter, coins clinking and a happy seagull squawk"
     },
     {
       "tip": "konusma",
       "kim": "cemo",
-      "metin": "[excited] Abi video patladı, herkes Bursa simidine koşuyor!",
+      "metin": "[excited] Abi video patladı, herkes simit kuyruğunda!",
       "duygu": "excited",
       "karakterler": [
         "cemo",
@@ -99,57 +129,15 @@
       "efekt": null
     },
     {
-      "tip": "aksiyon",
-      "karakterler": [
-        "esnaf",
-        "levent",
-        "cemo"
-      ],
-      "dukkan": true,
-      "gorsel": "Next morning outside the Bursa simit cart, lively street setting.",
-      "hareket": "A long cheerful queue of customers extends across the square, buying bags of hot simits as the seagull watches happily from a lamp post.",
-      "sure": 3,
-      "kasa": null,
-      "efekt": "cheerful street crowd chatter and coins clinking"
-    },
-    {
-      "tip": "konusma",
-      "kim": "esnaf",
-      "metin": "[excited] Simit kalmadı evlatlar, sıcacık çaylar benden!",
-      "duygu": "excited",
-      "karakterler": [
-        "esnaf",
-        "levent"
-      ],
-      "dukkan": true,
-      "gorsel": "Medium close-up of the shop owner facing the camera, mouth clearly visible, beaming with joy while holding two traditional tulip-shaped glasses of steaming tea.",
-      "kasa": null,
-      "efekt": null
-    },
-    {
       "tip": "konusma",
       "kim": "levent",
-      "metin": "[excited] Arkadaşlar, senin dükkânın da bir videoyu hak ediyor!",
+      "metin": "[excited] Sıradaki vaka hangi dükkânda? Yorumlara yazın, takip edin!",
       "duygu": "excited",
       "karakterler": [
         "levent"
       ],
       "dukkan": true,
       "gorsel": "Medium close-up of Levent facing the camera directly, mouth clearly visible, presenting with his microphone and giving an enthusiastic thumbs up.",
-      "kasa": null,
-      "efekt": null
-    },
-    {
-      "tip": "konusma",
-      "kim": "levent",
-      "metin": "[laughs] Dükkan TV'yi takip edin, sıradaki lezzet hangisi olsun?",
-      "duygu": "laughs",
-      "karakterler": [
-        "levent",
-        "cemo"
-      ],
-      "dukkan": true,
-      "gorsel": "Medium close-up of Levent facing the camera, mouth clearly visible, winking warmly while Cemo happily munches a simit in the soft-focus background.",
       "kasa": null,
       "efekt": null
     }
