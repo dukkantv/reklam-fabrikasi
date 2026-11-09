@@ -28,6 +28,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           if [ -n "${{ inputs.teshis }}" ]; then
+            sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
             for k in ${{ inputs.teshis }}; do echo "===== $k"; python3 ig_ortak.py teshis $k; done
           else
             python3 ig_ortak.py kurulum
