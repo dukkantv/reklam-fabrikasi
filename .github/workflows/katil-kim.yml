@@ -11,6 +11,10 @@ on:
         description: "Vaka numarası (boş = sıradaki)"
         required: false
         default: ""
+      sadece_stok:
+        description: "Sadece yeni vaka yaz (video üretme)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -32,14 +36,20 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ffmpeg fonts-dejavu
           pip install requests pillow numpy edge-tts
+      - name: Vaka stoku (azalınca Gemini yeni vakalar yazar)
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python vaka_uret.py ${{ inputs.sadece_stok && '--zorla' || '' }}
       - name: Vaka videosunu üret
+        if: ${{ !inputs.sadece_stok }}
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           VAKA_NO: ${{ inputs.vaka_no }}
         run: python generator.py
       - name: Yayın kuyruğuna ekle
-        if: success() && hashFiles('dedektif/yayin.json') != ''
+        if: success() && !inputs.sadece_stok && hashFiles('dedektif/yayin.json') != ''
         working-directory: .
         env:
           GH_TOKEN: ${{ github.token }}
@@ -59,5 +69,5 @@ jobs:
         run: |
           git config user.name "dukkan-tv-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add dedektif/state.json kuyruk
+          git add dedektif/state.json dedektif/vakalar_v2.json kuyruk
           git diff --cached --quiet || (git commit -m "Katil Kim: vaka sırası / yayın kuyruğu" && (git push || (git pull --rebase origin main && git push)))
