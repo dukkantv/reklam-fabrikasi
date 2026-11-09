@@ -1,0 +1,72 @@
+{
+  "gun": 8,
+  "toplam_gun": 30,
+  "kasa_basi": 3200,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {
+      "tema": "gece",
+      "gorsel": "para",
+      "gorsel_yazi": "2.000 TL",
+      "ifade": "mutlu",
+      "kasa": 5200,
+      "baslik": "TEKLİFİ KABUL ETTİM",
+      "anlatim": "İki bin lirayı cebime attım. Serdar Tunç'un teklifini kabul ettim. Arayış başladı.",
+      "damga": "Kabul"
+    },
+    {
+      "tema": "sabah",
+      "gorsel": "hal",
+      "gorsel_yazi": "İLK DURAK",
+      "ifade": "dusunceli",
+      "baslik": "İLK İZ",
+      "anlatim": "Sabah ilk iş haldeki esnafa sordum. Kimse onu görmemişti, herkes şaşkındı.",
+      "damga": "Arama"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "tezgah",
+      "gorsel_yazi": "+800 TL",
+      "ifade": "mutlu",
+      "kasa": 6000,
+      "baslik": "TEZGAH BAŞI",
+      "anlatim": "Bir yandan tezgahta satış yaptım. Sekiz yüz lira kazandım. Kasa altı bine çıktı.",
+      "damga": "Kazanç"
+    },
+    {
+      "tema": "aksam",
+      "gorsel": "etiket",
+      "gorsel_yazi": "ADRES",
+      "ifade": "dusunceli",
+      "baslik": "BİR İPUCU",
+      "anlatim": "Akşamüzeri yaşlı bir amca yanıma yaklaştı. Kemal'in eski evini bildiğini söyledi."
+    },
+    {
+      "tema": "gece",
+      "gorsel": "defter",
+      "gorsel_yazi": "ESKİ EV",
+      "ifade": "saskin",
+      "baslik": "ESKİ MAHALLE",
+      "anlatim": "Tarif ettiği adrese gittim. Işık yanmıyordu ama kapı aralıktı."
+    },
+    {
+      "tema": "gece",
+      "gorsel": "kalabalik",
+      "gorsel_yazi": "İÇERİDE KİM VAR",
+      "ifade": "saskin",
+      "baslik": "KAPIYI ÇALAYIM MI?",
+      "anlatim": "İçeriden sesler geliyordu. Kemal Bey orada olabilir miydi, yoksa bir tuzak mıydı?"
+    },
+    {
+      "tema": "oylama",
+      "ifade": "dusunceli",
+      "secenek": [
+        "İçeri gir",
+        "Polisi ara"
+      ],
+      "baslik": "İÇERİ GİREYİM Mİ?",
+      "anlatim": "Kapıyı açıp içeri gireyim mi, yoksa polise mi haber vereyim? Yoruma A veya B yaz. Yarın gün 9!"
+    }
+  ]
+}
