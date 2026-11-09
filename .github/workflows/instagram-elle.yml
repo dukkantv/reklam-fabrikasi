@@ -1,0 +1,54 @@
+name: Instagram Elle Paylaş
+
+# Kuyruktan kaçmış bir videoyu Instagram'a Reels olarak paylaşır.
+# Video, onu üreten çalışmanın (ör. Otomatik Bölüm) Artifacts kısmından alınır.
+on:
+  workflow_dispatch:
+    inputs:
+      kanal:
+        description: "Instagram hesabı"
+        type: choice
+        options: [dukkantv, kasakurgu, dramabite]
+      run_id:
+        description: "Videoyu üreten çalışmanın numarası (Actions adresindeki sayı)"
+        required: true
+      aciklama:
+        description: "Instagram açıklaması"
+        required: true
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  paylas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ github.token }}
+          path: /tmp/video
+      - name: Reels olarak paylaş
+        env:
+          KANAL: ${{ inputs.kanal }}
+          ACIKLAMA: ${{ inputs.aciklama }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 - <<'EOF'
+          import glob, os
+          from ig_ortak import reels_yukle
+          from yt_ortak import telegram
+          dosyalar = sorted(glob.glob("/tmp/video/**/*.mp4", recursive=True))
+          if not dosyalar:
+              raise SystemExit("Çalışmada mp4 bulunamadı")
+          kanal = os.environ["KANAL"]
+          mid, link = reels_yukle(kanal, dosyalar[-1], os.environ["ACIKLAMA"])
+          print("Paylaşıldı:", link)
+          telegram(f"📸 {kanal}: video Instagram'da Reels olarak paylaşıldı (elle).\n{link}")
+          EOF
