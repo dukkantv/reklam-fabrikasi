@@ -13,8 +13,11 @@ import urllib.parse
 import urllib.request
 
 KANAL = os.environ["KANAL"]
-CID = os.environ["YT_CLIENT_ID"]
-CSEC = os.environ["YT_CLIENT_SECRET"]
+import re
+# Kopyalarken boşluk/etiket gelmiş olabilir: sadece asıl değeri al
+CID = (re.search(r"[\w-]+\.apps\.googleusercontent\.com", os.environ["YT_CLIENT_ID"]) or re.search(r"\S+", os.environ["YT_CLIENT_ID"])).group(0)
+CSEC = (re.search(r"GOCSPX-[\w-]+", os.environ["YT_CLIENT_SECRET"]) or re.search(r"\S+", os.environ["YT_CLIENT_SECRET"])).group(0)
+os.environ["YT_CLIENT_SECRET"] = CSEC
 TG_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TG_CHAT = os.environ["TELEGRAM_CHAT_ID"]
 SCOPE = "https://www.googleapis.com/auth/youtube"
