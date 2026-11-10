@@ -25,7 +25,10 @@ jobs:
           test -n "$CLOUDFLARE_API_TOKEN" || { echo "CLOUDFLARE_API_TOKEN gizli anahtarı eksik"; exit 1; }
           # Kopyalarken araya boşluk/satır sonu karışmış olabilir: içinden geçerli anahtarı bul
           GECERLI=""
-          for t in $CLOUDFLARE_API_TOKEN; do
+          # Uzunlukları yaz (içerik değil) — ne yapıştırıldığını anlamak için
+          printf '%s' "$CLOUDFLARE_API_TOKEN" | tr -s '[:space:]' '\n' | awk '{print "parça uzunluğu:", length($0)}'
+          ADAYLAR=$(printf '%s' "$CLOUDFLARE_API_TOKEN" | grep -oE '[A-Za-z0-9_-]{30,}' || true)
+          for t in $ADAYLAR; do
             if curl -fsS -H "Authorization: Bearer $t" https://api.cloudflare.com/client/v4/user/tokens/verify | grep -q '"status":"active"'; then
               GECERLI="$t"; break
             fi
