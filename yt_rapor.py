@@ -31,6 +31,8 @@ sonuc = {"tarih": bugun.isoformat(), "kanallar": {}}
 mesaj = [f"📊 YouTube günlük rapor — {bugun.strftime('%d.%m.%Y')}"]
 
 for k in kanallar():
+    if k.startswith(("ig_", "tt_")):  # Instagram/TikTok izinleri YouTube kanalı değil
+        continue
     bilgi = kanal_bilgi(k)
     try:
         token = erisim_anahtari(k)
@@ -84,8 +86,8 @@ for k in kanallar():
             satirlar.append(f"   • {r['baslik'][:40]} — {r['views']} izl., ort. %{round(r.get('averageViewPercentage', 0))} izlendi")
         mesaj += satirlar
     except Exception as e:
-        sonuc["kanallar"][k] = {"ad": bilgi["ad"], "hata": str(e)[:300]}
-        mesaj.append(f"\n⚠️ {bilgi['ad']}: veri alınamadı ({str(e)[:120]})")
+        sonuc["kanallar"][k] = {"ad": bilgi.get("ad", k), "hata": str(e)[:300]}
+        mesaj.append(f"\n⚠️ {bilgi.get('ad', k)}: veri alınamadı ({str(e)[:120]})")
 
 os.makedirs("rapor", exist_ok=True)
 json.dump(sonuc, open(f"rapor/{bugun.isoformat()}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
