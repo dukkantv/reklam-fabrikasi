@@ -1,0 +1,75 @@
+{
+  "gun": 9,
+  "toplam_gun": 30,
+  "kasa_basi": 6000,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {
+      "tema": "gece",
+      "gorsel": "kalabalik",
+      "gorsel_yazi": "KARAR",
+      "ifade": "saskin",
+      "baslik": "İÇERİ GİRDİM",
+      "anlatim": "Polisi aramaktan vazgeçip kapıyı yavaşça ittim. İçerideki adam masada yalnız oturuyordu.",
+      "damga": "Karar"
+    },
+    {
+      "tema": "sabah",
+      "gorsel": "defter",
+      "gorsel_yazi": "DEFTER",
+      "ifade": "dusunceli",
+      "baslik": "ESKİ BORÇLAR",
+      "anlatim": "Karşımdaki adam Kemal Bey değildi. Eski muhasebecisiydi. Elinde sararmış bir defter vardı.",
+      "damga": "İpucu"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "tezgah",
+      "gorsel_yazi": "+900 TL",
+      "ifade": "mutlu",
+      "kasa": 6900,
+      "baslik": "SATIŞLARA DEVAM",
+      "anlatim": "Sabah erkenden tezgaha koştum. Günün ilk satışlarından dokuz yüz lira kazandım.",
+      "damga": "Kazanç"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "etiket",
+      "gorsel_yazi": "YENİ FİYAT",
+      "ifade": "dusunceli",
+      "baslik": "TOPTANCI",
+      "anlatim": "Öğleden sonra başka bir toptancı yanıma geldi. Elindeki malları bana devretmek istedi.",
+      "damga": "Teklif"
+    },
+    {
+      "tema": "aksam",
+      "gorsel": "para",
+      "gorsel_yazi": "+1200 TL",
+      "ifade": "mutlu",
+      "kasa": 8100,
+      "baslik": "AKŞAM KAZANCI",
+      "anlatim": "Malları hemen eritip kasaya bin iki yüz lira daha ekledim. Toplam sekiz bin yüz oldu.",
+      "damga": "Artış"
+    },
+    {
+      "tema": "gece",
+      "gorsel": "hal",
+      "gorsel_yazi": "NOT",
+      "ifade": "saskin",
+      "baslik": "GİZLİ NOT",
+      "anlatim": "Tezgahı toplarken kasanın altında küçük bir not buldum. Kemal Bey'in yeni adresi yazıyordu.",
+      "damga": "Takip"
+    },
+    {
+      "tema": "oylama",
+      "ifade": "dusunceli",
+      "secenek": [
+        "Adrese git",
+        "Serdar'a söyle"
+      ],
+      "baslik": "HAKKIMDA",
+      "anlatim": "Adrese tek başıma mı gideyim, yoksa bunu hemen Serdar Tunç'a mı anlatayım? Yoruma A veya B yaz. Yarın gün 10!"
+    }
+  ]
+}
