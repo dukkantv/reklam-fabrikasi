@@ -23,6 +23,16 @@ jobs:
           TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         run: |
           test -n "$CLOUDFLARE_API_TOKEN" || { echo "CLOUDFLARE_API_TOKEN gizli anahtarı eksik"; exit 1; }
+          # Kopyalarken araya boşluk/satır sonu karışmış olabilir: içinden geçerli anahtarı bul
+          GECERLI=""
+          for t in $CLOUDFLARE_API_TOKEN; do
+            if curl -fsS -H "Authorization: Bearer $t" https://api.cloudflare.com/client/v4/user/tokens/verify | grep -q '"status":"active"'; then
+              GECERLI="$t"; break
+            fi
+          done
+          test -n "$GECERLI" || { echo "Geçerli Cloudflare anahtarı bulunamadı (yeniden oluşturup ekleyin)"; exit 1; }
+          export CLOUDFLARE_API_TOKEN="$GECERLI"
+          echo "Cloudflare anahtarı doğrulandı ✅"
           npx --yes wrangler@4 deploy
           # Dinleyicinin gizli değeri: bot anahtarından türetilir
           printf %s "$TOKEN" | sha256sum | cut -c1-48 | npx --yes wrangler@4 secret put GIZLI
