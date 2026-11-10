@@ -1,0 +1,32 @@
+name: Cloudflare Yükle
+
+# cloudflare/ klasöründeki onay dinleyicisini Cloudflare'e yükler.
+# Gerekli gizli anahtar: CLOUDFLARE_API_TOKEN ("Edit Cloudflare Workers" şablonuyla alınır)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["cloudflare/**"]
+
+jobs:
+  yukle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Yükle
+        working-directory: cloudflare
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN" || { echo "CLOUDFLARE_API_TOKEN gizli anahtarı eksik"; exit 1; }
+          npx --yes wrangler@4 deploy
+          # Dinleyicinin gizli değeri: bot anahtarından türetilir
+          printf %s "$TOKEN" | sha256sum | cut -c1-48 | npx --yes wrangler@4 secret put GIZLI
+      - name: Dene
+        run: |
+          sleep 5
+          curl -fsS https://dukkantv-onay.dukkan-tvstudio.workers.dev/ ; echo

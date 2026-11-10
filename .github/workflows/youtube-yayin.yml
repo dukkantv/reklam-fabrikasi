@@ -48,6 +48,7 @@ jobs:
       TT_CLIENT_SECRET: ${{ secrets.TT_CLIENT_SECRET }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      ONAY_URL: https://dukkantv-onay.dukkan-tvstudio.workers.dev   # Cloudflare onay dinleyicisi
     steps:
       - uses: actions/checkout@v4
       - name: Elle ekle

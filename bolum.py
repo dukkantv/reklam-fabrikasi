@@ -27,7 +27,11 @@ def telegramdan_klipler(hedef_klasor):
     """Bota gönderilmiş videoları sırayla indirir. Döndürür: (dosyalar, son_update_id)"""
     if not TOKEN:
         return [], None
-    guncel = tg("getUpdates", timeout=0).get("result", [])
+    try:
+        guncel = tg("getUpdates", timeout=0).get("result", [])
+    except Exception as e:  # Onay dinleyicisi (webhook) açıkken Telegram getUpdates'e izin vermez
+        print("Telegram'dan klip okunamadı (webhook açık olabilir):", e)
+        return [], None
     mesajlar, son = [], None
     for u in guncel:
         son = u["update_id"]

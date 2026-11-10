@@ -1,0 +1,10 @@
+# Dükkan TV onay dinleyicisi — "Cloudflare Yükle" işi bu ayarla yükler
+name = "dukkantv-onay"
+main = "onay-worker.js"
+compatibility_date = "2025-10-01"
+account_id = "ed3d80db5229ef604bc914062ff2f482"
+workers_dev = true
+
+[[kv_namespaces]]
+binding = "ONAY"
+id = "5234b7c3c9bf4f5d808208e560374ed9"

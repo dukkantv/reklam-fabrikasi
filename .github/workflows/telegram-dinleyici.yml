@@ -1,0 +1,36 @@
+name: Telegram Dinleyici
+
+# Telegram botunun buton basışlarını Cloudflare onay dinleyicisine yönlendirir (webhook).
+# "kur": anında onay açılır.  "kaldir": eski hâle (saatte bir okuma) döner.  "durum": sadece bilgi.
+on:
+  workflow_dispatch:
+    inputs:
+      islem:
+        description: "Ne yapılsın?"
+        type: choice
+        default: durum
+        options: [durum, kur, kaldir]
+
+jobs:
+  dinleyici:
+    runs-on: ubuntu-latest
+    env:
+      TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      ONAY_URL: https://dukkantv-onay.dukkan-tvstudio.workers.dev
+    steps:
+      - name: Uygula
+        run: |
+          TG="https://api.telegram.org/bot$TOKEN"
+          ONAY_GIZLI=$(printf %s "$TOKEN" | sha256sum | cut -c1-48)
+          case "${{ inputs.islem }}" in
+            kur)
+              test -n "$ONAY_URL" || { echo "ONAY_URL değişkeni boş"; exit 1; }
+              curl -fsS "$ONAY_URL/" ; echo
+              curl -fsS "$TG/setWebhook" \
+                --data-urlencode "url=$ONAY_URL/telegram" \
+                --data-urlencode "secret_token=$ONAY_GIZLI" \
+                --data-urlencode 'allowed_updates=["callback_query"]' ; echo ;;
+            kaldir)
+              curl -fsS "$TG/deleteWebhook" ; echo ;;
+          esac
+          curl -fsS "$TG/getWebhookInfo" | python3 -c "import sys,json; d=json.load(sys.stdin)['result']; d.pop('ip_address',None); print(d)"

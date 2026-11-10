@@ -13,6 +13,7 @@ Kurallar:
 """
 import datetime as dt
 import glob
+import hashlib
 import json
 import os
 import subprocess
@@ -56,6 +57,10 @@ def ig_aciklama(kayit):
 KUYRUK = os.path.join(KOK, "kuyruk")
 TR = dt.timezone(dt.timedelta(hours=3))
 TG = f"https://api.telegram.org/bot{os.environ.get('TELEGRAM_BOT_TOKEN', '')}"
+# Cloudflare onay dinleyicisi (cloudflare/onay-worker.js). Boşsa sadece Telegram getUpdates kullanılır.
+ONAY_URL = os.environ.get("ONAY_URL", "").rstrip("/")
+# Dinleyiciyle paylaşılan gizli değer, bot anahtarından türetilir (kodda şifre tutulmaz)
+ONAY_GIZLI = hashlib.sha256(os.environ.get("TELEGRAM_BOT_TOKEN", "").encode()).hexdigest()[:48]
 
 
 def gh(*arg):
@@ -189,6 +194,24 @@ def kontrol():
         if kayit["durum"] == "bekliyor":
             kayit["durum"] = "onaylandi" if parca[1] == "onay" else "iptal"
             kaydet(kayit)
+
+    # Cloudflare onay dinleyicisinden (anında onay) gelen kararlar
+    if ONAY_URL:
+        kod, _, kararlar = istek(f"{ONAY_URL}/onaylar?k={ONAY_GIZLI}", headers={"User-Agent": "dukkantv-bot"})
+        if kod == 200 and isinstance(kararlar, dict):
+            print("Dinleyiciden gelen kararlar:", {k: v.get("karar") for k, v in kararlar.items()})
+            for kid, k in kararlar.items():
+                kayit = kayitlar.get(kid)
+                if kayit and kayit["durum"] == "bekliyor":
+                    kayit["durum"] = "onaylandi" if k.get("karar") == "onay" else "iptal"
+                    kaydet(kayit)
+                # Karar ancak iş kesinleşince (yüklendi / silindi) dinleyiciden silinir; arada iş
+                # yarıda kalırsa bir sonraki kontrolde karar yeniden okunur.
+                if kayit is None or kayit["durum"] not in ("bekliyor", "onaylandi"):
+                    istek(f"{ONAY_URL}/onaylar?k={ONAY_GIZLI}&id={kid}", method="DELETE",
+                          headers={"User-Agent": "dukkantv-bot"})
+        else:
+            print(f"Onay dinleyicisine ulaşılamadı ({kod}): {str(kararlar)[:200]}")
 
     simdi = dt.datetime.now(TR)
     for kayit in kayitlar.values():
