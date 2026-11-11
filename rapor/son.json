@@ -1,81 +1,90 @@
 {
- "tarih": "2026-11-09",
+ "tarih": "2026-11-11",
  "kanallar": {
   "dramabite": {
    "ad": "Drama Bite",
    "abone": 14,
-   "toplam_izlenme": 14536,
-   "video_sayisi": 15,
+   "toplam_izlenme": 15822,
+   "video_sayisi": 17,
    "son28": {
-    "views": 13423,
-    "estimatedMinutesWatched": 1657,
-    "subscribersGained": 13,
+    "views": 15706,
+    "estimatedMinutesWatched": 2362,
+    "subscribersGained": 14,
     "subscribersLost": 0
    },
    "uzun_video_saat_365": 0.0,
-   "shorts_izlenme_90": 13435,
+   "shorts_izlenme_90": 15706,
    "en_iyi_7gun": [
     {
-     "video": "wiwkVtdTYuA",
-     "views": 1542,
-     "averageViewDuration": 22,
-     "averageViewPercentage": 17.99,
-     "likes": 5,
-     "comments": 0,
-     "baslik": "Eski bir mumara"
-    },
-    {
      "video": "zT9xwhLsFaM",
-     "views": 1465,
+     "views": 1468,
      "averageViewDuration": 13,
-     "averageViewPercentage": 16.69,
+     "averageViewPercentage": 16.71,
      "likes": 4,
      "comments": 0,
      "baslik": "Cevapsız Arama"
     },
     {
-     "video": "YSRfISrQbGQ",
-     "views": 1398,
+     "video": "oky38g01ulM",
+     "views": 1166,
      "averageViewDuration": 25,
-     "averageViewPercentage": 21.16,
-     "likes": 10,
+     "averageViewPercentage": 31,
+     "likes": 6,
+     "comments": 0,
+     "baslik": "Sekiz Yıllık Sır"
+    },
+    {
+     "video": "HxOUvWCIpNk",
+     "views": 968,
+     "averageViewDuration": 51,
+     "averageViewPercentage": 53.81,
+     "likes": 9,
+     "comments": 0,
+     "baslik": "Abimin Sakladığı Topu"
+    },
+    {
+     "video": "f5kVO93lhE8",
+     "views": 237,
+     "averageViewDuration": 22,
+     "averageViewPercentage": 27.9,
+     "likes": 0,
+     "comments": 0,
+     "baslik": "'At şu kokan değersiz çantayı Leyla '"
+    },
+    {
+     "video": "YSRfISrQbGQ",
+     "views": 105,
+     "averageViewDuration": 31,
+     "averageViewPercentage": 26.530000000000005,
+     "likes": 3,
      "comments": 0,
      "baslik": "Paslı Anahtar"
-    },
-    {
-     "video": "UNdrv7XlLrg",
-     "views": 837,
-     "averageViewDuration": 21,
-     "averageViewPercentage": 14.21,
-     "likes": 1,
-     "comments": 0,
-     "baslik": "Gece 03:20 Borcu"
-    },
-    {
-     "video": "ve1aLzR2fjY",
-     "views": 116,
-     "averageViewDuration": 19,
-     "averageViewPercentage": 19.89,
-     "likes": 1,
-     "comments": 0,
-     "baslik": "Durmuş Saat"
     }
    ]
   },
   "dukkantv": {
    "ad": "Dükkan Tv",
    "abone": 1,
-   "toplam_izlenme": 1467,
-   "video_sayisi": 3,
+   "toplam_izlenme": 1483,
+   "video_sayisi": 4,
    "son28": {
-    "views": 275,
-    "estimatedMinutesWatched": 11,
-    "subscribersGained": 1,
-    "subscribersLost": 0
+    "views": 1514,
+    "estimatedMinutesWatched": 133,
+    "subscribersGained": 2,
+    "subscribersLost": 1
    },
    "uzun_video_saat_365": 0.0,
-   "shorts_izlenme_90": 275,
+   "shorts_izlenme_90": 1514,
    "en_iyi_7gun": [
+    {
+     "video": "5Vs9jdCUE5M",
+     "views": 1230,
+     "averageViewDuration": 33,
+     "averageViewPercentage": 49.98,
+     "likes": 12,
+     "comments": 0,
+     "baslik": "Simitçi Hasan Amca'ya Reklam Çektik, Bütün Bursa Sıraya Girdi! 🥯 #Shorts"
+    },
     {
      "video": "ex5YlHYsu60",
      "views": 224,
@@ -87,9 +96,9 @@
     },
     {
      "video": "smItcUOoEso",
-     "views": 51,
-     "averageViewDuration": 51,
-     "averageViewPercentage": 37.74,
+     "views": 60,
+     "averageViewDuration": 43,
+     "averageViewPercentage": 31.97,
      "likes": 0,
      "comments": 0,
      "baslik": "Külah bitti, kuyruk kapıya kadar! 🍦 Erkan Abi yetişir | Bursa Yıldırım #shorts"
@@ -98,62 +107,62 @@
   },
   "kasakurgu": {
    "ad": "Kasa kurgu",
-   "abone": 7,
-   "toplam_izlenme": 5220,
-   "video_sayisi": 11,
+   "abone": 8,
+   "toplam_izlenme": 7445,
+   "video_sayisi": 13,
    "son28": {
-    "views": 1717,
-    "estimatedMinutesWatched": 304,
-    "subscribersGained": 6,
+    "views": 5897,
+    "estimatedMinutesWatched": 871,
+    "subscribersGained": 7,
     "subscribersLost": 0
    },
    "uzun_video_saat_365": 0.0,
-   "shorts_izlenme_90": 1720,
+   "shorts_izlenme_90": 5897,
    "en_iyi_7gun": [
     {
-     "video": "xRxUcoShyRI",
-     "views": 556,
-     "averageViewDuration": 16,
-     "averageViewPercentage": 40.97,
-     "likes": 1,
-     "comments": 2,
-     "baslik": "Katil Kim? 🕵️ Dosya #01: Antikacıdaki Saat | Yorumlara A, B veya C yaz!"
-    },
-    {
-     "video": "tKby4UMT9tY",
-     "views": 321,
-     "averageViewDuration": 21,
-     "averageViewPercentage": 17.19,
-     "likes": 2,
-     "comments": 2,
-     "baslik": "500 TL ile 50.000 TL Hedefi | Gün 3/30 | Kararı Siz Verin! 💸"
-    },
-    {
      "video": "fM_QgRIJ8_8",
-     "views": 317,
-     "averageViewDuration": 27,
-     "averageViewPercentage": 49.54,
-     "likes": 3,
-     "comments": 1,
+     "views": 1140,
+     "averageViewDuration": 25,
+     "averageViewPercentage": 46.52,
+     "likes": 10,
+     "comments": 5,
      "baslik": "Kirayı ödeyebilecekmiyim acaba? #para ##girişimci #kurgu"
     },
     {
+     "video": "xRxUcoShyRI",
+     "views": 1114,
+     "averageViewDuration": 16,
+     "averageViewPercentage": 39.78,
+     "likes": 5,
+     "comments": 3,
+     "baslik": "Katil Kim? 🕵️ Dosya #01: Antikacıdaki Saat | Yorumlara A, B veya C yaz!"
+    },
+    {
+     "video": "284F8H-RUlk",
+     "views": 1104,
+     "averageViewDuration": 13,
+     "averageViewPercentage": 26.669999999999998,
+     "likes": 5,
+     "comments": 3,
+     "baslik": "Gün  6 Şık  A"
+    },
+    {
      "video": "jjpaagaFnf0",
-     "views": 230,
+     "views": 549,
      "averageViewDuration": 19,
-     "averageViewPercentage": 31.81,
-     "likes": 0,
-     "comments": 0,
+     "averageViewPercentage": 30.7,
+     "likes": 1,
+     "comments": 2,
      "baslik": "Gün 5 bakalım neler olacak."
     },
     {
-     "video": "Ns6F6Bvkvgs",
-     "views": 157,
-     "averageViewDuration": 26,
-     "averageViewPercentage": 20.97,
-     "likes": 2,
+     "video": "ez7-ZvY_L3w",
+     "views": 458,
+     "averageViewDuration": 16,
+     "averageViewPercentage": 35.13,
+     "likes": 5,
      "comments": 1,
-     "baslik": "Kurgusal  hikayedir"
+     "baslik": "Müzedeki Tablo"
     }
    ]
   }
