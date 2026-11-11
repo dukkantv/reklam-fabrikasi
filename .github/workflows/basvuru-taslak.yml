@@ -27,6 +27,8 @@ jobs:
       ONAY_URL: https://dukkantv-onay.dukkan-tvstudio.workers.dev
     steps:
       - uses: actions/checkout@v4
+      - name: Araç kur
+        run: pip install -q pillow || true
       - name: Taslağı hazırla
         run: python3 basvuru.py taslak "${{ inputs.id }}"
       - name: Klasörü kaydet

@@ -102,15 +102,21 @@ def paket_turu(paket):
 def gemini(parcalar):
     son = None
     for model in MODELLER:
-        for _ in range(3):
-            kod, _, v = istek(
-                f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI}",
-                json_govde={"contents": [{"parts": parcalar}],
-                            "generationConfig": {"temperature": 0.9, "responseMimeType": "application/json"}},
-                zaman=120)
+        for _ in range(2):
+            try:
+                kod, _, v = istek(
+                    f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI}",
+                    json_govde={"contents": [{"parts": parcalar}],
+                                "generationConfig": {"temperature": 0.9, "responseMimeType": "application/json"}},
+                    zaman=240)
+            except Exception as e:  # zaman aşımı vb.: aynı modeli bir kez daha, sonra sıradaki model
+                son = f"{model}: {e}"
+                print("Gemini bağlantı hatası:", son)
+                continue
             if kod == 404:
                 break
-            if kod == 429:
+            if kod in (429, 500, 503):
+                son = f"{model} {kod}"
                 time.sleep(15)
                 continue
             if kod == 200:
@@ -122,6 +128,20 @@ def gemini(parcalar):
             son = f"{model} {kod} {str(v)[:150]}"
             time.sleep(4)
     raise RuntimeError(f"Gemini cevap vermedi: {son}")
+
+
+def kucuk_b64(yol, en=768):
+    """Gemini'ye gidecek fotoğrafı küçültür (daha hızlı, daha ucuz)."""
+    try:
+        from PIL import Image
+        import io
+        im = Image.open(yol).convert("RGB")
+        im.thumbnail((en, en))
+        b = io.BytesIO()
+        im.save(b, "JPEG", quality=80)
+        return base64.b64encode(b.getvalue()).decode()
+    except Exception:
+        return base64.b64encode(open(yol, "rb").read()).decode()
 
 
 ORNEK = json.load(open(os.path.join(KOK, "reklamlar", "eserim", "bilgi.json"), encoding="utf-8"))
@@ -241,10 +261,9 @@ def taslak(bid):
     # Gemini'ye en fazla 4 fotoğraf göster
     parcalar = [{"text": istem_yaz(form, bool(hepsi))}]
     for ad in hepsi[:4]:
-        parcalar.append({"inline_data": {"mime_type": "image/jpeg",
-                                         "data": base64.b64encode(open(os.path.join(yol, ad), "rb").read()).decode()}})
+        parcalar.append({"inline_data": {"mime_type": "image/jpeg", "data": kucuk_b64(os.path.join(yol, ad))}})
     t, son_hata = None, None
-    for _ in range(3):
+    for _ in range(2):
         try:
             aday = gemini(parcalar)
             dogrula(aday)
