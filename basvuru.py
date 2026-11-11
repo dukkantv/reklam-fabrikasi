@@ -25,7 +25,7 @@ TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 CHAT = os.environ.get("TELEGRAM_CHAT_ID", "")
 GIZLI = hashlib.sha256(TOKEN.encode()).hexdigest()[:48]
 GEMINI = "".join(os.environ.get("GEMINI_API_KEY", "").split())
-MODELLER = ["gemini-flash-latest", "gemini-2.5-flash", "gemini-flash-lite-latest"]
+MODELLER = ["gemini-2.5-flash", "gemini-flash-latest", "gemini-flash-lite-latest"]  # 2.5 hızlı; "latest" bazen 4 dk+ düşünüyor
 UA = {"User-Agent": "dukkantv-bot"}
 TR = timezone(timedelta(hours=3))
 
@@ -164,7 +164,9 @@ seslendirme: tam 5 madde, her sahne için 1 cümle (sahne 1..5, saniye 0.2-2.0 a
 Satır bölmek için <br> kullan. Metinler KISA olsun: ust/alt en fazla 32 karakter, baslik en fazla 40 karakter.
 Esnafın verdiği bilgilere SADIK kal, olmayan kampanya, fiyat, ödül uydurma. Siyaset, din, argo, kumar yok.
 Ton: {form.get('ton') or 'Samimi ve eğlenceli'}. renk: işletmeye yakışan koyu bir vurgu rengi (hex).
-Ayrıca "dosya_adi": Dukkan_Adi_Konu biçiminde ASCII bir ad ver.
+ÇOK ÖNEMLİ: Tüm metinleri ve seslendirmeyi doğru Türkçe karakterlerle yaz (ç, ğ, ı, İ, ö, ş, ü). "Sac" değil "Saç",
+"kacan" değil "kaçan". İşletme adını formdaki gibi aynen yaz (harfi harfine).
+Sadece "dosya_adi" alanı ASCII olsun: Dukkan_Adi_Konu biçiminde (Türkçe harf ve boşluk olmadan).
 Premium çizgi film bölümü için kullanılacak ek alanlar da ver: "urunler" (ne satıyor/ne yapıyor, 1 cümle),
 "esnaf_cinsiyet" ("erkek" ya da "kadın"; adından tahmin et, emin değilsen "erkek"), "konu" (bölüm için 1 cümlelik komik fikir).
 {'Ekteki fotoğraflar esnafın dükkânından; sahneleri bunlara uygun yaz.' if fotolar_var else ''}
@@ -191,6 +193,10 @@ def dogrula(t):
     sl = t.get("seslendirme")
     assert isinstance(sl, list) and len(sl) == 5 and all(1 <= int(x["sahne"]) <= 5 and x["metin"] for x in sl)
     assert re.fullmatch(r"#[0-9a-fA-F]{6}", t.get("renk", "")), "renk"
+    # Türkçe harfsiz (ASCII'ye çevrilmiş) metni kabul etme: bu uzunlukta Türkçe metinde mutlaka bulunur
+    hepsi = " ".join(duz(t[s].get(a)) for s in ("sahne1", "sahne2", "sahne3", "sahne4") for a in ("ust", "alt", "baslik", "bos"))
+    hepsi += " " + " ".join(x["metin"] for x in sl)
+    assert re.search(r"[çğıöşüÇĞİÖŞÜ]", hepsi), "Türkçe karakter yok (ASCII yazılmış)"
 
 
 # ---------- komutlar ----------
