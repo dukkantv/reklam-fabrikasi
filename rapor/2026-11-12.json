@@ -1,6 +1,6 @@
 {
  "tarih": "2026-11-12",
- "olusturuldu": "2026-11-12T00:18+03:00",
+ "olusturuldu": "2026-11-12T00:45+03:00",
  "kanallar": {
   "dukkantv": {
    "ad": "Dükkan Tv",
@@ -13,15 +13,7 @@
     "subscribersGained": 2,
     "subscribersLost": 1
    },
-   "son7": {
-    "views": 1520,
-    "estimatedMinutesWatched": 135,
-    "subscribersGained": 2,
-    "subscribersLost": 1,
-    "averageViewPercentage": 48.76,
-    "likes": 12,
-    "comments": 0
-   },
+   "son7": {},
    "onceki7_izlenme": 0,
    "uzun_video_saat_365": 0.0,
    "shorts_izlenme_90": 1520,
@@ -265,7 +257,11 @@
      "like_count": 4,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/Dfm3nP2gq4Z/",
-     "timestamp": "2026-11-11T16:05:38+0000"
+     "timestamp": "2026-11-11T16:05:38+0000",
+     "views": 161,
+     "reach": 137,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "17930624808424615",
@@ -274,7 +270,11 @@
      "like_count": 14,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/Dfh3vP0gbSx/",
-     "timestamp": "2026-11-09T17:30:24+0000"
+     "timestamp": "2026-11-09T17:30:24+0000",
+     "views": 1660,
+     "reach": 1540,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "17968646463197597",
@@ -283,7 +283,11 @@
      "like_count": 10,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfdFbRUtcl9/",
-     "timestamp": "2026-11-07T20:54:30+0000"
+     "timestamp": "2026-11-07T20:54:30+0000",
+     "views": 400,
+     "reach": 329,
+     "saved": 0,
+     "shares": 1
     },
     {
      "id": "17873330538647610",
@@ -292,7 +296,11 @@
      "like_count": 11,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfZ-8X_tPIc/",
-     "timestamp": "2026-11-06T15:59:49+0000"
+     "timestamp": "2026-11-06T15:59:49+0000",
+     "views": 243,
+     "reach": 194,
+     "saved": 0,
+     "shares": 4
     },
     {
      "id": "18097889180442776",
@@ -300,12 +308,16 @@
      "like_count": 7,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfXoNmltA1L/",
-     "timestamp": "2026-11-05T18:04:05+0000"
+     "timestamp": "2026-11-05T18:04:05+0000",
+     "views": 332,
+     "reach": 273,
+     "saved": 0,
+     "shares": 5
     }
    ],
-   "icgoru": false,
+   "icgoru": true,
    "son24_takipci": "?",
-   "veri_erisimi_kalan_gun": 87
+   "veri_erisimi_kalan_gun": 89
   },
   "dramabite": {
    "kullanici": "dramabitetr",
@@ -316,10 +328,14 @@
      "id": "18644948941032366",
      "caption": "Kül Olan Anılar\n\n#hikaye #duygusal #annebaba #hüzün #kurgu",
      "comments_count": 0,
-     "like_count": 3,
+     "like_count": 4,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfnCvE0klys/",
-     "timestamp": "2026-11-11T17:42:35+0000"
+     "timestamp": "2026-11-11T17:42:35+0000",
+     "views": 1202,
+     "reach": 876,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "18015808772760352",
@@ -328,7 +344,11 @@
      "like_count": 2,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfiCCvLkVys/",
-     "timestamp": "2026-11-09T19:00:22+0000"
+     "timestamp": "2026-11-09T19:00:22+0000",
+     "views": 142,
+     "reach": 127,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "18115516640587642",
@@ -337,7 +357,11 @@
      "like_count": 4,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DffLexUK-Sp/",
-     "timestamp": "2026-11-08T16:30:33+0000"
+     "timestamp": "2026-11-08T16:30:33+0000",
+     "views": 1690,
+     "reach": 1535,
+     "saved": 1,
+     "shares": 0
     },
     {
      "id": "18124746197017290",
@@ -346,7 +370,11 @@
      "like_count": 16,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfcpOr1KJ4k/",
-     "timestamp": "2026-11-07T16:51:21+0000"
+     "timestamp": "2026-11-07T16:51:21+0000",
+     "views": 2121,
+     "reach": 1917,
+     "saved": 1,
+     "shares": 1
     },
     {
      "id": "18138167863677116",
@@ -355,7 +383,11 @@
      "like_count": 5,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfZ1ksIshWp/",
-     "timestamp": "2026-11-06T14:41:43+0000"
+     "timestamp": "2026-11-06T14:41:43+0000",
+     "views": 1685,
+     "reach": 1612,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "18423380182153961",
@@ -364,12 +396,16 @@
      "like_count": 4,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfXrt-gMBAD/",
-     "timestamp": "2026-11-05T18:37:31+0000"
+     "timestamp": "2026-11-05T18:37:31+0000",
+     "views": 14,
+     "reach": 9,
+     "saved": 0,
+     "shares": 0
     }
    ],
-   "icgoru": false,
+   "icgoru": true,
    "son24_takipci": "?",
-   "veri_erisimi_kalan_gun": 87
+   "veri_erisimi_kalan_gun": 89
   },
   "kasakurgu": {
    "kullanici": "kasakurgu.tr",
@@ -383,7 +419,11 @@
      "like_count": 1,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfnJENkDA5h/",
-     "timestamp": "2026-11-11T18:37:55+0000"
+     "timestamp": "2026-11-11T18:37:55+0000",
+     "views": 169,
+     "reach": 149,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "18377500171214713",
@@ -392,7 +432,11 @@
      "like_count": 2,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfnC2_cElrz/",
-     "timestamp": "2026-11-11T17:43:45+0000"
+     "timestamp": "2026-11-11T17:43:45+0000",
+     "views": 171,
+     "reach": 161,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "18084468101547281",
@@ -401,7 +445,11 @@
      "like_count": 3,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfnCzC4ElfI/",
-     "timestamp": "2026-11-11T17:43:08+0000"
+     "timestamp": "2026-11-11T17:43:08+0000",
+     "views": 162,
+     "reach": 151,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "17896498293682704",
@@ -410,7 +458,11 @@
      "like_count": 2,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/Dfm8Jt1Fd02/",
-     "timestamp": "2026-11-11T16:45:04+0000"
+     "timestamp": "2026-11-11T16:45:04+0000",
+     "views": 149,
+     "reach": 143,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "18079253600565333",
@@ -419,7 +471,11 @@
      "like_count": 0,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/Dfh4RoQDNse/",
-     "timestamp": "2026-11-09T17:34:59+0000"
+     "timestamp": "2026-11-09T17:34:59+0000",
+     "views": 205,
+     "reach": 193,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "17978049366161726",
@@ -428,7 +484,11 @@
      "like_count": 1,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/Dfh3-boiDtT/",
-     "timestamp": "2026-11-09T17:32:24+0000"
+     "timestamp": "2026-11-09T17:32:24+0000",
+     "views": 233,
+     "reach": 207,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "17963276756998059",
@@ -437,7 +497,11 @@
      "like_count": 0,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DffQLAgxfHJ/",
-     "timestamp": "2026-11-08T17:08:08+0000"
+     "timestamp": "2026-11-08T17:08:08+0000",
+     "views": 118,
+     "reach": 108,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "18126947485901552",
@@ -446,7 +510,11 @@
      "like_count": 1,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DffOiK2REO8/",
-     "timestamp": "2026-11-08T16:52:26+0000"
+     "timestamp": "2026-11-08T16:52:26+0000",
+     "views": 113,
+     "reach": 102,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "18115755947076316",
@@ -455,7 +523,11 @@
      "like_count": 1,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfcnnNLRNwr/",
-     "timestamp": "2026-11-07T16:33:48+0000"
+     "timestamp": "2026-11-07T16:33:48+0000",
+     "views": 134,
+     "reach": 119,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "18346455055287125",
@@ -464,7 +536,11 @@
      "like_count": 1,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfclAGDxzlu/",
-     "timestamp": "2026-11-07T16:13:13+0000"
+     "timestamp": "2026-11-07T16:13:13+0000",
+     "views": 122,
+     "reach": 104,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "18214375495363396",
@@ -473,7 +549,11 @@
      "like_count": 1,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfZ6xTOAq61/",
-     "timestamp": "2026-11-06T15:24:31+0000"
+     "timestamp": "2026-11-06T15:24:31+0000",
+     "views": 135,
+     "reach": 117,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "18001209567044392",
@@ -482,7 +562,11 @@
      "like_count": 5,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfZysRXRvlK/",
-     "timestamp": "2026-11-06T14:14:27+0000"
+     "timestamp": "2026-11-06T14:14:27+0000",
+     "views": 134,
+     "reach": 120,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "18044923658833015",
@@ -491,7 +575,11 @@
      "like_count": 2,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfX0gH_RYth/",
-     "timestamp": "2026-11-05T19:50:18+0000"
+     "timestamp": "2026-11-05T19:50:18+0000",
+     "views": 146,
+     "reach": 131,
+     "saved": 0,
+     "shares": 0
     },
     {
      "id": "18158661085524653",
@@ -500,12 +588,16 @@
      "like_count": 2,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfXxjdhRyuq/",
-     "timestamp": "2026-11-05T19:24:12+0000"
+     "timestamp": "2026-11-05T19:24:12+0000",
+     "views": 10,
+     "reach": 4,
+     "saved": 0,
+     "shares": 0
     }
    ],
-   "icgoru": false,
+   "icgoru": true,
    "son24_takipci": "?",
-   "veri_erisimi_kalan_gun": 87
+   "veri_erisimi_kalan_gun": 89
   }
  },
  "tiktok": {
