@@ -32,6 +32,7 @@ on:
 
 permissions:
   contents: write
+  actions: write   # yeni başvurular için Başvuru Taslak / üretim işlerini başlatabilsin
 
 concurrency:
   group: youtube-yayin
@@ -64,6 +65,10 @@ jobs:
       - name: Saatleri yeniden dağıt
         if: inputs.planla
         run: python3 yt_kuyruk.py planla
+      - name: Siteden gelen başvuruları kontrol et
+        env:
+          GH_REPO: ${{ github.repository }}
+        run: python3 basvuru.py kontrol || echo "::warning::Başvuru kontrolü başarısız"
       - name: Onayları kontrol et ve yükle
         run: python3 yt_kuyruk.py kontrol
       - name: Kuyruğu kaydet

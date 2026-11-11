@@ -21,6 +21,7 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           test -n "$CLOUDFLARE_API_TOKEN" || { echo "CLOUDFLARE_API_TOKEN gizli anahtarı eksik"; exit 1; }
           # Kopyalarken araya boşluk/satır sonu karışmış olabilir: içinden geçerli anahtarı bul
@@ -39,6 +40,9 @@ jobs:
           npx --yes wrangler@4 deploy
           # Dinleyicinin gizli değeri: bot anahtarından türetilir
           printf %s "$TOKEN" | sha256sum | cut -c1-48 | npx --yes wrangler@4 secret put GIZLI
+          # Yeni başvuru bildirimleri için Telegram bilgileri
+          printf %s "$TOKEN" | npx --yes wrangler@4 secret put TG_TOKEN
+          printf %s "$CHAT" | npx --yes wrangler@4 secret put TG_CHAT
       - name: Dene
         run: |
           sleep 5
