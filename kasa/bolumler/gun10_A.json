@@ -1,0 +1,75 @@
+{
+  "gun": 10,
+  "toplam_gun": 30,
+  "kasa_basi": 8100,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {
+      "tema": "gece",
+      "gorsel": "hal",
+      "gorsel_yazi": "GİZLİ DEPO",
+      "ifade": "saskin",
+      "baslik": "KEMAL BEY",
+      "anlatim": "Notta yazan adrese tek başıma gittim. Şehrin kıyısında eski bir depoydu. Kapıyı araladım, Kemal Bey gerçekten oradaydı!",
+      "damga": "Yüzleşme"
+    },
+    {
+      "tema": "sabah",
+      "gorsel": "defter",
+      "gorsel_yazi": "GERÇEKLER",
+      "ifade": "dusunceli",
+      "baslik": "BÜYÜK OYUN",
+      "anlatim": "Kemal Bey şaşkındı. Serdar'ın sahte senetler düzenlediğini, dükkanı ele geçirmeye çalıştığını anlattı. Bana eski faturaları gösterdi.",
+      "damga": "Sır"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "tezgah",
+      "gorsel_yazi": "YENİ MAL",
+      "ifade": "gulen",
+      "baslik": "YARDIM ELİ",
+      "anlatim": "Bana destek olmak için kenara ayırdığı malların yerini söyledi. Sabah erkenden malları alıp hale geçtim.",
+      "damga": "Destek"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "domates",
+      "gorsel_yazi": "+1400 TL",
+      "ifade": "mutlu",
+      "kasa": 9500,
+      "baslik": "HIZLI TİCARET",
+      "anlatim": "Taze domatesleri piyasanın biraz altına verip hızla erittim. Kasaya bin dört yüz lira girdi.",
+      "damga": "Satış"
+    },
+    {
+      "tema": "aksam",
+      "gorsel": "para",
+      "gorsel_yazi": "+800 TL",
+      "ifade": "mutlu",
+      "kasa": 10300,
+      "baslik": "10 BİN BARAJI",
+      "anlatim": "Akşamüstü kalan son kasaları da satınca sekiz yüz lira daha kazandım. Kasa on bin üç yüz oldu.",
+      "damga": "Kazanç"
+    },
+    {
+      "tema": "gece",
+      "gorsel": "kalabalik",
+      "gorsel_yazi": "BASKIN",
+      "ifade": "saskin",
+      "baslik": "SERDAR TUNÇ",
+      "anlatim": "Tezgahı toplarken arkamda bir gölge belirdi. Serdar Tunç soğuk bir sesle sordu: Kemal'i bulabildin mi?",
+      "damga": "Tehlike"
+    },
+    {
+      "tema": "oylama",
+      "ifade": "dusunceli",
+      "secenek": [
+        "Yeri söyle",
+        "Yalan söyle"
+      ],
+      "baslik": "ZOR SEÇİM",
+      "anlatim": "Serdar'a Kemal Bey'in yerini söyleyeyim mi, yoksa ona yalan mı söyleyeyim? Yoruma A veya B yaz. Yarın gün 11!"
+    }
+  ]
+}
