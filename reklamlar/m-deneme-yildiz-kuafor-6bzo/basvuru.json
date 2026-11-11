@@ -1,7 +1,7 @@
 {
  "id": "20261111-143223-6bzo",
  "zaman": "2026-11-11T11:32:23.418Z",
- "durum": "yeni",
+ "durum": "taslak_hazir",
  "form": {
   "paket": "Ekonomik · Tek video (750 ₺)",
   "ad": "DENEME Yıldız Kuaför",
@@ -30,5 +30,8 @@
    "baslik": "İş başında"
   }
  ],
- "deneme": 1
+ "deneme": 1,
+ "klasor": "m-deneme-yildiz-kuafor-6bzo",
+ "paket_tur": "ekonomik",
+ "konu": "Koltukta aglayan cocugu sakinlestirmeye calisan berberin komik mucadelesi."
 }
