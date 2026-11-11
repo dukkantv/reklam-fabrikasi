@@ -2,7 +2,7 @@ name: YouTube Rapor
 
 on:
   schedule:
-    - cron: "47 5 * * *"   # her gün 08:47 (Türkiye)
+    - cron: "47 5 * * *"   # her gün 08:47 (Türkiye) — YouTube + Instagram + TikTok sabah raporu
   workflow_dispatch:
 
 permissions:

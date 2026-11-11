@@ -1,15 +1,54 @@
-"""Her sabah 3 YouTube kanalının istatistiğini toplar → Telegram'a özet + rapor/<tarih>.json.
+"""Her sabah 3 markanın (Dükkan TV, Drama Bite, Kasa Kurgu) YouTube / Instagram / TikTok raporu.
 
-Bilgisayar gerekmez; GitHub'da çalışır.
+Bilgisayar gerekmez; GitHub'da çalışır. Telegram'a her platform AYRI mesaj olarak gelir:
+  📺 YOUTUBE  →  📸 INSTAGRAM  →  🎵 TIKTOK  →  ⏳ Onay bekleyenler (butonlu) + ⚙️ sistem uyarıları
+Sonuç rapor/<tarih>.json ve rapor/son.json dosyasına yazılır (Claude'un sabah görevi bunu okur).
+
+"Son 24 saat" = dünkü rapor dosyasıyla bugünkü toplamların farkı (YouTube Analytics 1-2 gün geriden gelir).
 """
 import datetime as dt
+import glob
 import json
 import os
+import time
 
-from yt_ortak import analiz, erisim_anahtari, kanal_bilgi, kanallar, telegram, yt
+from yt_ortak import KOK, analiz, erisim_anahtari, kanal_bilgi, kanallar, telegram, yt
 
-bugun = dt.date.today()
+TR = dt.timezone(dt.timedelta(hours=3))
+bugun = dt.datetime.now(TR).date()
 gun = lambda n: (bugun - dt.timedelta(days=n)).isoformat()
+YETKI = {"dukkantv": "Onay", "dramabite": "Yayın", "kasakurgu": "Yayın"}
+SIRA = ["dukkantv", "dramabite", "kasakurgu"]
+AD = {"dukkantv": "Dükkan TV", "dramabite": "Drama Bite", "kasakurgu": "Kasa Kurgu"}
+
+
+def onceki_rapor():
+    """Bugünden önceki en yeni rapor (24 saatlik fark için)."""
+    for yol in sorted(glob.glob(os.path.join(KOK, "rapor", "20*.json")), reverse=True):
+        if os.path.basename(yol)[:10] < bugun.isoformat():
+            try:
+                return json.load(open(yol, encoding="utf-8"))
+            except Exception:
+                pass
+    return {}
+
+
+ONCEKI = onceki_rapor()
+
+
+def fark(yeni, eski):
+    if yeni is None or eski is None:
+        return "?"
+    return f"{yeni - eski:+d}"
+
+
+def sayi(n):
+    return f"{n:,}".replace(",", ".") if isinstance(n, int) else str(n)
+
+
+def baslik(gonderi):
+    satir = [x for x in (gonderi.get("caption") or "").splitlines() if x.strip()]
+    return satir[0][:38] if satir else "(başlıksız)"
 
 
 def tablo(cevap):
@@ -17,80 +56,242 @@ def tablo(cevap):
     return [dict(zip(adlar, satir)) for satir in cevap.get("rows", []) or []]
 
 
-def toplam(token, bas, metrik, filtre=None):
-    ek = {"filters": filtre} if filtre else {}
-    try:
-        satir = tablo(analiz(token, bas, gun(0), metrik, **ek))
-        return satir[0] if satir else {}
-    except Exception as e:
-        print("analiz hatası:", metrik, filtre, e)
-        return None
-
-
-sonuc = {"tarih": bugun.isoformat(), "kanallar": {}}
-mesaj = [f"📊 YouTube günlük rapor — {bugun.strftime('%d.%m.%Y')}"]
-
-for k in kanallar():
-    if k.startswith(("ig_", "tt_")):  # Instagram/TikTok izinleri YouTube kanalı değil
-        continue
-    bilgi = kanal_bilgi(k)
-    try:
-        token = erisim_anahtari(k)
-        ch = yt(token, "channels", part="statistics,snippet", mine="true")["items"][0]
-        ist = ch["statistics"]
-        son28 = toplam(token, gun(28), "views,estimatedMinutesWatched,subscribersGained,subscribersLost") or {}
-        def tur_bazli(bas, metrik):
-            try:
-                return {r["creatorContentType"]: r[metrik] for r in
-                        tablo(analiz(token, bas, gun(0), metrik, dimensions="creatorContentType"))}
-            except Exception as e:
-                print("tür tablosu alınamadı:", e)
-                return None
-        t365 = tur_bazli(gun(365), "estimatedMinutesWatched")
-        t90 = tur_bazli(gun(90), "views")
-        yil_uzun = None if t365 is None else {"estimatedMinutesWatched": t365.get("videoOnDemand", t365.get("VIDEO_ON_DEMAND", 0))}
-        shorts90 = None if t90 is None else {"views": t90.get("shorts", t90.get("SHORTS", 0))}
-        print(k, "türler:", t365, t90)
-
-        # Son 7 günün en çok izlenen videoları
-        enler = []
+# ───────────────────────────── YOUTUBE ─────────────────────────────
+def youtube():
+    sonuc, satirlar = {}, ["📺 YOUTUBE — " + bugun.strftime("%d.%m.%Y")]
+    eski = ONCEKI.get("kanallar", {})
+    for k in sorted((x for x in kanallar() if not x.startswith(("ig_", "tt_"))),
+                    key=lambda x: SIRA.index(x) if x in SIRA else 9):
+        bilgi = kanal_bilgi(k)
+        etiket = f"{AD.get(k, bilgi.get('ad', k))} ({YETKI.get(k, '?')})"
         try:
-            enler = tablo(analiz(token, gun(7), gun(0),
-                                 "views,averageViewDuration,averageViewPercentage,likes,comments",
-                                 dimensions="video", sort="-views", maxResults=5))
-        except Exception as e:
-            print("video tablosu alınamadı:", e)
-        if enler:
-            adlar = {v["id"]: v["snippet"]["title"] for v in
-                     yt(token, "videos", part="snippet", id=",".join(r["video"] for r in enler))["items"]}
-            for r in enler:
-                r["baslik"] = adlar.get(r["video"], r["video"])
+            token = erisim_anahtari(k)
+            ist = yt(token, "channels", part="statistics", mine="true")["items"][0]["statistics"]
 
-        abone = int(ist.get("subscriberCount", 0))
-        saat_uzun = round((yil_uzun or {}).get("estimatedMinutesWatched", 0) / 60, 1) if yil_uzun is not None else None
-        s90 = (shorts90 or {}).get("views") if shorts90 is not None else None
-        sonuc["kanallar"][k] = {"ad": bilgi["ad"], "abone": abone, "toplam_izlenme": int(ist.get("viewCount", 0)),
-                                "video_sayisi": int(ist.get("videoCount", 0)), "son28": son28,
-                                "uzun_video_saat_365": saat_uzun, "shorts_izlenme_90": s90, "en_iyi_7gun": enler}
+            def toplam(bas, bit, metrik, **ek):
+                try:
+                    s = tablo(analiz(token, bas, bit, metrik, **ek))
+                    return s[0] if s else {}
+                except Exception as e:
+                    print(k, "analiz hatası:", metrik, e)
+                    return None
 
-        net = son28.get("subscribersGained", 0) - son28.get("subscribersLost", 0)
-        satirlar = [f"\n▶️ {bilgi['ad']}: {abone} abone ({net:+d} / 28 gün)",
-                    f"   28 gün: {son28.get('views', 0)} izlenme, {round(son28.get('estimatedMinutesWatched', 0) / 60, 1)} saat"]
-        hedef = [f"abone %{min(100, abone / 10):.1f}"]
-        if saat_uzun is not None:
-            hedef.append(f"saat {saat_uzun}/8000")
-        if s90 is not None:
-            hedef.append(f"Shorts {s90:,}/20M (90 gün)".replace(",", "."))
-        satirlar.append("   Para kazanma: " + " · ".join(hedef))
-        for r in enler[:3]:
-            satirlar.append(f"   • {r['baslik'][:40]} — {r['views']} izl., ort. %{round(r.get('averageViewPercentage', 0))} izlendi")
-        mesaj += satirlar
-    except Exception as e:
-        sonuc["kanallar"][k] = {"ad": bilgi.get("ad", k), "hata": str(e)[:300]}
-        mesaj.append(f"\n⚠️ {bilgi.get('ad', k)}: veri alınamadı ({str(e)[:120]})")
+            def tur_bazli(bas, metrik):
+                try:
+                    return {r["creatorContentType"]: r[metrik] for r in
+                            tablo(analiz(token, bas, gun(0), metrik, dimensions="creatorContentType"))}
+                except Exception as e:
+                    print(k, "tür tablosu alınamadı:", e)
+                    return None
 
-os.makedirs("rapor", exist_ok=True)
-json.dump(sonuc, open(f"rapor/{bugun.isoformat()}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-json.dump(sonuc, open("rapor/son.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-telegram("\n".join(mesaj))
-print("\n".join(mesaj))
+            m = "views,estimatedMinutesWatched,subscribersGained,subscribersLost"
+            son28 = toplam(gun(28), gun(0), m) or {}
+            son7 = toplam(gun(7), gun(0), m + ",averageViewPercentage,likes,comments") or {}
+            once7 = toplam(gun(14), gun(8), "views") or {}
+            t365, t90 = tur_bazli(gun(365), "estimatedMinutesWatched"), tur_bazli(gun(90), "views")
+            saat_uzun = None if t365 is None else round(t365.get("videoOnDemand", t365.get("VIDEO_ON_DEMAND", 0)) / 60, 1)
+            s90 = None if t90 is None else t90.get("shorts", t90.get("SHORTS", 0))
+
+            enler = []
+            try:
+                enler = tablo(analiz(token, gun(7), gun(0),
+                                     "views,averageViewDuration,averageViewPercentage,likes,comments",
+                                     dimensions="video", sort="-views", maxResults=10))
+            except Exception as e:
+                print(k, "video tablosu alınamadı:", e)
+            if enler:
+                adlar = {v["id"]: v["snippet"]["title"] for v in
+                         yt(token, "videos", part="snippet", id=",".join(r["video"] for r in enler))["items"]}
+                for r in enler:
+                    r["baslik"] = adlar.get(r["video"], r["video"])
+
+            abone, izl = int(ist.get("subscriberCount", 0)), int(ist.get("viewCount", 0))
+            e = eski.get(k, {})
+            sonuc[k] = {"ad": bilgi["ad"], "abone": abone, "toplam_izlenme": izl,
+                        "video_sayisi": int(ist.get("videoCount", 0)), "son28": son28, "son7": son7,
+                        "onceki7_izlenme": once7.get("views"), "uzun_video_saat_365": saat_uzun,
+                        "shorts_izlenme_90": s90, "en_iyi_7gun": enler[:5],
+                        "en_kotu_7gun": [r for r in enler if r.get("views", 0) > 0][-1:] if len(enler) > 1 else [],
+                        "son24": {"izlenme": fark(izl, e.get("toplam_izlenme")),
+                                  "abone": fark(abone, e.get("abone"))}}
+
+            satirlar.append(f"\n▶️ {etiket}")
+            satirlar.append(f"   24 saat: {sonuc[k]['son24']['izlenme']} izlenme, {sonuc[k]['son24']['abone']} abone"
+                            f" · toplam {abone} abone")
+            v7, v_once = son7.get("views", 0), once7.get("views")
+            degisim = ""
+            if v_once:
+                oran = round((v7 - v_once) / v_once * 100)
+                degisim = f" ({oran:+d}% önceki haftaya göre{' ⚠️ düşüş' if oran <= -30 else ''})"
+            satirlar.append(f"   7 gün: {sayi(v7)} izlenme{degisim}, ort. %{round(son7.get('averageViewPercentage', 0))} izlendi,"
+                            f" {son7.get('likes', 0)} beğeni, {son7.get('comments', 0)} yorum")
+            if enler:
+                r = enler[0]
+                satirlar.append(f"   🥇 {r['baslik'][:38]} — {sayi(r['views'])} izl., %{round(r.get('averageViewPercentage', 0))}")
+                if sonuc[k]["en_kotu_7gun"]:
+                    r = sonuc[k]["en_kotu_7gun"][0]
+                    satirlar.append(f"   🔻 {r['baslik'][:38]} — {sayi(r['views'])} izl., %{round(r.get('averageViewPercentage', 0))}")
+            hedef = [f"abone {abone}/1000"]
+            if saat_uzun is not None:
+                hedef.append(f"saat {saat_uzun}/8000")
+            if s90 is not None:
+                hedef.append(f"Shorts {sayi(s90)}/20M (90 gün)")
+            satirlar.append("   💰 " + " · ".join(hedef))
+        except Exception as ex:
+            sonuc[k] = {"ad": bilgi.get("ad", k), "hata": str(ex)[:300]}
+            satirlar.append(f"\n⚠️ {etiket}: okunamadı — {str(ex)[:120]}")
+            if "invalid_grant" in str(ex):
+                satirlar.append("   → İzin süresi bitmiş. Actions → YouTube İzin ile bu kanalı yeniden bağla.")
+    return sonuc, satirlar
+
+
+# ──────────────────────────── INSTAGRAM ────────────────────────────
+def instagram():
+    from ig_ortak import API, ig_hesap
+    from yt_ortak import istek
+
+    sonuc, satirlar, uyari = {}, ["📸 INSTAGRAM — " + bugun.strftime("%d.%m.%Y")], []
+    eski = ONCEKI.get("instagram", {})
+    sinir = int(time.time()) - 7 * 86400
+    for k in SIRA:
+        etiket = f"{AD[k]} ({YETKI[k]})"
+        try:
+            h = ig_hesap(k)
+        except Exception as ex:
+            print(k, "Instagram anahtarı çözülemedi:", ex)
+            h = None
+        if not h:
+            satirlar.append(f"\n⚠️ {etiket}: Instagram bağlı değil")
+            continue
+        tok, ig = h["token"], h["ig_id"]
+        try:
+            kod, _, hesap = istek(f"{API}/{ig}?fields=username,followers_count,media_count&access_token={tok}")
+            if kod != 200:
+                raise RuntimeError(f"{kod}: {str(hesap)[:150]}")
+            kod, _, medya = istek(f"{API}/{ig}/media?fields=id,caption,media_product_type,timestamp,like_count,"
+                                  f"comments_count,permalink&limit=20&access_token={tok}")
+            liste = (medya or {}).get("data", []) if kod == 200 else []
+            yeni = [x for x in liste if dt.datetime.strptime(x["timestamp"][:19], "%Y-%m-%dT%H:%M:%S")
+                    .replace(tzinfo=dt.timezone.utc).timestamp() >= sinir]
+            icgoru = True
+            for x in yeni:
+                kod, _, ins = istek(f"{API}/{x['id']}/insights?metric=views,reach,saved,shares&access_token={tok}")
+                if kod == 200:
+                    x.update({d["name"]: (d.get("values") or [{}])[0].get("value", 0) for d in ins.get("data", [])})
+                else:
+                    icgoru = False
+                    print(k, "medya içgörüsü alınamadı:", str(ins)[:200])
+                    break
+            takipci = hesap.get("followers_count")
+            e = eski.get(k, {})
+            sonuc[k] = {"kullanici": hesap.get("username"), "takipci": takipci, "gonderi": hesap.get("media_count"),
+                        "son7_gonderi": yeni, "icgoru": icgoru,
+                        "son24_takipci": fark(takipci, e.get("takipci"))}
+            satirlar.append(f"\n▶️ {etiket} @{hesap.get('username')}")
+            satirlar.append(f"   Takipçi {takipci} ({sonuc[k]['son24_takipci']} / 24 saat) · 7 günde {len(yeni)} paylaşım")
+            if yeni:
+                if icgoru:
+                    izl = sum(x.get("views", 0) for x in yeni)
+                    satirlar.append(f"   7 gün: {sayi(izl)} görüntülenme, {sum(x.get('like_count', 0) for x in yeni)} beğeni, "
+                                    f"{sum(x.get('comments_count', 0) for x in yeni)} yorum, {sum(x.get('saved', 0) for x in yeni)} kayıt")
+                    en = sorted(yeni, key=lambda x: x.get("views", 0), reverse=True)
+                    satirlar.append(f"   🥇 {baslik(en[0])} — {sayi(en[0].get('views', 0))} görüntülenme")
+                    if len(en) > 1:
+                        satirlar.append(f"   🔻 {baslik(en[-1])} — {sayi(en[-1].get('views', 0))} görüntülenme")
+                else:
+                    satirlar.append(f"   7 gün: {sum(x.get('like_count', 0) for x in yeni)} beğeni, "
+                                    f"{sum(x.get('comments_count', 0) for x in yeni)} yorum "
+                                    f"(görüntülenme okunamadı: içgörü izni yok)")
+            # Anahtar sağlığı: sayfa anahtarı süresizdir ama Meta'nın "veri erişimi" 90 günde bir yenilenmeli
+            kod, _, dbg = istek(f"{API}/debug_token?input_token={tok}&access_token={tok}")
+            d = (dbg or {}).get("data", {}) if kod == 200 else {}
+            bitis = d.get("data_access_expires_at") or 0
+            if d and not d.get("is_valid", True):
+                uyari.append(f"❌ Instagram {AD[k]}: anahtar geçersiz → Actions → Instagram Kurulum yeniden çalıştırılmalı")
+            elif bitis:
+                kalan = int((bitis - time.time()) / 86400)
+                sonuc[k]["veri_erisimi_kalan_gun"] = kalan
+                if kalan <= 14:
+                    uyari.append(f"⏰ Instagram {AD[k]}: Meta veri erişimi {kalan} gün sonra bitiyor → "
+                                 f"Graph API Explorer'dan yeni anahtar alıp Instagram Kurulum'u çalıştıralım")
+        except Exception as ex:
+            sonuc[k] = {"hata": str(ex)[:300]}
+            satirlar.append(f"\n⚠️ {etiket}: okunamadı — {str(ex)[:120]}")
+    return sonuc, satirlar, uyari
+
+
+# ───────────────────────────── TIKTOK ─────────────────────────────
+def tiktok():
+    sonuc, satirlar, uyari = {}, ["🎵 TIKTOK — " + bugun.strftime("%d.%m.%Y")], []
+    taslak7 = {}
+    for p in glob.glob(os.path.join(KOK, "kuyruk", "*.json")) + glob.glob(os.path.join(KOK, "kuyruk", "arsiv", "*.json")):
+        try:
+            r = json.load(open(p, encoding="utf-8"))
+        except Exception:
+            continue
+        if r.get("tt") == "taslak" and r["id"][:8] >= (bugun - dt.timedelta(days=7)).strftime("%Y%m%d"):
+            taslak7[r["kanal"]] = taslak7.get(r["kanal"], 0) + 1
+    for k in SIRA:
+        etiket = f"{AD[k]} ({YETKI[k]})"
+        yol = os.path.join(KOK, "tokens", f"tt_{k}.json")
+        if os.path.exists(yol):
+            b = json.load(open(yol, encoding="utf-8"))
+            kalan = int((b.get("yenileme_bitis", 0) - time.time()) / 86400)
+            sonuc[k] = {"bagli": True, "taslak_7gun": taslak7.get(k, 0), "izin_kalan_gun": kalan}
+            satirlar.append(f"\n▶️ {etiket}: bağlı (taslak modu) · 7 günde {taslak7.get(k, 0)} video taslağa gönderildi")
+            if kalan <= 30:
+                uyari.append(f"⏰ TikTok {AD[k]}: izin {kalan} gün sonra bitiyor → Actions → TikTok İzin")
+        else:
+            sonuc[k] = {"bagli": False}
+            satirlar.append(f"\n▶️ {etiket}: bulut bağlantısı yok → elle / Chrome ile yükleniyor")
+    satirlar.append("\nℹ️ TikTok uygulaması incelemede; onay gelene kadar izlenme/takipçi sayıları bulutta "
+                    "okunamıyor, Claude'un sabah görevi TikTok Studio'dan (Chrome) okur.")
+    return sonuc, satirlar, uyari
+
+
+# ───────────────────────── ONAY BEKLEYENLER ─────────────────────────
+def bekleyenler():
+    satirlar, butonlar, liste, bugunkuler = [], [], [], []
+    for p in sorted(glob.glob(os.path.join(KOK, "kuyruk", "*.json"))):
+        r = json.load(open(p, encoding="utf-8"))
+        ad = AD.get(r["kanal"], r["kanal"])
+        if r.get("durum") == "bekliyor":
+            liste.append({"id": r["id"], "kanal": r["kanal"], "baslik": r["baslik"]})
+            satirlar.append(f"• {ad}: {r['baslik'][:45]}")
+            butonlar.append([{"text": f"✅ Onayla: {r['baslik'][:18]}", "callback_data": f"yt:onay:{r['id']}"},
+                             {"text": "❌ Reddet", "callback_data": f"yt:iptal:{r['id']}"}])
+        elif r.get("yayin") and r["yayin"][:10] == bugun.isoformat():
+            bugunkuler.append(f"🕖 {r['yayin'][11:16]} {ad}: {r['baslik'][:40]}")
+    return liste, satirlar, butonlar[:5], bugunkuler
+
+
+if __name__ == "__main__":
+    yt_sonuc, yt_satir = youtube()
+    try:
+        ig_sonuc, ig_satir, ig_uyari = instagram()
+    except Exception as ex:
+        ig_sonuc, ig_satir, ig_uyari = {"hata": str(ex)[:300]}, ["📸 INSTAGRAM", f"⚠️ okunamadı: {str(ex)[:150]}"], []
+    tt_sonuc, tt_satir, tt_uyari = tiktok()
+    bek, bek_satir, butonlar, bugunkuler = bekleyenler()
+
+    sonuc = {"tarih": bugun.isoformat(), "olusturuldu": dt.datetime.now(TR).isoformat(timespec="minutes"),
+             "kanallar": yt_sonuc, "instagram": ig_sonuc, "tiktok": tt_sonuc,
+             "bekleyen": bek, "bugun_yayin": bugunkuler, "uyarilar": ig_uyari + tt_uyari}
+    os.makedirs(os.path.join(KOK, "rapor"), exist_ok=True)
+    for ad in (f"{bugun.isoformat()}.json", "son.json"):
+        json.dump(sonuc, open(os.path.join(KOK, "rapor", ad), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+    for metin in ("\n".join(yt_satir), "\n".join(ig_satir), "\n".join(tt_satir)):
+        telegram(metin[:4000])
+    son = []
+    if bugunkuler:
+        son += ["📅 Bugün yayına girecekler:"] + bugunkuler + [""]
+    if bek_satir:
+        son += ["⏳ Onayını bekleyen Dükkan TV videoları:"] + bek_satir + ["Aşağıdaki butonlarla karar ver 👇"]
+    else:
+        son.append("⏳ Onayını bekleyen video yok.")
+    if sonuc["uyarilar"]:
+        son += ["", "⚙️ Sistem uyarıları:"] + sonuc["uyarilar"]
+    ek = {"reply_markup": json.dumps({"inline_keyboard": butonlar})} if butonlar else {}
+    telegram("\n".join(son)[:4000], **ek)
+    print("\n\n".join(["\n".join(yt_satir), "\n".join(ig_satir), "\n".join(tt_satir), "\n".join(son)]))

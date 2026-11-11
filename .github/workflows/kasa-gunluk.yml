@@ -1,7 +1,7 @@
 name: Kasa Kurgu Günlük
 
 # "500 TL ile 50.000 TL Hedefi" dizisi: dünkü videonun yorumlarındaki A/B oylarını sayar,
-# Gemini ile sıradaki günü yazar, videoyu üretir, Telegram'a gönderir ve onay kuyruğuna ekler.
+# Gemini ile sıradaki günü yazar, videoyu üretir, Telegram'a gönderir ve otomatik yayın kuyruğuna ekler (onaysız).
 on:
   schedule:
     - cron: "17 8 * * *"   # her gün 11:17 (Türkiye)
@@ -41,7 +41,7 @@ jobs:
         run: |
           BOLUM=$(python3 -c "import json;print(json.load(open('yayin.json'))['bolum'])")
           python uret.py "$BOLUM"
-      - name: Telegram'a gönder ve onay kuyruğuna ekle
+      - name: Telegram'a gönder ve otomatik yayın kuyruğuna ekle
         if: hashFiles('kasa/cikti.mp4') != ''
         run: |
           BASLIK=$(python3 -c "import json;print(json.load(open('kasa/yayin.json'))['baslik'])")

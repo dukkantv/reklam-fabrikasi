@@ -1,7 +1,7 @@
 name: Drama Bite Hikaye
 
 # Drama Bite kanalı için duygusal hikâye videosu üretir, Telegram'a gönderir ve
-# YouTube onay kuyruğuna ekler (Levent onaylarsa 19:00'da yayında).
+# Yayın kuyruğuna ekler: Drama Bite onaysız otomatik yayınlanır (Telegram'da "Durdur" butonu gelir).
 on:
   schedule:
     - cron: "7 9 * * *"   # her gün 12:07 (Türkiye)
@@ -37,7 +37,7 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python hikaye_atolyesi.py
-      - name: Yayın kuyruğuna ekle (Telegram'da onay butonu gelir)
+      - name: Yayın kuyruğuna ekle (otomatik yayın, Durdur butonu gelir)
         if: success() && hashFiles('cikti/yayin.json') != ''
         env:
           GH_TOKEN: ${{ github.token }}

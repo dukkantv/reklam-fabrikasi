@@ -41,7 +41,8 @@ Herhangi bir esnaf için kısa bölüm: `bilgi.json` → `oto` içine `"toplam_s
 Kapanış kartında `telefon`/`adres` boş bırakılırsa o satır gizlenir; `sosyal` satırı eklenebilir.
 
 ## YouTube otomasyonu (bilgisayar gerekmez)
-- **YouTube Rapor**: her sabah 08:47 üç kanalın istatistiği Telegram'a gelir (`rapor/son.json`).
+- **YouTube Rapor** (sabah raporu): her sabah 08:47 üç markanın YouTube, Instagram ve TikTok raporu Telegram'a AYRI mesajlar hâlinde gelir; sonda onay bekleyen Dükkan TV videoları Onayla/Reddet butonlarıyla ve sistem uyarıları (izin süresi vb.) gelir (`rapor/son.json`).
+- **Yayın yetkisi**: Dükkan TV = Levent'in onayı şart. Drama Bite ve Kasa Kurgu = onaysız otomatik yayın (Telegram'a "Durdur" butonlu bilgi gelir).
 - **Yayın onayı**: Otomatik Bölüm videosu bitince Telegram'a "YouTube'a yüklensin mi?" mesajı gelir. ✅ Onayla → 19:00'da yayında. Cevapsız/iptal → yayınlanmaz.
 - **YouTube İzin**: kanal izni (bir kez yapıldı: dukkantv, kasakurgu, dramabite).
 - **Bütçe kilidi**: fal.ai harcaması `harcama/aylik.json` defterine yazılır; aylık limit 30 $ (`AYLIK_LIMIT`). Aşılacaksa iş başlamaz.

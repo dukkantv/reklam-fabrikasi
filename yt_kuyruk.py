@@ -5,7 +5,8 @@ Kullanım:
   python3 yt_kuyruk.py kontrol      # onayları okur, onaylananları YouTube'a yükler
 
 Kurallar:
-- Levent onay vermeden HİÇBİR video yayınlanmaz. İptal ya da 3 gün cevapsız kalırsa silinir.
+- Dükkan TV: Levent onay vermeden HİÇBİR video yayınlanmaz. İptal ya da 3 gün cevapsız kalırsa silinir.
+- Drama Bite ve Kasa Kurgu (YAYIN_KANALLARI): onay beklemeden sıraya girer; "Durdur" ile yüklenmeden önce iptal edilebilir.
 - Onaylanan video YouTube'a "planlı" yüklenir: saat 18:30'dan önce onaylanırsa aynı gün 19:00,
   sonra onaylanırsa ertesi gün 19:00 (Türkiye saati) yayına girer.
 - Telegram güncellemeleri ONAYLANMAZ (offset kullanılmaz), böylece aynı botu kullanan
@@ -54,6 +55,9 @@ def ig_aciklama(kayit):
     etiket = " ".join("#" + e.replace(" ", "") for e in kayit.get("etiketler", [])[:8])
     return f"{baslik}\n\n{etiket}".strip()
 
+# Yayın yetkisi: Dükkan TV = Levent'in onayı şart; Drama Bite ve Kasa Kurgu = onaysız otomatik yayın
+YAYIN_KANALLARI = {"dramabite", "kasakurgu"}
+
 KUYRUK = os.path.join(KOK, "kuyruk")
 TR = dt.timezone(dt.timedelta(hours=3))
 TG = f"https://api.telegram.org/bot{os.environ.get('TELEGRAM_BOT_TOKEN', '')}"
@@ -89,12 +93,22 @@ def ekle(kanal, video, baslik, aciklama="", etiketler=""):
              "etiketler": [e.strip() for e in etiketler.split(",") if e.strip()][:15],
              "dosya": dosya, "durum": "bekliyor", "eklendi": simdi.isoformat()}
     ad = kanal_bilgi(kanal)["ad"]
-    klavye = {"inline_keyboard": [[{"text": "✅ Onayla", "callback_data": f"yt:onay:{kid}"},
-                                   {"text": "❌ Yayınlama", "callback_data": f"yt:iptal:{kid}"}]]}
-    cevap = telegram(f"📺 YouTube'a yüklensin mi? → {ad}\n\n🎬 {kayit['baslik']}\n\n"
-                     f"Onaylarsan ilk boş akşam saatinde (18:00–21:30 arası, diğer videolarla çakışmadan) yayına girer.\n"
-                     f"Video yukarıda Telegram'a gelen son video.",
-                     reply_markup=json.dumps(klavye))
+    if kanal in YAYIN_KANALLARI:
+        # Yayın yetkisi Claude'da: onay beklemeden sıraya girer; Levent isterse yüklenmeden önce durdurabilir
+        kayit["durum"] = "onaylandi"
+        kayit["otomatik"] = True
+        klavye = {"inline_keyboard": [[{"text": "⛔ Durdur (yayınlama)", "callback_data": f"yt:iptal:{kid}"}]]}
+        cevap = telegram(f"🚀 Otomatik yayın sırasına girdi → {ad}\n\n🎬 {kayit['baslik']}\n\n"
+                         f"Onay gerekmez (Yayın hesabı). İlk boş akşam saatinde YouTube'da, aynı saatte "
+                         f"Instagram'da yayına girer. İstemezsen yüklenmeden önce \"Durdur\"a bas.",
+                         reply_markup=json.dumps(klavye))
+    else:
+        klavye = {"inline_keyboard": [[{"text": "✅ Onayla", "callback_data": f"yt:onay:{kid}"},
+                                       {"text": "❌ Yayınlama", "callback_data": f"yt:iptal:{kid}"}]]}
+        cevap = telegram(f"📺 YouTube'a yüklensin mi? → {ad}\n\n🎬 {kayit['baslik']}\n\n"
+                         f"Onaylarsan ilk boş akşam saatinde (18:00–21:30 arası, diğer videolarla çakışmadan) yayına girer.\n"
+                         f"Video yukarıda Telegram'a gelen son video.",
+                         reply_markup=json.dumps(klavye))
     kayit["mesaj_id"] = (cevap.get("result") or {}).get("message_id")
     kaydet(kayit)
     print("Kuyruğa eklendi:", kid)
@@ -194,6 +208,9 @@ def kontrol():
         if kayit["durum"] == "bekliyor":
             kayit["durum"] = "onaylandi" if parca[1] == "onay" else "iptal"
             kaydet(kayit)
+        elif kayit["durum"] == "onaylandi" and kayit.get("otomatik") and parca[1] == "iptal":
+            kayit["durum"] = "iptal"   # otomatik yayın, yüklenmeden önce durduruldu
+            kaydet(kayit)
 
     # Cloudflare onay dinleyicisinden (anında onay) gelen kararlar
     if ONAY_URL:
@@ -204,6 +221,9 @@ def kontrol():
                 kayit = kayitlar.get(kid)
                 if kayit and kayit["durum"] == "bekliyor":
                     kayit["durum"] = "onaylandi" if k.get("karar") == "onay" else "iptal"
+                    kaydet(kayit)
+                elif kayit and kayit["durum"] == "onaylandi" and kayit.get("otomatik") and k.get("karar") != "onay":
+                    kayit["durum"] = "iptal"
                     kaydet(kayit)
                 # Karar ancak iş kesinleşince (yüklendi / silindi) dinleyiciden silinir; arada iş
                 # yarıda kalırsa bir sonraki kontrolde karar yeniden okunur.
