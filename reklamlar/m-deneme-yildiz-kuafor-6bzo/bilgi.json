@@ -1,0 +1,81 @@
+{
+ "dosya_adi": "DENEME_Yildiz_Kuafor_Cocuk_Trasi",
+ "renk": "#1a365d",
+ "ses": "tr-TR-AhmetNeural",
+ "sahne1": {
+  "ust": "Koltukta aglayan<br>minik canavar…",
+  "alt": "Makastan kacan<br>kucukler!",
+  "ikon": "✂️",
+  "arka1": "#2b6cb0",
+  "arka2": "#1a365d"
+ },
+ "sahne2": {
+  "kutu": "KRIZ",
+  "bos": "…sac kesmek simdi imkansiz",
+  "baslik": "KOLTUKTA<br>KACAMAK!",
+  "alt": "Ahmet Bey: “Dur kucukluk, sakin ol!”"
+ },
+ "sahne3": {
+  "ust": "Panik yok.<br>Bizde sabir cok:",
+  "baslik": "“Yildiz Kuafor,<br><span class=\"vurgu\">hazir!</span>”",
+  "kisi": "Ahmet Bey",
+  "firma_kisa": "DENEME Yıldız Kuaför",
+  "foto": "on1.jpg"
+ },
+ "sahne4": {
+  "ust": "Cocuk tirasinda<br>cok sabirliyiz…",
+  "alt": "ailelerin<br>favori adresi!",
+  "damga": "SABIR",
+  "foto": "is1.jpg"
+ },
+ "kart": {
+  "logo": "on1.jpg",
+  "slogan1": "Miniklere ozel<br><span class=\"vurgu\">sabirli tiras</span>",
+  "slogan2": "Ilk kesimde<br><span class=\"vurgu\">%20 indirim!</span>",
+  "adres": "Yıldırım, Bursa",
+  "telefon": "0555 000 00 00"
+ },
+ "seslendirme": [
+  {
+   "sahne": 1,
+   "saniye": 0.5,
+   "metin": "Koltukta aglayan minik canavar, makastan kacan kucukler!"
+  },
+  {
+   "sahne": 2,
+   "saniye": 1.2,
+   "metin": "Sac kesmek simdi imkansiz, dur kucukluk sakin ol!"
+  },
+  {
+   "sahne": 3,
+   "saniye": 1.8,
+   "metin": "Panik yok, Yildiz Kuafor hazir!"
+  },
+  {
+   "sahne": 4,
+   "saniye": 0.8,
+   "metin": "Cocuk tirasinda cok sabirliyiz, ailelerin favori adresi."
+  },
+  {
+   "sahne": 5,
+   "saniye": 1.0,
+   "metin": "Yildiz Kuafor'e gelin, ilk kesimde yuzde yirmi indirim kazanin!"
+  }
+ ],
+ "efektler": [],
+ "oto": {
+  "firma": "DENEME Yıldız Kuaför",
+  "dukkan_adi": "DENEME Yıldız Kuaför",
+  "sektor": "Kuaför / Berber (Yıldırım, Bursa)",
+  "esnaf_adi": "Ahmet Bey",
+  "esnaf_cinsiyet": "erkek",
+  "esnaf_foto": null,
+  "dukkan_fotolari": [
+   "on1.jpg",
+   "is1.jpg"
+  ],
+  "logo": null,
+  "urunler": "Cocuk ve yetiskin sac kesimi, sabirli ve eglenceli tiras hizmeti sunar.",
+  "notlar": "Öne çıkan: Çocuk tıraşında çok sabırlıyız, aileler bizi seviyor. Kampanya: İlk kesimde %20 indirim. Müşteriler: Çocuklu aileler. Görünüm isteği: Gerçek fotoğrafım görünsün."
+ }
+}
