@@ -1,13 +1,31 @@
 {
  "_not": "Bütün kanallardaki videoların açıklamasına eklenen dijital ürünler. Ürün ekle/çıkar: bu listeyi düzenle.",
- "youtube_baslik": "🛒 Dijital ürünlerimiz (içerik üreticileri için):",
+ "youtube_baslik": "🛒 Dijital ürünlerimiz (hepsi: https://dukkantv.github.io/urunler.html):",
  "urunler": [
-  {"ad": "Viral Kanca ve Senaryo Kasası — 100 hazır Shorts/Reels şablonu", "link": "https://www.shopier.com/dukkantvstudio/52836286"},
-  {"ad": "Yapay Zeka ve Python ile Viral Shorts & Reels Fabrikası (3'lü paket)", "link": "https://www.shopier.com/dukkantvstudio/52801843"},
-  {"ad": "Sıfırdan Yapay Zeka Araçlarıyla Shorts ve Reels Otomasyonu Rehberi", "link": "https://www.shopier.com/dukkantvstudio/52820825"},
-  {"ad": "İçerik Üreticileri İçin Vergi Muafiyeti ve Şirketleşme Kılavuzu", "link": "https://www.shopier.com/dukkantvstudio/52820961"},
-  {"ad": "Mobil Uygulama Yayınlama ve ASO Kitabı", "link": "https://www.shopier.com/dukkantvstudio/52821061"},
-  {"ad": "AutoQuiz Shorts Engine PRO — tek tıkla quiz videosu (Windows)", "link": "https://dukkanstudio.gumroad.com/l/autoquiz-engine"}
+  {
+   "ad": "Viral Kanca ve Senaryo Kasası — 100 hazır Shorts/Reels şablonu",
+   "link": "https://www.shopier.com/dukkantvstudio/52836286"
+  },
+  {
+   "ad": "Yapay Zeka ve Python ile Viral Shorts & Reels Fabrikası (3'lü paket)",
+   "link": "https://www.shopier.com/dukkantvstudio/52801843"
+  },
+  {
+   "ad": "Sıfırdan Yapay Zeka Araçlarıyla Shorts ve Reels Otomasyonu Rehberi",
+   "link": "https://www.shopier.com/dukkantvstudio/52820825"
+  },
+  {
+   "ad": "İçerik Üreticileri İçin Vergi Muafiyeti ve Şirketleşme Kılavuzu",
+   "link": "https://www.shopier.com/dukkantvstudio/52820961"
+  },
+  {
+   "ad": "Mobil Uygulama Yayınlama ve ASO Kitabı",
+   "link": "https://www.shopier.com/dukkantvstudio/52821061"
+  },
+  {
+   "ad": "AutoQuiz Shorts Engine PRO — tek tıkla quiz videosu (Windows)",
+   "link": "https://dukkanstudio.gumroad.com/l/autoquiz-engine"
+  }
  ],
- "kisa_satir": "🛒 Dijital ürünlerimiz: shopier.com/dukkantvstudio"
+ "kisa_satir": "🛒 Dijital ürünlerimiz: dukkantv.github.io/urunler"
 }
