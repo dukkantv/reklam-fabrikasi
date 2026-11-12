@@ -1,0 +1,89 @@
+{
+  "baslik": "Evde Yoktunuz Abi",
+  "aciklama": "Kargo kapıda, siz kapıda, ama 'adreste bulunamadınız' 😂 Size de oldu mu?",
+  "planlar": [
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "[surprised] Adreste bulunamadınız mı? Üç saattir kapıdayım!",
+      "duygu": "outraged",
+      "karakterler": [
+        "levent",
+        "cemo"
+      ],
+      "dukkan": false,
+      "gorsel": "In front of an apartment building door in Bursa, Levent staring at his phone in shock, Cemo seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "[sighs] Abi, belki kargo görünmezlik pelerinidir.",
+      "duygu": "deadpan",
+      "karakterler": [
+        "cemo",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Same apartment building entrance, Cemo leaning on the wall, Levent seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "aksiyon",
+      "karakterler": [
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Same apartment building entrance, the courier walking up holding a cardboard box.",
+      "hareket": "the courier walks up and stops right in front of Levent while looking down at his phone",
+      "sure": 3,
+      "kasa": null,
+      "efekt": "footsteps and a phone notification ding"
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "[excited] Levent Bey siz misiniz? Sizi hiç bulamadık!",
+      "duygu": "friendly and out of breath",
+      "karakterler": [
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Same apartment building entrance, the courier holding the box and smiling, Levent seen from behind standing right in front of him.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "Kardeşim, burun buruna duruyoruz!",
+      "duygu": "exasperated",
+      "karakterler": [
+        "levent",
+        "esnaf"
+      ],
+      "dukkan": false,
+      "gorsel": "Same apartment building entrance, Levent pointing at himself, the courier seen from behind very close to him.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "Haklısın abi... ama sistem evde yok diyor.",
+      "duygu": "apologetic, shrugging",
+      "karakterler": [
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Same apartment building entrance, the courier shrugging and showing his phone, Levent seen from behind.",
+      "kasa": null,
+      "efekt": null
+    }
+  ]
+}

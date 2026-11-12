@@ -1,0 +1,52 @@
+{
+ "3": {
+  "anahtar": "f0cc364bd9982a01",
+  "klip": "klip_03.mp4",
+  "aralik": null
+ },
+ "6": {
+  "anahtar": "b1f08997a5a3f67f",
+  "klip": "klip_06.mp4",
+  "aralik": [
+   0.25,
+   3.13
+  ],
+  "ses": "ses_06.mp3"
+ },
+ "1": {
+  "anahtar": "78de774fbefc383e",
+  "klip": "klip_01.mp4",
+  "aralik": [
+   0.25,
+   3.69
+  ],
+  "ses": "ses_01.mp3"
+ },
+ "5": {
+  "anahtar": "380e69e9d0a91ee9",
+  "klip": "klip_05.mp4",
+  "aralik": [
+   0.25,
+   2.89
+  ],
+  "ses": "ses_05.mp3"
+ },
+ "2": {
+  "anahtar": "21900e7ef02fa0df",
+  "klip": "klip_02.mp4",
+  "aralik": [
+   0.25,
+   4.57
+  ],
+  "ses": "ses_02.mp3"
+ },
+ "4": {
+  "anahtar": "7a8a772ae801614d",
+  "klip": "klip_04.mp4",
+  "aralik": [
+   0.25,
+   3.29
+  ],
+  "ses": "ses_04.mp3"
+ }
+}
