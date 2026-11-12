@@ -115,8 +115,9 @@ SEN["mizah-06-manav"] = {
         K("cemo", "Usta işi abi. Tık tık... kesin kıpkırmızı!", "expert and confident",
           ["cemo", "esnaf"], "Same greengrocer stall, Cemo knocking on the watermelon with his knuckles, the greengrocer "
           "seen from behind."),
-        A(["esnaf", "cemo"], "Same greengrocer stall, the greengrocer cutting the watermelon open on the counter.",
-          "the greengrocer slices the watermelon in half and it is completely pale white inside, Cemo's face falls",
+        A(["esnaf", "cemo"], "Same greengrocer stall, a watermelon already cut in half on the wooden counter: the inside of the watermelon is "
+          "completely PALE WHITE like a cucumber, with NO red or pink flesh at all. Cemo stares at it in shock, the greengrocer holds the knife.",
+          "Cemo's face slowly falls in disappointment while staring at the pale white watermelon halves, the greengrocer scratches his head",
           "a knife slicing through a watermelon"),
         K(Y, "[laughs] Kırmızı değil ama bak... çok sulu!", "trying to cheer him up",
           ["esnaf", "cemo"], "Same greengrocer stall, the greengrocer holding up the pale watermelon half, Cemo seen from behind."),
