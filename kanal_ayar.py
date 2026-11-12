@@ -3,6 +3,8 @@
 Kullanım:
   python3 kanal_ayar.py denetle                 # 3 kanalın eksiklerini yazdırır
   python3 kanal_ayar.py guncelle                # kanal_ayarlari.json'daki YouTube ayarlarını uygular
+  python3 kanal_ayar.py listeler                # oynatma listelerini kurar, eski videoları kurallara göre ekler
+  python3 kanal_ayar.py banner                  # bannerlar/<kanal>.png dosyalarını kapak görseli yapar
 """
 import json
 import os
@@ -88,5 +90,100 @@ def guncelle():
         print(kanal, "güncellendi" if kod == 200 else f"HATA {kod} {str(veri)[:300]}")
 
 
+def ayarlar():
+    return json.load(open(os.path.join(KOK, "kanal_ayarlari.json"), encoding="utf-8"))
+
+
+def kural_uyar(kural, baslik):
+    if kural == "*":
+        return True
+    if kural.startswith("!"):
+        return kural[1:].lower() not in baslik.lower()
+    return kural.lower() in baslik.lower()
+
+
+def yt_post(kanal, yol, govde, method="POST"):
+    tok = erisim_anahtari(kanal)
+    kod, _, veri = istek(f"{YT}/{yol}", method=method, headers={"Authorization": f"Bearer {tok}"}, json_govde=govde)
+    if kod not in (200, 201):
+        raise RuntimeError(f"{kanal} {yol}: {kod} {str(veri)[:300]}")
+    return veri
+
+
+def kanal_listeleri(kanal, olustur=False):
+    """Kurallardaki oynatma listelerinin id'lerini döndürür; olustur=True ise eksikleri açar."""
+    mevcut = {p["snippet"]["title"]: p["id"] for p in
+              yt_get(kanal, "playlists?part=snippet&mine=true&maxResults=50").get("items", [])}
+    sonuc = []
+    for l in ayarlar().get(kanal, {}).get("listeler", []):
+        pid = mevcut.get(l["ad"])
+        if not pid and olustur:
+            pid = yt_post(kanal, "playlists?part=snippet,status", {
+                "snippet": {"title": l["ad"], "description": l["aciklama"], "defaultLanguage": "tr"},
+                "status": {"privacyStatus": "public"}})["id"]
+            print(f"{kanal}: liste açıldı → {l['ad']}")
+        if pid:
+            sonuc.append((pid, l))
+    return sonuc
+
+
+def listeye_ekle(kanal, video_id, baslik, listeler=None):
+    """Yeni yüklenen videoyu kuralına uyan oynatma listesine ekler (yt_kuyruk.py yüklemeden sonra çağırır)."""
+    for pid, l in (listeler if listeler is not None else kanal_listeleri(kanal)):
+        if kural_uyar(l["kural"], baslik):
+            yt_post(kanal, "playlistItems?part=snippet", {"snippet": {
+                "playlistId": pid, "resourceId": {"kind": "youtube#video", "videoId": video_id}}})
+            print(f"{kanal}: {baslik[:40]} → {l['ad']}")
+
+
+def listeler():
+    for kanal in KANALLAR:
+        ls = kanal_listeleri(kanal, olustur=True)
+        yuklemeler = yt_get(kanal, "channels?part=contentDetails&mine=true")["items"][0]["contentDetails"][
+            "relatedPlaylists"]["uploads"]
+        videolar, sayfa = [], ""
+        while True:
+            v = yt_get(kanal, f"playlistItems?part=snippet,status&maxResults=50&playlistId={yuklemeler}{sayfa}")
+            videolar += v.get("items", [])
+            if not v.get("nextPageToken"):
+                break
+            sayfa = "&pageToken=" + v["nextPageToken"]
+        for pid, l in ls:
+            icinde = {i["snippet"]["resourceId"]["videoId"] for i in
+                      yt_get(kanal, f"playlistItems?part=snippet&maxResults=50&playlistId={pid}").get("items", [])}
+            # eskiden yeniye ekle ki liste sırası doğal olsun
+            for it in reversed(videolar):
+                vid, bas = it["snippet"]["resourceId"]["videoId"], it["snippet"]["title"]
+                if vid in icinde or not kural_uyar(l["kural"], bas):
+                    continue
+                try:
+                    yt_post(kanal, "playlistItems?part=snippet", {"snippet": {
+                        "playlistId": pid, "resourceId": {"kind": "youtube#video", "videoId": vid}}})
+                    print(f"{kanal}: + {bas[:50]} → {l['ad']}")
+                except Exception as e:
+                    print("Eklenemedi:", bas[:40], str(e)[:150])
+
+
+def banner():
+    for kanal in KANALLAR:
+        yol = os.path.join(KOK, "bannerlar", f"{kanal}.png")
+        if not os.path.exists(yol):
+            continue
+        tok = erisim_anahtari(kanal)
+        kod, _, veri = istek("https://www.googleapis.com/upload/youtube/v3/channelBanners/insert?uploadType=media",
+                             method="POST", ham=open(yol, "rb").read(),
+                             headers={"Authorization": f"Bearer {tok}", "Content-Type": "image/png"})
+        if kod not in (200, 201) or "url" not in veri:
+            print(kanal, "banner yüklenemedi:", kod, str(veri)[:300])
+            continue
+        c = yt_get(kanal, "channels?part=brandingSettings&mine=true")["items"][0]
+        br = c.get("brandingSettings", {})
+        govde = {"id": c["id"], "brandingSettings": {"channel": br.get("channel", {}),
+                                                     "image": {"bannerExternalUrl": veri["url"]}}}
+        kod, _, v2 = istek(f"{YT}/channels?part=brandingSettings", method="PUT",
+                           headers={"Authorization": f"Bearer {tok}"}, json_govde=govde)
+        print(kanal, "banner ayarlandı" if kod == 200 else f"HATA {kod} {str(v2)[:300]}")
+
+
 if __name__ == "__main__":
-    {"denetle": denetle, "guncelle": guncelle}[sys.argv[1]]()
+    {"denetle": denetle, "guncelle": guncelle, "listeler": listeler, "banner": banner}[sys.argv[1]]()

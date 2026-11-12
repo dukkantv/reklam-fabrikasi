@@ -319,6 +319,11 @@ def kontrol():
                 vid, zaman = youtube_yukle(kayit)
                 kayit.update(durum="yuklendi", video_id=vid, yayin=zaman.isoformat())
                 kaydet(kayit)
+                try:  # kanal oynatma listesine ekle (kanal_ayarlari.json kuralları)
+                    from kanal_ayar import listeye_ekle
+                    listeye_ekle(kayit["kanal"], vid, kayit["baslik"])
+                except Exception as e:
+                    print("Oynatma listesine eklenemedi:", str(e)[:200])
                 metin = (f"✅ {ad}: \"{kayit['baslik']}\" yüklendi.\n"
                          f"🕖 {zaman:%d.%m %H:%M}'da yayına girecek.\nhttps://youtube.com/shorts/{vid}")
                 mesaj_guncelle(kayit, metin)
