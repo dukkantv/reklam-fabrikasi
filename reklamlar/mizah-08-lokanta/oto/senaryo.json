@@ -1,0 +1,88 @@
+{
+  "baslik": "Cemo Diyette",
+  "aciklama": "Cemo sadece su içecekti 😂 Siz lokantada ne söylersiniz?",
+  "planlar": [
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "[excited] Kuru, pilav, türlü, karnıyarık, mantı, köfte, sarma!",
+      "duygu": "rapid fire, proud",
+      "karakterler": [
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Inside a Bursa esnaf lokantası with a glass display of steaming pots, the waiter with a towel on his shoulder, Levent seen from behind at the table.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "Hepsinden birer tane. Yanına da ayran.",
+      "duygu": "calm and serious",
+      "karakterler": [
+        "cemo",
+        "esnaf"
+      ],
+      "dukkan": false,
+      "gorsel": "Same restaurant, Cemo sitting at the table with a napkin tucked into his collar, the waiter seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "[surprised] Cemo, sen diyette değil miydin?",
+      "duygu": "shocked",
+      "karakterler": [
+        "levent",
+        "cemo"
+      ],
+      "dukkan": false,
+      "gorsel": "Same restaurant, Levent at the table, Cemo seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "[sighs] Diyetteyim abi. Ben sadece su içeceğim.",
+      "duygu": "innocent",
+      "karakterler": [
+        "cemo",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Same restaurant, Cemo holding a glass of water innocently, Levent seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "aksiyon",
+      "karakterler": [
+        "cemo"
+      ],
+      "dukkan": false,
+      "gorsel": "Same restaurant, the table covered with many plates of Turkish food in front of Cemo.",
+      "hareket": "Cemo eats very fast from plate after plate and stacks the empty plates into a tall tower",
+      "sure": 3,
+      "kasa": null,
+      "efekt": "cutlery clinking fast and plates stacking"
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "[laughs] Buyurun hesap. Suyu da ikram ettik!",
+      "duygu": "very pleased",
+      "karakterler": [
+        "esnaf",
+        "cemo"
+      ],
+      "dukkan": false,
+      "gorsel": "Same restaurant, the waiter presenting a small bill tray next to a tower of empty plates, Cemo seen from behind.",
+      "kasa": null,
+      "efekt": null
+    }
+  ]
+}

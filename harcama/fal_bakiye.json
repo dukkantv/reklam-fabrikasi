@@ -1,6 +1,6 @@
 {
- "bakiye": 13.95,
+ "bakiye": 12.32,
  "kaynak": "fal.ai paneli 12.11.2026 18:40 (deneme videosu sonrası)",
  "not": "Admin anahtar olmadığı için bakiye API ile okunamıyor; her çalışma bu değerden düşer. Para yüklenince buraya eklenir.",
- "son_islem": "2026-11-12 16:37"
+ "son_islem": "2026-11-12 16:43"
 }
