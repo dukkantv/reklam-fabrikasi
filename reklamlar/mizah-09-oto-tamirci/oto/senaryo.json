@@ -62,12 +62,12 @@
       "tip": "aksiyon",
       "karakterler": [
         "cemo",
-        "esnaf",
-        "levent"
+        "levent",
+        "esnaf"
       ],
       "dukkan": false,
-      "gorsel": "Same garage, the trunk of the small red car open.",
-      "hareket": "the trunk lid swings open and reveals Cemo curled up asleep inside, hugging a sandwich and snoring",
+      "gorsel": "Same garage, the open trunk of the small red car seen from behind the car. Curled up asleep INSIDE the trunk is Cemo (the ONLY Cemo in the picture; nobody with a cap or green jacket stands anywhere else), hugging a sandwich. Levent and the mechanic stand next to the car looking into the trunk, both seen from behind. No signs or text.",
+      "hareket": "Cemo sleeps inside the trunk hugging a sandwich, his chest rising as he snores, Levent and the mechanic lean in surprised",
       "sure": 3,
       "kasa": null,
       "efekt": "car trunk opening then loud snoring"
@@ -81,7 +81,7 @@
         "cemo"
       ],
       "dukkan": false,
-      "gorsel": "Same garage, close-up of Cemo lying inside the open car trunk, rubbing his eyes, hugging a sandwich.",
+      "gorsel": "Close-up from above of Cemo lying inside the car trunk, just woken up, rubbing his eyes, hugging a sandwich. Only the trunk interior and the garage ceiling are visible; NO other person in the frame. No signs or text.",
       "kasa": null,
       "efekt": null
     }
