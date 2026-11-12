@@ -1,0 +1,89 @@
+{
+  "baslik": "Arabadaki Garip Ses",
+  "aciklama": "Tamirci arızayı buldu 😂 Sizin arabadan hangi ses geliyor?",
+  "planlar": [
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "[excited] Usta, arabadan böyle bir ses geliyor: hırrr... fışşş!",
+      "duygu": "acting out the sound",
+      "karakterler": [
+        "levent",
+        "esnaf"
+      ],
+      "dukkan": false,
+      "gorsel": "A car repair garage in a Bursa industrial area, Levent next to a small red car imitating a sound with his hands, the mechanic seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "Hmm. Motor mu, şanzıman mı? Bir daha yap bakalım.",
+      "duygu": "thoughtful, rubbing his chin",
+      "karakterler": [
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Same garage, the mechanic holding a wrench and thinking, Levent seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "Hırrr... fışşş... hırrr... fışşş!",
+      "duygu": "fully committed",
+      "karakterler": [
+        "levent",
+        "esnaf"
+      ],
+      "dukkan": false,
+      "gorsel": "Same garage, Levent with puffed cheeks making the noise dramatically, the mechanic seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "Bu ses bana tanıdık geliyor... bagajı açalım.",
+      "duygu": "suspicious",
+      "karakterler": [
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Same garage, the mechanic walking toward the back of the small red car, Levent seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "aksiyon",
+      "karakterler": [
+        "cemo",
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Same garage, the trunk of the small red car open.",
+      "hareket": "the trunk lid swings open and reveals Cemo curled up asleep inside, hugging a sandwich and snoring",
+      "sure": 3,
+      "kasa": null,
+      "efekt": "car trunk opening then loud snoring"
+    },
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "[sighs] Abi... vardık mı?",
+      "duygu": "sleepy, just woke up",
+      "karakterler": [
+        "cemo"
+      ],
+      "dukkan": false,
+      "gorsel": "Same garage, close-up of Cemo lying inside the open car trunk, rubbing his eyes, hugging a sandwich.",
+      "kasa": null,
+      "efekt": null
+    }
+  ]
+}
