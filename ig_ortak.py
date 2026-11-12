@@ -89,7 +89,7 @@ def reels_yukle(kanal, video_yolu, aciklama):
         raise RuntimeError(f"Instagram kapsayıcı açılamadı ({kod}): {kap}")
     boyut = os.path.getsize(video_yolu)
     with open(video_yolu, "rb") as f:
-        kod, _, cev = istek(f"https://rupload.facebook.com/ig-api-upload/v25.0/{kap['id']}", method="POST",
+        kod, _, cev = istek(kap.get("uri") or f"https://rupload.facebook.com/ig-api-upload/v25.0/{kap['id']}", method="POST",
                             ham=f.read(), zaman=900,
                             headers={"Authorization": f"OAuth {tok}", "offset": "0", "file_size": str(boyut)})
     if kod != 200:
@@ -127,7 +127,7 @@ def teshis(kanal):
         return
     with open(deneme, "rb") as f:
         veri = f.read()
-    kod, _, cev = istek(f"https://rupload.facebook.com/ig-api-upload/v25.0/{kap['id']}", method="POST", ham=veri,
+    kod, _, cev = istek(kap.get("uri") or f"https://rupload.facebook.com/ig-api-upload/v25.0/{kap['id']}", method="POST", ham=veri,
                         headers={"Authorization": f"OAuth {tok}", "offset": "0", "file_size": str(len(veri))})
     print("Deneme yükleme (yayınlanmaz):", kod, cev)
     time.sleep(20)
@@ -141,7 +141,7 @@ def _sadece_yukle(tok, ig, yol, aciklama="deneme", akis=None):
     kod, _, kap = istek(f"{API}/{ig}/media", veri=v)
     with open(yol, "rb") as f:
         veri = f.read()
-    kod, _, cev = istek(f"https://rupload.facebook.com/ig-api-upload/v25.0/{kap['id']}", method="POST", ham=veri,
+    kod, _, cev = istek(kap.get("uri") or f"https://rupload.facebook.com/ig-api-upload/v25.0/{kap['id']}", method="POST", ham=veri,
                         zaman=900, headers={"Authorization": f"OAuth {tok}", "offset": "0", "file_size": str(len(veri))})
     if kod != 200:
         return f"YÜKLEME {kod} {str(cev)[:150]}"
