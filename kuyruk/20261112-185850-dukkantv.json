@@ -15,9 +15,12 @@
   "acil"
  ],
  "dosya": "20261112-185850-dukkantv.mp4",
- "durum": "bekliyor",
+ "durum": "yuklendi",
  "eklendi": "2026-11-12T18:58:50.679460+03:00",
  "gunluk": true,
  "mesaj_id": 245,
- "videolu": true
+ "videolu": true,
+ "stok_bildirildi": true,
+ "video_id": "UTq5le3pxT8",
+ "yayin": "2026-11-12T21:00:00+03:00"
 }
