@@ -1,0 +1,21 @@
+name: Kanal Ayar
+
+# YouTube kanallarının ve Instagram hesaplarının profil ayarlarını denetler / YouTube ayarlarını günceller.
+on:
+  workflow_dispatch:
+    inputs:
+      komut:
+        description: "denetle ya da guncelle"
+        type: choice
+        default: denetle
+        options: [denetle, guncelle]
+
+jobs:
+  ayar:
+    runs-on: ubuntu-latest
+    env:
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 kanal_ayar.py ${{ inputs.komut }}
