@@ -1,6 +1,6 @@
 {
  "5": {
-  "anahtar": "6eb7773f60d311ea",
+  "anahtar": "c983c995bbc495b4",
   "klip": "klip_05.mp4",
   "aralik": null
  },
@@ -32,11 +32,11 @@
   "ses": "ses_03.mp3"
  },
  "6": {
-  "anahtar": "e49e5fc0ff532b4e",
+  "anahtar": "4e65d4d4cb4d3704",
   "klip": "klip_06.mp4",
   "aralik": [
    0.25,
-   3.13
+   2.65
   ],
   "ses": "ses_06.mp3"
  },
