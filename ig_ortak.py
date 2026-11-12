@@ -52,6 +52,11 @@ def kurulum():
         telegram(f"❌ Instagram: uzun süreli anahtar alınamadı: {str(uzun)[:300]}")
         sys.exit(f"hata: {uzun}")
     tok = uzun["access_token"]
+    # Facebook sayfasına Reels paylaşma izni var mı? (pages_manage_posts) — sayfa anahtarları bu izni miras alır
+    _, _, dbg = istek(f"{API}/debug_token?input_token={tok}&access_token={app_id}|{app_sec}")
+    izinler = set(((dbg or {}).get("data") or {}).get("scopes", []))
+    fb_izin = "pages_manage_posts" in izinler
+    print("Anahtar izinleri:", sorted(izinler))
     kod, _, veri = istek(f"{API}/me/accounts?fields=name,access_token,instagram_business_account%7Busername%7D"
                          f"&limit=50&access_token={tok}")
     if kod != 200:
@@ -66,10 +71,12 @@ def kurulum():
         kanal = KULLANICI_KANAL.get(ig["username"], ig["username"].replace(".", "_"))
         _sifrele(s["access_token"], os.path.join(KOK, "tokens", f"ig_{kanal}.enc"))
         json.dump({"kanal": kanal, "kullanici": ig["username"], "ig_id": ig["id"], "sayfa": s["name"],
-                   "sayfa_id": s["id"]}, open(os.path.join(KOK, "tokens", f"ig_{kanal}.json"), "w",
+                   "sayfa_id": s["id"], "fb_izin": fb_izin}, open(os.path.join(KOK, "tokens", f"ig_{kanal}.json"), "w",
                                             encoding="utf-8"), ensure_ascii=False, indent=1)
         bagli.append(f"@{ig['username']}")
     mesaj = "📸 Instagram bağlandı: " + (", ".join(bagli) or "hiçbiri")
+    mesaj += ("\n📘 Facebook sayfalarına Reels paylaşımı: AÇIK" if fb_izin else
+              "\n📘 Facebook sayfalarına Reels paylaşımı kapalı (anahtarda pages_manage_posts izni yok)")
     if eksik:
         mesaj += "\n⚠️ Instagram hesabı bağlı olmayan Facebook sayfaları: " + ", ".join(eksik)
     telegram(mesaj)
@@ -107,6 +114,34 @@ def reels_yukle(kanal, video_yolu, aciklama):
         raise RuntimeError(f"Instagram paylaşım başarısız ({kod}): {yay}")
     _, _, p = istek(f"{API}/{yay['id']}?fields=permalink&access_token={tok}")
     return yay["id"], (p or {}).get("permalink", "")
+
+
+def fb_bekliyor_mu(kanal):
+    h = ig_hesap(kanal)
+    return bool(h and h.get("fb_izin") and h.get("sayfa_id"))
+
+
+def fb_reels_yukle(kanal, video_yolu, aciklama):
+    """Videoyu kanalın Facebook SAYFASINA Reels olarak paylaşır. Döndürür: video_id."""
+    h = ig_hesap(kanal)
+    tok, sayfa = h["token"], h["sayfa_id"]
+    kod, _, bas = istek(f"{API}/{sayfa}/video_reels", veri={"upload_phase": "start", "access_token": tok})
+    if kod != 200 or "video_id" not in (bas or {}):
+        raise RuntimeError(f"Facebook Reels başlatılamadı ({kod}): {str(bas)[:300]}")
+    vid = bas["video_id"]
+    adres = bas.get("upload_url") or f"https://rupload.facebook.com/video-upload/v25.0/{vid}"
+    with open(video_yolu, "rb") as f:
+        veri = f.read()
+    kod, _, yuk = istek(adres, method="POST", ham=veri, zaman=900,
+                        headers={"Authorization": f"OAuth {tok}", "offset": "0", "file_size": str(len(veri))})
+    if kod != 200:
+        raise RuntimeError(f"Facebook video yüklenemedi ({kod}): {str(yuk)[:300]}")
+    kod, _, bit = istek(f"{API}/{sayfa}/video_reels", veri={
+        "upload_phase": "finish", "video_id": vid, "video_state": "PUBLISHED",
+        "description": aciklama[:2200], "access_token": tok})
+    if kod != 200 or not (bit or {}).get("success"):
+        raise RuntimeError(f"Facebook Reels yayınlanamadı ({kod}): {str(bit)[:300]}")
+    return vid
 
 
 def teshis(kanal):

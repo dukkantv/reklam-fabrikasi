@@ -23,7 +23,7 @@ import subprocess
 import sys
 
 from yt_ortak import KOK, erisim_anahtari, istek, kanal_bilgi, telegram
-from ig_ortak import ig_hesap, reels_yukle
+from ig_ortak import fb_bekliyor_mu, fb_reels_yukle, ig_hesap, reels_yukle
 from tt_ortak import taslak_yukle, tt_hesap
 
 
@@ -70,6 +70,16 @@ def ig_bekliyor(kayit):
         return False
     try:
         return ig_hesap(kayit["kanal"]) is not None
+    except Exception:
+        return False
+
+
+def fb_bekliyor(kayit):
+    """Kanalın Facebook sayfasına Reels izni varsa ve henüz paylaşılmadıysa True."""
+    if kayit.get("fb") in ("paylasildi", "hata"):
+        return False
+    try:
+        return fb_bekliyor_mu(kayit["kanal"])
     except Exception:
         return False
 
@@ -341,7 +351,7 @@ def kontrol():
             except subprocess.CalledProcessError:
                 pass
             os.remove(os.path.join(KUYRUK, f"{kayit['id']}.json"))
-        elif kayit["durum"] == "yuklendi" and (ig_bekliyor(kayit) or tt_bekliyor(kayit)):
+        elif kayit["durum"] == "yuklendi" and (ig_bekliyor(kayit) or tt_bekliyor(kayit) or fb_bekliyor(kayit)):
             # YouTube'a planlı yüklendi; yayın saatinde Instagram'a Reels, TikTok'a taslak olarak gider
             if simdi < dt.datetime.fromisoformat(kayit["yayin"]):
                 continue
@@ -374,6 +384,20 @@ def kontrol():
                     if kayit["ig_deneme"] >= 6:  # Instagram'ın geçici "ProcessingFailedError"ları için daha çok deneme
                         kayit["ig"] = "hata"
                         telegram(f"⚠️ {ad}: Instagram paylaşımı 6 kez başarısız: {str(e)[:200]}")
+                    kaydet(kayit)
+            if fb_bekliyor(kayit):
+                try:
+                    gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
+                    fid = fb_reels_yukle(kayit["kanal"], os.path.join("/tmp", kayit["dosya"]), ig_aciklama(kayit))
+                    kayit.update(fb="paylasildi", fb_id=fid)
+                    kaydet(kayit)
+                    telegram(f"📘 {ad}: \"{kayit['baslik']}\" Facebook sayfasında Reels olarak paylaşıldı.")
+                except Exception as e:
+                    print(f"Facebook hatası ({kayit['id']}):", str(e)[:400])
+                    kayit["fb_deneme"] = kayit.get("fb_deneme", 0) + 1
+                    if kayit["fb_deneme"] >= 4:
+                        kayit["fb"] = "hata"
+                        telegram(f"⚠️ {ad}: Facebook Reels paylaşımı 4 kez başarısız: {str(e)[:200]}")
                     kaydet(kayit)
             if tt_bekliyor(kayit):
                 try:
