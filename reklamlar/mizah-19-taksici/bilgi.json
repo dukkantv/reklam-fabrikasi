@@ -1,0 +1,109 @@
+{
+  "dosya_adi": "mizah-19-taksici",
+  "renk": "#D63031",
+  "oto": {
+    "tur": "mizah",
+    "firma": "",
+    "sektor": "Bursa'da bir taksi, sarı taksinin içi ve dışı",
+    "esnaf_adi": "Rıza Abi",
+    "esnaf_cinsiyet": "erkek",
+    "esnaf_tarif": "friendly Turkish taxi driver in his 50s, bald head with grey sides, thick grey mustache, light-blue short-sleeve shirt, gold wristwatch, warm smile",
+    "yan_ad": "the taxi driver",
+    "yan_ses": "esnaf",
+    "fikir": "Levent ve Cemo taksiye biner, 'en kısa yoldan' der. Taksici her kısa yolun bir hikâyesi olduğunu anlatıp şehri turlatır; Cemo taksimetreye bakıp bayılmak üzeredir. Punchline: vardıklarında başladıkları yerin tam karşısındadırlar.",
+    "notlar": "Bu skeçte sponsor/reklam yok; sadece temiz mizah.",
+    "urunler": "",
+    "toplam_sure": "16-22",
+    "plan_sayisi": "5-6",
+    "kelime_siniri": 10,
+    "toplam_kelime": 38,
+    "dukkanda_en_az": 0,
+    "logo_sahnede": false,
+    "kasa_goster": false,
+    "etiket": "taksi,taksici,bursa",
+    "senaryo": {
+      "baslik": "En Kestirme Yol",
+      "aciklama": "Taksicinin kestirmesi biraz uzun sürdü 😂 Sizin taksici de böyle mi?",
+      "planlar": [
+        {
+          "tip": "konusma",
+          "kim": "cemo",
+          "metin": "[surprised] Abi, taksimetre bizden hızlı gidiyor!",
+          "duygu": "panicked",
+          "karakterler": [
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "Inside a yellow Turkish taxi, Cemo in the back seat staring at the front, the taxi meter not visible.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "[laughs] Kestirmeden gidiyoruz evlat, biraz sabır.",
+          "duygu": "relaxed",
+          "karakterler": [
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same taxi, the driver at the wheel turning his head to speak, city streets of Bursa outside.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "levent",
+          "metin": "Rıza Abi, Uludağ'ı üçüncü kez geçtik ama!",
+          "duygu": "worried",
+          "karakterler": [
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Same taxi, Levent in the front passenger seat, snowy Uludağ mountain visible through the window.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "Manzaralı kestirme bu. Ekstra ücreti yok... şimdilik.",
+          "duygu": "smug",
+          "karakterler": [
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same taxi, the driver smiling at the wheel.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "aksiyon",
+          "karakterler": [
+            "cemo",
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Same taxi, stopped at the curb.",
+          "hareket": "the taxi stops, Cemo and Levent look out the window and slowly realize they are back where they started",
+          "sure": 3,
+          "kasa": null,
+          "efekt": "car brakes and a handbrake pull"
+        },
+        {
+          "tip": "konusma",
+          "kim": "cemo",
+          "metin": "[sighs] Abi... biz binmeden önce tam buradaydık.",
+          "duygu": "defeated",
+          "karakterler": [
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "Same taxi, Cemo in the back seat pointing out the window at the same street corner.",
+          "kasa": null,
+          "efekt": null
+        }
+      ]
+    }
+  }
+}

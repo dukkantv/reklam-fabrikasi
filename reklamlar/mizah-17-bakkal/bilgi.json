@@ -20,6 +20,95 @@
     "dukkanda_en_az": 0,
     "logo_sahnede": false,
     "kasa_goster": false,
-    "etiket": "bakkal,veresiye,mahalle"
+    "etiket": "bakkal,veresiye,mahalle",
+    "senaryo": {
+      "baslik": "Veresiye Defteri",
+      "aciklama": "Bakkalın defteri her şeyi hatırlıyor 😂 Sizin mahallede veresiye var mı?",
+      "planlar": [
+        {
+          "tip": "konusma",
+          "kim": "cemo",
+          "metin": "[excited] Rıfat Amca, bir ekmek! Deftere yaz.",
+          "duygu": "casual",
+          "karakterler": [
+            "cemo",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Inside a small old neighborhood grocery shop with full shelves, Cemo at the counter, the old grocer seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "Yazayım evlat... Cemo, on yıl önce: bir simit, bir ayran...",
+          "duygu": "reading slowly",
+          "karakterler": [
+            "esnaf",
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "Same grocery shop, the old grocer behind the counter reading from a thick old notebook, Cemo seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "cemo",
+          "metin": "[surprised] Amca, o kadar eskisini de mi yazdın?",
+          "duygu": "shocked",
+          "karakterler": [
+            "cemo",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same grocery shop, Cemo leaning back in shock, the old grocer seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "aksiyon",
+          "karakterler": [
+            "esnaf",
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "Same grocery shop, the old grocer flipping through the thick notebook.",
+          "hareket": "the grocer flips pages and the notebook unfolds into a long paper scroll falling down to the floor",
+          "sure": 3,
+          "kasa": null,
+          "efekt": "pages flipping fast"
+        },
+        {
+          "tip": "konusma",
+          "kim": "levent",
+          "metin": "[excited] Tamam amca, Cemo'nun borcunu ben öderim!",
+          "duygu": "generous",
+          "karakterler": [
+            "levent",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same grocery shop, Levent stepping in with his wallet, the old grocer seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "[laughs] Sağ ol evlat. Senin babanın sayfası da burada.",
+          "duygu": "warm and teasing",
+          "karakterler": [
+            "esnaf",
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Same grocery shop, the old grocer smiling and opening another page of the notebook, Levent seen from behind.",
+          "kasa": null,
+          "efekt": null
+        }
+      ]
+    }
   }
 }

@@ -20,6 +20,94 @@
     "dukkanda_en_az": 0,
     "logo_sahnede": false,
     "kasa_goster": false,
-    "etiket": "kebap,bursa,iskender"
+    "etiket": "kebap,bursa,iskender",
+    "senaryo": {
+      "baslik": "Az Tereyağlı Olsun",
+      "aciklama": "Bursa'da az tereyağı istenmez 😂 Siz kebabı nasıl seversiniz?",
+      "planlar": [
+        {
+          "tip": "konusma",
+          "kim": "cemo",
+          "metin": "Usta, az tereyağlı olsun. Diyetteyim.",
+          "duygu": "serious",
+          "karakterler": [
+            "cemo",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Inside a traditional Bursa kebab restaurant with a grill, Cemo at the counter, the kebab master seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "[surprised] Az tereyağı mı? Bursa'da bu söylenmez evlat!",
+          "duygu": "deeply offended",
+          "karakterler": [
+            "esnaf",
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "Same kebab restaurant, the kebab master holding a pan of melted butter, shocked, Cemo seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "levent",
+          "metin": "[laughs] Usta, kusura bakma. Cemo bugün diyete başladı.",
+          "duygu": "apologetic, amused",
+          "karakterler": [
+            "levent",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same kebab restaurant, Levent at a table, the kebab master seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "aksiyon",
+          "karakterler": [
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same kebab restaurant, a plate of iskender kebab on the counter.",
+          "hareket": "the kebab master pours a huge stream of sizzling melted butter over the kebab plate with dramatic flair",
+          "sure": 3,
+          "kasa": null,
+          "efekt": "loud sizzling butter"
+        },
+        {
+          "tip": "konusma",
+          "kim": "cemo",
+          "metin": "[sighs] Usta... bu az mıydı?",
+          "duygu": "staring at the plate",
+          "karakterler": [
+            "cemo",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same kebab restaurant, Cemo staring at a plate swimming in butter, the kebab master seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "[laughs] Ben dökmedim evlat. Tereyağı seni seçti.",
+          "duygu": "wise and proud",
+          "karakterler": [
+            "esnaf",
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "Same kebab restaurant, the kebab master smiling proudly with the empty butter pan, Cemo seen from behind.",
+          "kasa": null,
+          "efekt": null
+        }
+      ]
+    }
   }
 }

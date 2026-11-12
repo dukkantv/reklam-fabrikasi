@@ -20,6 +20,95 @@
     "dukkanda_en_az": 0,
     "logo_sahnede": false,
     "kasa_goster": false,
-    "etiket": "banka,sıra,gişe"
+    "etiket": "banka,sıra,gişe",
+    "senaryo": {
+      "baslik": "Bankada Sıra Bekleme",
+      "aciklama": "Sıra tam bize gelmişti ki... 😂 Bankada en uzun ne kadar beklediniz?",
+      "planlar": [
+        {
+          "tip": "konusma",
+          "kim": "levent",
+          "metin": "[surprised] Numaram üç yüz kırk sekiz, ekranda yüz on iki!",
+          "duygu": "shocked",
+          "karakterler": [
+            "levent",
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "A Turkish bank branch waiting area with rows of chairs and a queue display screen without readable numbers, Levent holding a small paper ticket, Cemo seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "cemo",
+          "metin": "[sighs] Abi, ben bir uyuyayım. Sıra gelince kaldır.",
+          "duygu": "sleepy",
+          "karakterler": [
+            "cemo",
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Same bank waiting area, Cemo lying across three chairs, Levent seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "aksiyon",
+          "karakterler": [
+            "cemo",
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Same bank waiting area, Cemo asleep across three chairs, Levent tapping his foot.",
+          "hareket": "Cemo snores across the chairs while Levent taps his foot and the wall clock hands spin fast",
+          "sure": 3,
+          "kasa": null,
+          "efekt": "fast ticking clock then a queue ding-dong chime"
+        },
+        {
+          "tip": "konusma",
+          "kim": "levent",
+          "metin": "[excited] Sonunda! Üç yüz kırk sekiz benim!",
+          "duygu": "overjoyed",
+          "karakterler": [
+            "levent",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same bank, Levent rushing to the teller counter, the bank teller seen from behind the glass.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "Çok üzgünüm efendim. Öğle arası başladı.",
+          "duygu": "polite and calm",
+          "karakterler": [
+            "esnaf",
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Same bank, the bank teller behind the glass counter smiling politely, Levent seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "cemo",
+          "metin": "[excited] Öğle arası mı? Abi o zaman biz de yemeğe!",
+          "duygu": "suddenly wide awake",
+          "karakterler": [
+            "cemo",
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Same bank waiting area, Cemo sitting up instantly on the chairs, Levent seen from behind.",
+          "kasa": null,
+          "efekt": null
+        }
+      ]
+    }
   }
 }

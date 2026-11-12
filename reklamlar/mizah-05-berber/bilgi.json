@@ -20,6 +20,94 @@
     "dukkanda_en_az": 0,
     "logo_sahnede": false,
     "kasa_goster": false,
-    "etiket": "berber,saç,tıraş"
+    "etiket": "berber,saç,tıraş",
+    "senaryo": {
+      "baslik": "Berberde Bir Saat",
+      "aciklama": "Berbere tıraş için değil sohbet için gidilir 😂 Sizin berber de böyle mi?",
+      "planlar": [
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "[excited] Ve o gün dedim ki: Nuri, sen bu memleketin en iyi berberisin!",
+          "duygu": "storytelling with passion",
+          "karakterler": [
+            "esnaf",
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Inside an old-fashioned Bursa barber shop with a big mirror, the barber holding scissors and a comb and talking, Levent seen from behind sitting in the barber chair with a cape on.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "levent",
+          "metin": "Usta, harika hikâye ama... saçım ne zaman?",
+          "duygu": "polite but impatient",
+          "karakterler": [
+            "levent",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same barber shop, Levent in the barber chair wearing a barber cape, the barber seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "Dur evlat, daha bitmedi. Sonra askere gittim...",
+          "duygu": "nostalgic",
+          "karakterler": [
+            "esnaf",
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Same barber shop, the barber leaning on the chair dreamily, Levent seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "aksiyon",
+          "karakterler": [
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "Same barber shop, Cemo asleep on the waiting bench with his flat cap over his eyes.",
+          "hareket": "Cemo snores loudly on the waiting bench, his chest rising and falling, the wall clock hands spin fast",
+          "sure": 3,
+          "kasa": null,
+          "efekt": "loud snoring and a fast ticking clock"
+        },
+        {
+          "tip": "konusma",
+          "kim": "levent",
+          "metin": "[sighs] Usta, bir saattir oturuyorum, tek tel kesmediniz!",
+          "duygu": "desperate",
+          "karakterler": [
+            "levent",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same barber shop, Levent in the barber chair with his curly hair completely untouched, the barber seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "[laughs] Sohbet bedava evlat. Kesim için yarın gel!",
+          "duygu": "cheerful and friendly",
+          "karakterler": [
+            "esnaf",
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Same barber shop, the barber putting his scissors back in his pocket and smiling, Levent seen from behind.",
+          "kasa": null,
+          "efekt": null
+        }
+      ]
+    }
   }
 }

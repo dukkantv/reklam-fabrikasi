@@ -20,6 +20,94 @@
     "dukkanda_en_az": 0,
     "logo_sahnede": false,
     "kasa_goster": false,
-    "etiket": "öğretmen,okul,veli toplantısı"
+    "etiket": "öğretmen,okul,veli toplantısı",
+    "senaryo": {
+      "baslik": "Veli Toplantısı",
+      "aciklama": "Ödevleri kim yapıyormuş, ortaya çıktı 😂 Sizin karneniz nasıldı?",
+      "planlar": [
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "Öğrenciniz derste uyuyor, ödev yapmıyor, hep bir şey yiyor.",
+          "duygu": "strict but kind",
+          "karakterler": [
+            "esnaf",
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "A primary school classroom during a parent-teacher meeting, the teacher at her desk holding a folder, Levent seen from behind sitting on a small student chair.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "levent",
+          "metin": "[surprised] Hocam, siz yeğenimi değil, Cemo'yu anlatıyorsunuz!",
+          "duygu": "realizing",
+          "karakterler": [
+            "levent",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same classroom, Levent sitting on a tiny student chair, the teacher seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "aksiyon",
+          "karakterler": [
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "Same classroom, Cemo squeezed into a tiny student desk at the back of the class.",
+          "hareket": "Cemo sleeps at the tiny desk with his head on a book while still holding a bag of chips",
+          "sure": 3,
+          "kasa": null,
+          "efekt": "chips bag crinkling and a soft snore"
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "Bir de ödevlerini başkası yapıyormuş.",
+          "duygu": "suspicious, lowering her glasses",
+          "karakterler": [
+            "esnaf",
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Same classroom, the teacher lowering her glasses, Levent seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "levent",
+          "metin": "[sighs] Hocam... o ödevleri ben yapıyordum.",
+          "duygu": "ashamed",
+          "karakterler": [
+            "levent",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same classroom, Levent scratching his curly hair sheepishly, the teacher seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "[laughs] Belli oldu evlat, hepsi sıfır!",
+          "duygu": "laughing",
+          "karakterler": [
+            "esnaf",
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Same classroom, the teacher laughing behind her desk, Levent seen from behind.",
+          "kasa": null,
+          "efekt": null
+        }
+      ]
+    }
   }
 }

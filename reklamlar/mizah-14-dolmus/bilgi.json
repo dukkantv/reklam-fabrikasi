@@ -1,0 +1,109 @@
+{
+  "dosya_adi": "mizah-14-dolmus",
+  "renk": "#D63031",
+  "oto": {
+    "tur": "mizah",
+    "firma": "",
+    "sektor": "kalabalık bir Bursa dolmuşu (minibüs) içi",
+    "esnaf_adi": "Dolmuşçu Şükrü",
+    "esnaf_cinsiyet": "erkek",
+    "esnaf_tarif": "cheerful Turkish minibus driver in his 50s, round face, thick black mustache, short grey hair, short-sleeve white shirt, a small towel on his shoulder",
+    "yan_ad": "the minibus driver",
+    "yan_ses": "esnaf",
+    "fikir": "Dolmuşta 'arkaya doğru ilerleyelim' klasiği.",
+    "notlar": "Bu skeçte sponsor/reklam yok; sadece temiz mizah.",
+    "urunler": "",
+    "toplam_sure": "16-22",
+    "plan_sayisi": "5-6",
+    "kelime_siniri": 10,
+    "toplam_kelime": 38,
+    "dukkanda_en_az": 0,
+    "logo_sahnede": false,
+    "kasa_goster": false,
+    "etiket": "dolmuş,minibüs,bursa",
+    "senaryo": {
+      "baslik": "Arkaya Doğru İlerleyelim",
+      "aciklama": "Dolmuşta arkada hep yer vardır 😂 Siz de bu cümleyi duydunuz mu?",
+      "planlar": [
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "[excited] Arkaya doğru ilerleyelim, arkada yer var!",
+          "duygu": "loud and cheerful",
+          "karakterler": [
+            "esnaf",
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Inside a crowded yellow Turkish dolmuş minibus, the driver turned around in his seat shouting toward the back, Levent seen from behind standing in the aisle.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "levent",
+          "metin": "Abi, arka cama yapıştık, arkada sadece cam var!",
+          "duygu": "squeezed",
+          "karakterler": [
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Same crowded minibus, Levent squeezed against the back window, crowd seen only from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "İlerleyin ilerleyin, bir kişi daha alıyoruz!",
+          "duygu": "unbothered",
+          "karakterler": [
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same minibus, the driver smiling and waving at someone outside the open door.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "aksiyon",
+          "karakterler": [
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "Same crowded minibus, Cemo squished between passengers seen from behind.",
+          "hareket": "Cemo's cheek is pressed flat against the window glass as more people squeeze in, he holds up a coin",
+          "sure": 3,
+          "kasa": null,
+          "efekt": "crowded bus chatter and squeaky brakes"
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "Ücretleri uzatalım! Kim öğrenci?",
+          "duygu": "counting coins",
+          "karakterler": [
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same minibus, the driver holding out his hand for fares while looking back.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "cemo",
+          "metin": "[excited] Ben abi! Hayat okulunda kırk yıldır öğrenciyim.",
+          "duygu": "proud",
+          "karakterler": [
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "Same crowded minibus, Cemo squished but smiling proudly, other passengers seen only from behind.",
+          "kasa": null,
+          "efekt": null
+        }
+      ]
+    }
+  }
+}

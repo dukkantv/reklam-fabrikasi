@@ -20,6 +20,94 @@
     "dukkanda_en_az": 0,
     "logo_sahnede": false,
     "kasa_goster": false,
-    "etiket": "spor,spor salonu,fitness"
+    "etiket": "spor,spor salonu,fitness",
+    "senaryo": {
+      "baslik": "Cemo Spora Başladı",
+      "aciklama": "Cemo'nun antrenman programı bilimsel 😂 Siz spora ne zaman başlıyorsunuz?",
+      "planlar": [
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "[excited] Hadi Cemo abi, yirmi şınav! Başla!",
+          "duygu": "super energetic",
+          "karakterler": [
+            "esnaf",
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "A modern gym with dumbbells and treadmills, the trainer clapping his hands, Cemo seen from behind lying flat on a yoga mat.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "cemo",
+          "metin": "[sighs] Hocam, ilk şınavı kafamda yaptım. Yoruldum.",
+          "duygu": "exhausted",
+          "karakterler": [
+            "cemo",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same gym, Cemo lying face up on the yoga mat, sweating, the trainer seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "Peki koşu bandı! On dakika, hafif tempo!",
+          "duygu": "motivating",
+          "karakterler": [
+            "esnaf",
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "Same gym, the trainer pointing at a treadmill, Cemo seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "aksiyon",
+          "karakterler": [
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "Same gym, Cemo on a treadmill walking extremely slowly while eating a grilled cheese toast.",
+          "hareket": "Cemo walks very slowly on the treadmill and happily takes a big bite of a toast",
+          "sure": 3,
+          "kasa": null,
+          "efekt": "treadmill motor humming and a crunchy toast bite"
+        },
+        {
+          "tip": "konusma",
+          "kim": "levent",
+          "metin": "[surprised] Cemo! Koşu bandında tost mu yiyorsun?",
+          "duygu": "shocked",
+          "karakterler": [
+            "levent",
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "Same gym, Levent standing next to the treadmill in disbelief, Cemo seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "cemo",
+          "metin": "[excited] Abi, karbonhidrat yüklemesi. Profesyoneller böyle yapıyor.",
+          "duygu": "proud and serious",
+          "karakterler": [
+            "cemo",
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Same gym, Cemo on the treadmill holding the half-eaten toast like a trophy, Levent seen from behind.",
+          "kasa": null,
+          "efekt": null
+        }
+      ]
+    }
   }
 }

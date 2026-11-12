@@ -20,6 +20,93 @@
     "dukkanda_en_az": 0,
     "logo_sahnede": false,
     "kasa_goster": false,
-    "etiket": "futbol,halı saha,maç"
+    "etiket": "futbol,halı saha,maç",
+    "senaryo": {
+      "baslik": "Cemo Penaltı İstiyor",
+      "aciklama": "Kamera her şeyi gördü 😂 Sizce penaltı mı?",
+      "planlar": [
+        {
+          "tip": "konusma",
+          "kim": "cemo",
+          "metin": "[surprised] Penaltıııı! Hakem bey, beni düşürdüler!",
+          "duygu": "dramatic",
+          "karakterler": [
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "A neighborhood artificial-turf football pitch in the evening under floodlights, Cemo lying on the grass holding his leg dramatically.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "Kim düşürdü? Top yüz metre ötede!",
+          "duygu": "unimpressed",
+          "karakterler": [
+            "esnaf",
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "Same football pitch, the referee standing with a whistle, Cemo seen from behind on the ground.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "cemo",
+          "metin": "Rüzgâr hocam. Rakibin rüzgârı!",
+          "duygu": "insisting",
+          "karakterler": [
+            "cemo",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same football pitch, Cemo sitting on the grass pointing at the air, the referee seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "levent",
+          "metin": "[laughs] Hakem bey, Cemo'nun kamerasında her şey var!",
+          "duygu": "amused",
+          "karakterler": [
+            "levent",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same football pitch, Levent holding up Cemo's video camera, the referee seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "aksiyon",
+          "karakterler": [
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same football pitch, the referee looking closely at the small screen of the video camera.",
+          "hareket": "the referee watches the camera screen, nods slowly, and blows his whistle",
+          "sure": 3,
+          "kasa": null,
+          "efekt": "a sharp referee whistle"
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "Kayıt net: kendi bağcığına basmış. Sarı kart, Cemo!",
+          "duygu": "strict, holding up a yellow card",
+          "karakterler": [
+            "esnaf",
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "Same football pitch, the referee holding up a yellow card, Cemo seen from behind.",
+          "kasa": null,
+          "efekt": null
+        }
+      ]
+    }
   }
 }

@@ -82,6 +82,13 @@ def _deftere_yaz():
         d = {}
     d[bu_ay()] = round(float(d.get(bu_ay(), 0)) + t, 2)
     json.dump(d, open(DEFTER, "w", encoding="utf-8"), indent=1)
+    try:  # bakiye defterinden düş
+        b = json.load(open(BAKIYE_DEFTER, encoding="utf-8"))
+        b["bakiye"] = round(float(b["bakiye"]) - t, 2)
+        b["son_islem"] = time.strftime("%Y-%m-%d %H:%M")
+        json.dump(b, open(BAKIYE_DEFTER, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    except Exception:
+        pass
 
 
 import atexit
@@ -91,18 +98,25 @@ atexit.register(_deftere_yaz)
 REZERV = float(os.environ.get("FAL_REZERV", "1.0"))   # $ — fal.ai bakiyesi bunun altına inmesin
 
 
+BAKIYE_DEFTER = os.path.join(KOK, "harcama", "fal_bakiye.json")
+
+
 def fal_bakiye():
-    """fal.ai hesabındaki GERÇEK bakiye ($). Alınamazsa None.
-    (Kendi defterimiz bazı çalışmaları kaçırıyordu: 12 Kasım'da defter 3,57 $ derken gerçek harcama 27,82 $'dı.)"""
+    """fal.ai bakiyesi ($). Önce fal.ai'ye sorulur (bunun için 'Admin' yetkili anahtar gerekir); sorulamazsa
+    harcama/fal_bakiye.json'daki bakiye defteri kullanılır (panelden okunan değerle başlatılır, her çalışma düşer).
+    (Eski aylık defter bazı çalışmaları kaçırıyordu: 12 Kasım'da 3,57 $ derken gerçek harcama 27,82 $'dı.)"""
     try:
         r = requests.get("https://api.fal.ai/v1/account/billing", params={"expand": "credits"},
                          headers={"Authorization": f"Key {FAL_KEY}"}, timeout=30)
         if r.status_code == 200:
             return float(r.json()["credits"]["current_balance"])
-        print(f"fal.ai bakiye okunamadı ({r.status_code}): {r.text[:200]}")
+        print(f"fal.ai bakiyesi API'den okunamadı ({r.status_code}), bakiye defteri kullanılıyor")
     except Exception as hata:
-        print("fal.ai bakiye okunamadı:", str(hata)[:200])
-    return None
+        print("fal.ai bakiyesi API'den okunamadı:", str(hata)[:120])
+    try:
+        return float(json.load(open(BAKIYE_DEFTER, encoding="utf-8"))["bakiye"]) - calisma_tutari()
+    except Exception:
+        return None
 
 
 def butce_kontrol(tahmin, is_adi):
@@ -302,12 +316,13 @@ def _gemini_istek(parcalar, json_mu=True, sicaklik=1.0, hizli_vazgec=False):
     ayar = {"temperature": sicaklik}
     if json_mu:
         ayar["responseMimeType"] = "application/json"
-    for model in gemini_modelleri():
-        for d in range(3):
+    modeller = gemini_modelleri()[:3] if hizli_vazgec else gemini_modelleri()
+    for model in modeller:
+        for d in range(2 if hizli_vazgec else 3):
             try:
                 r = requests.post(
                     f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_KEY}",
-                    json={"contents": [{"parts": parcalar}], "generationConfig": ayar}, timeout=180)
+                    json={"contents": [{"parts": parcalar}], "generationConfig": ayar}, timeout=75 if hizli_vazgec else 180)
                 if r.status_code == 404:
                     print(f"Gemini modeli yok: {model}")
                     break
@@ -324,8 +339,7 @@ def _gemini_istek(parcalar, json_mu=True, sicaklik=1.0, hizli_vazgec=False):
             except Exception as e:
                 print(f"Gemini ({model}) deneme {d + 1}: {str(e)[:200]}")
                 time.sleep(5 * (d + 1))
-    if hizli_vazgec:
-        KOTA_DOLDU[0] = True
+    # Not: sunucu yoğunluğunda (503) kontrolleri tamamen kapatma; sadece günlük kota bitince kapanır (yukarıda)
     raise RuntimeError("Gemini cevap vermedi")
 
 
@@ -769,6 +783,13 @@ def taslak(klasor, konu, yeniden=""):
     if yeniden.strip() and os.path.exists(senaryo_yol):
         senaryo = json.load(open(senaryo_yol, encoding="utf-8"))
         cizilecek = [int(x) for x in re.findall(r"\d+", yeniden)]
+    elif bilgi.get("oto", {}).get("senaryo"):  # elle yazılmış hazır senaryo (Gemini'ye gerek yok)
+        senaryo = bilgi["oto"]["senaryo"]
+        json.dump(senaryo, open(senaryo_yol, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+        for eski in os.listdir(oto):
+            if eski.startswith("plan_"):
+                os.remove(os.path.join(oto, eski))
+        cizilecek = list(range(1, len(senaryo["planlar"]) + 1))
     else:
         senaryo = gemini((SENARYO_MIZAH if YAN["mizah"] else SENARYO_ISTEMI).format(
             yan_ad=YAN["ad"], toplam_kelime=bilgi.get("oto", {}).get("toplam_kelime", 40),

@@ -20,6 +20,94 @@
     "dukkanda_en_az": 0,
     "logo_sahnede": false,
     "kasa_goster": false,
-    "etiket": "inşaat,usta,şantiye"
+    "etiket": "inşaat,usta,şantiye",
+    "senaryo": {
+      "baslik": "Bu Bina Ne Zaman Biter?",
+      "aciklama": "Türkiye'de her inşaat 'yarın' biter 😂 Sizin mahalledeki ne zaman bitiyor?",
+      "planlar": [
+        {
+          "tip": "konusma",
+          "kim": "levent",
+          "metin": "[excited] Usta, bu bina ne zaman biter?",
+          "duygu": "curious and excited",
+          "karakterler": [
+            "levent",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "A busy construction site in Bursa with scaffolding and an unfinished concrete building, Levent holding his microphone, the foreman seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "[laughs] Yarın biter evlat, yarın!",
+          "duygu": "confident and cheerful",
+          "karakterler": [
+            "esnaf",
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Same construction site, the foreman standing proudly in front of the unfinished building, Levent seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "levent",
+          "metin": "Usta, geçen yıl gelmiştim, yine yarın demiştiniz!",
+          "duygu": "suspicious",
+          "karakterler": [
+            "levent",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same construction site, Levent raising an eyebrow, the foreman seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "konusma",
+          "kim": "esnaf",
+          "metin": "Doğru... o başka yarındı, bu başka yarın.",
+          "duygu": "wise and serious, finger raised",
+          "karakterler": [
+            "esnaf",
+            "levent"
+          ],
+          "dukkan": false,
+          "gorsel": "Same construction site, the foreman raising a finger like a philosopher, Levent seen from behind.",
+          "kasa": null,
+          "efekt": null
+        },
+        {
+          "tip": "aksiyon",
+          "karakterler": [
+            "cemo"
+          ],
+          "dukkan": false,
+          "gorsel": "Same construction site, Cemo placing a single brick on a low unfinished brick wall.",
+          "hareket": "Cemo places one single brick, wipes his forehead as if exhausted, then sits down on a bucket with a glass of tea",
+          "sure": 3,
+          "kasa": null,
+          "efekt": "a brick is placed on mortar, then a tea spoon clinks in a tea glass"
+        },
+        {
+          "tip": "konusma",
+          "kim": "cemo",
+          "metin": "[sighs] Usta, ben de yarın devam ederim.",
+          "duygu": "lazy and satisfied",
+          "karakterler": [
+            "cemo",
+            "esnaf"
+          ],
+          "dukkan": false,
+          "gorsel": "Same construction site, Cemo sitting on an upside-down bucket sipping a tulip-shaped Turkish tea glass, the foreman seen from behind.",
+          "kasa": null,
+          "efekt": null
+        }
+      ]
+    }
   }
 }
