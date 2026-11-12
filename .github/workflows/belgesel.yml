@@ -1,4 +1,7 @@
-name: Belgesel Deneme
+name: Uzun Video (Belgesel)
+
+permissions:
+  contents: write
 
 # "Eskiden Bursa'da Esnaf Olmak" — ücretsiz araçlarla çizgi roman tarzı uzun video. Yayınlamaz, Telegram'a gönderir.
 on:
@@ -9,7 +12,10 @@ on:
         default: "1990'da Bursa'da kendi bakkalını açsaydın?"
       dakika:
         description: "Yaklaşık süre (dakika)"
-        default: "5"
+        default: "10"
+      tur:
+        description: "Tür: tarih / dedektif / hikaye"
+        default: "tarih"
 
 jobs:
   uret:
@@ -26,10 +32,10 @@ jobs:
           python-version: "3.12"
       - name: Araçlar
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-inter >/dev/null
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-inter fonts-dejavu-core >/dev/null
           pip install -q edge-tts requests numpy
       - name: Üret
-        run: python belgesel.py "${{ inputs.konu }}" "${{ inputs.dakika }}"
+        run: python belgesel.py "${{ inputs.konu }}" "${{ inputs.dakika }}" "${{ inputs.tur }}"
       - name: Sakla
         if: always()
         uses: actions/upload-artifact@v4
@@ -38,11 +44,14 @@ jobs:
           path: |
             cikti/belgesel/*.mp4
             cikti/belgesel/senaryo.json
-            cikti/belgesel/r_*.jpg
+            cikti/belgesel/kapak.jpg
+            cikti/belgesel/yayin.json
           retention-days: 14
       - name: Resim ve senaryoyu depoya kaydet (inceleme için)
         if: always()
         run: |
-          mkdir -p belgesel_deneme && cp cikti/belgesel/senaryo.json cikti/belgesel/r_*.jpg belgesel_deneme/ 2>/dev/null || true
+          D=belgesel_deneme/${{ inputs.tur }}; rm -rf $D; mkdir -p $D
+          cp cikti/belgesel/senaryo.json cikti/belgesel/yayin.json cikti/belgesel/kapak.jpg $D/ 2>/dev/null || true
+          for f in cikti/belgesel/k_*.jpg; do [ -f "$f" ] && ffmpeg -v error -y -i "$f" -vf scale=480:-2 -q:v 6 "$D/$(basename $f)"; done
           git config user.name "dukkan-tv-bot"; git config user.email "actions@users.noreply.github.com"
           git add belgesel_deneme; git diff --cached --quiet || (git commit -qm "Belgesel deneme: resimler" && (git push || (git pull --rebase origin main && git push)))
