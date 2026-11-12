@@ -1,0 +1,89 @@
+{
+  "baslik": "En Kestirme Taksi Yolu",
+  "aciklama": "Taksicinin en kısa yol dediği yer Bursa turu çıktı! 😂 Sizin de başınıza böyle bir şey geldi mi?",
+  "planlar": [
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "[excited] Kestirme olsun diye Bursa'yı turlayarak gidiyoruz!",
+      "duygu": "excited",
+      "karakterler": [
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Medium close-up of the taxi driver in the driver seat facing the camera, smiling cheerfully, mouth clearly visible, sunny Bursa street outside windshield.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "[excited] Harika! Kestirme yolun bir hikayesi mi var?",
+      "duygu": "excited",
+      "karakterler": [
+        "levent",
+        "esnaf"
+      ],
+      "dukkan": false,
+      "gorsel": "Medium close-up of Levent in the back seat facing the camera holding a mic, mouth clearly visible, enthusiastic expression.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "[laughs] Sağdan dönersek tarih, soldan dönersek macera başlar!",
+      "duygu": "laughs",
+      "karakterler": [
+        "esnaf",
+        "cemo"
+      ],
+      "dukkan": false,
+      "gorsel": "Medium close-up of the taxi driver turning steering wheel facing the camera, laughing warmly, mouth clearly visible.",
+      "kasa": null,
+      "efekt": "car horn honking in distance"
+    },
+    {
+      "tip": "aksiyon",
+      "karakterler": [
+        "cemo",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Inside yellow taxi, camera focuses on Cemo looking terrified at digital taximeter rapidly increasing in the front dashboard.",
+      "hareket": "Cemo's jaw drops in shock as he wipes sweat from his forehead looking at the taximeter.",
+      "sure": 3,
+      "kasa": null,
+      "efekt": "fast taximeter beeping sound and tire screeching"
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "[excited] Geldik! Karşı kaldırımdı, ama dönel kavşak uzaktaydı.",
+      "duygu": "excited",
+      "karakterler": [
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Medium close-up of the taxi driver pulling handbrake facing the camera, pointing proudly out the window, mouth clearly visible.",
+      "kasa": null,
+      "efekt": "handbrake pulling sound"
+    },
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "[sighs] Sizin taksici de tek adımlık yolu uzatıyor mu?",
+      "duygu": "sighs",
+      "karakterler": [
+        "cemo",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Medium close-up of Cemo sitting next to Levent facing the camera, looking exhausted and shaking his head slowly, mouth clearly visible.",
+      "kasa": null,
+      "efekt": null
+    }
+  ]
+}
