@@ -171,6 +171,12 @@ def teshis_video(kanal, yol):
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", yol, "-t", str(sn), "-c:v", "libx264",
                         "-pix_fmt", "yuv420p", "-c:a", "aac", "-movflags", "+faststart", hedef], check=True)
         print(f"{sn} sn ({os.path.getsize(hedef) / 1048576:.1f} MB): {_sadece_yukle(tok, ig, hedef)}", flush=True)
+        cbr = f"/tmp/c_{sn}.mp4"  # sabit yüksek bit hızı (durağan slaytlarda bile ~3,5 Mbps)
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", yol, "-t", str(sn), "-c:v", "libx264",
+                        "-pix_fmt", "yuv420p", "-b:v", "3500k", "-minrate", "3500k", "-maxrate", "3500k",
+                        "-bufsize", "7000k", "-x264-params", "nal-hrd=cbr:force-cfr=1", "-r", "30",
+                        "-c:a", "aac", "-b:a", "128k", "-ar", "48000", "-movflags", "+faststart", cbr], check=True)
+        print(f"{sn} sn CBR ({os.path.getsize(cbr) / 1048576:.1f} MB): {_sadece_yukle(tok, ig, cbr)}", flush=True)
 
 if __name__ == "__main__":
     if sys.argv[1] == "kurulum":
