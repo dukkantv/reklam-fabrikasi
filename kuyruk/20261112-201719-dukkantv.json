@@ -15,9 +15,10 @@
   "alışveriş"
  ],
  "dosya": "20261112-201719-dukkantv.mp4",
- "durum": "bekliyor",
+ "durum": "iptal",
  "eklendi": "2026-11-12T20:17:19.388299+03:00",
  "gunluk": true,
  "mesaj_id": 257,
- "videolu": true
+ "videolu": true,
+ "not": "Claude: tabelalarda bozuk yazılar, bütçe yetmediği için yeniden yapılmadı"
 }
