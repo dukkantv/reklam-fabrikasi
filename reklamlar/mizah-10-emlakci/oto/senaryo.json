@@ -1,0 +1,89 @@
+{
+  "baslik": "Deniz Manzaralı Daire",
+  "aciklama": "İlanda deniz manzarası vardı 😂 Siz ev ararken neyle karşılaştınız?",
+  "planlar": [
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "[excited] Deniz manzaralı, metroya beş dakika, tam size göre!",
+      "duygu": "salesman charm",
+      "karakterler": [
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Inside an empty rental apartment living room with closed curtains, the real estate agent spreading his arms, Levent seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "[excited] Harika! Deniz nerede?",
+      "duygu": "hopeful",
+      "karakterler": [
+        "levent",
+        "esnaf"
+      ],
+      "dukkan": false,
+      "gorsel": "Same empty apartment, Levent looking around eagerly, the agent seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "aksiyon",
+      "karakterler": [
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Same empty apartment, the agent dramatically pulling open the curtains.",
+      "hareket": "the agent pulls the curtains open revealing a brick wall right outside the window with a small sea poster taped on it",
+      "sure": 3,
+      "kasa": null,
+      "efekt": "curtain swoosh then distant seagull sound"
+    },
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "[surprised] Usta... bu bir poster!",
+      "duygu": "deadpan shock",
+      "karakterler": [
+        "levent",
+        "esnaf"
+      ],
+      "dukkan": false,
+      "gorsel": "Same empty apartment, Levent pointing at the window, the agent seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "[laughs] Ama çok gerçekçi, değil mi? Martısı bile var.",
+      "duygu": "proud",
+      "karakterler": [
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Same empty apartment, the agent admiring the window like a painting, Levent seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "[sighs] Abi, metroya beş dakika da... uçakla herhalde.",
+      "duygu": "sarcastic",
+      "karakterler": [
+        "cemo",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Same empty apartment, Cemo leaning on the door frame with his camera, Levent seen from behind.",
+      "kasa": null,
+      "efekt": null
+    }
+  ]
+}
