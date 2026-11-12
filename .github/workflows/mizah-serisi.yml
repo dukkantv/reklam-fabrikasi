@@ -17,6 +17,10 @@ on:
         description: "İstersen tek bir klasör (örn mizah-01-taksici); boşsa sıradakiler"
         required: false
         default: ""
+      duzelt:
+        description: "Düzeltme: klasör:planlar;klasör:planlar (örn mizah-04-spor-salonu:2) — sadece o planlar yeniden çizilir"
+        required: false
+        default: ""
       stoga_ekle:
         description: "Bitince Telegram'a onaya gönder (kapalıysa sadece üretir, Claude önce inceler)"
         type: boolean
@@ -39,11 +43,15 @@ jobs:
         env:
           ADET: ${{ inputs.adet }}
           KONU: ${{ inputs.konu }}
+          DUZELT: ${{ inputs.duzelt }}
         run: |
           python3 - <<'PY' >> "$GITHUB_OUTPUT"
           import json, os
           konu = os.environ["KONU"].strip()
-          if konu:
+          duzelt = [x.split(":")[0].strip() for x in os.environ["DUZELT"].split(";") if x.strip()]
+          if duzelt:
+              liste = duzelt
+          elif konu:
               liste = [konu]
           else:
               hepsi = sorted(k for k in os.listdir("reklamlar") if k.startswith("mizah-"))
@@ -99,6 +107,13 @@ jobs:
           else
             python oto_bolum.py taslak "${{ matrix.klasor }}" "" ""
           fi
+
+      - name: Düzeltme (seçili planlar yeniden çizilir)
+        env:
+          DUZELT: ${{ inputs.duzelt }}
+        run: |
+          PLAN=$(python3 -c "import os;d=dict(x.split(':',1) for x in os.environ['DUZELT'].split(';') if ':' in x);print(d.get('${{ matrix.klasor }}','').strip())")
+          if [ -n "$PLAN" ]; then python oto_bolum.py taslak "${{ matrix.klasor }}" "" "$PLAN"; else echo "Düzeltme yok"; fi
 
       - name: Video (dudak senkronu + birleştir)
         run: python oto_bolum.py video "${{ matrix.klasor }}"
