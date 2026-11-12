@@ -757,7 +757,7 @@ def taslak(klasor, konu, yeniden=""):
     os.makedirs(CIKTI, exist_ok=True)
     kok, bilgi, e = esnaf_bilgisi(klasor)
     butce_kontrol((0.7 if YAN["mizah"] else 1.6) if not yeniden.strip()
-                  else 0.4 * max(1, len(re.findall(r"\d+", yeniden))), "Taslak")
+                  else 0.25 * max(1, len(re.findall(r"\d+", yeniden))), "Taslak")
     if any(not os.path.exists(karakter_karti(k)) for k in KAR):
         karakter()
     if ELEVEN_KEY and not all(r in sesler_oku() for r in ses_rolleri()):

@@ -15,9 +15,10 @@
   "veli toplantısı"
  ],
  "dosya": "20261112-201118-dukkantv.mp4",
- "durum": "bekliyor",
+ "durum": "iptal",
  "eklendi": "2026-11-12T20:11:18.831651+03:00",
  "gunluk": true,
  "mesaj_id": 256,
- "videolu": true
+ "videolu": true,
+ "not": "Claude: karatahtada bozuk yazı, düzeltilmiş sürüm gelecek"
 }
