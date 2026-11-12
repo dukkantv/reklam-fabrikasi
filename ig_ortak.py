@@ -166,11 +166,11 @@ def teshis_video(kanal, yol):
     yollar = _g.glob(os.path.join(KOK, "kuyruk", f"{kid}.json")) + _g.glob(os.path.join(KOK, "kuyruk", "arsiv", f"{kid}.json"))
     gercek = ig_aciklama(json.load(open(yollar[0], encoding="utf-8"))) if yollar else "deneme"
     print("Gerçek açıklama:", repr(gercek))
-    for sn in (59, 70, 78, 81):
+    for sn in [int(x) for x in os.environ.get("TESHIS_SN", "10 25 40 56").split()]:
         hedef = f"/tmp/t_{sn}.mp4"
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", yol, "-t", str(sn), "-c:v", "libx264",
                         "-pix_fmt", "yuv420p", "-c:a", "aac", "-movflags", "+faststart", hedef], check=True)
-        print(f"{sn} sn: {_sadece_yukle(tok, ig, hedef)}", flush=True)
+        print(f"{sn} sn ({os.path.getsize(hedef) / 1048576:.1f} MB): {_sadece_yukle(tok, ig, hedef)}", flush=True)
 
 if __name__ == "__main__":
     if sys.argv[1] == "kurulum":
