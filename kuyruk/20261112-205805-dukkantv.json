@@ -15,9 +15,10 @@
   "alışveriş"
  ],
  "dosya": "20261112-205805-dukkantv.mp4",
- "durum": "bekliyor",
+ "durum": "onaylandi",
  "eklendi": "2026-11-12T20:58:05.104462+03:00",
  "gunluk": true,
  "mesaj_id": 265,
- "videolu": true
+ "videolu": true,
+ "stok_bildirildi": true
 }

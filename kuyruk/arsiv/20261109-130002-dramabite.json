@@ -18,5 +18,6 @@
  "yayin": "2026-11-09T20:00:00+03:00",
  "hata": "<urlopen error [Errno 104] Connection reset by peer>",
  "ig_deneme": 3,
- "ig": "hata"
+ "ig": "hata",
+ "urun_eklendi": true
 }
