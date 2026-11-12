@@ -366,9 +366,9 @@ def kontrol():
                 except Exception as e:
                     print(f"Instagram hatası ({kayit['id']}):", str(e)[:400])
                     kayit["ig_deneme"] = kayit.get("ig_deneme", 0) + 1
-                    if kayit["ig_deneme"] >= 3:
+                    if kayit["ig_deneme"] >= 6:  # Instagram'ın geçici "ProcessingFailedError"ları için daha çok deneme
                         kayit["ig"] = "hata"
-                        telegram(f"⚠️ {ad}: Instagram paylaşımı 3 kez başarısız: {str(e)[:200]}")
+                        telegram(f"⚠️ {ad}: Instagram paylaşımı 6 kez başarısız: {str(e)[:200]}")
                     kaydet(kayit)
             if tt_bekliyor(kayit):
                 try:
