@@ -15,9 +15,10 @@
   "araba"
  ],
  "dosya": "20261112-203459-dukkantv.mp4",
- "durum": "bekliyor",
+ "durum": "onaylandi",
  "eklendi": "2026-11-12T20:34:59.830629+03:00",
  "gunluk": true,
  "mesaj_id": 261,
- "videolu": true
+ "videolu": true,
+ "stok_bildirildi": true
 }

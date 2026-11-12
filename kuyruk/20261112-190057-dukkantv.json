@@ -15,9 +15,10 @@
   "şantiye"
  ],
  "dosya": "20261112-190057-dukkantv.mp4",
- "durum": "bekliyor",
+ "durum": "onaylandi",
  "eklendi": "2026-11-12T19:00:57.293006+03:00",
  "gunluk": true,
  "mesaj_id": 246,
- "videolu": true
+ "videolu": true,
+ "stok_bildirildi": true
 }
