@@ -1,0 +1,75 @@
+{
+  "gun": 11,
+  "toplam_gun": 30,
+  "kasa_basi": 10300,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {
+      "tema": "gece",
+      "gorsel": "tezgah",
+      "gorsel_yazi": "YALAN ZAMANI",
+      "ifade": "dusunceli",
+      "baslik": "TEHLİKELİ OYUN",
+      "anlatim": "Derin bir nefes aldım. Kemal Bey'i hiç görmedim, izini bile bulamadım, dedim. Yüzümü inceledi.",
+      "damga": "Gerilim"
+    },
+    {
+      "tema": "sabah",
+      "gorsel": "hal",
+      "gorsel_yazi": "ERKEN SAAT",
+      "ifade": "mutlu",
+      "baslik": "GÜVENLİ ADIM",
+      "anlatim": "Sabah erken saatte hale gittim. Kemal Bey'in yönlendirdiği ucuz patatesleri hemen tezgaha taşıdım.",
+      "damga": "Plan"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "domates",
+      "gorsel_yazi": "+1200 TL",
+      "ifade": "mutlu",
+      "kasa": 11500,
+      "baslik": "PATATES SATIŞI",
+      "anlatim": "Patatesleri uygun fiyata çevre esnafa toplu sattım. Kasaya bin iki yüz lira eklendi.",
+      "damga": "Kazanç"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "etiket",
+      "gorsel_yazi": "İNDİRİM",
+      "ifade": "gulen",
+      "baslik": "HIZLI SİRKÜLASYON",
+      "anlatim": "Öğleden sonra kalan yeşillikleri de indirimli fiyatla erittim. İşler yolunda gidiyordu.",
+      "damga": "Hız"
+    },
+    {
+      "tema": "aksam",
+      "gorsel": "para",
+      "gorsel_yazi": "+900 TL",
+      "ifade": "mutlu",
+      "kasa": 12400,
+      "baslik": "GÜNÜN SONU",
+      "anlatim": "Akşam kasa sayımını yaptım. Dokuz yüz lira da oradan geldi. Toplam on iki bin dört yüz oldu.",
+      "damga": "Başarı"
+    },
+    {
+      "tema": "gece",
+      "gorsel": "defter",
+      "gorsel_yazi": "YENİ PLAN",
+      "ifade": "saskin",
+      "baslik": "GİZLİ BULUŞMA",
+      "anlatim": "Gece yarısı Kemal Bey telefonla aradı. Serdar'ın açığını bulmak için elimde bir fırsat olduğunu söyledi.",
+      "damga": "Fırsat"
+    },
+    {
+      "tema": "oylama",
+      "ifade": "dusunceli",
+      "secenek": [
+        "Teklifi kabul et",
+        "Riski reddet"
+      ],
+      "baslik": "BÜYÜK RİSK",
+      "anlatim": "Kemal Bey'in tehlikeli planına ortak olayım mı, yoksa kendi başıma mı devam edeyim? Yoruma A veya B yaz. Yarın gün 12!"
+    }
+  ]
+}
