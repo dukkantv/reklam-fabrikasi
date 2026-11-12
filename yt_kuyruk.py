@@ -37,8 +37,30 @@ def tt_bekliyor(kayit):
         return False
 
 
+def urun_bilgisi():
+    try:
+        return json.load(open(os.path.join(KOK, "urunler.json"), encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def urunlu_aciklama(aciklama):
+    """YouTube açıklamasının sonuna dijital ürün linklerini ekler (zaten varsa tekrar eklemez)."""
+    u = urun_bilgisi()
+    if not u.get("urunler") or u["urunler"][0]["link"] in aciklama:
+        return aciklama
+    blok = u.get("youtube_baslik", "🛒 Ürünlerimiz:") + "\n" + "\n".join(
+        f"▶ {x['ad']}: {x['link']}" for x in u["urunler"])
+    return (aciklama.rstrip() + "\n\n" + blok)[:4900]
+
+
+def kisa_urun_satiri():
+    return urun_bilgisi().get("kisa_satir", "")
+
+
 def tt_aciklama(kayit):
     return kayit["baslik"].replace("#shorts", "").replace("#Shorts", "").strip(" |") + "\n\n" + \
+        (kisa_urun_satiri() + "\n\n" if kisa_urun_satiri() else "") + \
         " ".join("#" + e.replace(" ", "") for e in kayit.get("etiketler", [])[:6]) + " #fyp #keşfet"
 
 
@@ -55,7 +77,8 @@ def ig_bekliyor(kayit):
 def ig_aciklama(kayit):
     baslik = kayit["baslik"].replace("#shorts", "").replace("#Shorts", "").strip(" |")
     etiket = " ".join("#" + e.replace(" ", "") for e in kayit.get("etiketler", [])[:8])
-    return f"{baslik}\n\n{etiket}".strip()
+    urun = kisa_urun_satiri()
+    return f"{baslik}\n\n" + (f"{urun}\n\n" if urun else "") + etiket
 
 # Yayın yetkisi: Dükkan TV = Levent'in onayı şart; Drama Bite ve Kasa Kurgu = onaysız otomatik yayın
 YAYIN_KANALLARI = {"dramabite", "kasakurgu"}
@@ -197,7 +220,7 @@ def youtube_yukle(kayit):
     gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
     boyut = os.path.getsize(yerel)
     zaman = yayin_zamani(kayit["kanal"], kayit.get("gunluk", False))
-    ust = {"snippet": {"title": kayit["baslik"], "description": kayit["aciklama"], "tags": kayit["etiketler"],
+    ust = {"snippet": {"title": kayit["baslik"], "description": urunlu_aciklama(kayit["aciklama"]), "tags": kayit["etiketler"],
                        "categoryId": "24", "defaultLanguage": "tr", "defaultAudioLanguage": "tr"},
            "status": {"privacyStatus": "private", "publishAt": zaman.astimezone(dt.timezone.utc).isoformat()
                       .replace("+00:00", "Z"), "selfDeclaredMadeForKids": False}}
@@ -408,6 +431,34 @@ def yeniden_planla():
     print("\n".join(satirlar) or "Planlı video yok.")
 
 
+def urunleri_ekle():
+    """Yüklenmiş ama henüz yayına girmemiş (planlı) videoların açıklamasına ürün linklerini ekler."""
+    simdi = dt.datetime.now(TR)
+    for p in sorted(glob.glob(os.path.join(KUYRUK, "*.json")) + glob.glob(os.path.join(KUYRUK, "arsiv", "*.json"))):
+        k = json.load(open(p, encoding="utf-8"))
+        if not k.get("video_id") or k.get("urun_eklendi"):
+            continue
+        token = erisim_anahtari(k["kanal"])
+        kod, _, veri = istek(f"https://www.googleapis.com/youtube/v3/videos?part=snippet&id={k['video_id']}",
+                             headers={"Authorization": f"Bearer {token}"})
+        if kod != 200 or not veri.get("items"):
+            print("Bulunamadı:", k["id"], kod)
+            continue
+        sn = veri["items"][0]["snippet"]
+        yeni = urunlu_aciklama(sn.get("description", ""))
+        if yeni != sn.get("description", ""):
+            govde = {"id": k["video_id"], "snippet": {"title": sn["title"], "description": yeni,
+                                                       "categoryId": sn.get("categoryId", "24"),
+                                                       "tags": sn.get("tags", []),
+                                                       "defaultLanguage": sn.get("defaultLanguage", "tr")}}
+            kod, _, veri = istek("https://www.googleapis.com/youtube/v3/videos?part=snippet", method="PUT",
+                                 headers={"Authorization": f"Bearer {token}"}, json_govde=govde)
+            print("Güncellendi" if kod == 200 else f"Hata {kod} {str(veri)[:150]}", k["id"], sn["title"][:40])
+        if kod == 200:
+            k["urun_eklendi"] = True
+            json.dump(k, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+
 if __name__ == "__main__":
     if sys.argv[1] == "ekle":
         ekle(*sys.argv[2:8])
@@ -415,3 +466,5 @@ if __name__ == "__main__":
         kontrol()
     elif sys.argv[1] == "planla":
         yeniden_planla()
+    elif sys.argv[1] == "urunler":
+        urunleri_ekle()

@@ -29,6 +29,10 @@ on:
         description: "Planlı videoların saatlerini aralıklı olacak şekilde yeniden dağıt"
         type: boolean
         default: false
+      urunler:
+        description: "Yüklenmiş planlı videoların açıklamasına ürün linklerini ekle"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -65,6 +69,9 @@ jobs:
       - name: Saatleri yeniden dağıt
         if: inputs.planla
         run: python3 yt_kuyruk.py planla
+      - name: Planlı videolara ürün linkleri
+        if: inputs.urunler
+        run: python3 yt_kuyruk.py urunler
       - name: Siteden gelen başvuruları kontrol et
         env:
           GH_REPO: ${{ github.repository }}
