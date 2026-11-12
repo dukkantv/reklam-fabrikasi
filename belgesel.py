@@ -154,7 +154,8 @@ def resim_pollinations(prompt, hedef, tohum):
            f"?width=1344&height=768&model=flux&seed={tohum}&nologo=true&private=true")
     r = requests.get(url, timeout=180)
     if r.status_code == 200 and r.headers.get("content-type", "").startswith("image") and len(r.content) > 20000:
-        open(hedef, "wb").write(r.content)
+        open(hedef + ".ham.jpg", "wb").write(r.content)
+        calistir("-i", hedef + ".ham.jpg", "-vf", "crop=iw*0.92:ih*0.92:iw*0.04:0", "-q:v", "2", "-f", "image2", hedef)
         return True
     print(f"Pollinations {r.status_code} {len(r.content)}")
     return False
@@ -199,7 +200,12 @@ def sahne_resmi(sc, tur, i):
     ham = os.path.join(CIKTI, f"ham_{i:03d}")
     en_iyi, en_puan = None, -1
     if tur == "tarih":
-        for aday in commons_ara(sc.get("arama") or sc["nesne"])[:3]:
+        adaylar = []
+        for q in [sc.get("arama") or sc["nesne"], sc["nesne"], *sc.get("yedek_arama", [])]:
+            adaylar += [a for a in commons_ara(q, 3) if a["baslik"] not in {x["baslik"] for x in adaylar}]
+            if len(adaylar) >= 6:
+                break
+        for aday in adaylar[:6]:
             if not indir(aday["url"], ham):
                 continue
             puan = alakali_mi(ham, sc["metin"], sc["nesne"])
@@ -211,6 +217,11 @@ def sahne_resmi(sc, tur, i):
             KULLANILAN.add(en_iyi["baslik"])
             KAYNAKCA.append(f"{en_iyi['baslik'].replace('File:', '')} — {en_iyi['yazar']} ({en_iyi['lisans']})")
             return son
+    if tur == "tarih" and en_puan >= 4:
+        if en_iyi:
+            KULLANILAN.add(en_iyi["baslik"])
+            KAYNAKCA.append(f"{en_iyi['baslik'].replace('File:', '')} — {en_iyi['yazar']} ({en_iyi['lisans']})")
+        return son  # tarihte uydurma yüzlü çizim yerine orta puanlı gerçek görsel tercih edilir
     for d in range(2):  # çizim, gerekirse bir kez daha
         if ciz(sc, tur, ham, 1000 + i + d * 31):
             puan = alakali_mi(ham, sc["metin"], sc["nesne"])
@@ -352,7 +363,7 @@ def main(konu, dakika=10, tur="tarih"):
 
     # Kapak: ilk sahnenin resmi + 3 kelime
     kapak_yol = os.path.join(CIKTI, "kapak.jpg")
-    ilk = next(iter(baslangic))
+    ilk = s.get("kapak_sahne") if s.get("kapak_sahne") in baslangic else next(iter(baslangic))
     kapak(os.path.join(CIKTI, f"k_{ilk:03d}.jpg"), s.get("kapak_yazi", s["baslik"][:20]), kapak_yol, tur)
 
     # Açıklama: kanca + bölümler + kaynaklar

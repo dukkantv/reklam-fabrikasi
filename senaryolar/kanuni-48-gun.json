@@ -83,9 +83,13 @@
   },
   {
    "metin": "1566'ya gelindiğinde Kanuni yetmiş yaşını geçmişti. Gut hastalığı yüzünden ata binmekte zorlanıyordu. Yine de bir sefere daha çıktı. Bu, onun son seferi olacaktı.",
-   "nesne": "elderly Sultan Suleiman portrait",
-   "arama": "Suleiman Nigari portrait",
-   "gorsel": "elderly Sultan Suleiman portrait, 16th century Ottoman era, historically accurate costumes"
+   "nesne": "Suleiman the Magnificent in old age miniature",
+   "arama": "Kanuni Sultan Süleyman Nigari",
+   "gorsel": "Suleiman the Magnificent in old age miniature, 16th century Ottoman era",
+   "yedek_arama": [
+    "Szigetvár 1566 miniature",
+    "Suleiman the Magnificent miniature"
+   ]
   },
   {
    "metin": "Hedef Macaristan'dı. Habsburglarla süren mücadele yeniden alevlenmişti. Mayıs ayında devasa ordu İstanbul'dan yola çıktı.",
@@ -95,15 +99,23 @@
   },
   {
    "metin": "Yaşlı padişah yolculuğun büyük kısmını at yerine kapalı bir arabada yaptı. Askerler onu nadiren görüyordu. Bu ayrıntı, birkaç ay sonra tarihin akışını değiştirecekti.",
-   "nesne": "closed ornate horse-drawn carriage on a dirt road",
-   "arama": "16th century carriage",
-   "gorsel": "closed ornate horse-drawn carriage on a dirt road, 16th century Ottoman era, historically accurate costumes"
+   "nesne": "Ottoman army on the Szigetvar campaign miniature",
+   "arama": "Nüzhet-i Esrâr Sigetvar",
+   "gorsel": "Ottoman army on the Szigetvar campaign miniature, 16th century Ottoman era",
+   "yedek_arama": [
+    "Szigetvár 1566 miniature",
+    "Suleiman the Magnificent miniature"
+   ]
   },
   {
    "metin": "Ordunun başında padişahın en güvendiği adam vardı: Sadrazam Sokollu Mehmed Paşa. Zekâsı ve soğukkanlılığıyla tanınan bu devlet adamı, birazdan tarihin en zor sırrını taşıyacaktı.",
    "nesne": "portrait of grand vizier Sokollu Mehmed Pasha",
-   "arama": "Sokollu Mehmed Pasha",
-   "gorsel": "portrait of grand vizier Sokollu Mehmed Pasha, 16th century Ottoman era, historically accurate costumes"
+   "arama": "Sokollu Mehmed Paşa",
+   "gorsel": "portrait of grand vizier Sokollu Mehmed Pasha, 16th century Ottoman era",
+   "yedek_arama": [
+    "Szigetvár 1566 miniature",
+    "Suleiman the Magnificent miniature"
+   ]
   },
   {
    "metin": "Ordu Belgrad'dan geçip Macaristan topraklarına ilerledi. Ama yolda gelen bir haber planları değiştirdi.",
@@ -179,9 +191,13 @@
   },
   {
    "metin": "Sokollu hemen harekete geçti. Şehzade Selim'e gizlice bir haberci yollandı. Mesaj açıktı: Vakit kaybetmeden yola çıkın.",
-   "nesne": "Ottoman courier galloping on horseback at night",
-   "arama": "Ottoman horseman",
-   "gorsel": "Ottoman courier galloping on horseback at night, 16th century Ottoman era, historically accurate costumes"
+   "nesne": "Ottoman sipahi cavalryman miniature",
+   "arama": "Sipahi Ottoman miniature",
+   "gorsel": "Ottoman sipahi cavalryman miniature, 16th century Ottoman era",
+   "yedek_arama": [
+    "Szigetvár 1566 miniature",
+    "Suleiman the Magnificent miniature"
+   ]
   },
   {
    "metin": "Çadırın etrafındaki düzen hiç bozulmadı. Padişahın çadırının önünde nöbetçiler bekledi, divan toplantıları her zamanki gibi yapıldı.",
@@ -215,21 +231,33 @@
   },
   {
    "metin": "Padişahın bedeni ise bozulmaması için tahnit edildi ve kapalı arabasına yerleştirildi.",
-   "nesne": "closed royal carriage at night guarded by soldiers",
-   "arama": "Ottoman carriage",
-   "gorsel": "closed royal carriage at night guarded by soldiers, 16th century Ottoman era, historically accurate costumes"
+   "nesne": "funeral of Suleiman the Magnificent miniature",
+   "arama": "Funeral of Suleiman the Magnificent",
+   "gorsel": "funeral of Suleiman the Magnificent miniature, 16th century Ottoman era",
+   "yedek_arama": [
+    "Szigetvár 1566 miniature",
+    "Suleiman the Magnificent miniature"
+   ]
   },
   {
    "metin": "Ordu dönüş yoluna çıktığında arabası her zamanki yerindeydi. Etrafında aynı muhafızlar, aynı törenler vardı. Askerler padişahın hasta olduğu için dışarı çıkmadığını sanıyordu.",
-   "nesne": "long army procession escorting a royal carriage",
-   "arama": "Ottoman procession miniature",
-   "gorsel": "long army procession escorting a royal carriage, 16th century Ottoman era, historically accurate costumes"
+   "nesne": "Ottoman army returning from campaign miniature",
+   "arama": "Ottoman army return campaign miniature",
+   "gorsel": "Ottoman army returning from campaign miniature, 16th century Ottoman era",
+   "yedek_arama": [
+    "Szigetvár 1566 miniature",
+    "Suleiman the Magnificent miniature"
+   ]
   },
   {
    "metin": "Bazı anlatımlara göre arabanın içine padişaha benzeyen biri bile oturtuldu. Bu rivayet tartışmalıdır, ama sırrın ne kadar titizlikle korunduğunu gösterir.",
-   "nesne": "silhouette of a robed man behind a carriage curtain",
-   "arama": "Ottoman sultan miniature",
-   "gorsel": "silhouette of a robed man behind a carriage curtain, 16th century Ottoman era, historically accurate costumes"
+   "nesne": "Ottoman sultan in a carriage miniature",
+   "arama": "Ottoman sultan carriage miniature",
+   "gorsel": "Ottoman sultan in a carriage miniature, 16th century Ottoman era",
+   "yedek_arama": [
+    "Szigetvár 1566 miniature",
+    "Suleiman the Magnificent miniature"
+   ]
   },
   {
    "metin": "Günler geçti. Bir hafta, iki hafta, bir ay. Yüz binlerce kişilik ordunun içinde bu sır inanılmaz bir şekilde korundu.",
@@ -251,9 +279,13 @@
   },
   {
    "metin": "Haber açıklandığında orduda büyük bir yas başladı. Ama hemen ardından korkulan şey de oldu: Yeniçeriler bahşişlerini istedi.",
-   "nesne": "angry janissaries gathering",
-   "arama": "Janissary",
-   "gorsel": "angry janissaries gathering, 16th century Ottoman era, historically accurate costumes"
+   "nesne": "janissaries revolt miniature",
+   "arama": "Janissary revolt",
+   "gorsel": "janissaries revolt miniature, 16th century Ottoman era",
+   "yedek_arama": [
+    "Szigetvár 1566 miniature",
+    "Suleiman the Magnificent miniature"
+   ]
   },
   {
    "metin": "Bahşiş konusundaki gecikme askerleri öfkelendirdi. Dönüş yolunda ve İstanbul'da huzursuzluk çıktı; sonunda bahşiş dağıtılmak zorunda kalındı.",
@@ -263,9 +295,13 @@
   },
   {
    "metin": "Yani Sokollu'nun korktuğu şey gerçekten yaşandı. Ama sır saklandığı için bu kriz düşman topraklarında değil, devletin kontrolünde atlatıldı.",
-   "nesne": "Ottoman imperial council meeting miniature",
-   "arama": "Ottoman Imperial Council",
-   "gorsel": "Ottoman imperial council meeting miniature, 16th century Ottoman era, historically accurate costumes"
+   "nesne": "Ottoman Imperial Council Divan miniature",
+   "arama": "Divan-ı Hümayun minyatür",
+   "gorsel": "Ottoman Imperial Council Divan miniature, 16th century Ottoman era",
+   "yedek_arama": [
+    "Szigetvár 1566 miniature",
+    "Suleiman the Magnificent miniature"
+   ]
   },
   {
    "metin": "Kanuni'nin naaşı İstanbul'a getirildi ve kendi yaptırdığı Süleymaniye Camii'nin yanındaki türbeye defnedildi.",
@@ -281,9 +317,13 @@
   },
   {
    "metin": "Türbenin içinde Kanuni'nin sandukası bulunuyor. Her yıl binlerce ziyaretçi, kırk altı yıl dünyayı etkileyen bu hükümdarın huzurunda duruyor.",
-   "nesne": "tomb of Suleiman the Magnificent interior",
-   "arama": "Tomb of Suleiman the Magnificent",
-   "gorsel": "tomb of Suleiman the Magnificent interior, 16th century Ottoman era, historically accurate costumes"
+   "nesne": "tomb of Suleiman the Magnificent at Suleymaniye",
+   "arama": "Türbe of Suleiman Süleymaniye",
+   "gorsel": "tomb of Suleiman the Magnificent at Suleymaniye, 16th century Ottoman era",
+   "yedek_arama": [
+    "Szigetvár 1566 miniature",
+    "Suleiman the Magnificent miniature"
+   ]
   },
   {
    "metin": "Sokollu Mehmed Paşa ise görevini sürdürdü. Selim'in ve ardından Üçüncü Murad'ın döneminde de devletin en güçlü adamı oldu.",
@@ -305,9 +345,14 @@
   },
   {
    "metin": "Sen olsaydın bu sırrı kırk sekiz gün saklayabilir miydin? Yorumlara yaz. Tarihin gizli kalmış hikâyeleri için abone olmayı unutma.",
-   "nesne": "statue of Suleiman the Magnificent",
-   "arama": "Suleiman statue Szigetvár",
-   "gorsel": "statue of Suleiman the Magnificent, 16th century Ottoman era, historically accurate costumes"
+   "nesne": "Suleymaniye Mosque at sunset",
+   "arama": "Süleymaniye Mosque sunset",
+   "gorsel": "Suleymaniye Mosque at sunset, 16th century Ottoman era",
+   "yedek_arama": [
+    "Szigetvár 1566 miniature",
+    "Suleiman the Magnificent miniature"
+   ]
   }
- ]
+ ],
+ "kapak_sahne": 3
 }
