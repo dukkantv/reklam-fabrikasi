@@ -16,6 +16,9 @@ on:
       tur:
         description: "Tür: tarih / dedektif / hikaye"
         default: "tarih"
+      senaryo:
+        description: "Hazır senaryo dosyası (ör. senaryolar/kanuni.json) — boşsa Gemini yazar"
+        default: ""
 
 jobs:
   uret:
@@ -25,6 +28,7 @@ jobs:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+      SENARYO_DOSYA: ${{ inputs.senaryo }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

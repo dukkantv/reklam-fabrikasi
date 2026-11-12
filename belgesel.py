@@ -91,7 +91,7 @@ def alakali_mi(img, metin, nesne):
     c = gemini([{"inlineData": {"mimeType": "image/jpeg", "data": veri}},
                 {"text": f'Bir belgesel videosunda bu resim şu anlatımın üstünde gösterilecek: "{metin}". '
                          f'Görünmesi gereken ana şey: "{nesne}". Resim bu anlatımla ne kadar alakalı? '
-                         'Resimde yazı/harf, filigran, modern alakasız öğe, bozuk yüz/el varsa puanı düşür. '
+                         'Resimde anlamsız/uydurma yazı, filigran, modern alakasız öğe, bozuk yüz/el varsa puanı düşür; tarihi eser üzerindeki gerçek yazı (tuğra, kitabe) sorun değildir. '
                          'SADECE JSON: {"puan": 0-10, "neden": "kısa"}'}],
                modeller=("gemini-flash-lite-latest", "gemini-flash-latest"), deneme=2, zaman=60)
     if c is None:
@@ -278,6 +278,11 @@ def main(konu, dakika=10, tur="tarih"):
     os.makedirs(CIKTI, exist_ok=True)
     sahne = max(10, int(dakika * 60 / 10))
     yol = os.path.join(CIKTI, "senaryo.json")
+    hazir = os.environ.get("SENARYO_DOSYA", "").strip()
+    if hazir and os.path.exists(os.path.join(KOK, hazir)):
+        import shutil
+        shutil.copy(os.path.join(KOK, hazir), yol)
+        print("Hazır senaryo kullanılıyor:", hazir)
     if os.path.exists(yol):
         s = json.load(open(yol, encoding="utf-8"))
     else:
