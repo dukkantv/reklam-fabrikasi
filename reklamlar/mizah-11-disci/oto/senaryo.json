@@ -1,0 +1,88 @@
+{
+  "baslik": "Levent Dişçide",
+  "aciklama": "Daha başlamadan acıdı 😂 Dişçi koltuğunda siz nasılsınız?",
+  "planlar": [
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "[whispers] Hocam, acıtmayacak değil mi? Söz mü?",
+      "duygu": "terrified",
+      "karakterler": [
+        "levent",
+        "esnaf"
+      ],
+      "dukkan": false,
+      "gorsel": "Inside a clean dental clinic, Levent lying in the dental chair gripping the armrests, the dentist seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "Merak etmeyin, hiçbir şey hissetmeyeceksiniz.",
+      "duygu": "calm and reassuring",
+      "karakterler": [
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Same dental clinic, the dentist with a dental mirror smiling kindly, Levent seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "aksiyon",
+      "karakterler": [
+        "levent",
+        "esnaf"
+      ],
+      "dukkan": false,
+      "gorsel": "Same dental clinic, the dentist reaching for the dental lamp.",
+      "hareket": "the dentist only switches on the dental lamp and Levent jumps in the chair with huge eyes",
+      "sure": 3,
+      "kasa": null,
+      "efekt": "a click and a short high dental drill whirr"
+    },
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "[surprised] Ahh! Hocam, acıdı!",
+      "duygu": "dramatic",
+      "karakterler": [
+        "levent",
+        "esnaf"
+      ],
+      "dukkan": false,
+      "gorsel": "Same dental clinic, Levent holding his cheek dramatically, the dentist seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "[laughs] Levent Bey... daha sadece ışığı açtım.",
+      "duygu": "amused",
+      "karakterler": [
+        "esnaf",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Same dental clinic, the dentist pointing at the dental lamp, Levent seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "[excited] Hocam, sırada ben varım. Bana da şeker var mı?",
+      "duygu": "hopeful",
+      "karakterler": [
+        "cemo"
+      ],
+      "dukkan": false,
+      "gorsel": "Same dental clinic, Cemo peeking in through the doorway holding a bag of candy.",
+      "kasa": null,
+      "efekt": null
+    }
+  ]
+}
