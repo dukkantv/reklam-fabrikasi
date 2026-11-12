@@ -122,6 +122,9 @@ def fal_bakiye():
 def butce_kontrol(tahmin, is_adi):
     """Bütçe kilidi. Öncelik fal.ai'nin gerçek bakiyesi: iş bitince bakiye REZERV'in altına inecekse başlatmaz
     (para yüklenmedikçe yeni harcama olmaz). Bakiye okunamazsa eski aylık defter + limit kullanılır."""
+    if tahmin <= 0:  # her şey önbellekte: ücret yok, kilide gerek yok
+        print("Bütçe: bu iş ücretsiz (hazır kliplerden)")
+        return
     bakiye = fal_bakiye()
     if bakiye is not None:
         if bakiye - tahmin < REZERV:
