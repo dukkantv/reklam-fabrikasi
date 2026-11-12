@@ -1,0 +1,25 @@
+{
+  "dosya_adi": "mizah-08-lokanta",
+  "renk": "#D63031",
+  "oto": {
+    "tur": "mizah",
+    "firma": "",
+    "sektor": "Bursa'da bir esnaf lokantası, tencere yemekleri vitrini",
+    "esnaf_adi": "Garson Ercan",
+    "esnaf_cinsiyet": "erkek",
+    "esnaf_tarif": "quick-talking Turkish waiter in his 30s, clean-shaven, slicked-back black hair, white shirt, black vest, black bow tie, a white towel over his shoulder",
+    "yan_ad": "the waiter",
+    "yan_ses": "erkek",
+    "fikir": "Levent 'Ne var?' diye sorar, garson nefes almadan uzun bir menü sayar. Cemo her yemeğe 'ondan da' der. Punchline: hesap gelince Cemo 'ben sadece su içtim' der, garson 'suyu da çok içtiniz abi' der.",
+    "notlar": "Bu skeçte sponsor/reklam yok; sadece temiz mizah.",
+    "urunler": "",
+    "toplam_sure": "16-22",
+    "plan_sayisi": "5-6",
+    "kelime_siniri": 10,
+    "toplam_kelime": 38,
+    "dukkanda_en_az": 0,
+    "logo_sahnede": false,
+    "kasa_goster": false,
+    "etiket": "lokanta,esnaf lokantası,yemek"
+  }
+}

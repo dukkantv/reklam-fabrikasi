@@ -9,6 +9,8 @@ Kurallar:
 - Drama Bite ve Kasa Kurgu (YAYIN_KANALLARI): onay beklemeden sıraya girer; "Durdur" ile yüklenmeden önce iptal edilebilir.
 - Onaylanan video YouTube'a "planlı" yüklenir: saat 18:30'dan önce onaylanırsa aynı gün 19:00,
   sonra onaylanırsa ertesi gün 19:00 (Türkiye saati) yayına girer.
+- Günlük stok ("gunluk": kısa mizah serisi): onaylanan videolar hemen değil, HER GÜN BİR TANE sırayla
+  yüklenir (en eskisi önce). Onay için 14 gün beklenir.
 - Telegram güncellemeleri ONAYLANMAZ (offset kullanılmaz), böylece aynı botu kullanan
   'Bölüm Üret' işinin klip kuyruğu bozulmaz.
 """
@@ -76,7 +78,7 @@ def kaydet(kayit):
               ensure_ascii=False, indent=1)
 
 
-def ekle(kanal, video, baslik, aciklama="", etiketler=""):
+def ekle(kanal, video, baslik, aciklama="", etiketler="", gunluk=""):
     os.makedirs(KUYRUK, exist_ok=True)
     simdi = dt.datetime.now(TR)
     kid = f"{simdi:%Y%m%d-%H%M%S}-{kanal}"
@@ -92,6 +94,8 @@ def ekle(kanal, video, baslik, aciklama="", etiketler=""):
     kayit = {"id": kid, "kanal": kanal, "baslik": baslik[:100], "aciklama": aciklama[:4900],
              "etiketler": [e.strip() for e in etiketler.split(",") if e.strip()][:15],
              "dosya": dosya, "durum": "bekliyor", "eklendi": simdi.isoformat()}
+    if gunluk:
+        kayit["gunluk"] = True
     ad = kanal_bilgi(kanal)["ad"]
     if kanal in YAYIN_KANALLARI:
         # Yayın yetkisi Claude'da: onay beklemeden sıraya girer; Levent isterse yüklenmeden önce durdurabilir
@@ -102,6 +106,23 @@ def ekle(kanal, video, baslik, aciklama="", etiketler=""):
                          f"Onay gerekmez (Yayın hesabı). İlk boş akşam saatinde YouTube'da, aynı saatte "
                          f"Instagram'da yayına girer. İstemezsen yüklenmeden önce \"Durdur\"a bas.",
                          reply_markup=json.dumps(klavye))
+    elif gunluk:
+        klavye = {"inline_keyboard": [[{"text": "✅ Onayla (stoğa al)", "callback_data": f"yt:onay:{kid}"},
+                                       {"text": "❌ Yayınlama", "callback_data": f"yt:iptal:{kid}"}]]}
+        metin = (f"📦 Günlük mizah stoğu → {ad}\n\n🎬 {kayit['baslik']}\n\n"
+                 f"Onaylarsan stoğa girer; stoktaki videolar her gün BİR tane, 19:00 civarında sırayla "
+                 f"(YouTube + Instagram) yayına girer. 14 gün içinde onaylamazsan silinir.")
+        cevap = {}
+        try:  # video ve butonlar tek mesajda gelsin
+            import requests
+            with open(video, "rb") as f:
+                cevap = requests.post(f"{TG}/sendVideo", data={
+                    "chat_id": os.environ.get("TELEGRAM_CHAT_ID"), "caption": metin, "supports_streaming": "true",
+                    "reply_markup": json.dumps(klavye)}, files={"video": f}, timeout=300).json()
+        except Exception as e:
+            print("Video Telegram'a gönderilemedi:", str(e)[:200])
+        if not cevap.get("ok"):
+            cevap = telegram(metin + "\n(Video GitHub'daki çalışmanın Artifacts kısmında.)", reply_markup=json.dumps(klavye))
     else:
         klavye = {"inline_keyboard": [[{"text": "✅ Onayla", "callback_data": f"yt:onay:{kid}"},
                                        {"text": "❌ Yayınlama", "callback_data": f"yt:iptal:{kid}"}]]}
@@ -110,6 +131,8 @@ def ekle(kanal, video, baslik, aciklama="", etiketler=""):
                          f"Video yukarıda Telegram'a gelen son video.",
                          reply_markup=json.dumps(klavye))
     kayit["mesaj_id"] = (cevap.get("result") or {}).get("message_id")
+    if (cevap.get("result") or {}).get("video"):
+        kayit["videolu"] = True
     kaydet(kayit)
     print("Kuyruğa eklendi:", kid)
 
@@ -135,12 +158,28 @@ def dolu_zamanlar():
     return zamanlar
 
 
-def yayin_zamani(kanal="dukkantv"):
+def gunluk_gunler():
+    """Günlük stoktan yayına planlanmış videoların tarihleri."""
+    gunler = set()
+    for p in glob.glob(os.path.join(KUYRUK, "*.json")) + glob.glob(os.path.join(KUYRUK, "arsiv", "*.json")):
+        try:
+            k = json.load(open(p, encoding="utf-8"))
+            if k.get("gunluk") and k.get("yayin"):
+                gunler.add(dt.datetime.fromisoformat(k["yayin"]).astimezone(TR).date())
+        except Exception:
+            pass
+    return gunler
+
+
+def yayin_zamani(kanal="dukkantv", gunluk=False):
     simdi = dt.datetime.now(TR)
     dolu = dolu_zamanlar()
+    yasak_gunler = gunluk_gunler() if gunluk else set()
     sira = TERCIH.get(kanal, []) + [x for x in SAATLER if x not in TERCIH.get(kanal, [])]
     for gun in range(0, 14):
         tarih = (simdi + dt.timedelta(days=gun)).date()
+        if tarih in yasak_gunler:
+            continue
         for saat in sira:
             hh, mm = map(int, saat.split(":"))
             aday = dt.datetime(tarih.year, tarih.month, tarih.day, hh, mm, tzinfo=TR)
@@ -157,7 +196,7 @@ def youtube_yukle(kayit):
     yerel = os.path.join("/tmp", kayit["dosya"])
     gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
     boyut = os.path.getsize(yerel)
-    zaman = yayin_zamani(kayit["kanal"])
+    zaman = yayin_zamani(kayit["kanal"], kayit.get("gunluk", False))
     ust = {"snippet": {"title": kayit["baslik"], "description": kayit["aciklama"], "tags": kayit["etiketler"],
                        "categoryId": "24", "defaultLanguage": "tr", "defaultAudioLanguage": "tr"},
            "status": {"privacyStatus": "private", "publishAt": zaman.astimezone(dt.timezone.utc).isoformat()
@@ -180,8 +219,11 @@ def youtube_yukle(kayit):
 
 def mesaj_guncelle(kayit, metin):
     if kayit.get("mesaj_id"):
-        istek(f"{TG}/editMessageText", veri={"chat_id": os.environ.get("TELEGRAM_CHAT_ID"),
-                                              "message_id": kayit["mesaj_id"], "text": metin})
+        veri = {"chat_id": os.environ.get("TELEGRAM_CHAT_ID"), "message_id": kayit["mesaj_id"]}
+        if kayit.get("videolu"):  # video mesajında metin "caption" olarak durur
+            istek(f"{TG}/editMessageCaption", veri={**veri, "caption": metin})
+        else:
+            istek(f"{TG}/editMessageText", veri={**veri, "text": metin})
 
 
 def kontrol():
@@ -234,8 +276,21 @@ def kontrol():
             print(f"Onay dinleyicisine ulaşılamadı ({kod}): {str(kararlar)[:200]}")
 
     simdi = dt.datetime.now(TR)
+    # Günlük stok: bugün ya da ileri bir güne planlanmış stok videosu yoksa, en eski onaylı olan yüklenir; diğerleri bekler.
+    stok = sorted((k for k in kayitlar.values() if k.get("gunluk") and k["durum"] == "onaylandi"), key=lambda k: k["id"])
+    sradaki = None
+    if stok and not any(g >= simdi.date() for g in gunluk_gunler()):
+        sradaki = stok[0]["id"]
+    for sira_no, k in enumerate(stok, 1):
+        if not k.get("stok_bildirildi"):
+            k["stok_bildirildi"] = True
+            mesaj_guncelle(k, f"📦 Stoğa alındı: \"{k['baslik']}\" — stokta {len(stok)} video var, "
+                              f"her gün bir tanesi sırayla yayına girer.")
+            kaydet(k)
     for kayit in kayitlar.values():
         ad = kanal_bilgi(kayit["kanal"])["ad"]
+        if kayit["durum"] == "onaylandi" and kayit.get("gunluk") and kayit["id"] != sradaki:
+            continue  # sırası gelmedi
         if kayit["durum"] == "onaylandi":
             try:
                 vid, zaman = youtube_yukle(kayit)
@@ -250,7 +305,8 @@ def kontrol():
                 kaydet(kayit)
                 telegram(f"⚠️ {ad}: \"{kayit['baslik']}\" yüklenemedi: {str(e)[:200]}\nBir sonraki kontrolde tekrar denenecek.")
         elif kayit["durum"] == "iptal" or (kayit["durum"] == "bekliyor" and
-                                            simdi - dt.datetime.fromisoformat(kayit["eklendi"]) > dt.timedelta(days=3)):
+                                            simdi - dt.datetime.fromisoformat(kayit["eklendi"])
+                                            > dt.timedelta(days=14 if kayit.get("gunluk") else 3)):
             mesaj_guncelle(kayit, f"🗑️ {ad}: \"{kayit['baslik']}\" yayınlanmadı.")
             try:
                 gh("release", "delete-asset", "kuyruk", kayit["dosya"], "-y")
@@ -333,7 +389,7 @@ def yeniden_planla():
     oncelik = {"dukkantv": 0, "kasakurgu": 1, "dramabite": 2}
     satirlar = []
     for p, k in sorted(bekleyen, key=lambda x: (oncelik.get(x[1]["kanal"], 9), x[1]["id"])):
-        zaman = yayin_zamani(k["kanal"])
+        zaman = yayin_zamani(k["kanal"], k.get("gunluk", False))
         token = erisim_anahtari(k["kanal"])
         kod, _, veri = istek("https://www.googleapis.com/youtube/v3/videos?part=status", method="PUT",
                              headers={"Authorization": f"Bearer {token}"},
@@ -354,7 +410,7 @@ def yeniden_planla():
 
 if __name__ == "__main__":
     if sys.argv[1] == "ekle":
-        ekle(*sys.argv[2:7])
+        ekle(*sys.argv[2:8])
     elif sys.argv[1] == "kontrol":
         kontrol()
     elif sys.argv[1] == "planla":

@@ -1,0 +1,25 @@
+{
+  "dosya_adi": "mizah-02-hastane",
+  "renk": "#D63031",
+  "oto": {
+    "tur": "mizah",
+    "firma": "",
+    "sektor": "Türk devlet hastanesi, acil servis bekleme salonu",
+    "esnaf_adi": "Hemşire Ayten",
+    "esnaf_cinsiyet": "kadin",
+    "esnaf_tarif": "cheerful Turkish nurse in her 40s, light-blue nurse uniform, short dark-brown hair under a white nurse cap, reading glasses on a chain, no makeup drama",
+    "yan_ad": "the nurse",
+    "yan_ses": "kadin",
+    "fikir": "Cemo acile 'çok acil durum' diye koşar. Hemşire ciddi ciddi semptomları sorar; Levent panikle tercüme eder. Punchline: acil durum Cemo'nun öğle yemeğini kaçırmasıdır, hemşire ona çantasından poğaça verir.",
+    "notlar": "Bu skeçte sponsor/reklam yok; sadece temiz mizah.",
+    "urunler": "",
+    "toplam_sure": "16-22",
+    "plan_sayisi": "5-6",
+    "kelime_siniri": 10,
+    "toplam_kelime": 38,
+    "dukkanda_en_az": 0,
+    "logo_sahnede": false,
+    "kasa_goster": false,
+    "etiket": "hastane,hemşire,acil"
+  }
+}

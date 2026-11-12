@@ -1,0 +1,25 @@
+{
+  "dosya_adi": "mizah-06-manav",
+  "renk": "#D63031",
+  "oto": {
+    "tur": "mizah",
+    "firma": "",
+    "sektor": "Bursa'da renkli bir manav tezgâhı, sandık sandık meyve sebze",
+    "esnaf_adi": "Manav Hüsnü",
+    "esnaf_cinsiyet": "erkek",
+    "esnaf_tarif": "jolly Turkish greengrocer in his 50s, round belly, flat cap, green apron, bushy grey mustache, holding a big watermelon",
+    "yan_ad": "the greengrocer",
+    "yan_ses": "esnaf",
+    "fikir": "Cemo karpuzun iyisini seçmeyi bildiğini iddia eder, tıklatıp dinler. Manav her karpuz için şiir gibi övgü yapar. Punchline: Cemo'nun 'bu kesin kırmızı' dediği karpuz kabak çıkar, manav 'kabak da çok taze' der.",
+    "notlar": "Bu skeçte sponsor/reklam yok; sadece temiz mizah.",
+    "urunler": "",
+    "toplam_sure": "16-22",
+    "plan_sayisi": "5-6",
+    "kelime_siniri": 10,
+    "toplam_kelime": 38,
+    "dukkanda_en_az": 0,
+    "logo_sahnede": false,
+    "kasa_goster": false,
+    "etiket": "manav,karpuz,pazar"
+  }
+}

@@ -22,6 +22,8 @@ GEMINI_KEY = "".join(os.environ.get("GEMINI_API_KEY", "").split())
 ELEVEN_KEY = "".join(os.environ.get("ELEVENLABS_API_KEY", "").split())
 TOKEN = os.environ.get("TOKEN", "").strip()
 CHAT = os.environ.get("CHAT", "").strip()
+# SESSIZ=1: toplu üretimde ara mesajlar (senaryo, plan resimleri, maliyet) Telegram'a gönderilmez; sadece bitmiş video gider
+SESSIZ = os.environ.get("SESSIZ", "") == "1"
 
 # ---- Kalite ayarı: standart | pro ----
 KALITE = os.environ.get("KALITE", "standart")
@@ -41,6 +43,13 @@ EN_FAZLA_YENIDEN = 2
 
 KARAKTERLER = json.load(open(os.path.join(KARAKTER_KLASOR, "karakterler.json"), encoding="utf-8"))
 KAR = KARAKTERLER["karakterler"]
+# Yan karakter: reklamda "esnaf" (dükkân sahibi); mizah serisinde mesleğin karakteri (taksici, hemşire...).
+# bilgi.json "oto": {"yan_ad": "the taxi driver", "yan_ses": "esnaf" | "erkek" | "kadin"}
+YAN = {"ad": "the shop owner", "ses": "esnaf", "mizah": False}
+
+
+def ses_rol(kim):
+    return YAN["ses"] if kim == "esnaf" else kim
 harcama = {"resim": 0, "sahne": 0, "avatar_sn": 0.0, "aksiyon_sn": 0.0, "karakter_harf": 0}
 DEFTER = os.path.join(KOK, "harcama", "aylik.json")
 
@@ -79,8 +88,39 @@ import atexit
 atexit.register(_deftere_yaz)
 
 
+REZERV = float(os.environ.get("FAL_REZERV", "1.0"))   # $ — fal.ai bakiyesi bunun altına inmesin
+
+
+def fal_bakiye():
+    """fal.ai hesabındaki GERÇEK bakiye ($). Alınamazsa None.
+    (Kendi defterimiz bazı çalışmaları kaçırıyordu: 12 Kasım'da defter 3,57 $ derken gerçek harcama 27,82 $'dı.)"""
+    try:
+        r = requests.get("https://api.fal.ai/v1/account/billing", params={"expand": "credits"},
+                         headers={"Authorization": f"Key {FAL_KEY}"}, timeout=30)
+        if r.status_code == 200:
+            return float(r.json()["credits"]["current_balance"])
+        print(f"fal.ai bakiye okunamadı ({r.status_code}): {r.text[:200]}")
+    except Exception as hata:
+        print("fal.ai bakiye okunamadı:", str(hata)[:200])
+    return None
+
+
 def butce_kontrol(tahmin, is_adi):
-    """Bütçe kilidi: bu ayki harcama + tahmin, aylık limiti aşacaksa işi başlatmaz."""
+    """Bütçe kilidi. Öncelik fal.ai'nin gerçek bakiyesi: iş bitince bakiye REZERV'in altına inecekse başlatmaz
+    (para yüklenmedikçe yeni harcama olmaz). Bakiye okunamazsa eski aylık defter + limit kullanılır."""
+    bakiye = fal_bakiye()
+    if bakiye is not None:
+        if bakiye - tahmin < REZERV:
+            mesaj = (f"🔒 Bütçe kilidi: {is_adi} başlatılmadı.\nfal.ai bakiyesi: {bakiye:.2f} $ · bu iş ≈ {tahmin:.2f} $ · "
+                     f"en az {REZERV:.0f} $ yedek kalmalı.\nfal.ai'ye kredi yüklenince kaldığı yerden devam eder.")
+            print(mesaj)
+            try:
+                tg_mesaj(mesaj)
+            except Exception:
+                pass
+            sys.exit(1)
+        print(f"Bütçe: fal.ai bakiyesi {bakiye:.2f} $, bu iş ≈ {tahmin:.2f} $, yedek {REZERV:.0f} $")
+        return
     harcanan = aylik_harcanan()
     if harcanan + tahmin > AYLIK_LIMIT:
         mesaj = (f"🔒 Bütçe kilidi: {is_adi} başlatılmadı.\nBu ay harcanan: {harcanan:.2f} $ · "
@@ -113,6 +153,8 @@ def tg_mesaj(metin):
 
 
 def tg_albumler(resimler, basliklar=None):
+    if SESSIZ:
+        return
     for bas in range(0, len(resimler), 10):
         grup = resimler[bas:bas + 10]
         medya, dosyalar = [], {}
@@ -292,13 +334,15 @@ def maliyet_ozeti():
     a = harcama["avatar_sn"] * UCRET["avatar"]
     k = harcama["aksiyon_sn"] * UCRET["aksiyon"]
     t = r + a + k
-    ay = aylik_harcanan() + t
+    bakiye = fal_bakiye()
+    son_satir = (f"🏦 fal.ai kalan bakiye: {bakiye:.2f} $ (güncellenmesi 1 saati bulabilir)" if bakiye is not None
+                 else f"📒 Bu ay toplam (defter): {aylik_harcanan() + t:.2f} $")
     return (f"💰 Bu çalışma: {t:.2f} $ ≈ {t * DOLAR_TL:.0f} TL (kalite: {KALITE})\n"
             f"   • {harcama['resim'] + harcama['sahne']} resim: {r:.2f} $\n"
             f"   • {harcama['avatar_sn']:.0f} sn konuşan plan (dudak senkronu): {a:.2f} $\n"
             f"   • {harcama['aksiyon_sn']:.0f} sn aksiyon planı: {k:.2f} $\n"
             f"   • ElevenLabs: {harcama['karakter_harf']} karakter (aylık paketten düşer)\n"
-            f"📒 Bu ay toplam: {ay:.2f} $ / {AYLIK_LIMIT:.0f} $ limit")
+            + son_satir)
 
 
 def etiketsiz(metin):
@@ -504,6 +548,7 @@ def ses_ayari(kim):
 
 def seslendir(metin, kim, hedef, voice_id=None):
     """Repliği karakterin sabit sesiyle mp3'e çevirir."""
+    kim = ses_rol(kim)
     secili = {"voice_id": voice_id} if voice_id else (sesler_oku().get(kim) or sesler_oku().get("erkek"))
     if ELEVEN_KEY and secili:
         a = ses_ayari(kim).get("eleven", {})
@@ -528,6 +573,7 @@ def esnaf_bilgisi(klasor):
     b = json.load(open(os.path.join(kok, "bilgi.json"), encoding="utf-8"))
     oto, kart = b.get("oto", {}), b.get("kart", {})
     temiz = lambda s: re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", s or "")).strip()
+    YAN.update(ad=oto.get("yan_ad", "the shop owner"), ses=oto.get("yan_ses", "esnaf"), mizah=oto.get("tur") == "mizah")
     return kok, b, {
         "firma": oto.get("firma", klasor), "sektor": oto.get("sektor", ""),
         "esnaf_adi": oto.get("esnaf_adi", "Esnaf"), "esnaf_cinsiyet": oto.get("esnaf_cinsiyet", "erkek"),
@@ -598,13 +644,63 @@ SADECE şu JSON:
   ]}}"""
 
 
+# Kısa mizah serisi (sponsorsuz): takipçi kazanmak için ~20 sn'lik meslek skeçleri. bilgi.json "oto": {"tur": "mizah"}
+SENARYO_MIZAH = """Sen Türkiye'de milyonlarca izlenen, Pixar tarzı 3D çizgi film skeçleri yazan çok komik bir senaristsin.
+Dizi: "Levent'in Maceraları". Dikey (9:16) TikTok/Instagram/YouTube Shorts skeci, toplam {toplam_sure} saniye.
+Amaç: izleyici sonuna kadar izlesin, güldüğü için arkadaşına göndersin, yorum yazsın ve takip etsin.
+Film dili: plan / karşı plan. Her KONUŞMA planında kamerada SADECE konuşan karakterin yüzü net görünür
+(diğerleri arkadan, omuz üstünden ya da kadraj dışında). Böylece dudak senkronu kusursuz olur.
+
+KARAKTERLER (konuşma tarzlarına sadık kal)
+- levent: {levent_rol} Konuşma tarzı: {levent_tarz}
+- cemo: {cemo_rol} Konuşma tarzı: {cemo_tarz}
+- esnaf: bu skeçteki meslek karakteri — {esnaf_adi} ({esnaf_cinsiyet}). {esnaf_tarif}
+
+MEKÂN / MESLEK: {sektor}
+SKEÇ FİKRİ: {konu}
+Ek notlar: {notlar}
+
+KURALLAR
+- {plan_sayisi} plan. Plan türleri:
+  * "konusma": tek karakter, tek replik (en fazla {kelime} kelime, ~2-4 sn). Duyguyu en fazla bir ElevenLabs ses
+    etiketiyle cümle başında verebilirsin: [laughs], [sighs], [excited], [whispers], [surprised].
+  * "aksiyon": konuşmasız 3 saniyelik komik tepki / aksiyon (ör. Cemo'nun yüzü düşer, taksi hızla kalkar).
+- En fazla 1 aksiyon planı; gerisi konuşma. Toplam konuşma kısa ve vurucu olsun (toplam en fazla {toplam_kelime} kelime).
+- KANCA (çok önemli — izleyicilerin çoğu ilk 1 saniyede kaydırıp geçiyor): 1. plan en şaşırtıcı/komik cümleyle
+  başlar, replik ilk saniyede başlar, en fazla 7 kelime. Selamlaşma, tanıtım, "arkadaşlar bugün..." girişi YOK.
+- Yapı: kanca -> durum hızla büyür (2-3 replik) -> beklenmedik, çok komik bir PUNCHLINE (son ya da sondan bir önceki
+  plan). Espri herkesin hayatından tanıdığı bir duruma dayansın (Türk izleyicinin "aynen böyle oluyor" diyeceği).
+- Son plan kısa bir punchline ya da izleyiciye yorum yazdıracak tek bir soru olsun (ör. "Sizin taksici de böyle mi?").
+- Temiz, aile dostu mizah. Siyaset, din alayı, +18, kumar, şiddet, küfür, sağlık iddiası, gerçek marka/kişi, alay
+  edilen meslek grubu YOK: meslek sahibi sevimli ve zeki olsun, komiklik durumdan ve Levent/Cemo'dan gelsin.
+- Reklam, sponsor, KASA, fiyat, telefon numarası YOK.
+- "gorsel": İngilizce tek kare tarifi: mekân, kamera açısı (konuşmada "medium close-up of <speaker> facing the camera,
+  mouth clearly visible"), ifade, arka plan. Karakterleri sadece "Levent", "Cemo", "{yan_ad}" diye an; kıyafet tarif etme.
+  Arka plan Türkiye'de geçsin (Bursa sokakları, Türk hastanesi vb.); tabelalar Türkçe ya da boş.
+- "hareket": sadece aksiyon planında, İngilizce kısa hareket tarifi.
+- "karakterler": karede görünen herkes (konuşan ilk sırada).
+- "efekt": İngilizce kısa ve somut ses efekti (ElevenLabs için). Aksiyon planında ZORUNLU; konuşma planında sadece
+  gerçekten gerekiyorsa (korna, telefon zili, kapı...), yoksa null. Müzik veya konuşma tarif etme.
+- "aciklama": yayın açıklaması için 1 kısa, komik Türkçe cümle + izleyiciye bir soru (emoji olabilir).
+
+SADECE şu JSON:
+{{"baslik": "kısa, merak uyandıran Türkçe başlık (en fazla 6 kelime)",
+  "aciklama": "...",
+  "planlar": [
+    {{"tip": "konusma", "kim": "esnaf", "metin": "[excited] ...", "duygu": "excited",
+      "karakterler": ["esnaf", "levent"], "dukkan": false, "gorsel": "...", "kasa": null, "efekt": null}},
+    {{"tip": "aksiyon", "karakterler": ["levent", "cemo"], "dukkan": false, "gorsel": "...", "hareket": "...",
+      "sure": 3, "kasa": null, "efekt": "taxi horn honks and tires screech"}}
+  ]}}"""
+
+
 KONTROLSUZ = [0]
 
 
 def konusan_ad(p):
     if p["tip"] != "konusma":
         return None
-    return KAR[p["kim"]]["ad"] if p.get("kim") in KAR else "the shop owner"
+    return KAR[p["kim"]]["ad"] if p.get("kim") in KAR else YAN["ad"]
 
 
 def tutarlilik_kontrolu(resim, kimler, konusan=None, esnaf_ref=None, esnaf_tarif=""):
@@ -618,7 +714,7 @@ def tutarlilik_kontrolu(resim, kimler, konusan=None, esnaf_ref=None, esnaf_tarif
                      {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(
                          open(kucult(karakter_karti(kid), 768), "rb").read()).decode()}}]
     if esnaf_ref:  # esnaf da her sahnede aynı olmalı (bıyık, kep, yelek, yüz)
-        parcalar += [{"text": f"The shop owner ({esnaf_tarif}):"},
+        parcalar += [{"text": f"{YAN['ad'][0].upper() + YAN['ad'][1:]} ({esnaf_tarif}):"},
                      {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(
                          open(kucult(esnaf_ref, 768), "rb").read()).decode()}}]
     parcalar += [{"text": "Generated frame:"},
@@ -645,21 +741,37 @@ def tutarlilik_kontrolu(resim, kimler, konusan=None, esnaf_ref=None, esnaf_tarif
 
 def taslak(klasor, konu, yeniden=""):
     os.makedirs(CIKTI, exist_ok=True)
-    butce_kontrol(1.6 if not yeniden.strip() else 0.4 * max(1, len(re.findall(r"\d+", yeniden))), "Taslak")
+    kok, bilgi, e = esnaf_bilgisi(klasor)
+    butce_kontrol((0.7 if YAN["mizah"] else 1.6) if not yeniden.strip()
+                  else 0.4 * max(1, len(re.findall(r"\d+", yeniden))), "Taslak")
     if any(not os.path.exists(karakter_karti(k)) for k in KAR):
         karakter()
     if ELEVEN_KEY and not all(r in sesler_oku() for r in ses_rolleri()):
         ses()
-    kok, bilgi, e = esnaf_bilgisi(klasor)
     oto = os.path.join(kok, "oto")
     os.makedirs(oto, exist_ok=True)
+    if YAN["mizah"]:
+        konu = konu or bilgi.get("oto", {}).get("fikir", "")
+        if not e["esnaf_foto"]:  # meslek karakterinin referans kartı: her planda aynı yüz/kıyafet görünsün
+            yan_kart = os.path.join(oto, "yan.jpg")
+            if not os.path.exists(yan_kart):
+                stil = KARAKTERLER["stil"].replace(", vertical 9:16 frame", "")
+                sonuc = fal(SAHNE_MODEL.replace("/edit", ""), {
+                    "prompt": f"{stil}. Character model sheet on a plain light grey background: full body front view "
+                              f"and a large head close-up with a neutral expression, mouth closed. ONE original "
+                              f"character: {e['esnaf_tarif']}. No text labels.",
+                    "aspect_ratio": "16:9", "resolution": "1K", "output_format": "jpeg"})
+                harcama["sahne"] += 1
+                indir(sonuc["images"][0]["url"], yan_kart)
+            e["esnaf_foto"] = os.path.join("oto", "yan.jpg")
     senaryo_yol = os.path.join(oto, "senaryo.json")
 
     if yeniden.strip() and os.path.exists(senaryo_yol):
         senaryo = json.load(open(senaryo_yol, encoding="utf-8"))
         cizilecek = [int(x) for x in re.findall(r"\d+", yeniden)]
     else:
-        senaryo = gemini(SENARYO_ISTEMI.format(
+        senaryo = gemini((SENARYO_MIZAH if YAN["mizah"] else SENARYO_ISTEMI).format(
+            yan_ad=YAN["ad"], toplam_kelime=bilgi.get("oto", {}).get("toplam_kelime", 40),
             levent_rol=KAR["levent"]["rol"], levent_tarz=KAR["levent"]["konusma_tarzi"],
             cemo_rol=KAR["cemo"]["rol"], cemo_tarz=KAR["cemo"]["konusma_tarzi"],
             konu=konu or "Levent ile Cemo'nun başı derde girer, çözüm bu esnafta çıkar.", **e))
@@ -683,13 +795,13 @@ def taslak(klasor, konu, yeniden=""):
                          + ("; seen ONLY from behind, his face is NOT visible" if arkadan else ""))
         if "esnaf" in p.get("karakterler", []):
             if p["tip"] == "konusma" and p.get("kim") != "esnaf":
-                tarif.append("the shop owner is seen ONLY from behind, his face is NOT visible")
+                tarif.append(f"{YAN['ad']} is seen ONLY from behind, the face is NOT visible")
             if e["esnaf_foto"]:
                 refs.append(os.path.join(kok, e["esnaf_foto"]))
-                tarif.append(f"the shop owner = the person in reference image {len(refs)}, as a Pixar-style 3D cartoon"
+                tarif.append(f"{YAN['ad']} = the person in reference image {len(refs)}, as a Pixar-style 3D cartoon"
                              + (f" ({e['esnaf_tarif']})" if e["esnaf_tarif"] else ""))
             elif e["esnaf_tarif"]:
-                tarif.append(f"the shop owner is {e['esnaf_tarif']}")
+                tarif.append(f"{YAN['ad']} is {e['esnaf_tarif']}")
         if p.get("dukkan"):
             logolu = e["logo"] if (e["logo"] and e["logo_sahnede"]) else None
             fotolar = e["dukkan_fotolari"][:2] + ([logolu] if logolu else [])
@@ -703,7 +815,7 @@ def taslak(klasor, konu, yeniden=""):
                              f"'Dükkan TV' or 'TV' on signs; shop signs may only say things like 'TAZE SİMİT'")
         konusan = ""
         if p["tip"] == "konusma":
-            konusan = (f" The speaker {KAR.get(p['kim'], {}).get('ad', 'the shop owner')} faces the camera in medium "
+            konusan = (f" The speaker {KAR.get(p['kim'], {}).get('ad', YAN['ad'])} faces the camera in medium "
                        f"close-up with the mouth clearly visible and closed in a neutral position, expression: "
                        f"{p.get('duygu', 'neutral')}. LIP-SYNC SHOT: exactly ONE face may be visible in the whole frame, the speaker's. "
                        f"Every other character and every background person must face AWAY from the camera (back of the "
@@ -755,6 +867,11 @@ def taslak(klasor, konu, yeniden=""):
             basliklar.append(f"{i}. {p['kim'].capitalize()}: {etiketsiz(p['metin'])}{kasa}")
         else:
             basliklar.append(f"{i}. (aksiyon) {p.get('hareket', '')}{kasa}")
+    if SESSIZ:
+        print("\n".join(basliklar))
+        if uyarilar:
+            print("Yüzü tam tutmayan planlar:", uyarilar)
+        return
     tg_mesaj(f"📝 {senaryo.get('baslik', '')} — {len(senaryo['planlar'])} plan\n" + "\n".join(basliklar))
     tg_albumler([os.path.join(oto, f"plan_{n:02d}.jpg") for n in cizilecek], [basliklar[n - 1] for n in cizilecek])
     tahmin = tahmini_video_maliyeti(senaryo)
@@ -781,7 +898,7 @@ _ONBELLEK_KILIT = threading.Lock()
 
 
 def onbellek_anahtari(p, resim):
-    ses_id = (sesler_oku().get(p.get("kim")) or {}).get("voice_id", "") if p["tip"] == "konusma" else ""
+    ses_id = (sesler_oku().get(ses_rol(p.get("kim"))) or {}).get("voice_id", "") if p["tip"] == "konusma" else ""
     model = AVATAR_MODEL if p["tip"] == "konusma" else f"seedance-{AKSIYON_COZUNURLUK}"
     h = hashlib.sha1(open(resim, "rb").read())
     h.update(json.dumps([p["tip"], p.get("metin"), p.get("kim"), p.get("hareket"), p.get("sure"), ses_id, model],
@@ -823,7 +940,7 @@ def konusma_klibi(no, p, resim, klasor_cikti):
     # Başa 0.25 sn, sona 0.4 sn sessizlik: karakter konuşmaya doğal girip çıksın
     pay = os.path.join(klasor_cikti, f"ses_{no:02d}_pay.mp3")
     calistir("-i", ham, "-af", "adelay=250:all=1,apad=pad_dur=0.4,aresample=44100", "-ac", "2", "-b:a", "192k", pay)
-    konusan = KAR.get(p["kim"], {}).get("ad", "the shop owner")
+    konusan = KAR.get(p["kim"], {}).get("ad", YAN["ad"])
     prompt = (f"{konusan} speaks with precise lip sync, {p.get('duygu', 'natural')} expression, natural head and "
               f"hand movement, blinking. Only {konusan} talks; everyone else keeps their mouth closed. "
               f"Pixar-style 3D animation, stable face and outfit.")
@@ -1039,14 +1156,25 @@ def video(klasor):
         print("Müzik eklenemedi, müziksiz devam:", hata)
     print(f"Bölüm hazır: {son} ({sure(son):.0f} sn)")
     # YouTube yayın kuyruğu için bilgi bırak (workflow 'Yayın kuyruğuna ekle' adımı okur; onaysız yayın olmaz)
-    json.dump({"video": son, "baslik": f"{senaryo.get('baslik', 'Levent ve Cemo')} | Levent & Cemo #shorts",
+    if YAN["mizah"]:
+        yayin = {"video": son, "gunluk": True,
+                 "baslik": f"{senaryo.get('baslik', 'Levent ve Cemo')} 😂 | Levent & Cemo #shorts",
+                 "aciklama": (f"{senaryo.get('aciklama', senaryo.get('baslik', ''))}\n\n"
+                              "Her gün yeni bir Levent & Cemo skeci 😂 Takip etmeyi unutma!\n"
+                              "Dükkan TV 👉 https://dukkantv.github.io\n\n"
+                              "#komedi #mizah #çizgifilm #leventvecemo #dükkantv #shorts"),
+                 "etiketler": "komedi,mizah,çizgi film,komik video,levent ve cemo,dükkan tv,"
+                              + bilgi.get("oto", {}).get("etiket", "")}
+        json.dump(yayin, open(os.path.join(CIKTI, "yayin.json"), "w", encoding="utf-8"), ensure_ascii=False)
+    else:
+      json.dump({"video": son, "baslik": f"{senaryo.get('baslik', 'Levent ve Cemo')} | Levent & Cemo #shorts",
                "aciklama": (f"{senaryo.get('baslik', '')}\n\nDükkan TV — esnafın televizyonu 📺\n"
                             "Senin dükkânın da bir videoyu hak ediyor 👉 https://dukkantv.github.io\n\n"
                             "#dükkantv #bursa #esnaf #çizgifilm #shorts"),
                "etiketler": "dükkan tv,bursa,esnaf,çizgi film,komedi,levent ve cemo"},
               open(os.path.join(CIKTI, "yayin.json"), "w", encoding="utf-8"), ensure_ascii=False)
     # Klip önbelleği SİLİNMEZ: sonradan bir sahne/altyazı/müzik düzeltmesi gerekirse tekrar ödeme yapılmasın.
-    if TOKEN:
+    if TOKEN and not SESSIZ:  # toplu üretimde video, onay butonlarıyla birlikte kuyruk mesajında gelir
         gonderilecek = son
         if os.path.getsize(son) > 45 * 1024 * 1024:  # Telegram botları en fazla 50 MB gönderebilir
             gonderilecek = os.path.join(CIKTI, ad + "_telegram.mp4")
@@ -1061,7 +1189,10 @@ def video(klasor):
         if not (cevap or {}).get("ok"):
             print("Telegram video gönderemedi:", str(cevap)[:300])
             tg_mesaj("⚠️ Video Telegram'a gönderilemedi. GitHub'da bu çalışmanın sayfasındaki 'Artifacts' kısmından indir.")
-    tg_mesaj(maliyet_ozeti())
+    if SESSIZ:
+        print(maliyet_ozeti())
+    else:
+        tg_mesaj(maliyet_ozeti())
 
 
 if __name__ == "__main__":

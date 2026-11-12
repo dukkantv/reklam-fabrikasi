@@ -1,0 +1,25 @@
+{
+  "dosya_adi": "mizah-09-oto-tamirci",
+  "renk": "#D63031",
+  "oto": {
+    "tur": "mizah",
+    "firma": "",
+    "sektor": "bir sanayi sitesinde oto tamirci dükkânı",
+    "esnaf_adi": "Tamirci Cafer",
+    "esnaf_cinsiyet": "erkek",
+    "esnaf_tarif": "Turkish car mechanic in his 40s, oil-stained dark-blue overalls, a wrench in hand, short curly black hair, thick black mustache, grease smudge on his cheek",
+    "yan_ad": "the car mechanic",
+    "yan_ses": "esnaf",
+    "fikir": "Levent'in arabası tuhaf bir ses çıkarır, tamirciye taklidini yapar. Tamirci ciddi ciddi dinleyip teşhis koyar. Punchline: ses aslında bagajda uyuyan Cemo'nun horlamasıdır.",
+    "notlar": "Bu skeçte sponsor/reklam yok; sadece temiz mizah.",
+    "urunler": "",
+    "toplam_sure": "16-22",
+    "plan_sayisi": "5-6",
+    "kelime_siniri": 10,
+    "toplam_kelime": 38,
+    "dukkanda_en_az": 0,
+    "logo_sahnede": false,
+    "kasa_goster": false,
+    "etiket": "tamirci,sanayi,araba"
+  }
+}

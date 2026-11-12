@@ -124,16 +124,21 @@ export default {
       const [on, karar, id] = String(cq.data).split(":");
       const m = cq.message;
       const degistir = (ek) => (m && m.chat)
-        ? Response.json({ method: "editMessageText", chat_id: m.chat.id, message_id: m.message_id,
-                          text: (m.text || "").slice(0, 3800) + ek })
+        ? (m.caption !== undefined || m.video   // videolu mesaj (günlük mizah stoğu): metin "caption"da durur
+          ? Response.json({ method: "editMessageCaption", chat_id: m.chat.id, message_id: m.message_id,
+                            caption: ((m.caption || "").slice(0, 1024 - ek.length - 1) + ek).slice(0, 1024) })
+          : Response.json({ method: "editMessageText", chat_id: m.chat.id, message_id: m.message_id,
+                            text: (m.text || "").slice(0, 3800) + ek }))
         : Response.json({ method: "answerCallbackQuery", callback_query_id: cq.id, text: ek.trim().split("\n")[0], show_alert: true });
 
       // YouTube yayın onayı
       if (on === "yt" && id && (karar === "onay" || karar === "iptal")) {
         await env.ONAY.put(id, JSON.stringify({ karar, zaman: new Date().toISOString() }),
                            { expirationTtl: 7 * GUN });
+        const stok = String((m && (m.caption || m.text)) || "").includes("Günlük mizah stoğu");
         return degistir(karar === "onay"
-          ? "\n\n✅ ONAYLANDI\nSıradaki boş akşam saatinde yayına girecek. YouTube'a yüklenince ayrıca haber vereceğim."
+          ? (stok ? "\n\n✅ STOĞA ALINDI\nSırası gelince (günde bir video) 19:00 civarında yayına girecek."
+                  : "\n\n✅ ONAYLANDI\nSıradaki boş akşam saatinde yayına girecek. YouTube'a yüklenince ayrıca haber vereceğim.")
           : "\n\n❌ İPTAL EDİLDİ\nBu video yayınlanmayacak.");
       }
 

@@ -1,0 +1,141 @@
+name: Mizah Serisi
+
+# Levent & Cemo kısa mizah skeçleri (~20 sn, dudak senkronlu, sponsorsuz) — takipçi kazanmak için.
+# Konular reklamlar/mizah-XX-*/bilgi.json dosyalarında. Her çalıştırma sıradaki "adet" kadar henüz
+# yapılmamış konuyu SIRAYLA üretir. Bitmiş her video Telegram'a gelir ve "Onayla (stoğa al)" ile
+# günlük stoğa girer: stoktan her gün BİR video 19:00 civarında yayınlanır (yt_kuyruk.py).
+# fal.ai bakiyesi 1 $ yedeğin altına inecekse bütçe kilidi işi durdurur (para yüklenmeden harcama olmaz).
+
+on:
+  workflow_dispatch:
+    inputs:
+      adet:
+        description: "Kaç video üretilsin? (sıradaki yapılmamış konulardan)"
+        required: true
+        default: "1"
+      konu:
+        description: "İstersen tek bir klasör (örn mizah-01-taksici); boşsa sıradakiler"
+        required: false
+        default: ""
+      stoga_ekle:
+        description: "Bitince Telegram'a onaya gönder (kapalıysa sadece üretir, Claude önce inceler)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mizah-serisi
+
+jobs:
+  sec:
+    runs-on: ubuntu-latest
+    outputs:
+      liste: ${{ steps.s.outputs.liste }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: s
+        env:
+          ADET: ${{ inputs.adet }}
+          KONU: ${{ inputs.konu }}
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os
+          konu = os.environ["KONU"].strip()
+          if konu:
+              liste = [konu]
+          else:
+              hepsi = sorted(k for k in os.listdir("reklamlar") if k.startswith("mizah-"))
+              liste = [k for k in hepsi if not os.path.exists(f"reklamlar/{k}/oto/kuyrukta.txt")]
+              liste = liste[:max(1, int(os.environ["ADET"] or 1))]
+          print("liste=" + json.dumps(liste))
+          PY
+
+  uret:
+    needs: sec
+    if: needs.sec.outputs.liste != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      max-parallel: 1          # sırayla: ElevenLabs sınırı ve bütçe kilidi için
+      fail-fast: false
+      matrix:
+        klasor: ${{ fromJson(needs.sec.outputs.liste) }}
+    env:
+      FAL_KEY: ${{ secrets.FAL_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      KALITE: standart
+      SESSIZ: "1"
+      TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Araçları kur
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          sudo apt-get install -y fonts-inter fonts-noto-color-emoji || echo "Yazı tipi kurulamadı, yedek kullanılacak"
+          pip install edge-tts requests numpy
+          npm install playwright@1.47.2
+          npx playwright install --with-deps chromium
+
+      - name: Senaryo + plan resimleri (daha önce yapıldıysa atlanır, tekrar ödeme yok)
+        run: |
+          if [ -f "reklamlar/${{ matrix.klasor }}/oto/senaryo.json" ] && ls reklamlar/${{ matrix.klasor }}/oto/plan_*.jpg >/dev/null 2>&1; then
+            echo "Taslak hazır, atlanıyor"
+          else
+            python oto_bolum.py taslak "${{ matrix.klasor }}" "" ""
+          fi
+
+      - name: Video (dudak senkronu + birleştir)
+        run: python oto_bolum.py video "${{ matrix.klasor }}"
+
+      - name: Resim ve klipleri depoya kaydet (tekrar ödeme olmasın)
+        if: always()
+        run: |
+          git config user.name "dukkan-tv-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add "reklamlar/${{ matrix.klasor }}"
+          git diff --cached --quiet || (git commit -m "Mizah serisi: ${{ matrix.klasor }}" && (git push || (git pull --rebase origin main && git push)))
+
+      - name: Videoyu indirilebilir olarak sakla
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.klasor }}
+          path: cikti/Levent_*.mp4
+          retention-days: 30
+
+      - name: Günlük stoğa ekle (Telegram'da onay butonu gelir)
+        if: success() && inputs.stoga_ekle && hashFiles('cikti/yayin.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 - <<'PY'
+          import json, subprocess
+          y = json.load(open("cikti/yayin.json", encoding="utf-8"))
+          subprocess.run(["python3", "yt_kuyruk.py", "ekle", "dukkantv", y["video"], y["baslik"], y["aciklama"],
+                          y["etiketler"], "gunluk"], check=True)
+          PY
+          date -Iseconds > "reklamlar/${{ matrix.klasor }}/oto/kuyrukta.txt"
+          git config user.name "dukkan-tv-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add kuyruk "reklamlar/${{ matrix.klasor }}"
+          git diff --cached --quiet || (git commit -m "Günlük stok: ${{ matrix.klasor }}" && (git push || (git pull --rebase origin main && git push)))

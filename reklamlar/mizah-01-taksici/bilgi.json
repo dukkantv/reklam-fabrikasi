@@ -1,0 +1,25 @@
+{
+  "dosya_adi": "mizah-01-taksici",
+  "renk": "#D63031",
+  "oto": {
+    "tur": "mizah",
+    "firma": "",
+    "sektor": "Bursa'da bir taksi, sarı taksinin içi ve dışı",
+    "esnaf_adi": "Rıza Abi",
+    "esnaf_cinsiyet": "erkek",
+    "esnaf_tarif": "friendly Turkish taxi driver in his 50s, bald head with grey sides, thick grey mustache, light-blue short-sleeve shirt, gold wristwatch, warm smile",
+    "yan_ad": "the taxi driver",
+    "yan_ses": "esnaf",
+    "fikir": "Levent ve Cemo taksiye biner, 'en kısa yoldan' der. Taksici her kısa yolun bir hikâyesi olduğunu anlatıp şehri turlatır; Cemo taksimetreye bakıp bayılmak üzeredir. Punchline: vardıklarında başladıkları yerin tam karşısındadırlar.",
+    "notlar": "Bu skeçte sponsor/reklam yok; sadece temiz mizah.",
+    "urunler": "",
+    "toplam_sure": "16-22",
+    "plan_sayisi": "5-6",
+    "kelime_siniri": 10,
+    "toplam_kelime": 38,
+    "dukkanda_en_az": 0,
+    "logo_sahnede": false,
+    "kasa_goster": false,
+    "etiket": "taksi,taksici,bursa"
+  }
+}
