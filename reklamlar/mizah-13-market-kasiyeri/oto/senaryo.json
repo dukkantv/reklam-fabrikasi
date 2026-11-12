@@ -1,0 +1,89 @@
+{
+  "baslik": "Poşet Pazarlığı",
+  "aciklama": "Cemo poşet parası vermemek için her yolu denedi 😂 Siz poşet alıyor musunuz?",
+  "planlar": [
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "[excited] Poşet ister misiniz? Poşet ücretli.",
+      "duygu": "cheerful",
+      "karakterler": [
+        "esnaf",
+        "cemo"
+      ],
+      "dukkan": false,
+      "gorsel": "At the checkout counter of a neighborhood supermarket, the cashier smiling, Cemo seen from behind with a pile of groceries on the belt.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "Ücretli mi? Pazarlık payı var mı abla?",
+      "duygu": "bargaining seriously",
+      "karakterler": [
+        "cemo",
+        "esnaf"
+      ],
+      "dukkan": false,
+      "gorsel": "Same supermarket checkout, Cemo leaning on the counter, the cashier seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "[laughs] Abi burası pazar değil, market!",
+      "duygu": "laughing",
+      "karakterler": [
+        "esnaf",
+        "cemo"
+      ],
+      "dukkan": false,
+      "gorsel": "Same supermarket checkout, the cashier laughing, Cemo seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "aksiyon",
+      "karakterler": [
+        "cemo",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Same supermarket checkout, Cemo stuffing groceries into his jacket.",
+      "hareket": "Cemo quickly stuffs bread, a bottle and packets into his jacket pockets and under his cap, Levent stares",
+      "sure": 3,
+      "kasa": null,
+      "efekt": "rustling plastic packets and wrappers"
+    },
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "[surprised] Cemo! Ceplerine kaç şey sığdırdın?",
+      "duygu": "amazed",
+      "karakterler": [
+        "levent",
+        "cemo"
+      ],
+      "dukkan": false,
+      "gorsel": "Same supermarket checkout, Levent staring, Cemo seen from behind with bulging pockets.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "[sighs] Poşet parası çıkmasın diye abi... Kartım da evde kaldı.",
+      "duygu": "innocent",
+      "karakterler": [
+        "cemo",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Same supermarket checkout, Cemo with bulging pockets and a loaf of bread under his arm, Levent seen from behind.",
+      "kasa": null,
+      "efekt": null
+    }
+  ]
+}
