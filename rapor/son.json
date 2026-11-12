@@ -1,11 +1,11 @@
 {
  "tarih": "2026-11-12",
- "olusturuldu": "2026-11-12T00:45+03:00",
+ "olusturuldu": "2026-11-12T09:45+03:00",
  "kanallar": {
   "dukkantv": {
    "ad": "Dükkan Tv",
    "abone": 1,
-   "toplam_izlenme": 1483,
+   "toplam_izlenme": 1477,
    "video_sayisi": 5,
    "son28": {
     "views": 1520,
@@ -13,7 +13,15 @@
     "subscribersGained": 2,
     "subscribersLost": 1
    },
-   "son7": {},
+   "son7": {
+    "views": 1520,
+    "estimatedMinutesWatched": 135,
+    "subscribersGained": 2,
+    "subscribersLost": 1,
+    "averageViewPercentage": 48.76,
+    "likes": 12,
+    "comments": 0
+   },
    "onceki7_izlenme": 0,
    "uzun_video_saat_365": 0.0,
    "shorts_izlenme_90": 1520,
@@ -67,14 +75,14 @@
     }
    ],
    "son24": {
-    "izlenme": "+0",
+    "izlenme": "-6",
     "abone": "+0"
    }
   },
   "dramabite": {
    "ad": "Drama Bite",
    "abone": 14,
-   "toplam_izlenme": 15843,
+   "toplam_izlenme": 15860,
    "video_sayisi": 19,
    "son28": {
     "views": 15771,
@@ -153,14 +161,14 @@
     }
    ],
    "son24": {
-    "izlenme": "+21",
+    "izlenme": "+38",
     "abone": "+0"
    }
   },
   "kasakurgu": {
    "ad": "Kasa kurgu",
    "abone": 8,
-   "toplam_izlenme": 7446,
+   "toplam_izlenme": 7462,
    "video_sayisi": 17,
    "son28": {
     "views": 7463,
@@ -239,7 +247,7 @@
     }
    ],
    "son24": {
-    "izlenme": "+1",
+    "izlenme": "+17",
     "abone": "+0"
    }
   }
@@ -247,7 +255,7 @@
  "instagram": {
   "dukkantv": {
    "kullanici": "dukkan.tv",
-   "takipci": 48,
+   "takipci": 51,
    "gonderi": 5,
    "son7_gonderi": [
     {
@@ -258,8 +266,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/Dfm3nP2gq4Z/",
      "timestamp": "2026-11-11T16:05:38+0000",
-     "views": 161,
-     "reach": 137,
+     "views": 164,
+     "reach": 140,
      "saved": 0,
      "shares": 0
     },
@@ -271,8 +279,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/Dfh3vP0gbSx/",
      "timestamp": "2026-11-09T17:30:24+0000",
-     "views": 1660,
-     "reach": 1540,
+     "views": 1663,
+     "reach": 1543,
      "saved": 0,
      "shares": 0
     },
@@ -284,8 +292,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfdFbRUtcl9/",
      "timestamp": "2026-11-07T20:54:30+0000",
-     "views": 400,
-     "reach": 329,
+     "views": 402,
+     "reach": 333,
      "saved": 0,
      "shares": 1
     },
@@ -297,8 +305,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfZ-8X_tPIc/",
      "timestamp": "2026-11-06T15:59:49+0000",
-     "views": 243,
-     "reach": 194,
+     "views": 246,
+     "reach": 197,
      "saved": 0,
      "shares": 4
     },
@@ -309,8 +317,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfXoNmltA1L/",
      "timestamp": "2026-11-05T18:04:05+0000",
-     "views": 332,
-     "reach": 273,
+     "views": 334,
+     "reach": 277,
      "saved": 0,
      "shares": 5
     }
@@ -332,8 +340,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfnCvE0klys/",
      "timestamp": "2026-11-11T17:42:35+0000",
-     "views": 1202,
-     "reach": 876,
+     "views": 1336,
+     "reach": 1269,
      "saved": 0,
      "shares": 0
     },
@@ -346,7 +354,7 @@
      "permalink": "https://www.instagram.com/reel/DfiCCvLkVys/",
      "timestamp": "2026-11-09T19:00:22+0000",
      "views": 142,
-     "reach": 127,
+     "reach": 129,
      "saved": 0,
      "shares": 0
     },
@@ -359,7 +367,7 @@
      "permalink": "https://www.instagram.com/reel/DffLexUK-Sp/",
      "timestamp": "2026-11-08T16:30:33+0000",
      "views": 1690,
-     "reach": 1535,
+     "reach": 1537,
      "saved": 1,
      "shares": 0
     },
@@ -397,7 +405,7 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DfXrt-gMBAD/",
      "timestamp": "2026-11-05T18:37:31+0000",
-     "views": 14,
+     "views": 15,
      "reach": 9,
      "saved": 0,
      "shares": 0
@@ -434,7 +442,7 @@
      "permalink": "https://www.instagram.com/reel/DfnC2_cElrz/",
      "timestamp": "2026-11-11T17:43:45+0000",
      "views": 171,
-     "reach": 161,
+     "reach": 162,
      "saved": 0,
      "shares": 0
     },
@@ -459,7 +467,7 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/Dfm8Jt1Fd02/",
      "timestamp": "2026-11-11T16:45:04+0000",
-     "views": 149,
+     "views": 152,
      "reach": 143,
      "saved": 0,
      "shares": 0
