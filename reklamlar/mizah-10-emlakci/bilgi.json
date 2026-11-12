@@ -60,8 +60,8 @@
             "levent"
           ],
           "dukkan": false,
-          "gorsel": "Same empty apartment, the agent dramatically pulling open the curtains.",
-          "hareket": "the agent pulls the curtains open revealing a brick wall right outside the window with a small sea poster taped on it",
+          "gorsel": "Same empty apartment living room, the real estate agent standing next to the window holding the open curtains, Levent seen from behind facing the window. Through the open window there is NO view at all: only the red brick wall of the next building, one meter away, fills the entire window. A single small poster of a blue sea with a seagull is taped onto that brick wall in the middle of the window. No sky, no city, no mountains visible. No text anywhere.",
+          "hareket": "the agent proudly pulls the curtains fully open and Levent leans forward, staring at the brick wall with the tiny sea poster",
           "sure": 3,
           "kasa": null,
           "efekt": "curtain swoosh then distant seagull sound"
@@ -76,7 +76,7 @@
             "esnaf"
           ],
           "dukkan": false,
-          "gorsel": "Same empty apartment, Levent pointing at the window, the agent seen from behind.",
+          "gorsel": "Same empty apartment living room, Levent facing the camera and pointing back over his shoulder at the window behind him, the agent seen from behind. Through the open window there is NO view at all: only the red brick wall of the next building, one meter away, fills the entire window. A single small poster of a blue sea with a seagull is taped onto that brick wall in the middle of the window. No sky, no city, no mountains visible. No text anywhere.",
           "kasa": null,
           "efekt": null
         },
@@ -90,7 +90,7 @@
             "levent"
           ],
           "dukkan": false,
-          "gorsel": "Same empty apartment, the agent admiring the window like a painting, Levent seen from behind.",
+          "gorsel": "Same empty apartment living room, the agent facing the camera, gesturing proudly at the window behind him as if it were a painting, Levent seen from behind. Through the open window there is NO view at all: only the red brick wall of the next building, one meter away, fills the entire window. A single small poster of a blue sea with a seagull is taped onto that brick wall in the middle of the window. No sky, no city, no mountains visible. No text anywhere.",
           "kasa": null,
           "efekt": null
         },
