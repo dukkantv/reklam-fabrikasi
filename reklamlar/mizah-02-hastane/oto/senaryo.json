@@ -1,0 +1,90 @@
+{
+  "baslik": "Cemo Acile Koştu",
+  "aciklama": "Cemo'nun acil durumu gerçekten çok acildi 😂 Sizce teşhis doğru mu?",
+  "planlar": [
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "[whispers] Hemşire hanım, çok acil... kriz geldi!",
+      "duygu": "panicked",
+      "karakterler": [
+        "cemo",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Inside a bright Turkish state hospital emergency room, Cemo bent over clutching his stomach at the nurse station, Levent seen from behind next to him.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "Sakin olun! Ağrı nerede, ne zamandır var?",
+      "duygu": "concerned and serious",
+      "karakterler": [
+        "esnaf",
+        "cemo"
+      ],
+      "dukkan": false,
+      "gorsel": "Same hospital emergency room, the nurse behind the nurse station desk, Cemo seen from behind in the foreground.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "[sighs] Sabahtan beri... midemde kocaman bir boşluk var.",
+      "duygu": "dramatic and suffering",
+      "karakterler": [
+        "cemo",
+        "esnaf"
+      ],
+      "dukkan": false,
+      "gorsel": "Same hospital emergency room, Cemo leaning on the nurse station desk, the nurse seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "aksiyon",
+      "karakterler": [
+        "esnaf",
+        "cemo",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "Same hospital emergency room, the nurse listening to Cemo's belly with a stethoscope, Levent watching worried in the background.",
+      "hareket": "the nurse presses a stethoscope on Cemo's belly and jumps back startled as his belly rumbles, Levent covers his mouth",
+      "sure": 3,
+      "kasa": null,
+      "efekt": "very loud funny stomach growl rumble"
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "[laughs] Teşhis koydum: açlık. Tedavi: iki poğaça, günde üç kere.",
+      "duygu": "amused and kind",
+      "karakterler": [
+        "esnaf",
+        "cemo"
+      ],
+      "dukkan": false,
+      "gorsel": "Same hospital emergency room, the nurse smiling and holding up a paper bag with two pastries, Cemo seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "[excited] Hemşire hanım, ben bu hastanede yatmak istiyorum!",
+      "duygu": "overjoyed",
+      "karakterler": [
+        "cemo",
+        "esnaf"
+      ],
+      "dukkan": false,
+      "gorsel": "Same hospital emergency room, Cemo beaming and hugging the pastry bag, the nurse seen from behind.",
+      "kasa": null,
+      "efekt": null
+    }
+  ]
+}
