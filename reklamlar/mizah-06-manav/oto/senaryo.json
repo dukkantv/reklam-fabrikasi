@@ -1,0 +1,89 @@
+{
+  "baslik": "Karpuz Uzmanı Cemo",
+  "aciklama": "Cemo karpuzu tıklatarak seçiyor 😂 Siz karpuzu nasıl seçiyorsunuz?",
+  "planlar": [
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "[whispers] Şşşt... bu karpuz bana beni al diyor.",
+      "duygu": "secretive and focused",
+      "karakterler": [
+        "cemo",
+        "levent"
+      ],
+      "dukkan": false,
+      "gorsel": "A colorful Bursa greengrocer stall full of watermelons, Cemo pressing his ear against a big watermelon, Levent seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "levent",
+      "metin": "Cemo, karpuzla mı konuşuyorsun?",
+      "duygu": "confused",
+      "karakterler": [
+        "levent",
+        "cemo"
+      ],
+      "dukkan": false,
+      "gorsel": "Same greengrocer stall, Levent looking puzzled, Cemo seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "Usta işi abi. Tık tık... kesin kıpkırmızı!",
+      "duygu": "expert and confident",
+      "karakterler": [
+        "cemo",
+        "esnaf"
+      ],
+      "dukkan": false,
+      "gorsel": "Same greengrocer stall, Cemo knocking on the watermelon with his knuckles, the greengrocer seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "aksiyon",
+      "karakterler": [
+        "esnaf",
+        "cemo"
+      ],
+      "dukkan": false,
+      "gorsel": "Same greengrocer stall, the greengrocer cutting the watermelon open on the counter.",
+      "hareket": "the greengrocer slices the watermelon in half and it is completely pale white inside, Cemo's face falls",
+      "sure": 3,
+      "kasa": null,
+      "efekt": "a knife slicing through a watermelon"
+    },
+    {
+      "tip": "konusma",
+      "kim": "esnaf",
+      "metin": "[laughs] Kırmızı değil ama bak... çok sulu!",
+      "duygu": "trying to cheer him up",
+      "karakterler": [
+        "esnaf",
+        "cemo"
+      ],
+      "dukkan": false,
+      "gorsel": "Same greengrocer stall, the greengrocer holding up the pale watermelon half, Cemo seen from behind.",
+      "kasa": null,
+      "efekt": null
+    },
+    {
+      "tip": "konusma",
+      "kim": "cemo",
+      "metin": "[sighs] Abi, bu karpuz bana yalan söyledi.",
+      "duygu": "heartbroken",
+      "karakterler": [
+        "cemo",
+        "esnaf"
+      ],
+      "dukkan": false,
+      "gorsel": "Same greengrocer stall, Cemo holding the pale watermelon half sadly, the greengrocer seen from behind.",
+      "kasa": null,
+      "efekt": null
+    }
+  ]
+}
