@@ -1058,9 +1058,12 @@ def video(klasor):
     oto = os.path.join(kok, "oto")
     senaryo = json.load(open(os.path.join(oto, "senaryo.json"), encoding="utf-8"))
     planlar = senaryo["planlar"]
-    butce_kontrol(tahmini_video_maliyeti(senaryo), "Video")
-
     klasor_klip = os.path.join(oto, "klipler")
+    # Bütçe tahmini sadece önbellekte OLMAYAN planlar için (hazır kliplere tekrar ödeme yapılmaz)
+    eksik = [p for no, p in enumerate(planlar, 1)
+             if not onbellekten(klasor_klip, no, onbellek_anahtari(p, os.path.join(oto, f"plan_{no:02d}.jpg")))]
+    butce_kontrol(tahmini_video_maliyeti({"planlar": eksik}), "Video")
+
     hatalar = []
 
     def uret(no):
