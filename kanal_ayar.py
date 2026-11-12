@@ -149,8 +149,13 @@ def listeler():
                 break
             sayfa = "&pageToken=" + v["nextPageToken"]
         for pid, l in ls:
-            icinde = {i["snippet"]["resourceId"]["videoId"] for i in
-                      yt_get(kanal, f"playlistItems?part=snippet&maxResults=50&playlistId={pid}").get("items", [])}
+            try:
+                icinde = {i["snippet"]["resourceId"]["videoId"] for i in
+                          yt_get(kanal, f"playlistItems?part=snippet&maxResults=50&playlistId={pid}").get("items", [])}
+            except RuntimeError:  # yeni açılan liste birkaç saniye görünmeyebilir: boş say
+                import time
+                time.sleep(5)
+                icinde = set()
             # eskiden yeniye ekle ki liste sırası doğal olsun
             for it in reversed(videolar):
                 vid, bas = it["snippet"]["resourceId"]["videoId"], it["snippet"]["title"]
