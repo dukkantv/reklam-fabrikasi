@@ -1,0 +1,75 @@
+{
+  "gun": 12,
+  "toplam_gun": 30,
+  "kasa_basi": 12400,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {
+      "tema": "gece",
+      "gorsel": "defter",
+      "gorsel_yazi": "RİSKLİ KARAR",
+      "ifade": "dusunceli",
+      "baslik": "TEKLİFİ KABUL",
+      "anlatim": "Kemal Bey'in planını dinledim. Serdar'ın suçunu kanıtlamak için onunla iş birliği yapmayı kabul ettim.",
+      "damga": "Onay"
+    },
+    {
+      "tema": "sabah",
+      "gorsel": "hal",
+      "gorsel_yazi": "SABAHTAN",
+      "ifade": "mutlu",
+      "baslik": "ERKEN BASKIN",
+      "anlatim": "Sabah erkenden haldeki gizli depoya gittim. Kemal Bey'in verdiği delilleri dikkatle çantama koydum.",
+      "damga": "Gizli"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "domates",
+      "gorsel_yazi": "+1500 TL",
+      "ifade": "gulen",
+      "kasa": 13900,
+      "baslik": "HIZLI KAZANÇ",
+      "anlatim": "Tezgaha dönüp taze domatesleri hızlıca sattım. Kasaya bin beş yüz lira ekledim, işler açıldı.",
+      "damga": "Kazanç"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "etiket",
+      "gorsel_yazi": "İNDİRİmlİ",
+      "ifade": "mutlu",
+      "baslik": "ÜRÜN TÜKENDİ",
+      "anlatim": "Öğleden sonra kalan sebzeleri toplu indirimle bitirdim. Kasaya dokuz yüz lira daha girdi.",
+      "damga": "Hız"
+    },
+    {
+      "tema": "aksam",
+      "gorsel": "para",
+      "gorsel_yazi": "+900 TL",
+      "ifade": "mutlu",
+      "kasa": 14800,
+      "baslik": "GÜNÜN SONU",
+      "anlatim": "Akşam kasa sayımını yaptım. Toplam on dört bin sekiz yüz lira oldu. Hedefe yaklaşıyorum.",
+      "damga": "Başarı"
+    },
+    {
+      "tema": "gece",
+      "gorsel": "tezgah",
+      "gorsel_yazi": "YENİ TUZAK",
+      "ifade": "saskin",
+      "baslik": "BEKLENMEYEN",
+      "anlatim": "Gece dükkanı kapatırken Serdar Tunç karşıma çıktı. Elimdeki çantayı fark etmiş gibiydi.",
+      "damga": "Tehlike"
+    },
+    {
+      "tema": "oylama",
+      "ifade": "dusunceli",
+      "secenek": [
+        "Delili göster",
+        "Çantayı sakla"
+      ],
+      "baslik": "YÜZ YÜZE",
+      "anlatim": "Serdar çantayı soruyor. Delili ona şimdi göstereyim mi, yoksa saklayayım mı? Yoruma A veya B yaz. Yarın gün 13!"
+    }
+  ]
+}
