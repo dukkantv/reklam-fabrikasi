@@ -168,7 +168,12 @@ def indir(url, hedef):
 
 
 # ---------- ÇİZİM: Pollinations, yedek Gemini resim ----------
+CIZIM_KAPALI = {"pollinations": False, "gemini": False}
+
+
 def resim_pollinations(prompt, hedef, tohum):
+    if CIZIM_KAPALI["pollinations"]:
+        return False
     url = ("https://image.pollinations.ai/prompt/" + urllib.parse.quote(prompt[:900]) +
            f"?width=1344&height=768&model=flux&seed={tohum}&nologo=true&private=true")
     r = requests.get(url, timeout=180)
@@ -177,10 +182,16 @@ def resim_pollinations(prompt, hedef, tohum):
         calistir("-i", hedef + ".ham.jpg", "-vf", "crop=iw*0.92:ih*0.92:iw*0.04:0", "-q:v", "2", "-f", "image2", hedef)
         return True
     print(f"Pollinations {r.status_code} {len(r.content)}")
+    if r.status_code in (401, 402, 403):
+        CIZIM_KAPALI["pollinations"] = True
+        print("Pollinations ücretli/kapalı — bu çalıştırmada atlanacak")
     return False
 
 
 def resim_gemini(prompt, hedef):
+    if CIZIM_KAPALI["gemini"]:
+        return False
+    kodlar = []
     for model in ["gemini-2.5-flash-image", "gemini-2.5-flash-image-preview"]:
         try:
             r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
@@ -193,21 +204,27 @@ def resim_gemini(prompt, hedef):
                         open(hedef, "wb").write(base64.b64decode(p["inlineData"]["data"]))
                         return True
             print(f"Gemini resim {model} {r.status_code}")
+            kodlar.append(r.status_code)
         except Exception as e:
             print("Gemini resim hata:", str(e)[:80])
+    if kodlar and all(k in (403, 404, 429) for k in kodlar):
+        CIZIM_KAPALI["gemini"] = True
+        print("Gemini resim kotası yok — bu çalıştırmada atlanacak")
     return False
 
 
 def ciz(sc, tur, hedef, tohum):
     # Nesne EN BAŞTA: model önce anlatılan şeyi çizsin, stil sonra gelsin
     prompt = f"{sc['nesne']} clearly visible as the main subject. {sc['gorsel']}. {STILLER[tur]}. {ORTAK}"
-    for d in range(3):
+    for d in range(2):
+        if CIZIM_KAPALI["pollinations"]:
+            break
         try:
             if resim_pollinations(prompt, hedef, tohum + d * 97):
                 return True
         except Exception as e:
             print("Pollinations hata:", str(e)[:80])
-        time.sleep(8 * (d + 1))
+        time.sleep(5)
     return resim_gemini(prompt, hedef)
 
 
@@ -225,7 +242,7 @@ def sahne_resmi(sc, tur, i):
         adaylar += [a for a in bulunan if a["baslik"] not in {x["baslik"] for x in adaylar}]
         if len(adaylar) >= 6:
             break
-    for aday in adaylar[:6]:
+    for aday in adaylar[:4]:
         if not indir(aday["url"], ham):
             continue
         puan = alakali_mi(ham, sc["metin"], sc["nesne"])
@@ -337,13 +354,20 @@ Aşağıdaki senaryo yarım kaldı. Şimdiye kadar {len(s['sahneler'])} sahne ya
 Tüm anlatım şu ana kadar: {' '.join(x['metin'] for x in s['sahneler'])[:12000]}
 DEVAM ET: yaklaşık {min(kalan, 900)} kelime daha yaz ({max(8, min(kalan, 900) // 25)} sahne, her sahne 20-30 kelime).
 {"Bu son parça: hikâyeyi tamamla, çözüm ve kapanış çağrısıyla bitir." if kalan <= 1000 else "Henüz bitirme, gerilimi artırarak sürdür."}
-Aynı karakterler, aynı isimler. Her sahnede "metin", "nesne", "arama", "gorsel" alanları (önceki kurallar).
+Aynı karakterler, aynı isimler. Her sahnede "metin" (Türkçe), "nesne", "arama", "gorsel" (bu üçü İNGİLİZCE, somut nesne/mekân; logo, abone düğmesi, mikrofon gibi soyut şeyler YOK).
 SADECE JSON: {{"sahneler": [...]}}"""}])
         if not ek or not ek.get("sahneler"):
             break
         s["sahneler"] += ek["sahneler"]
         print(f"Senaryo uzatıldı: {len(s['sahneler'])} sahne, {kelime()} kelime")
         json.dump(s, open(yol, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    birlesik = []
+    for x in s["sahneler"]:
+        if birlesik and len(birlesik[-1]["metin"].split()) < 20:
+            birlesik[-1]["metin"] += " " + x["metin"]
+        else:
+            birlesik.append(dict(x))
+    s["sahneler"] = birlesik
     for x in s["sahneler"]:
         x.setdefault("nesne", (x.get("gorsel") or x.get("arama") or "cinematic scene")[:60])
         x.setdefault("gorsel", x["nesne"])
