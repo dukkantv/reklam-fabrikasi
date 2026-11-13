@@ -191,6 +191,17 @@ export default {
       return k ? json({ ok: true }) : json({ hata: "yok" }, 404);
     }
 
+    if (url.pathname === "/resim" && req.method === "POST") {
+      if (!env.GIZLI || req.headers.get("x-gizli") !== env.GIZLI) return new Response("yetkisiz", { status: 403 });
+      try {
+        const { prompt, seed, steps } = await req.json();
+        const out = await env.AI.run("@cf/black-forest-labs/flux-1-schnell",
+          { prompt: String(prompt).slice(0, 2000), steps: Math.min(steps || 6, 8), seed: seed || 1 });
+        return new Response(JSON.stringify({ image: out.image }), { headers: { "content-type": "application/json" } });
+      } catch (e) {
+        return new Response(JSON.stringify({ hata: String(e).slice(0, 300) }), { status: 500, headers: { "content-type": "application/json" } });
+      }
+    }
     if (url.pathname === "/foto") {
       const anahtar = url.searchParams.get("a") || "";
       if (!anahtar.startsWith("bvf:")) return json({ hata: "geçersiz" }, 400);

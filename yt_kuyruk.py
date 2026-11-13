@@ -511,7 +511,7 @@ def urunleri_ekle():
 
 def kapaklari_tamamla():
     """Yüklenmiş ama kapak resmi henüz konamamış uzun videolara kapağı yeniden dener (kanal doğrulandıktan sonra)."""
-    for p in glob.glob(os.path.join(KUYRUK, "*.json")):
+    for p in glob.glob(os.path.join(KUYRUK, "*.json")) + glob.glob(os.path.join(KUYRUK, "arsiv", "*.json")):
         k = json.load(open(p, encoding="utf-8"))
         if not k.get("kapak") or not k.get("video_id") or k.get("kapak_tamam"):
             continue

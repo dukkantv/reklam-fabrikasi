@@ -8,3 +8,7 @@ workers_dev = true
 [[kv_namespaces]]
 binding = "ONAY"
 id = "5234b7c3c9bf4f5d808208e560374ed9"
+
+# Ücretsiz Workers AI (günlük kota): uzun videolar için resim çizimi
+[ai]
+binding = "AI"

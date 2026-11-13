@@ -168,7 +168,30 @@ def indir(url, hedef):
 
 
 # ---------- ÇİZİM: Pollinations, yedek Gemini resim ----------
-CIZIM_KAPALI = {"pollinations": False, "gemini": False}
+CIZIM_KAPALI = {"pollinations": False, "gemini": False, "cf": False}
+CF_URL = "https://dukkantv-onay.dukkan-tvstudio.workers.dev/resim"
+
+
+def resim_cf(prompt, hedef, tohum):
+    """Cloudflare Workers AI (FLUX schnell) — hesabın günlük ücretsiz kotası. Kare çizer, 16:9'a ortadan kırpılır."""
+    if CIZIM_KAPALI["cf"] or not TOKEN:
+        return False
+    import hashlib
+    gizli = hashlib.sha256(TOKEN.encode()).hexdigest()[:48]
+    try:
+        r = requests.post(CF_URL, timeout=120, headers={"x-gizli": gizli},
+                          json={"prompt": prompt, "seed": tohum, "steps": 6})
+        if r.status_code == 200 and r.json().get("image"):
+            open(hedef + ".kare.jpg", "wb").write(base64.b64decode(r.json()["image"]))
+            calistir("-i", hedef + ".kare.jpg", "-vf", "crop=iw:iw*9/16", "-q:v", "2", "-f", "image2", hedef)
+            return True
+        print("Cloudflare resim", r.status_code, r.text[:160])
+        if r.status_code in (403, 429) or "limit" in r.text.lower() or "neuron" in r.text.lower():
+            CIZIM_KAPALI["cf"] = True
+            print("Cloudflare resim kotası/izni yok — bu çalıştırmada atlanacak")
+    except Exception as e:
+        print("Cloudflare resim hata:", str(e)[:100])
+    return False
 
 
 def resim_pollinations(prompt, hedef, tohum):
@@ -216,6 +239,8 @@ def resim_gemini(prompt, hedef):
 def ciz(sc, tur, hedef, tohum):
     # Nesne EN BAŞTA: model önce anlatılan şeyi çizsin, stil sonra gelsin
     prompt = f"{sc['nesne']} clearly visible as the main subject. {sc['gorsel']}. {STILLER[tur]}. {ORTAK}"
+    if resim_cf(prompt, hedef, tohum):
+        return True
     for d in range(2):
         if CIZIM_KAPALI["pollinations"]:
             break
@@ -235,6 +260,14 @@ def sahne_resmi(sc, tur, i):
         return son
     ham = os.path.join(CIKTI, f"ham_{i:03d}")
     en_iyi, en_puan = None, -1
+    if tur != "tarih":
+        for d in range(2):
+            if ciz(sc, tur, ham, 1000 + i + d * 31):
+                puan = alakali_mi(ham, sc["metin"], sc["nesne"])
+                if puan > en_puan:
+                    os.replace(ham, son); en_puan = puan
+                if puan >= 6:
+                    return son
     adaylar = []
     sorgular = [sc.get("arama") or sc["nesne"], sc["nesne"], *sc.get("yedek_arama", [])]
     for q in sorgular:
