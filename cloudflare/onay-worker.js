@@ -162,7 +162,7 @@ export default {
       try {
         const { prompt, seed, steps } = await req.json();
         const out = await env.AI.run("@cf/black-forest-labs/flux-1-schnell",
-          { prompt: String(prompt).slice(0, 2000), steps: Math.min(steps || 6, 8), seed: seed || 1 });
+          { prompt: String(prompt).slice(0, 2000), steps: Math.min(steps || 6, 8) });
         return new Response(JSON.stringify({ image: out.image }), { headers: { "content-type": "application/json" } });
       } catch (e) {
         return new Response(JSON.stringify({ hata: String(e).slice(0, 300) }), { status: 500, headers: { "content-type": "application/json" } });
