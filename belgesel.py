@@ -18,10 +18,10 @@ UA = {"User-Agent": "DukkanTV-Belgesel/1.0 (https://dukkantv.github.io)"}
 
 STILLER = {
     "tarih": "detailed historical oil painting style, dramatic chiaroscuro light, rich colors, museum quality",
-    "dedektif": "dark noir graphic novel illustration, strong ink lines, moody blue and amber light, rain, cinematic",
+    "dedektif": "dark noir graphic novel illustration, strong ink lines, moody blue and amber light, cinematic, well lit subject, blank walls",
     "hikaye": "warm cinematic digital painting, soft light, emotional, realistic proportions, modern Turkey",
 }
-ORTAK = "no text, no letters, no captions, no signs with writing, no watermark, 16:9 wide composition"
+ORTAK = "absolutely no text anywhere: no signs, no signboards, no letters, no numbers, no writing, no captions, no labels, no watermark; plain blank walls; 16:9 wide composition"
 
 TURLER = {
     "tarih": """Sen Türkiye'nin en çok izlenen tarih ve gizem belgesellerini yazan bir senaristsin. Konu: {konu}
