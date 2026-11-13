@@ -23,5 +23,12 @@
  "stok_bildirildi": true,
  "video_id": "o604wSBnG1M",
  "yayin": "2026-11-13T19:00:00+03:00",
- "hata": "<urlopen error [Errno 104] Connection reset by peer>"
+ "hata": "<urlopen error [Errno 104] Connection reset by peer>",
+ "ig": "paylasildi",
+ "ig_id": "18112204781613585",
+ "ig_link": "https://www.instagram.com/reel/DfsF_-tkoIQ/",
+ "fb": "paylasildi",
+ "fb_id": "1122161077384865",
+ "tt": "taslak",
+ "tt_id": "v_inbox_file~v2.7707698290401413127"
 }
