@@ -76,6 +76,7 @@ jobs:
           retention-days: 14
       - name: Resim ve senaryoyu depoya kaydet (inceleme için)
         if: always()
+        if: always()
         run: |
           D=belgesel_deneme/${{ inputs.tur }}; rm -rf $D; mkdir -p $D
           cp cikti/belgesel/senaryo.json cikti/belgesel/yayin.json cikti/belgesel/kapak.jpg $D/ 2>/dev/null || true

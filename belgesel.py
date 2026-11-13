@@ -391,11 +391,11 @@ Aynı karakterler, aynı isimler. Her sahnede "metin" (Türkçe), "nesne", "aram
 SADECE JSON: {{"sahneler": [...]}}"""}])
         if not ek or not ek.get("sahneler"):
             break
-        s["sahneler"] += ek["sahneler"]
+        s["sahneler"] += [x for x in ek["sahneler"] if isinstance(x, dict) and x.get("metin")]
         print(f"Senaryo uzatıldı: {len(s['sahneler'])} sahne, {kelime()} kelime")
         json.dump(s, open(yol, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     birlesik = []
-    for x in s["sahneler"]:
+    for x in [x for x in s["sahneler"] if isinstance(x, dict) and x.get("metin")]:
         if birlesik and len(birlesik[-1]["metin"].split()) < 20:
             birlesik[-1]["metin"] += " " + x["metin"]
         else:
