@@ -261,6 +261,8 @@ def youtube_yukle(kayit):
                             method="POST", ham=open(os.path.join("/tmp", kayit["kapak"]), "rb").read(),
                             headers={"Authorization": f"Bearer {token}", "Content-Type": "image/jpeg"})
             print("Kapak:", k, str(v)[:150])
+            if k == 200:
+                kayit["kapak_tamam"] = True
             if k != 200:
                 telegram(f"⚠️ Kapak resmi yüklenemedi ({k}). Kanalda telefon doğrulaması gerekebilir: "
                          "youtube.com/verify")
@@ -507,6 +509,27 @@ def urunleri_ekle():
             json.dump(k, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 
+def kapaklari_tamamla():
+    """Yüklenmiş ama kapak resmi henüz konamamış uzun videolara kapağı yeniden dener (kanal doğrulandıktan sonra)."""
+    for p in glob.glob(os.path.join(KUYRUK, "*.json")):
+        k = json.load(open(p, encoding="utf-8"))
+        if not k.get("kapak") or not k.get("video_id") or k.get("kapak_tamam"):
+            continue
+        try:
+            token = erisim_anahtari(k["kanal"])
+            gh("release", "download", "kuyruk", "-p", k["kapak"], "-D", "/tmp", "--clobber")
+            kod, _, v = istek(f"https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={k['video_id']}",
+                              method="POST", ham=open(os.path.join("/tmp", k["kapak"]), "rb").read(),
+                              headers={"Authorization": f"Bearer {token}", "Content-Type": "image/jpeg"})
+            print("Kapak", k["id"], kod, str(v)[:120])
+            if kod == 200:
+                k["kapak_tamam"] = True
+                json.dump(k, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+                telegram(f"🖼 Kapak resmi yüklendi: {k['baslik']}")
+        except Exception as e:
+            print("Kapak hatası:", str(e)[:150])
+
+
 if __name__ == "__main__":
     if sys.argv[1] == "ekle":
         ekle(*sys.argv[2:10])
@@ -516,3 +539,5 @@ if __name__ == "__main__":
         yeniden_planla()
     elif sys.argv[1] == "urunler":
         urunleri_ekle()
+    elif sys.argv[1] == "kapaklar":
+        kapaklari_tamamla()

@@ -15,7 +15,7 @@ on:
         required: false
         type: choice
         default: ""
-        options: ["", dukkantv, kasakurgu, dramabite]
+        options: ["", dukkantv, kasakurgu, dramabite, gizlitarih]
       video_url:
         description: "Elle ekleme: videonun indirme adresi (mp4)"
         required: false
@@ -78,6 +78,8 @@ jobs:
         run: python3 basvuru.py kontrol || echo "::warning::Başvuru kontrolü başarısız"
       - name: Onayları kontrol et ve yükle
         run: python3 yt_kuyruk.py kontrol
+      - name: Eksik kapak resimlerini tamamla
+        run: python3 yt_kuyruk.py kapaklar || true
       - name: Kuyruğu kaydet
         run: |
           git config user.name "Dükkan TV Bot"
