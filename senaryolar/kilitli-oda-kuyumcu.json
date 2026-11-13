@@ -1,0 +1,358 @@
+{
+ "baslik": "Kilitli Odada Ölen Kuyumcu — Katil Kim? | Bursa Vakası",
+ "kapak_yazi": "KATİL KİM?",
+ "aciklama": "Bursa'da tarihi bir handa kuyumcu Hakkı Usta, içeriden kilitli dükkânında ölü bulundu. Anahtar kilitte, kepenk kapalı. Üç şüpheli, üç sebep, tek bir imkânsız oda. Bütün ipuçlarını görüyorsunuz; sondan önce durdurup katili tahmin edin!\n\nBu hikâye tamamen kurgudur; isimler ve olaylar hayal ürünüdür.",
+ "etiketler": [
+  "katil kim",
+  "dedektif hikayesi",
+  "kilitli oda",
+  "polisiye",
+  "gizem",
+  "cinayet çözme",
+  "Kasa Kurgu",
+  "Türkçe dedektif",
+  "bulmaca",
+  "sesli hikaye"
+ ],
+ "bolumler": [
+  {
+   "sahne": 1,
+   "ad": "Kilitli oda"
+  },
+  {
+   "sahne": 12,
+   "ad": "Üç şüpheli"
+  },
+  {
+   "sahne": 24,
+   "ad": "Soruşturma"
+  },
+  {
+   "sahne": 36,
+   "ad": "Son ipuçları"
+  },
+  {
+   "sahne": 39,
+   "ad": "Katil kim? (durdurun)"
+  },
+  {
+   "sahne": 41,
+   "ad": "Çözüm"
+  }
+ ],
+ "kapak_sahne": 1,
+ "sahneler": [
+  {
+   "metin": "Bir kuyumcu, kendi dükkânında, içeriden kilitli bir kapının ardında ölü bulundu. Anahtar kilitte, kepenkler kapalı, pencereler demir parmaklıklı. Peki katil içeri nasıl girdi ve nasıl çıktı?",
+   "nesne": "locked iron door of an old jewelry shop at dawn",
+   "arama": "locked iron door of an old jewelry shop at dawn",
+   "gorsel": "locked iron door of an old jewelry shop at dawn, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Kasa Kurgu'ya hoş geldiniz. Bu vakada bütün ipuçlarını size tek tek göstereceğim. Sonunda durup soracağım: katil kim? Gözünüzü dört açın, çünkü cevap baştan beri önünüzde olacak.",
+   "nesne": "detective notebook and magnifying glass on a wooden desk",
+   "arama": "detective notebook and magnifying glass on a wooden desk",
+   "gorsel": "detective notebook and magnifying glass on a wooden desk, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Bursa'da, taş duvarlı tarihi bir hanın içinde küçük bir kuyumcu dükkânı. Sahibi Hakkı Usta, altmış sekiz yaşında, kırk yıldır aynı tezgâhın başında altın işleyen bir zanaatkâr.",
+   "nesne": "old stone caravanserai courtyard with arches",
+   "arama": "old stone caravanserai courtyard with arches",
+   "gorsel": "old stone caravanserai courtyard with arches, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Hakkı Usta'nın her akşam aynı düzeni vardı. Saat yedide kepengi indirir, kapıyı içeriden kilitler, anahtarı kilitte bırakır ve bir saat boyunca tek başına gün sonu hesabını yapardı.",
+   "nesne": "old jeweler counting gold at a counter under a lamp",
+   "arama": "old jeweler counting gold at a counter under a lamp",
+   "gorsel": "old jeweler counting gold at a counter under a lamp, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Saat tam sekizde de kalp ilacını içerdi. İlaçlarını haftalık bir ilaç kutusunda tutardı; pazartesiden pazara yedi küçük göz, her gözde bir hap.",
+   "nesne": "weekly pill organizer box with seven compartments",
+   "arama": "weekly pill organizer box with seven compartments",
+   "gorsel": "weekly pill organizer box with seven compartments, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Bir ayrıntıyı aklınızda tutun: Hakkı Usta'nın elleri yıllardır titriyordu. O küçük kapakları kendi açamaz, çoğu zaman bir komşusundan yardım isterdi.",
+   "nesne": "elderly man's trembling hands on a wooden table",
+   "arama": "elderly man's trembling hands on a wooden table",
+   "gorsel": "elderly man's trembling hands on a wooden table, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Perşembe sabahı, dükkân saat dokuzda açılmayınca çırağı Kerem kapıyı çaldı. Ses yoktu. Kepenk inikti, kapı içeriden kilitliydi.",
+   "nesne": "closed metal shutter of a small shop in an old bazaar",
+   "arama": "closed metal shutter of a small shop in an old bazaar",
+   "gorsel": "closed metal shutter of a small shop in an old bazaar, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Polis geldi, kapı zorla açıldı. Hakkı Usta tezgâhın arkasındaki sandalyesinde, başı defterinin üzerine düşmüş halde hareketsiz yatıyordu. Kasa kapalıydı, tek bir altın bile eksik değildi.",
+   "nesne": "police tape across the doorway of an old shop",
+   "arama": "police tape across the doorway of an old shop",
+   "gorsel": "police tape across the doorway of an old shop, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Anahtar hâlâ kilitteydi. Arka kapı yoktu. Parmaklıklar yerli yerindeydi. Görünüşe göre oraya kimse girmemiş, kimse çıkmamıştı.",
+   "nesne": "old brass key inside a door lock",
+   "arama": "old brass key inside a door lock",
+   "gorsel": "old brass key inside a door lock, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Adli tıp raporu kısa süre sonra geldi: ölüm çarşamba akşamı saat sekiz ile dokuz arasında olmuştu. Sebebi ise kalp krizi değil, bir zehirdi.",
+   "nesne": "forensic laboratory with test tubes",
+   "arama": "forensic laboratory with test tubes",
+   "gorsel": "forensic laboratory with test tubes, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Tezgâhın üstünde yarım bardak soğumuş bir çay duruyordu. Herkesin aklına ilk gelen buydu: zehir çayda olmalıydı.",
+   "nesne": "half-full glass of cold Turkish tea on a counter",
+   "arama": "half-full glass of cold Turkish tea on a counter",
+   "gorsel": "half-full glass of cold Turkish tea on a counter, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Bu dükkâna o hafta yakından giren üç kişi vardı. Üçünün de Hakkı Usta'yla bir hesabı vardı. Şimdi onları tek tek tanıyalım.",
+   "nesne": "three empty chairs in a dim room",
+   "arama": "three empty chairs in a dim room",
+   "gorsel": "three empty chairs in a dim room, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Birinci şüpheli: çırak Kerem. Yirmi iki yaşında, hırslı ve aceleci. Son aylarda ustasından sık sık azar işitiyordu.",
+   "nesne": "young apprentice at a jeweler's workbench",
+   "arama": "young apprentice at a jeweler's workbench",
+   "gorsel": "young apprentice at a jeweler's workbench, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Kerem'in görevlerinden biri de her pazar eczaneden ustasının ilaçlarını almak ve ilaç kutusunun yedi gözünü doldurmaktı. Yani ilaç kutusuna en çok dokunan kişi oydu.",
+   "nesne": "pharmacy receipt and medicine box on a table",
+   "arama": "pharmacy receipt and medicine box on a table",
+   "gorsel": "pharmacy receipt and medicine box on a table, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Üstelik polis kısa sürede Kerem'in bir sırrını buldu: ustasının kasasından gizlice borç almıştı ve Hakkı Usta bunu fark etmek üzereydi.",
+   "nesne": "open cash box with a few banknotes",
+   "arama": "open cash box with a few banknotes",
+   "gorsel": "open cash box with a few banknotes, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Kerem çarşamba akşamı ne yapıyordu? Altıda dükkândan çıktığını, eve gidip yattığını söyledi. Yalnız yaşıyordu. Bunu doğrulayan kimse yoktu.",
+   "nesne": "small dark apartment room at night",
+   "arama": "small dark apartment room at night",
+   "gorsel": "small dark apartment room at night, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "İkinci şüpheli: Leyla Hanım. Hakkı Usta'nın yıllar önceki ortağının kızı. Babası öldükten sonra dükkânın yarısının kendilerine ait olduğunu iddia ediyor, iki yıldır mahkemede uğraşıyordu.",
+   "nesne": "courthouse documents and legal files",
+   "arama": "courthouse documents and legal files",
+   "gorsel": "courthouse documents and legal files, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Leyla Hanım çarşamba akşamı hanın arka sokağında görülmüştü. Saat yediyi yirmi geçe, dükkânın penceresinin önünde birkaç dakika durmuş, sonra gitmişti.",
+   "nesne": "narrow back street of an old bazaar at dusk",
+   "arama": "narrow back street of an old bazaar at dusk",
+   "gorsel": "narrow back street of an old bazaar at dusk, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Çantasından da bir mektup çıktı. Ustaya yazılmış, öfkeli bir mektup: 'Babamın hakkını yediniz, bunun hesabını vereceksiniz.'",
+   "nesne": "old handwritten letter in an envelope",
+   "arama": "old handwritten letter in an envelope",
+   "gorsel": "old handwritten letter in an envelope, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Üçüncü şüpheli: hanın çay ocağını işleten Selim. Elli beş yaşında, sakin, güler yüzlü. Hakkı Usta'ya yıllardır her akşam yedide son çayını o götürürdü.",
+   "nesne": "small traditional tea house counter with tea glasses",
+   "arama": "small traditional tea house counter with tea glasses",
+   "gorsel": "small traditional tea house counter with tea glasses, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Selim'in elinden hiç düşürmediği koyu renkli bir tespihi vardı. Taneleri el yapımıydı ve her birinin üzerine küçük rakamlar kazınmıştı. Birisi sorduğunda 'eski bir hatıra' deyip geçiştirirdi.",
+   "nesne": "handmade prayer beads with carved numbers",
+   "arama": "handmade prayer beads with carved numbers",
+   "gorsel": "handmade prayer beads with carved numbers, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Ama Selim'in alibisi kusursuzdu. Çarşamba akşamı Mudanya'da bir yeğeninin düğünündeydi. Yüzlerce davetli onu görmüştü.",
+   "nesne": "wedding hall with tables and lights at night",
+   "arama": "wedding hall with tables and lights at night",
+   "gorsel": "wedding hall with tables and lights at night, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Hatta düğünde, saat sekizi geçe, gelin ve damatla tam on iki fotoğraf çektirmişti. Her birinde kolundaki saat açıkça görünüyordu.",
+   "nesne": "wristwatch on a man's arm at a celebration",
+   "arama": "wristwatch on a man's arm at a celebration",
+   "gorsel": "wristwatch on a man's arm at a celebration, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Böylece üç şüpheli, üç sebep ve imkânsız görünen tek bir kilitli oda. Soruşturma ilk ipucuyla başladı: o soğumuş çay bardağı.",
+   "nesne": "detective pinboard with photos and red string",
+   "arama": "detective pinboard with photos and red string",
+   "gorsel": "detective pinboard with photos and red string, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Laboratuvar sonucu herkesi şaşırttı. Çayda zehir yoktu. Bardak tertemizdi. Selim'in her akşam getirdiği çay masumdu.",
+   "nesne": "laboratory glass beaker under bright light",
+   "arama": "laboratory glass beaker under bright light",
+   "gorsel": "laboratory glass beaker under bright light, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Peki zehir nerede? Cevap tezgâhın çekmecesindeki ilaç kutusundan çıktı. Çarşamba gözü boştu. Ustası o akşamki hapını içmişti.",
+   "nesne": "open drawer with a pill organizer inside",
+   "arama": "open drawer with a pill organizer inside",
+   "gorsel": "open drawer with a pill organizer inside, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Polis kutudaki diğer hapları da inceledi. Perşembe, cuma, cumartesi, pazar. Hepsi temizdi. Zehir yalnızca tek bir haptaydı: çarşamba hapında.",
+   "nesne": "capsules laid out on a white laboratory tray",
+   "arama": "capsules laid out on a white laboratory tray",
+   "gorsel": "capsules laid out on a white laboratory tray, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "İşte burada durun ve düşünün. Katil neden yedi haptan sadece birini zehirledi? Neden özellikle çarşambayı seçti?",
+   "nesne": "single capsule under a magnifying glass",
+   "arama": "single capsule under a magnifying glass",
+   "gorsel": "single capsule under a magnifying glass, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Kilitli odanın sırrı da böylece çözülüyordu. Kimse içeri girmemişti. Kapıyı Hakkı Usta her akşamki gibi kendisi kilitlemişti. Zehir zaten içerideydi, saat sekizde içilmeyi bekliyordu.",
+   "nesne": "clock showing eight o'clock on an old wall",
+   "arama": "clock showing eight o'clock on an old wall",
+   "gorsel": "clock showing eight o'clock on an old wall, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Yani katilin cinayet anında orada olmasına gerek yoktu. Tek yapması gereken, o haftanın bir gününde ilaç kutusuna yaklaşmaktı.",
+   "nesne": "shadow of a hand reaching toward a drawer",
+   "arama": "shadow of a hand reaching toward a drawer",
+   "gorsel": "shadow of a hand reaching toward a drawer, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Şüpheler önce Kerem'e yöneldi. İlaçları o doldurmuştu, borcu vardı ve çarşamba akşamı için şahidi yoktu. Kâğıt üzerinde her şey ona işaret ediyordu.",
+   "nesne": "handcuffs on a police station table",
+   "arama": "handcuffs on a police station table",
+   "gorsel": "handcuffs on a police station table, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Ama bir terslik vardı. Kerem kutuyu pazar günü doldurmuştu. Eğer zehri o koysaydı, hangi gün öleceğini bilerek kendine bir alibi hazırlamaz mıydı? Oysa çarşamba akşamı tek başına evdeydi.",
+   "nesne": "calendar page with Wednesday circled",
+   "arama": "calendar page with Wednesday circled",
+   "gorsel": "calendar page with Wednesday circled, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Sonra Leyla Hanım'a bakıldı. O gece dükkânın önündeydi ve öfkeli bir mektup yazmıştı. Ama hanın güvenlik kamerası kesin bir şey gösteriyordu.",
+   "nesne": "security camera mounted on an old stone wall",
+   "arama": "security camera mounted on an old stone wall",
+   "gorsel": "security camera mounted on an old stone wall, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Leyla Hanım pencerenin önünde dört dakika durmuş, içeri hiç girmemiş ve saat sekizden önce oradan ayrılmıştı. Ustayla konuşmaya cesaret edememiş, mektubu da veremeden gitmişti.",
+   "nesne": "woman walking away down a lamp-lit street",
+   "arama": "woman walking away down a lamp-lit street",
+   "gorsel": "woman walking away down a lamp-lit street, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Geriye en masum görünen kişi kalıyordu: Selim. Ama Selim o akşam kilometrelerce ötede, yüzlerce şahidin önündeydi. Ondan daha sağlam bir alibi olamazdı.",
+   "nesne": "seaside town harbor at night",
+   "arama": "seaside town harbor at night",
+   "gorsel": "seaside town harbor at night, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Dedektif, hanın diğer esnafıyla konuşurken iki küçük bilgi daha öğrendi. Bunlar, bu vakanın son ipuçları.",
+   "nesne": "old craftsmen workshops in a bazaar corridor",
+   "arama": "old craftsmen workshops in a bazaar corridor",
+   "gorsel": "old craftsmen workshops in a bazaar corridor, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Birincisi: pazartesi akşamı yan dükkândaki saatçi, Selim'i Hakkı Usta'nın tezgâhında görmüştü. Ustanın titreyen elleri yine ilaç kutusunu açamamış, Selim de yardım etmişti.",
+   "nesne": "watchmaker's shop window with old clocks",
+   "arama": "watchmaker's shop window with old clocks",
+   "gorsel": "watchmaker's shop window with old clocks, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "İkincisi: Selim, düğün tarihi bir ay önce belli olduğu halde, herkese tekrar tekrar 'Çarşamba akşamı Mudanya'dayım' diye söylemişti. Neredeyse herkesin bunu hatırlamasını ister gibi.",
+   "nesne": "tea glasses on a tray in a busy bazaar",
+   "arama": "tea glasses on a tray in a busy bazaar",
+   "gorsel": "tea glasses on a tray in a busy bazaar, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Ve şimdi sıra sizde. Bütün ipuçlarını gördünüz: soğuk çay, tek zehirli hap, titreyen eller, rakamlı tespih, on iki fotoğraf ve pazartesi akşamı.",
+   "nesne": "detective pinboard with clues and photos",
+   "arama": "detective pinboard with clues and photos",
+   "gorsel": "detective pinboard with clues and photos, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Videoyu burada durdurun ve tahmin edin: Hakkı Usta'yı kim öldürdü? Cevabınızı yorumlara yazın. Bakalım kimler gerçek bir dedektif.",
+   "nesne": "question mark drawn on a chalkboard",
+   "arama": "question mark drawn on a chalkboard",
+   "gorsel": "question mark drawn on a chalkboard, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Hazırsanız çözüme geçelim. Katil, çay ocağının sahibi Selim'di.",
+   "nesne": "man silhouette in a dark doorway",
+   "arama": "man silhouette in a dark doorway",
+   "gorsel": "man silhouette in a dark doorway, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Kilitli oda bir hile değil, bir tuzaktı. Selim zehri pazartesi akşamı, ustaya ilaç kutusunu açmakta yardım ederken çarşamba gözündeki hapla değiştirdi. Ustanın titreyen elleri ona fırsatı kendi eliyle vermişti.",
+   "nesne": "hand switching a capsule in a pill organizer",
+   "arama": "hand switching a capsule in a pill organizer",
+   "gorsel": "hand switching a capsule in a pill organizer, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Neden çarşamba? Çünkü Selim'in o akşam kusursuz bir alibisi olacaktı. Ölüm saatinde yüzlerce kişinin önünde, saatini göstererek fotoğraf çektiriyordu. On iki fotoğraf, bir tesadüf değil, bir planın parçasıydı.",
+   "nesne": "wedding photographs spread on a table",
+   "arama": "wedding photographs spread on a table",
+   "gorsel": "wedding photographs spread on a table, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Çay neden temizdi? Çünkü Selim, şüphenin kendisine değil, onu getiren 'masum çaycıya' yönelmesini istiyordu. Herkes çaya bakarken kimse ilaç kutusuna bakmadı.",
+   "nesne": "tea glass and pill box side by side on a counter",
+   "arama": "tea glass and pill box side by side on a counter",
+   "gorsel": "tea glass and pill box side by side on a counter, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Ya sebep? O rakamlı tespih. Bu tür tespihler cezaevlerinde el yapımı olarak yapılır. Taneleri üzerindeki rakamlar ise Selim'in yıllar önceki koğuş numarasıydı.",
+   "nesne": "close-up of handmade prayer beads in a man's hand",
+   "arama": "close-up of handmade prayer beads in a man's hand",
+   "gorsel": "close-up of handmade prayer beads in a man's hand, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Otuz yıl önce Hakkı Usta'nın dükkânından altın çalınmış, Hakkı Usta'nın ifadesiyle suç dönemin çırağı Selim'in üzerine kalmıştı. Selim yıllarca yatmış, çıktığında her şeyini kaybetmişti.",
+   "nesne": "old prison corridor with barred doors",
+   "arama": "old prison corridor with barred doors",
+   "gorsel": "old prison corridor with barred doors, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Selim yıllar sonra aynı hana döndü, ustanın yanına çay ocağını açtı ve sabırla bekledi. Hakkı Usta onu tanımadı bile. Her akşam ondan çay aldı, her pazartesi ondan yardım istedi.",
+   "nesne": "old tea house in a stone courtyard at evening",
+   "arama": "old tea house in a stone courtyard at evening",
+   "gorsel": "old tea house in a stone courtyard at evening, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Polis, Selim'in çay ocağının dolabında boş bir kapsül kutusu ve aynı zehrin izlerini buldu. Saatçinin ifadesi ve tespihin geçmişi de eklenince Selim konuşmak zorunda kaldı.",
+   "nesne": "police evidence bag with a small box",
+   "arama": "police evidence bag with a small box",
+   "gorsel": "police evidence bag with a small box, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Selim sakin bir sesle tek bir cümle kurdu: 'Ben otuz yıl bekledim, o bir hafta bile bekleyemedi.' Ve kelepçeleri sessizce uzattı.",
+   "nesne": "handcuffs on a wooden table under a lamp",
+   "arama": "handcuffs on a wooden table under a lamp",
+   "gorsel": "handcuffs on a wooden table under a lamp, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Kerem'in borcu ortaya çıktı ve ustasının ailesine ödemeye söz verdi. Leyla Hanım'ın davası ise hâlâ sürüyor. İkisi de öfkeliydi, ama ikisi de katil değildi.",
+   "nesne": "courthouse steps on a gray day",
+   "arama": "courthouse steps on a gray day",
+   "gorsel": "courthouse steps on a gray day, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Bu vakanın dersi şu: en kusursuz alibi, bazen en büyük itiraftır. Ve kilitli bir odada aranacak şey, kapının nasıl kilitlendiği değil, zehrin içeri ne zaman girdiğidir.",
+   "nesne": "closed jewelry shop window at night",
+   "arama": "closed jewelry shop window at night",
+   "gorsel": "closed jewelry shop window at night, Bursa Turkey, 1990s"
+  },
+  {
+   "metin": "Katili ilk bulan siz miydiniz? Hangi ipucu sizi doğru cevaba götürdü? Yorumlara yazın. Yeni vakalar için Kasa Kurgu'ya abone olmayı ve bildirimleri açmayı unutmayın.",
+   "nesne": "detective hat and notebook on a desk under lamplight",
+   "arama": "detective hat and notebook on a desk under lamplight",
+   "gorsel": "detective hat and notebook on a desk under lamplight, Bursa Turkey, 1990s"
+  }
+ ]
+}
