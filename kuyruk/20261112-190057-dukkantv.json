@@ -15,10 +15,13 @@
   "şantiye"
  ],
  "dosya": "20261112-190057-dukkantv.mp4",
- "durum": "onaylandi",
+ "durum": "yuklendi",
  "eklendi": "2026-11-12T19:00:57.293006+03:00",
  "gunluk": true,
  "mesaj_id": 246,
  "videolu": true,
- "stok_bildirildi": true
+ "stok_bildirildi": true,
+ "video_id": "o604wSBnG1M",
+ "yayin": "2026-11-13T19:00:00+03:00",
+ "hata": "<urlopen error [Errno 104] Connection reset by peer>"
 }
