@@ -4,7 +4,7 @@
 ## Ödeme
 - Ödeme onayını her zaman Levent verir: Telegram'da "Ödeme geldi" düğmesi. Dekont fotoğrafı tek başına üretimi başlatmaz.
 - Gece gelen dekont sabaha kadar bekler; asistan müşteriye "Ödemeniz kontrol edilip videonuza başlanacak" der.
-- Premium: %50 kapora ile başlanır, kalan teslimde. Ekonomik: ödeme video onayından sonra.
+- Tüm paketlerde ödeme işe başlamadan PEŞİN alınır (Kasım 2026). Fiyatlar: Ekonomik 500 ₺ (aylık 4: 1.800, aylık 8: 3.200), Premium 1.000 ₺ (aylık 4: 3.600).
 
 ## Teslim saati
 - Müşteriye teslim (ve paylaşım) her gün **19:00**'da yapılır.
