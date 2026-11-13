@@ -1,0 +1,12 @@
+name: Resim servisi testi
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          G=$(printf %s "$TOKEN" | sha256sum | cut -c1-48)
+          curl -sS -m 120 -X POST https://dukkantv-onay.dukkan-tvstudio.workers.dev/resim -H "x-gizli: $G" -H "content-type: application/json" -d '{"prompt":"red apple on a wooden table","seed":1,"steps":4}' -D - -o /tmp/r.bin; echo; head -c 300 /tmp/r.bin | strings | head -5; ls -la /tmp/r.bin
+          echo "--- openverse"; curl -sS -m 40 -A "DukkanTV-Belgesel/1.0" "https://api.openverse.org/v1/images/?q=old%20key&page_size=2" -D - -o /tmp/o.bin | head -5; head -c 200 /tmp/o.bin
