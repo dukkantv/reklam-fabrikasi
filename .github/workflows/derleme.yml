@@ -1,0 +1,83 @@
+name: Levent & Cemo Derleme
+
+# Ücretsiz: önbellekteki dudak senkronlu klipler yeniden kurgulanır (fal.ai'ye ödeme yok).
+# Cumartesi 20:00 (TR) haftalık Shorts derlemesi → Pazar yayını; her ayın 1'i aylık uzun YouTube derlemesi.
+on:
+  schedule:
+    - cron: "7 17 * * 6"
+    - cron: "17 6 1 * *"
+  workflow_dispatch:
+    inputs:
+      tur:
+        description: "haftalik / aylik / elle"
+        default: "haftalik"
+      skecler:
+        description: "Sadece 'elle' için: mizah-02-hastane,mizah-05-berber"
+        default: ""
+      kuyruga:
+        description: "Bitince Telegram'a onaya gönder"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kuyruk-yazma
+  cancel-in-progress: false
+
+jobs:
+  derle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      GH_TOKEN: ${{ github.token }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Araçlar
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-inter fonts-dejavu-core
+          pip install -q requests numpy edge-tts
+      - name: Derle
+        id: d
+        env:
+          TUR: ${{ github.event_name == 'schedule' && (github.event.schedule == '17 6 1 * *' && 'aylik' || 'haftalik') || inputs.tur }}
+          SKECLER: ${{ inputs.skecler }}
+        run: |
+          python derleme.py "$TUR" "$SKECLER"
+          if [ -f cikti/derleme/yayin.json ]; then echo "var=1" >> "$GITHUB_OUTPUT"; fi
+      - name: Onaya gönder (Dükkan TV günlük stok)
+        if: steps.d.outputs.var == '1' && (github.event_name == 'schedule' || inputs.kuyruga)
+        env:
+          DERLEME: "1"
+        run: |
+          python3 - <<'PY'
+          import json, subprocess
+          y = json.load(open("cikti/derleme/yayin.json", encoding="utf-8"))
+          kat = "23" if y.get("kapak") else ""
+          subprocess.run(["python3", "yt_kuyruk.py", "ekle", "dukkantv", y["video"], y["baslik"], y["aciklama"],
+                          ",".join(y["etiketler"]), "gunluk", y.get("kapak", ""), kat], check=True)
+          PY
+      - name: Kaydet
+        if: steps.d.outputs.var == '1'
+        run: |
+          git config user.name "dukkan-tv-bot"; git config user.email "actions@users.noreply.github.com"
+          git add -A kuyruk derleme_sayac.json
+          git diff --cached --quiet || (git commit -qm "Derleme: ${{ github.run_id }}" && (git push || (git pull --rebase origin main && git push)))
+      - uses: actions/upload-artifact@v4
+        if: steps.d.outputs.var == '1'
+        with:
+          name: derleme
+          path: cikti/derleme/Derleme_*.mp4
+          retention-days: 14

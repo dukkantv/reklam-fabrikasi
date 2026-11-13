@@ -136,6 +136,8 @@ def ekle(kanal, video, baslik, aciklama="", etiketler="", gunluk="", kapak="", k
         kayit.update(kapak=kad, uzun=True)
     if kategori:
         kayit["kategori"] = kategori
+    if os.environ.get("DERLEME"):
+        kayit.update(derleme=True, sira="0" + kid)
     ad = kanal_bilgi(kanal)["ad"]
     if kanal in YAYIN_KANALLARI:
         # Yayın yetkisi Claude'da: onay beklemeden sıraya girer; Levent isterse yüklenmeden önce durdurabilir
@@ -331,7 +333,9 @@ def kontrol():
 
     simdi = dt.datetime.now(TR)
     # Günlük stok: bugün ya da ileri bir güne planlanmış stok videosu yoksa, en eski onaylı olan yüklenir; diğerleri bekler.
-    stok = sorted((k for k in kayitlar.values() if k.get("gunluk") and k["durum"] == "onaylandi"), key=lambda k: k["id"])
+    # "sira" varsa onu kullan (derlemeler sıranın başına girer: Pazar günü yayınlansın diye)
+    stok = sorted((k for k in kayitlar.values() if k.get("gunluk") and k["durum"] == "onaylandi"),
+                  key=lambda k: k.get("sira", k["id"]))
     sradaki = None
     if stok and not any(g >= simdi.date() for g in gunluk_gunler()):
         sradaki = stok[0]["id"]
