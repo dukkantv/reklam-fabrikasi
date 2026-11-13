@@ -12,7 +12,7 @@ import sys
 
 from yt_ortak import KOK, erisim_anahtari, istek
 
-KANALLAR = ["dukkantv", "dramabite", "kasakurgu"]
+KANALLAR = ["dukkantv", "dramabite", "kasakurgu", "gizlitarih"]
 YT = "https://www.googleapis.com/youtube/v3"
 
 
