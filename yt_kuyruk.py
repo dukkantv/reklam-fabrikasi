@@ -29,7 +29,7 @@ from tt_ortak import taslak_yukle, tt_hesap
 
 def tt_bekliyor(kayit):
     """Bu kanal için TikTok bağlıysa ve video henüz gönderilmediyse True."""
-    if kayit.get("tt") in ("taslak", "hata"):
+    if kayit.get("tt") in ("taslak", "hata") or kayit.get("uzun"):
         return False
     try:
         return tt_hesap(kayit["kanal"]) is not None
@@ -66,7 +66,7 @@ def tt_aciklama(kayit):
 
 def ig_bekliyor(kayit):
     """Bu kanal için Instagram bağlıysa ve henüz paylaşılmadıysa True."""
-    if kayit.get("ig") in ("paylasildi", "hata"):
+    if kayit.get("ig") in ("paylasildi", "hata") or kayit.get("uzun"):
         return False
     try:
         return ig_hesap(kayit["kanal"]) is not None
@@ -76,7 +76,7 @@ def ig_bekliyor(kayit):
 
 def fb_bekliyor(kayit):
     """Kanalın Facebook sayfasına Reels izni varsa ve henüz paylaşılmadıysa True."""
-    if kayit.get("fb") in ("paylasildi", "hata"):
+    if kayit.get("fb") in ("paylasildi", "hata") or kayit.get("uzun"):
         return False
     try:
         return fb_bekliyor_mu(kayit["kanal"])
@@ -91,7 +91,7 @@ def ig_aciklama(kayit):
     return f"{baslik}\n\n" + (f"{urun}\n\n" if urun else "") + etiket
 
 # Yayın yetkisi: Dükkan TV = Levent'in onayı şart; Drama Bite ve Kasa Kurgu = onaysız otomatik yayın
-YAYIN_KANALLARI = {"dramabite", "kasakurgu"}
+YAYIN_KANALLARI = {"dramabite", "kasakurgu", "gizlitarih"}
 
 KUYRUK = os.path.join(KOK, "kuyruk")
 TR = dt.timezone(dt.timedelta(hours=3))
@@ -111,7 +111,7 @@ def kaydet(kayit):
               ensure_ascii=False, indent=1)
 
 
-def ekle(kanal, video, baslik, aciklama="", etiketler="", gunluk=""):
+def ekle(kanal, video, baslik, aciklama="", etiketler="", gunluk="", kapak="", kategori=""):
     os.makedirs(KUYRUK, exist_ok=True)
     simdi = dt.datetime.now(TR)
     kid = f"{simdi:%Y%m%d-%H%M%S}-{kanal}"
@@ -129,6 +129,13 @@ def ekle(kanal, video, baslik, aciklama="", etiketler="", gunluk=""):
              "dosya": dosya, "durum": "bekliyor", "eklendi": simdi.isoformat()}
     if gunluk:
         kayit["gunluk"] = True
+    if kapak and os.path.exists(kapak):  # uzun video: kapak resmi + Reels/TikTok'a gitmez
+        kad = f"{kid}-kapak.jpg"
+        subprocess.run(["cp", kapak, os.path.join("/tmp", kad)], check=True)
+        gh("release", "upload", "kuyruk", os.path.join("/tmp", kad), "--clobber")
+        kayit.update(kapak=kad, uzun=True)
+    if kategori:
+        kayit["kategori"] = kategori
     ad = kanal_bilgi(kanal)["ad"]
     if kanal in YAYIN_KANALLARI:
         # Yayın yetkisi Claude'da: onay beklemeden sıraya girer; Levent isterse yüklenmeden önce durdurabilir
@@ -231,7 +238,7 @@ def youtube_yukle(kayit):
     boyut = os.path.getsize(yerel)
     zaman = yayin_zamani(kayit["kanal"], kayit.get("gunluk", False))
     ust = {"snippet": {"title": kayit["baslik"], "description": urunlu_aciklama(kayit["aciklama"]), "tags": kayit["etiketler"],
-                       "categoryId": "24", "defaultLanguage": "tr", "defaultAudioLanguage": "tr"},
+                       "categoryId": kayit.get("kategori") or "24", "defaultLanguage": "tr", "defaultAudioLanguage": "tr"},
            "status": {"privacyStatus": "private", "publishAt": zaman.astimezone(dt.timezone.utc).isoformat()
                       .replace("+00:00", "Z"), "selfDeclaredMadeForKids": False}}
     kod, bas, veri = istek(
@@ -247,6 +254,18 @@ def youtube_yukle(kayit):
                              headers={"Authorization": f"Bearer {token}", "Content-Type": "video/mp4"})
     if kod not in (200, 201) or "id" not in veri:
         raise RuntimeError(f"Yükleme bitmedi ({kod}): {str(veri)[:300]}")
+    if kayit.get("kapak"):
+        try:
+            gh("release", "download", "kuyruk", "-p", kayit["kapak"], "-D", "/tmp", "--clobber")
+            k, _, v = istek(f"https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={veri['id']}",
+                            method="POST", ham=open(os.path.join("/tmp", kayit["kapak"]), "rb").read(),
+                            headers={"Authorization": f"Bearer {token}", "Content-Type": "image/jpeg"})
+            print("Kapak:", k, str(v)[:150])
+            if k != 200:
+                telegram(f"⚠️ Kapak resmi yüklenemedi ({k}). Kanalda telefon doğrulaması gerekebilir: "
+                         "youtube.com/verify")
+        except Exception as e:
+            print("Kapak hatası:", str(e)[:150])
     return veri["id"], zaman
 
 
@@ -335,7 +354,7 @@ def kontrol():
                 except Exception as e:
                     print("Oynatma listesine eklenemedi:", str(e)[:200])
                 metin = (f"✅ {ad}: \"{kayit['baslik']}\" yüklendi.\n"
-                         f"🕖 {zaman:%d.%m %H:%M}'da yayına girecek.\nhttps://youtube.com/shorts/{vid}")
+                         f"🕖 {zaman:%d.%m %H:%M}'da yayına girecek.\nhttps://youtube.com/{'watch?v=' if kayit.get('uzun') else 'shorts/'}{vid}")
                 mesaj_guncelle(kayit, metin)
                 telegram(metin)
             except Exception as e:
@@ -490,7 +509,7 @@ def urunleri_ekle():
 
 if __name__ == "__main__":
     if sys.argv[1] == "ekle":
-        ekle(*sys.argv[2:8])
+        ekle(*sys.argv[2:10])
     elif sys.argv[1] == "kontrol":
         kontrol()
     elif sys.argv[1] == "planla":

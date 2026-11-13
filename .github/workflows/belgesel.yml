@@ -16,6 +16,9 @@ on:
       tur:
         description: "Tür: tarih / dedektif / hikaye"
         default: "tarih"
+      kanal:
+        description: "Yayın kanalı (boş = sadece Telegram'a pilot): gizlitarih / kasakurgu / dramabite"
+        default: ""
       senaryo:
         description: "Hazır senaryo dosyası (ör. senaryolar/kanuni.json) — boşsa Gemini yazar"
         default: ""
@@ -40,6 +43,26 @@ jobs:
           pip install -q edge-tts requests numpy
       - name: Üret
         run: python belgesel.py "${{ inputs.konu }}" "${{ inputs.dakika }}" "${{ inputs.tur }}"
+      - name: Yayın kuyruğuna ekle
+        if: inputs.kanal != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          KANAL: ${{ inputs.kanal }}
+          TUR: ${{ inputs.tur }}
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess
+          y = json.load(open("cikti/belgesel/yayin.json", encoding="utf-8"))
+          kat = {"tarih": "27", "dedektif": "24", "hikaye": "24"}[os.environ["TUR"]]
+          subprocess.run(["python3", "yt_kuyruk.py", "ekle", os.environ["KANAL"], y["video"], y["baslik"], y["aciklama"],
+                          ",".join(y.get("etiketler", [])), "", y["kapak"], kat], check=True)
+          PY
+          git config user.name "dukkan-tv-bot"; git config user.email "actions@users.noreply.github.com"
+          git add kuyruk; git commit -qm "Uzun video kuyruğa: $KANAL" && (git push || (git pull --rebase origin main && git push))
       - name: Sakla
         if: always()
         uses: actions/upload-artifact@v4

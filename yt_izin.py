@@ -22,7 +22,8 @@ print(f"Kontrol: client id sonu {CID[-27:]}, secret uzunluğu {len(CSEC)}, GOCSP
 TG_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TG_CHAT = os.environ["TELEGRAM_CHAT_ID"]
 SCOPE = "https://www.googleapis.com/auth/youtube"
-HESAP = {"dukkantv": "dukkan.tvstudio@gmail.com",
+HESAP = {"gizlitarih": "Gizli Tarih kanalını açtığın hesap (kanal listesinden Gizli Tarih'i seç)",
+         "dukkantv": "dukkan.tvstudio@gmail.com",
          "kasakurgu": "kasakurgu.tr@gmail.com",
          "dramabite": "dramabitetr@gmail.com"}
 
