@@ -1,18 +1,18 @@
 {
- "baslik": "Kilitli Oda Cinayeti: Bursa Kuyumcusunda Gizem",
+ "baslik": "Kilitli Oda Cinayeti: Bursa Kuyumcusunda Gizemli Ölüm",
  "kapak_yazi": "KİLİTLİ ODA",
- "aciklama": "Bursa'nın eski bir hanında, tamamen içeriden kilitli bir kuyumcu dükkânında sabah saatlerinde bulunan cansız beden hangi sırrı saklıyor? Kasa Kurgu'nun bu yepyeni polisiye vakasında gerçeğin peşine düşüyoruz. Tüm ipuçlarını takip edin ve katili şimdiden tahmin etmeye çalışın. Kan ve vahşet barındırmayan, tamamen zeka kokan bu kurgusal dedektif hikayesini kaçırmayın.",
+ "aciklama": "Bursa'nın tarihi bir hanında, dışarıdan açılması imkansız kilitli bir kuyumcuda sabah saatlerinde bulunan cansız beden, ardında çözülmeyi bekleyen sırlar bırakıyor. Kasa Kurgu'da bu sabah, en kusursuz planın bile nasıl açık vereceğini kanıtlarıyla birlikte masaya yatırıyoruz. Katilin kim olduğunu bulmak için tüm detayları dikkatle inceleyin ve teorilerinizi yorumlara yazın. Polisiye meraklıları için gerilim dolu bu yeni vakamıza hoş geldiniz.",
  "etiketler": [
-  "polisiye",
-  "katil kim",
-  "kilitli oda",
-  "bursa",
-  "kuyumcu",
-  "dedektif",
+  "polisye",
   "kasa kurgu",
-  "sir",
-  "bulmaca",
-  "cinayet"
+  "dedektif",
+  "kilitli oda cinayeti",
+  "bursa",
+  "kuyumcu cinayeti",
+  "türkiye polisiye",
+  "hikaye",
+  "cinayet çöz",
+  "gizemli olaylar"
  ],
  "bolumler": [
   {
@@ -20,28 +20,28 @@
    "ad": "Giriş"
   },
   {
-   "sahne": 10,
-   "ad": "Olay Yeri"
-  },
-  {
-   "sahne": 25,
+   "sahne": 12,
    "ad": "Kilitli Kapı"
   },
   {
+   "sahne": 25,
+   "ad": "Olay Yeri"
+  },
+  {
    "sahne": 40,
-   "ad": "Şüpheli Ortak"
+   "ad": "Şüpheliler"
   },
   {
    "sahne": 60,
-   "ad": "Borçlu Kalfa"
+   "ad": "Sırlar"
   },
   {
-   "sahne": 80,
-   "ad": "Eski Çırak"
+   "sahne": 85,
+   "ad": "İpuçları"
   },
   {
    "sahne": 100,
-   "ad": "Tahmin Vakti"
+   "ad": "Tahmin"
   },
   {
    "sahne": 110,
@@ -50,1048 +50,783 @@
  ],
  "sahneler": [
   {
-   "metin": "İçeriden kilitli bir odada ölü bulunan kuyumcu, cinayetin imkansız olduğunu mu fısıldıyor? Kasa Kurgu'ya hoş geldiniz, ben yazarınız.",
-   "nesne": "Antique brass key on wooden table",
-   "arama": "antique key wood table",
-   "gorsel": "Antique brass key on wooden table, dark dusty study room, mysterious atmosphere, moody lighting"
+   "metin": "Kapak arkasındaki bu ölüm, Bursa'nın en eski hanında nasıl işlendi? İçeriden kilitlenen demir kapı, dışarıya tek bir kaçış yolu bile bırakmıyordu.",
+   "nesne": "heavy iron door with vintage brass lock",
+   "arama": "historic iron door lock",
+   "gorsel": "heavy iron door with vintage brass lock, dark stone hallway, eerie morning light coming from a small window, cinematic atmosphere."
   },
   {
-   "metin": "Bursa'nın tarihi çarşısında sabah serinliği henüz sokakları sarmıştı ki o acı haber yayıldı. Tecrübeli kuyumcu dükkânında ölü bulundu.",
-   "nesne": "Old historical stone bazaar in Bursa",
-   "arama": "historic bazaar street turkey",
-   "gorsel": "Old historical stone bazaar in Bursa, early morning mist, closed wooden shops, cinematic cold light"
+   "metin": "Kasa Kurgu kanalına hoş geldiniz. Ben yazarınız, bugün sizi demir parmaklıkların arkasındaki sırlı bir gerçeğe davet ediyorum.",
+   "nesne": "detective notepad and fountain pen on wooden desk",
+   "arama": "vintage detective desk",
+   "gorsel": "detective notepad and fountain pen on dark wooden desk, warm desk lamp glowing, mysterious mood, highly detailed."
   },
   {
-   "metin": "Kapılar ve pencereler sürgülü ve demir parmaklıklıydı. Dışarıdan en ufak bir müdahale emaresi yoktu.",
-   "nesne": "Heavy iron barred window of shop",
-   "arama": "iron barred window old shop",
-   "gorsel": "Heavy iron barred window of shop, old stone wall, morning shadows, tense atmosphere"
+   "metin": "Bursa'nın kalbindeki bu kuyumcu dükkânı, sabahın ilk ışıklarıyla birlikte bir suç mahaline dönüştü. Kepenkler sıkıca kapalıydı, camlar sağlamdı.",
+   "nesne": "traditional turkish jewelry shop exterior at dawn",
+   "arama": "historic bazaar shop exterior",
+   "gorsel": "traditional turkish jewelry shop exterior at dawn, closed metal shutters, quiet stone street, cold blue morning light."
   },
   {
-   "metin": "Polis ekipleri olay yerine vardığında içeride tek bir insan vardı: Hareketsiz yatan usta kuyumcu.",
-   "nesne": "Police tape outside old shop door",
-   "arama": "police crime scene tape street",
-   "gorsel": "Police tape outside old shop door, cobblestone ground, dim street lamps, mysterious mood"
+   "metin": "İçerideki vitrinin hemen önünde, dükkânın yaşlı sahibi Hakkı Usta hareketsiz yatıyordu. Yüzünde ne bir korku ifadesi ne de bir boğuşma izi vardı.",
+   "nesne": "elderly man lying on carpet floor inside shop",
+   "arama": "crime scene indoor vintage",
+   "gorsel": "elderly man lying on oriental carpet floor inside shop, gray hair, dark suit, dim interior light, dramatic shadows."
   },
   {
-   "metin": "Ben komiser Tahsin ile birlikte hemen dükkâna adım attım. Kasa Kurgu dosyalarından biri daha açılıyordu.",
-   "nesne": "Middle-aged detective in dark trench coat",
-   "arama": "detective trench coat portrait",
-   "gorsel": "Middle-aged detective in dark trench coat, short dark hair and tired eyes, indoor hallway, soft side light"
+   "metin": "Olay yerine ilk ulaşan polis memurları kapıyı zorlayarak açmak zorunda kaldı. Çünkü anahtar içeride, kilitli kapının üzerindeki delikte asılı duruyordu.",
+   "nesne": "brass key hanging in keyhole from inside",
+   "arama": "key in lock close up",
+   "gorsel": "brass key hanging in keyhole from inside, heavy wooden door, focused lighting, suspenseful atmosphere."
   },
   {
-   "metin": "Dükkânın içi altın tozları ve sessizlikle kaplıydı. Vitrinler tertemizdi, hiçbir şey yerinden oynamamıştı.",
-   "nesne": "Glass jewelry display case inside shop",
-   "arama": "empty jewelry showcase shop",
-   "gorsel": "Glass jewelry display case inside shop, wooden counter, dark interior, warm spot lighting"
+   "metin": "Pencereler demir parmaklıklıydı ve üzerlerinde yılların pası vardı. İçeriye insan elinin girmesi imkansız göründüğü için herkes kilitli oda bulmacasıyla baş başaydı.",
+   "nesne": "iron barred small window with dust",
+   "arama": "barred window old building",
+   "gorsel": "iron barred small window with dust, dim interior view, eerie morning rays, realistic texture."
   },
   {
-   "metin": "Merhumun adı Kenan'dı; ellili yaşlarında, titizliğiyle tanınan bir esnaftı. Masasında duran fincan hâlâ tütüyordu.",
-   "nesne": "White ceramic tea cup on wooden desk",
-   "arama": "tea cup on wooden desk",
-   "gorsel": "White ceramic tea cup on wooden desk, wisps of steam, dark office room, dramatic shadow"
+   "metin": "Adli tıp uzmanı olay yerine ulaştığında ilk incelemeyi yaptı. Ölüm nedeni zehirlenme olarak rapor edildi, ancak etrafta hiç zehirli şişe yoktu.",
+   "nesne": "silver pocket watch showing early morning hour",
+   "arama": "vintage silver pocket watch",
+   "gorsel": "silver pocket watch showing early morning hour on glass countertop, cold light, sharp focus, mysterious tone."
   },
   {
-   "metin": "Ölüm nedeni otopsi raporuna göre zehirlenmeydi. Ancak bardaktaki zehir nasıl oraya girmişti?",
-   "nesne": "Medical autopsy report paper on table",
-   "arama": "document paper on table",
-   "gorsel": "Medical autopsy report paper on table, old wooden desk, reading lamp glowing, mysterious tone"
+   "metin": "Hakkı Usta meslek hayatı boyunca dürüstlüğüyle tanınan bir zanaatkardı. Fakat son zamanlarda iş yerinde bazı tuhaf olaylar yaşandığı biliniyordu.",
+   "nesne": "gold ring on black velvet display tray",
+   "arama": "jewelry display tray gold",
+   "gorsel": "gold ring on black velvet display tray, empty dark showroom, soft overhead spotlight, elegant yet melancholic."
   },
   {
-   "metin": "Dışarıdan kimsenin girmesi imkansızdı çünkü sürgü içeriden sürgülenmişti. Kilit ise kapının üzerindeydi.",
-   "nesne": "Large iron door bolt on wood door",
-   "arama": "old iron door bolt",
-   "gorsel": "Large iron door bolt on wood door, heavy wooden panel, dim interior light, tight shot"
+   "metin": "Kuyumcunun kasası tamamen kapalıydı ve içinde hiçbir eksik yoktu. Hırsızlık amacıyla girilmediği çok açıktı, bu doğrudan bir cinayetti.",
+   "nesne": "large vintage steel safe in dark corner",
+   "arama": "vintage steel safe",
+   "gorsel": "large vintage steel safe in dark corner, heavy metal door, dusty floor, moody dramatic lighting."
   },
   {
-   "metin": "Şüpheliler listesi kısa ama karmaşıktı. İlk sırada merhumun iş ortağı Orhan vardı.",
-   "nesne": "Middle-aged man in grey wool suit",
-   "arama": "man in grey suit portrait",
-   "gorsel": "Middle-aged man in grey wool suit, short grey hair and anxious face, dark office, moody light"
+   "metin": "Bu ölümün arkasında kim vardı? Hakkı Usta'nın yakın çevresindeki üç kişi, o gece dükkâna giden tek insanlardı.",
+   "nesne": "three silhouetted figures standing under street lamp",
+   "arama": "silhouettes under street light",
+   "gorsel": "three silhouetted figures standing under street lamp at night, foggy Bursa street, mysterious atmosphere, deep shadows."
   },
   {
-   "metin": "Orhan Bey kırklarında, soluk benizli ve titiz bir adamdı. Olay gecesi dükkândan en son çıkan kişi oydu.",
-   "nesne": "Middle-aged man in grey wool suit sitting",
-   "arama": "man sitting office chair",
-   "gorsel": "Middle-aged man in grey wool suit sitting, short grey hair, wooden desk, serious expression"
+   "metin": "İlk şüpheli, dükkânın genç çırağı Kerem'di. Ustası tarafından son zamanlarda sürekli azarlanan hırslı bir gençti.",
+   "nesne": "young apprentice with worried expression",
+   "arama": "young man worried portrait",
+   "gorsel": "young apprentice with worried expression, wearing a gray woolen vest over a white shirt, dimly lit workshop background."
   },
   {
-   "metin": "Orhan, 'Ben çıktığımda Kenan usta gayet iyiydi' diyordu. Ama yüzündeki gerginlik gözümüzden kaçmadı.",
-   "nesne": "Middle-aged man in grey wool suit talking",
-   "arama": "man talking serious face",
-   "gorsel": "Middle-aged man in grey wool suit talking, short grey hair, indoor room, soft dramatic light"
+   "metin": "Kerem, olay gecesi dükkândan erken ayrıldığını ve anahtarı ustasına bıraktığını iddia etti. Ancak polisin bulduğu ilk sır onun ifadesini sarstı.",
+   "nesne": "leather ledger book with handwritten notes",
+   "arama": "vintage ledger book",
+   "gorsel": "leather ledger book with handwritten notes on wooden table, quill pen, warm candle light, cinematic framing."
   },
   {
-   "metin": "Ortaklar arasında son zamanlarda büyük bir mal paylaşımı krizi vardı. Dükkânın borçları da dağ gibi yığılmıştı.",
-   "nesne": "Ledger notebook with financial numbers",
-   "arama": "accounting ledger book",
-   "gorsel": "Ledger notebook with financial numbers, old paper, desk lamp, moody atmosphere"
+   "metin": "Kerem'in gizli sırrı, ustasının kasasından borç para almış olmasıydı. Bunu ustasının öğrenmesinden korkuyordu.",
+   "nesne": "handful of old paper bank notes",
+   "arama": "vintage paper money stack",
+   "gorsel": "handful of old paper bank notes on dark table, soft warm light, realistic texture, secretive mood."
   },
   {
-   "metin": "Orhan'ın sırrı neydi peki? Gizli borçlarını kapatmak için dükkânı tek başına ele geçirmek istiyordu.",
-   "nesne": "Middle-aged man in grey wool suit holding pen",
-   "arama": "man holding pen writing",
-   "gorsel": "Middle-aged man in grey wool suit holding pen, short grey hair, desk background, focused light"
+   "metin": "İkinci şüpheli, Hakkı Usta'nın eski ortağının kızı Leyla Hanım'dı. Dükkânın hak iddiası yüzünden uzun süredir mahkemeliklerdi.",
+   "nesne": "elegant woman in black coat holding umbrella",
+   "arama": "woman in black coat vintage",
+   "gorsel": "elegant woman in black coat holding umbrella, rainy cobblestone street, dark mysterious look, highly detailed."
   },
   {
-   "metin": "İkinci şüpheli ise dükkânın genç kalfası Kerem'di. Kerem yirmili yaşlarında, dağınık saçlı bir gençti.",
-   "nesne": "Young man with messy hair in jacket",
-   "arama": "young man portrait serious",
-   "gorsel": "Young man with messy hair in jacket, brown messy hair and worried look, narrow hallway, dim light"
+   "metin": "Leyla Hanım, o gece hanın dışında olduğunu söyledi ama görgü tanıkları onu dükkânın arka sokağında gördü. O da büyük bir sır saklıyordu.",
+   "nesne": "vintage metal street lamp casting long shadow",
+   "arama": "vintage street lamp night",
+   "gorsel": "vintage metal street lamp casting long shadow on wet stone pavement, foggy night, cinematic lighting."
   },
   {
-   "metin": "Kerem elleri cebinde, sorgu odasında huzursuzca kıpırdanıyordu. Ustasına karşı büyük bir öfkesi olduğu biliniyordu.",
-   "nesne": "Young man with messy hair in jacket sitting",
-   "arama": "young man sitting chair",
-   "gorsel": "Young man with messy hair in jacket sitting, brown messy hair, metal chair, stark room light"
+   "metin": "Leyla'nın sırrı, dükkânın tapusunu geri almak için ustayla gizli bir buluşma ayarlamış olmasıydı. Ancak usta buluşmaya gelmemişti.",
+   "nesne": "folded old legal document with red ribbon",
+   "arama": "vintage legal document",
+   "gorsel": "folded old legal document with red ribbon on wooden desk, sharp focus, warm moody lighting, realistic."
   },
   {
-   "metin": "Kerem'in sırrı ise usta Kenan'ın kızıyla olan gizli ilişkisiydi. Kenan bu ilişkiyi öğrenince onu kovmakla tehdit etmişti.",
-   "nesne": "Young man with messy hair in jacket looking down",
-   "arama": "sad young man portrait",
-   "gorsel": "Young man with messy hair in jacket looking down, brown messy hair, dark room, side window light"
+   "metin": "Üçüncü şüpheli ise dükkânın hemen yanındaki çay ocağını işleten Selim'di. Sessiz, sakin ve herkesin sevdiği bir esnaftı.",
+   "nesne": "middle-aged man with mustache wearing apron",
+   "arama": "turkish tea shop owner portrait",
+   "gorsel": "middle-aged man with mustache wearing a dark brown apron, warm cozy tea shop interior, soft ambient lighting."
   },
   {
-   "metin": "Üçüncü şüpheli ise eski çırak Selim'di. Selim birkaç ay önce hırsızlık şüphesiyle işten çıkarılmıştı.",
-   "nesne": "Man with beard wearing dark leather jacket",
-   "arama": "man leather jacket portrait",
-   "gorsel": "Man with beard wearing dark leather jacket, short black hair and beard, brick wall background, moody light"
+   "metin": "Selim usta ile yıllardır dost gibi görünüyordu, fakat derinlerde büyük bir öfke biriktirmişti. O da bu cinayetin baş şüphelileri arasındaydı.",
+   "nesne": "traditional copper tea pot on small stove",
+   "arama": "copper teapot turkish",
+   "gorsel": "traditional copper tea pot on small stove, steam rising, warm glowing coals, dark rustic background."
   },
   {
-   "metin": "Selim dükkânın tüm gizli geçitlerini ve anahtar yedeklerini biliyordu. Ancak o gece dükkâna yaklaşmadığını iddia ediyordu.",
-   "nesne": "Man with beard wearing dark leather jacket crossing arms",
-   "arama": "man crossing arms serious",
-   "gorsel": "Man with beard wearing dark leather jacket crossing arms, short black hair and beard, dark alley, street light"
+   "metin": "Selim'in sırrı, Hakkı Usta'ya borç vermesi ve ustanın bu borcu ödememek için dükkânı elinden almaya çalışmasıydı.",
+   "nesne": "promissory note with signature and stamp",
+   "arama": "vintage promissory note",
+   "gorsel": "promissory note with signature and stamp on wooden table, close up, warm atmospheric lighting."
   },
   {
-   "metin": "Selim'in sırrı ise olay gecesi dükkânın arkasında kumar borcu yüzünden para arıyor olmasıydı.",
-   "nesne": "Man with beard wearing dark leather jacket holding coin",
-   "arama": "man holding coin dark",
-   "gorsel": "Man with beard wearing dark leather jacket holding coin, short black hair, night setting, dim light"
+   "metin": "Üç şüpheli, üç farklı motif ve tek bir kilitli oda. Polis memurları ipuçlarını birleştirmek için dükkânda titiz bir arama başlattı.",
+   "nesne": "magnifying glass on wooden table",
+   "arama": "magnifying glass vintage",
+   "gorsel": "magnifying glass on wooden table next to scattered metal tools, warm investigative light, cinematic tone."
   },
   {
-   "metin": "Üç şüpheli, üç karanlık sır ve içeriden kilitlenmiş tek bir oda. Komiser Tahsin dosyayı masaya bıraktı.",
-   "nesne": "Middle-aged detective in dark trench coat reading file",
-   "arama": "detective reading file",
-   "gorsel": "Middle-aged detective in dark trench coat reading file, short dark hair, desk lamp, serious atmosphere"
+   "metin": "Dükkânın içinde ilk dikkat çeken detay, tezgahın üzerindeki yarım bardak soğuk çaydı. Çayın içinde hafif bir koku vardı.",
+   "nesne": "traditional tulip shaped tea glass on saucer",
+   "arama": "turkish tea glass",
+   "gorsel": "traditional tulip shaped tea glass on saucer, dark wooden counter, mysterious green liquid residue inside, soft lighting."
   },
   {
-   "metin": "İpuçlarını birleştirdiğimizde mantık bize tek bir yolu gösteriyordu. Ama kilitli kapı bulmacası hala yerli yerindeydi.",
-   "nesne": "Brass padlock hanging on iron chain",
-   "arama": "padlock on chain close up",
-   "gorsel": "Brass padlock hanging on iron chain, old door, dark background, sharp focus light"
+   "metin": "Laboratuvar sonuçları bardaktaki zehrin etkisini doğruladı. Akonitin adı verilen bitkisel bir zehir, hızla felç edici etki gösteriyordu.",
+   "nesne": "glass vial with blue liquid on metal tray",
+   "arama": "vintage apothecary vial",
+   "gorsel": "glass vial with blue liquid on metal tray, dark forensic laboratory background, cold clinical light."
   },
   {
-   "metin": "Çayın içindeki zehir tatlı bir aromayla gizlenmişti. Merhum bunu kendi elleriyle mi içmişti yoksa biri ona ikram mı etmişti?",
-   "nesne": "White ceramic tea cup on wooden desk closeup",
-   "arama": "tea cup close up",
-   "gorsel": "White ceramic tea cup on wooden desk closeup, steam rising, dark surface, dramatic shadow"
+   "metin": "Peki ama bu zehirli çayı oraya kim koydu? Çay ocağından gelen Selim, bardakları her sabah kendi elleriyle bıraktığını itiraf etti.",
+   "nesne": "metal tea tray with empty glasses",
+   "arama": "metal tea tray vintage",
+   "gorsel": "metal tea tray with empty glasses on wooden counter, rustic interior, soft morning light."
   },
   {
-   "metin": "Dükkânın içinde arama yaparken yere düşmüş küçük bir parça bulduk. Bu parça tüm düğümün anahtarıydı.",
-   "nesne": "Small metal gear wheel on wooden floor",
-   "arama": "small metal gear part",
-   "gorsel": "Small metal gear wheel on wooden floor, dust particles, warm floor light, macro shot"
+   "metin": "Ancak Selim, ustanın o sabah çayı içmediğini, hatta çayı dökmesi için kendisine geri verdiğini iddia etti. Bu ifade yeni bir soru doğurdu.",
+   "nesne": "porcelain saucer with spilled tea drops",
+   "arama": "spilled tea macro",
+   "gorsel": "porcelain saucer with spilled tea drops on dark wooden surface, close up, dramatic side lighting."
   },
   {
-   "metin": "Şimdi sizleri Kasa Kurgu'nun bu zeka bulmacasıyla baş başa bırakıyorum. Düşünün ve karar verin.",
-   "nesne": "Antique hourglass on dark wooden table",
-   "arama": "hourglass on wooden table",
-   "gorsel": "Antique hourglass on dark wooden table, sand falling, dark room, mysterious glow"
+   "metin": "Dedektifler dükkânın zeminini incelediğinde ilginç bir bulguya rastladı. Kapının hemen altında çok ince bir ip parçası vardı.",
+   "nesne": "thin white cotton thread on wooden floor",
+   "arama": "cotton thread close up",
+   "gorsel": "thin white cotton thread on dark wooden floorboards, macro shot, sharp focus, suspenseful atmosphere."
   },
   {
-   "metin": "Durdurun ve tahmin edin: Katil kim? Yorumlara yazın.",
-   "nesne": "Big bold question mark on dark wall",
-   "arama": "question mark shadow wall",
-   "gorsel": "Big bold question mark on dark wall, dramatic lighting, suspenseful dark atmosphere, empty room"
+   "metin": "Bu ip, kilitli kapı gizeminin anahtarı olabilir miydi? Dışarıdan anahtar deliğinden uzatılan bir ip, kapıyı kilitlemek için kullanılmış olabilir miydi?",
+   "nesne": "looped string through heavy iron key ring",
+   "arama": "string through key vintage",
+   "gorsel": "looped string through heavy iron key ring, close up, dark moody background, forensic examination light."
   },
   {
-   "metin": "Şimdi çözüme geçiyoruz. İpuçlarını dikkatlice incelediğinizde gerçeğin nasıl saklandığını göreceksiniz.",
-   "nesne": "Middle-aged detective in dark trench coat pointing finger",
-   "arama": "detective pointing finger",
-   "gorsel": "Middle-aged detective in dark trench coat pointing finger, short dark hair, dark study, focused light"
+   "metin": "Benzer bir kilit hilesi eskiden amatör illüzyonistlerin gösterilerinde kullanılırdı. Fakat bunu gerçek bir cinayete uyarlamak ustaca bir zeka gerektirirdi.",
+   "nesne": "old magic trick book with diagrams",
+   "arama": "vintage book pages",
+   "gorsel": "old magic trick book with diagrams on table, sepia tones, mysterious desk lamp lighting, highly detailed."
   },
   {
-   "metin": "Birinci ipucu: Kapı içeriden kilitliydi ancak kilit mekanizmasında küçük bir ipucu vardı. Sürgü dışarıdan özel bir telle çekilmişti.",
-   "nesne": "Thin steel wire tool on wooden bench",
-   "arama": "thin wire tool metal",
-   "gorsel": "Thin steel wire tool on wooden bench, workshop background, sharp light, close up shot"
+   "metin": "Kerem'in atölyede bıraktığı alet çantasında ince misina telleri bulundu. Bu durum genç çırağın üzerindeki şüpheleri artırdı.",
+   "nesne": "metal toolbox with pliers and wire",
+   "arama": "vintage metal toolbox",
+   "gorsel": "metal toolbox with pliers and wire inside, dark workshop table, focused industrial lighting, realistic."
   },
   {
-   "metin": "İkinci ipucu: Fincandaki zehir akşamüstü saatlerinde içilmişti. O saatte dükkânda sadece ortak Orhan vardı.",
-   "nesne": "Middle-aged man in grey wool suit looking sideways",
-   "arama": "man profile serious face",
-   "gorsel": "Middle-aged man in grey wool suit looking sideways, short grey hair, dark wall, side light"
+   "metin": "Kerem, o telleri sadece tamirat için kullandığını savundu. Ancak polisin elinde artık çok daha güçlü bir koz vardı.",
+   "nesne": "small silver pocket knife on table",
+   "arama": "vintage pocket knife",
+   "gorsel": "small silver pocket knife on table, sharp blade reflecting light, dark wooden background, cinematic."
   },
   {
-   "metin": "Üçüncü ipucu ise yerde bulduğumuz o küçük metal dişliydi. Bu parça dükkânın otomatik kapı sistemine aitti.",
-   "nesne": "Small metal gear wheel held by hand",
-   "arama": "holding small metal part",
-   "gorsel": "Small metal gear wheel held by hand, dark background, sharp spotlight, close up view"
+   "metin": "Leyla Hanım ise sokakta görüldüğünü öğrendiğinde sakinliğini koruyamadı. O gece dükkâna girmeye çalışmadığını, sadece uzaktan baktığını söyledi.",
+   "nesne": "vintage leather handbag on chair",
+   "arama": "vintage leather handbag",
+   "gorsel": "vintage leather handbag on wooden chair, dark room interior, soft warm light, moody atmosphere."
   },
   {
-   "metin": "Katil, ortak Orhan'dı! Orhan, Kenan usta çayını içerken ona sessizce zehri vermişti.",
-   "nesne": "Middle-aged man in grey wool suit looking guilty",
-   "arama": "man guilty expression dark",
-   "gorsel": "Middle-aged man in grey wool suit looking guilty, short grey hair, dark room, dramatic shadows"
+   "metin": "Leyla'nın çantasından çıkan bir mektup, babasının intikamını almak istediğini açıkça gösteriyordu. Mektup polisin en büyük delili oldu.",
+   "nesne": "handwritten letter on yellowed paper",
+   "arama": "vintage handwritten letter",
+   "gorsel": "handwritten letter on yellowed paper, close up, dark wooden table, warm melancholic desk light."
   },
   {
-   "metin": "Orhan dükkândan çıktıktan sonra dışarıdaki mekanizmayı telle tetiklemiş ve kapının sürgüsünü çekmişti.",
-   "nesne": "Heavy iron door bolt sliding shut",
-   "arama": "door bolt mechanism close up",
-   "gorsel": "Heavy iron door bolt sliding shut, dark wooden door, cinematic side light, sharp focus"
+   "metin": "Selim ise sakin tavrını bozmadan çay ocağını işletmeye devam etti. Ancak ellerindeki hafif titreme dikkatlerden kaçmıyordu.",
+   "nesne": "hands of middle aged man holding tea towel",
+   "arama": "hands holding tea towel",
+   "gorsel": "hands of middle aged man holding tea towel, warm tea shop interior, soft natural window light, cinematic."
   },
   {
-   "metin": "Böylece kusursuz bir kilitli oda cinayeti süsü vermişti. Ancak küçük dişli mekanizmada takılı kalmıştı.",
-   "nesne": "Brass door mechanism with small gear",
-   "arama": "door lock mechanism old",
-   "gorsel": "Brass door mechanism with small gear, old wood, dark interior, sharp focused lighting"
+   "metin": "Üç şüphelinin de ellerinde karanlık sırlar vardı, ama hiçbiri suçunu doğrudan kabul etmiyordu. Her biri diğerini işaret ediyordu.",
+   "nesne": "three ceramic coffee cups on wooden table",
+   "arama": "three cups on table",
+   "gorsel": "three ceramic coffee cups on wooden table, dim moody lighting, sharp focus, mysterious storytelling atmosphere."
   },
   {
-   "metin": "Komiser Tahsin delilleri masaya koyduğunda Orhan'ın kaçacak yeri kalmamıştı. Adalet yerini buldu.",
-   "nesne": "Steel handcuffs resting on wooden table",
-   "arama": "metal handcuffs on table",
-   "gorsel": "Steel handcuffs resting on wooden table, dark background, metallic reflection, moody light"
+   "metin": "Bursa polisi gece boyunca delilleri inceledi ve kilitli odanın fiziksel yasalarını tek tek test etti. Sonuçlar şaşırtıcıydı.",
+   "nesne": "blueprint of historic shop layout on table",
+   "arama": "vintage architectural blueprint",
+   "gorsel": "blueprint of historic shop layout on table, compass and ruler, warm desk light, professional investigator's desk."
   },
   {
-   "metin": "Bursa'nın bu sisli sabahında bir sır daha aydınlığa kavuştu. Kasa Kurgu'da yeni vakalarda buluşmak üzere.",
-   "nesne": "Old historical stone bazaar in Bursa at dusk",
-   "arama": "historic street turkey dusk",
-   "gorsel": "Old historical stone bazaar in Bursa at dusk, street lamps glowing, moody blue hour light, cinematic"
+   "metin": "Anahtar içeride nasıl asılı kalabilirdi? İp ve misina yöntemi teoride mümkündü, ancak pratikte bazı kusurları vardı.",
+   "nesne": "brass key in door lock mechanism close up",
+   "arama": "key in lock mechanism",
+   "gorsel": "brass key in door lock mechanism close up, wooden door grain, dramatic angled lighting, high detail."
   },
   {
-   "metin": "Kanalımıza abone olmayı ve yeni dedektif vakaları için yorum yapmayı unutmayın. Hoşça kalın.",
-   "nesne": "Red subscribe button graphic on dark screen",
-   "arama": "subscribe button dark background",
-   "gorsel": "Red subscribe button graphic on dark screen, minimal design, soft glowing light, clean frame"
+   "metin": "Eğer anahtar dışarıdan iple çekilerek kilitlendiyse, ipin kapı eşiğinden içeride kalması fiziksel olarak imkansızdı. Çünkü kapı tam oturuyordu.",
+   "nesne": "threshold of wooden door with gap at bottom",
+   "arama": "door threshold close up",
+   "gorsel": "threshold of wooden door with slight gap at bottom, dark floorboards, sharp focus, investigative lighting."
   },
   {
-   "metin": "Komiser Tahsin, masanın üzerindeki küçük metal dişliyi dikkatle inceledi. Bu parça, kilitli odanın ardındaki gizemi çözecek en net delildi.",
-   "nesne": "Metal gear",
-   "arama": "Macro shot of a small broken metal gear on a wooden table",
-   "gorsel": "A close-up shot of a small metallic gear resting on a dark rustic wooden table, illuminated by a single desk lamp."
+   "metin": "Demek ki kilitli oda hilesi dışarıdan değil, tamamen içeriden tasarlanmıştı. Bu da katilin içeride birinin yardımıyla hareket ettiğini gösteriyordu.",
+   "nesne": "shadow of person cast on wooden wall",
+   "arama": "shadow on wall silhouette",
+   "gorsel": "shadow of person cast on wooden wall, dark corridor, eerie flickering light, dramatic mystery style."
   },
   {
-   "metin": "Orhan, polisin bu kadar hızlı bir şekilde mekanizmayı çözeceğini beklemiyordu. Yüzündeki soğuk terler, suçluluk psikolojisini ele veriyordu.",
-   "nesne": "Sweat drop",
-   "arama": "Close up of a nervous man sweating in a dimly lit interrogation room",
-   "gorsel": "A moody portrait of a nervous man sweating under interrogation lights in a dark room."
+   "metin": "Hakkı Usta kendi ölümünü kendi mi planlamıştı? Yoksa kilitli oda sadece kusursuz bir illüzyon muluk muydu?",
+   "nesne": "pair of old reading glasses on open book",
+   "arama": "reading glasses on book",
+   "gorsel": "pair of old reading glasses on open book, warm reading light, dark wooden desk, contemplative mood."
   },
   {
-   "metin": "Kerem, köşede elleri cebinde sessizce bekliyordu. Ustası Kenan'ın ölümü onu sarsmıştı ama asıl korkusu yanlış anlaşılmaktı.",
-   "nesne": "Leather jacket",
-   "arama": "Young man standing with hands in pockets in a police station corridor",
-   "gorsel": "A tense young man leaning against a concrete wall in a dimly lit hallway."
+   "metin": "Hayır, yaşlı adam intihar etmemişti. Zehirli çay bardağı ve odanın düzeni bize çok daha karanlık bir gerçeği fısıldıyordu.",
+   "nesne": "empty porcelain tea cup on saucer",
+   "arama": "ceramic tea cup close up",
+   "gorsel": "empty porcelain tea cup on saucer, dark wooden table, soft shadows, realistic texture and lighting."
   },
   {
-   "metin": "Eski çırak Selim ise kapı önünde ifadesini tekrarlıyordu. Kumar borçları ve gece dükkân arkasındaki varlığı onu baş şüpheli yapmıştı.",
-   "nesne": "Cigarette pack",
-   "arama": "Man holding a crumpled cigarette pack outdoors at night",
-   "gorsel": "A shadowy figure standing under a flickering streetlamp holding an empty cigarette pack."
+   "metin": "Şimdi tüm şüpheliler dükkânın önünde bir araya getirildi. Her birinin yüzündeki ifade, gerçeğin ağırlığını taşıyordu.",
+   "nesne": "three people standing outside historic shop",
+   "arama": "people standing outside shop vintage",
+   "gorsel": "three people standing outside historic shop at dusk, overcast sky, dramatic tension, cinematic composition."
   },
   {
-   "metin": "Komiser Tahsin, Kenan ustanın son çayını içtiği fincanı tekrar incelemeye karar verdi. Fincanın kenarındaki tatlı aroma zehrin izini taşıyordu.",
-   "nesne": "Porcelain teacup",
-   "arama": "Vintage porcelain teacup on a dark wooden counter with steam",
-   "gorsel": "An empty porcelain teacup sitting on a dusty counter with a faint residue inside."
+   "metin": "Kerem ellerini cebine sokmuş, tedirgin bir şekilde etrafa bakıyordu. Genç çırağın kalbi göğsünden çıkacak gibi atıyordu.",
+   "nesne": "young apprentice looking nervous outdoors",
+   "arama": "nervous young man portrait",
+   "gorsel": "young apprentice looking nervous outdoors, wearing a gray woolen vest, dark urban background, soft moody light."
   },
   {
-   "metin": "Bursa'nın tarihi çarşısı, sabahın erken saatlerinde hâlâ sessizdi. Kepenklerin arasından sızan gün ışığı dükkânın içine uzun gölgeler düşürüyordu.",
-   "nesne": "Iron shutter",
-   "arama": "Closed old metal storefront shutter in a historical Turkish bazaar",
-   "gorsel": "A weathered iron shutter of a closed shop in an old, narrow cobblestone alley."
+   "metin": "Leyla Hanım kollarını bağlamış, polisin gözlerinin içine dik dik bakıyordu. Gururlu duruşu suçluluğunu gizlemeye çalışır gibiydi.",
+   "nesne": "elegant woman with arms crossed looking stern",
+   "arama": "stern woman portrait vintage",
+   "gorsel": "elegant woman with arms crossed looking stern, wearing a dark coat, stone wall background, overcast daylight."
   },
   {
-   "metin": "Orhan'ın dükkânı ele geçirme planı kusursuz görünüyordu. Borçları dağ gibi yığılmıştı ve bu cinayet onun için tek çıkış yolu olmuştu.",
-   "nesne": "Ledger book",
-   "arama": "Old financial ledger book with handwritten columns and numbers",
-   "gorsel": "An open vintage accounting ledger filled with numbers on a messy desk."
+   "metin": "Selim ise elindeki tesbihi yavaşça çekiyordu. Yüzündeki sakin ifade, belki de en büyük maskesiydi.",
+   "nesne": "hands holding amber prayer beads",
+   "arama": "prayer beads close up",
+   "gorsel": "hands holding amber prayer beads, dark background, warm natural light, sharp focus, realistic details."
   },
   {
-   "metin": "Ancak hesap edemediği tek şey, dışarıdan çekilen tel mekanizmasının o küçük dişliyi düşürmesiydi. Küçük bir detay her şeyi bitirdi.",
-   "nesne": "Thin wire",
-   "arama": "Coiled thin steel wire on a workbench",
-   "gorsel": "A piece of thin metallic wire lying coiled on a dirty workshop floor."
+   "metin": "Ben aralarındayken, tüm bu bulmacanın parçalarını tek tek birleştirdim. Gerçek artık perdenin arkasından görünüyordu.",
+   "nesne": "notebook page with interconnected evidence lines",
+   "arama": "investigation board notes",
+   "gorsel": "notebook page with interconnected evidence lines and red thread, desk light, highly detailed mystery setup."
   },
   {
-   "metin": "Tahsin, delilleri birleştirirken odadaki sessizliği bozdu. 'Kilitli oda cinayeti diye bir şey yoktur, sadece çözülememiş mühendislik vardır' dedi.",
-   "nesne": "Police badge",
-   "arama": "Vintage police badge resting on a dark desk next to case files",
-   "gorsel": "A polished metal police badge placed on top of open investigation papers."
+   "metin": "Kilitli oda cinayetlerinin temel kuralı şudur: İmkansız görünen her şeyin basit bir açıklaması vardır. Yeter ki doğru yere bakın.",
+   "nesne": "old brass magnifying glass on leather surface",
+   "arama": "brass magnifying glass vintage",
+   "gorsel": "old brass magnifying glass on dark leather surface, warm focused light, mysterious and elegant atmosphere."
   },
   {
-   "metin": "Orhan yavaşça geriye doğru adımladı. Kaçamayacağını biliyordu. Çevresindeki polis memurları ellerinde kelepçelerle üzerine doğru yürüyorlardı.",
-   "nesne": "Steel handcuffs",
-   "arama": "Steel handcuffs resting on a wooden table in a police station",
-   "gorsel": "A pair of shiny steel handcuffs lying flat on an interrogation table."
+   "metin": "Hakkı Usta'nın ölümünden önceki son saatlerinde dükkânda kiminle konuştuğunu bulduk. Bu isim, listedeki en sessiz kişiydi.",
+   "nesne": "telephone receiver on old wooden desk",
+   "arama": "vintage telephone rotary",
+   "gorsel": "vintage telephone rotary on old wooden desk, dark room, warm desk lamp glowing, suspenseful mood."
   },
   {
-   "metin": "Kasa Kurgu ekibi olarak bu bulmacanın da sonuna geldik. Bursa'nın sisli sabahında adalet yerini buldu ve bir sır daha aydınlandı.",
-   "nesne": "Magnifying glass",
-   "arama": "Brass magnifying glass on top of old maps and documents",
-   "gorsel": "A vintage brass magnifying glass resting on a dark wooden surface with old papers."
+   "metin": "Telefon kayıtları gece yarısı dükkândan dışarıya yapılan tek bir aramayı gösteriyordu. Arama çay ocağına aitti.",
+   "nesne": "paper slip with telephone number written on it",
+   "arama": "written phone number paper",
+   "gorsel": "paper slip with telephone number written on it, dark wooden table, sharp focus, cinematic lighting."
   },
   {
-   "metin": "Yeni vakalarda, gizem dolu dosyalarda tekrar buluşmak üzere. Kasa Kurgu'nun karanlık koridorlarında yeni maceralar sizi bekliyor olacak.",
-   "nesne": "Old key",
-   "arama": "Antique brass skeleton key on a dark textured background",
-   "gorsel": "An old ornate skeleton key resting on a dark wooden background with dramatic lighting."
+   "metin": "Selim, ustayla o gece telefonda tartıştığını kabul etmek zorunda kaldı. Ancak tartışmanın sebebi borç değil, çok daha eski bir meseleydi.",
+   "nesne": "ceramic tea cup on saucer with steam",
+   "arama": "steaming tea cup close up",
+   "gorsel": "ceramic tea cup on saucer with steam rising, dark rustic background, warm side lighting, realistic."
   },
   {
-   "metin": "Komiser Tahsin, kelepçeleri çıkardığında demirlerin soğuk sesi dar odayı doldurdu. Orhan ise hâlâ suçunu kabullenmek istemiyordu.",
-   "nesne": "handcuffs",
-   "arama": "police handcuffs on wooden desk",
-   "gorsel": "A close-up of cold metal handcuffs resting on a dusty wooden desk inside the dimly lit jewelry shop."
+   "metin": "Yıllar önce Hakkı Usta ile Selim ortakmış. Dükkânın ilk açıldığı günlerde büyük bir hırsızlık olayı yaşanmış ve suç Selim'in üzerine kalmıştı.",
+   "nesne": "old faded photograph in wooden frame",
+   "arama": "vintage faded photograph",
+   "gorsel": "old faded photograph in wooden frame on dark table, sepia tone, soft nostalgic lighting, highly detailed."
   },
   {
-   "metin": "Kerem köşede derin bir nefes aldı. Ustasına duyduğu öfkenin şimdi yerini derin bir suçluluk duygusuna bıraktığı açıkça görülüyordu.",
-   "nesne": "notebook",
-   "arama": "leather notebook on counter",
-   "gorsel": "A worn leather notebook lying on a glass counter, surrounded by scattered gold dust and shadows."
+   "metin": "Selim hapis yatmış, çıktıktan sonra ise intikam planını devreye sokmuştu. Yan dükkânı açması tesadüf değil, uzun vadeli bir intikamın parçasıydı.",
+   "nesne": "metal key hanging on rusty nail",
+   "arama": "rusty key on nail",
+   "gorsel": "metal key hanging on rusty nail on wooden wall, dark rustic room, dramatic shadow play, cinematic."
   },
   {
-   "metin": "Selim kapının pervazına yaslanmış, dışarıdaki meraklı kalabalığı izliyordu. Kumar borçlarından kurtulma hayali tam bir kâbusa dönmüştü.",
-   "nesne": "doorway",
-   "arama": "old wooden doorway with iron bars",
-   "gorsel": "An old wooden doorway with heavy iron bars, viewed from inside a dark Bursa shop during early morning."
+   "metin": "Peki ama kilitli oda nasıl başarıldı? Selim cinayeti işledikten sonra dışarı nasıl çıktı? İşte asıl sır burada gizliydi.",
+   "nesne": "wooden floorboards with hidden trapdoor seam",
+   "arama": "wooden floor trapdoor",
+   "gorsel": "wooden floorboards with hidden trapdoor seam, dark dusty basement entrance, dramatic overhead lighting."
   },
   {
-   "metin": "Tahsin, masanın üzerindeki fincanı tekrar eline aldı. Fincanın dibindeki tortu, zehrin türü hakkında yeni ipuçları veriyordu.",
-   "nesne": "ceramic cup",
-   "arama": "porcelain tea cup with dark liquid",
-   "gorsel": "A porcelain tea cup containing dark liquid, casting long shadows under a single hanging light bulb."
+   "metin": "Dükkânın altında, yıllar öncesinden kalma eski bir tünel vardı. Bu tünel doğrudan Selim'in çay ocağının bodrumuna bağlanıyordu.",
+   "nesne": "dark underground stone tunnel with brick arch",
+   "arama": "old brick tunnel dark",
+   "gorsel": "dark underground stone tunnel with brick arch, single light source casting long shadows, mysterious and eerie."
   },
   {
-   "metin": "Orhan polis aracına doğru yürürken son kez arkasına baktı. Tarihi çarşının taş sokaklarında ayak sesleri yankılanıyordu.",
-   "nesne": "cobblestone street",
-   "arama": "wet cobblestone street in Bursa",
-   "gorsel": "A wet cobblestone street reflecting the morning mist of Bursa, flanked by traditional historical storefronts."
+   "metin": "Selim zehirli çayı içeriden verdikten sonra tünelden kaçmış, kapıyı içeriden özel bir mandal sistemiyle kilitlemişti. Anahtar içeride kalmıştı.",
+   "nesne": "metal sliding latch on interior of wooden door",
+   "arama": "door latch mechanism",
+   "gorsel": "metal sliding latch on interior of wooden door, dark workshop interior, focused warm light, realistic detail."
   },
   {
-   "metin": "Kasa Kurgu ekibi olarak olay yerindeki son incelemelerimizi tamamlıyorduk. Her detay, bu kusursuz görünen planın aslında ne kadar kırılgan olduğunu gösteriyordu.",
-   "nesne": "magnifying glass",
-   "arama": "brass magnifying glass on table",
-   "gorsel": "A brass magnifying glass resting on a dark wooden table next to a case file and scattered gold scales."
+   "metin": "Tünelin içindeki aramalarda Hakkı Usta'nın kayıp cüzdanı ve zehir şişesi bulundu. Kanıtlar artık tartışmasız bir şekilde ortadaydı.",
+   "nesne": "leather wallet and glass bottle in tunnel dust",
+   "arama": "evidence in dust crime scene",
+   "gorsel": "leather wallet and glass bottle in tunnel dust, flashlight beam illuminating them, dark underground background."
   },
   {
-   "metin": "Komiser Tahsin, karakola gitmeden önce son kez dükkânın tavanına baktı. Tellerin geçtiği havalandırma boşluğu hâlâ sırrını koruyordu.",
-   "nesne": "ventilation shaft",
-   "arama": "metal ventilation grill on ceiling",
-   "gorsel": "A dusty metal ventilation grill set into a high, arched ceiling of an old historical Bursa building."
+   "metin": "Selim köşeye sıkıştığında polise direnmedi. Yılların öfkesiyle sessizce kelepçelenmeyi kabul etti, başı öne eğikti.",
+   "nesne": "silver handcuffs resting on wooden table",
+   "arama": "silver handcuffs close up",
+   "gorsel": "silver handcuffs resting on dark wooden table, cold metallic reflection, dramatic investigative lighting."
   },
   {
-   "metin": "Kerem, polislere gizli ilişkisini anlattığı için pişmandı ama artık ger dönüş yoktu. Kenan ustanın hatırası aralarında ağır bir yük gibi duruyordu.",
-   "nesne": "photograph",
-   "arama": "faded old photograph on shelf",
-   "gorsel": "A faded old black and white photograph resting on a wooden shelf inside a quiet, dusty room."
+   "metin": "Böylece Bursa'nın en gizemli kilitli oda cinayeti aydınlatılmış oldu. Ancak her vaka, insan ruhunun ne kadar karanlık olabileceğini bir kez daha gösterdi.",
+   "nesne": "detective notebook closing with a soft thud",
+   "arama": "closing vintage notebook",
+   "gorsel": "detective notebook closing on dark wooden desk, warm desk lamp light fading into shadows, cinematic conclusion."
   },
   {
-   "metin": "Selim ise serbest bırakılmayı beklerken ellerini ovuşturuyordu. Gece yarısı arkadaki sokakta ne aradığını polise uzun uzun açıklamak zorunda kalacaktı.",
-   "nesne": "metal railing",
-   "arama": "iron railing in police station",
-   "gorsel": "A heavy iron railing inside a dimly lit police station corridor with cold stone walls."
+   "metin": "Durdurun ve tahmin edin: Katil kim? Bu sorunun cevabını ipuçlarından yola çıkarak yorumlara yazın. Görelim kimler gerçek bir dedektif.",
+   "nesne": "question mark carved into old wooden surface",
+   "arama": "question mark wood carving",
+   "gorsel": "question mark carved into old wooden surface, dramatic side lighting, mysterious and suspenseful mood, high detail."
   },
   {
-   "metin": "Orhan'ın emniyetteki ilk ifadesi oldukça soğukkanlıydı. Borçlarını ve ortaklık krizini inkâr etmeye çalışsa da deliller çok açıktı.",
-   "nesne": "metal chair",
-   "arama": "metal interrogation chair",
-   "gorsel": "A simple metal interrogation chair placed in the center of a windowless, austere concrete room."
+   "metin": "Çözüme geçmeden önce ipuçlarını hatırlayalım: Açılmayan kapı, içeride asılı duran anahtar ve tünelin getirdiği o gizli geçit.",
+   "nesne": "brass key and magnifying glass on map",
+   "arama": "key and map vintage",
+   "gorsel": "brass key and magnifying glass on vintage map, warm desk light, sharp focus, professional investigative setup."
   },
   {
-   "metin": "Tahsin, Orhan'ın masasında bulduğu gizli muhasebe defterini açtı. Borçların rakamları, cinayetin motivasyonunu kusursuz bir şekilde gözler önüne seriyordu.",
-   "nesne": "accounting ledger",
-   "arama": "old ledger book with numbers",
-   "gorsel": "An old ledger book filled with handwritten financial columns and numbers under a harsh desk lamp."
+   "metin": "Katil ne genç çırak Kerem ne de hırslı Leyla'ydı. Kilitli odanın ardındaki gerçek dahi zihinli eski ortak Selim'di.",
+   "nesne": "middle-aged man in handcuffs looking down",
+   "arama": "suspect in handcuffs portrait",
+   "gorsel": "middle-aged man in handcuffs looking down with a somber expression, dark police station interior, dramatic lighting."
   },
   {
-   "metin": "Bursa'nın tarihi çarşısı yavaşça uyanıyor, dükkânlar birer birer kepenklerini açıyordu. Ancak bu kuyumcuda hayat durmuştu.",
-   "nesne": "shop shutter",
-   "arama": "metal shop shutter half open",
-   "gorsel": "A heavy metal shop shutter half open, revealing the dark and quiet interior of a traditional jewelry store."
+   "metin": "Gizli tünel ve kusursuz zamanlama planı, Selim'in yıllar süren sabrının bir ürünüydü. Adalet yerini buldu ve usta ruhu huzura kavuştu.",
+   "nesne": "old stone building under clear night sky",
+   "arama": "historic stone building night",
+   "gorsel": "old stone building under clear night sky, Bursa historic district, warm street lamps, cinematic and peaceful ending."
   },
   {
-   "metin": "Kasa Kurgu kameraları bu karmaşık davanın her detayını kaydetmeye devam ediyordu. Dedektiflik sadece bulmaca çözmek değil, geçmişi aydınlatmaktı.",
-   "nesne": "camera tripod",
-   "arama": "professional camera tripod standing",
-   "gorsel": "A professional camera tripod standing silently in a narrow alleyway during the early morning fog."
+   "metin": "Kasa Kurgu kanalında bir vakanın daha sonuna geldik. Bu tarz gerilim dolu dedektif hikayelerini kaçırmamak için abone olmayı unutmayın.",
+   "nesne": "vintage camera resting on wooden shelf",
+   "arama": "vintage camera on shelf",
+   "gorsel": "vintage camera resting on wooden shelf, warm ambient light, cozy room background, elegant outro atmosphere."
   },
   {
-   "metin": "Kerem, dükkândan eşyalarını toplamak için izin istedi. Ustası olmadan o tezgâhın arkasında durmak artık ona imkansız görünüyordu.",
-   "nesne": "cardboard box",
-   "arama": "cardboard box on glass counter",
-   "gorsel": "A small cardboard box sitting on a clean glass counter, ready to be filled with personal belongings."
+   "metin": "Görüşleriniz bizim için çok değerli. En çok hangi ipucu sizi şaşırttı? Yorumlarda buluşalım, yeni vakada görüşmek üzere.",
+   "nesne": "feather pen and inkwell on wooden desk",
+   "arama": "inkwell and pen vintage",
+   "gorsel": "feather pen and inkwell on dark wooden desk, warm glowing light, cinematic framing, perfect storytelling finish."
   },
   {
-   "metin": "Selim, nihayet sorgunun ardından serbest bırakıldı. Çarşının kalabalığına karışırken geriye dönüp son kez kuyumcu dükkânına baktı.",
-   "nesne": "stone wall",
-   "arama": "historical stone wall of bazaar",
-   "gorsel": "A weathered historical stone wall of the Bursa grand bazaar, touched by the first rays of sunlight."
+   "metin": "Bursa'nın tarihi hanındaki bu gerilim dolu gecenin sabahında, polis şeridi kuyumcunun kapısında gerilmiş duruyordu.",
+   "nesne": "police tape",
+   "arama": "yellow police tape stretched across old wooden doorway",
+   "gorsel": "A close-up of yellow police tape stretched tightly across an old wooden shop doorway in Bursa."
   },
   {
-   "metin": "Tahsin, dosyanın üzerine 'Kapatıldı' mühürünü basarken derin bir nefes aldı. Kilitli oda efsanesi bir kez daha akıl yoluyla çözülmüştü.",
-   "nesne": "rubber stamp",
-   "arama": "red rubber stamp on desk",
-   "gorsel": "A red rubber stamp resting next to a closed case file on a mahogany wooden desk."
+   "metin": "Dedektif, demir parmaklıklı pencerelerin paslı yüzeyine dokundu; içeriye yabancı bir elin uzanması fiziksel olarak imkansızdı.",
+   "nesne": "rusty iron bars",
+   "arama": "rusty iron window bars on historic stone wall",
+   "gorsel": "A close shot of heavy, rusty iron window bars mounted on a thick stone wall."
   },
   {
-   "metin": "Orhan'ın kullandığı ince tel, olay yerindeki delil torbasında güvenle saklanıyordu. Mühendislik harikası bu suç aleti, onun sonunu getirmişti.",
-   "nesne": "evidence bag",
-   "arama": "transparent plastic evidence bag",
-   "gorsel": "A transparent plastic evidence bag containing a thin metal wire, resting on a stainless steel table."
+   "metin": "İçeride, vitrinin hemen önünde hareketsiz yatan Hakkı Usta, sanki derin ve rüya gibi bir uykuya dalmış gibi duruyordu.",
+   "nesne": "glass showcase",
+   "arama": "vintage wooden jewelry showcase inside dark shop",
+   "gorsel": "Inside the dim shop, a vintage wooden jewelry showcase reflects faint morning light."
   },
   {
-   "metin": "Kasa Kurgu ekibi olarak bu zorlu vakanın da sonuna geldik. Ancak her dosya, karanlıkta kalan başka bir sırrın kapısını aralamaya devam eder.",
-   "nesne": "leather briefcase",
-   "arama": "vintage leather briefcase on floor",
-   "gorsel": "A vintage leather briefcase resting upright on a polished concrete floor in an empty hallway."
+   "metin": "Genç çırak Kerem, polisin dikkatli bakışları altında ellerini cebine sokmuş, tedirginlikle titriyordu.",
+   "nesne": "leather jacket",
+   "arama": "young apprentice standing nervously in dark jacket",
+   "gorsel": "A young apprentice standing nervously outside the shop, wearing a dark leather jacket."
   },
   {
-   "metin": "Bursa'nın serin rüzgârı tarihi sokaklarda dolaşırken, kuyumcu dükkânının önündeki kalabalık yavaşça dağılıyordu.",
-   "nesne": "street lamp",
-   "arama": "vintage street lamp in Bursa",
-   "gorsel": "A vintage street lamp standing tall against a pale morning sky in the historical district of Bursa."
+   "metin": "Kerem'in atölyede bıraktığı alet çantasının içindeki ince misina telleri, polisin ilk büyük şüphesi haline geldi.",
+   "nesne": "fishing line",
+   "arama": "spool of thin fishing line inside open metal toolbox",
+   "gorsel": "An open metal toolbox revealing a spool of thin, clear fishing line on a wooden workbench."
   },
   {
-   "metin": "Kenan ustanın adı artık bu çarşıda bir efsane olarak anılacaktı. Titizliğiyle bilinen esnaf, ne yazık ki en güvendiği insan tarafından kurban edilmişti.",
-   "nesne": "wooden sign",
-   "arama": "wooden signboard hanging on wall",
-   "gorsel": "A weathered wooden signboard hanging quietly on a crumbling brick wall under the morning shadows."
+   "metin": "Leyla Hanım kollarını göğsünde kavuşturmuş, gururlu duruşuyla polisin sorularına soğukkanlılıkla yanıt veriyordu.",
+   "nesne": "leather handbag",
+   "arama": "elegant woman holding leather handbag outside old shop",
+   "gorsel": "An elegant woman standing firmly on the stone pavement, clutching a dark leather handbag."
   },
   {
-   "metin": "Komiser Tahsin, paltosunun yakasını kaldırıp karakoldan dışarı adım attı. Şehirde yeni bir gün başlarken, yeni gizemler de sırasını bekliyordu.",
-   "nesne": "wool coat",
-   "arama": "dark wool coat hanging on rack",
-   "gorsel": "A dark wool coat hanging neatly on a wooden wall rack inside a quiet police precinct office."
+   "metin": "Leyla'nın çantasından çıkan o eski mektup, babasının intikamını alma arzusunu ve derin öfkesini gözler önüne seriyordu.",
+   "nesne": "paper letter",
+   "arama": "folded vintage paper letter with handwritten ink",
+   "gorsel": "A folded vintage paper letter with handwritten ink resting on a dark wooden table."
   },
   {
-   "metin": "Orhan'ın cezaevine nakil aracı uzaklaşırken, arkasında sadece çözülmüş bir bulmacanın sessizliği kaldı. Adalet, en beklenmedik delille yerini bulmuştu.",
-   "nesne": "prison transport",
-   "arama": "police transport van on road",
-   "gorsel": "A dark police transport van driving away down an empty asphalt road surrounded by autumn trees."
+   "metin": "Çay ocağının sahibi Selim, elindeki tesbihi ağır hareketlerle çekerek sakinliğini korumaya çalışıyordu.",
+   "nesne": "prayer beads",
+   "arama": "amber prayer beads held in weathered male hands",
+   "gorsel": "A close-up of amber prayer beads being slowly rolled between weathered male hands."
   },
   {
-   "metin": "Kerem, yeni bir hayata başlamak için şehirden ayrılmaya karar vermişti. Çarşının dar sokaklarında yürürken elindeki çantayı sıkıca tutuyordu.",
-   "nesne": "travel bag",
-   "arama": "canvas travel bag on ground",
-   "gorsel": "A simple canvas travel bag resting on the pavement near a historical stone fountain in Bursa."
+   "metin": "Tezgahın üzerindeki yarım bardak soğuk çay, olay yerindeki en sessiz ama en ölümcül delildi.",
+   "nesne": "tea glass",
+   "arama": "half-filled glass of dark tea on wooden counter",
+   "gorsel": "A half-filled glass of dark tea resting on a scratched wooden counter."
   },
   {
-   "metin": "Selim ise kumar masalarından uzak durmaya yemin ederek dürüst bir iş aramaya koyuldu. Geçmişin hataları ona pahalıya mal olmuştu.",
-   "nesne": "wooden bench",
-   "arama": "empty wooden park bench",
-   "gorsel": "An empty wooden park bench surrounded by fallen leaves in a quiet public garden during sunrise."
+   "metin": "Laboratuvar ekibi çayın içindeki akonitin zehrini tespit ettiğinde, cinayetin planlı olduğu kesinleşti.",
+   "nesne": "glass beaker",
+   "arama": "scientific glass beaker with liquid on steel table",
+   "gorsel": "A scientific glass beaker containing a clear liquid resting on a stainless steel examination table."
   },
   {
-   "metin": "Kasa Kurgu'nun karanlık koridorlarında yeni dosyalar açılmayı bekliyor. Her cinayet bir bulmaca, her bulmaca çözülmeyi bekleyen bir sıraktır.",
-   "nesne": "archive shelf",
-   "arama": "wooden archive shelf with files",
-   "gorsel": "A tall wooden archive shelf filled with stacked manila folders and dusty historical case files."
+   "metin": "Kapının altındaki ince ip parçası, kilitli oda bulmacasının en büyük fiziksel çelişkisini oluşturuyordu.",
+   "nesne": "cotton string",
+   "arama": "thin cotton string piece lying on stone floor",
+   "gorsel": "A close-up of a short, thin cotton string lying abandoned on a dusty stone floor."
   },
   {
-   "metin": "Tahsin, masasındaki kahvesinden bir yudum alırken yeni dosyaya baktı. Suç asla uyumaz ve dedektif her zaman hazırlıklı olmalıdır.",
-   "nesne": "coffee mug",
-   "arama": "ceramic coffee mug on papers",
-   "gorsel": "A ceramic coffee mug sitting on top of scattered police reports and handwritten case notes."
-  },
-  {
-   "metin": "Bursa'nın tarihi dokusu içinde gizlenen binlerce hikâye gibi, bu vaka da tarihin tozlu sayfaları arasındaki yerini aldı.",
-   "nesne": "history book",
-   "arama": "old leather bound book open",
-   "gorsel": "An old leather-bound book open to a blank yellowed page, resting on a dark wooden reading desk."
-  },
-  {
-   "metin": "Kilitli oda cinayetleri artık Komiser Tahsin için çözülemez bir sır değil. Mühendislik ve mantık birleştiğinde tüm maskeler düşer.",
-   "nesne": "desk lamp",
-   "arama": "brass banker desk lamp on table",
-   "gorsel": "A traditional brass banker desk lamp casting a warm green glow over a stack of legal documents."
-  },
-  {
-   "metin": "Orhan'ın kusursuz planı küçük bir dişli yüzünden suya düşmüştü. Hırs ve kibir, en zeki suçluların bile sonunu hazırlayan en büyük tuzaktır.",
-   "nesne": "metal gear",
-   "arama": "small metal gear on dark surface",
-   "gorsel": "A tiny steel gear resting alone on a dark, reflective metallic surface under focused lighting."
-  },
-  {
-   "metin": "Kasa Kurgu ekibi olarak izleyicilerimize teşekkür ederiz. Karanlık dosyaları aydınlatmaya devam edeceğimiz yeni vakalarda buluşmak üzere.",
-   "nesne": "microphone",
-   "arama": "studio condenser microphone on arm",
-   "gorsel": "A professional studio condenser microphone attached to an adjustable arm inside a quiet recording booth."
-  },
-  {
-   "metin": "Tarihi çarşının çanları öğle vaktini haber verirken çalmaya başladı. Sokaklarda hayat normale dönüyor, sırlar ise derinlere gömülüyordu.",
-   "nesne": "clock tower",
-   "arama": "historical stone clock tower",
-   "gorsel": "A historical stone clock tower standing proudly against a clear blue sky in the center of Bursa."
-  },
-  {
-   "metin": "Tahsin, şapkasını başına yerleştirip pencereden dışarıyı izledi. Adaletin yerini bulduğu her sabah, bu şehir biraz daha huzurlu nefes alıyordu.",
-   "nesne": "window frame",
-   "arama": "wooden window frame overlooking street",
-   "gorsel": "A rustic wooden window frame looking out over a bustling traditional bazaar street filled with morning light."
-  },
-  {
-   "metin": "Kerem biletini alıp otobüse bindiğinde, camdan dışarıya son kez baktı. Bursa'nın sisli dağları arkasında kalırken yeni bir sayfa açılıyordu.",
-   "nesne": "bus window",
-   "arama": "bus window reflecting scenery",
-   "gorsel": "The tinted window of a long-distance bus reflecting distant green mountains and morning clouds."
-  },
-  {
-   "metin": "Kasa Kurgu'nun gizem dolu dünyasında zaman hızla akıp geçiyor. Yeni bir vaka, yeni bir bulmaca ve çözülmeyi bekleyen yepyeni sırlar bizi çağırıyor.",
-   "nesne": "pocket watch",
-   "arama": "antique silver pocket watch open",
-   "gorsel": "An antique silver pocket watch popped open, showing intricate gears ticking steadily on a velvet cloth."
-  },
-  {
-   "metin": "Ve böylece Bursa kuyumcusundaki o buz gibi sabahın sırrı tamamen çözüldü. Kasa Kurgu dosyası burada kapanıyor ama hikayeler asla bitmiyor.",
-   "nesne": "wooden door",
-   "arama": "heavy wooden door closing",
-   "gorsel": "A heavy wooden door slowly closing in a dark corridor, leaving a narrow strip of golden light behind."
-  },
-  {
-   "metin": "Karanlık koridorlarda yeni maceralar sizi bekliyor olacak. Bir sonraki dedektif vakasında görüşmek üzere, hoşça kalın.",
-   "nesne": "key on ring",
-   "arama": "brass key on metal key ring",
-   "gorsel": "A single brass key hanging from a metal ring against a dark, neutral background with soft rim lighting."
-  },
-  {
-   "metin": "Komiser Tahsin, yeni dosyanın kapağını aralarken masadaki lambanın sarı ışığı odayı doldurdu.",
-   "nesne": "desk lamp",
-   "arama": "vintage brass desk lamp glowing in a dark office",
-   "gorsel": "A dark detective office illuminated only by a warm desk lamp casting long shadows."
-  },
-  {
-   "metin": "Bursa'nın arka sokaklarında gece karanlığı çökerken, Kasa Kurgu ekibi yeni bir izin peşindeydi.",
-   "nesne": "street sign",
-   "arama": "old metal street sign in narrow Bursa alley at night",
-   "gorsel": "A dimly lit narrow cobblestone street in an old historic town at night."
-  },
-  {
-   "metin": "Orhan'ın cezaevindeki ilk gecesi oldukça sessiz ve gergin geçti; duvarlar üzerine geliyordu.",
-   "nesne": "prison cell",
-   "arama": "empty concrete prison cell with metal bars",
-   "gorsel": "A stark concrete prison cell with a single small barred window."
-  },
-  {
-   "metin": "Kerem ise otobüs penceresinden dışarıyı izlerken, ustası Kenan'ın son bakışlarını hatırladı.",
-   "nesne": "bus window",
-   "arama": "dirty bus window reflecting night lights",
-   "gorsel": "Interior of a moving bus at night with blurred city lights outside the window."
-  },
-  {
-   "metin": "Eski çırak Selim, karanlık bir köşede yeni bir iş ararken geçmişin hayaletleriyle boğuşuyordu.",
-   "nesne": "coffeeshop table",
-   "arama": "empty wooden table in a dimly lit cafe",
-   "gorsel": "A lonely wooden table in a quiet cafe with a single glass of water."
-  },
-  {
-   "metin": "Komiser Tahsin, kuyumcuda bulunan gizli muhasebe defterinin son sayfalarını çevirdi.",
-   "nesne": "ledger book",
-   "arama": "old leather bound financial ledger with handwritten numbers",
-   "gorsel": "Close up of an aged leather ledger book filled with old ink handwriting."
-  },
-  {
-   "metin": "Sayfalardaki rakamlar, Orhan'ın batmanın eşiğinde olduğunu ve tek kurtuluşunun cinayet olduğunu haykırıyordu.",
-   "nesne": "ink pen",
-   "arama": "classic fountain pen resting on paper",
-   "gorsel": "A vintage fountain pen lying across financial documents on a wooden table."
-  },
-  {
-   "metin": "Ancak Tahsin'in kafasını kurcalayan başka bir detay vardı: O gizli havalandırma boşluğu.",
-   "nesne": "ventilation grate",
-   "arama": "rusted metal ventilation grate on a brick wall",
-   "gorsel": "An old rusted metal vent installed in a dark brick wall."
-  },
-  {
-   "metin": "Havalandırmanın içinde bulunan ince çizikler, sadece bir telin değil başka bir şeyin de geçişini gösteriyordu.",
-   "nesne": "metal wire",
-   "arama": "thin steel wire coil on a workbench",
-   "gorsel": "A coil of thin, flexible steel wire sitting on a dusty workbench."
-  },
-  {
-   "metin": "Kasa Kurgu ekibi, bu yeni bulguyu doğrulamak için sabah erken saatlerde tekrar kuyumcuya döndü.",
-   "nesne": "storefront",
-   "arama": "closed traditional jewelry store front with iron shutters",
-   "gorsel": "The locked metal security shutters of a historic jewelry shop at dawn."
-  },
-  {
-   "metin": "Kepenkler açıldığında, dükkânın içindeki o ağır ve kasvetli hava hemen kendini belli etti.",
-   "nesne": "security shutter",
-   "arama": "heavy iron security shutter halfway open",
-   "gorsel": "A heavy metal storefront shutter being lifted to reveal a dark interior."
-  },
-  {
-   "metin": "Tahsin, büyütecini alarak tavanin en karanlık noktasına, havalandırma girişine yöneldi.",
-   "nesne": "magnifying glass",
-   "arama": "classic brass magnifying glass held over a surface",
-   "gorsel": "A detective's hand holding a brass magnifying glass inspecting a dark wooden surface."
-  },
-  {
-   "metin": "Orada, tozun arasında parlayan küçük bir lif parçası buldu; bu parça Orhan'a ait olamazdı.",
-   "nesne": "fabric fiber",
-   "arama": "tiny woolen fiber under microscopic inspection",
-   "gorsel": "A microscopic view of a single dark fabric thread caught on a rough surface."
-  },
-  {
-   "metin": "Bu lif, dükkânda başka bir kişinin daha gece yarısı gizlice dolaştığını kanıtlıyordu.",
-   "nesne": "wooden floorboard",
-   "arama": "creaky old wooden floorboards in a historic building",
-   "gorsel": "Worn and dusty wooden floorboards inside an abandoned-looking shop."
-  },
-  {
-   "metin": "Komiser Tahsin derhal karakola dönerek şüphelilerin ifadelerini yeniden masaya yatırdı.",
-   "nesne": "police file",
-   "arama": "manila police file folder stamped confidential",
-   "gorsel": "A thick manila folder labeled with confidential case notes on a desk."
-  },
-  {
-   "metin": "Kerem, bindiği otobüsten Bursa'nın çıkışındaki kontrol noktasında polisler tarafından indirildi.",
-   "nesne": "highway police car",
-   "arama": "police cruiser parked on a foggy highway at night",
-   "gorsel": "A police car with flashing lights parked on a misty roadside at night."
-  },
-  {
-   "metin": "Kerem şaşkınlıkla ellerini kaldırırken, 'Ben hiçbir şey yapmadım!' diye bağırdı.",
-   "nesne": "handcuffs",
-   "arama": "steel handcuffs resting on a car hood",
-   "gorsel": "Shiny steel handcuffs reflecting the blue lights of a police vehicle."
-  },
-  {
-   "metin": "Selim ise mahalle kahvesinde otururken iki sivil polis masasına yaklaşınca neye uğradığını şaşırdı.",
-   "nesne": "ceramic teacup",
-   "arama": "traditional Turkish tea glass on a small saucer",
-   "gorsel": "A traditional tea glass sitting on a wooden table in a local teahouse."
-  },
-  {
-   "metin": "Karakolun soğuk sorgu odasında üçü de yeniden yan yana, bu kez tamamen farklı bir gerçekle yüzleşmek üzereydi.",
-   "nesne": "interrogation table",
-   "arama": "metal interrogation table in a windowless room",
-   "gorsel": "A stark metal table surrounded by two chairs in a drab interrogation room."
-  },
-  {
-   "metin": "Komiser Tahsin içeri girdiğinde elindeki yeni delili, o gizli kumaş lifini masaya bıraktı.",
-   "nesne": "evidence bag",
-   "arama": "plastic evidence bag containing a small fabric sample",
-   "gorsel": "A clear plastic evidence bag with a label and a tiny fabric thread inside."
-  },
-  {
-   "metin": "Tahsin, 'Orhan tek başına değildi,' diyerek odadaki sessizliği bıçak gibi kesti.",
-   "nesne": "notebook",
-   "arama": "open leather detective notebook with handwritten notes",
-   "gorsel": "An open notebook with messy handwritten detective notes and sketches."
-  },
-  {
-   "metin": "Orhan, suç ortaklığını reddetse de ellerindeki bu yeni parça her şeyi altüst ediyordu.",
-   "nesne": "wooden chair",
-   "arama": "simple wooden chair in a police station room",
-   "gorsel": "An empty wooden chair pushed slightly away from a metal desk."
-  },
-  {
-   "metin": "Kerem gözyaşları içinde, ustasının kızıyla olan sırrını değil, gece dükkâna gizlice girdiğini itiraf etmek zorunda kaldı.",
-   "nesne": "paper tissue",
-   "arama": "box of paper tissues on a wooden table",
-   "gorsel": "A simple tissue box sitting on the edge of an office desk."
-  },
-  {
-   "metin": "Kerem, 'Sadece eşyalarımı almaya gitmiştim, ustam zaten ölmüştü' diye yemin ediyordu.",
-   "nesne": "backpack",
-   "arama": "worn canvas backpack resting on the floor",
-   "gorsel": "A dusty canvas travel backpack placed on the floor next to a chair."
-  },
-  {
-   "metin": "Peki ya Selim? Eski çırak köşeye sıkışınca kumarcılara olan borcunu ödemek için planı anlattı.",
-   "nesne": "playing cards",
-   "arama": "scattered playing cards on a dark table",
-   "gorsel": "A few old playing cards scattered on a dark, scratched wooden surface."
-  },
-  {
-   "metin": "Selim, Orhan ile gizlice anlaşmış, kapı mekanizmasını bozmak için ona tüyo vermişti.",
-   "nesne": "metal key",
-   "arama": "old brass skeleton key on a ring",
-   "gorsel": "An antique skeleton key hanging from a metal ring on a hook."
-  },
-  {
-   "metin": "Ancak Orhan, Selim'i de bu işin içine çekerek tüm suçu onun üzerine yıkmayı planlamıştı.",
-   "nesne": "pocket watch",
-   "arama": "vintage silver pocket watch resting on a desk",
-   "gorsel": "An open silver pocket watch showing the intricate gears inside."
-  },
-  {
-   "metin": "Kasa Kurgu dosyalarındaki bu beklenmeyen dönüş, davanın rengini tamamen değiştirdi.",
-   "nesne": "file cabinet",
-   "arama": "metal office filing cabinet with drawers",
-   "gorsel": "A tall grey metal filing cabinet standing against a peeling office wall."
-  },
-  {
-   "metin": "Komiser Tahsin, iki suçlunun birbirini suçlamasını dikkatle izlerken hakikatin ipini elinde tutuyordu.",
-   "nesne": "coffee mug",
-   "arama": "ceramic coffee mug with steam rising",
-   "gorsel": "A steaming ceramic mug sitting on a stack of papers."
-  },
-  {
-   "metin": "Bursa'nın tarihi surları üzerinde güneş yavaşça yükselirken, adalet bu kez iki kişiyi birden yakalamıştı.",
-   "nesne": "stone wall",
-   "arama": "ancient stone city wall in morning light",
-   "gorsel": "A massive historic stone fortress wall glowing in the early morning sun."
-  },
-  {
-   "metin": "Orhan ve Selim kelepçelenerek karakolun çıkış kapısına doğru götürüldü.",
-   "nesne": "exit door",
-   "arama": "heavy glass exit door of a police station",
-   "gorsel": "A heavy glass door reflecting the bright daylight outside a municipal building."
-  },
-  {
-   "metin": "Kerem ise suçsuz olduğu anlaşıldıktan sonra serbest bırakıldı, ancak içindeki ağırlık hiç gitmedi.",
-   "nesne": "park bench",
-   "arama": "empty wooden park bench under a tree",
-   "gorsel": "A lonely wooden bench in a quiet public park during daytime."
-  },
-  {
-   "metin": "Kasa Kurgu'nun bu karmaşık vakası da böylece kararlı adımlarla çözüme kavuştu.",
-   "nesne": "typewriter",
-   "arama": "vintage mechanical typewriter on a wooden desk",
-   "gorsel": "An old manual typewriter with a blank paper loaded in the roller."
-  },
-  {
-   "metin": "Komiser Tahsin, masasındaki lambayı söndürürken yeni bir gizemin ellerini kaşındırdığını hissetti.",
-   "nesne": "light switch",
-   "arama": "old plastic light switch on a painted wall",
-   "gorsel": "A close-up of a wall-mounted light switch in an old office."
-  },
-  {
-   "metin": "Bursa kuyumcusundaki o buz gibi kilitli oda hikayesi tarihe gömülürken, karanlık sokaklar yeni kurbanlarını bekliyordu.",
-   "nesne": "streetlamp",
-   "arama": "classic streetlamp glowing in the twilight",
-   "gorsel": "An antique streetlamp casting a warm glow against a fading evening sky."
-  },
-  {
-   "metin": "Kasa Kurgu dosyası burada resmen kapanıyor ama hikayeler asla bitmiyor, hoşça kalın.",
-   "nesne": "wooden desk",
-   "arama": "clean wooden desk surface with nothing on it",
-   "gorsel": "A tidy wooden office desk ready for the next mysterious case file."
-  },
-  {
-   "metin": "Komiser Tahsin, Selim'i mahalle kahvesinden alarak hızla emniyet müdürlüğüne geri getirdi.",
-   "nesne": "coffee shop sign",
-   "arama": "police bringing suspect inside",
-   "gorsel": "interior of a smoky neighborhood coffeehouse with vintage chairs"
-  },
-  {
-   "metin": "Sorgu odasında masaya atılan o küçük lif parçası, tüm dengeleri altüst etmeye yetmişti.",
-   "nesne": "microscope",
-   "arama": "forensic lab table with evidence",
-   "gorsel": "close up of a forensic table with glowing desk lamp"
-  },
-  {
-   "metin": "Selim ter içinde kalmıştı; gece dükkâna nasıl girdiğini sonunda itiraf etmek zorunda kaldı.",
-   "nesne": "interrogation chair",
-   "arama": "suspect sweating in police station",
-   "gorsel": "metal interrogation table with bright overhead light casting harsh shadows"
-  },
-  {
-   "metin": "Kumar borçlarını ödemek için arka pencereden içeri sızdığını ve kasayı zorladığını söyledi.",
-   "nesne": "crowbar",
-   "arama": "burglar tools on dark floor",
-   "gorsel": "dark alleyway floor with discarded metal tools under moonlight"
-  },
-  {
-   "metin": "Ancak Selim, içeri girdiğinde Kenan ustanın zaten masada hareketsiz yattığını iddia ediyordu.",
-   "nesne": "pocket watch",
-   "arama": "vintage clock showing midnight",
-   "gorsel": "old pocket watch ticking on a dark wooden table"
-  },
-  {
-   "metin": "Korkuya kapılıp hiçbir şey çalmadan kaçtığını, ses çıkarmamaya çalıştığını anlattı.",
-   "nesne": "wooden door",
-   "arama": "creaky old wooden door half open",
-   "gorsel": "dark hallway with wooden door casting long shadows"
-  },
-  {
-   "metin": "Komiser Tahsin bu ifadenin davanın seyrini tamamen değiştirdiğini hemen fark etti.",
-   "nesne": "case file",
-   "arama": "detective flipping through old files",
-   "gorsel": "cluttered desk with open case files and red ink stamps"
-  },
-  {
-   "metin": "Orhan'ın cinayeti işlediği kesinleşmişti ama Selim de hırsızlık suçundan ceza alacaktı.",
-   "nesne": "handcuffs",
-   "arama": "steel handcuffs on metal table",
-   "gorsel": "shiny steel handcuffs resting on a cold metal interrogation surface"
-  },
-  {
-   "metin": "Kerem ise serbest bırakıldıktan sonra ustasının mezarını ziyaret etmek için mezarlığa gitti.",
-   "nesne": "gravestone",
-   "arama": "quiet cemetery path at dusk",
-   "gorsel": "old stone gravestone surrounded by green moss and fading daylight"
-  },
-  {
-   "metin": "Toprağa bıraktığı karanfil, içindeki sönmeyen suçluluk ve pişmanlık duygusunun simgesiydi.",
-   "nesne": "red carnation",
-   "arama": "single flower on fresh soil",
-   "gorsel": "fresh red carnation lying on damp dark cemetery earth"
-  },
-  {
-   "metin": "Bursa'nın tarihi çarşısı, yaşanan bu karanlık olayların ardından yavaşça normale dönüyordu.",
-   "nesne": "cobblestone street",
-   "arama": "historic turkish market street morning",
-   "gorsel": "historic stone bazaar street glistening with morning dew"
-  },
-  {
-   "metin": "Kuyumcu dükkânının kepenkleri yeni sahipleri tarafından devralınmak üzere açıldı.",
-   "nesne": "metal shutter",
-   "arama": "storefront security shutter opening",
-   "gorsel": "heavy metal storefront shutters half raised in the morning light"
-  },
-  {
-   "metin": "Komiser Tahsin, karakoldaki ahşap masasında bu karmaşık dosyanın son raporunu yazıyordu dolma kalemle.",
-   "nesne": "fountain pen",
-   "arama": "police report paper and pen",
-   "gorsel": "wooden desk with an ink bottle and fountain pen writing official notes"
-  },
-  {
-   "metin": "Kasa Kurgu ekibi, bu zorlu mücadelenin tüm kamera arkası kayıtlarını arşivlerine kaldırdı.",
-   "nesne": "video cassette",
-   "arama": "archive shelves with old boxes",
-   "gorsel": "dark archive room with rows of wooden shelves and stacked cardboard boxes"
-  },
-  {
-   "metin": "Her kilitli odanın ardında insan hırsının yarattığı sıradan birer hile saklıydı.",
+   "metin": "Demir kapının üzerindeki delikte asılı duran anahtar, dışarıdan hiçbir müdahale olmadığını kanıtlıyordu.",
    "nesne": "brass key",
-   "arama": "old brass skeleton key on wood",
-   "gorsel": "heavy brass key resting on a scratched wooden surface"
+   "arama": "heavy brass key inserted in iron door lock",
+   "gorsel": "A heavy brass key inserted into an old iron door lock from the inside."
   },
   {
-   "metin": "Orhan, mahkeme salonunda hakim karşısına çıkarken suçlamaları sessizlikle karşıladı.",
-   "nesne": "courtroom bench",
-   "arama": "empty courtroom wooden benches",
-   "gorsel": "formal courtroom interior with dark wooden panels and tall windows"
+   "metin": "Dedektifler odanın fiziksel yasalarını test ederken, dışarıdan kilit hilesinin imkansız olduğunu anladılar.",
+   "nesne": "metal door lock",
+   "arama": "heavy iron door lock mechanism on thick wooden door",
+   "gorsel": "A close-up of a heavy iron door lock mechanism mounted on a thick wooden door."
   },
   {
-   "metin": "Verilen ağır müebbet hapis cezası, hırsın ve ihanetin kaçınılmaz sonuydu.",
-   "nesne": "wooden gavel",
-   "arama": "judge hammer on wooden block",
-   "gorsel": "polished wooden judge gavel resting beside a sound block"
+   "metin": "Eğer anahtar dışarıdan çekilemediyse, o halde katil içeride gizli bir yol kullanmış olmalıydı.",
+   "nesne": "stone floor",
+   "arama": "uneven ancient stone floor slabs inside old shop",
+   "gorsel": "An overhead shot of uneven ancient stone floor slabs inside the dim shop."
   },
   {
-   "metin": "Selim kısa süreli hırsızlık suçundan tutuksuz yargılanmak üzere serbest bırakıldı.",
-   "nesne": "release papers",
-   "arama": "signed legal document on desk",
-   "gorsel": "official stamped paper document with ink signatures"
+   "metin": "Hakkı Usta'nın telefon kayıtları incelendiğinde, gece yarısı sadece tek bir yerin arandığı görüldü.",
+   "nesne": "landline phone",
+   "arama": "vintage rotary landline phone on wooden desk",
+   "gorsel": "A vintage rotary landline phone sitting quietly on a dusty wooden desk."
   },
   {
-   "metin": "Kerem ise şehirden uzaklaşarak yeni bir hayata adım atmak için trene bindi.",
-   "nesne": "train ticket",
-   "arama": "vintage railway ticket in hand",
-   "gorsel": "old fashioned paper train ticket held against a blurred window background"
+   "metin": "Arama yapılan nokta, kuyumcunun hemen yanındaki küçük çay ocağına aitti.",
+   "nesne": "wooden chair",
+   "arama": "simple wooden chair inside small dark tea room",
+   "gorsel": "A simple wooden chair positioned inside a small, dimly lit tea room."
   },
   {
-   "metin": "Trene vuran güneş ışığı, onun üzerindeki tüm o kasvetli ve ağır yükü alıp götürüyordu.",
-   "nesne": "train window",
-   "arama": "sunlight through train window glass",
-   "gorsel": "interior of a train passenger car with golden sunlight streaming through glass"
+   "metin": "Selim, ustayla o gece telefonda tartıştığını itiraf etmek zorunda kaldı, ancak yüzündeki gülümseme kaybolmamıştı.",
+   "nesne": "ceramic teapot",
+   "arama": "traditional ceramic teapot resting on hot stove",
+   "gorsel": "A traditional ceramic teapot resting quietly on a warm metallic stove."
   },
   {
-   "metin": "Komiser Tahsin, pencereden uzaklaşan trenin sesini dinlerken rahat bir nefes aldı.",
-   "nesne": "ceramic mug",
-   "arama": "hot coffee cup on police desk",
-   "gorsel": "ceramic coffee mug emitting steam near a glass window"
+   "metin": "Tartışmanın sebebi para değil, yıllar öncesine dayanan karanlık bir ortaklık ve iftira meselesiydi.",
+   "nesne": "ledger book",
+   "arama": "old leather bound financial ledger book open on table",
+   "gorsel": "An old leather-bound financial ledger book lying open on a dark wooden table."
   },
   {
-   "metin": "Şehirde yeni bir akşam inerken, sokak lambaları sırasıyla yanmaya başladı.",
-   "nesne": "street lamp",
-   "arama": "historic city street lamps at dusk",
-   "gorsel": "old fashioned iron street lamp glowing softly against a dark blue evening sky"
+   "metin": "Yıllar önce yaşanan o hırsızlık olayında suç Selim'in üzerine kalmış ve hapis yatmasına sebep olmuştu.",
+   "nesne": "prison cell door",
+   "arama": "heavy iron bars of old prison cell door",
+   "gorsel": "A dramatic shot of heavy iron bars representing a dark prison cell door."
   },
   {
-   "metin": "Kasa Kurgu dosyalarındaki her bir vaka, adalet arayanların hafızasında kalıcı bir iz bıraktı.",
-   "nesne": "leather ledger",
-   "arama": "thick leather bound notebook open",
-   "gorsel": "thick leather bound detective ledger with yellowed pages"
+   "metin": "Selim'in bu dükkânı yanına açması asla bir tesadüf değil, uzun vadeli bir intikam planının parçasıydı.",
+   "nesne": "shop sign",
+   "arama": "faded metal shop sign hanging on stone wall",
+   "gorsel": "A faded metal shop sign hanging crookedly on an old stone wall."
   },
   {
-   "metin": "Adalet yerini bulduğunda, gecenin karanlığı bile biraz daha huzurlu görünür insana.",
-   "nesne": "night sky",
-   "arama": "dark starry sky over historic town",
-   "gorsel": "night sky filled with faint stars above old terracotta roofs"
+   "metin": "Polis dükkânın zeminini söktüğünde, karanlığa açılan gizli bir geçit ile karşılaştı.",
+   "nesne": "secret tunnel",
+   "arama": "dark underground stone tunnel entrance with steps",
+   "gorsel": "A dark underground stone tunnel entrance descending into shadowed steps."
   },
   {
-   "metin": "Bursa'nın mistik sokaklarında sırlar derinlere gömülürken, yeni sabahlar yeni bulmacalar getirir.",
-   "nesne": "historic fountain",
-   "arama": "stone fountain in city square",
-   "gorsel": "ornate stone water fountain in the middle of a cobblestone courtyard"
+   "metin": "Bu gizli tünel doğrudan Selim'in çay ocağının bodrum katına kadar uzanıyordu.",
+   "nesne": "stone stairs",
+   "arama": "narrow damp stone stairs leading down into basement",
+   "gorsel": "Narrow, damp stone stairs leading down into a dark basement corridor."
   },
   {
-   "metin": "Komiser Tahsin masanın lambasını söndürürken, yeni bir suç dosyasının kapağı açık kalmıştı.",
-   "nesne": "desk lamp",
-   "arama": "vintage brass desk lamp turning off",
-   "gorsel": "brass desk lamp casting a warm circle of light on dark wood"
+   "metin": "Tünelin derinliklerinde yapılan aramada Hakkı Usta'nın kayıp cüzdanı gün ışığına çıktı.",
+   "nesne": "leather wallet",
+   "arama": "worn brown leather wallet lying on damp ground",
+   "gorsel": "A worn brown leather wallet lying abandoned on the damp earth of the tunnel."
   },
   {
-   "metin": "Kasa Kurgu ekibi olarak karanlıkta kalan hiçbir gizem cıvıltılı sokaklarda kaybolmaz.",
+   "metin": "Aynı yerde bulunan zehir şişesi, cinayetin tüm planını tek bir karede özetliyordu.",
+   "nesne": "glass bottle",
+   "arama": "small amber glass bottle lying on stone floor",
+   "gorsel": "A small amber glass bottle lying on the cold stone floor of the tunnel."
+  },
+  {
+   "metin": "Selim köşeye sıkıştığında bile sakinliğini bozmadı, sanki bu sonu yıllardır bekliyormuş gibiydi.",
+   "nesne": "metal handcuffs",
+   "arama": "silver metal handcuffs resting on wooden table",
+   "gorsel": "A pair of shiny silver metal handcuffs resting on a scratched wooden table."
+  },
+  {
+   "metin": "Yılların biriktirdiği öfke, sonunda sabırlı bir katilin elinde sessiz bir ölümle sonuçlanmıştı.",
+   "nesne": "shadow",
+   "arama": "long dark shadow cast on old stone wall",
+   "gorsel": "A long, dark shadow cast ominously against an old textured stone wall."
+  },
+  {
+   "metin": "Bursa polisi delilleri birleştirerek kilitli oda gizemini tamamen çözmüş oldu.",
    "nesne": "magnifying glass",
-   "arama": "detective tools on dark wooden desk",
-   "gorsel": "close up of metal magnifying glass resting on old case notes"
+   "arama": "metal magnifying glass resting on old map",
+   "gorsel": "A classic metal magnifying glass resting on top of an old parchment map."
   },
   {
-   "metin": "Her kilit mutlaka bir anahtara, her bulmaca ise mantıklı bir çözüme sahiptir.",
-   "nesne": "iron key",
-   "arama": "heavy iron key on stone floor",
-   "gorsel": "rusty vintage iron key lying on cold grey stone flags"
+   "metin": "Adalet yerini buldu ve tarihi hanın sessiz taşları sonunda huzura kavuştu.",
+   "nesne": "stone wall",
+   "arama": "ancient weathered stone wall texture in daylight",
+   "gorsel": "A close-up of ancient, weathered stone wall texture bathed in soft daylight."
   },
   {
-   "metin": "Bu hikâye de burada sona ererken, geriye sadece çözülmüş bir bulmacanın sessizliği kaldı.",
-   "nesne": "closed book",
-   "arama": "thick closed book on table",
-   "gorsel": "thick hardcover book resting flat on a dark wooden shelf"
+   "metin": "Kasa Kurgu kanalında bir gerilim dolu vakanın daha sonuna geldik.",
+   "nesne": "wooden desk",
+   "arama": "dark wooden detective desk with old items",
+   "gorsel": "A dark wooden detective desk scattered with old case notes and items."
   },
   {
-   "metin": "Kasa Kurgu'nun yepyeni ve gerilim dolu vakalarında tekrar buluşmak üzere hoşça kalın.",
+   "metin": "Bu tarz gizemli hikayeleri kaçırmamak için abone olmayı ve bildirimleri açmayı unutmayın.",
+   "nesne": "notebook",
+   "arama": "open leather notebook with pen on wooden table",
+   "gorsel": "An open leather-bound notebook with a black ink pen resting on a wooden table."
+  },
+  {
+   "metin": "Görüşleriniz bizim için çok değerli; en çok hangi ipucu sizi şaşırttı?",
+   "nesne": "ink pen",
+   "arama": "classic black ink pen on wooden surface",
+   "gorsel": "A classic black ink pen resting horizontally on a dark wooden surface."
+  },
+  {
+   "metin": "Yorumlarda buluşalım, dedektifler; yeni vakada tekrar görüşmek üzere.",
+   "nesne": "lantern",
+   "arama": "old brass oil lantern on wooden background",
+   "gorsel": "An old brass oil lantern glowing softly against a dark wooden background."
+  },
+  {
+   "metin": "Bursa'nın serin sabah ayazı, tarihi koza hanın kalın duvarları arasında yankılanırken, polis memurları demir kapının önünde son bir kez nefeslerini tuttular.",
+   "nesne": "iron door",
+   "arama": "historic stone archway",
+   "gorsel": "A cold, damp historic stone archway in Bursa with morning mist hovering above."
+  },
+  {
+   "metin": "Paslı kilit mekanizması, yılların verdiği yorgunlukla gıcırdadı ve ağır demir kanatlar sonunda aralandı.",
+   "nesne": "rusty key",
+   "arama": "heavy iron lock",
+   "gorsel": "Close up of a heavy, ancient iron lock mechanism covered in rust and dust."
+  },
+  {
+   "metin": "İçerideki ağır hava, misinadan ve metal tozundan oluşan karmaşık kokuyu etrafa yaymaya devam ediyordu.",
+   "nesne": "fishing line",
+   "arama": "dusty jewelry workshop floor",
+   "gorsel": "A dim, dusty workshop floor with scattered metal shavings and faint light beams."
+  },
+  {
+   "metin": "Genç çırak Kerem, polisin sert bakışları altında ellerini cebinden çıkardı ve yutkundu.",
+   "nesne": "leather jacket",
+   "arama": "young apprentice nervous",
+   "gorsel": "A young man wearing a worn leather jacket standing nervously in a narrow hallway."
+  },
+  {
+   "metin": "Kerem'in atölyede unuttuğu alet çantasının kapağı açık duruyordu ve içindeki teller parlıyordu.",
+   "nesne": "toolbox",
+   "arama": "metal tools inside box",
+   "gorsel": "An open metal toolbox filled with pliers, wires, and small precision screwdrivers."
+  },
+  {
+   "metin": "Dedektif, çantadan çıkan misina tellerini eline alarak ışığa doğru kaldırdı ve inceledi.",
+   "nesne": "wire spool",
+   "arama": "transparent fishing wire",
+   "gorsel": "A spool of clear, thin nylon fishing wire resting on a wooden workbench."
+  },
+  {
+   "metin": "Kerem sesini biraz yükselterek o telleri sadece bozuk çekmeceleri tamir etmek için kullandığını savundu.",
+   "nesne": "drawer handle",
+   "arama": "broken wooden drawer",
+   "gorsel": "A broken wooden drawer with a loose metal handle inside a dusty cabinet."
+  },
+  {
+   "metin": "Leyla Hanım ise bu suçlamalardan uzaklaşmak ister gibi kollarını göğsünde sıkıca kavuşturdu.",
+   "nesne": "wool coat",
+   "arama": "proud woman crossing arms",
+   "gorsel": "A sophisticated woman in a dark wool coat crossing her arms with a stern expression."
+  },
+  {
+   "metin": "Çantasından çıkarılıp masaya konan o eski mektup, aralarındaki kan davasını açıkça ifşa ediyordu.",
+   "nesne": "old letter",
+   "arama": "handwritten paper letter",
+   "gorsel": "An aged, yellowed paper letter with handwritten ink text resting on a table."
+  },
+  {
+   "metin": "Leyla, babasının intikamını almak için yıllardır doğru zamanı beklediğini artık gizlemiyordu.",
+   "nesne": "silver ring",
+   "arama": "vintage silver ring on hand",
+   "gorsel": "Close up of a hand wearing a vintage silver ring resting on a cold surface."
+  },
+  {
+   "metin": "Ancak sokak kameralarının açısı, Leyla'nın o gece dükkâna hiç girmediğini net bir şekilde gösteriyordu.",
+   "nesne": "security camera",
+   "arama": "brick alleyway wall",
+   "gorsel": "A narrow brick alleyway wall viewed from a high security camera angle."
+  },
+  {
+   "metin": "Geriye tek bir ihtimal kalıyordu; o da dükkânın hemen yanındaki küçük çay ocağıydı.",
+   "nesne": "tea glass",
+   "arama": "traditional tea glass saucer",
+   "gorsel": "A traditional glass saucer with a small silver spoon on a wooden counter."
+  },
+  {
+   "nesne": "prayer beads",
+   "arama": "amber prayer beads hand",
+   "gorsel": "A pair of amber prayer beads moving slowly through a man's fingers."
+  },
+  {
+   "metin": "Selim, bardakları her sabah bizzat kendisinin servis ettiğini sakin bir ses tonuyla tekrarladı.",
+   "nesne": "silver tray",
+   "arama": "empty metal tea tray",
+   "gorsel": "A polished metal tea tray resting on a worn wooden table surface."
+  },
+  {
+   "metin": "Fakat laboratuvar raporu, çayın içindeki akonitin zehrinin bitkisel kökenli olduğunu kesinleştirdi.",
+   "nesne": "glass beaker",
+   "arama": "laboratory glass beaker",
+   "gorsel": "A transparent laboratory glass beaker containing a dark liquid sample."
+  },
+  {
+   "metin": "Zehirli çayın bardağı, Hakkı Usta'nın tezgahının üstünde sessiz bir tanık gibi duruyordu.",
+   "nesne": "ceramic tea cup",
+   "arama": "half full tea cup",
+   "gorsel": "A half full ceramic tea cup sitting on a dusty wooden countertop."
+  },
+  {
+   "metin": "Dedektif, odanın zeminindeki tahta döşemeleri incelemek için yere çömeldi ve parmaklarıyla yokladı.",
+   "nesne": "wooden floorboards",
+   "arama": "old wooden floor planks",
+   "gorsel": "Close up of old, dusty wooden floor planks with a slight gap between them."
+  },
+  {
+   "metin": "Tahtalardan birinin gevşek olduğunu fark eden polis, hemen levyeyi yardıma çağırdı.",
+   "nesne": "steel crowbar",
+   "arama": "heavy steel crowbar tool",
+   "gorsel": "A heavy steel crowbar resting against a dark wooden floor base."
+  },
+  {
+   "metin": "Eski tahtalar yerinden söküldüğünde, altındaki karanlık boşluk ilk kez gün ışığıyla buluştu.",
+   "nesne": "dark tunnel opening",
+   "arama": "underground brick tunnel",
+   "gorsel": "An dark, narrow underground brick tunnel opening beneath a wooden floor."
+  },
+  {
+   "metin": "Bu gizli geçit, kuyumcunun zemininden başlayıp doğrudan yan dükkânın bodrumuna bağlanıyordu.",
+   "nesne": "stone steps",
+   "arama": "narrow underground staircase",
+   "gorsel": "Narrow stone steps leading down into a pitch black subterranean cellar."
+  },
+  {
+   "metin": "Tünelin soğuk duvarları arasında ilerleyen dedektifler, yerde unutulmuş küçük bir cüzdan buldular.",
+   "nesne": "leather wallet",
+   "arama": "worn leather wallet ground",
+   "gorsel": "A worn brown leather wallet lying on the dirt floor of a dark tunnel."
+  },
+  {
+   "metin": "Hakkı Usta'ya ait olan bu cüzdan, soygun süsü verilmiş cinayetin gerçeğini ortaya serdi.",
+   "nesne": "identity card",
+   "arama": "old paper identification card",
+   "gorsel": "An old paper identification card inside a partially opened leather wallet."
+  },
+  {
+   "metin": "Tünelin en derin köşesinde ise küçük, cam bir zehir şişesi toprakların arasında saklanmıştı.",
+   "nesne": "glass vial",
+   "arama": "small empty glass vial",
+   "gorsel": "A small empty glass vial lying in the dirt with faint residue inside."
+  },
+  {
+   "metin": "Selim'in yıllar önce yatmış olduğu hapis cezasının mahkeme evrakları masanın üzerine bırakıldı.",
+   "nesne": "court document",
+   "arama": "stacked paper documents",
+   "gorsel": "A stack of yellowed court documents with official stamps and signatures."
+  },
+  {
+   "metin": "Selim, tüm bu kanıtlar karşısında bile maskesini düşürmedi, sadece başını hafifçe öne eğdi.",
+   "nesne": "linen handkerchief",
+   "arama": "white cotton handkerchief",
+   "gorsel": "A white cotton handkerchief held tightly in a tense hand."
+  },
+  {
+   "metin": "Kilitli odanın sırrı nihayet çözülmüştü; katil kapıyı kilitleyip tünelden kaçarak izini kaybettirmişti.",
+   "nesne": "brass keyhole",
+   "arama": "brass door keyhole detail",
+   "gorsel": "Close up of an old brass keyhole on a heavy wooden inner door."
+  },
+  {
+   "metin": "Bursa polisi Selim'e kelepçeyi takarken, hanın sessiz koridorlarında demir sesleri yankılandı.",
+   "nesne": "steel handcuffs",
+   "arama": "metal police handcuffs",
+   "gorsel": "A pair of shiny metal police handcuffs resting on a dark wooden surface."
+  },
+  {
+   "metin": "Genç çırak Kerem derin bir nefes alarak rahatlarken, Leyla Hanım da oradan uzaklaştı.",
+   "nesne": "iron railing",
+   "arama": "historic balcony railing",
+   "gorsel": "An ornate iron balcony railing overlooking a quiet historic courtyard."
+  },
+  {
+   "metin": "Tarihi kuyumcu dükkânının önündeki polis şeridi söküldü ve kapı yeniden mühürlendi.",
+   "nesne": "police tape",
+   "arama": "yellow police barrier tape",
+   "gorsel": "Yellow police barrier tape tied tightly across an old wooden storefront."
+  },
+  {
+   "metin": "Sabah güneşinin ilk ışıkları, hanın taş duvarlarını aydınlatırken geride sadece sırlar kaldı.",
+   "nesne": "sunlight beam",
+   "arama": "morning sun on stone wall",
+   "gorsel": "A bright morning sunlight beam shining across an ancient stone wall surface."
+  },
+  {
+   "metin": "Kasa Kurgu kanalında bu karanlık vaka da böylece adil bir sonuca bağlanmış oldu.",
+   "nesne": "notebook page",
+   "arama": "detective case notebook open",
+   "gorsel": "An open detective notebook with handwritten case notes and a fountain pen."
+  },
+  {
+   "metin": "İnsan ruhunun en ücra köşelerinde saklanan intikam hırsı, bazen yıllarca sessizce büyüyebilirdi.",
    "nesne": "pocket watch",
    "arama": "vintage pocket watch open",
-   "gorsel": "vintage pocket watch with intricate gears visible under dim light"
+   "gorsel": "A vintage pocket watch ticking silently with its glass cover reflecting light."
   },
   {
-   "metin": "Tarihi çarşının çanları gece yarısını vururken, sokaklar tamamen sessizliğe büründü.",
-   "nesne": "church bell",
-   "arama": "historic clock tower at midnight",
-   "gorsel": "tall stone clock tower silhouette against a deep night sky"
-  },
-  {
-   "metin": "Dedektiflik sadece suçluyu bulmak değil, gerçeğin kendisini gün ışığına çıkarmaktır.",
-   "nesne": "reading glasses",
-   "arama": "glasses on open document",
-   "gorsel": "wire rimmed reading glasses placed carefully on top of typed papers"
-  },
-  {
-   "metin": "Kasa Kurgu kanalımızın yeni bölümlerinde görüşmek dileğiyle, karanlıkta kalmayın.",
-   "nesne": "wooden sign",
-   "arama": "vintage wooden signboard hanging",
-   "gorsel": "rustic wooden sign hanging from a metal bracket on a stone wall"
-  },
-  {
-   "metin": "Komiser Tahsin karanlık odadan çıkarken kapıyı yavaşça arkasından çekti.",
-   "nesne": "brass handle",
-   "arama": "heavy wooden door handle close up",
-   "gorsel": "polished brass door handle on a dark wooden panel"
-  },
-  {
-   "metin": "Bursa kuyumcusu vakası Kasa Kurgu arşivindeki muteber yerini aldı, iyi akşamlar.",
-   "nesne": "archive box",
-   "arama": "cardboard archive box labeled",
-   "gorsel": "stacked brown cardboard storage boxes with handwritten labels on shelves"
-  },
-  {
-   "metin": "Komiser Tahsin, Selim'i mahalle kahvesinde soluk soluğa yakaladığında genç adamın elleri titriyordu.",
-   "nesne": "coffee cup",
-   "arama": "suspect interrogation at local cafe",
-   "gorsel": "police questioning young man at wooden table"
-  },
-  {
-   "metin": "Selim, o gece dükkânın arka penceresinden içeri girdiğini itiraf etmek zorunda kaldı.",
-   "nesne": "window frame",
-   "arama": "dark alleyway behind jewelry shop",
-   "gorsel": "night view of old stone building window"
-  },
-  {
-   "metin": "Ancak Selim'in tek amacı kasadan para çalmaktı, cinayetle bir ilgisi olmadığını tekrarlayıp duruyordu.",
-   "nesne": "crowbar",
-   "arama": "burglary tools on steel table",
-   "gorsel": "metal tools under fluorescent light"
-  },
-  {
-   "metin": "Tahsin, bulduğu lif parçasını Selim'in ceketiyle karşılaştırdığında kumaşların birebir örtüştüğünü gördü.",
-   "nesne": "fabric sample",
-   "arama": "forensic lab microscope analysis",
-   "gorsel": "close up of colored cloth fibers"
-  },
-  {
-   "metin": "Selim suçunu kabullendiğinde gerçeğin ikinci katmanı da böylece gün ışığına çıkmış oldu.",
-   "nesne": "notebook",
-   "arama": "police station desk with case files",
-   "gorsel": "open paper notebook with handwritten notes"
-  },
-  {
-   "metin": "Bursa kuyumcusu vakası, zannedildiğinden çok daha karmaşık bir ortak suç planını barındırıyordu.",
+   "metin": "Bir sonraki gizemli hikayede buluşmak üzere, dedektifler, dikkatli kalmaya devam edin.",
    "nesne": "magnifying glass",
-   "arama": "detective desk with evidence items",
-   "gorsel": "vintage magnifying glass over map"
+   "arama": "brass magnifying glass tool",
+   "gorsel": "A brass framed magnifying glass resting on top of an old folded map."
   },
   {
-   "metin": "Orhan ve Selim ayrı ayrı odalarda sorgulanırken, Komiser Tahsin tüm parçaları ustalıkla birleştirdi.",
-   "nesne": "interrogation table",
-   "arama": "police precinct interview room",
-   "gorsel": "two chairs across metal table in cell"
-  },
-  {
-   "metin": "Orhan zehri temin etmiş, Selim ise gece yarısı içeri sızarak kameraların yönünü değiştirmişti.",
-   "nesne": "security camera",
-   "arama": "cctv lens mounted on ceiling",
-   "gorsel": "electronic surveillance device in corner"
-  },
-  {
-   "metin": "İki suç ortaklığı, kusursuz kilitli oda cinayetini yaratmak için kusursuz bir uyumla çalışmıştı.",
-   "nesne": "handcuffs",
-   "arama": "steel handcuffs on wooden surface",
-   "gorsel": "shiny metallic restraints ready for use"
-  },
-  {
-   "metin": "Ancak küçük bir metal dişli ve bırakılan tek bir lif, bu ortaklığı altüst etmeye yetmişti.",
-   "nesne": "metal gear",
-   "arama": "tiny mechanical parts on paper",
-   "gorsel": "small cogwheel macro shot"
-  },
-  {
-   "metin": "Kerem ise bu karanlık planın tamamen dışında, sadece yanlış zamanda yanlış yerde kalmış genç bir kalfaydı.",
-   "nesne": "bus ticket",
-   "arama": "paper travel ticket on wooden bench",
-   "gorsel": "single ticket stub close up"
-  },
-  {
-   "metin": "Kerem'in masumiyeti kanıtlandıktan sonra genç adam nihayet huzur içinde şehrine geri dönebilecekti.",
-   "nesne": "travel bag",
-   "arama": "leather suitcase on station floor",
-   "gorsel": "packed luggage ready for journey"
-  },
-  {
-   "metin": "Tarihi çarşının sakin sokaklarında adalet, sonunda tüm ağırlığıyla ve berraklığıyla yerini buldu.",
-   "nesne": "church bell",
-   "arama": "old clock tower in historic town",
-   "gorsel": "stone tower against cloudy sky"
-  },
-  {
-   "metin": "Komiser Tahsin, dosyanın üzerine bu kez kesin olarak 'Çözüldü ve Kapatıldı' mühürünü vurdu.",
-   "nesne": "rubber stamp",
-   "arama": "official stamp on paper document",
-   "gorsel": "red ink stamp on legal file"
-  },
-  {
-   "metin": "Kasa Kurgu arşivindeki bu unutulmaz dosya da böylece hak ettiği müstesna yeri aldı.",
-   "nesne": "archive box",
-   "arama": "cardboard storage boxes on metal shelving",
-   "gorsel": "rows of files in storage room"
-  },
-  {
-   "metin": "Kenan ustanın adı artık Bursa'nın bu kadim çarşısında adaletin ve dürüstlüğün simgesi olarak yaşayacak.",
-   "nesne": "store sign",
-   "arama": "vintage wooden sign above shop door",
-   "gorsel": "old engraved signboard on brick wall"
-  },
-  {
-   "metin": "Kasa Kurgu kanalımızın yeni ve gerilim dolu vakalarında tekrar buluşmak üzere hoşça kalın.",
+   "metin": "Gerçekler her zaman karanlıkta saklanır, ancak doğru ipucu onları her zaman gün ışığına çıkarır.",
    "nesne": "desk lamp",
-   "arama": "warm glowing lamp on wooden desk",
-   "gorsel": "table light illuminating dark room"
+   "arama": "vintage green desk lamp",
+   "gorsel": "A vintage green bankers desk lamp casting a warm glow on a dark table."
   },
   {
-   "metin": "Dedektiflik sadece suçluyu bulmak değil, gerçeğin kendisini gün ışığına çıkarmaktır, unutmayın.",
-   "nesne": "pocket watch",
-   "arama": "antique silver pocket watch open",
-   "gorsel": "vintage clock hands showing time"
+   "metin": "Bursa'nın bu tarihi hanı, yıllar boyunca daha nice gizemleri kendi sessizliğinde saklamaya devam edecek.",
+   "nesne": "wooden sign",
+   "arama": "old wooden plaque wall",
+   "gorsel": "An old faded wooden plaque hanging quietly on a historic stone building wall."
   },
   {
-   "metin": "Kasa Kurgu yeni bölümlerinde görüşmek dileğiyle, karanlıkta kalmayın, iyi akşamlar.",
-   "nesne": "wooden door",
-   "arama": "heavy wooden door closing in hallway",
-   "gorsel": "dimly lit corridor with open exit"
+   "metin": "Ve böylece, Kasa Kurgu'nun unutulmaz vakalarından biri daha hafızalara kazınarak kapandı.",
+   "nesne": "brass bell",
+   "arama": "small counter bell metal",
+   "gorsel": "A small polished brass counter bell sitting on the edge of a wooden desk."
   }
  ]
 }
