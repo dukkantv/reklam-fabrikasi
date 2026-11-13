@@ -32,4 +32,4 @@ jobs:
           git config user.email "dukkan.tvstudio@gmail.com"
           git add tokens/
           git commit -m "YouTube izni: ${{ inputs.kanal }}"
-          git push
+          git pull --rebase origin main && git push
