@@ -1,0 +1,304 @@
+{
+ "baslik": "Kilitli Oda Cinayeti: Bursa Kuyumcusunda Gizemli Ölüm",
+ "kapak_yazi": "KİLİTLİ ODA",
+ "aciklama": "Bursa'da sabah kilitli bir kuyumcu dükkanında bulunan cansız beden, ardında çözülmeyi bekleyen sırlar bırakıyor. Dışarıdan kimsenin giremediği bu odada katil nasıl iz bırakmadan ortadan kayboldu? Kasa Kurgu dedektiflik masasında gerilim dolu bu bulmacayı birlikte çözüyoruz. Abone olmayı ve tahmininizi yorumlara yazmayı unutmayın.",
+ "etiketler": [
+  "kasa kurgu",
+  "polisiyekurgu",
+  "kilitliodacinayeti",
+  "bursakuyumcusu",
+  "detektifhikayeleri",
+  "sirlicinayet",
+  "kimöldürdü",
+  "bulmaca",
+  "hikayeanlaticiligi",
+  "turkcepolisiye"
+ ],
+ "bolumler": [
+  {
+   "sahne": 1,
+   "ad": "Giriş"
+  },
+  {
+   "sahne": 15,
+   "ad": "Olay Yeri"
+  },
+  {
+   "sahne": 30,
+   "ad": "İlk Şüpheli"
+  },
+  {
+   "sahne": 45,
+   "ad": "İkinci Şüpheli"
+  },
+  {
+   "sahne": 60,
+   "ad": "Üçüncü Şüpheli"
+  },
+  {
+   "sahne": 75,
+   "ad": "Dördüncü Şüpheli"
+  },
+  {
+   "sahne": 90,
+   "ad": "Yanıltmaca"
+  },
+  {
+   "sahne": 105,
+   "ad": "Tahmin Vakti"
+  },
+  {
+   "sahne": 115,
+   "ad": "Çözüm"
+  }
+ ],
+ "sahneler": [
+  {
+   "metin": "İçeriden kilitli bir demir kapı ve ortada cansız yatan bir kuyumcu... Bu cinayeti inatçı yapan şey, arkasında tek bir ayak izi dahi bırakmamış olması.",
+   "nesne": "heavy iron vault door locked from inside",
+   "arama": "locked iron door vault",
+   "gorsel": "heavy iron vault door locked from inside, dark jeweller shop interior, mysterious midnight ambiance, dramatic shadow play"
+  },
+  {
+   "metin": "Bursa’nın tarihi çarşısının sabah serinliğinde, kepenkler henüz kalkmıştı. Fakat her sabah açılan o dükkân, bugün ölümün sessizliğiyle doluydu.",
+   "arama": "historic turkish bazaar morning",
+   "gorsel": "historic turkish bazaar morning, old stone streets, closed metal shutters, soft grey dawn light, quiet atmosphere"
+  },
+  {
+   "metin": "Ben Kasa Kurgu dedektifiniz. Bugün sizinle mantığın sınırlarını zorlayan, tamamen kilitli bir oda bulmacasının içine giriyoruz.",
+   "nesne": "silver pocket watch on wooden desk",
+   "arama": "antique pocket watch wooden table",
+   "gorsel": "silver pocket watch on wooden desk, dark detective office, magnifying glass beside it, moody candlelight"
+  },
+  {
+   "metin": "Olay yeri inceleme ekipleri içeri girmek için çelik kapıyı koçbaşıyla açmak zorunda kaldı. İçerideki kilit sürgüsü ise içeriden sürgülenmişti.",
+   "nesne": "metal bolt sliding lock on wooden door",
+   "arama": "interior door bolt lock",
+   "gorsel": "metal bolt sliding lock on wooden door, close up shot, dusty air particles, dim overhead bulb light"
+  },
+  {
+   "metin": "Maktul, elli yaşlarında titiz bir esnaftı. Vitrindeki altınların yerli yerinde durması, hırsızlık ihtimalini tamamen ortadan kaldırıyordu.",
+   "arama": "gold jewelry display tray empty",
+   "gorsel": "gold jewelry display tray empty, glass showcase counter, orderly arranged necklaces, cold morning store light"
+  },
+  {
+   "metin": "Polis raporuna göre ölüm nedeni zehirlenme. Ancak ne bir bardak su ne de yabancı bir sıvı izi vardı masada.",
+   "arama": "empty glass on wooden table",
+   "gorsel": "empty glass on wooden table, forensic dusting powder, dark moody room, single shaft of light from window"
+  },
+  {
+   "metin": "Dükkânın havalandırma bacası ise sadece bir kedinin geçebileceği kadar dar ve demir parmaklıklıydı. Yani dışarıdan bir müdahale imkansızdı.",
+   "arama": "small iron barred ventilation window",
+   "gorsel": "small iron barred ventilation window, high up on stone wall, dusty cobwebs, dim interior shadow"
+  },
+  {
+   "metin": "Peki ama katil bu odaya nasıl girip çıktı ve iz bırakmadan nasıl kayboldu? İşte bu sorunun cevabı dört şüphelinin sırrında saklı.",
+   "arama": "four silhouettes standing in dark corridor",
+   "gorsel": "four silhouettes standing in dark corridor, mysterious figures, long shadows, blueish moonlight from window"
+  },
+  {
+   "metin": "İlk şüpheliğimiz maktulün uzun yıllardır yanında çalışan sadık kalfası Kenan. Kenan, otuzlu yaşlarında, daima siyah yün kazak giyen sessiz biri.",
+   "nesne": "man in black wool sweater looking down",
+   "arama": "man in dark sweater portrait",
+   "gorsel": "man in black wool sweater looking down, anxious facial expression, dim workshop background, warm desk lamp"
+  },
+  {
+   "metin": "Kenan’ın sırrı ise esnaflar arasında parayla ilgili dönen dedikodulardandı. Gizli borçları olduğu ve tefecilerden kaçtığı biliniyordu.",
+   "nesne": "stack of old paper banknotes on desk",
+   "arama": "old paper money stack",
+   "gorsel": "stack of old paper banknotes on desk, dark wooden table, messy ledger books, nervous hand reaching"
+  },
+  {
+   "metin": "Olay gecesi Kenan dükkândan en son çıkan kişi olduğunu kabul ediyor. Ancak anahtarı patronuna teslim edip evine gittiğini iddia ediyor.",
+   "nesne": "brass door key on wooden countertop",
+   "arama": "brass key on wood",
+   "gorsel": "brass door key on wooden countertop, vintage key, warm golden glow from street lamp outside glass"
+  },
+  {
+   "metin": "Kenan dürüst bir ipucu veriyor: 'Patronum her akşam kasayı kilitlemeden önce mutlaka iki kez kontrol ederdi.' Bu da içeride yabancı biriyle karşılaşma ihtimalini artırıyor.",
+   "nesne": "heavy steel safe door slightly open",
+   "arama": "vintage steel safe open",
+   "gorsel": "heavy steel safe door slightly open, combination dial, dark room, sharp contrast lighting"
+  },
+  {
+   "metin": "İkinci şüpheliğimiz maktulün ortağı Selim Bey. Selim, ellili yaşlarında, gri takım elbisesiyle her zaman otoriter ve mesafeli duran bir iş insanı.",
+   "nesne": "middle aged man in grey suit",
+   "arama": "man in grey suit portrait",
+   "gorsel": "middle aged man in grey suit, stern expression, elegant office interior, soft evening window light"
+  },
+  {
+   "metin": "Selim Bey’in sırrı ise şirket hesaplarındaki büyük açık. Maktul ile aralarında son zamanlarda ortaklığı bitirme konusunda sert tartışmalar yaşanmıştı.",
+   "nesne": "ledger book with financial columns",
+   "arama": "vintage accounting ledger",
+   "gorsel": "ledger book with financial columns, fountain pen resting on paper, dark mahogany desk, moody table lamp"
+  },
+  {
+   "metin": "Selim Bey olay gecesi şehir dışında bir otelde olduğunu söylüyor. Otel kayıtları bunu doğrussa da, gece yarısı dışarı çıkıp çıkmadığı belirsiz.",
+   "nesne": "hotel room key card on wooden table",
+   "arama": "hotel room key wooden desk",
+   "gorsel": "hotel room key card on wooden table, night time through window, dim bedside lamp glow"
+  },
+  {
+   "metin": "Selim Bey’in sunduğu dürüst ipucu şu: 'Kuyumcuda sadece iki anahtar vardı, biri bende diğeri ortağımdaydı.' Bu durum anahtar kopyalama teorisini zayıflatıyor.",
+   "nesne": "two brass keys hanging on wall hook",
+   "arama": "keys hanging on wall hook",
+   "gorsel": "two brass keys hanging on wall hook, wooden plank background, dust motes in light beam"
+  },
+  {
+   "metin": "Üçüncü şüpheliğimiz maktulün kızı Leyla. Leyla, yirmili yaşların sonunda, boynunda ince gümüş kolye taşıyan, sanat tarihi okumuş hassas bir genç kadın.",
+   "nesne": "young woman with silver necklace portrait",
+   "arama": "young woman portrait dramatic light",
+   "gorsel": "young woman with silver necklace portrait, sad eyes, dark background, soft side lighting"
+  },
+  {
+   "metin": "Leyla’nın sırrı ise babasından gizli olarak antika kaçakçılarıyla yaptığı borç anlaşmaları. Babasının bu durumu öğrenmesi an meselesiydi.",
+   "nesne": "old parchment envelope with wax seal",
+   "arama": "antique letter envelope wax seal",
+   "gorsel": "old parchment envelope with wax seal, wooden tabletop, vintage writing desk, soft warm lamp glow"
+  },
+  {
+   "metin": "Leyla olay akşamı dükkâna uğradığını itiraf ediyor. Babasından borç para istemiş ancak olumsuz yanıt alarak dükkândan öfkeyle ayrılmış.",
+   "nesne": "ceramic tea cup half full on saucer",
+   "arama": "tea cup saucer wooden table",
+   "gorsel": "ceramic tea cup half full on saucer, rustic table, dim indoor restaurant light, evening shadow"
+  },
+  {
+   "metin": "Leyla’nın verdiği dürüst ipucu oldukça çarpıcı: 'Babam akşamları eve gelmeden önce dükkânda bitki çayı içerdi ve bunu hep kendi hazırlarca.'",
+   "nesne": "dried herbal tea leaves in small bowl",
+   "arama": "dried herbs in bowl",
+   "gorsel": "dried herbal tea leaves in small bowl, rustic wooden counter, warm apothecary light, close up shot"
+  },
+  {
+   "metin": "Dördüncü şüpheliğimiz ise dükkânın karşısındaki çay ocağını işleten İhsan. İhsan, kırklı yaşlarında, sürekli kahverengi yelek giyen meraklı bir mahalle esnafı.",
+   "nesne": "man in brown vest holding tea glass",
+   "arama": "man in brown vest portrait",
+   "gorsel": "man in brown vest holding tea glass, outdoor street background, warm afternoon sunlight"
+  },
+  {
+   "metin": "İhsan’ın sırrı polisten sakladığı borç defteri. Maktulden yüksek faizle borç almış ve bunu ödeyemediği için dükkânın yakınında sık sık tezgâh kuruyormuş.",
+   "nesne": "small lined notebook with pen",
+   "arama": "notebook and pen on table",
+   "gorsel": "small lined notebook with pen, rustic wooden table, dim ambient light, close up"
+  },
+  {
+   "metin": "İhsan olay gecesi geç saatlere kadar dükkânının önünde kaldığını söylüyor. Ancak kimsenin içeri girdiğini görmediğini iddia ediyor.",
+   "nesne": "metal tea kettle on small charcoal stove",
+   "arama": "turkish tea kettle stove",
+   "gorsel": "metal tea kettle on small charcoal stove, glowing coals, dark street corner at night, steam rising"
+  },
+  {
+   "metin": "İhsan’ın dürüst ipucu ise şu: 'Gece yarısı dükkânın bacasından garip bir tatlı koku geldiğini fark ettim ama önemsemedim.' Bu detay zehrin kaynağını işaret ediyor.",
+   "nesne": "thin wisp of smoke rising in dark room",
+   "arama": "smoke wisp dark background",
+   "gorsel": "thin wisp of smoke rising in dark room, dramatic side light, mysterious atmosphere, dust particles"
+  },
+  {
+   "metin": "Dört şüpheli, dört ayrı sır ve kilitli bir oda... Şimdi yanıltmacanın zamanı. Polis masasında toplanan deliller bizi yanlış bir yola saplamaya çalışıyor.",
+   "nesne": "police case file folder open on desk",
+   "arama": "police case file desk",
+   "gorsel": "police case file folder open on desk, scattered documents, magnifying glass, moody overhead lamp"
+  },
+  {
+   "metin": "Yanıltmaca tam olarak burada devreye giriyor. Masada bulunan parmak izleri tamamen kalfaya ait ve bu durum kalfayı bir numaralı hedef yapıyormuş gibi gösteriyor.",
+   "nesne": "fingerprint dust brush on dark surface",
+   "arama": "fingerprint dusting forensic",
+   "gorsel": "fingerprint dust brush on dark surface, metallic counter, dramatic forensic blue light, close up"
+  },
+  {
+   "metin": "Ancak dikkatli bir dedektif bilir ki, en bariz kanıt genellikle en büyük yanıltmacadır. Kalfa parmak izini oraya cinayet gecesi değil, gündüz mesaisinde bırakmıştı.",
+   "nesne": "glass showcase surface with smudge marks",
+   "arama": "glass surface smudge marks",
+   "gorsel": "glass showcase surface with smudge marks, natural daylight reflecting, forensic angle shot"
+  },
+  {
+   "metin": "Peki o halde kilitli oda sırrı nasıl çözülecek? İçeriden kilitlenen kapı ve dışarıdan hiçbir geçişin olmadığı gerçeği nasıl açıklanabilir?",
+   "nesne": "brass door handle with keyhole",
+   "arama": "door handle keyhole close up",
+   "gorsel": "brass door handle with keyhole, dark wooden door, sharp shadow, dramatic mystery lighting"
+  },
+  {
+   "metin": "Cevap odanın fiziksel yapısında değil, kullanılan yöntemin zamanlamasında gizli. Katil odaya girmek zorunda bile değildi.",
+   "nesne": "old grandfather clock ticking in corner",
+   "arama": "vintage grandfather clock dark room",
+   "gorsel": "old grandfather clock ticking in corner, swinging pendulum, dark wood, moody room light"
+  },
+  {
+   "metin": "Şimdi tüm taşlar yerine oturuyor. İpuçlarını birleştirme vakti geldi ve gerilim zirveye ulaşıyor.",
+   "nesne": "corkboard with red string connecting photos",
+   "arama": "detective corkboard red string",
+   "gorsel": "corkboard with red string connecting photos, dark office wall, pin notes, dramatic spotlight"
+  },
+  {
+   "metin": "Durdurun ve tahmin edin: Katil kim? Kalfası Kenan mı, ortağı Selim mi, kızı Leyla mı, yoksa çaycı İhsan mı? Yorumlara yazın.",
+   "nesne": "question mark written on foggy glass",
+   "arama": "question mark on glass window",
+   "gorsel": "question mark written on foggy glass, rainy night window view, dark moody background, glowing city lights"
+  },
+  {
+   "metin": "Kasa Kurgu odasında şimdi perdeyi aralama zamanı. Gerçek, en ummadığımız detayda gizliydi.",
+   "nesne": "vintage brass desk lamp turning on",
+   "arama": "brass desk lamp glowing",
+   "gorsel": "vintage brass desk lamp turning on, dark detective desk, warm yellow light cutting through shadows"
+  },
+  {
+   "metin": "Öncelikle kilitli oda mitini çözelim. Kapı içeriden sürgülenmişti çünkü katil içeriden çıkarken klasik bir mekanizma kullandı.",
+   "nesne": "simple wooden door bolt mechanism",
+   "arama": "door latch mechanism wood",
+   "gorsel": "simple wooden door bolt mechanism, close up view, rustic wood, dramatic workshop lighting"
+  },
+  {
+   "metin": "İçeriden sürgülü bir kapı, dışarıdan ince bir ip ve kanca yardımıyla kapatılabilir. Katil kapıyı kapatıp ipi dışarı çekmişti.",
+   "nesne": "thin nylon thread roll on table",
+   "arama": "spool of thread on table",
+   "gorsel": "thin nylon thread roll on table, dark workshop floor, single spotlight, forensic investigation"
+  },
+  {
+   "metin": "Ancak asıl soru şu: Zehir maktule nasıl verildi? Maktulün dürüst kızı Leyla bize bitki çayı detayını vermeseydi bu asla çözülemezdi.",
+   "nesne": "ceramic teapot steaming on hot plate",
+   "arama": "teapot steaming on stove",
+   "gorsel": "ceramic teapot steaming on hot plate, warm kitchen light, dark background, cozy atmosphere"
+  },
+  {
+   "metin": "Zehir bardakta ya da suda değildi. Doğrudan maktulün akşamları demliğine koyduğu özel bitki karışımının içine günler öncesinden yerleştirilmişti.",
+   "nesne": "dried herbal leaves mixed with powder",
+   "arama": "herbs powder mix on table",
+   "gorsel": "dried herbal leaves mixed with powder, close up shot, rustic wooden board, warm apothecary light"
+  },
+  {
+   "metin": "Bu özel bitki karışımına sadece iki kişi erişebilirdi: Biri maktulün kendisi, diğeri ise dükkânın yedek anahtarına sahip olan kişi.",
+   "nesne": "two brass keys lying side by side",
+   "arama": "two brass keys on table",
+   "gorsel": "two brass keys lying side by side, dark wooden table, sharp contrast lighting, forensic style"
+  },
+  {
+   "metin": "Ortağı Selim Bey, ortaklıktaki büyük finansal açığı kapatmak ve maktulün şirketi denetlemesini engellemek için bu cinayeti planlamıştı.",
+   "nesne": "man in grey suit signing paper with pen",
+   "arama": "man signing document dark room",
+   "gorsel": "man in grey suit signing paper with pen, serious expression, elegant dark office, moody desk light"
+  },
+  {
+   "metin": "Selim Bey, yedek anahtarı kullanarak bir önceki gün dükkâna gizlice girmiş, bitki çayının içine yavaş salınımlı bitkisel zehri karıştırmıştı.",
+   "nesne": "small glass vial with dark liquid",
+   "arama": "glass vial chemical drops",
+   "gorsel": "small glass vial with dark liquid, dark shelf background, dramatic side light, mysterious mood"
+  },
+  {
+   "metin": "Ardından kapıyı içeriden sürgüleyip ip hilesiyle dışarı çıkmış, böyle kusursuz bir kilitli oda cinayeti süsü vermişti.",
+   "nesne": "shadow of a man leaving through dark door",
+   "arama": "shadow walking through door",
+   "gorsel": "shadow of a man leaving through dark door, long hallway, dramatic moonlight, mysterious atmosphere"
+  },
+  {
+   "metin": "Böylece Kasa Kurgu’nun bir dosyası daha adaletin karanlık sularında çözülmüş oldu. Gerçekler asla gizli kalmaz.",
+   "nesne": "closed red leather folder on wooden table",
+   "arama": "closed folder on desk",
+   "gorsel": "closed red leather folder on wooden table, vintage detective office, warm lamp glow, quiet conclusion"
+  },
+  {
+   "metin": "Kanalımıza abone olmayı, bu gizemli hikayeyi beğendiyseniz beğen tuşuna basmayı ve bir sonraki vakada görüşmek üzere yorum yapmayı unutmayın.",
+   "nesne": "subscribe button graphic on dark background",
+   "arama": "subscribe button youtube dark",
+   "gorsel": "subscribe button graphic on dark background, minimalist design, elegant typography, warm spotlight"
+  }
+ ]
+}
