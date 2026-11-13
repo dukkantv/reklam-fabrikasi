@@ -137,6 +137,25 @@ def commons_ara(sorgu, adet=6):
     return sonuc
 
 
+def openverse_ara(sorgu, adet=6):
+    try:
+        r = requests.get("https://api.openverse.org/v1/images/", headers=UA, timeout=40, params={
+            "q": sorgu, "license_type": "commercial,modification", "page_size": 20, "mature": "false"})
+        sonuc = []
+        for x in r.json().get("results", []):
+            if (x.get("width") or 0) < 900 or x["url"] in KULLANILAN:
+                continue
+            sonuc.append({"url": x["url"], "baslik": x["url"], "lisans": f"CC {x.get('license', '').upper()} {x.get('license_version', '')}",
+                          "yazar": (x.get("creator") or x.get("source") or "Openverse")[:60],
+                          "ad": (x.get("title") or "foto")[:60]})
+            if len(sonuc) >= adet:
+                break
+        return sonuc
+    except Exception as e:
+        print("Openverse hata:", str(e)[:100])
+        return []
+
+
 def indir(url, hedef):
     try:
         r = requests.get(url, headers=UA, timeout=90)
@@ -199,28 +218,28 @@ def sahne_resmi(sc, tur, i):
         return son
     ham = os.path.join(CIKTI, f"ham_{i:03d}")
     en_iyi, en_puan = None, -1
-    if tur == "tarih":
-        adaylar = []
-        for q in [sc.get("arama") or sc["nesne"], sc["nesne"], *sc.get("yedek_arama", [])]:
-            adaylar += [a for a in commons_ara(q, 3) if a["baslik"] not in {x["baslik"] for x in adaylar}]
-            if len(adaylar) >= 6:
-                break
-        for aday in adaylar[:6]:
-            if not indir(aday["url"], ham):
-                continue
-            puan = alakali_mi(ham, sc["metin"], sc["nesne"])
-            if puan > en_puan:
-                os.replace(ham, son); en_iyi, en_puan = aday, puan
-            if puan >= 7:
-                break
-        if en_iyi and en_puan >= 6:
-            KULLANILAN.add(en_iyi["baslik"])
-            KAYNAKCA.append(f"{en_iyi['baslik'].replace('File:', '')} — {en_iyi['yazar']} ({en_iyi['lisans']})")
-            return son
-    if tur == "tarih" and en_puan >= 4:
-        if en_iyi:
-            KULLANILAN.add(en_iyi["baslik"])
-            KAYNAKCA.append(f"{en_iyi['baslik'].replace('File:', '')} — {en_iyi['yazar']} ({en_iyi['lisans']})")
+    adaylar = []
+    sorgular = [sc.get("arama") or sc["nesne"], sc["nesne"], *sc.get("yedek_arama", [])]
+    for q in sorgular:
+        bulunan = (commons_ara(q, 3) if tur == "tarih" else []) + openverse_ara(q, 3)
+        adaylar += [a for a in bulunan if a["baslik"] not in {x["baslik"] for x in adaylar}]
+        if len(adaylar) >= 6:
+            break
+    for aday in adaylar[:6]:
+        if not indir(aday["url"], ham):
+            continue
+        puan = alakali_mi(ham, sc["metin"], sc["nesne"])
+        if puan > en_puan:
+            os.replace(ham, son); en_iyi, en_puan = aday, puan
+        if puan >= 7:
+            break
+    if en_iyi and en_puan >= 6:
+        KULLANILAN.add(en_iyi["baslik"])
+        KAYNAKCA.append(f"{en_iyi.get('ad') or en_iyi['baslik'].replace('File:', '')} — {en_iyi['yazar']} ({en_iyi['lisans']})")
+        return son
+    if en_iyi and en_puan >= 4:  # uydurma çizim yerine orta puanlı gerçek görsel
+        KULLANILAN.add(en_iyi["baslik"])
+        KAYNAKCA.append(f"{en_iyi.get('ad') or en_iyi['baslik'].replace('File:', '')} — {en_iyi['yazar']} ({en_iyi['lisans']})")
         return son  # tarihte uydurma yüzlü çizim yerine orta puanlı gerçek görsel tercih edilir
     for d in range(2):  # çizim, gerekirse bir kez daha
         if ciz(sc, tur, ham, 1000 + i + d * 31):
@@ -232,12 +251,17 @@ def sahne_resmi(sc, tur, i):
     return son if os.path.exists(son) else None
 
 
+TON = {"tarih": "", "dedektif": ",eq=saturation=0.35:contrast=1.18:brightness=-0.05,colorbalance=bs=0.08:bh=0.05,vignette=PI/4",
+       "hikaye": ",eq=saturation=0.9:contrast=1.05,colorbalance=rs=0.05:rh=0.04,vignette=PI/5"}
+TUR_AKTIF = "tarih"
+
+
 def kadraj(src, hedef):
     """Dikey/kare resimleri kesmeden 16:9'a oturtur: arka plan bulanık, resim ortada."""
     calistir("-i", src, "-filter_complex",
              "[0:v]split[a][b];[a]scale=3200:1800:force_original_aspect_ratio=increase,crop=3200:1800,boxblur=30:3,"
              "eq=brightness=-0.15[bg];[b]scale=3200:1800:force_original_aspect_ratio=decrease[fg];"
-             "[bg][fg]overlay=(W-w)/2:(H-h)/2,format=yuvj420p", "-frames:v", "1", "-q:v", "3", hedef)
+             f"[bg][fg]overlay=(W-w)/2:(H-h)/2{TON[TUR_AKTIF]},format=yuvj420p", "-frames:v", "1", "-q:v", "3", hedef)
 
 
 def calistir(*a):
@@ -300,7 +324,32 @@ def main(konu, dakika=10, tur="tarih"):
         istem = TURLER[tur].format(konu=konu) + ORTAK_KURAL.format(dakika=dakika, kelime=int(dakika * 135), sahne=sahne)
         s = gemini([{"text": istem}]) or sys.exit("Senaryo yazılamadı (Gemini kotası?)")
         json.dump(s, open(yol, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    print(s["baslik"], "|", len(s["sahneler"]), "sahne")
+    hedef_kelime = int(dakika * 135)
+    kelime = lambda: sum(len(x.get("metin", "").split()) for x in s["sahneler"])
+    tur_parca = 0
+    while not hazir and kelime() < hedef_kelime * 0.85 and tur_parca < 5:
+        tur_parca += 1
+        kalan = hedef_kelime - kelime()
+        son_metin = " ".join(x["metin"] for x in s["sahneler"][-6:])
+        ek = gemini([{"text": TURLER[tur].format(konu=konu) + f"""
+Aşağıdaki senaryo yarım kaldı. Şimdiye kadar {len(s['sahneler'])} sahne yazıldı. Başlık: {s['baslik']}
+Özet için son sahneler: {son_metin}
+Tüm anlatım şu ana kadar: {' '.join(x['metin'] for x in s['sahneler'])[:12000]}
+DEVAM ET: yaklaşık {min(kalan, 900)} kelime daha yaz ({max(8, min(kalan, 900) // 25)} sahne, her sahne 20-30 kelime).
+{"Bu son parça: hikâyeyi tamamla, çözüm ve kapanış çağrısıyla bitir." if kalan <= 1000 else "Henüz bitirme, gerilimi artırarak sürdür."}
+Aynı karakterler, aynı isimler. Her sahnede "metin", "nesne", "arama", "gorsel" alanları (önceki kurallar).
+SADECE JSON: {{"sahneler": [...]}}"""}])
+        if not ek or not ek.get("sahneler"):
+            break
+        s["sahneler"] += ek["sahneler"]
+        print(f"Senaryo uzatıldı: {len(s['sahneler'])} sahne, {kelime()} kelime")
+        json.dump(s, open(yol, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    for x in s["sahneler"]:
+        x.setdefault("nesne", (x.get("gorsel") or x.get("arama") or "cinematic scene")[:60])
+        x.setdefault("gorsel", x["nesne"])
+    global TUR_AKTIF
+    TUR_AKTIF = tur
+    print(s["baslik"], "|", len(s["sahneler"]), "sahne |", kelime(), "kelime")
 
     import edge_tts
     parcalar, ass, zaman, eksik, baslangic = [], [], 0.0, [], {}
