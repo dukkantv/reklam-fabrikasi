@@ -1,0 +1,21 @@
+{
+  "dosya_adi": "DukkanTV_Tanitim",
+  "renk": "#D63031",
+  "oto": {
+    "firma": "Dükkan TV",
+    "sektor": "Esnafa kısa reklam videosu hazırlayan Bursa'daki tanıtım kanalı. Bu bölüm Dükkan TV'nin KENDİ tanıtımı; hikâyedeki esnaf hayali bir simitçidir, gerçek bir işletme değildir.",
+    "esnaf_adi": "Hasan Amca",
+    "esnaf_cinsiyet": "erkek",
+    "esnaf_tarif": "clean-shaven, NO mustache and no beard; chubby middle-aged Bursa simit seller with a small white paper simitçi cap, white shirt and red vest",
+    "urunler": "Hikâyedeki simitçi: taze simit ve sıcak çay. Dükkan TV: esnafa özel komik reklam videosu, TikTok/Instagram/YouTube'da paylaşım.",
+    "notlar": "Levent & Cemo skeci (reklam/sipariş çağrısı yok). Sadece 1-2. planların eksik klipleri üretilecek; montaj Claude tarafından yapılır.",
+    "toplam_sure": "35-45",
+    "plan_sayisi": "10-13",
+    "dukkanda_en_az": 4,
+    "dukkan_adi": "Hasan Amca's red glass simit cart on a historic cobblestone street in Bursa (outdoors, not a shop interior)",
+    "logo_sahnede": false,
+    "kelime_siniri": 10,
+    "kasa_goster": false,
+    "esnaf_foto": "hasan.jpg"
+  }
+}
