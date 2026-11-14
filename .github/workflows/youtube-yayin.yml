@@ -25,6 +25,13 @@ on:
       aciklama:
         description: "Elle ekleme: açıklama"
         required: false
+      etiketler:
+        description: "Elle ekleme: etiketler (virgülle)"
+        required: false
+      stok:
+        description: "Elle ekleme: onaylı olarak günlük mizah stoğuna al"
+        type: boolean
+        default: false
       planla:
         description: "Planlı videoların saatlerini aralıklı olacak şekilde yeniden dağıt"
         type: boolean
@@ -67,9 +74,12 @@ jobs:
           URL: ${{ inputs.video_url }}
           BASLIK: ${{ inputs.baslik }}
           ACIKLAMA: ${{ inputs.aciklama }}
+          ETIKETLER: ${{ inputs.etiketler }}
+          ONAYLI: ${{ inputs.stok && '1' || '' }}
+          GUNLUK: ${{ inputs.stok && '1' || '' }}
         run: |
           curl -fsSL "$URL" -o /tmp/elle.mp4
-          python3 yt_kuyruk.py ekle "$KANAL" /tmp/elle.mp4 "$BASLIK" "$ACIKLAMA" ""
+          python3 yt_kuyruk.py ekle "$KANAL" /tmp/elle.mp4 "$BASLIK" "$ACIKLAMA" "$ETIKETLER" "$GUNLUK"
       - name: Saatleri yeniden dağıt
         if: inputs.planla
         run: python3 yt_kuyruk.py planla
