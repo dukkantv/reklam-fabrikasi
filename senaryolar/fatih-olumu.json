@@ -72,39 +72,27 @@
   {
    "metin": "Önce onu hatırlayalım. İkinci Mehmed 1432'de Edirne'de doğdu. Daha yirmi bir yaşındayken, 1453'te İstanbul'u fethetti ve tarihe Fatih olarak geçti.",
    "nesne": "portrait of Sultan Mehmed II",
-   "arama": "Mehmed II Bellini portrait"
+   "resim": "gorseller/fatih/09-genc-fatih.png"
   },
   {
    "metin": "Fetih bir çağı kapatıp yenisini açtı. Bizans bin yılı aşkın tarihiyle sona ermiş, İstanbul yeni imparatorluğun başkenti olmuştu.",
    "nesne": "conquest of Constantinople 1453 painting",
-   "arama": "Fall of Constantinople 1453",
-   "yedek_arama": [
-    "Mehmed II entering Constantinople"
-   ]
+   "resim": "gorseller/fatih/10-kusatma-toplar.png"
   },
   {
    "metin": "Sonraki yıllarda Sırbistan'dan Mora'ya, Trabzon'dan Kırım'a kadar pek çok toprak imparatorluğa katıldı. Ömrünün büyük kısmı at sırtında, ordugâhlarda geçti.",
    "nesne": "Ottoman campaign miniature",
-   "arama": "Mehmed II miniature",
-   "yedek_arama": [
-    "Ottoman army miniature 15th century"
-   ]
+   "resim": "gorseller/fatih/11-dag-yolu.png"
   },
   {
    "metin": "Ama bu yorucu hayat bedelini ödetti. Kaynaklar, Fatih'in son yıllarında nikris denen ağrılı bir hastalıktan ve şiddetli karın ağrılarından muzdarip olduğunu yazar.",
    "nesne": "Sultan Mehmed II portrait late years",
-   "arama": "Mehmed II portrait Sinan Bey",
-   "yedek_arama": [
-    "Mehmed II smelling a rose"
-   ]
+   "resim": "gorseller/fatih/12-hasta-padisah.png"
   },
   {
-   "metin": "Ölümünden sadece birkaç ay önce, Venedikli ressam Gentile Bellini padişahın bugün en çok bilinen portresini ve bu madalyayı yapmıştı. Portredeki yüz, yorgun ve hasta bir adamı gösterir.",
+   "metin": "Ölümünden sadece birkaç ay önce, Venedikli ressam Gentile Bellini sarayda padişahın bugün en çok bilinen portresini yapmıştı. O portredeki yüz, yorgun ve hasta bir adamı gösterir.",
    "nesne": "Gentile Bellini portrait of Mehmed II",
-   "arama": "Gentile Bellini Mehmed II",
-   "yedek_arama": [
-    "Mehmed II portrait National Gallery"
-   ]
+   "resim": "gorseller/fatih/13-ressam.png"
   },
   {
    "metin": "1481 baharında, kırk dokuz yaşındaki padişah yeni bir sefer emri verdi. Ordu İstanbul'dan Üsküdar'a geçti.",
@@ -114,26 +102,17 @@
   {
    "metin": "Bu seferin en tuhaf yanı, hedefinin bilinmemesiydi. Rivayete göre Fatih, planlarını sorana şöyle demişti: Sakalımın bir teli bunu bilse, onu koparır atardım.",
    "nesne": "Ottoman sultan on horseback",
-   "arama": "Mehmed II on horseback",
-   "yedek_arama": [
-    "Ottoman sultan horseback miniature"
-   ]
+   "resim": "gorseller/fatih/25-tepe-padisah.png"
   },
   {
    "metin": "Tarihçiler hedef konusunda hâlâ tartışıyor. Kimine göre Rodos'tu, kimine göre Memlük toprakları, kimine göre ise İtalya.",
    "nesne": "map of the Mediterranean in the 15th century",
-   "arama": "Mediterranean map 15th century",
-   "yedek_arama": [
-    "Rhodes fortress siege 1480"
-   ]
+   "resim": "gorseller/fatih/14-harita.png"
   },
   {
    "metin": "İtalya ihtimali boş değildi. Bir yıl önce, 1480'de, Gedik Ahmed Paşa İtalya'nın güneyindeki Otranto'yu almıştı. Roma'da büyük bir korku vardı.",
    "nesne": "Otranto castle in southern Italy",
-   "arama": "Otranto castle",
-   "yedek_arama": [
-    "Otranto 1480"
-   ]
+   "resim": "gorseller/fatih/15-otranto.png"
   },
   {
    "metin": "Avrupa nefesini tutmuştu. Ama ordu Anadolu yakasına daha yeni geçmişti ki, beklenmedik bir şey oldu.",
@@ -153,10 +132,7 @@
   {
    "metin": "Padişahın yanında iki önemli hekim vardı. Biri, yıllardır sarayın hekimi olan, İtalyan asıllı Yakub Paşa'ydı.",
    "nesne": "Ottoman medical manuscript illustration",
-   "arama": "Cerrahiye-i Ilhaniye",
-   "yedek_arama": [
-    "Sabuncuoglu surgery manuscript"
-   ]
+   "resim": "gorseller/fatih/16-iki-hekim.png"
   },
   {
    "metin": "Diğeri ise İranlı hekim Lârî'ydi. Kaynaklara göre Lârî'nin verdiği bir ilaçtan sonra padişahın durumu daha da kötüleşti.",
@@ -176,10 +152,7 @@
   {
    "metin": "Bazı tarihçilere göre ölüm, yıllardır süren hastalığın doğal sonucuydu. Belirtiler, bağırsak hastalığına ya da gutun ağırlaşmasına uyuyordu.",
    "nesne": "old medical manuscript",
-   "arama": "Ottoman medical manuscript",
-   "yedek_arama": [
-    "Sharafeddin Sabuncuoglu manuscript"
-   ]
+   "resim": "gorseller/fatih/12-hasta-padisah.png"
   },
   {
    "metin": "Bazılarına göre ise ilaca bir şey katılmıştı. Şüpheler önce Lârî'ye, sonra Yakub Paşa'ya yöneldi.",
@@ -189,34 +162,22 @@
   {
    "metin": "Yakub Paşa ise yıllarca Fatih'in en güvendiği adamlardan biri olmuş, vezirlik rütbesine kadar yükselmişti. Onu suçlayanlar da oldu, kararlılıkla savunanlar da.",
    "nesne": "Ottoman court scene miniature",
-   "arama": "Ottoman court miniature 15th century",
-   "yedek_arama": [
-    "Ottoman divan miniature"
-   ]
+   "resim": "gorseller/fatih/21-divan.png"
   },
   {
    "metin": "Şüpheyi büyüten bir şey daha vardı: Venedik. Fatih, Venedik'in yıllarca en büyük düşmanıydı.",
    "nesne": "Venice Doge's Palace",
-   "arama": "Doge's Palace Venice painting",
-   "yedek_arama": [
-    "Venice 15th century view"
-   ]
+   "resim": "gorseller/fatih/17-venedik-gece.png"
   },
   {
    "metin": "Tarihçi Franz Babinger, Venedik arşivlerinde padişaha karşı birçok suikast planından söz eden kayıtlar bulunduğunu yazar. Ama bunların hiçbiri kesin bir delil değildir.",
    "nesne": "Venetian archive documents",
-   "arama": "Venice State Archives",
-   "yedek_arama": [
-    "old Venetian manuscript"
-   ]
+   "resim": "gorseller/fatih/18-venedik-meclis.png"
   },
   {
    "metin": "Rivayete göre ölüm haberi Venedik'e ulaştığında, büyük kartal öldü diye haber verildi. Avrupa'nın birçok şehrinde sevinçle karşılandı.",
    "nesne": "Venice Saint Mark's Square old painting",
-   "arama": "Piazza San Marco painting",
-   "yedek_arama": [
-    "Venice bells campanile"
-   ]
+   "resim": "gorseller/fatih/19-san-marco.png"
   },
   {
    "metin": "Asıl tehlike ise çadırın içindeydi. Padişah ölmüştü, ama tahtın kime geçeceği belli değildi.",
@@ -226,10 +187,7 @@
   {
    "metin": "Fatih'in iki oğlu vardı. Büyüğü Bayezid Amasya'da, küçüğü Cem ise Konya'da sancakbeyiydi. Başkente ilk ulaşan, tahtı alacaktı.",
    "nesne": "portrait of Sultan Bayezid II",
-   "arama": "Bayezid II portrait",
-   "yedek_arama": [
-    "Cem Sultan portrait"
-   ]
+   "resim": "gorseller/fatih/20-iki-sehzade.png"
   },
   {
    "metin": "Sadrazam Karamanî Mehmed Paşa ölümü gizlemeye karar verdi. Padişahın hasta olduğu söylendi, naaşı kapalı bir arabayla İstanbul'a götürüldü.",
@@ -254,34 +212,22 @@
   {
    "metin": "İsyancılar Karamanî Mehmed Paşa'yı öldürdü. Şehrin bazı mahalleleri yağmalandı. İstanbul günlerce gerilim içinde kaldı.",
    "nesne": "janissary revolt",
-   "arama": "janissary revolt",
-   "yedek_arama": [
-    "Revolt of janissaries"
-   ]
+   "resim": "gorseller/fatih/06-istanbul-isyan.png"
   },
   {
    "metin": "Düzeni sağlamak için İshak Paşa devreye girdi. Bayezid'in oğlu Şehzade Korkut, babası gelene kadar tahtın vekili yapıldı.",
    "nesne": "Topkapi Palace gate",
-   "arama": "Topkapi Palace Gate of Salutation",
-   "yedek_arama": [
-    "Topkapi Palace"
-   ]
+   "resim": "gorseller/fatih/21-divan.png"
   },
   {
    "metin": "Haberi alan Bayezid, Amasya'dan hızla yola çıktı. Mayıs ayının sonlarına doğru İstanbul'a ulaştı ve İkinci Bayezid olarak tahta oturdu.",
    "nesne": "Sultan Bayezid II",
-   "arama": "Bayezid II miniature",
-   "yedek_arama": [
-    "Bayezid II portrait"
-   ]
+   "resim": "gorseller/fatih/22-bayezid-giris.png"
   },
   {
    "metin": "Bayezid'in ilk işlerinden biri, babasını hak ettiği törenle uğurlamak oldu. İstanbul halkı, şehrin fatihi için günlerce yas tuttu.",
    "nesne": "Fatih Mosque Istanbul",
-   "arama": "Fatih Mosque Istanbul",
-   "yedek_arama": [
-    "Fatih Mosque tomb Mehmed II"
-   ]
+   "resim": "gorseller/fatih/07-cami.png"
   },
   {
    "metin": "Fatih Sultan Mehmet, kendi yaptırdığı Fatih Camii'nin yanındaki türbesine defnedildi. Bir çağ, bir çadırda sona ermişti.",
@@ -291,10 +237,7 @@
   {
    "metin": "Ama hikâye bitmedi. Cem Sultan tahttan vazgeçmedi. Bursa'ya gelerek kendini padişah ilan etti ve adına para bastırdı.",
    "nesne": "portrait of Cem Sultan",
-   "arama": "Cem Sultan portrait",
-   "yedek_arama": [
-    "Prince Djem"
-   ]
+   "resim": "gorseller/fatih/23-cem-bursa.png"
   },
   {
    "metin": "Bursa'daki saltanatı kısa sürdü. 1481 yazında Yenişehir yakınlarında iki kardeşin orduları karşılaştı ve Cem yenildi.",
@@ -304,18 +247,12 @@
   {
    "metin": "Cem önce Mısır'a, sonra Rodos'a sığındı. Hayatının geri kalanını Avrupa'da, bir kraldan diğerine pazarlık kozu olarak geçirdi.",
    "nesne": "Rhodes fortress",
-   "arama": "Rhodes fortress Grand Master palace",
-   "yedek_arama": [
-    "Cem Sultan Rhodes"
-   ]
+   "resim": "gorseller/fatih/24-cem-gemi.png"
   },
   {
    "metin": "Ve Avrupa derin bir nefes aldı. Aynı yılın sonbaharında Otranto geri alındı. İtalya seferi, tarihin kapanmamış sayfalarından biri olarak kaldı.",
    "nesne": "Otranto old town and sea",
-   "arama": "Otranto",
-   "yedek_arama": [
-    "Otranto cathedral"
-   ]
+   "resim": "gorseller/fatih/14-harita.png"
   },
   {
    "metin": "Peki Fatih zehirlendi mi? Dürüst cevap şu: Bilmiyoruz. Elimizde kesin bir delil yok, ama şüpheyi besleyen pek çok tesadüf var.",
