@@ -1,8 +1,8 @@
 {
  "_not": "YouTube kanal profili: açıklama, anahtar kelimeler ve oynatma listesi kuralları. 'kanal_ayar.py guncelle' / 'listeler' uygular.",
  "dukkantv": {
-  "aciklama": "Dükkan TV — esnafın televizyonu 📺\n\nMuhabir Levent ile kameraman Cemo her gün başka bir meslekte, başka bir dükkânda! Taksici, berber, manav, kebapçı, banka sırası… Herkesin \"aynen böyle oluyor\" dediği kısa çizgi film skeçleri. Yeni bölüm her akşam 🕖\n\n🏪 Dükkânınıza özel reklam videosu: kısa reklam ya da dükkânınızın içinde geçen çizgi film bölümü. Bilgi ve sipariş 👉 https://dukkantv.github.io\n📩 İş birliği: dukkan.tvstudio@gmail.com\n📍 Bursa",
-  "anahtar_kelimeler": "\"dükkan tv\" \"levent ve cemo\" \"çizgi film\" komedi mizah \"komik videolar\" \"kısa skeç\" esnaf \"esnaf reklamı\" \"reklam videosu\" bursa",
+  "aciklama": "Dükkan TV — esnafın televizyonu 📺\n\nMuhabir Levent ile kameraman Cemo her gün başka bir meslekte, başka bir dükkânda! Taksici, berber, manav, kebapçı, banka sırası… Herkesin \"aynen böyle oluyor\" dediği kısa çizgi film skeçleri. Yeni bölüm her akşam 🕖\n\n📩 İş birliği: dukkan.tvstudio@gmail.com\n📍 Bursa",
+  "anahtar_kelimeler": "\"dükkan tv\" \"levent ve cemo\" \"çizgi film\" komedi mizah \"komik videolar\" \"kısa skeç\" esnaf bursa",
   "listeler": [
    {
     "ad": "Levent & Cemo — Mizah Skeçleri 😂",
