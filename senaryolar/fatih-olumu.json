@@ -233,11 +233,8 @@
   },
   {
    "metin": "Sadrazam Karamanî Mehmed Paşa ölümü gizlemeye karar verdi. Padişahın hasta olduğu söylendi, naaşı kapalı bir arabayla İstanbul'a götürüldü.",
-   "nesne": "covered carriage with Ottoman soldiers",
-   "arama": "Ottoman carriage miniature",
-   "yedek_arama": [
-    "Ottoman funeral procession miniature"
-   ]
+   "nesne": "Ottoman camp at night with imperial tent",
+   "resim": "gorseller/fatih/02-ordugah.png"
   },
   {
    "metin": "Kaynaklara göre Paşa, yeniçerileri de başkentten uzak tutmaya çalıştı. Ve gece karanlığında şehzadelere ulaklar gönderildi.",

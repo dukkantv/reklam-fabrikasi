@@ -416,12 +416,17 @@ SADECE JSON: {{"sahneler": [...]}}"""}])
 
     import edge_tts
     parcalar, ass, zaman, eksik, baslangic = [], [], 0.0, [], {}
+    onceki_src = None
     for i, sc in enumerate(s["sahneler"], 1):
         print(f"Sahne {i}: {sc['nesne']}")
         src = sahne_resmi(sc, tur, i)
+        if not src and onceki_src:  # resim bulunamazsa sahneyi atlama (anlatım kopar): önceki resimle devam et
+            print(f"Sahne {i}: resim yok, önceki resim kullanılıyor")
+            src = onceki_src
         if not src:
             eksik.append(i)
             continue
+        onceki_src = src
         img = os.path.join(CIKTI, f"k_{i:03d}.jpg")
         if not os.path.exists(img):
             kadraj(src, img)
