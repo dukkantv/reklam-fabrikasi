@@ -15,9 +15,11 @@
   "bursa"
  ],
  "dosya": "20261114-163147-dukkantv.mp4",
- "durum": "bekliyor",
+ "durum": "onaylandi",
  "eklendi": "2026-11-14T16:31:47.679612+03:00",
  "gunluk": true,
  "mesaj_id": 353,
- "videolu": true
+ "videolu": true,
+ "otomatik": true,
+ "stok_bildirildi": true
 }

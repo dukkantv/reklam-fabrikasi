@@ -6,7 +6,7 @@ Kullanım:
 
 Kurallar:
 - Dükkan TV: Levent onay vermeden HİÇBİR video yayınlanmaz. İptal ya da 3 gün cevapsız kalırsa silinir.
-- Drama Bite ve Kasa Kurgu (YAYIN_KANALLARI): onay beklemeden sıraya girer; "Durdur" ile yüklenmeden önce iptal edilebilir.
+- Dükkan TV, Drama Bite, Kasa Kurgu, Gizli Tarih (YAYIN_KANALLARI): onay beklemeden sıraya girer; "Durdur" ile yüklenmeden önce iptal edilebilir.
 - Onaylanan video YouTube'a "planlı" yüklenir: saat 18:30'dan önce onaylanırsa aynı gün 19:00,
   sonra onaylanırsa ertesi gün 19:00 (Türkiye saati) yayına girer.
 - Günlük stok ("gunluk": kısa mizah serisi): onaylanan videolar hemen değil, HER GÜN BİR TANE sırayla
@@ -90,8 +90,9 @@ def ig_aciklama(kayit):
     urun = kisa_urun_satiri()
     return f"{baslik}\n\n" + (f"{urun}\n\n" if urun else "") + etiket
 
-# Yayın yetkisi: Dükkan TV = Levent'in onayı şart; Drama Bite ve Kasa Kurgu = onaysız otomatik yayın
-YAYIN_KANALLARI = {"dramabite", "kasakurgu", "gizlitarih"}
+# Yayın yetkisi: tüm kanallar onaysız otomatik yayın (Levent, 14 Kasım 2026: reklam/satış olmadığı için Dükkan TV dahil).
+# Her video Telegram'a "Durdur" düğmesiyle gelir; Levent istemezse yüklenmeden önce durdurur.
+YAYIN_KANALLARI = {"dukkantv", "dramabite", "kasakurgu", "gizlitarih"}
 
 KUYRUK = os.path.join(KOK, "kuyruk")
 TR = dt.timezone(dt.timedelta(hours=3))
