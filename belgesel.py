@@ -180,7 +180,7 @@ def resim_cf(prompt, hedef, tohum):
     gizli = hashlib.sha256(TOKEN.encode()).hexdigest()[:48]
     try:
         r = requests.post(CF_URL, timeout=120, headers={"x-gizli": gizli},
-                          json={"prompt": prompt, "seed": tohum, "steps": 6})
+                          json={"prompt": prompt, "seed": tohum, "steps": 4})
         if r.status_code == 200 and r.json().get("image"):
             open(hedef + ".kare.jpg", "wb").write(base64.b64decode(r.json()["image"]))
             calistir("-i", hedef + ".kare.jpg", "-vf", "crop=iw:iw*9/16", "-q:v", "2", "-f", "image2", hedef)
