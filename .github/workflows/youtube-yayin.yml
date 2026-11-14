@@ -79,10 +79,7 @@ jobs:
       - name: Bütün videolardan satış linklerini sil
         if: inputs.urun_kaldir
         run: python3 yt_kuyruk.py urun_kaldir
-      - name: Siteden gelen başvuruları kontrol et
-        env:
-          GH_REPO: ${{ github.repository }}
-        run: python3 basvuru.py kontrol || echo "::warning::Başvuru kontrolü başarısız"
+      # Esnaf başvuru kontrolü 14 Kasım 2026'da kapatıldı (20/B: esnafa reklam hizmeti verilmiyor, site formu kaldırıldı)
       - name: Onayları kontrol et ve yükle
         run: python3 yt_kuyruk.py kontrol
       - name: Eksik kapak resimlerini tamamla
