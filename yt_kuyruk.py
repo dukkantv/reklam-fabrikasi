@@ -154,12 +154,6 @@ def ekle(kanal, video, baslik, aciklama="", etiketler="", gunluk="", kapak="", k
         metin = (f"📦 Günlük mizah stoğu → {ad}\n\n🎬 {kayit['baslik']}\n\n"
                  f"Onaylarsan stoğa girer; stoktaki videolar her gün BİR tane, 19:00 civarında sırayla "
                  f"(YouTube + Instagram) yayına girer. 14 gün içinde onaylamazsan silinir.")
-        if os.environ.get("ONAYLI") == "1":  # Levent sohbette onay verdi: doğrudan stoğa girer, istenirse durdurulur
-            kayit.update(durum="onaylandi", stok_bildirildi=True)
-            klavye = {"inline_keyboard": [[{"text": "⛔ Durdur (yayınlama)", "callback_data": f"yt:iptal:{kid}"}]]}
-            metin = (f"📦 Stoğa alındı (onayınla) → {ad}\n\n🎬 {kayit['baslik']}\n\n"
-                     f"Stoktaki videolar her gün bir tane, 19:00 civarında sırayla yayına girer. "
-                     f"İstemezsen \"Durdur\"a bas.")
         cevap = {}
         try:  # video ve butonlar tek mesajda gelsin
             import requests
