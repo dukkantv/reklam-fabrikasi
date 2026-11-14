@@ -1,0 +1,29 @@
+name: Ses Klonu (ElevenLabs)
+
+permissions:
+  contents: write
+
+# Levent'in ses kaydından ElevenLabs klonu yapar; klon + Ahmet sesi karşılaştırmasını Telegram'a yollar.
+on:
+  workflow_dispatch:
+
+jobs:
+  klon:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q requests edge-tts
+      - run: python ses_klon.py
+      - name: Klon kimliğini ve denemeleri kaydet
+        if: always()
+        run: |
+          git config user.name "dukkan-tv-bot"; git config user.email "actions@users.noreply.github.com"
+          git add sesler; git diff --cached --quiet || (git commit -qm "Ses klonu: kimlik + deneme sesleri" && (git push || (git pull --rebase origin main && git push)))
