@@ -869,7 +869,12 @@ def main():
         print("Video Telegram'a gonderildi.")
         # YouTube yayın kuyruğu (Drama Bite) için bilgi bırak — onaysız yayın olmaz
         import json as _json
-        yt_baslik = (baslik[:88] + " #shorts") if baslik else "Drama Bite #shorts"
+        # Başlığa yorum sorusu eklenir (Kasa Kurgu'da yorum isteyen başlıklar daha çok izlendi); sığmazsa eski hâli
+        _soru_baslik = f"{baslik} | {soru}" if (baslik and soru) else ""
+        if _soru_baslik and len(_soru_baslik) <= 88:
+            yt_baslik = _soru_baslik + " #shorts"
+        else:
+            yt_baslik = (baslik[:88] + " #shorts") if baslik else "Drama Bite #shorts"
         os.makedirs("cikti", exist_ok=True)
         _json.dump({"video": os.path.abspath(yol), "baslik": yt_baslik, "aciklama": aciklama,
                     "etiketler": ",".join(h.lstrip("#") for h in veri.get("hashtagler", []))},
