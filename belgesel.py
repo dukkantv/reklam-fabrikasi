@@ -258,6 +258,12 @@ def sahne_resmi(sc, tur, i):
     son = os.path.join(CIKTI, f"r_{i:03d}.jpg")
     if os.path.exists(son) and os.path.getsize(son) > 15000:
         return son
+    if sc.get("resim"):  # hazır çizim (depoda, ör. gorseller/fatih/01.png): büyüt + keskinleştir, aramaya gerek yok
+        yol = os.path.join(KOK, sc["resim"])
+        if os.path.exists(yol):
+            calistir("-i", yol, "-vf", "scale=2560:-2:flags=lanczos,unsharp=5:5:0.8", "-q:v", "2", "-f", "image2", son)
+            return son
+        print("Hazır resim bulunamadı:", sc["resim"])
     ham = os.path.join(CIKTI, f"ham_{i:03d}")
     en_iyi, en_puan = None, -1
     if tur != "tarih":
@@ -396,7 +402,7 @@ SADECE JSON: {{"sahneler": [...]}}"""}])
         json.dump(s, open(yol, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     birlesik = []
     for x in [x for x in s["sahneler"] if isinstance(x, dict) and x.get("metin")]:
-        if birlesik and len(birlesik[-1]["metin"].split()) < 20:
+        if birlesik and not hazir and len(birlesik[-1]["metin"].split()) < 20:  # hazır senaryoda sahneler bilerek kısa: birleştirme (resim/bölüm kayar)
             birlesik[-1]["metin"] += " " + x["metin"]
         else:
             birlesik.append(dict(x))
