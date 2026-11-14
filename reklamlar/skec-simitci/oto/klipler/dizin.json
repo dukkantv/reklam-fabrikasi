@@ -67,5 +67,23 @@
   "anahtar": "497ea1e6583d99bd",
   "klip": "klip_03.mp4",
   "aralik": null
+ },
+ "2": {
+  "anahtar": "1c6ce4c433a5d706",
+  "klip": "klip_02.mp4",
+  "aralik": [
+   0.25,
+   6.89
+  ],
+  "ses": "ses_02.mp3"
+ },
+ "1": {
+  "anahtar": "aa9ddcf9806f7ad2",
+  "klip": "klip_01.mp4",
+  "aralik": [
+   0.25,
+   6.01
+  ],
+  "ses": "ses_01.mp3"
  }
 }
