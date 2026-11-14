@@ -16,9 +16,10 @@
   "martı"
  ],
  "dosya": "20261114-163100-dukkantv.mp4",
- "durum": "bekliyor",
+ "durum": "onaylandi",
  "eklendi": "2026-11-14T16:31:00.500591+03:00",
  "gunluk": true,
  "mesaj_id": 352,
- "videolu": true
+ "videolu": true,
+ "stok_bildirildi": true
 }
