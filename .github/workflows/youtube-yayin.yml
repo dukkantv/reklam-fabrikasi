@@ -33,6 +33,10 @@ on:
         description: "Yüklenmiş planlı videoların açıklamasına ürün linklerini ekle"
         type: boolean
         default: false
+      urun_kaldir:
+        description: "Bütün kanallardaki bütün videoların açıklamasından satış linklerini sil"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -72,6 +76,9 @@ jobs:
       - name: Planlı videolara ürün linkleri
         if: inputs.urunler
         run: python3 yt_kuyruk.py urunler
+      - name: Bütün videolardan satış linklerini sil
+        if: inputs.urun_kaldir
+        run: python3 yt_kuyruk.py urun_kaldir
       - name: Siteden gelen başvuruları kontrol et
         env:
           GH_REPO: ${{ github.repository }}

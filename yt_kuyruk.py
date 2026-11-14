@@ -513,6 +513,59 @@ def urunleri_ekle():
             json.dump(k, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 
+URUN_ISARETLERI = ("shopier.com", "gumroad.com", "dukkantv.github.io/urunler", "Dijital ürünlerimiz")
+
+
+def urunsuz_aciklama(aciklama):
+    """Açıklamadan satış/ürün satırlarını (🛒 başlık + ▶ ürün linkleri) çıkarır."""
+    satirlar = [s for s in aciklama.split("\n") if not any(i in s for i in URUN_ISARETLERI)]
+    metin = "\n".join(satirlar)
+    while "\n\n\n" in metin:
+        metin = metin.replace("\n\n\n", "\n\n")
+    return metin.strip()
+
+
+def urunleri_kaldir():
+    """Bütün kanallardaki BÜTÜN videoların (yayındaki + planlı) açıklamasından ürün linklerini siler."""
+    from yt_ortak import kanallar, yt
+    toplam = 0
+    for kanal in kanallar():
+        try:
+            token = erisim_anahtari(kanal)
+            yukleme = yt(token, "channels", part="contentDetails", mine="true")["items"][0][
+                "contentDetails"]["relatedPlaylists"]["uploads"]
+        except Exception as e:
+            print(kanal, "atlandı:", str(e)[:150])
+            continue
+        idler, sayfa = [], None
+        while True:
+            ek = {"pageToken": sayfa} if sayfa else {}
+            v = yt(token, "playlistItems", part="contentDetails", playlistId=yukleme, maxResults=50, **ek)
+            idler += [i["contentDetails"]["videoId"] for i in v.get("items", [])]
+            sayfa = v.get("nextPageToken")
+            if not sayfa:
+                break
+        degisen = 0
+        for i in range(0, len(idler), 50):
+            for it in yt(token, "videos", part="snippet", id=",".join(idler[i:i + 50])).get("items", []):
+                sn = it["snippet"]
+                eski = sn.get("description", "")
+                yeni = urunsuz_aciklama(eski)
+                if yeni == eski.strip():
+                    continue
+                govde = {"id": it["id"], "snippet": {"title": sn["title"], "description": yeni,
+                                                     "categoryId": sn.get("categoryId", "24"),
+                                                     "tags": sn.get("tags", []),
+                                                     "defaultLanguage": sn.get("defaultLanguage", "tr")}}
+                kod, _, veri = istek("https://www.googleapis.com/youtube/v3/videos?part=snippet", method="PUT",
+                                     headers={"Authorization": f"Bearer {token}"}, json_govde=govde)
+                print(kanal, "temizlendi" if kod == 200 else f"HATA {kod} {str(veri)[:150]}", sn["title"][:50])
+                degisen += kod == 200
+        print(f"{kanal}: {len(idler)} video tarandı, {degisen} açıklama temizlendi")
+        toplam += degisen
+    telegram(f"🧹 Satış linkleri kaldırıldı: {toplam} video açıklaması temizlendi.")
+
+
 def kapaklari_tamamla():
     """Yüklenmiş ama kapak resmi henüz konamamış uzun videolara kapağı yeniden dener (kanal doğrulandıktan sonra)."""
     for p in glob.glob(os.path.join(KUYRUK, "*.json")) + glob.glob(os.path.join(KUYRUK, "arsiv", "*.json")):
@@ -543,5 +596,7 @@ if __name__ == "__main__":
         yeniden_planla()
     elif sys.argv[1] == "urunler":
         urunleri_ekle()
+    elif sys.argv[1] == "urun_kaldir":
+        urunleri_kaldir()
     elif sys.argv[1] == "kapaklar":
         kapaklari_tamamla()
