@@ -1,18 +1,18 @@
 {
- "baslik": "Kanuni'nin Ölümü 48 Gün Neden Saklandı? Zigetvar'ın Sırrı",
- "kapak_yazi": "48 GÜN SAKLADILAR",
- "aciklama": "1566'da Kanuni Sultan Süleyman, Zigetvar kuşatması sırasında çadırında öldü. Ama ordu bunu kaynaklara göre tam 48 gün boyunca öğrenmedi. Sadrazam Sokollu Mehmed Paşa bu sırrı neden ve nasıl sakladı? Kanuni'nin son seferini, Zigetvar'ın düşüşünü ve tahtın el değiştirmesini anlatıyoruz.",
+ "baslik": "Fatih Sultan Mehmet Zehirlendi mi? Hünkâr Çayırı'nın Sırrı",
+ "kapak_yazi": "ZEHİRLENDİ Mİ?",
+ "aciklama": "3 Mayıs 1481. İstanbul'un fatihi, kimseye hedefini söylemediği son seferinin daha ilk günlerinde Gebze yakınlarındaki Hünkâr Çayırı'nda hayatını kaybetti. Hastalık mı, zehir mi? Ölümü neden gizlendi, İstanbul'da neden isyan çıktı, taht kavgası Bursa'ya nasıl uzandı? Kaynakların söylediklerini ve rivayetleri ayırarak anlatıyoruz.",
  "etiketler": [
-  "Kanuni Sultan Süleyman",
-  "Zigetvar",
-  "Sokollu Mehmed Paşa",
+  "Fatih Sultan Mehmet",
+  "Fatih'in ölümü",
+  "Hünkâr Çayırı",
+  "II. Bayezid",
+  "Cem Sultan",
+  "Karamani Mehmed Paşa",
   "Osmanlı tarihi",
   "Osmanlı padişahları",
-  "II. Selim",
   "tarih belgeseli",
-  "Kanuni'nin ölümü",
-  "Zigetvar kuşatması",
-  "Osmanlı"
+  "Gizli Tarih"
  ],
  "bolumler": [
   {
@@ -20,339 +20,323 @@
    "ad": "Giriş"
   },
   {
-   "sahne": 3,
-   "ad": "Muhteşem Süleyman kimdi?"
+   "sahne": 4,
+   "ad": "Fatih kimdi?"
   },
   {
-   "sahne": 6,
-   "ad": "Son sefer"
+   "sahne": 9,
+   "ad": "Gizli hedefli son sefer"
   },
   {
-   "sahne": 11,
-   "ad": "Zigetvar kuşatması"
+   "sahne": 14,
+   "ad": "Hünkâr Çayırı'nda üç gün"
   },
   {
-   "sahne": 15,
-   "ad": "Çadırdaki ölüm"
+   "sahne": 19,
+   "ad": "Zehir şüphesi"
   },
   {
-   "sahne": 17,
-   "ad": "Sokollu'nun kararı"
+   "sahne": 26,
+   "ad": "Gizlenen ölüm"
   },
   {
-   "sahne": 24,
-   "ad": "Kale düşüyor"
+   "sahne": 31,
+   "ad": "İstanbul'da isyan"
   },
   {
-   "sahne": 28,
-   "ad": "48 günlük yolculuk"
+   "sahne": 37,
+   "ad": "Taht kavgası: Bayezid ve Cem"
   },
   {
-   "sahne": 33,
-   "ad": "Sır açığa çıkıyor"
-  },
-  {
-   "sahne": 36,
-   "ad": "Süleymaniye'de son durak"
+   "sahne": 41,
+   "ad": "Cevapsız soru"
   }
  ],
+ "kapak_sahne": 19,
  "sahneler": [
   {
-   "metin": "Yıl 1566. Macaristan'da bir kalenin önünde, dünyanın en güçlü hükümdarı çadırında son nefesini veriyor. Ama ordudaki yüz binlerce asker bunu tam kırk sekiz gün boyunca öğrenmeyecek.",
-   "nesne": "Ottoman imperial tent at night with torches",
-   "arama": "Ottoman imperial tent",
-   "gorsel": "Ottoman imperial tent at night with torches, 16th century Ottoman era, historically accurate costumes"
+   "metin": "Mayıs 1481. Dünyanın en korkulan hükümdarı, ordusunun başında sefere çıkıyor. Hedefini kimse bilmiyor. Ve birkaç gün sonra, Gebze yakınlarında bir çadırda, sessizce ölüyor.",
+   "nesne": "Ottoman army marching out at dawn",
+   "resim": "gorseller/fatih/01-yola-cikis.png"
   },
   {
-   "metin": "Peki bir padişahın ölümü neden saklanır? Bu sırrı kim, nasıl korudu? Bu videoda Kanuni Sultan Süleyman'ın son seferini ve tarihin en büyük sırlarından birini anlatıyoruz.",
-   "nesne": "portrait of Suleiman the Magnificent",
-   "arama": "Suleiman the Magnificent portrait",
-   "gorsel": "portrait of Suleiman the Magnificent, 16th century Ottoman era, historically accurate costumes"
+   "metin": "Hastalık mı onu aldı, yoksa bir hekimin elindeki küçük bir şişe mi? Beş yüz yılı aşkın süredir bu soru tartışılıyor.",
+   "nesne": "shadowy physician holding a small vial",
+   "resim": "gorseller/fatih/04-supheli-hekim.png"
   },
   {
-   "metin": "Önce onu tanıyalım. Kanuni Sultan Süleyman 1520'de tahta çıktı ve Osmanlı'yı tam kırk altı yıl yönetti. Bu, Osmanlı tarihindeki en uzun saltanattır.",
-   "nesne": "Suleiman the Magnificent on horseback",
-   "arama": "Suleiman the Magnificent",
-   "gorsel": "Suleiman the Magnificent on horseback, 16th century Ottoman era, historically accurate costumes"
+   "metin": "Bu videoda Fatih Sultan Mehmet'in son günlerini, ölümünün neden gizlendiğini ve ardından kopan fırtınayı anlatıyoruz. Kaynakların söylediğini rivayetlerden ayırarak.",
+   "nesne": "old Ottoman documents with wax seals by candlelight",
+   "resim": "gorseller/fatih/08-belgeler.png"
   },
   {
-   "metin": "Avrupalılar ona Muhteşem dedi. Kendi halkı ise yaptığı kanunlar yüzünden Kanuni adını verdi. Belgrad'dan Bağdat'a, Rodos'tan Budin'e kadar seferler yaptı.",
-   "nesne": "map of the Ottoman Empire in the 16th century",
-   "arama": "Ottoman Empire map 1566",
-   "gorsel": "map of the Ottoman Empire in the 16th century, 16th century Ottoman era, historically accurate costumes"
+   "metin": "Önce onu hatırlayalım. İkinci Mehmed 1432'de Edirne'de doğdu. Daha yirmi bir yaşındayken, 1453'te İstanbul'u fethetti ve tarihe Fatih olarak geçti.",
+   "nesne": "portrait of Sultan Mehmed II",
+   "arama": "Mehmed II Bellini portrait"
   },
   {
-   "metin": "1566'ya gelindiğinde Kanuni yetmiş yaşını geçmişti. Gut hastalığı yüzünden ata binmekte zorlanıyordu. Yine de bir sefere daha çıktı. Bu, onun son seferi olacaktı.",
-   "nesne": "Suleiman the Magnificent in old age miniature",
-   "arama": "Kanuni Sultan Süleyman Nigari",
-   "gorsel": "Suleiman the Magnificent in old age miniature, 16th century Ottoman era",
+   "metin": "Fetih bir çağı kapatıp yenisini açtı. Bizans bin yılı aşkın tarihiyle sona ermiş, İstanbul yeni imparatorluğun başkenti olmuştu.",
+   "nesne": "conquest of Constantinople 1453 painting",
+   "arama": "Fall of Constantinople 1453",
    "yedek_arama": [
-    "Szigetvár 1566 miniature",
-    "Suleiman the Magnificent miniature"
+    "Mehmed II entering Constantinople"
    ]
   },
   {
-   "metin": "Hedef Macaristan'dı. Habsburglarla süren mücadele yeniden alevlenmişti. Mayıs ayında devasa ordu İstanbul'dan yola çıktı.",
-   "nesne": "Ottoman army marching in a long column",
-   "arama": "Ottoman army miniature",
-   "gorsel": "Ottoman army marching in a long column, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Yaşlı padişah yolculuğun büyük kısmını at yerine kapalı bir arabada yaptı. Askerler onu nadiren görüyordu. Bu ayrıntı, birkaç ay sonra tarihin akışını değiştirecekti.",
-   "nesne": "Ottoman army on the Szigetvar campaign miniature",
-   "arama": "Nüzhet-i Esrâr Sigetvar",
-   "gorsel": "Ottoman army on the Szigetvar campaign miniature, 16th century Ottoman era",
+   "metin": "Sonraki yıllarda Sırbistan'dan Mora'ya, Trabzon'dan Kırım'a kadar pek çok toprak imparatorluğa katıldı. Ömrünün büyük kısmı at sırtında, ordugâhlarda geçti.",
+   "nesne": "Ottoman campaign miniature",
+   "arama": "Mehmed II miniature",
    "yedek_arama": [
-    "Szigetvár 1566 miniature",
-    "Suleiman the Magnificent miniature"
+    "Ottoman army miniature 15th century"
    ]
   },
   {
-   "metin": "Ordunun başında padişahın en güvendiği adam vardı: Sadrazam Sokollu Mehmed Paşa. Zekâsı ve soğukkanlılığıyla tanınan bu devlet adamı, birazdan tarihin en zor sırrını taşıyacaktı.",
-   "nesne": "portrait of grand vizier Sokollu Mehmed Pasha",
-   "arama": "Sokollu Mehmed Paşa",
-   "gorsel": "portrait of grand vizier Sokollu Mehmed Pasha, 16th century Ottoman era",
+   "metin": "Ama bu yorucu hayat bedelini ödetti. Kaynaklar, Fatih'in son yıllarında nikris denen ağrılı bir hastalıktan ve şiddetli karın ağrılarından muzdarip olduğunu yazar.",
+   "nesne": "Sultan Mehmed II portrait late years",
+   "arama": "Mehmed II portrait Sinan Bey",
    "yedek_arama": [
-    "Szigetvár 1566 miniature",
-    "Suleiman the Magnificent miniature"
+    "Mehmed II smelling a rose"
    ]
   },
   {
-   "metin": "Ordu Belgrad'dan geçip Macaristan topraklarına ilerledi. Ama yolda gelen bir haber planları değiştirdi.",
-   "nesne": "Belgrade fortress on the river",
-   "arama": "Belgrade Fortress",
-   "gorsel": "Belgrade fortress on the river, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Kaynaklara göre Hırvat komutan Nikola Zrinski, Siklós yakınlarında bir Osmanlı birliğine baskın düzenlemişti. Kanuni bu saldırıyı cevapsız bırakmadı ve rotayı Zigetvar'a çevirdi.",
-   "nesne": "portrait of Croatian commander Nikola Zrinski",
-   "arama": "Nikola Zrinski",
-   "gorsel": "portrait of Croatian commander Nikola Zrinski, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Zigetvar, bataklıklar ve göllerle çevrili, ele geçirilmesi çok zor bir kaleydi. İçinde Zrinski komutasında yaklaşık iki bin üç yüz asker vardı.",
-   "nesne": "Szigetvar castle surrounded by water and marsh",
-   "arama": "Szigetvár castle",
-   "gorsel": "Szigetvar castle surrounded by water and marsh, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Ağustos başında Osmanlı ordusu kalenin önüne ulaştı. Toplar kuruldu, siperler kazıldı ve kuşatma başladı.",
-   "nesne": "Ottoman cannons besieging a fortress",
-   "arama": "Siege of Szigetvár",
-   "gorsel": "Ottoman cannons besieging a fortress, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Günler haftalara döndü. Osmanlı askerleri şehri ve dış surları ele geçirdi, ama iç kale inatla direniyordu.",
-   "nesne": "fortress walls under siege with smoke",
-   "arama": "Siege of Szigetvár 1566",
-   "gorsel": "fortress walls under siege with smoke, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Bu sırada padişahın sağlığı hızla kötüleşiyordu. Çadırından çıkamıyor, hekimleri başından ayrılmıyordu.",
-   "nesne": "old sultan lying ill on cushions inside a richly decorated tent, physicians beside him",
-   "arama": "Ottoman tent interior",
-   "gorsel": "old sultan lying ill on cushions inside a richly decorated tent, physicians beside him, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Ve 6 Eylül'ü 7 Eylül'e bağlayan gece, Kanuni Sultan Süleyman çadırında hayata gözlerini yumdu. Kalenin düşmesine çok az kalmıştı.",
-   "nesne": "death of Suleiman the Magnificent in his tent",
-   "arama": "Death of Suleiman the Magnificent",
-   "gorsel": "death of Suleiman the Magnificent in his tent, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Kesin olan şu: Sefer bitmemişti ve ordu düşman topraklarının ortasındaydı. Bir padişahsız ordu, en tehlikeli ordudur.",
-   "nesne": "single candle burning in a dark tent",
-   "arama": "Szigetvár 1566",
-   "gorsel": "single candle burning in a dark tent, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Çadırda o gece sadece birkaç kişi vardı. Sokollu Mehmed Paşa haberi duyar duymaz hayati bir karar verdi: Padişahın öldüğünü kimse öğrenmeyecekti.",
-   "nesne": "grand vizier in a dark tent making a serious decision, candlelight",
-   "arama": "Sokollu Mehmed Pasa",
-   "gorsel": "grand vizier in a dark tent making a serious decision, candlelight, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Peki neden? Çünkü o dönemde padişahın ölümü büyük tehlike demekti. Yeni padişah tahta çıkana kadar devlet adeta başsız kalırdı.",
-   "nesne": "empty Ottoman golden throne",
-   "arama": "Ottoman throne",
-   "gorsel": "empty Ottoman golden throne, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Yeniçeriler, yeni padişahtan cülus bahşişi denen büyük bir para beklerdi. Haber erken yayılırsa ordu isyan edebilir, kuşatma dağılabilirdi.",
-   "nesne": "Ottoman janissaries in uniform",
-   "arama": "Janissaries miniature",
-   "gorsel": "Ottoman janissaries in uniform, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Üstelik veliaht Şehzade Selim yüzlerce kilometre uzakta, Kütahya'daydı. Taht boş kalırsa ne olacağını kestirmek imkânsızdı.",
-   "nesne": "portrait of Ottoman prince Selim II",
-   "arama": "Selim II portrait",
-   "gorsel": "portrait of Ottoman prince Selim II, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Sokollu hemen harekete geçti. Şehzade Selim'e gizlice bir haberci yollandı. Mesaj açıktı: Vakit kaybetmeden yola çıkın.",
-   "nesne": "Ottoman sipahi cavalryman miniature",
-   "arama": "Sipahi Ottoman miniature",
-   "gorsel": "Ottoman sipahi cavalryman miniature, 16th century Ottoman era",
+   "metin": "Ölümünden sadece birkaç ay önce, 1480'in sonunda, Venedikli ressam Gentile Bellini padişahın bugün en çok bilinen portresini yapmıştı. Tablodaki yüz, yorgun ve hasta bir adamı gösterir.",
+   "nesne": "Gentile Bellini portrait of Mehmed II",
+   "arama": "Gentile Bellini Mehmed II",
    "yedek_arama": [
-    "Szigetvár 1566 miniature",
-    "Suleiman the Magnificent miniature"
+    "Mehmed II portrait National Gallery"
    ]
   },
   {
-   "metin": "Çadırın etrafındaki düzen hiç bozulmadı. Padişahın çadırının önünde nöbetçiler bekledi, divan toplantıları her zamanki gibi yapıldı.",
-   "nesne": "guards standing before a sultan's tent at dawn",
-   "arama": "Ottoman camp miniature",
-   "gorsel": "guards standing before a sultan's tent at dawn, 16th century Ottoman era, historically accurate costumes"
+   "metin": "1481 baharında, kırk dokuz yaşındaki padişah yeni bir sefer emri verdi. Ordu İstanbul'dan Üsküdar'a geçti.",
+   "nesne": "Ottoman army crossing at Uskudar",
+   "resim": "gorseller/fatih/01-yola-cikis.png"
   },
   {
-   "metin": "Kaynaklara göre padişah adına emirler yazılmaya devam etti. Kuşatmanın sürmesi ve zafer haberleri, sanki padişah hayattaymış gibi bu emirlerle duyuruldu.",
-   "nesne": "tughra of Suleiman the Magnificent",
-   "arama": "Tughra of Suleiman",
-   "gorsel": "tughra of Suleiman the Magnificent, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Çok geçmeden Zigetvar iç kalesi de düştü. Zrinski, son bir hücumla adamlarıyla birlikte kaleden çıktı ve çarpışarak öldü.",
-   "nesne": "Zrinski's last sortie from Szigetvar painting",
-   "arama": "Zrinyi sortie Szigetvar",
-   "gorsel": "Zrinski's last sortie from Szigetvar painting, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Ordu büyük bir zafer kazanmıştı. Ama zaferi kazandıran padişahın artık hayatta olmadığını sadece bir avuç insan biliyordu.",
-   "nesne": "Ottoman soldiers celebrating victory at a captured fortress",
-   "arama": "Ottoman victory miniature",
-   "gorsel": "Ottoman soldiers celebrating victory at a captured fortress, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Rivayete göre padişahın iç organları Zigetvar yakınlarına gömüldü ve oraya bir türbe yapıldı. Bugün o bölgede bir Türk-Macar dostluk parkı bulunuyor.",
-   "nesne": "Turkish-Hungarian friendship park in Szigetvar",
-   "arama": "Szigetvár friendship park",
-   "gorsel": "Turkish-Hungarian friendship park in Szigetvar, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Padişahın bedeni ise bozulmaması için tahnit edildi ve kapalı arabasına yerleştirildi.",
-   "nesne": "funeral of Suleiman the Magnificent miniature",
-   "arama": "Funeral of Suleiman the Magnificent",
-   "gorsel": "funeral of Suleiman the Magnificent miniature, 16th century Ottoman era",
+   "metin": "Bu seferin en tuhaf yanı, hedefinin bilinmemesiydi. Rivayete göre Fatih, planlarını sorana şöyle demişti: Sakalımın bir teli bunu bilse, onu koparır atardım.",
+   "nesne": "Ottoman sultan on horseback",
+   "arama": "Mehmed II on horseback",
    "yedek_arama": [
-    "Szigetvár 1566 miniature",
-    "Suleiman the Magnificent miniature"
+    "Ottoman sultan horseback miniature"
    ]
   },
   {
-   "metin": "Ordu dönüş yoluna çıktığında arabası her zamanki yerindeydi. Etrafında aynı muhafızlar, aynı törenler vardı. Askerler padişahın hasta olduğu için dışarı çıkmadığını sanıyordu.",
-   "nesne": "Ottoman army returning from campaign miniature",
-   "arama": "Ottoman army return campaign miniature",
-   "gorsel": "Ottoman army returning from campaign miniature, 16th century Ottoman era",
+   "metin": "Tarihçiler hedef konusunda hâlâ tartışıyor. Kimine göre Rodos'tu, kimine göre Memlük toprakları, kimine göre ise İtalya.",
+   "nesne": "map of the Mediterranean in the 15th century",
+   "arama": "Mediterranean map 15th century",
    "yedek_arama": [
-    "Szigetvár 1566 miniature",
-    "Suleiman the Magnificent miniature"
+    "Rhodes fortress siege 1480"
    ]
   },
   {
-   "metin": "Bazı anlatımlara göre arabanın içine padişaha benzeyen biri bile oturtuldu. Bu rivayet tartışmalıdır, ama sırrın ne kadar titizlikle korunduğunu gösterir.",
-   "nesne": "Ottoman sultan in a carriage miniature",
-   "arama": "Ottoman sultan carriage miniature",
-   "gorsel": "Ottoman sultan in a carriage miniature, 16th century Ottoman era",
+   "metin": "İtalya ihtimali boş değildi. Bir yıl önce, 1480'de, Gedik Ahmed Paşa İtalya'nın güneyindeki Otranto'yu almıştı. Roma'da büyük bir korku vardı.",
+   "nesne": "Otranto castle in southern Italy",
+   "arama": "Otranto castle",
    "yedek_arama": [
-    "Szigetvár 1566 miniature",
-    "Suleiman the Magnificent miniature"
+    "Otranto 1480"
    ]
   },
   {
-   "metin": "Günler geçti. Bir hafta, iki hafta, bir ay. Yüz binlerce kişilik ordunun içinde bu sır inanılmaz bir şekilde korundu.",
-   "nesne": "vast army camp with many tents at dusk",
-   "arama": "Ottoman army camp",
-   "gorsel": "vast army camp with many tents at dusk, 16th century Ottoman era, historically accurate costumes"
+   "metin": "Avrupa nefesini tutmuştu. Ama ordu Anadolu yakasına daha yeni geçmişti ki, beklenmedik bir şey oldu.",
+   "nesne": "Ottoman military camp at dusk with large sultan tent",
+   "resim": "gorseller/fatih/02-ordugah.png"
   },
   {
-   "metin": "Bu sırada Şehzade Selim haberi almış ve hızla yola çıkmıştı. Önce İstanbul'da tahta çıktı, ardından ordunun yanına, Belgrad'a doğru ilerledi.",
-   "nesne": "enthronement of Sultan Selim II",
-   "arama": "Selim II enthronement",
-   "gorsel": "enthronement of Sultan Selim II, 16th century Ottoman era, historically accurate costumes"
+   "metin": "Ordu, Gebze yakınlarında Hünkâr Çayırı denen yerde konakladı. Padişahın ağrıları burada aniden şiddetlendi.",
+   "nesne": "Ottoman encampment with imperial tent and torches",
+   "resim": "gorseller/fatih/02-ordugah.png"
   },
   {
-   "metin": "Kaynakların çoğuna göre ölüm, yaklaşık kırk sekiz gün sonra, yeni padişah orduya ulaşınca açıklandı. O ana kadar ordu hiçbir şeyden habersiz yürümüştü.",
-   "nesne": "Belgrade in the 16th century engraving",
-   "arama": "Belgrade 16th century",
-   "gorsel": "Belgrade in the 16th century engraving, 16th century Ottoman era, historically accurate costumes"
+   "metin": "Otağın önünde nöbetçiler bekliyordu. İçeride ise hekimler, padişahı ayağa kaldırmak için çırpınıyordu.",
+   "nesne": "sick sultan in bed with physician by candlelight",
+   "resim": "gorseller/fatih/03-cadir-hekim.png"
   },
   {
-   "metin": "Haber açıklandığında orduda büyük bir yas başladı. Ama hemen ardından korkulan şey de oldu: Yeniçeriler bahşişlerini istedi.",
-   "nesne": "janissaries revolt miniature",
-   "arama": "Janissary revolt",
-   "gorsel": "janissaries revolt miniature, 16th century Ottoman era",
+   "metin": "Padişahın yanında iki önemli hekim vardı. Biri, yıllardır sarayın hekimi olan, İtalyan asıllı Yakub Paşa'ydı.",
+   "nesne": "Ottoman court physician",
+   "arama": "Ottoman physician miniature",
    "yedek_arama": [
-    "Szigetvár 1566 miniature",
-    "Suleiman the Magnificent miniature"
+    "Ottoman medicine manuscript"
    ]
   },
   {
-   "metin": "Bahşiş konusundaki gecikme askerleri öfkelendirdi. Dönüş yolunda ve İstanbul'da huzursuzluk çıktı; sonunda bahşiş dağıtılmak zorunda kalındı.",
-   "nesne": "16th century Istanbul panorama",
-   "arama": "Constantinople 16th century",
-   "gorsel": "16th century Istanbul panorama, 16th century Ottoman era, historically accurate costumes"
+   "metin": "Diğeri ise İranlı hekim Lârî'ydi. Kaynaklara göre Lârî'nin verdiği bir ilaçtan sonra padişahın durumu daha da kötüleşti.",
+   "nesne": "physician preparing medicine in candlelight",
+   "resim": "gorseller/fatih/04-supheli-hekim.png"
   },
   {
-   "metin": "Yani Sokollu'nun korktuğu şey gerçekten yaşandı. Ama sır saklandığı için bu kriz düşman topraklarında değil, devletin kontrolünde atlatıldı.",
-   "nesne": "Ottoman Imperial Council Divan miniature",
-   "arama": "Divan-ı Hümayun minyatür",
-   "gorsel": "Ottoman Imperial Council Divan miniature, 16th century Ottoman era",
+   "metin": "3 Mayıs 1481'de, sefere çıkışının üzerinden birkaç gün geçmişken, İstanbul'un fatihi Hünkâr Çayırı'nda hayatını kaybetti.",
+   "nesne": "sultan's deathbed in a tent, candles",
+   "resim": "gorseller/fatih/03-cadir-hekim.png"
+  },
+  {
+   "metin": "Ve hemen o soru doğdu: Fatih eceliyle mi öldü, yoksa zehirlendi mi? Kaynaklar bu konuda ikiye ayrılır.",
+   "nesne": "mysterious physician holding a bottle",
+   "resim": "gorseller/fatih/04-supheli-hekim.png"
+  },
+  {
+   "metin": "Bazı tarihçilere göre ölüm, yıllardır süren hastalığın doğal sonucuydu. Belirtiler, bağırsak hastalığına ya da gutun ağırlaşmasına uyuyordu.",
+   "nesne": "old medical manuscript",
+   "arama": "Ottoman medical manuscript",
    "yedek_arama": [
-    "Szigetvár 1566 miniature",
-    "Suleiman the Magnificent miniature"
+    "Sharafeddin Sabuncuoglu manuscript"
    ]
   },
   {
-   "metin": "Kanuni'nin naaşı İstanbul'a getirildi ve kendi yaptırdığı Süleymaniye Camii'nin yanındaki türbeye defnedildi.",
-   "nesne": "Suleymaniye Mosque",
-   "arama": "Süleymaniye Mosque",
-   "gorsel": "Suleymaniye Mosque, 16th century Ottoman era, historically accurate costumes"
+   "metin": "Bazılarına göre ise ilaca bir şey katılmıştı. Şüpheler önce Lârî'ye, sonra Yakub Paşa'ya yöneldi.",
+   "nesne": "small medicine bottle in a dark room",
+   "resim": "gorseller/fatih/04-supheli-hekim.png"
   },
   {
-   "metin": "Bu cami, büyük mimar Mimar Sinan'ın eseriydi. Bugün hâlâ Haliç'e bakan tepede, İstanbul'un siluetinde yükseliyor.",
-   "nesne": "Istanbul skyline with Suleymaniye Mosque",
-   "arama": "Suleymaniye Mosque Golden Horn",
-   "gorsel": "Istanbul skyline with Suleymaniye Mosque, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Türbenin içinde Kanuni'nin sandukası bulunuyor. Her yıl binlerce ziyaretçi, kırk altı yıl dünyayı etkileyen bu hükümdarın huzurunda duruyor.",
-   "nesne": "tomb of Suleiman the Magnificent at Suleymaniye",
-   "arama": "Türbe of Suleiman Süleymaniye",
-   "gorsel": "tomb of Suleiman the Magnificent at Suleymaniye, 16th century Ottoman era",
+   "metin": "Yakub Paşa ise yıllarca Fatih'in en güvendiği adamlardan biri olmuş, vezirlik rütbesine kadar yükselmişti. Onu suçlayanlar da oldu, kararlılıkla savunanlar da.",
+   "nesne": "Ottoman court scene miniature",
+   "arama": "Ottoman court miniature 15th century",
    "yedek_arama": [
-    "Szigetvár 1566 miniature",
-    "Suleiman the Magnificent miniature"
+    "Ottoman divan miniature"
    ]
   },
   {
-   "metin": "Sokollu Mehmed Paşa ise görevini sürdürdü. Selim'in ve ardından Üçüncü Murad'ın döneminde de devletin en güçlü adamı oldu.",
-   "nesne": "Sokollu Mehmed Pasha Mosque",
-   "arama": "Sokollu Mehmed Pasha Mosque",
-   "gorsel": "Sokollu Mehmed Pasha Mosque, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Bu olay bize şunu anlatıyor: Bir imparatorluğun gücü sadece ordusunda değil, kriz anında soğukkanlı kalabilen insanlarındadır.",
-   "nesne": "Ottoman miniature of statesmen",
-   "arama": "Ottoman miniature",
-   "gorsel": "Ottoman miniature of statesmen, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Tek bir yanlış söz, tek bir sızıntı, Zigetvar zaferini felakete çevirebilirdi. Ama sır tutuldu ve tarih başka türlü yazıldı.",
-   "nesne": "Szigetvar town today",
-   "arama": "Szigetvár",
-   "gorsel": "Szigetvar town today, 16th century Ottoman era, historically accurate costumes"
-  },
-  {
-   "metin": "Sen olsaydın bu sırrı kırk sekiz gün saklayabilir miydin? Yorumlara yaz. Tarihin gizli kalmış hikâyeleri için abone olmayı unutma.",
-   "nesne": "Suleymaniye Mosque at sunset",
-   "arama": "Süleymaniye Mosque sunset",
-   "gorsel": "Suleymaniye Mosque at sunset, 16th century Ottoman era",
+   "metin": "Şüpheyi büyüten bir şey daha vardı: Venedik. Fatih, Venedik'in yıllarca en büyük düşmanıydı.",
+   "nesne": "Venice Doge's Palace",
+   "arama": "Doge's Palace Venice painting",
    "yedek_arama": [
-    "Szigetvár 1566 miniature",
-    "Suleiman the Magnificent miniature"
+    "Venice 15th century view"
    ]
+  },
+  {
+   "metin": "Tarihçi Franz Babinger, Venedik arşivlerinde padişaha karşı birçok suikast planından söz eden kayıtlar bulunduğunu yazar. Ama bunların hiçbiri kesin bir delil değildir.",
+   "nesne": "Venetian archive documents",
+   "arama": "Venice State Archives",
+   "yedek_arama": [
+    "old Venetian manuscript"
+   ]
+  },
+  {
+   "metin": "Rivayete göre ölüm haberi Venedik'e ulaştığında, büyük kartal öldü diye haber verildi. Avrupa'nın birçok şehrinde sevinçle karşılandı.",
+   "nesne": "Venice Saint Mark's Square old painting",
+   "arama": "Piazza San Marco painting",
+   "yedek_arama": [
+    "Venice bells campanile"
+   ]
+  },
+  {
+   "metin": "Asıl tehlike ise çadırın içindeydi. Padişah ölmüştü, ama tahtın kime geçeceği belli değildi.",
+   "nesne": "Ottoman camp at night",
+   "resim": "gorseller/fatih/02-ordugah.png"
+  },
+  {
+   "metin": "Fatih'in iki oğlu vardı. Büyüğü Bayezid Amasya'da, küçüğü Cem ise Konya'da sancakbeyiydi. Başkente ilk ulaşan, tahtı alacaktı.",
+   "nesne": "portrait of Sultan Bayezid II",
+   "arama": "Bayezid II portrait",
+   "yedek_arama": [
+    "Cem Sultan portrait"
+   ]
+  },
+  {
+   "metin": "Sadrazam Karamanî Mehmed Paşa ölümü gizlemeye karar verdi. Padişahın hasta olduğu söylendi, naaşı kapalı bir arabayla İstanbul'a götürüldü.",
+   "nesne": "covered carriage with Ottoman soldiers",
+   "arama": "Ottoman carriage miniature",
+   "yedek_arama": [
+    "Ottoman funeral procession miniature"
+   ]
+  },
+  {
+   "metin": "Kaynaklara göre Paşa, yeniçerileri de başkentten uzak tutmaya çalıştı. Ve gece karanlığında şehzadelere ulaklar gönderildi.",
+   "nesne": "riders galloping at night on a muddy road",
+   "resim": "gorseller/fatih/05-ulaklar.png"
+  },
+  {
+   "metin": "Birçok tarihçiye göre Karamanî, Cem'in tahta geçmesini istiyordu. Ama Cem'e giden ulak yolda, Anadolu beylerbeyi Sinan Paşa'nın adamlarına yakalandı.",
+   "nesne": "horsemen in the night mist",
+   "resim": "gorseller/fatih/05-ulaklar.png"
+  },
+  {
+   "metin": "Sır uzun sürmedi. Padişahın öldüğünü öğrenen yeniçeriler, kendilerinden bir şey saklandığını anlayınca öfkeyle İstanbul'a yürüdü.",
+   "nesne": "janissaries with torches in an Istanbul street",
+   "resim": "gorseller/fatih/06-istanbul-isyan.png"
+  },
+  {
+   "metin": "İsyancılar Karamanî Mehmed Paşa'yı öldürdü. Şehrin bazı mahalleleri yağmalandı. İstanbul günlerce gerilim içinde kaldı.",
+   "nesne": "janissary revolt",
+   "arama": "janissary revolt",
+   "yedek_arama": [
+    "Revolt of janissaries"
+   ]
+  },
+  {
+   "metin": "Düzeni sağlamak için İshak Paşa devreye girdi. Bayezid'in oğlu Şehzade Korkut, babası gelene kadar tahtın vekili yapıldı.",
+   "nesne": "Topkapi Palace gate",
+   "arama": "Topkapi Palace Gate of Salutation",
+   "yedek_arama": [
+    "Topkapi Palace"
+   ]
+  },
+  {
+   "metin": "Haberi alan Bayezid, Amasya'dan hızla yola çıktı. Mayıs ayının sonlarına doğru İstanbul'a ulaştı ve İkinci Bayezid olarak tahta oturdu.",
+   "nesne": "Sultan Bayezid II",
+   "arama": "Bayezid II miniature",
+   "yedek_arama": [
+    "Bayezid II portrait"
+   ]
+  },
+  {
+   "metin": "Bayezid'in ilk işlerinden biri, babasını hak ettiği törenle uğurlamak oldu. İstanbul halkı, şehrin fatihi için günlerce yas tuttu.",
+   "nesne": "Fatih Mosque Istanbul",
+   "arama": "Fatih Mosque Istanbul",
+   "yedek_arama": [
+    "Fatih Mosque tomb Mehmed II"
+   ]
+  },
+  {
+   "metin": "Fatih Sultan Mehmet, kendi yaptırdığı Fatih Camii'nin yanındaki türbesine defnedildi. Bir çağ, bir çadırda sona ermişti.",
+   "nesne": "Ottoman mosque at sunset with mourners",
+   "resim": "gorseller/fatih/07-cami.png"
+  },
+  {
+   "metin": "Ama hikâye bitmedi. Cem Sultan tahttan vazgeçmedi. Bursa'ya gelerek kendini padişah ilan etti ve adına para bastırdı.",
+   "nesne": "portrait of Cem Sultan",
+   "arama": "Cem Sultan portrait",
+   "yedek_arama": [
+    "Prince Djem"
+   ]
+  },
+  {
+   "metin": "Bursa'daki saltanatı kısa sürdü. 1481 yazında Yenişehir yakınlarında iki kardeşin orduları karşılaştı ve Cem yenildi.",
+   "nesne": "Ottoman battle miniature",
+   "arama": "Ottoman battle miniature",
+   "yedek_arama": [
+    "Bursa old engraving"
+   ]
+  },
+  {
+   "metin": "Cem önce Mısır'a, sonra Rodos'a sığındı. Hayatının geri kalanını Avrupa'da, bir kraldan diğerine pazarlık kozu olarak geçirdi.",
+   "nesne": "Rhodes fortress",
+   "arama": "Rhodes fortress Grand Master palace",
+   "yedek_arama": [
+    "Cem Sultan Rhodes"
+   ]
+  },
+  {
+   "metin": "Ve Avrupa derin bir nefes aldı. Aynı yılın sonbaharında Otranto geri alındı. İtalya seferi, tarihin kapanmamış sayfalarından biri olarak kaldı.",
+   "nesne": "Otranto old town and sea",
+   "arama": "Otranto",
+   "yedek_arama": [
+    "Otranto cathedral"
+   ]
+  },
+  {
+   "metin": "Peki Fatih zehirlendi mi? Dürüst cevap şu: Bilmiyoruz. Elimizde kesin bir delil yok, ama şüpheyi besleyen pek çok tesadüf var.",
+   "nesne": "old documents and seals by candlelight",
+   "resim": "gorseller/fatih/08-belgeler.png"
+  },
+  {
+   "metin": "Gizli tutulan bir hedef, yabancı bir hekim, düşmanın sevinci ve aceleyle saklanan bir ölüm. Belki de cevap, o çadırda kalan sırlardan biri.",
+   "nesne": "sultan's tent interior with candles",
+   "resim": "gorseller/fatih/03-cadir-hekim.png"
+  },
+  {
+   "metin": "Sence Fatih eceliyle mi öldü, yoksa zehirlendi mi? Fikrini yorumlara yaz. Tarihin saklanan hikâyeleri için Gizli Tarih'e abone olmayı unutma.",
+   "nesne": "Fatih mosque Istanbul at sunset",
+   "resim": "gorseller/fatih/07-cami.png"
   }
- ],
- "kapak_sahne": 15
+ ]
 }
