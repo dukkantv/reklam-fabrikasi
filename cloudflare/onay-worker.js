@@ -1,4 +1,4 @@
-// Dükkan TV — Telegram onay dinleyicisi + başvuru kutusu (Cloudflare Worker, ücretsiz plan)
+// Dükkan TV — Telegram onay dinleyicisi (Cloudflare Worker, ücretsiz plan). Başvuru kutusu 14.11.2026'da kapatıldı.
 //
 // Ne yapar?
 //  1) Telegram'daki butonlara basıldığı AN çalışır, mesajı hemen değiştirir:
@@ -111,7 +111,8 @@ export default {
 
     // 0) Siteden başvuru
     if (url.pathname === "/basvuru" && req.method === "OPTIONS") return new Response(null, { headers: cors() });
-    if (url.pathname === "/basvuru" && req.method === "POST") return basvuruAl(req, env);
+    // 14 Kasım 2026: esnaf başvuruları kapatıldı (20/B — esnafa reklam hizmeti verilmiyor)
+    if (url.pathname === "/basvuru" && req.method === "POST") return json({ ok: false, hata: "Başvurular kapalı" }, 410, cors());
 
     // 1) Telegram'dan gelen buton basışları
     if (req.method === "POST" && url.pathname === "/telegram") {

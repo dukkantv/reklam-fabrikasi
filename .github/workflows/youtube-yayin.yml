@@ -40,7 +40,7 @@ on:
 
 permissions:
   contents: write
-  actions: write   # yeni başvurular için Başvuru Taslak / üretim işlerini başlatabilsin
+  actions: write
 
 concurrency:
   group: youtube-yayin
