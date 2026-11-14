@@ -365,6 +365,71 @@ def kapak(img, yazi, hedef, tur):
     calistir("-i", img, "-vf", vf, "-frames:v", "1", "-q:v", "2", hedef)
 
 
+# ---------- SES: Levent'in ElevenLabs klonu (v3), kredi yetmezse tüm video ücretsiz Ahmet sesiyle ----------
+ELEVEN_KEY = "".join(os.environ.get("ELEVENLABS_API_KEY", "").split())
+SES_MOTOR = os.environ.get("BELGESEL_SES_MOTOR", "klon").strip() or "klon"   # klon / ahmet
+KLON_TEMPO = float(os.environ.get("KLON_TEMPO", "0.92"))   # klon hızlı okuyor: belgesel için hafif yavaşlat
+
+
+def eleven_kalan():
+    try:
+        r = requests.get("https://api.elevenlabs.io/v1/user/subscription", headers={"xi-api-key": ELEVEN_KEY}, timeout=60)
+        j = r.json()
+        return j["character_limit"] - j["character_count"]
+    except Exception as e:
+        print("ElevenLabs kredi okunamadı:", str(e)[:100])
+        return None
+
+
+def klon_seslendir(metin, hedef, vid):
+    for d in range(4):
+        r = requests.post(f"https://api.elevenlabs.io/v1/text-to-speech/{vid}", headers={"xi-api-key": ELEVEN_KEY},
+                          params={"output_format": "mp3_44100_128"}, timeout=300,
+                          json={"text": metin, "model_id": "eleven_v3", "language_code": "tr",
+                                "voice_settings": {"stability": 0.5, "similarity_boost": 0.85, "use_speaker_boost": True}})
+        if r.ok and len(r.content) > 2000:
+            open(hedef + ".ham.mp3", "wb").write(r.content)
+            calistir("-i", hedef + ".ham.mp3", "-af", f"atempo={KLON_TEMPO},loudnorm=I=-18:TP=-2", "-ar", "44100",
+                     "-b:a", "160k", hedef)
+            return True
+        print(f"ElevenLabs {r.status_code}: {r.text[:200]}")
+        if r.status_code in (401, 402, 403) or "quota" in r.text.lower():
+            return False
+        time.sleep(5 * (d + 1))
+    return False
+
+
+def sesleri_hazirla(sahneler):
+    """Tüm sahnelerin sesini baştan üretir. Video tek sesle çıkar: klon ya hepsine yeter ya hiç kullanılmaz."""
+    import edge_tts
+    yollar = [os.path.join(CIKTI, f"s_{i:03d}.mp3") for i in range(1, len(sahneler) + 1)]
+    motor = "ahmet"
+    klon = os.path.join(KOK, "sesler", "levent_klon.json")
+    if SES_MOTOR == "klon" and ELEVEN_KEY and os.path.exists(klon):
+        gerek = sum(len(x["metin"]) for x in sahneler)
+        kalan = eleven_kalan()
+        print(f"Klon ses: gereken ≈ {gerek} kredi, kalan {kalan}")
+        if kalan is not None and kalan >= gerek * 1.1 + 500:
+            vid = json.load(open(klon))["voice_id"]
+            motor = "klon"
+            for sc, y in zip(sahneler, yollar):
+                if not os.path.exists(y) and not klon_seslendir(sc["metin"], y, vid):
+                    print("Klon ses yarıda kaldı — tüm video Ahmet sesine çevriliyor")
+                    for x in yollar:
+                        if os.path.exists(x):
+                            os.remove(x)
+                    motor = "ahmet"
+                    break
+        else:
+            print("ElevenLabs kredisi yetmiyor — Ahmet sesi kullanılacak")
+    if motor == "ahmet":
+        for sc, y in zip(sahneler, yollar):
+            if not os.path.exists(y):
+                asyncio.run(edge_tts.Communicate(sc["metin"], SES, rate="-4%").save(y))
+    print("Anlatım sesi:", "Levent klonu (ElevenLabs v3)" if motor == "klon" else "Ahmet (edge-tts)")
+    return motor
+
+
 def main(konu, dakika=10, tur="tarih"):
     os.makedirs(CIKTI, exist_ok=True)
     sahne = max(10, int(dakika * 60 / 10))
@@ -414,7 +479,7 @@ SADECE JSON: {{"sahneler": [...]}}"""}])
     TUR_AKTIF = tur
     print(s["baslik"], "|", len(s["sahneler"]), "sahne |", kelime(), "kelime")
 
-    import edge_tts
+    SES_KULLANILAN = sesleri_hazirla(s["sahneler"])
     parcalar, ass, zaman, eksik, baslangic = [], [], 0.0, [], {}
     onceki_src = None
     for i, sc in enumerate(s["sahneler"], 1):
@@ -431,8 +496,6 @@ SADECE JSON: {{"sahneler": [...]}}"""}])
         if not os.path.exists(img):
             kadraj(src, img)
         mp3 = os.path.join(CIKTI, f"s_{i:03d}.mp3")
-        if not os.path.exists(mp3):
-            asyncio.run(edge_tts.Communicate(sc["metin"], SES, rate="-4%").save(mp3))
         d = sure(mp3) + 0.6
         out = os.path.join(CIKTI, f"p_{i:03d}.mp4")
         kare = int(d * FPS)
@@ -512,7 +575,7 @@ SADECE JSON: {{"sahneler": [...]}}"""}])
         with open(tg, "rb") as f:
             print(requests.post(f"https://api.telegram.org/bot{TOKEN}/sendVideo", timeout=900,
                                 data={"chat_id": CHAT, "supports_streaming": "true",
-                                      "caption": f"🎞 PİLOT (yayınlanmadı) [{tur}]: {s['baslik']} · {toplam / 60:.1f} dk"},
+                                      "caption": f"🎞 PİLOT [{tur}] ({'senin sesin' if SES_KULLANILAN == 'klon' else 'Ahmet sesi'}): {s['baslik']} · {toplam / 60:.1f} dk"},
                                 files={"video": f}).json().get("ok"))
 
 
