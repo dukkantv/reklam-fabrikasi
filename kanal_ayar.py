@@ -235,6 +235,29 @@ def liste_adi(kanal, eski, yeni):
             print(kanal, "liste adı:", eski, "→", yeni, "tamam" if kod == 200 else f"HATA {kod} {str(v)[:200]}")
 
 
+ESKI_ISARETLER = ("Reklam Çektik", "Öz Getirenler", "Eserim", "Bursa Dedektifleri", "reklam videosu",
+                  "Toptan Gıda", "Perde mi lazım")
+
+
+def esnaf_gizle():
+    """Dükkan TV'de eski esnaf reklam sisteminden kalan videoları GİZLİ yapar (silmez, geri açılabilir)."""
+    from yt_ortak import yt
+    tok = erisim_anahtari("dukkantv")
+    up = yt(tok, "channels", part="contentDetails", mine="true")["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+    ids = [i["contentDetails"]["videoId"] for i in
+           yt(tok, "playlistItems", part="contentDetails", playlistId=up, maxResults=50).get("items", [])]
+    for it in yt(tok, "videos", part="snippet,status", id=",".join(ids)).get("items", []):
+        sn, stt = it["snippet"], it["status"]
+        metin = sn["title"] + " " + sn.get("description", "")
+        eski = any(i.lower() in metin.lower() for i in ESKI_ISARETLER)
+        print(("GİZLE " if eski else "kalsın"), stt.get("privacyStatus"), "|", sn["title"][:70])
+        if eski and stt.get("privacyStatus") != "private":
+            kod, _, v = istek(f"{YT}/videos?part=status", method="PUT", headers={"Authorization": f"Bearer {tok}"},
+                              json_govde={"id": it["id"], "status": {"privacyStatus": "private",
+                                                                    "selfDeclaredMadeForKids": False}})
+            print("   →", "gizlendi" if kod == 200 else f"HATA {kod} {str(v)[:200]}")
+
+
 def profil():
     """Kasım 2026 profesyonel profil düzenlemesi: bannerlar + Facebook + liste adı."""
     banner()
@@ -244,4 +267,4 @@ def profil():
 
 if __name__ == "__main__":
     {"denetle": denetle, "guncelle": guncelle, "listeler": listeler, "banner": banner,
-     "facebook": facebook, "profil": profil}[sys.argv[1]]()
+     "facebook": facebook, "profil": profil, "esnaf_gizle": esnaf_gizle}[sys.argv[1]]()
