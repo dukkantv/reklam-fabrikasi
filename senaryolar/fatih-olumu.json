@@ -99,7 +99,7 @@
    ]
   },
   {
-   "metin": "Ölümünden sadece birkaç ay önce, 1480'in sonunda, Venedikli ressam Gentile Bellini padişahın bugün en çok bilinen portresini yapmıştı. Tablodaki yüz, yorgun ve hasta bir adamı gösterir.",
+   "metin": "Ölümünden sadece birkaç ay önce, Venedikli ressam Gentile Bellini padişahın bugün en çok bilinen portresini ve bu madalyayı yapmıştı. Portredeki yüz, yorgun ve hasta bir adamı gösterir.",
    "nesne": "Gentile Bellini portrait of Mehmed II",
    "arama": "Gentile Bellini Mehmed II",
    "yedek_arama": [
@@ -152,10 +152,10 @@
   },
   {
    "metin": "Padişahın yanında iki önemli hekim vardı. Biri, yıllardır sarayın hekimi olan, İtalyan asıllı Yakub Paşa'ydı.",
-   "nesne": "Ottoman court physician",
-   "arama": "Ottoman physician miniature",
+   "nesne": "Ottoman medical manuscript illustration",
+   "arama": "Cerrahiye-i Ilhaniye",
    "yedek_arama": [
-    "Ottoman medicine manuscript"
+    "Sabuncuoglu surgery manuscript"
    ]
   },
   {
@@ -301,11 +301,8 @@
   },
   {
    "metin": "Bursa'daki saltanatı kısa sürdü. 1481 yazında Yenişehir yakınlarında iki kardeşin orduları karşılaştı ve Cem yenildi.",
-   "nesne": "Ottoman battle miniature",
-   "arama": "Ottoman battle miniature",
-   "yedek_arama": [
-    "Bursa old engraving"
-   ]
+   "nesne": "Ottoman army on the march",
+   "resim": "gorseller/fatih/01-yola-cikis.png"
   },
   {
    "metin": "Cem önce Mısır'a, sonra Rodos'a sığındı. Hayatının geri kalanını Avrupa'da, bir kraldan diğerine pazarlık kozu olarak geçirdi.",
