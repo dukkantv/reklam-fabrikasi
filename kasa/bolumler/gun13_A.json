@@ -1,0 +1,75 @@
+{
+  "gun": 13,
+  "toplam_gun": 30,
+  "kasa_basi": 14800,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {
+      "tema": "gece",
+      "gorsel": "tezgah",
+      "gorsel_yazi": "DELİL",
+      "ifade": "saskin",
+      "baslik": "ANİ HAMLE",
+      "anlatim": "Hiç tereddüt etmeden çantayı açıp içindeki belgeleri Serdar'a uzattım. Yüzü aniden sarardı, neye uğradığını şaşırdı.",
+      "damga": "Şok"
+    },
+    {
+      "tema": "sabah",
+      "gorsel": "hal",
+      "gorsel_yazi": "SABAHTAN",
+      "ifade": "mutlu",
+      "baslik": "ERKEN SAAT",
+      "anlatim": "Sabah erkenden hale koştum. Kemal Bey'in ayarladığı taze meyveleri tezgahıma taşıyıp hızla yerleştirdim.",
+      "damga": "Başlangıç"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "domates",
+      "gorsel_yazi": "+1600 TL",
+      "ifade": "gulen",
+      "kasa": 16400,
+      "baslik": "İYİ SATIŞ",
+      "anlatim": "Günün ilk saatlerinde meyveler büyük ilgi gördü. Kasaya bin altı yüz lira ekledim, işler yolunda gitti.",
+      "damga": "Kazanç"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "etiket",
+      "gorsel_yazi": "İNDİRİM",
+      "ifade": "mutlu",
+      "baslik": "DEVAM",
+      "anlatim": "Öğleden sonra kalan ürünleri uygun fiyata çevre esnafa toplu sattım. Kasaya bin yüz lira daha girdi.",
+      "damga": "Hız"
+    },
+    {
+      "tema": "aksam",
+      "gorsel": "para",
+      "gorsel_yazi": "+900 TL",
+      "ifade": "mutlu",
+      "kasa": 18400,
+      "baslik": "KASA SAYIMI",
+      "anlatim": "Akşam dükkanı kapatırken son satışları hesapladım. Dokuz yüz lira da buradan geldi, toplam on sekiz bin dört yüz oldu.",
+      "damga": "Başarı"
+    },
+    {
+      "tema": "gece",
+      "gorsel": "defter",
+      "gorsel_yazi": "YENİ PLAN",
+      "ifade": "dusunceli",
+      "baslik": "KEMAL BEY",
+      "anlatim": "Gece yarısı Kemal Bey aradı, Serdar'ın köşeye sıkıştığını ve son darbeyi vurmamız gerektiğini söyledi.",
+      "damga": "Fırsat"
+    },
+    {
+      "tema": "oylama",
+      "ifade": "dusunceli",
+      "secenek": [
+        "Plana devam et",
+        "Ortaklığı bitir"
+      ],
+      "baslik": "SON DARBE",
+      "anlatim": "Kemal Bey'in son planına ortak olup riske gireyim mi, yoksa işi bırakıp kendi yoluma mı gideyim? Yoruma A veya B yaz. Yarın gün 14!"
+    }
+  ]
+}
