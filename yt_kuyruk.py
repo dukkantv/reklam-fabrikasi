@@ -183,10 +183,12 @@ def ekle(kanal, video, baslik, aciklama="", etiketler="", gunluk="", kapak="", k
 # Yayın saatleri: videolar aynı anda çıkmasın, izleyici birinde takılı kalmasın diye aralıklı.
 # Her kanalın tercih ettiği saatler; boş olan ilk saat seçilir. Kanallar arası en az 30 dk,
 # aynı kanalın iki videosu arası en az 60 dk.
-SAATLER = ["18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30"]
+SAATLER = ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30"]
 TERCIH = {"dukkantv": ["19:00", "18:00", "20:00", "21:00"],
-          "kasakurgu": ["19:30", "20:30", "18:30", "21:30"],
+          # Kasa Kurgu'nun günde 2 videosu (500 TL + Katil Kim?) arasında 2,5–3,5 saat olsun (Levent, 15.11.2026)
+          "kasakurgu": ["18:00", "21:00", "17:30", "20:30", "21:30"],
           "dramabite": ["20:00", "21:00", "18:00", "19:00"]}
+AYNI_KANAL_ARALIK = {"kasakurgu": 2.5 * 3600}   # sn; diğer kanallarda aynı kanalın iki videosu arası 1 saat
 
 
 def dolu_zamanlar():
@@ -228,7 +230,8 @@ def yayin_zamani(kanal="dukkantv", gunluk=False):
             aday = dt.datetime(tarih.year, tarih.month, tarih.day, hh, mm, tzinfo=TR)
             if aday < simdi + dt.timedelta(minutes=30):
                 continue
-            cakisma = any(abs((aday - z).total_seconds()) < (3600 if k == kanal else 1800) for k, z in dolu)
+            cakisma = any(abs((aday - z).total_seconds()) < (AYNI_KANAL_ARALIK.get(kanal, 3600) if k == kanal else 1800)
+                          for k, z in dolu)
             if not cakisma:
                 return aday
     return simdi.replace(hour=19, minute=0, second=0, microsecond=0) + dt.timedelta(days=1)
