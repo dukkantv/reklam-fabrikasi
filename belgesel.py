@@ -409,7 +409,7 @@ def sesleri_hazirla(sahneler):
         gerek = sum(len(x["metin"]) for x in sahneler)
         kalan = eleven_kalan()
         print(f"Klon ses: gereken ≈ {gerek} kredi, kalan {kalan}")
-        if kalan is not None and kalan >= gerek * 1.1 + 500:
+        if kalan is None or kalan >= gerek * 1.1 + 500:  # anahtar kredi okuyamıyorsa denenir; yarıda kalırsa Ahmet
             vid = json.load(open(klon))["voice_id"]
             motor = "klon"
             for sc, y in zip(sahneler, yollar):
