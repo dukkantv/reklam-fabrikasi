@@ -190,5 +190,58 @@ def banner():
         print(kanal, "banner ayarlandı" if kod == 200 else f"HATA {kod} {str(v2)[:300]}")
 
 
+FB_WEB = {"dukkantv": "https://dukkantv.github.io/",
+          "dramabite": "https://www.youtube.com/@dramabitetr",
+          "kasakurgu": "https://www.youtube.com/@kasakurgu"}
+
+
+def facebook():
+    """Facebook sayfalarına web sitesi linki ve kapak fotoğrafı (bannerlar/fb_<kanal>.jpg) koyar."""
+    import subprocess
+    from ig_ortak import API, ig_hesap
+    for kanal, web in FB_WEB.items():
+        h = ig_hesap(kanal)
+        pid = h and (h.get("sayfa_id") or h.get("page_id"))
+        if not pid:
+            print(kanal, "Facebook sayfası bilgisi yok")
+            continue
+        tok = h["token"]
+        kod, _, v = istek(f"{API}/{pid}", veri={"website": web, "access_token": tok})
+        print(kanal, "web sitesi:", "tamam" if kod == 200 else f"HATA {kod} {str(v)[:250]}")
+        yol = os.path.join(KOK, "bannerlar", f"fb_{kanal}.jpg")
+        if not os.path.exists(yol):
+            continue
+        r = subprocess.run(["curl", "-sS", "-F", f"source=@{yol}", "-F", "published=false",
+                            "-F", f"access_token={tok}", f"{API}/{pid}/photos"], capture_output=True, text=True)
+        try:
+            foto = json.loads(r.stdout).get("id")
+        except Exception:
+            foto = None
+        if not foto:
+            print(kanal, "kapak yüklenemedi:", (r.stdout or r.stderr)[:250])
+            continue
+        kod, _, v = istek(f"{API}/{pid}", veri={"cover": foto, "access_token": tok})
+        print(kanal, "kapak fotoğrafı:", "tamam" if kod == 200 else f"HATA {kod} {str(v)[:250]}")
+
+
+def liste_adi(kanal, eski, yeni):
+    for p in yt_get(kanal, "playlists?part=snippet&mine=true&maxResults=50").get("items", []):
+        if p["snippet"]["title"] == eski:
+            sn = p["snippet"]
+            sn["title"] = yeni
+            kod, _, v = istek(f"{YT}/playlists?part=snippet", method="PUT",
+                              headers={"Authorization": f"Bearer {erisim_anahtari(kanal)}"},
+                              json_govde={"id": p["id"], "snippet": {"title": yeni, "description": sn.get("description", "")}})
+            print(kanal, "liste adı:", eski, "→", yeni, "tamam" if kod == 200 else f"HATA {kod} {str(v)[:200]}")
+
+
+def profil():
+    """Kasım 2026 profesyonel profil düzenlemesi: bannerlar + Facebook + liste adı."""
+    banner()
+    facebook()
+    liste_adi("dukkantv", "Esnaf Reklamları 🏪", "Esnaf Videoları 🏪")
+
+
 if __name__ == "__main__":
-    {"denetle": denetle, "guncelle": guncelle, "listeler": listeler, "banner": banner}[sys.argv[1]]()
+    {"denetle": denetle, "guncelle": guncelle, "listeler": listeler, "banner": banner,
+     "facebook": facebook, "profil": profil}[sys.argv[1]]()

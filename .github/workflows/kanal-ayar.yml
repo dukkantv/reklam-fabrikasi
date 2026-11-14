@@ -8,7 +8,7 @@ on:
         description: "denetle ya da guncelle"
         type: choice
         default: denetle
-        options: [denetle, guncelle, listeler, banner]
+        options: [denetle, guncelle, listeler, banner, facebook, profil]
 
 jobs:
   ayar:
