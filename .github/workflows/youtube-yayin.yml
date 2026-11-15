@@ -86,6 +86,7 @@ jobs:
         if: inputs.geri_al != ''
         env:
           KID: ${{ inputs.geri_al }}
+          GERI_AL_ANAHTAR: "A GRUBU"
         run: |
           pip install -q requests
           python3 yt_kuyruk.py geri_al "$KID"

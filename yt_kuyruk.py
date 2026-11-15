@@ -468,11 +468,23 @@ def geri_al(kid):
     ap = os.path.join(KUYRUK, "arsiv", f"{kid}.json")
     kayit = json.load(open(ap, encoding="utf-8"))
     chat = os.environ.get("TELEGRAM_CHAT_ID")
-    r = requests.post(f"{TG}/forwardMessage", data={"chat_id": chat, "from_chat_id": chat,
-                                                     "message_id": kayit["mesaj_id"], "disable_notification": "true"}, timeout=60).json()
-    msg = r["result"]
-    fid = (msg.get("video") or msg.get("document"))["file_id"]
-    requests.post(f"{TG}/deleteMessage", data={"chat_id": chat, "message_id": msg["message_id"]}, timeout=60)
+    anahtar = os.environ.get("GERI_AL_ANAHTAR", "")
+    fid = None
+    for mid in range(kayit["mesaj_id"] + 2, kayit["mesaj_id"] - 12, -1):
+        r = requests.post(f"{TG}/forwardMessage", data={"chat_id": chat, "from_chat_id": chat,
+                                                         "message_id": mid, "disable_notification": "true"}, timeout=60).json()
+        if not r.get("ok"):
+            continue
+        msg = r["result"]
+        requests.post(f"{TG}/deleteMessage", data={"chat_id": chat, "message_id": msg["message_id"]}, timeout=60)
+        v = msg.get("video") or msg.get("document")
+        yazi = msg.get("caption", "")
+        print(mid, "video" if v else "metin", v and v.get("duration"), yazi[:80].replace("\n", " "))
+        if v and (not anahtar or anahtar in yazi):
+            fid = v["file_id"]
+            break
+    if not fid:
+        raise SystemExit("video bulunamadı")
     yol = requests.get(f"{TG}/getFile", params={"file_id": fid}, timeout=60).json()["result"]["file_path"]
     tok = os.environ.get("TELEGRAM_BOT_TOKEN", "")
     veri = requests.get(f"https://api.telegram.org/file/bot{tok}/{yol}", timeout=300).content
