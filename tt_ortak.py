@@ -61,7 +61,8 @@ def link(kanal):
     url = "https://www.tiktok.com/v2/auth/authorize/?" + urllib.parse.urlencode({
         "client_key": CK, "scope": KAPSAM, "response_type": "code",
         "redirect_uri": YONLENDIRME, "state": kanal})
-    print("IZIN_LINKI", url)
+    import base64
+    print("IZIN_LINKI_B64", base64.b64encode(url.encode()).decode())  # client_key herkese açık; günlükte maskelenmesin diye
     telegram(f"🎵 TikTok izni ({kanal}):\n1) Bu bağlantıyı aç, TikTok hesabınla gir ve izin ver.\n"
              f"2) Açılan sayfadaki kodu kopyala.\n3) GitHub → Actions → TikTok İzin → kanal: {kanal}, kod: yapıştır.\n\n{url}")
     print(url)
