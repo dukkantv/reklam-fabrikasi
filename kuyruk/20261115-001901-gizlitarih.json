@@ -16,11 +16,14 @@
   "Gizli Tarih"
  ],
  "dosya": "20261115-001901-gizlitarih.mp4",
- "durum": "onaylandi",
+ "durum": "yuklendi",
  "eklendi": "2026-11-15T00:19:01.061550+03:00",
  "kapak": "20261115-001901-gizlitarih-kapak.jpg",
  "uzun": true,
  "kategori": "27",
  "otomatik": true,
- "mesaj_id": 394
+ "mesaj_id": 394,
+ "kapak_tamam": true,
+ "video_id": "uNh-60MM1uA",
+ "yayin": "2026-11-15T17:30:00+03:00"
 }
