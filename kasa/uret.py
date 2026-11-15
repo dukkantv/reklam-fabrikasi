@@ -1,3 +1,4 @@
+import time
 import asyncio, json, sys, os, math, wave, subprocess, textwrap
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
@@ -314,7 +315,13 @@ def ses_uret(i, metin):
         n = max(1, len(metin.split())) * 0.34
         yaz_wav(wav, ton(220, n, .2, 0.1)); return wav_oku(wav)
     mp3 = f"tmp{i}.mp3"
-    asyncio.run(tts(metin, mp3))
+    for deneme in range(4):  # edge-tts ara sıra bağlantı hatası veriyor: birkaç kez dene
+        try:
+            asyncio.run(tts(metin, mp3)); break
+        except Exception as e:
+            if deneme == 3:
+                raise
+            print("Ses denemesi başarısız, tekrar:", str(e)[:120]); time.sleep(10 * (deneme + 1))
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", mp3, "-ar", str(SR), "-ac", "1", wav], check=True)
     return wav_oku(wav)
 
