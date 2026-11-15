@@ -192,7 +192,8 @@ def banner():
 
 FB_WEB = {"dukkantv": "https://dukkantv.github.io/",
           "dramabite": "https://www.youtube.com/@dramabitetr",
-          "kasakurgu": "https://www.youtube.com/@kasakurgu"}
+          "kasakurgu": "https://www.youtube.com/@kasakurgu",
+          "ilturnuva": "https://www.youtube.com/@81ilturnuvasi"}
 
 
 def facebook():
@@ -281,6 +282,29 @@ def videolar():
             print(kanal, "HATA", e)
 
 
+def turnuva_profil():
+    """81 İl Turnuvası: YouTube kapak + oynatma listesi, Facebook sayfası kapak/profil fotoğrafı/web/açıklama."""
+    global KANALLAR, FB_WEB
+    import subprocess
+    from ig_ortak import API, ig_hesap
+    eski_k, eski_f = KANALLAR, FB_WEB
+    KANALLAR, FB_WEB = ["ilturnuva"], {"ilturnuva": eski_f["ilturnuva"]}
+    try:
+        guncelle(); banner(); facebook(); listeler()
+    finally:
+        KANALLAR, FB_WEB = eski_k, eski_f
+    h = ig_hesap("ilturnuva")
+    pid, tok = h.get("sayfa_id") or h.get("page_id"), h["token"]
+    yol = os.path.join(KOK, "bannerlar", "ilturnuva-profil.png")
+    r = subprocess.run(["curl", "-sS", "-F", f"source=@{yol}", "-F", f"access_token={tok}", f"{API}/{pid}/picture"],
+                       capture_output=True, text=True)
+    print("facebook profil fotoğrafı:", r.stdout[:200] or r.stderr[:200])
+    aciklama = json.load(open(os.path.join(KOK, "kanal_ayarlari.json"), encoding="utf-8"))["ilturnuva"]["aciklama"]
+    for alan, deger in (("about", "81 il fizik oyunlarında kapışıyor! Her akşam 17:30 yeni maç 🏆"), ("description", aciklama)):
+        kod, _, v = istek(f"{API}/{pid}", veri={alan: deger, "access_token": tok})
+        print("facebook", alan, "tamam" if kod == 200 else f"HATA {kod} {str(v)[:200]}")
+
+
 if __name__ == "__main__":
     {"denetle": denetle, "guncelle": guncelle, "listeler": listeler, "banner": banner,
-     "facebook": facebook, "profil": profil, "esnaf_gizle": esnaf_gizle, "videolar": videolar}[sys.argv[1]]()
+     "facebook": facebook, "profil": profil, "esnaf_gizle": esnaf_gizle, "videolar": videolar, "turnuva_profil": turnuva_profil}[sys.argv[1]]()
