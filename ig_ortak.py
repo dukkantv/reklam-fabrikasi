@@ -12,7 +12,7 @@ import time
 from yt_ortak import CSEC, KOK, istek, telegram
 
 API = "https://graph.facebook.com/v25.0"
-KULLANICI_KANAL = {"dukkan.tv": "dukkantv", "dramabitetr": "dramabite", "kasakurgu.tr": "kasakurgu"}
+KULLANICI_KANAL = {"dukkan.tv": "dukkantv", "dramabitetr": "dramabite", "kasakurgu.tr": "kasakurgu", "81ilturnuvasi": "ilturnuva"}
 
 
 def _sifrele(metin, yol):

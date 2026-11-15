@@ -9,7 +9,7 @@ on:
         description: "Hangi kanalın TikTok hesabı"
         type: choice
         default: dukkantv
-        options: [dukkantv, kasakurgu, dramabite]
+        options: [dukkantv, kasakurgu, dramabite, ilturnuva]
       kod:
         description: "İzin sayfasındaki kod (ilk seferde boş bırak)"
         required: false
