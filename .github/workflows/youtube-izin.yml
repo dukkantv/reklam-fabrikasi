@@ -7,7 +7,7 @@ on:
         description: "Hangi kanal?"
         required: true
         type: choice
-        options: [dukkantv, kasakurgu, dramabite, gizlitarih]
+        options: [dukkantv, kasakurgu, dramabite, gizlitarih, ilturnuva]
 
 permissions:
   contents: write

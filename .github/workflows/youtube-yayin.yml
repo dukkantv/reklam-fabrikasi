@@ -15,7 +15,7 @@ on:
         required: false
         type: choice
         default: ""
-        options: ["", dukkantv, kasakurgu, dramabite, gizlitarih]
+        options: ["", dukkantv, kasakurgu, dramabite, gizlitarih, ilturnuva]
       video_url:
         description: "Elle ekleme: videonun indirme adresi (mp4)"
         required: false

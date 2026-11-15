@@ -92,7 +92,7 @@ def ig_aciklama(kayit):
 
 # Yayın yetkisi: tüm kanallar onaysız otomatik yayın (Levent, 14 Kasım 2026: reklam/satış olmadığı için Dükkan TV dahil).
 # Her video Telegram'a "Durdur" düğmesiyle gelir; Levent istemezse yüklenmeden önce durdurur.
-YAYIN_KANALLARI = {"dukkantv", "dramabite", "kasakurgu", "gizlitarih"}
+YAYIN_KANALLARI = {"dukkantv", "dramabite", "kasakurgu", "gizlitarih", "ilturnuva"}
 
 KUYRUK = os.path.join(KOK, "kuyruk")
 TR = dt.timezone(dt.timedelta(hours=3))
@@ -187,7 +187,9 @@ SAATLER = ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00
 TERCIH = {"dukkantv": ["19:00", "18:00", "20:00", "21:00"],
           # Kasa Kurgu'nun günde 2 videosu (500 TL + Katil Kim?) arasında 2,5–3,5 saat olsun (Levent, 15.11.2026)
           "kasakurgu": ["18:00", "21:00", "17:30", "20:30", "21:30"],
-          "dramabite": ["20:00", "21:00", "18:00", "19:00"]}
+          "dramabite": ["20:00", "21:00", "18:00", "19:00"],
+          # 81 İl Turnuvası: genç kitle, okul/iş çıkışı (Kasım 2026)
+          "ilturnuva": ["17:30", "18:30", "19:30", "20:30"]}
 AYNI_KANAL_ARALIK = {"kasakurgu": 2.5 * 3600}   # sn; diğer kanallarda aynı kanalın iki videosu arası 1 saat
 
 

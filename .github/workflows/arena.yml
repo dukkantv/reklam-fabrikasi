@@ -4,9 +4,11 @@ permissions:
   contents: write
 
 # Sıradaki maçı oynatır (tamamen kodla, ücretsiz), sezon tablosunu günceller, videoyu Telegram'a yollar.
-# Kanallar açılınca: günlük zamanlama + yayın kuyruğu eklenecek.
+# Her gün öğlen bir maç üretir; YouTube izni varsa yayın kuyruğuna ekler (akşam 17:30 civarı yayın).
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "41 9 * * *"   # 12:41 TR
 
 jobs:
   mac:
@@ -25,9 +27,26 @@ jobs:
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
           pip install -q numpy pillow requests
       - name: Maçı oynat
+        # Zamanlı çalışmada: YouTube izni gelene kadar maç oynanmaz (sezon boşa ilerlemesin)
+        if: github.event_name == 'workflow_dispatch' || hashFiles('tokens/ilturnuva.enc') != ''
         working-directory: arena
         run: python turnuva.py oyna
+      - name: Yayın kuyruğuna ekle
+        if: hashFiles('tokens/ilturnuva.enc') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 - <<'PY'
+          import json, subprocess
+          y = json.load(open("cikti/arena/yayin.json", encoding="utf-8"))
+          subprocess.run(["python3", "yt_kuyruk.py", "ekle", "ilturnuva", y["video"], y["baslik"], y["aciklama"],
+                          ",".join(y["etiketler"]), "", "", "24"], check=True)
+          PY
       - name: Sezon tablosunu kaydet
         run: |
           git config user.name "dukkan-tv-bot"; git config user.email "actions@users.noreply.github.com"
-          git add arena/sezon.json; git diff --cached --quiet || (git commit -qm "81 İl Turnuvası: maç oynandı" && (git push || (git pull --rebase origin main && git push)))
+          git add arena/sezon.json kuyruk; git diff --cached --quiet || (git commit -qm "81 İl Turnuvası: maç oynandı" && (git push || (git pull --rebase origin main && git push)))
