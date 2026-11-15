@@ -1,0 +1,75 @@
+{
+  "gun": 14,
+  "toplam_gun": 30,
+  "kasa_basi": 18400,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {
+      "tema": "gece",
+      "gorsel": "defter",
+      "gorsel_yazi": "RİSKLİ PLAN",
+      "ifade": "dusunceli",
+      "baslik": "SON ADIM",
+      "anlatim": "Kemal Bey'in riskli planına evet dedim. Birlikte Serdar'ın tüm belgelerini resmi mercilere ulaştırmak için harekete geçtik.",
+      "damga": "Karar"
+    },
+    {
+      "tema": "sabah",
+      "gorsel": "hal",
+      "gorsel_yazi": "SABAHTAN",
+      "ifade": "mutlu",
+      "baslik": "ERKENCİ",
+      "anlatim": "Sabah erkenden hale gittim. Kemal Bey'in yönlendirdiği taze sebzeleri hemen tezgahıma taşıyıp yerleştirdim, işe koyuldum.",
+      "damga": "Emek"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "domates",
+      "gorsel_yazi": "+1800 TL",
+      "ifade": "gulen",
+      "kasa": 20200,
+      "baslik": "HIZLI SATIŞ",
+      "anlatim": "Taze domatesler kısa sürede tükendi. Çevre esnafın da desteğiyle kasaya bin sekiz yüz lira ekledim, yüzüm güldü.",
+      "damga": "Kazanç"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "etiket",
+      "gorsel_yazi": "İNDİRİM",
+      "ifade": "mutlu",
+      "baslik": "TOPLU ÇIKIŞ",
+      "anlatim": "Öğleden sonra kalan yeşillikleri uygun fiyatla etraftaki lokantalara toplu sattım. Kasaya bin iki yüz lira daha girdi.",
+      "damga": "Hız"
+    },
+    {
+      "tema": "aksam",
+      "gorsel": "para",
+      "gorsel_yazi": "+1000 TL",
+      "ifade": "mutlu",
+      "kasa": 22400,
+      "baslik": "GÜN SONU",
+      "anlatim": "Akşam kasa sayımını yaptım. Bin lira da oradan geldi, toplam yirmi iki bin dört yüz oldu. Hedefe doğru yürüyorum.",
+      "damga": "Başarı"
+    },
+    {
+      "tema": "gece",
+      "gorsel": "tezgah",
+      "gorsel_yazi": "BÜYÜK HABER",
+      "ifade": "saskin",
+      "baslik": "TELEFON",
+      "anlatim": "Gece geç saatte polis aradı. Serdar'ın hakkındaki soruşturmanın başladığını ve dükkanın resmi olarak bana kalacağını söyledi.",
+      "damga": "Müjde"
+    },
+    {
+      "tema": "oylama",
+      "ifade": "mutlu",
+      "secenek": [
+        "Kutlama yap",
+        "İşi büyüt"
+      ],
+      "baslik": "BÜYÜK FIRSAT",
+      "anlatim": "Dükkan tamamen kurtuldu! Şimdi bu sevinci kutlayayım mı, yoksa hemen yeni mallar alıp işi büyüteyim mi? Yoruma A veya B yaz. Yarın gün 15!"
+    }
+  ]
+}
