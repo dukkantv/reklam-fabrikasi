@@ -22,6 +22,24 @@ def gosterim_gunu():
     return simdi.date() if simdi.hour >= 21 else simdi.date() - dt.timedelta(days=1)
 
 
+def _kuyruk():
+    import glob
+    k = os.path.join(KOK, "..", "kuyruk")
+    for p in glob.glob(os.path.join(k, "*.json")) + glob.glob(os.path.join(k, "arsiv", "*.json")):
+        d = json.load(open(p, encoding="utf-8"))
+        if d.get("kanal") == "ilturnuva" and d.get("yayin"):
+            yield d
+
+
+def yayinlanan_basliklar():
+    simdi = dt.datetime.now(dt.timezone.utc)
+    return " ".join(d["baslik"] for d in _kuyruk() if dt.datetime.fromisoformat(d["yayin"]) <= simdi)
+
+
+def planli_basliklar():
+    return " ".join(d["baslik"] for d in _kuyruk())
+
+
 def ciz(s, cikti, ilk_gun=None, goster=None):
     goster = goster or gosterim_gunu()
     im = Image.new("RGB", (W, H)); d = ImageDraw.Draw(im)
@@ -32,7 +50,9 @@ def ciz(s, cikti, ilk_gun=None, goster=None):
     yazi(d, (W / 2, 180), f"SEZON {s['sezon']} · FİKSTÜR", font(50), kenar=5)
     maclar = [m for m in s["maclar"] if m["tur"] == 1]
     # Henüz yayınlanmamış maçların sonucu gösterilmez (spoiler olmasın)
-    acik = lambda k, m: bool(m.get("atlayan")) and (not ilk_gun or ilk_gun + dt.timedelta(days=k) <= goster)
+    yayinda = yayinlanan_basliklar()
+    acik = lambda k, m: bool(m.get("atlayan")) and (m["baslik"].title() in yayinda or (
+        m["baslik"].title() not in planli_basliklar() and (not ilk_gun or ilk_gun + dt.timedelta(days=k) <= goster)))
     siradaki = next((m for k, m in enumerate(maclar) if not acik(k, m)), None)
     kw, kh, x0, y0, bosluk = 340, 395, 22, 250, 12
     for k, m in enumerate(maclar):
