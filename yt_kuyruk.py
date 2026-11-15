@@ -23,7 +23,7 @@ import subprocess
 import sys
 
 from yt_ortak import KOK, erisim_anahtari, istek, kanal_bilgi, telegram
-from ig_ortak import fb_bekliyor_mu, fb_reels_yukle, ig_hesap, reels_yukle
+from ig_ortak import fb_bekliyor_mu, fb_reels_yukle, ig_hesap, reels_yukle, reels_yukle_fb_kaynak
 from tt_ortak import taslak_yukle, tt_hesap
 
 
@@ -389,6 +389,15 @@ def kontrol():
             # YouTube'a planlı yüklendi; yayın saatinde Instagram'a Reels, TikTok'a taslak olarak gider
             if simdi < dt.datetime.fromisoformat(kayit["yayin"]):
                 continue
+            if ig_bekliyor(kayit) and kayit.get("fb_id"):
+                # Doğrudan yükleme daha önce reddedildiyse Facebook'taki kopyanın adresiyle dene
+                try:
+                    mid, link = reels_yukle_fb_kaynak(kayit["kanal"], kayit["fb_id"], ig_aciklama(kayit))
+                    kayit.update(ig="paylasildi", ig_id=mid, ig_link=link, ig_yol="fb_kaynak")
+                    kaydet(kayit)
+                    telegram(f"📸 {ad}: \"{kayit['baslik']}\" Instagram'da Reels olarak paylaşıldı.\n{link}")
+                except Exception as e:
+                    print(f"Instagram (Facebook kaynağı) hatası ({kayit['id']}):", str(e)[:300])
             if ig_bekliyor(kayit):
                 try:
                     gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")

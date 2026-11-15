@@ -135,6 +135,34 @@ def reels_yukle(kanal, video_yolu, aciklama):
     return yay["id"], (p or {}).get("permalink", "")
 
 
+def reels_yukle_fb_kaynak(kanal, fb_video_id, aciklama):
+    """Yedek yol: Facebook'a yüklenmiş aynı videonun CDN adresini Instagram'a video_url olarak verir
+    (doğrudan yükleme 'ProcessingFailedError' ile reddedildiğinde)."""
+    h = ig_hesap(kanal)
+    tok, ig = h["token"], h["ig_id"]
+    _, _, v = istek(f"{API}/{fb_video_id}?fields=source&access_token={tok}")
+    url = (v or {}).get("source")
+    if not url:
+        raise RuntimeError(f"Facebook video adresi alınamadı: {v}")
+    kod, _, kap = istek(f"{API}/{ig}/media", veri={"media_type": "REELS", "video_url": url, "caption": aciklama[:2200],
+                                                   "share_to_feed": "true", "access_token": tok})
+    if kod != 200 or "id" not in kap:
+        raise RuntimeError(f"Instagram kapsayıcı açılamadı ({kod}): {kap}")
+    for _ in range(60):
+        _, _, d = istek(f"{API}/{kap['id']}?fields=status_code,status&access_token={tok}")
+        durum = (d or {}).get("status_code")
+        if durum == "FINISHED":
+            break
+        if durum in ("ERROR", "EXPIRED"):
+            raise RuntimeError(f"Instagram videoyu işleyemedi: {d}")
+        time.sleep(10)
+    kod, _, yay = istek(f"{API}/{ig}/media_publish", veri={"creation_id": kap["id"], "access_token": tok})
+    if kod != 200 or "id" not in yay:
+        raise RuntimeError(f"Instagram paylaşım başarısız ({kod}): {yay}")
+    _, _, p = istek(f"{API}/{yay['id']}?fields=permalink&access_token={tok}")
+    return yay["id"], (p or {}).get("permalink", "")
+
+
 def fb_bekliyor_mu(kanal):
     h = ig_hesap(kanal)
     return bool(h and h.get("fb_izin") and h.get("sayfa_id"))
