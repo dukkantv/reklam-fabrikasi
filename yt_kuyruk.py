@@ -440,8 +440,9 @@ def kontrol():
                     kayit.update(tt="taslak", tt_id=pid)
                     kaydet(kayit)
                     telegram(f"🎵 {ad}: \"{kayit['baslik']}\" TikTok'a taslak olarak gönderildi.\n"
-                             f"TikTok uygulamasında bildirimi aç → açıklamayı yapıştır → Paylaş.\n\n"
-                             f"Açıklama (kopyala):\n{tt_aciklama(kayit)}")
+                             f"TikTok'ta taslağı aç → alttaki mesajdaki açıklamaya bir kez dokun (kopyalanır) → yapıştır → Paylaş.")
+                    import html
+                    telegram(f"<code>{html.escape(tt_aciklama(kayit))}</code>", parse_mode="HTML")
                 except Exception as e:
                     print(f"TikTok hatası ({kayit['id']}):", str(e)[:400])
                     kayit["tt_deneme"] = kayit.get("tt_deneme", 0) + 1
