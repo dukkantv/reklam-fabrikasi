@@ -8,7 +8,7 @@ on:
         description: "denetle ya da guncelle"
         type: choice
         default: denetle
-        options: [denetle, guncelle, listeler, banner, facebook, profil, esnaf_gizle]
+        options: [denetle, guncelle, listeler, banner, facebook, profil, esnaf_gizle, videolar]
 
 jobs:
   ayar:

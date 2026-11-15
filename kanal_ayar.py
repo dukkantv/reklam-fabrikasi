@@ -265,6 +265,22 @@ def profil():
     liste_adi("dukkantv", "Esnaf Reklamları 🏪", "Esnaf Videoları 🏪")
 
 
+def videolar():
+    """Her kanalın son 20 yüklemesi: durum, yayın zamanı, başlık (çift/yanlış zamanlama denetimi)."""
+    for kanal in KANALLAR:
+        try:
+            up = yt_get(kanal, "channels?part=contentDetails&mine=true")["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+            ids = [i["contentDetails"]["videoId"] for i in
+                   yt_get(kanal, f"playlistItems?part=contentDetails&maxResults=20&playlistId={up}")["items"]]
+            v = yt_get(kanal, "videos?part=snippet,status&id=" + ",".join(ids))["items"]
+            print(f"\n===== {kanal}")
+            for x in v:
+                s = x["status"]
+                print("VID", kanal, x["id"], s["privacyStatus"], s.get("publishAt", x["snippet"]["publishedAt"]), "|", x["snippet"]["title"][:70])
+        except Exception as e:
+            print(kanal, "HATA", e)
+
+
 if __name__ == "__main__":
     {"denetle": denetle, "guncelle": guncelle, "listeler": listeler, "banner": banner,
-     "facebook": facebook, "profil": profil, "esnaf_gizle": esnaf_gizle}[sys.argv[1]]()
+     "facebook": facebook, "profil": profil, "esnaf_gizle": esnaf_gizle, "videolar": videolar}[sys.argv[1]]()
