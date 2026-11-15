@@ -21,7 +21,7 @@ os.environ["YT_CLIENT_SECRET"] = CSEC
 print(f"Kontrol: client id sonu {CID[-27:]}, secret uzunluğu {len(CSEC)}, GOCSPX ile başlıyor: {CSEC.startswith('GOCSPX-')}")
 TG_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TG_CHAT = os.environ["TELEGRAM_CHAT_ID"]
-SCOPE = "https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.force-ssl"
+SCOPE = "https://www.googleapis.com/auth/youtube"
 HESAP = {"ilturnuva": "dukkan.tvstudio@gmail.com hesabı → kanal listesinden 81 İl Turnuvası'nı seç",
          "gizlitarih": "Gizli Tarih kanalını açtığın hesap (kanal listesinden Gizli Tarih'i seç)",
          "dukkantv": "dukkan.tvstudio@gmail.com",
