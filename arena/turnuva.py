@@ -22,7 +22,9 @@ def yeni_sezon(no, tohum):
     p = [x for x, _ in ILLER]; rnd.shuffle(p)
     maclar = [{"id": f"1{HARF[g]}", "tur": 1, "baslik": f"1. TUR · {HARF[g]} GRUBU", "mod": "kacis",
                "plakalar": p[g * 9:(g + 1) * 9], "tur_atlar": 3} for g in range(9)]
-    return {"sezon": no, "tohum": tohum, "maclar": maclar, "sampiyon": None}
+    import datetime as dt
+    bugun = dt.datetime.now(dt.timezone(dt.timedelta(hours=3))).date().isoformat()
+    return {"sezon": no, "tohum": tohum, "maclar": maclar, "sampiyon": None, "baslangic": bugun}
 
 
 def tur_kur(s, tur):
@@ -95,6 +97,16 @@ def oyna():
             "atlayan": atlayan, "sure": round(sure, 1), "mac": m["id"], "sezon": s["sezon"]}
     json.dump(meta, open(os.path.join(CIKTI, "yayin.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"{m['baslik']}: tur atlayan {adlar} · {sure:.0f} sn")
+    # fikstür görselini güncelle; sezonun ilk maçında ve her tur bitince Telegram'a da yolla
+    from fikstur import ciz
+    import datetime as dt
+    fk = ciz(s, os.path.join(KOK, "fikstur.jpg"), dt.date.fromisoformat(s["baslangic"]) if s.get("baslangic") else None)
+    tur_bitti = all(x.get("atlayan") for x in s["maclar"] if x["tur"] == m["tur"])
+    if TOKEN and (i == 0 or tur_bitti):
+        with open(fk, "rb") as f:
+            requests.post(f"https://api.telegram.org/bot{TOKEN}/sendPhoto", timeout=120,
+                          data={"chat_id": CHAT, "caption": "🗓 81 İl Turnuvası · güncel fikstür (sabitlenmiş gönderi için)"},
+                          files={"photo": f})
     if TOKEN:
         with open(cikti, "rb") as f:
             requests.post(f"https://api.telegram.org/bot{TOKEN}/sendVideo", timeout=300,
