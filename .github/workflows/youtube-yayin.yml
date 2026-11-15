@@ -102,6 +102,8 @@ jobs:
       # Esnaf başvuru kontrolü 14 Kasım 2026'da kapatıldı (20/B: esnafa reklam hizmeti verilmiyor, site formu kaldırıldı)
       - name: Onayları kontrol et ve yükle
         run: python3 yt_kuyruk.py kontrol
+      - name: Yayındaki videolara seri yorumu
+        run: python3 yt_kuyruk.py yorumlar || true
       - name: Eksik kapak resimlerini tamamla
         run: python3 yt_kuyruk.py kapaklar || true
       - name: Kuyruğu kaydet

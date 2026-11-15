@@ -472,6 +472,49 @@ def kontrol():
                        os.path.join(KUYRUK, "arsiv", f"{kayit['id']}.json"))
 
 
+YORUM_SABLON = {
+    "ilturnuva": "🏆 Bütün maçlar sırayla burada 👉 {link}\nŞehrin hangi grupta? Yorumlara yaz, takip et, maçını kaçırma!",
+    "kasakurgu": "🕵️ Serinin bütün videoları burada 👉 {link}\nSen ne düşünüyorsun? Cevabını yorumlara yaz 👇",
+    "dramabite": "💔 Bütün hikâyeler burada 👉 {link}\nSen olsan ne yapardın? Yorumlara yaz 👇",
+    "dukkantv": "😂 Levent & Cemo'nun bütün skeçleri burada 👉 {link}\nEn çok hangisine güldün? Yaz bakalım 👇",
+    "gizlitarih": "📜 Bütün bölümler burada 👉 {link}\nSıradaki bölümde hangi sırrı anlatalım? Yorumlara yaz 👇",
+}
+
+
+def yorumlar(gun=14):
+    """Yayına girmiş videoların altına kanal adına 'serinin bütün videoları' yorumu bırakır (bir kez)."""
+    from kanal_ayar import kanal_listeleri, kural_uyar
+    simdi = dt.datetime.now(TR)
+    listeler = {}
+    for p in sorted(glob.glob(os.path.join(KUYRUK, "*.json")) + glob.glob(os.path.join(KUYRUK, "arsiv", "*.json"))):
+        k = json.load(open(p, encoding="utf-8"))
+        if not k.get("video_id") or not k.get("yayin") or k.get("yorum") or k["kanal"] not in YORUM_SABLON:
+            continue
+        zaman = dt.datetime.fromisoformat(k["yayin"])
+        if zaman > simdi or simdi - zaman > dt.timedelta(days=gun) or k.get("yorum_deneme", 0) >= 3:
+            continue
+        try:
+            if k["kanal"] not in listeler:
+                listeler[k["kanal"]] = kanal_listeleri(k["kanal"])
+            pid = next((pid for pid, l in listeler[k["kanal"]] if kural_uyar(l["kural"], k["baslik"])), None)
+            if not pid:
+                continue
+            metin = YORUM_SABLON[k["kanal"]].format(link=f"https://www.youtube.com/playlist?list={pid}")
+            tok = erisim_anahtari(k["kanal"])
+            kod, _, v = istek("https://www.googleapis.com/youtube/v3/commentThreads?part=snippet", method="POST",
+                              headers={"Authorization": f"Bearer {tok}"},
+                              json_govde={"snippet": {"videoId": k["video_id"],
+                                                      "topLevelComment": {"snippet": {"textOriginal": metin}}}})
+            if kod not in (200, 201):
+                raise RuntimeError(f"{kod} {str(v)[:200]}")
+            k["yorum"] = v["id"]
+            print("yorum bırakıldı:", k["kanal"], k["baslik"][:40])
+        except Exception as e:
+            k["yorum_deneme"] = k.get("yorum_deneme", 0) + 1
+            print("yorum hatası:", k["id"], str(e)[:250])
+        json.dump(k, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+
 def geri_al(kid):
     """Arşive erken kaldırılmış bir videoyu Telegram'daki onay mesajından geri indirip kuyruğa döndürür."""
     import requests
@@ -647,6 +690,8 @@ if __name__ == "__main__":
         ekle(*sys.argv[2:10])
     elif sys.argv[1] == "kontrol":
         kontrol()
+    elif sys.argv[1] == "yorumlar":
+        yorumlar()
     elif sys.argv[1] == "geri_al":
         geri_al(sys.argv[2])
     elif sys.argv[1] == "planla":
