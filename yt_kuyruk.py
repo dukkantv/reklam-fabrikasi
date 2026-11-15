@@ -190,7 +190,8 @@ TERCIH = {"dukkantv": ["19:00", "18:00", "20:00", "21:00"],
           "dramabite": ["20:00", "21:00", "18:00", "19:00"],
           # 81 İl Turnuvası: genç kitle, okul/iş çıkışı (Kasım 2026)
           "ilturnuva": ["17:30", "18:30", "19:30", "20:30"]}
-AYNI_KANAL_ARALIK = {"kasakurgu": 2.5 * 3600}   # sn; diğer kanallarda aynı kanalın iki videosu arası 1 saat
+AYNI_KANAL_ARALIK = {"kasakurgu": 2.5 * 3600}
+GUNDE_BIR = {"ilturnuva", "gizlitarih"}   # turnuva fikstürü günde 1 maç; belgesel günde en fazla 1   # sn; diğer kanallarda aynı kanalın iki videosu arası 1 saat
 
 
 def dolu_zamanlar():
@@ -227,6 +228,8 @@ def yayin_zamani(kanal="dukkantv", gunluk=False):
         tarih = (simdi + dt.timedelta(days=gun)).date()
         if tarih in yasak_gunler:
             continue
+        if kanal in GUNDE_BIR and any(k == kanal and z.astimezone(TR).date() == tarih for k, z in dolu):
+            continue  # bu kanala günde en fazla 1 video (turnuva/belgesel takvimi kaymasın)
         for saat in sira:
             hh, mm = map(int, saat.split(":"))
             aday = dt.datetime(tarih.year, tarih.month, tarih.day, hh, mm, tzinfo=TR)
