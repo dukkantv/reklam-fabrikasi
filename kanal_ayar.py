@@ -273,11 +273,13 @@ def videolar():
             up = yt_get(kanal, "channels?part=contentDetails&mine=true")["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
             ids = [i["contentDetails"]["videoId"] for i in
                    yt_get(kanal, f"playlistItems?part=contentDetails&maxResults=20&playlistId={up}")["items"]]
-            v = yt_get(kanal, "videos?part=snippet,status&id=" + ",".join(ids))["items"]
+            v = yt_get(kanal, "videos?part=snippet,status,statistics,contentDetails&id=" + ",".join(ids))["items"]
             print(f"\n===== {kanal}")
             for x in v:
                 s = x["status"]
-                print("VID", kanal, x["id"], s["privacyStatus"], s.get("publishAt", x["snippet"]["publishedAt"]), "|", x["snippet"]["title"][:70])
+                print("VID", kanal, x["id"], s["privacyStatus"], s.get("publishAt", x["snippet"]["publishedAt"])[:16],
+                      "cocuk=" + str(s.get("madeForKids")), "izl=" + x.get("statistics", {}).get("viewCount", "?"),
+                      x["contentDetails"]["duration"], "|", x["snippet"]["title"][:60])
         except Exception as e:
             print(kanal, "HATA", e)
 
