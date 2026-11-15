@@ -482,12 +482,14 @@ SADECE JSON: {{"sahneler": [...]}}"""}])
     SES_KULLANILAN = sesleri_hazirla(s["sahneler"])
     parcalar, ass, zaman, eksik, baslangic = [], [], 0.0, [], {}
     onceki_src = None
+    tekrar = []
     for i, sc in enumerate(s["sahneler"], 1):
         print(f"Sahne {i}: {sc['nesne']}")
         src = sahne_resmi(sc, tur, i)
         if not src and onceki_src:  # resim bulunamazsa sahneyi atlama (anlatım kopar): önceki resimle devam et
             print(f"Sahne {i}: resim yok, önceki resim kullanılıyor")
             src = onceki_src
+            tekrar.append(i)
         if not src:
             eksik.append(i)
             continue
@@ -513,6 +515,8 @@ SADECE JSON: {{"sahneler": [...]}}"""}])
         parcalar.append(out)
     if eksik:
         print("Resmi bulunamayan sahneler (atlandı):", eksik)
+    if len(tekrar) > max(2, len(s["sahneler"]) * 0.05):
+        sys.exit(f"Çok fazla sahnede önceki resim tekrar ediyor ({len(tekrar)}: {tekrar}) — çizim kotası bitmiş olabilir, video durduruldu")
     if len(eksik) > len(s["sahneler"]) * 0.2:
         sys.exit(f"Çok fazla eksik resim ({len(eksik)}) — video kalitesiz olur, durduruldu")
 
