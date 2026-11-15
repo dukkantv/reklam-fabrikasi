@@ -16,7 +16,14 @@ YESIL, SOLUK = (90, 230, 120), (110, 115, 140)
 GUNLER = ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"]
 
 
-def ciz(s, cikti, ilk_gun=None):
+def gosterim_gunu():
+    """Sonucu gösterilebilecek son grup günü: maç videosu akşam yayına girdiği için 21:00'dan önce dün."""
+    simdi = dt.datetime.now(dt.timezone(dt.timedelta(hours=3)))
+    return simdi.date() if simdi.hour >= 21 else simdi.date() - dt.timedelta(days=1)
+
+
+def ciz(s, cikti, ilk_gun=None, goster=None):
+    goster = goster or gosterim_gunu()
     im = Image.new("RGB", (W, H)); d = ImageDraw.Draw(im)
     for y in range(H):
         k = y / H
@@ -24,11 +31,13 @@ def ciz(s, cikti, ilk_gun=None):
     yazi(d, (W / 2, 95), "81 İL TURNUVASI", font(82), SARI, 8)
     yazi(d, (W / 2, 180), f"SEZON {s['sezon']} · FİKSTÜR", font(50), kenar=5)
     maclar = [m for m in s["maclar"] if m["tur"] == 1]
-    siradaki = next((m for m in s["maclar"] if not m.get("atlayan")), None)
+    # Henüz yayınlanmamış maçların sonucu gösterilmez (spoiler olmasın)
+    acik = lambda k, m: bool(m.get("atlayan")) and (not ilk_gun or ilk_gun + dt.timedelta(days=k) <= goster)
+    siradaki = next((m for k, m in enumerate(maclar) if not acik(k, m)), None)
     kw, kh, x0, y0, bosluk = 340, 395, 22, 250, 12
     for k, m in enumerate(maclar):
         cx, cy = x0 + (k % 3) * (kw + bosluk), y0 + (k // 3) * (kh + bosluk)
-        oynandi = bool(m.get("atlayan")); bugun = siradaki is m
+        oynandi = acik(k, m); bugun = siradaki is m
         d.rounded_rectangle([cx, cy, cx + kw, cy + kh], 22, fill=(26, 30, 54),
                             outline=SARI if bugun else (60, 66, 100), width=6 if bugun else 2)
         grup = m["baslik"].split("·")[-1].strip()

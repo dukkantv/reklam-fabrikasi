@@ -305,6 +305,40 @@ def turnuva_profil():
         print("facebook", alan, "tamam" if kod == 200 else f"HATA {kod} {str(v)[:200]}")
 
 
+def fikstur_paylas():
+    """81 İl fikstür görselini (spoilersiz) Facebook sayfasına ve Instagram'a fotoğraf olarak paylaşır."""
+    import subprocess, time, datetime as dt
+    sys.path.insert(0, os.path.join(KOK, "arena"))
+    from fikstur import ciz
+    from ig_ortak import API, ig_hesap
+    s = json.load(open(os.path.join(KOK, "arena", "sezon.json"), encoding="utf-8"))
+    yol = ciz(s, "/tmp/fikstur.jpg", dt.date.fromisoformat(s["baslangic"]))
+    metin = (f"🗓 81 İl Turnuvası · Sezon {s['sezon']} fikstürü!\n\n"
+             "9 grup, 81 il. Her grubun son 3 kalanı tur atlar, 9 il büyük finalde kapışır. "
+             "Her akşam yeni maç 🏆\n\nŞehrin hangi grupta? Yorumlara yaz, takımını destekle! 👇\n\n"
+             "#81ilturnuvası #türkiye #fikstür #şehirler #simülasyon #ilil")
+    h = ig_hesap("ilturnuva")
+    tok, sayfa, ig = h["token"], h.get("sayfa_id") or h.get("page_id"), h["ig_id"]
+    r = subprocess.run(["curl", "-sS", "-F", f"source=@{yol}", "-F", f"caption={metin}", "-F", "published=true",
+                        "-F", f"access_token={tok}", f"{API}/{sayfa}/photos"], capture_output=True, text=True)
+    fb = json.loads(r.stdout or "{}")
+    print("facebook:", fb)
+    foto = fb.get("id")
+    if not foto:
+        return
+    _, _, d = istek(f"{API}/{foto}?fields=images&access_token={tok}")
+    url = max(d["images"], key=lambda i: i["width"])["source"]
+    kod, _, kap = istek(f"{API}/{ig}/media", veri={"image_url": url, "caption": metin, "access_token": tok})
+    print("instagram kapsayıcı:", kod, kap)
+    for _ in range(12):
+        _, _, st = istek(f"{API}/{kap['id']}?fields=status_code&access_token={tok}")
+        if (st or {}).get("status_code") == "FINISHED":
+            break
+        time.sleep(5)
+    kod, _, yay = istek(f"{API}/{ig}/media_publish", veri={"creation_id": kap["id"], "access_token": tok})
+    print("instagram:", kod, yay)
+
+
 if __name__ == "__main__":
     {"denetle": denetle, "guncelle": guncelle, "listeler": listeler, "banner": banner,
-     "facebook": facebook, "profil": profil, "esnaf_gizle": esnaf_gizle, "videolar": videolar, "turnuva_profil": turnuva_profil}[sys.argv[1]]()
+     "facebook": facebook, "profil": profil, "esnaf_gizle": esnaf_gizle, "videolar": videolar, "turnuva_profil": turnuva_profil, "fikstur_paylas": fikstur_paylas}[sys.argv[1]]()
