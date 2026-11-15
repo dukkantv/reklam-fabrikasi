@@ -110,14 +110,14 @@ Dil: {DIL_ADI}
 
 TikTok, Instagram ve YouTube Shorts'ta kaydirmali slayt ve kisa video olarak paylasilacak KURGU bir hikaye yaz.
 Kurallar:
-- 6 slayt olsun (en fazla 7). Video 45-55 saniyeyi gecmesin.
+- 8 slayt olsun (en fazla 9). Video 75-100 saniye olsun: hikaye nefes alsin, ortada bir donum noktasi, sonda ters kose ya da duygusal bir kapanis olsun.
 - {kanca}
 - 1. slayt EN FAZLA 18 kelime olsun. "Merhaba" gibi giris, mekan tasvirleriyle yavas acilis yok: dogrudan catismayla ac.
 - "kanca_adaylari" alanina 3 farkli 1. slayt metni yaz; en guclusunu 1. slayt yap.
 - Anlatim bicimi: {bicim}
 {seri_kural}
 - Sade, samimi, gunluk dil kullan. Klise cumlelerden kacin, somut ayrintilar ver (bir esya, bir koku, bir saat gibi). Karakterlere gercekci, dile uygun isimler ver.
-- Her slaytta 12 ile 20 kelime olsun, 20'yi ASLA gecme. Cumleler kisa olsun.
+- Her slaytta 15 ile 25 kelime olsun, 25'i ASLA gecme. Cumleler kisa olsun.
 - Her slaytta 1 ile 2 paragraf olsun. Vurucu cumleler "k": true (kalin) olsun.
 - Her slaytta EN FAZLA BIR cumle icin "v": true (vurgu rengi) kullan, en onemli cumle olsun.
 - Gercek kisi, marka veya siyaset kullanma. Siddet, cinsellik, nefret yok.
@@ -870,11 +870,10 @@ def main():
         # YouTube yayın kuyruğu (Drama Bite) için bilgi bırak — onaysız yayın olmaz
         import json as _json
         # Başlığa yorum sorusu eklenir (Kasa Kurgu'da yorum isteyen başlıklar daha çok izlendi); sığmazsa eski hâli
-        _soru_baslik = f"{baslik} | {soru}" if (baslik and soru) else ""
-        if _soru_baslik and len(_soru_baslik) <= 88:
-            yt_baslik = _soru_baslik + " #shorts"
-        else:
-            yt_baslik = (baslik[:88] + " #shorts") if baslik else "Drama Bite #shorts"
+        # 15 Kasım 2026 analizi: en çok izlenen Drama Bite videoları (1-3,7 bin) 75-150 sn sürüyordu ve başlıkları
+        # kısa, merak uyandıran tek ifadeydi ("Sekiz Yıllık Sır", "Gece 03:20 Borcu"); 9 Kasım'dan sonra 45-55 sn,
+        # "| soru #shorts" başlıklı videolar 30-300'de kaldı. Eski kazanan biçime dönüldü.
+        yt_baslik = baslik[:90] if baslik else "Drama Bite"
         os.makedirs("cikti", exist_ok=True)
         _json.dump({"video": os.path.abspath(yol), "baslik": yt_baslik, "aciklama": aciklama,
                     "etiketler": ",".join(h.lstrip("#") for h in veri.get("hashtagler", []))},
