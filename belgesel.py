@@ -572,11 +572,14 @@ SADECE JSON: {{"sahneler": [...]}}"""}])
         hk = int(44 * 8 * 1024 / max(toplam, 1)) - 100
         calistir("-i", son, "-vf", "scale=854:480", "-c:v", "libx264", "-preset", "veryfast", "-b:v", f"{max(hk, 250)}k",
                  "-maxrate", f"{max(hk, 250)}k", "-bufsize", "2M", "-c:a", "aac", "-b:a", "64k", "-movflags", "+faststart", tg)
-        with open(tg, "rb") as f:
+        try:
+          with open(tg, "rb") as f:
             print(requests.post(f"https://api.telegram.org/bot{TOKEN}/sendVideo", timeout=900,
                                 data={"chat_id": CHAT, "supports_streaming": "true",
                                       "caption": f"🎞 PİLOT [{tur}] ({'senin sesin' if SES_KULLANILAN == 'klon' else 'Ahmet sesi'}): {s['baslik']} · {toplam / 60:.1f} dk"},
                                 files={"video": f}).json().get("ok"))
+        except Exception as e:
+            print("Telegram video gönderilemedi (önemsiz):", str(e)[:120])
 
 
 if __name__ == "__main__":
