@@ -10,6 +10,8 @@ on:
   push:
     paths:
       - "sesler/istek/**"
+      - "ucretsiz_seslendir.py"
+      - ".github/workflows/ucretsiz-seslendir.yml"
 
 concurrency:
   group: ucretsiz-seslendir
@@ -34,4 +36,4 @@ jobs:
         run: |
           git config user.name "dukkan-tv-bot"; git config user.email "actions@users.noreply.github.com"
           rm -f sesler/_ref.wav sesler/cikti/*/_*.wav
-          git add sesler/cikti; git diff --cached --quiet || (git commit -qm "Ücretsiz seslendirme" && (git push origin HEAD:${{ github.ref_name }} || (git pull --rebase origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }})))
+          git add -f sesler/cikti; git diff --cached --quiet || (git commit -qm "Ücretsiz seslendirme" && (git push origin HEAD:${{ github.ref_name }} || (git pull --rebase origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }})))
