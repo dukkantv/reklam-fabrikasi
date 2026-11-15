@@ -68,6 +68,10 @@ def ig_bekliyor(kayit):
     """Bu kanal için Instagram bağlıysa ve henüz paylaşılmadıysa True."""
     if kayit.get("ig") in ("paylasildi", "hata") or kayit.get("uzun"):
         return False
+    # Instagram arıza verdiyse en sık saatte bir dene (Meta'nın geçici kesintileri saatler sürebiliyor)
+    son = kayit.get("ig_son_deneme")
+    if son and dt.datetime.now(dt.timezone.utc) - dt.datetime.fromisoformat(son) < dt.timedelta(minutes=55):
+        return False
     try:
         return ig_hesap(kayit["kanal"]) is not None
     except Exception:
@@ -398,6 +402,11 @@ def kontrol():
                     telegram(f"📸 {ad}: \"{kayit['baslik']}\" Instagram'da Reels olarak paylaşıldı.\n{link}")
                 except Exception as e:
                     print(f"Instagram (Facebook kaynağı) hatası ({kayit['id']}):", str(e)[:300])
+                    if "2207076" in str(e) or "2207001" in str(e):
+                        # Meta tarafında geçici arıza: doğrudan yüklemeyi de boşuna deneme, bir saat sonra tekrar
+                        kayit["ig_deneme"] = kayit.get("ig_deneme", 0) + 1
+                        kayit["ig_son_deneme"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+                        kaydet(kayit)
             if ig_bekliyor(kayit):
                 try:
                     gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
@@ -424,9 +433,10 @@ def kontrol():
                 except Exception as e:
                     print(f"Instagram hatası ({kayit['id']}):", str(e)[:400])
                     kayit["ig_deneme"] = kayit.get("ig_deneme", 0) + 1
-                    if kayit["ig_deneme"] >= 6:  # Instagram'ın geçici "ProcessingFailedError"ları için daha çok deneme
+                    kayit["ig_son_deneme"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+                    if kayit["ig_deneme"] >= 24:  # Instagram'ın geçici "ProcessingFailedError"ları için daha çok deneme
                         kayit["ig"] = "hata"
-                        telegram(f"⚠️ {ad}: Instagram paylaşımı 6 kez başarısız: {str(e)[:200]}")
+                        telegram(f"⚠️ {ad}: Instagram paylaşımı 24 kez başarısız: {str(e)[:200]}")
                     kaydet(kayit)
             if fb_bekliyor(kayit):
                 try:
