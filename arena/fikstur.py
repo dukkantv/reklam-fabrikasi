@@ -55,7 +55,7 @@ def ciz(s, cikti, ilk_gun=None):
         yazi(d, (W / 2, yb + 145), f"2. TUR: {ay(t2)} – {ay(t2 + dt.timedelta(days=2))}", font(44), kenar=5)
         son = f"ŞAMPİYON: {s['sampiyon']} {AD[s['sampiyon']]}" if s.get("sampiyon") else f"BÜYÜK FİNAL: {ay(fn)} {GUNLER[fn.weekday()]}"
         yazi(d, (W / 2, yb + 215), son, font(52), SARI, 6)
-    yazi(d, (W / 2, yb + 295), "Her akşam 17:30 · @81ilturnuvasi", font(36, "Bold"), kenar=4)
+    yazi(d, (W / 2, yb + 295), "Her akşam yeni maç · @81ilturnuvasi", font(36, "Bold"), kenar=4)
     yazi(d, (W / 2, H - 60), "Şehrin hangi grupta? Yorumlara yaz!", font(40), kenar=4)
     im.save(cikti, quality=92)
     return cikti

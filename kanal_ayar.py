@@ -300,7 +300,7 @@ def turnuva_profil():
                        capture_output=True, text=True)
     print("facebook profil fotoğrafı:", r.stdout[:200] or r.stderr[:200])
     aciklama = json.load(open(os.path.join(KOK, "kanal_ayarlari.json"), encoding="utf-8"))["ilturnuva"]["aciklama"]
-    for alan, deger in (("about", "81 il fizik oyunlarında kapışıyor! Her akşam 17:30 yeni maç 🏆"), ("description", aciklama)):
+    for alan, deger in (("about", "81 il fizik oyunlarında kapışıyor! Her akşam yeni maç 🏆"), ("description", aciklama)):
         kod, _, v = istek(f"{API}/{pid}", veri={alan: deger, "access_token": tok})
         print("facebook", alan, "tamam" if kod == 200 else f"HATA {kod} {str(v)[:200]}")
 
