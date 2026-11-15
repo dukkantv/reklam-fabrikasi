@@ -341,6 +341,19 @@ def fikstur_paylas():
     print("instagram:", kod, yay)
 
 
+def yorum_dene():
+    """Mevcut 'youtube' izniyle kanal adına yorum yazılabiliyor mu? (81 İl A Grubu videosuna seri listesi yorumu)"""
+    pid = kanal_listeleri("ilturnuva")[0][0]
+    try:
+        v = yt_post("ilturnuva", "commentThreads?part=snippet", {"snippet": {
+            "videoId": "IBiS8dwf2Tk", "topLevelComment": {"snippet": {"textOriginal":
+                f"🏆 Bütün maçlar sırayla burada 👉 https://www.youtube.com/playlist?list={pid}\n"
+                "Şehrin hangi grupta? Yorumlara yaz, takip et, maçını kaçırma!"}}}})
+        print("YORUM TAMAM", v.get("id"))
+    except Exception as e:
+        print("YORUM HATA", str(e)[:400])
+
+
 if __name__ == "__main__":
     {"denetle": denetle, "guncelle": guncelle, "listeler": listeler, "banner": banner,
-     "facebook": facebook, "profil": profil, "esnaf_gizle": esnaf_gizle, "videolar": videolar, "turnuva_profil": turnuva_profil, "fikstur_paylas": fikstur_paylas}[sys.argv[1]]()
+     "facebook": facebook, "profil": profil, "esnaf_gizle": esnaf_gizle, "videolar": videolar, "turnuva_profil": turnuva_profil, "fikstur_paylas": fikstur_paylas, "yorum_dene": yorum_dene}[sys.argv[1]]()
