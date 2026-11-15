@@ -131,17 +131,31 @@ def youtube():
                 if sonuc[k]["en_kotu_7gun"]:
                     r = sonuc[k]["en_kotu_7gun"][0]
                     satirlar.append(f"   🔻 {r['baslik'][:38]} — {sayi(r['views'])} izl., %{round(r.get('averageViewPercentage', 0))}")
-            hedef = [f"abone {abone}/1000"]
-            if saat_uzun is not None:
-                hedef.append(f"saat {saat_uzun}/8000")
+            yuzde = lambda a, b: f"%{a / b * 100:.1f}".replace(".0", "") if a < b else "✅"
+            yeni_kural = bugun >= dt.date(2027, 2, 1)
+            saat_h, shorts_h = (8000, 20_000_000) if yeni_kural else (4000, 10_000_000)
+            reklam = [f"abone {abone}/1000 ({yuzde(abone, 1000)})"]
+            ara = [f"abone {abone}/500 ({yuzde(abone, 500)})"]
             if s90 is not None:
-                hedef.append(f"Shorts {sayi(s90)}/20M (90 gün)")
-            satirlar.append("   💰 " + " · ".join(hedef))
+                reklam.append(f"Shorts {sayi(s90)}/{shorts_h // 1_000_000}M ({yuzde(s90, shorts_h)})")
+                ara.append(f"Shorts {sayi(s90)}/3M ({yuzde(s90, 3_000_000)})")
+            if saat_uzun is not None:
+                reklam.append(f"saat {saat_uzun}/{saat_h} ({yuzde(saat_uzun, saat_h)})")
+                ara.append(f"saat {saat_uzun}/3000 ({yuzde(saat_uzun, 3000)})")
+            satirlar.append("   💰 Reklam geliri: " + " · ".join(reklam))
+            satirlar.append("   🎁 Ara basamak: " + " · ".join(ara))
+            sonuc[k]["ypp_puan"] = min(abone / 1000, 1) + min(max((s90 or 0) / shorts_h, (saat_uzun or 0) / saat_h), 1)
         except Exception as ex:
             sonuc[k] = {"ad": bilgi.get("ad", k), "hata": str(ex)[:300]}
             satirlar.append(f"\n⚠️ {etiket}: okunamadı — {str(ex)[:120]}")
             if "invalid_grant" in str(ex):
                 satirlar.append("   → İzin süresi bitmiş. Actions → YouTube İzin ile bu kanalı yeniden bağla.")
+    adaylar = sorted((v for v in sonuc.values() if "ypp_puan" in v), key=lambda v: -v["ypp_puan"])
+    if adaylar:
+        satirlar.append(f"\n🏁 Para kazanmaya en yakın kanal: {adaylar[0]['ad']}")
+        if bugun < dt.date(2027, 2, 1):
+            satirlar.append("   ⏳ 1 Şubat 2027'den sonra başvuranlara şart 8.000 saat / 20M Shorts'a çıkıyor; "
+                            "öncesinde girilirse eski şartlar geçerli.")
     return sonuc, satirlar
 
 
