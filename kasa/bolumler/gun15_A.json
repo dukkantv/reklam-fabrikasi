@@ -1,0 +1,75 @@
+{
+  "gun": 15,
+  "toplam_gun": 30,
+  "kasa_basi": 22400,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {
+      "tema": "gece",
+      "gorsel": "para",
+      "gorsel_yazi": "KUTLAMA YOK",
+      "ifade": "mutlu",
+      "baslik": "İLK KUTLAMA",
+      "anlatim": "Kutlama yapmayı bir kenara bıraktım. Doğrudan yeni mal alımı için hazırlığa başladım, vakit kaybetmek yok.",
+      "damga": "Karar"
+    },
+    {
+      "tema": "sabah",
+      "gorsel": "hal",
+      "gorsel_yazi": "SABAH YOLU",
+      "ifade": "gulen",
+      "baslik": "ERKENCİ YOLCU",
+      "anlatim": "Sabah erkenden hale gittim. Yeni dükkanım için en kaliteli ve taze sebzeleri seçip tezgahıma kadar taşıdım.",
+      "damga": "Emek"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "domates",
+      "gorsel_yazi": "+2200 TL",
+      "ifade": "mutlu",
+      "kasa": 24600,
+      "baslik": "HIZLI BAŞLANGIÇ",
+      "anlatim": "Taze sebzeler sabahın erken saatlerinde kapış kapış gitti. Kasaya iki bin iki yüz lira eklendi.",
+      "damga": "Kazanç"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "tezgah",
+      "gorsel_yazi": "YENİ ÜRÜN",
+      "ifade": "gulen",
+      "baslik": "BÜYÜK İLGİ",
+      "anlatim": "Öğleden sonra getirdiğim egzotik meyveler mahallede büyük ilgi gördü. Yeni müşteriler kazandım.",
+      "damga": "Hız"
+    },
+    {
+      "tema": "aksam",
+      "gorsel": "para",
+      "gorsel_yazi": "+1500 TL",
+      "ifade": "mutlu",
+      "kasa": 26100,
+      "baslik": "GÜNÜN KARI",
+      "anlatim": "Akşam kasa sayımını yaptım. Bin beş yüz lira da oradan geldi, toplam yirmi altı bin yüz oldu.",
+      "damga": "Başarı"
+    },
+    {
+      "tema": "gece",
+      "gorsel": "defter",
+      "gorsel_yazi": "YARI YOL",
+      "ifade": "dusunceli",
+      "baslik": "YARIŞ DEVAM",
+      "anlatim": "Yolun yarısını geride bıraktım. Hızımı artırmam gerekiyor, hedefe ulaşmak için daha çok çalışmalıyım.",
+      "damga": "Hedef"
+    },
+    {
+      "tema": "oylama",
+      "ifade": "mutlu",
+      "secenek": [
+        "Toptancı ile anlaş",
+        "Perakende devam"
+      ],
+      "baslik": "STRATEJİ",
+      "anlatim": "Büyük bir toptancıdan ucuz ürün teklifi geldi. Toptancı ile anlaşayım mı, yoksa perakende devam mı? Yoruma A veya B yaz. Yarın gün 16!"
+    }
+  ]
+}
