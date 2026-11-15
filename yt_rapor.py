@@ -17,9 +17,10 @@ from yt_ortak import KOK, analiz, erisim_anahtari, kanal_bilgi, kanallar, telegr
 TR = dt.timezone(dt.timedelta(hours=3))
 bugun = dt.datetime.now(TR).date()
 gun = lambda n: (bugun - dt.timedelta(days=n)).isoformat()
-YETKI = {"dukkantv": "Onay", "dramabite": "Yayın", "kasakurgu": "Yayın"}
-SIRA = ["dukkantv", "dramabite", "kasakurgu"]
-AD = {"dukkantv": "Dükkan TV", "dramabite": "Drama Bite", "kasakurgu": "Kasa Kurgu"}
+YETKI = {"dukkantv": "Yayın", "dramabite": "Yayın", "kasakurgu": "Yayın", "ilturnuva": "Yayın", "gizlitarih": "Yayın"}
+SIRA = ["ilturnuva", "kasakurgu", "dramabite", "dukkantv"]
+AD = {"dukkantv": "Dükkan TV", "dramabite": "Drama Bite", "kasakurgu": "Kasa Kurgu",
+      "ilturnuva": "81 İl", "gizlitarih": "Gizli Tarih"}
 
 
 def onceki_rapor():
@@ -263,6 +264,51 @@ def tiktok():
     return sonuc, satirlar, uyari
 
 
+# ─────────────────────── KISA SABAH RAPORU ───────────────────────
+def kisa_rapor(yt_sonuc, ig_sonuc):
+    """Levent'in istediği tek, net tablo: abone, hedefe giden izlenme, haftalık gidiş + birkaç yorum satırı."""
+    import html
+    k_sayi = lambda n: (f"{n / 1e6:.1f}M" if n >= 1e6 else f"{n / 1e3:.1f}B" if n >= 1e3 else str(int(n))).replace(".0", "")
+    satir, yorum, buyuyen, dusen = [], [], [], []
+    for k, v in sorted(yt_sonuc.items(), key=lambda x: -x[1].get("ypp_puan", -1)):
+        ad = AD.get(k, v.get("ad", k))[:11]
+        if "hata" in v:
+            satir.append(f"{ad:<11} okunamadı"); continue
+        if k == "gizlitarih":
+            hedef = f"{v.get('uzun_video_saat_365') or 0:g} sa"
+        else:
+            hedef = k_sayi(v.get("shorts_izlenme_90") or 0)
+        v7, o7 = v.get("son7", {}).get("views", 0), v.get("onceki7_izlenme")
+        if o7:
+            oran = round((v7 - o7) / o7 * 100)
+            gidis = f"{oran:+d}%"
+            (buyuyen if oran >= 10 else dusen if oran <= -30 else []).append(f"{AD.get(k, k)} ({oran:+d}%)")
+        else:
+            gidis = "yeni"
+        satir.append(f"{ad:<11}{v.get('abone', 0):>6}{hedef:>8}{gidis:>7}")
+    tablo_ = f"{'Kanal':<11}{'Abone':>6}{'İzlenme':>8}{'Hafta':>7}\n" + "\n".join(satir)
+    adaylar = [v for v in yt_sonuc.values() if "ypp_puan" in v]
+    if adaylar:
+        en = max(adaylar, key=lambda v: v["ypp_puan"])
+        yorum.append(f"🏁 Para kazanmaya en yakın: {html.escape(AD.get(next(k for k, x in yt_sonuc.items() if x is en), en['ad']))} "
+                     f"(abone %{min(en['abone'] / 10, 100):.1f})".replace(".0)", ")"))
+    if buyuyen:
+        yorum.append("📈 Büyüyen: " + ", ".join(buyuyen))
+    if dusen:
+        yorum.append("📉 Düşen: " + ", ".join(dusen))
+    ig = [f"{AD[k]} {x['takipci']}" + (f" ({x['son24_takipci']})" if x.get("son24_takipci") not in (None, "?", "+0") else "")
+          for k, x in ig_sonuc.items() if isinstance(x, dict) and "takipci" in x and k in AD]
+    metin = [f"📊 <b>Sabah Raporu · {bugun:%d.%m.%Y}</b>", "",
+             f"<pre>{html.escape(tablo_)}</pre>",
+             "Hedef: 1.000 abone + 90 günde 10M Shorts izlenmesi (Gizli Tarih: 4.000 saat uzun video)."
+             + (" 1 Şubat 2027'den sonra başvuranlarda 8.000 saat / 20M." if bugun < dt.date(2027, 2, 1) else ""),
+             ""] + yorum
+    if ig:
+        metin.append("📸 Instagram takipçi: " + html.escape(" · ".join(ig)))
+    metin.append("ℹ️ YouTube sayıları 1–2 gün geriden gelir.")
+    return metin
+
+
 # ───────────────────────── ONAY BEKLEYENLER ─────────────────────────
 def bekleyenler():
     satirlar, butonlar, liste, bugunkuler = [], [], [], []
@@ -295,17 +341,14 @@ if __name__ == "__main__":
     for ad in (f"{bugun.isoformat()}.json", "son.json"):
         json.dump(sonuc, open(os.path.join(KOK, "rapor", ad), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
-    for metin in ("\n".join(yt_satir), "\n".join(ig_satir), "\n".join(tt_satir)):
-        telegram(metin[:4000])
-    son = []
+    import html as _h
+    son = kisa_rapor(yt_sonuc, ig_sonuc)
     if bugunkuler:
-        son += ["📅 Bugün yayına girecekler:"] + bugunkuler + [""]
+        son += ["", "📅 Bugün yayına girecekler:"] + [_h.escape(x) for x in bugunkuler]
     if bek_satir:
-        son += ["⏳ Onayını bekleyen Dükkan TV videoları:"] + bek_satir + ["Aşağıdaki butonlarla karar ver 👇"]
-    else:
-        son.append("⏳ Onayını bekleyen video yok.")
+        son += ["", "⏳ Onayını bekleyen videolar:"] + [_h.escape(x) for x in bek_satir] + ["Aşağıdaki butonlarla karar ver 👇"]
     if sonuc["uyarilar"]:
-        son += ["", "⚙️ Sistem uyarıları:"] + sonuc["uyarilar"]
+        son += ["", "⚙️ Sistem uyarıları:"] + [_h.escape(x) for x in sonuc["uyarilar"]]
     ek = {"reply_markup": json.dumps({"inline_keyboard": butonlar})} if butonlar else {}
-    telegram("\n".join(son)[:4000], **ek)
+    telegram("\n".join(son)[:4000], parse_mode="HTML", **ek)
     print("\n\n".join(["\n".join(yt_satir), "\n".join(ig_satir), "\n".join(tt_satir), "\n".join(son)]))
