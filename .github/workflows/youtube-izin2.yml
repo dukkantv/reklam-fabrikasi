@@ -1,0 +1,43 @@
+name: YouTube İzin (yorum)
+
+# Masaüstü istemcisiyle alınan izin kodunu kalıcı izne çevirir (yorum yazma izni dahil).
+on:
+  workflow_dispatch:
+    inputs:
+      kanal:
+        description: "Hangi kanal?"
+        required: true
+        type: choice
+        options: [dukkantv, kasakurgu, dramabite, gizlitarih, ilturnuva]
+      kod:
+        description: "Tarayıcının yönlendirildiği 127.0.0.1 adresi ya da sadece kod"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: youtube-izin2
+
+jobs:
+  izin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Kodu izne çevir
+        env:
+          KOD: ${{ inputs.kod }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT2_CLIENT_SECRET: ${{ secrets.YT2_CLIENT_SECRET }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 yt_izin2.py kod ${{ inputs.kanal }}
+      - name: Kaydet
+        run: |
+          git config user.name "Dükkan TV Bot"
+          git config user.email "dukkan.tvstudio@gmail.com"
+          git add tokens/
+          git diff --cached --quiet && exit 0
+          git commit -m "YouTube yorum izni: ${{ inputs.kanal }}"
+          git pull --rebase -q && git push

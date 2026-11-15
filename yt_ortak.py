@@ -52,13 +52,26 @@ def kanal_bilgi(kanal):
     return json.load(open(os.path.join(KOK, "tokens", f"{kanal}.json"), encoding="utf-8"))
 
 
+MASAUSTU_CID = "1012697175361-vkv0tcgm4138dvgv1n2pd92h82rr44bg.apps.googleusercontent.com"
+MASAUSTU_KAPSAM = ("https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.force-ssl "
+                   "https://www.googleapis.com/auth/yt-analytics.readonly")
+
+
 def erisim_anahtari(kanal):
     yol = os.path.join(KOK, "tokens", f"{kanal}.enc")
     yenileme = subprocess.run(
         ["openssl", "enc", "-d", "-aes-256-cbc", "-pbkdf2", "-pass", "env:YT_SIFRE", "-in", yol],
         capture_output=True, check=True, env={**os.environ, "YT_SIFRE": CSEC}).stdout.decode().strip()
+    cid, csec = CID, CSEC
+    bilgi = os.path.join(KOK, "tokens", f"{kanal}.json")
+    if os.path.exists(bilgi) and json.load(open(bilgi, encoding="utf-8")).get("istemci") == "masaustu":
+        # Yorum izni (youtube.force-ssl) olan 'masaüstü' istemcisiyle alınmış izin
+        cid = MASAUSTU_CID
+        csec = subprocess.run(["openssl", "enc", "-d", "-aes-256-cbc", "-pbkdf2", "-pass", "env:YT_SIFRE",
+                               "-in", os.path.join(KOK, "tokens", "istemci2.enc")],
+                              capture_output=True, check=True, env={**os.environ, "YT_SIFRE": CSEC}).stdout.decode().strip()
     kod, _, t = istek("https://oauth2.googleapis.com/token", veri={
-        "client_id": CID, "client_secret": CSEC, "refresh_token": yenileme, "grant_type": "refresh_token"})
+        "client_id": cid, "client_secret": csec, "refresh_token": yenileme, "grant_type": "refresh_token"})
     if kod != 200 or "access_token" not in t:
         raise RuntimeError(f"{kanal}: izin yenilenemedi ({kod}): {t}")
     return t["access_token"]
