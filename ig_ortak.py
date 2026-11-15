@@ -83,8 +83,8 @@ def kurulum():
     print(mesaj)
 
 
-def reels_yukle(kanal, video_yolu, aciklama):
-    """Videoyu Reels olarak paylaşır. Döndürür: (medya_id, kalıcı bağlantı)."""
+def _kapsayici_yukle(kanal, video_yolu, aciklama):
+    """Kapsayıcı açar ve videoyu yükler (yayınlamaz)."""
     h = ig_hesap(kanal)
     if not h:
         raise RuntimeError(f"{kanal} için Instagram bağlı değil")
@@ -101,6 +101,25 @@ def reels_yukle(kanal, video_yolu, aciklama):
                             headers={"Authorization": f"OAuth {tok}", "offset": "0", "file_size": str(boyut)})
     if kod != 200:
         raise RuntimeError(f"Instagram video yüklenemedi ({kod}): {str(cev)[:300]}")
+    return kap
+
+
+def reels_yukle(kanal, video_yolu, aciklama):
+    """Videoyu Reels olarak paylaşır. Döndürür: (medya_id, kalıcı bağlantı).
+    Instagram aynı dosyayı bazen rastgele 'ProcessingFailedError' ile reddediyor; yeni kapsayıcıyla 5 kez dener."""
+    h = ig_hesap(kanal)
+    if not h:
+        raise RuntimeError(f"{kanal} için Instagram bağlı değil")
+    tok, ig = h["token"], h["ig_id"]
+    for deneme in range(5):
+        try:
+            kap = _kapsayici_yukle(kanal, video_yolu, aciklama)
+            break
+        except RuntimeError as e:
+            if "ProcessingFailedError" not in str(e) or deneme == 4:
+                raise
+            print(f"Instagram yükleme {deneme + 1}. deneme reddedildi, tekrar deneniyor", flush=True)
+            time.sleep(20)
     for _ in range(60):  # işleme bitene kadar bekle (en çok ~10 dk)
         _, _, d = istek(f"{API}/{kap['id']}?fields=status_code,status&access_token={tok}")
         durum = (d or {}).get("status_code")
