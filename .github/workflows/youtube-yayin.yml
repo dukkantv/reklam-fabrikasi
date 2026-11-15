@@ -40,6 +40,9 @@ on:
         description: "Yüklenmiş planlı videoların açıklamasına ürün linklerini ekle"
         type: boolean
         default: false
+      geri_al:
+        description: "Arşivden geri alınacak kayıt id'si (Telegram'daki videodan indirilir)"
+        required: false
       urun_kaldir:
         description: "Bütün kanallardaki bütün videoların açıklamasından satış linklerini sil"
         type: boolean
@@ -79,6 +82,13 @@ jobs:
         run: |
           curl -fsSL "$URL" -o /tmp/elle.mp4
           python3 yt_kuyruk.py ekle "$KANAL" /tmp/elle.mp4 "$BASLIK" "$ACIKLAMA" "$ETIKETLER" "$GUNLUK"
+      - name: Arşivden geri al
+        if: inputs.geri_al != ''
+        env:
+          KID: ${{ inputs.geri_al }}
+        run: |
+          pip install -q requests
+          python3 yt_kuyruk.py geri_al "$KID"
       - name: Saatleri yeniden dağıt
         if: inputs.planla
         run: python3 yt_kuyruk.py planla

@@ -450,6 +450,9 @@ def kontrol():
                         telegram(f"⚠️ {ad}: TikTok gönderimi 3 kez başarısız: {str(e)[:200]}")
                     kaydet(kayit)
         elif kayit["durum"] == "yuklendi":
+            # Yayın saatinden önce arşivleme: o arada kanala Instagram/TikTok/Facebook bağlanabilir
+            if simdi < dt.datetime.fromisoformat(kayit["yayin"]) + dt.timedelta(hours=1):
+                continue
             try:
                 gh("release", "delete-asset", "kuyruk", kayit["dosya"], "-y")
             except subprocess.CalledProcessError:
@@ -457,6 +460,27 @@ def kontrol():
             os.makedirs(os.path.join(KUYRUK, "arsiv"), exist_ok=True)
             os.replace(os.path.join(KUYRUK, f"{kayit['id']}.json"),
                        os.path.join(KUYRUK, "arsiv", f"{kayit['id']}.json"))
+
+
+def geri_al(kid):
+    """Arşive erken kaldırılmış bir videoyu Telegram'daki onay mesajından geri indirip kuyruğa döndürür."""
+    import requests
+    ap = os.path.join(KUYRUK, "arsiv", f"{kid}.json")
+    kayit = json.load(open(ap, encoding="utf-8"))
+    chat = os.environ.get("TELEGRAM_CHAT_ID")
+    r = requests.post(f"{TG}/forwardMessage", data={"chat_id": chat, "from_chat_id": chat,
+                                                     "message_id": kayit["mesaj_id"], "disable_notification": "true"}, timeout=60).json()
+    msg = r["result"]
+    fid = (msg.get("video") or msg.get("document"))["file_id"]
+    requests.post(f"{TG}/deleteMessage", data={"chat_id": chat, "message_id": msg["message_id"]}, timeout=60)
+    yol = requests.get(f"{TG}/getFile", params={"file_id": fid}, timeout=60).json()["result"]["file_path"]
+    tok = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+    veri = requests.get(f"https://api.telegram.org/file/bot{tok}/{yol}", timeout=300).content
+    hedef = os.path.join("/tmp", kayit["dosya"])
+    open(hedef, "wb").write(veri)
+    print("indirildi", len(veri), "bayt")
+    gh("release", "upload", "kuyruk", hedef, "--clobber")
+    os.replace(ap, os.path.join(KUYRUK, f"{kid}.json"))
 
 
 def yeniden_planla():
@@ -601,6 +625,8 @@ if __name__ == "__main__":
         ekle(*sys.argv[2:10])
     elif sys.argv[1] == "kontrol":
         kontrol()
+    elif sys.argv[1] == "geri_al":
+        geri_al(sys.argv[2])
     elif sys.argv[1] == "planla":
         yeniden_planla()
     elif sys.argv[1] == "urunler":
