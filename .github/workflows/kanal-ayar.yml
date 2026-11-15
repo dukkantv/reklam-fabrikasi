@@ -18,4 +18,6 @@ jobs:
       YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
     steps:
       - uses: actions/checkout@v4
+      - if: inputs.komut == 'fikstur_paylas'
+        run: pip install -q pillow numpy
       - run: python3 kanal_ayar.py ${{ inputs.komut }}
