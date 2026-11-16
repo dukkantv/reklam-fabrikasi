@@ -473,6 +473,11 @@ def kontrol():
             # Yayın saatinden önce arşivleme: o arada kanala Instagram/TikTok/Facebook bağlanabilir
             if simdi < dt.datetime.fromisoformat(kayit["yayin"]) + dt.timedelta(hours=1):
                 continue
+            # Instagram denemesi bekleme süresindeyse (saatte bir dener) arşivleme: yoksa paylaşılmadan kalır.
+            # 16 Kasım 2026: Drama Bite "Gece Gelen Mesaj" bu yüzden Instagram'a gitmeden arşivlendi.
+            if (kayit.get("ig") not in ("paylasildi", "hata") and not kayit.get("uzun") and kayit.get("ig_son_deneme")
+                    and simdi < dt.datetime.fromisoformat(kayit["yayin"]) + dt.timedelta(hours=30)):
+                continue
             try:
                 gh("release", "delete-asset", "kuyruk", kayit["dosya"], "-y")
             except subprocess.CalledProcessError:
