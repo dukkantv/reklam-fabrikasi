@@ -94,12 +94,16 @@ def youtube():
             s90 = None if t90 is None else t90.get("shorts", t90.get("SHORTS", 0))
 
             enler = []
-            try:
-                enler = tablo(analiz(token, gun(7), gun(0),
-                                     "views,averageViewDuration,averageViewPercentage,likes,comments",
-                                     dimensions="video", sort="-views", maxResults=10))
-            except Exception as e:
-                print(k, "video tablosu alınamadı:", e)
+            # "engagedViews": ilk saniyelerden sonra izlemeye devam edenler (Shorts'ta kancanın en güçlü sinyali).
+            # Analytics API bu metriği vermezse eski metriklerle devam edilir.
+            for metrikler in ("views,engagedViews,averageViewDuration,averageViewPercentage,likes,comments",
+                              "views,averageViewDuration,averageViewPercentage,likes,comments"):
+                try:
+                    enler = tablo(analiz(token, gun(7), gun(0), metrikler,
+                                         dimensions="video", sort="-views", maxResults=10))
+                    break
+                except Exception as e:
+                    print(k, "video tablosu alınamadı:", metrikler.split(",")[1], e)
             if enler:
                 adlar = {v["id"]: v["snippet"]["title"] for v in
                          yt(token, "videos", part="snippet", id=",".join(r["video"] for r in enler))["items"]}
@@ -126,12 +130,21 @@ def youtube():
                 degisim = f" ({oran:+d}% önceki haftaya göre{' ⚠️ düşüş' if oran <= -30 else ''})"
             satirlar.append(f"   7 gün: {sayi(v7)} izlenme{degisim}, ort. %{round(son7.get('averageViewPercentage', 0))} izlendi,"
                             f" {son7.get('likes', 0)} beğeni, {son7.get('comments', 0)} yorum")
+            def kanca(r):
+                """İzlemeye devam edenlerin oranı (varsa): ' · kanca %38'"""
+                v, e = r.get("views", 0), r.get("engagedViews")
+                return f" · kanca %{round(e / v * 100)}" if e is not None and v else ""
             if enler:
                 r = enler[0]
-                satirlar.append(f"   🥇 {r['baslik'][:38]} — {sayi(r['views'])} izl., %{round(r.get('averageViewPercentage', 0))}")
+                satirlar.append(f"   🥇 {r['baslik'][:38]} — {sayi(r['views'])} izl., %{round(r.get('averageViewPercentage', 0))}{kanca(r)}")
                 if sonuc[k]["en_kotu_7gun"]:
                     r = sonuc[k]["en_kotu_7gun"][0]
-                    satirlar.append(f"   🔻 {r['baslik'][:38]} — {sayi(r['views'])} izl., %{round(r.get('averageViewPercentage', 0))}")
+                    satirlar.append(f"   🔻 {r['baslik'][:38]} — {sayi(r['views'])} izl., %{round(r.get('averageViewPercentage', 0))}{kanca(r)}")
+                toplam_v = sum(r.get("views", 0) for r in enler)
+                toplam_e = sum(r.get("engagedViews", 0) or 0 for r in enler)
+                if toplam_v and any("engagedViews" in r for r in enler):
+                    satirlar.append(f"   🎣 Kanca: izleyicilerin %{round(toplam_e / toplam_v * 100)}'i ilk saniyelerden sonra videoda kaldı"
+                                    f" (Kasım verisi: %35+ olanlar katlarca fazla izlendi)")
             yuzde = lambda a, b: f"%{a / b * 100:.1f}".replace(".0", "") if a < b else "✅"
             yeni_kural = bugun >= dt.date(2027, 2, 1)
             saat_h, shorts_h = (8000, 20_000_000) if yeni_kural else (4000, 10_000_000)
@@ -264,6 +277,74 @@ def tiktok():
     return sonuc, satirlar, uyari
 
 
+# ─────────────────── YAYIN DURUMU (platform platform) ───────────────────
+PLATFORMLAR = [("▶️ YOUTUBE", "yt", ["dukkantv", "dramabite", "kasakurgu", "ilturnuva", "gizlitarih"]),
+               ("📸 INSTAGRAM", "ig", ["dukkantv", "dramabite", "kasakurgu", "ilturnuva"]),
+               ("🎵 TIKTOK", "tt", ["dukkantv", "dramabite", "kasakurgu", "ilturnuva"]),
+               ("📘 FACEBOOK", "fb", ["dukkantv", "dramabite", "kasakurgu", "ilturnuva"])]
+
+
+def kisa_ad(baslik):
+    """Raporda telefonda okunacak kısa video adı."""
+    import html, re
+    for desen, sablon in ((r"Gün\s*(\d+)\s*/", "500 TL · Gün {}"), (r"Dosya\s*#\s*(\d+)", "Katil Kim · Dosya #{}"),
+                          (r"Tur\s*·\s*(\w+)\s*Grubu", "81 İl · {} Grubu")):
+        m = re.search(desen, baslik)
+        if m:
+            return sablon.format(m.group(1))
+    ad = re.split(r"[|#]| — ", baslik)[0].strip()
+    return html.escape(ad[:32] + ("…" if len(ad) > 32 else ""))
+
+
+def yayin_durumu(simdi=None):
+    """Levent'in istediği düzen (Kasım 2026): her platform ayrı başlık, altında bütün kanallar;
+    dün ve bugün için ✅ yayınlandı / 🕒 saat / ❌ gitmedi / 📩 TikTok taslağı."""
+    simdi = simdi or dt.datetime.now(TR)
+    gunler = {simdi.date() - dt.timedelta(days=1): "dün", simdi.date(): "bugün"}
+    kayitlar = []
+    for p in glob.glob(os.path.join(KOK, "kuyruk", "*.json")) + glob.glob(os.path.join(KOK, "kuyruk", "arsiv", "*.json")):
+        try:
+            r = json.load(open(p, encoding="utf-8"))
+            z = dt.datetime.fromisoformat(r["yayin"]).astimezone(TR) if r.get("yayin") else None
+        except Exception:
+            continue
+        if z and z.date() in gunler and r.get("durum") == "yuklendi":
+            kayitlar.append((z, r))
+    kayitlar.sort(key=lambda x: x[0])
+    satirlar = []
+    for baslik_, alan, kanallar_ in PLATFORMLAR:
+        satirlar.append(f"\n<b>{baslik_}</b>")
+        for k in kanallar_:
+            parca = []
+            for z, r in (x for x in kayitlar if x[1]["kanal"] == k):
+                ne = f"{gunler[z.date()]} {z:%H:%M} {kisa_ad(r['baslik'])}"
+                gecti = z <= simdi
+                if alan == "yt":
+                    isaret = "✅" if gecti else "🕒"
+                elif r.get("uzun"):
+                    continue  # uzun videolar yalnızca YouTube'a gider
+                else:
+                    deger = r.get(alan)
+                    if deger == "paylasildi":
+                        isaret = "✅"
+                    elif alan == "tt" and deger == "taslak":
+                        isaret = "📩"
+                    elif deger == "hata" or (gecti and alan != "tt"):
+                        isaret = "❌"
+                    elif not gecti:
+                        isaret = "🕒"
+                    else:
+                        isaret = "❌"
+                parca.append(f"{isaret} {ne}")
+            if len(parca) <= 1:
+                satirlar.append(f"{AD[k]}: " + (parca[0] if parca else "yayın yok"))
+            else:
+                satirlar.append(f"{AD[k]}:")
+                satirlar += [f"   {x}" for x in parca]
+    satirlar.append("\n✅ yayınlandı · 🕒 planlı · 📩 TikTok taslağı (senin paylaşmanı bekliyor) · ❌ gitmedi")
+    return satirlar
+
+
 # ─────────────────────── KISA SABAH RAPORU ───────────────────────
 def kisa_rapor(yt_sonuc, ig_sonuc):
     """Levent'in istediği tek, net tablo: abone, hedefe giden izlenme, haftalık gidiş + birkaç yorum satırı."""
@@ -343,8 +424,12 @@ if __name__ == "__main__":
 
     import html as _h
     son = kisa_rapor(yt_sonuc, ig_sonuc)
-    if bugunkuler:
-        son += ["", "📅 Bugün yayına girecekler:"] + [_h.escape(x) for x in bugunkuler]
+    try:
+        son += ["", "📡 <b>Yayın durumu (dün + bugün)</b>"] + yayin_durumu()
+    except Exception as ex:
+        print("yayın durumu hazırlanamadı:", ex)
+        if bugunkuler:
+            son += ["", "📅 Bugün yayına girecekler:"] + [_h.escape(x) for x in bugunkuler]
     if bek_satir:
         son += ["", "⏳ Onayını bekleyen videolar:"] + [_h.escape(x) for x in bek_satir] + ["Aşağıdaki butonlarla karar ver 👇"]
     if sonuc["uyarilar"]:
