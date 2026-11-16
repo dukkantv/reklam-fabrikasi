@@ -86,9 +86,9 @@
   },
   {
    "metin": "Polis geldi, kapı zorla açıldı. Hakkı Usta tezgâhın arkasındaki sandalyesinde, başı defterinin üzerine düşmüş halde hareketsiz yatıyordu. Kasa kapalıydı, tek bir altın bile eksik değildi.",
-   "nesne": "police tape across the doorway of an old shop",
-   "arama": "police tape across the doorway of an old shop",
-   "gorsel": "police tape across the doorway of an old shop, Bursa Turkey, 1990s"
+   "nesne": "plain yellow and black striped barrier tape across an open wooden shop door, no letters on the tape",
+   "arama": "plain yellow and black striped barrier tape across an open wooden shop door, no letters on the tape",
+   "gorsel": "plain yellow and black striped barrier tape across an open wooden shop door, no letters on the tape"
   },
   {
    "metin": "Anahtar hâlâ kilitteydi. Arka kapı yoktu. Parmaklıklar yerli yerindeydi. Görünüşe göre oraya kimse girmemiş, kimse çıkmamıştı.",
@@ -104,9 +104,9 @@
   },
   {
    "metin": "Tezgâhın üstünde yarım bardak soğumuş bir çay duruyordu. Herkesin aklına ilk gelen buydu: zehir çayda olmalıydı.",
-   "nesne": "half-full glass of cold dark tea in a tulip-shaped tea glass on a plain wooden counter",
-   "arama": "half-full glass of cold dark tea in a tulip-shaped tea glass on a plain wooden counter",
-   "gorsel": "half-full glass of cold dark tea in a tulip-shaped tea glass on a plain wooden counter"
+   "nesne": "small stemless curved Turkish tea glass on a tiny white saucer, half full of cold amber tea, on a wooden counter",
+   "arama": "small stemless curved Turkish tea glass on a tiny white saucer, half full of cold amber tea, on a wooden counter",
+   "gorsel": "small stemless curved Turkish tea glass on a tiny white saucer, half full of cold amber tea, on a wooden counter"
   },
   {
    "metin": "Bu dükkâna o hafta yakından giren üç kişi vardı. Üçünün de Hakkı Usta'yla bir hesabı vardı. Şimdi onları tek tek tanıyalım.",
@@ -122,15 +122,15 @@
   },
   {
    "metin": "Kerem'in görevlerinden biri de her pazar eczaneden ustasının ilaçlarını almak ve ilaç kutusunun yedi gözünü doldurmaktı. Yani ilaç kutusuna en çok dokunan kişi oydu.",
-   "nesne": "pharmacy receipt and medicine box on a table",
-   "arama": "pharmacy receipt and medicine box on a table",
-   "gorsel": "pharmacy receipt and medicine box on a table, Bursa Turkey, 1990s"
+   "nesne": "small white medicine box and a folded blank paper slip on a wooden table",
+   "arama": "small white medicine box and a folded blank paper slip on a wooden table",
+   "gorsel": "small white medicine box and a folded blank paper slip on a wooden table"
   },
   {
    "metin": "Üstelik polis kısa sürede Kerem'in bir sırrını buldu: ustasının kasasından gizlice borç almıştı ve Hakkı Usta bunu fark etmek üzereydi.",
-   "nesne": "open cash box with a few banknotes",
-   "arama": "open cash box with a few banknotes",
-   "gorsel": "open cash box with a few banknotes, Bursa Turkey, 1990s"
+   "nesne": "open metal cash box with a few plain banknotes, no printing visible",
+   "arama": "open metal cash box with a few plain banknotes, no printing visible",
+   "gorsel": "open metal cash box with a few plain banknotes, no printing visible"
   },
   {
    "metin": "Kerem çarşamba akşamı ne yapıyordu? Altıda dükkândan çıktığını, eve gidip yattığını söyledi. Yalnız yaşıyordu. Bunu doğrulayan kimse yoktu.",
@@ -140,15 +140,15 @@
   },
   {
    "metin": "İkinci şüpheli: Leyla Hanım. Hakkı Usta'nın yıllar önceki ortağının kızı. Babası öldükten sonra dükkânın yarısının kendilerine ait olduğunu iddia ediyor, iki yıldır mahkemede uğraşıyordu.",
-   "nesne": "courthouse documents and legal files",
-   "arama": "courthouse documents and legal files",
-   "gorsel": "courthouse documents and legal files, Bursa Turkey, 1990s"
+   "nesne": "stack of old blank folders tied with string on a desk",
+   "arama": "stack of old blank folders tied with string on a desk",
+   "gorsel": "stack of old blank folders tied with string on a desk"
   },
   {
    "metin": "Leyla Hanım çarşamba akşamı hanın arka sokağında görülmüştü. Saat yediyi yirmi geçe, dükkânın penceresinin önünde birkaç dakika durmuş, sonra gitmişti.",
-   "nesne": "narrow back street of an old bazaar at dusk",
-   "arama": "narrow back street of an old bazaar at dusk",
-   "gorsel": "narrow back street of an old bazaar at dusk, Bursa Turkey, 1990s"
+   "nesne": "narrow empty cobblestone back street of an old stone bazaar at dusk, plain walls, no signs",
+   "arama": "narrow empty cobblestone back street of an old stone bazaar at dusk, plain walls, no signs",
+   "gorsel": "narrow empty cobblestone back street of an old stone bazaar at dusk, plain walls, no signs"
   },
   {
    "metin": "Çantasından da bir mektup çıktı. Ustaya yazılmış, öfkeli bir mektup: 'Babamın hakkını yediniz, bunun hesabını vereceksiniz.'",
@@ -158,9 +158,9 @@
   },
   {
    "metin": "Üçüncü şüpheli: hanın çay ocağını işleten Selim. Elli beş yaşında, sakin, güler yüzlü. Hakkı Usta'ya yıllardır her akşam yedide son çayını o götürürdü.",
-   "nesne": "small traditional tea house counter with tea glasses",
-   "arama": "small traditional tea house counter with tea glasses",
-   "gorsel": "small traditional tea house counter with tea glasses, Bursa Turkey, 1990s"
+   "nesne": "small traditional tea counter with a brass samovar and tulip tea glasses, plain wall behind",
+   "arama": "small traditional tea counter with a brass samovar and tulip tea glasses, plain wall behind",
+   "gorsel": "small traditional tea counter with a brass samovar and tulip tea glasses, plain wall behind"
   },
   {
    "metin": "Selim'in elinden hiç düşürmediği koyu renkli bir tespihi vardı. Taneleri el yapımıydı ve her birinin üzerine küçük rakamlar kazınmıştı. Birisi sorduğunda 'eski bir hatıra' deyip geçiştirirdi.",
@@ -242,9 +242,9 @@
   },
   {
    "metin": "Leyla Hanım pencerenin önünde dört dakika durmuş, içeri hiç girmemiş ve saat sekizden önce oradan ayrılmıştı. Ustayla konuşmaya cesaret edememiş, mektubu da veremeden gitmişti.",
-   "nesne": "woman walking away down a lamp-lit street",
-   "arama": "woman walking away down a lamp-lit street",
-   "gorsel": "woman walking away down a lamp-lit street, Bursa Turkey, 1990s"
+   "nesne": "woman walking away down a lamp-lit narrow street with plain walls",
+   "arama": "woman walking away down a lamp-lit narrow street with plain walls",
+   "gorsel": "woman walking away down a lamp-lit narrow street with plain walls"
   },
   {
    "metin": "Geriye en masum görünen kişi kalıyordu: Selim. Ama Selim o akşam kilometrelerce ötede, yüzlerce şahidin önündeydi. Ondan daha sağlam bir alibi olamazdı.",
@@ -254,9 +254,9 @@
   },
   {
    "metin": "Dedektif, hanın diğer esnafıyla konuşurken iki küçük bilgi daha öğrendi. Bunlar, bu vakanın son ipuçları.",
-   "nesne": "old craftsmen workshops in a bazaar corridor",
-   "arama": "old craftsmen workshops in a bazaar corridor",
-   "gorsel": "old craftsmen workshops in a bazaar corridor, Bursa Turkey, 1990s"
+   "nesne": "wooden craftsmen workshops in a vaulted stone bazaar corridor, plain doors, no signs",
+   "arama": "wooden craftsmen workshops in a vaulted stone bazaar corridor, plain doors, no signs",
+   "gorsel": "wooden craftsmen workshops in a vaulted stone bazaar corridor, plain doors, no signs"
   },
   {
    "metin": "Birincisi: pazartesi akşamı yan dükkândaki saatçi, Selim'i Hakkı Usta'nın tezgâhında görmüştü. Ustanın titreyen elleri yine ilaç kutusunu açamamış, Selim de yardım etmişti.",
@@ -320,9 +320,9 @@
   },
   {
    "metin": "Selim yıllar sonra aynı hana döndü, ustanın yanına çay ocağını açtı ve sabırla bekledi. Hakkı Usta onu tanımadı bile. Her akşam ondan çay aldı, her pazartesi ondan yardım istedi.",
-   "nesne": "old tea house in a stone courtyard at evening",
-   "arama": "old tea house in a stone courtyard at evening",
-   "gorsel": "old tea house in a stone courtyard at evening, Bursa Turkey, 1990s"
+   "nesne": "old small tea stall in a stone courtyard at evening, tea glasses on shelves, plain walls",
+   "arama": "old small tea stall in a stone courtyard at evening, tea glasses on shelves, plain walls",
+   "gorsel": "old small tea stall in a stone courtyard at evening, tea glasses on shelves, plain walls"
   },
   {
    "metin": "Polis, Selim'in çay ocağının dolabında boş bir kapsül kutusu ve aynı zehrin izlerini buldu. Saatçinin ifadesi ve tespihin geçmişi de eklenince Selim konuşmak zorunda kaldı.",
