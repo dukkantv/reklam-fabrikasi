@@ -152,7 +152,23 @@ def oy_katman(sc):
         d.rounded_rectangle((x0, 40, x0 + 460, 520), 40, fill=c, outline="white", width=8)
         d.ellipse((x0 + 150, 70, x0 + 310, 230), fill="white")
         yaz(d, (x0 + 230, 150), "AB"[i], 120, c)
-        yaz(d, (x0 + 230, 370), tr_upper(sec[i]), 78, (255, 255, 255), stroke=6, sf=(0, 0, 0))
+        # Seçenek yazısı kutuya (iç genişlik ~400 px) sığana kadar alt satıra geçer ve küçülür; taşma olmaz
+        metin = tr_upper(sec[i])
+        for boy in range(78, 34, -4):
+            satirlar, sat = [], ""
+            for k in metin.split():
+                aday = (sat + " " + k).strip()
+                if sat and d.textlength(aday, font=font(boy)) > 400:
+                    satirlar.append(sat); sat = k
+                else:
+                    sat = aday
+            satirlar.append(sat)
+            if len(satirlar) <= 3 and all(d.textlength(s, font=font(boy)) <= 400 for s in satirlar):
+                break
+        adim = int(boy * 1.1)
+        y0 = 380 - adim * (len(satirlar) - 1) / 2
+        for j, s in enumerate(satirlar):
+            yaz(d, (x0 + 230, y0 + j * adim), s, boy, (255, 255, 255), stroke=6, sf=(0, 0, 0))
     yaz(d, (540, 590), "YORUMA  A  veya  B  YAZ", 54, (255, 235, 110), stroke=6)
     return L
 

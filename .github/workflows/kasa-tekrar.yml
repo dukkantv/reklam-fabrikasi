@@ -51,7 +51,16 @@ jobs:
               sys.exit(f"Gün {gun} senaryosu yok")
           v = json.load(open(yollar[-1], encoding="utf-8"))
           bitis = son_kasa(v)
-          json.dump({"bolum": os.path.abspath(yollar[-1]),
+          # Oylaması çoktan bitmiş bir gün: A/B sorusu yerine "devamı sonraki günde" kapanışı
+          if v["sahneler"] and v["sahneler"][-1].get("tema") == "oylama" and glob.glob(f"kasa/bolumler/gun{gun + 1:02d}_*.json"):
+              eski = v["sahneler"].pop()
+              ilk = eski.get("anlatim", "").split("?")[0].split("!")[0].strip()
+              v["sahneler"].append({"tema": "aksam", "gorsel": "para", "ifade": "mutlu", "baslik": f"DEVAMI GÜN {gun + 1}'TE",
+                                    "damga": "DEVAMI VAR",
+                                    "anlatim": f"{ilk}! Peki sonra ne yaptım? Cevabı Gün {gun + 1}'te, hemen izle!"})
+          tekrar_yol = os.path.abspath(f"kasa/tekrar_gun{gun:02d}.json")
+          json.dump(v, open(tekrar_yol, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+          json.dump({"bolum": tekrar_yol,
                      "baslik": f"500 TL ile 50.000 TL Hedefi | Gün {gun}/30 | Kaçırılan Bölüm 💸",
                      "aciklama": (f"Gün {gun}/30 — Kasa: {bitis:,} TL / Hedef: 50.000 TL\n"
                                   "Teknik bir aksilik yüzünden geç yayınlanan bölüm — hikâyenin eksik parçası!\n\n"
