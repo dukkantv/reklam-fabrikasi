@@ -83,15 +83,41 @@ def kurulum():
     print(mesaj)
 
 
-def _kapsayici_yukle(kanal, video_yolu, aciklama):
+# Deneme Reels (Trial Reels): video önce yalnızca takip etmeyenlere gösterilir; iyi giderse Instagram
+# otomatik olarak herkese açar (SS_PERFORMANCE). Hesap uygun değilse normal Reels'e düşülür.
+SON_DENEME = False
+
+
+def _reels_alanlari(veri, deneme):
+    """Kapsayıcı isteğine deneme ayarını ekler (deneme Reels'te share_to_feed gönderilmez)."""
+    if deneme:
+        veri = dict(veri)
+        veri.pop("share_to_feed", None)
+        veri["trial_params"] = json.dumps({"graduation_strategy": "SS_PERFORMANCE"})
+    return veri
+
+
+def _kapsayici_ac(ig, veri, deneme):
+    """Kapsayıcıyı açar; deneme Reels reddedilirse normal Reels ile tekrar dener. Döndürür: (kod, kap)."""
+    global SON_DENEME
+    kod, _, kap = istek(f"{API}/{ig}/media", veri=_reels_alanlari(veri, deneme))
+    if deneme and (kod != 200 or "id" not in kap):
+        print(f"Deneme Reels kabul edilmedi ({kod}): {str(kap)[:200]} → normal Reels", flush=True)
+        kod, _, kap = istek(f"{API}/{ig}/media", veri=veri)
+        deneme = False
+    SON_DENEME = bool(deneme and kod == 200 and "id" in kap)
+    return kod, kap
+
+
+def _kapsayici_yukle(kanal, video_yolu, aciklama, deneme=False):
     """Kapsayıcı açar ve videoyu yükler (yayınlamaz)."""
     h = ig_hesap(kanal)
     if not h:
         raise RuntimeError(f"{kanal} için Instagram bağlı değil")
     tok, ig = h["token"], h["ig_id"]
-    kod, _, kap = istek(f"{API}/{ig}/media", veri={"media_type": "REELS", "upload_type": "resumable",
-                                                   "caption": aciklama[:2200], "share_to_feed": "true",
-                                                   "access_token": tok})
+    kod, kap = _kapsayici_ac(ig, {"media_type": "REELS", "upload_type": "resumable",
+                                  "caption": aciklama[:2200], "share_to_feed": "true",
+                                  "access_token": tok}, deneme)
     if kod != 200 or "id" not in kap:
         raise RuntimeError(f"Instagram kapsayıcı açılamadı ({kod}): {kap}")
     boyut = os.path.getsize(video_yolu)
@@ -104,7 +130,7 @@ def _kapsayici_yukle(kanal, video_yolu, aciklama):
     return kap
 
 
-def reels_yukle(kanal, video_yolu, aciklama):
+def reels_yukle(kanal, video_yolu, aciklama, deneme=False):
     """Videoyu Reels olarak paylaşır. Döndürür: (medya_id, kalıcı bağlantı).
     Instagram aynı dosyayı bazen rastgele 'ProcessingFailedError' ile reddediyor; yeni kapsayıcıyla 5 kez dener."""
     h = ig_hesap(kanal)
@@ -113,7 +139,7 @@ def reels_yukle(kanal, video_yolu, aciklama):
     tok, ig = h["token"], h["ig_id"]
     for deneme in range(5):
         try:
-            kap = _kapsayici_yukle(kanal, video_yolu, aciklama)
+            kap = _kapsayici_yukle(kanal, video_yolu, aciklama, deneme)
             break
         except RuntimeError as e:
             if "ProcessingFailedError" not in str(e) or deneme == 4:
@@ -135,7 +161,7 @@ def reels_yukle(kanal, video_yolu, aciklama):
     return yay["id"], (p or {}).get("permalink", "")
 
 
-def reels_yukle_fb_kaynak(kanal, fb_video_id, aciklama):
+def reels_yukle_fb_kaynak(kanal, fb_video_id, aciklama, deneme=False):
     """Yedek yol: Facebook'a yüklenmiş aynı videonun CDN adresini Instagram'a video_url olarak verir
     (doğrudan yükleme 'ProcessingFailedError' ile reddedildiğinde)."""
     h = ig_hesap(kanal)
@@ -144,8 +170,8 @@ def reels_yukle_fb_kaynak(kanal, fb_video_id, aciklama):
     url = (v or {}).get("source")
     if not url:
         raise RuntimeError(f"Facebook video adresi alınamadı: {v}")
-    kod, _, kap = istek(f"{API}/{ig}/media", veri={"media_type": "REELS", "video_url": url, "caption": aciklama[:2200],
-                                                   "share_to_feed": "true", "access_token": tok})
+    kod, kap = _kapsayici_ac(ig, {"media_type": "REELS", "video_url": url, "caption": aciklama[:2200],
+                                  "share_to_feed": "true", "access_token": tok}, deneme)
     if kod != 200 or "id" not in kap:
         raise RuntimeError(f"Instagram kapsayıcı açılamadı ({kod}): {kap}")
     for _ in range(60):

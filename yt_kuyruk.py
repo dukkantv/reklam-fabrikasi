@@ -23,8 +23,22 @@ import subprocess
 import sys
 
 from yt_ortak import KOK, erisim_anahtari, istek, kanal_bilgi, telegram
+import ig_ortak
 from ig_ortak import fb_bekliyor_mu, fb_reels_yukle, ig_hesap, reels_yukle, reels_yukle_fb_kaynak
 from tt_ortak import taslak_yukle, tt_hesap
+
+
+def deneme_reels_mi(kayit):
+    """Deneme Reels (yalnızca takip etmeyenlere önce gösterim) uygulanacak videolar.
+    16 Kasım 2026 denemesi: Kasa Kurgu'nun Katil Kim serisi."""
+    # Yalnızca ilk denemede: Instagram bir kez reddettiyse sonraki denemeler normal Reels olur (video takılıp kalmaz)
+    return (kayit.get("kanal") == "kasakurgu" and "Katil Kim" in kayit.get("baslik", "")
+            and not kayit.get("ig_deneme"))
+
+
+def ig_paylasildi_mesaji(ad, kayit, link):
+    ek = " (Deneme Reels: önce takip etmeyenlere gösteriliyor, tutarsa Instagram herkese açar)" if kayit.get("ig_deneme_reels") else ""
+    return f"📸 {ad}: \"{kayit['baslik']}\" Instagram'da Reels olarak paylaşıldı{ek}.\n{link}"
 
 
 def tt_bekliyor(kayit):
@@ -396,10 +410,10 @@ def kontrol():
             if ig_bekliyor(kayit) and kayit.get("fb_id"):
                 # Doğrudan yükleme daha önce reddedildiyse Facebook'taki kopyanın adresiyle dene
                 try:
-                    mid, link = reels_yukle_fb_kaynak(kayit["kanal"], kayit["fb_id"], ig_aciklama(kayit))
-                    kayit.update(ig="paylasildi", ig_id=mid, ig_link=link, ig_yol="fb_kaynak")
+                    mid, link = reels_yukle_fb_kaynak(kayit["kanal"], kayit["fb_id"], ig_aciklama(kayit), deneme_reels_mi(kayit))
+                    kayit.update(ig="paylasildi", ig_id=mid, ig_link=link, ig_yol="fb_kaynak", ig_deneme_reels=ig_ortak.SON_DENEME)
                     kaydet(kayit)
-                    telegram(f"📸 {ad}: \"{kayit['baslik']}\" Instagram'da Reels olarak paylaşıldı.\n{link}")
+                    telegram(ig_paylasildi_mesaji(ad, kayit, link))
                 except Exception as e:
                     print(f"Instagram (Facebook kaynağı) hatası ({kayit['id']}):", str(e)[:300])
                     if "2207076" in str(e) or "2207001" in str(e):
@@ -412,7 +426,7 @@ def kontrol():
                     gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
                     yol = os.path.join("/tmp", kayit["dosya"])
                     try:
-                        mid, link = reels_yukle(kayit["kanal"], yol, ig_aciklama(kayit))
+                        mid, link = reels_yukle(kayit["kanal"], yol, ig_aciklama(kayit), deneme_reels_mi(kayit))
                     except RuntimeError as e1:
                         # Instagram bazı videoları "ProcessingFailedError" ile reddediyor (ör. çok düşük bit hızı).
                         # Instagram'ın önerdiği ayarlarla yeniden kodlayıp bir kez daha dene.
@@ -426,10 +440,10 @@ def kontrol():
                                         "-b:v", "3500k", "-maxrate", "5000k", "-bufsize", "7000k",
                                         "-c:a", "aac", "-ar", "48000", "-ac", "2", "-b:a", "128k",
                                         "-movflags", "+faststart", yeni], check=True)
-                        mid, link = reels_yukle(kayit["kanal"], yeni, ig_aciklama(kayit))
-                    kayit.update(ig="paylasildi", ig_id=mid, ig_link=link)
+                        mid, link = reels_yukle(kayit["kanal"], yeni, ig_aciklama(kayit), deneme_reels_mi(kayit))
+                    kayit.update(ig="paylasildi", ig_id=mid, ig_link=link, ig_deneme_reels=ig_ortak.SON_DENEME)
                     kaydet(kayit)
-                    telegram(f"📸 {ad}: \"{kayit['baslik']}\" Instagram'da Reels olarak paylaşıldı.\n{link}")
+                    telegram(ig_paylasildi_mesaji(ad, kayit, link))
                 except Exception as e:
                     print(f"Instagram hatası ({kayit['id']}):", str(e)[:400])
                     kayit["ig_deneme"] = kayit.get("ig_deneme", 0) + 1
