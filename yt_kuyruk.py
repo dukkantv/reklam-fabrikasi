@@ -510,6 +510,23 @@ YORUM_SABLON = {
 }
 
 
+def seri_satiri(baslik, liste_adi):
+    """Yorumun ilk satırı: serideki yer + listenin adı (Shorts yorumlarında bağlantı tıklanmadığı için
+    izleyici listeyi kanal sayfasındaki 'Oynatma listeleri' sekmesinde adından bulabilsin)."""
+    import re
+    yer = f"📺 Kanal sayfasında 'Oynatma listeleri' → \"{liste_adi}\""
+    m = re.search(r"Gün\s*(\d+)\s*/", baslik)
+    if m and int(m.group(1)) > 1:
+        return f"⏪ Önceki bölüm: Gün {int(m.group(1)) - 1} · Tüm günler sırayla: {yer}"
+    m = re.search(r"Dosya\s*#\s*(\d+)", baslik)
+    if m and int(m.group(1)) > 1:
+        return f"🔎 Önceki vaka: Dosya #{int(m.group(1)) - 1:02d} · Bütün vakalar: {yer}"
+    m = re.search(r"(\d+)\.\s*Tur\s*·\s*(\w+)\s*Grubu", baslik)
+    if m:
+        return f"🏆 {m.group(1)}. Tur, {m.group(2)} Grubu · Bütün maçlar sırayla: {yer}"
+    return f"▶️ Hepsi tek listede: {yer}"
+
+
 def yorumlar(gun=14):
     """Yayına girmiş videoların altına kanal adına 'serinin bütün videoları' yorumu bırakır (bir kez)."""
     from kanal_ayar import kanal_listeleri, kural_uyar
@@ -525,10 +542,12 @@ def yorumlar(gun=14):
         try:
             if k["kanal"] not in listeler:
                 listeler[k["kanal"]] = kanal_listeleri(k["kanal"])
-            pid = next((pid for pid, l in listeler[k["kanal"]] if kural_uyar(l["kural"], k["baslik"])), None)
-            if not pid:
+            eslesen = next(((pid, l) for pid, l in listeler[k["kanal"]] if kural_uyar(l["kural"], k["baslik"])), None)
+            if not eslesen:
                 continue
+            pid, liste = eslesen
             metin = YORUM_SABLON[k["kanal"]].format(link=f"https://www.youtube.com/playlist?list={pid}")
+            metin = seri_satiri(k["baslik"], liste["ad"]) + "\n" + metin
             tok = erisim_anahtari(k["kanal"])
             kod, _, v = istek("https://www.googleapis.com/youtube/v3/commentThreads?part=snippet", method="POST",
                               headers={"Authorization": f"Bearer {tok}"},
