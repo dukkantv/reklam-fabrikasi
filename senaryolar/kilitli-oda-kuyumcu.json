@@ -146,9 +146,9 @@
   },
   {
    "metin": "Leyla Hanım çarşamba akşamı hanın arka sokağında görülmüştü. Saat yediyi yirmi geçe, dükkânın penceresinin önünde birkaç dakika durmuş, sonra gitmişti.",
-   "nesne": "narrow empty cobblestone back street of an old stone bazaar at dusk, plain walls, no signs",
-   "arama": "narrow empty cobblestone back street of an old stone bazaar at dusk, plain walls, no signs",
-   "gorsel": "narrow empty cobblestone back street of an old stone bazaar at dusk, plain walls, no signs"
+   "nesne": "empty narrow cobblestone alley between bare stone walls at dusk, a single wall lamp, nothing written anywhere",
+   "arama": "empty narrow cobblestone alley between bare stone walls at dusk, a single wall lamp, nothing written anywhere",
+   "gorsel": "empty narrow cobblestone alley between bare stone walls at dusk, a single wall lamp, nothing written anywhere"
   },
   {
    "metin": "Çantasından da bir mektup çıktı. Ustaya yazılmış, öfkeli bir mektup: 'Babamın hakkını yediniz, bunun hesabını vereceksiniz.'",
@@ -158,9 +158,9 @@
   },
   {
    "metin": "Üçüncü şüpheli: hanın çay ocağını işleten Selim. Elli beş yaşında, sakin, güler yüzlü. Hakkı Usta'ya yıllardır her akşam yedide son çayını o götürürdü.",
-   "nesne": "small traditional tea counter with a brass samovar and tulip tea glasses, plain wall behind",
-   "arama": "small traditional tea counter with a brass samovar and tulip tea glasses, plain wall behind",
-   "gorsel": "small traditional tea counter with a brass samovar and tulip tea glasses, plain wall behind"
+   "nesne": "brass Turkish tea samovar beside three small stemless tulip tea glasses filled with amber tea on a wooden counter",
+   "arama": "brass Turkish tea samovar beside three small stemless tulip tea glasses filled with amber tea on a wooden counter",
+   "gorsel": "brass Turkish tea samovar beside three small stemless tulip tea glasses filled with amber tea on a wooden counter"
   },
   {
    "metin": "Selim'in elinden hiç düşürmediği koyu renkli bir tespihi vardı. Taneleri el yapımıydı ve her birinin üzerine küçük rakamlar kazınmıştı. Birisi sorduğunda 'eski bir hatıra' deyip geçiştirirdi.",
