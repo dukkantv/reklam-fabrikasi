@@ -44,7 +44,7 @@ jobs:
         with:
           name: bolum-${{ github.event.inputs.klasor }}
           path: cikti/*.mp4
-          retention-days: 30
+          retention-days: 3
 
       - name: Telegram'a gönder
         env:
