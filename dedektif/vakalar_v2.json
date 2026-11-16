@@ -574,5 +574,29 @@
     ],
     "dogru": 2,
     "cozum": "Alarmı kapatabilecek üç kişiden Mesut başka şehirdeydi, Hülya hastanedeydi. Geriye Koray kaldı."
+  },
+  {
+    "baslik": "Kayıp Kargo",
+    "olay": "Kargo şubesinde müşterinin değerli paketi masadan alındı.",
+    "ipuclari": [
+      "Hırsız, paketi alırken masanın üzerindeki mürekkep lekesine sağ elini basmış.",
+      "Şüphelilerin parmaklarına bakıldığında, sadece Serkan'ın sağ el işaret parayetinde mürekkep izi var."
+    ],
+    "supheliler": [
+      {
+        "ad": "Kerem",
+        "rol": "kurye"
+      },
+      {
+        "ad": "Serkan",
+        "rol": "güvenlik"
+      },
+      {
+        "ad": "Aylin",
+        "rol": "veznedar"
+      }
+    ],
+    "dogru": 1,
+    "cozum": "Mürekkep izi sağ eldeydi ve bu iz sadece Serkan'da vardı."
   }
 ]
