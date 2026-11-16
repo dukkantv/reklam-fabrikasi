@@ -74,11 +74,10 @@ jobs:
         with:
           name: belgesel
           path: |
-            cikti/belgesel/*.mp4
             cikti/belgesel/senaryo.json
             cikti/belgesel/kapak.jpg
             cikti/belgesel/yayin.json
-          retention-days: 3
+          retention-days: 7
       - name: Resim ve senaryoyu depoya kaydet (inceleme için)
         if: always()
         run: |

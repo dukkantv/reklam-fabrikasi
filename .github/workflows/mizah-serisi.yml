@@ -132,7 +132,7 @@ jobs:
         with:
           name: ${{ matrix.klasor }}
           path: cikti/Levent_*.mp4
-          retention-days: 3
+          retention-days: 7
 
       - name: Günlük stoğa ekle (Telegram'da onay butonu gelir)
         if: success() && inputs.stoga_ekle && hashFiles('cikti/yayin.json') != ''

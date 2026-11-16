@@ -45,7 +45,8 @@ def istek(url, veri=None, method=None, headers=None, json_govde=None, ham=None, 
 
 def kanallar():
     """İzni alınmış kanallar: dukkantv, kasakurgu, dramabite..."""
-    return sorted(f[:-4] for f in os.listdir(os.path.join(KOK, "tokens")) if f.endswith(".enc"))
+    return sorted(f[:-4] for f in os.listdir(os.path.join(KOK, "tokens"))
+                  if f.endswith(".enc") and not f.startswith("istemci"))  # istemci2.enc kanal değil, uygulama anahtarı
 
 
 def kanal_bilgi(kanal):

@@ -80,4 +80,4 @@ jobs:
         with:
           name: derleme
           path: cikti/derleme/Derleme_*.mp4
-          retention-days: 3
+          retention-days: 7

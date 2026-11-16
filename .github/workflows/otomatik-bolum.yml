@@ -128,7 +128,7 @@ jobs:
         with:
           name: otomatik-bolum-${{ github.event.inputs.klasor }}
           path: cikti/Levent_*.mp4
-          retention-days: 3
+          retention-days: 7
 
       - name: Yayın kuyruğuna ekle (Telegram'da onay butonu gelir)
         if: success() && (github.event.inputs.asama == 'video' || github.event.inputs.asama == 'hepsi') && hashFiles('cikti/yayin.json') != ''
