@@ -58,5 +58,11 @@ jobs:
         run: |
           git config user.name "dukkan-tv-bot"
           git config user.email "actions@users.noreply.github.com"
+          # Video üretilemediyse yeni günün senaryosunu kaydetme: sonraki çalışma aynı günü yeniden dener (gün atlanmaz)
+          if [ ! -f kasa/cikti.mp4 ]; then
+            git clean -fq kasa/bolumler
+            curl -s -d chat_id="$TELEGRAM_CHAT_ID" --data-urlencode text="⚠️ Kasa Kurgu: bugünün videosu üretilemedi, gün sayacı ilerletilmedi. Sonraki çalışmada aynı gün yeniden denenecek." \
+              "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" > /dev/null || true
+          fi
           git add kasa/bolumler kuyruk
           git diff --cached --quiet || (git commit -m "Kasa Kurgu: yeni gün" && (git push || (git pull --rebase origin main && git push)))

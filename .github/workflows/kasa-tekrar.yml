@@ -1,0 +1,86 @@
+name: Kasa Kurgu Atlanan Gün
+
+# Senaryosu yazılmış ama videosu üretilememiş bir "500 TL" gününü yeniden üretir ve yayın kuyruğuna ekler.
+# Tetikleme: kasa/tekrar.json dosyasını {"gun": 14} gibi yazıp göndermek ya da elle çalıştırmak.
+on:
+  push:
+    paths:
+      - kasa/tekrar.json
+  workflow_dispatch:
+    inputs:
+      gun:
+        description: "Yeniden üretilecek gün (ör. 14)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  uret:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      PYTHONUNBUFFERED: "1"
+      GH_TOKEN: ${{ github.token }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_API_KEY: ${{ secrets.YT_API_KEY }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      GUN_GIRDI: ${{ github.event.inputs.gun }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Araçlar
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu fonts-liberation
+          pip install requests pillow numpy edge-tts
+      - name: Bölümü bul ve yayın bilgisini hazırla
+        run: |
+          python3 - <<'PY'
+          import glob, json, os, sys
+          sys.path.insert(0, "kasa")
+          from kasa_bolum import son_kasa
+          gun = os.environ.get("GUN_GIRDI") or json.load(open("kasa/tekrar.json", encoding="utf-8"))["gun"]
+          gun = int(gun)
+          yollar = sorted(glob.glob(f"kasa/bolumler/gun{gun:02d}_*.json"))
+          if not yollar:
+              sys.exit(f"Gün {gun} senaryosu yok")
+          v = json.load(open(yollar[-1], encoding="utf-8"))
+          bitis = son_kasa(v)
+          json.dump({"bolum": os.path.abspath(yollar[-1]),
+                     "baslik": f"500 TL ile 50.000 TL Hedefi | Gün {gun}/30 | Kaçırılan Bölüm 💸",
+                     "aciklama": (f"Gün {gun}/30 — Kasa: {bitis:,} TL / Hedef: 50.000 TL\n"
+                                  "Teknik bir aksilik yüzünden geç yayınlanan bölüm — hikâyenin eksik parçası!\n\n"
+                                  "Kurgusal hikâyedir.\n\n#para #girişimci #kurgu #hikaye #shorts").replace(",", "."),
+                     "etiketler": "girişimcilik,para biriktirme,kurgu hikaye,kasa,esnaf,karar"},
+                    open("kasa/yayin.json", "w", encoding="utf-8"), ensure_ascii=False)
+          print("Bölüm:", yollar[-1])
+          PY
+      - name: Videoyu üret
+        working-directory: kasa
+        run: |
+          BOLUM=$(python3 -c "import json;print(json.load(open('yayin.json'))['bolum'])")
+          for i in 1 2 3; do python uret.py "$BOLUM" && break; echo "Deneme $i başarısız, tekrar"; sleep 20; done
+          test -f cikti.mp4
+      - name: Telegram'a gönder ve yayın kuyruğuna ekle
+        run: |
+          BASLIK=$(python3 -c "import json;print(json.load(open('kasa/yayin.json'))['baslik'])")
+          curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F video=@kasa/cikti.mp4 -F caption="🎬 Kasa Kurgu — $BASLIK" \
+            "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendVideo" > /dev/null
+          python3 - <<'PY'
+          import json, os, subprocess
+          y = json.load(open("kasa/yayin.json", encoding="utf-8"))
+          subprocess.run(["python3", "yt_kuyruk.py", "ekle", "kasakurgu", os.path.abspath("kasa/cikti.mp4"),
+                          y["baslik"], y["aciklama"], y["etiketler"]], check=True)
+          PY
+      - name: Kaydet
+        run: |
+          git config user.name "dukkan-tv-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git rm -q --ignore-unmatch kasa/tekrar.json
+          git add kuyruk
+          git diff --cached --quiet || (git commit -m "Kasa Kurgu: atlanan gün kuyruğa" && (git push || (git pull --rebase origin main && git push)))
