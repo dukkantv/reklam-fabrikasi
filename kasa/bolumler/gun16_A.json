@@ -1,0 +1,75 @@
+{
+  "gun": 16,
+  "toplam_gun": 30,
+  "kasa_basi": 26100,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {
+      "tema": "gece",
+      "gorsel": "para",
+      "gorsel_yazi": "TOPTAN İŞ",
+      "ifade": "mutlu",
+      "baslik": "TEKLİF KABUL",
+      "anlatim": "Toptancı ile anlaştım. Sabah ilk kasalar dükkana indi, indirimli ürünler tezgahta yerini aldı.",
+      "damga": "Karar"
+    },
+    {
+      "tema": "sabah",
+      "gorsel": "hal",
+      "gorsel_yazi": "SABAH SENK",
+      "ifade": "gulen",
+      "baslik": "YENİ SEZON",
+      "anlatim": "Sabah erkenden toptancıdan gelen sebzeleri hızlıca ayıklayıp dükkanın önüne dizdim.",
+      "damga": "Emek"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "domates",
+      "gorsel_yazi": "+2400 TL",
+      "ifade": "mutlu",
+      "kasa": 28500,
+      "baslik": " UCUZ MAL",
+      "anlatim": "Ucuz ürün sayesinde müşteriler akın etti. Kasaya iki bin dört yüz lira eklendi.",
+      "damga": "Kazanç"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "tezgah",
+      "gorsel_yazi": "TOPLU SATIŞ",
+      "ifade": "gulen",
+      "baslik": "KÜÇÜK MARKET",
+      "anlatim": "Öğleden sonra mahalledeki küçük bir market toplu sebze aldı, işler büyüyor.",
+      "damga": "Hız"
+    },
+    {
+      "tema": "aksam",
+      "gorsel": "para",
+      "gorsel_yazi": "+1800 TL",
+      "ifade": "mutlu",
+      "kasa": 30300,
+      "baslik": "30 BİNİ GEÇTİK",
+      "anlatim": "Akşam kasa sayımını yaptım. Bin sekiz yüz lira kazançla toplam otuz bin üç yüz oldu.",
+      "damga": "Başarı"
+    },
+    {
+      "tema": "gece",
+      "gorsel": "defter",
+      "gorsel_yazi": "BÜYÜK ADIM",
+      "ifade": "dusunceli",
+      "baslik": "YENİ PLAN",
+      "anlatim": "Otuz bin lirayı aştım. Şimdi elimdeki sermaye ile pazarda ek tezgah açma fırsatı var.",
+      "damga": "Hedef"
+    },
+    {
+      "tema": "oylama",
+      "ifade": "mutlu",
+      "secenek": [
+        "Pazarda tezgah aç",
+        "Dükkanı yenile"
+      ],
+      "baslik": "BÜYÜME",
+      "anlatim": "Pazarda yeni bir tezgah açıp riske gireyim mi, yoksa mevcut dükkanı mı yenileyeyim? Yoruma A veya B yaz. Yarın gün 17!"
+    }
+  ]
+}
