@@ -72,13 +72,11 @@ jobs:
                           f"https://api.telegram.org/bot{os.environ['TELEGRAM_BOT_TOKEN']}/sendVideo"],
                          check=False, capture_output=True)
           PY
-      - name: Videoyu inceleme için sakla
-        if: hashFiles('cikti/carsi/yayin.json') != ''
-        uses: actions/upload-artifact@v4
-        with:
-          name: carsi-video
-          path: cikti/carsi/*.mp4
-          retention-days: 3
+      - name: Deneme videosunu incelemeye koy
+        if: env.DENEME == 'true' && hashFiles('cikti/carsi/yayin.json') != ''
+        run: |
+          cp cikti/carsi/carsi_*.mp4 /tmp/carsi-deneme.mp4
+          gh release upload kuyruk /tmp/carsi-deneme.mp4 --clobber
       - name: Dükkan TV stoğuna ekle
         if: env.DENEME != 'true' && hashFiles('cikti/carsi/yayin.json') != ''
         run: |
