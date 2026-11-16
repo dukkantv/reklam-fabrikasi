@@ -33,13 +33,17 @@ ESNAF = {  # dosya: (ekranda ad, renk)
 }
 
 # Yerleşim
-UST = 380                 # oyun alanının üstü
+CARSI = os.path.join(KOK, "gorseller", "carsi")
+MASA_Y = 120              # spiker masasının üst kenarı
+BALON_Y = 500             # konuşma balonunun üst kenarı
+DOGUM_Y = 640             # müşterilerin doğduğu yükseklik
+CIVI_Y0, CIVI_DY, CIVI_SIRA = 705, 78, 9
 KUTU_Y = 1395             # müşteri bu çizgiyi geçince dükkâna sayılır
-DUKKAN_Y = 1450           # karakterlerin üst kenarı
+DUKKAN_Y = 1420           # dükkân resimlerinin üst kenarı
 N = 5
 # Kenar dükkânlar duvardan sekenleri, orta dükkân çivilerden ortaya toplananları fazla alıyordu.
 # 40 maçlık testlerle ölçülen ortalamalara göre ayarlanmış dükkân genişlikleri (soldan sağa, simetrik)
-GENISLIK = [0.856, 1.035, 0.975, 1.035, 0.856]
+GENISLIK = [0.921, 0.986, 0.960, 0.986, 0.921]
 SINIR = np.cumsum([0] + [W * g / sum(GENISLIK) for g in GENISLIK])
 
 
@@ -47,6 +51,13 @@ def kutu(x):
     return int(min(N - 1, max(0, np.searchsorted(SINIR, x, side="right") - 1)))
 TOP_R, CIVI_R = 18, 9
 G = 1500.0
+
+
+def tr_ad(s):
+    """Türkçe kurallarla 'Baş Harfler Büyük' (Python .title() 'I'yı 'i' yapıyor: ÇAYDANLIK → Çaydanlik)."""
+    def kucuk(c):
+        return {"I": "ı", "İ": "i"}.get(c, c.lower())
+    return " ".join(w[:1] + "".join(kucuk(c) for c in w[1:]) for w in s.split(" "))
 
 
 def font(s, k="Black"):
@@ -59,7 +70,7 @@ def yazi(d, xy, s, f, dolgu=(255, 255, 255), kenar=6, anchor="mm", kenar_renk=(0
 
 def kes(yol, boy):
     """Beyaz arka planı köşelerden doldurarak saydam yapar, karakteri kırpıp 'boy' kareye sığdırır."""
-    im = Image.open(yol).convert("RGB")
+    im = (yol if isinstance(yol, Image.Image) else Image.open(yol)).convert("RGB")
     isaret = (255, 0, 255)
     for k in [(0, 0), (im.width - 1, 0), (0, im.height - 1), (im.width - 1, im.height - 1)]:
         if im.getpixel(k) != isaret:
@@ -111,15 +122,29 @@ class Ses:
 
 
 # ───────────────────────── maç ─────────────────────────
-def mac(gun, tohum, cikti, esnaflar=None, gecici="/tmp", cizme=False):
+def mac(gun, tohum, cikti, esnaflar=None, gecici="/tmp", cizme=False, konusmalar=None, etiket=None, sampiyon_yazi=None):
+    """cizme=True: yalnızca fizik (hızlı); {"puan", "balon"} döner.  konusmalar: balon sırasına göre ses dizileri (SR, mono).
+    etiket: başlıktaki gün yazısı (ör. "HAFTA FİNALİ"); sampiyon_yazi: bitiş kartındaki unvan."""
     rnd = random.Random(tohum)
     esnaflar = esnaflar or rnd.sample(sorted(ESNAF), N)
     adlar = [ESNAF[e][0] for e in esnaflar]
     renkler = [ESNAF[e][1] for e in esnaflar]
-    kesik = [kes(os.path.join(GORSEL, e + ".png"), 190) for e in esnaflar]
-    buyuk = [kes(os.path.join(GORSEL, e + ".png"), 620) for e in esnaflar]
-    lev = yuz(os.path.join(KOK, "karakterler", "levent.jpg"), (560, 960, 1060, 1460), 120)
-    cem = yuz(os.path.join(KOK, "karakterler", "cemo.jpg"), (580, 880, 1080, 1380), 120)
+    def dukkan(e):
+        yol = os.path.join(CARSI, f"dukkan-{e}.png")
+        return yol if os.path.exists(yol) else os.path.join(GORSEL, e + ".png")
+    kutu_gen = int(min(SINIR[i + 1] - SINIR[i] for i in range(N))) - 6
+    kesik = [kes(dukkan(e), kutu_gen) for e in esnaflar]
+    buyuk = [kes(dukkan(e), 640) for e in esnaflar]
+    # spiker masası: "SPOR" panelinin üstüne "ÇARŞI LİGİ" yazılır
+    masa_im = Image.open(os.path.join(CARSI, "spiker-masasi.png")).convert("RGB")
+    md = ImageDraw.Draw(masa_im)
+    md.rounded_rectangle([262, 392, 762, 508], 14, fill=(150, 40, 40), outline=(255, 210, 60), width=5)
+    md.text((512, 452), "ÇARŞI LİGİ", font=font(64), fill=(255, 235, 120), anchor="mm", stroke_width=3, stroke_fill=(60, 10, 10))
+    masa = kes(masa_im, 680)
+    MASA_X = (W - masa.width) // 2
+    KONUSAN_X = {"L": MASA_X + masa.width * 0.30, "C": MASA_X + masa.width * 0.72}
+    logo = kes(os.path.join(CARSI, "logo.png"), 600)
+    kupa = kes(os.path.join(CARSI, "kupa.png"), 330)
 
     OYUN, SON = 30.0, 6.0
     TOPLAM = OYUN + SON
@@ -127,15 +152,15 @@ def mac(gun, tohum, cikti, esnaflar=None, gecici="/tmp", cizme=False):
 
     # çiviler (kaydırmalı ızgara)
     civi = []
-    for sira in range(10):
-        y = UST + 150 + sira * 86
+    for sira in range(CIVI_SIRA):
+        y = CIVI_Y0 + sira * CIVI_DY
         kay = 0 if sira % 2 == 0 else 54
         for k in range(11):
             x = 54 + kay + k * 108
             if 30 < x < W - 30:
                 civi.append((x, y))
     civi = np.array(civi, float)
-    tampon_y = [UST + 150 + 3.5 * 86, UST + 150 + 7.5 * 86]
+    tampon_y = [CIVI_Y0 + 2.5 * CIVI_DY, CIVI_Y0 + 6.5 * CIVI_DY]
     TAMPON_R = 40
 
     # her maçta farklı faz ve hız: tamponlar hep aynı tarafa itmesin (adillik)
@@ -168,8 +193,8 @@ def mac(gun, tohum, cikti, esnaflar=None, gecici="/tmp", cizme=False):
         if not zorla and balon and balon[-1][2] > t + 0.6:
             return
         if balon and balon[-1][2] > t:
-            balon[-1] = (balon[-1][0], balon[-1][1], t)   # eski balonu kapat
-        balon.append((kim, metin, t + sure))
+            balon[-1] = (balon[-1][0], balon[-1][1], t, balon[-1][3])   # eski balonu kapat
+        balon.append((kim, metin, t + sure, t))
 
     CEMO_ESPRI = ["Abi ben de acıktım, bir simit alsam?", "Bu müşteriler nereye koşuyor böyle?",
                   "Ben olsam hepsinden birer tane alırdım!", "Abi kamerayı tutamıyorum, çok heyecanlı!",
@@ -178,24 +203,26 @@ def mac(gun, tohum, cikti, esnaflar=None, gecici="/tmp", cizme=False):
     konus("L", "Çarşı Ligi başlıyor! Müşteriler geliyor!", 0.2, 2.6)
 
     # sabit arka plan
-    bg = Image.new("RGB", (W, H)); bd = ImageDraw.Draw(bg)
-    for y in range(H):
-        k = y / H
-        bd.line([(0, y), (W, y)], fill=(int(40 + 30 * k), int(24 + 10 * k), int(54 + 20 * k)))
-    # tente şeritleri (çarşı havası)
-    for i in range(0, W, 90):
-        bd.polygon([(i, 0), (i + 90, 0), (i + 90, 50), (i + 45, 70), (i, 50)],
-                   fill=(220, 60, 60) if (i // 90) % 2 == 0 else (245, 240, 230))
+    arka = Image.open(os.path.join(CARSI, "carsi-aksam.png" if gun % 2 else "carsi-gunduz.png")).convert("RGB")
+    arka = arka.resize((W, int(arka.height * W / arka.width)), Image.LANCZOS).crop((0, 0, W, H))
+    bg = arka.copy()
+    karart = Image.new("RGBA", (W, H), (10, 8, 25, 0)); kd = ImageDraw.Draw(karart)
+    for y in range(H):   # üst ve oyun alanı biraz koyu: toplar ve çiviler net görünsün
+        kd.line([(0, y), (W, y)], fill=(10, 8, 25, 95 if y < DOGUM_Y - 40 else 150))
+    bg.paste(karart, (0, 0), karart)
+    bd = ImageDraw.Draw(bg)
     for (x, y) in civi:
         bd.ellipse([x - CIVI_R, y - CIVI_R, x + CIVI_R, y + CIVI_R], fill=(255, 210, 60), outline=(120, 80, 20), width=2)
     for i in range(1, N):
         x = int(SINIR[i])
-        bd.rectangle([x - 4, KUTU_Y - 40, x + 4, H - 260], fill=(255, 255, 255))
-    for i in range(N):
-        x0, x1 = int(SINIR[i]) + 6, int(SINIR[i + 1]) - 6
-        bd.rounded_rectangle([x0, DUKKAN_Y - 10, x1, H - 270], 18, fill=tuple(int(c * 0.45) for c in renkler[i]))
-    yazi(bd, (W / 2, 130), "ÇARŞI LİGİ", font(92), dolgu=(255, 210, 60), kenar=8)
-    yazi(bd, (W / 2, 215), f"{gun}. GÜN · KİM DAHA ÇOK MÜŞTERİ KAPAR?", font(38, "Bold"), kenar=4)
+        bd.rectangle([x - 4, KUTU_Y - 40, x + 4, H - 210], fill=(255, 255, 255))
+    alt = Image.new("RGBA", (W, H - KUTU_Y + 10), (15, 10, 30, 175))
+    bg.paste(alt, (0, KUTU_Y - 10), alt); bd = ImageDraw.Draw(bg)
+    for i in range(1, N):
+        x = int(SINIR[i]); bd.rectangle([x - 4, KUTU_Y - 40, x + 4, H - 210], fill=(255, 255, 255))
+    etiket = etiket or f"{gun}. GÜN"
+    yazi(bd, (W / 2, 62), f"ÇARŞI LİGİ · {etiket}", font(60), dolgu=(255, 210, 60), kenar=7)
+    bg.paste(masa, (MASA_X, MASA_Y), masa); bd = ImageDraw.Draw(bg)
 
     vid = os.path.join(gecici, "carsi_v.mp4"); wav = os.path.join(gecici, "carsi_s.wav")
     proc = None if cizme else subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
@@ -218,7 +245,7 @@ def mac(gun, tohum, cikti, esnaflar=None, gecici="/tmp", cizme=False):
         while sira_dogum < len(dogum) and dogum[sira_dogum][0] <= t:
             _, dg = dogum[sira_dogum]; sira_dogum += 1
             x = rnd.uniform(80, W - 80)
-            pos = np.vstack([pos, [x, UST + 20]]); vel = np.vstack([vel, [rnd.uniform(-60, 60), 0]])
+            pos = np.vstack([pos, [x, DOGUM_Y]]); vel = np.vstack([vel, [rnd.uniform(-60, 60), 0]])
             deger = np.append(deger, dg)
             if dg == 5:
                 ses.ekle(t, Ses.ton(880, 0.5, 4, "kare"), 0.25)
@@ -290,8 +317,8 @@ def mac(gun, tohum, cikti, esnaflar=None, gecici="/tmp", cizme=False):
         if (oyunda and lider is not None and lider != lider_once and sum(puan) > 6 and sirali[0] - sirali[1] >= 2
                 and t < OYUN - 5.5):
             kim = "L" if rnd.random() < 0.5 else "C"
-            konus(kim, rnd.choice([f"{adlar[lider].title()} öne geçti!", f"Liderlik değişti: {adlar[lider].title()}!",
-                                   f"{adlar[lider].title()} dükkânı doldurdu!"]), t, 2.2, zorla=True)
+            konus(kim, rnd.choice([f"{tr_ad(adlar[lider])} öne geçti!", f"Liderlik değişti: {tr_ad(adlar[lider])}!",
+                                   f"{tr_ad(adlar[lider])} dükkânı doldurdu!"]), t, 2.2, zorla=True)
             lider_once = lider
         # sessiz kalınmasın: 3 sn boşlukta yarış yorumu ya da Cemo esprisi
         if oyunda and 3 < t < OYUN - 5.5 and (not balon or balon[-1][2] < t - 1.2) and sum(puan) > 3:
@@ -299,10 +326,10 @@ def mac(gun, tohum, cikti, esnaflar=None, gecici="/tmp", cizme=False):
             fark_ = puan[s_[0]] - puan[s_[1]]
             secim = rnd.random()
             if fark_ <= 2 and secim < 0.5:
-                konus("L", f"Fark sadece {fark_}! {adlar[s_[0]].title()} ile {adlar[s_[1]].title()} kafa kafaya!"
-                      if fark_ else f"Eşitlik! {adlar[s_[0]].title()} ile {adlar[s_[1]].title()} kafa kafaya!", t)
+                konus("L", f"Fark sadece {fark_}! {tr_ad(adlar[s_[0]])} ile {tr_ad(adlar[s_[1]])} kafa kafaya!"
+                      if fark_ else f"Eşitlik! {tr_ad(adlar[s_[0]])} ile {tr_ad(adlar[s_[1]])} kafa kafaya!", t)
             elif secim < 0.75 and puan[s_[-2]] - puan[s_[-1]] >= 3:
-                konus("L", f"{adlar[s_[-1]].title()} geride kaldı, toparlanabilecek mi?", t)
+                konus("L", f"{tr_ad(adlar[s_[-1]])} geride kaldı, toparlanabilecek mi?", t)
             else:
                 konus("C", rnd.choice(CEMO_ESPRI), t)
         if abs(t - (OYUN - 5)) < 1 / FPS / 2:
@@ -310,7 +337,7 @@ def mac(gun, tohum, cikti, esnaflar=None, gecici="/tmp", cizme=False):
             ses.ekle(t, Ses.ton(660, 0.3, 6, "kare"), 0.2)
         if abs(t - OYUN) < 1 / FPS / 2:
             k = max(range(N), key=lambda i: puan[i])
-            konus("C", f"Bugünün esnafı: {adlar[k].title()}!", t, 4.0)
+            konus("C", f"Bugünün esnafı: {tr_ad(adlar[k])}!", t, 4.0)
             for n_, f_ in enumerate([523, 659, 784, 1046]):
                 ses.ekle(t + n_ * 0.14, Ses.ton(f_, 0.5, 5, "kare"), 0.3)
 
@@ -336,37 +363,36 @@ def mac(gun, tohum, cikti, esnaflar=None, gecici="/tmp", cizme=False):
             k = kesik[i]
             if s != 1:
                 k = k.resize((int(k.width * s), int(k.height * s)))
-            im.paste(k, (int(cx - k.width / 2), int(DUKKAN_Y + 105 - k.height / 2)), k)
+            im.paste(k, (int(cx - k.width / 2), int(DUKKAN_Y + kutu_gen / 2 - k.height / 2)), k)
             if i == lider:
-                yazi(d, (cx, DUKKAN_Y - 20), "LİDER", font(26), dolgu=(255, 210, 60), kenar=4)
-            yazi(d, (cx, H - 228), str(puan[i]), font(70), dolgu=(255, 210, 60) if i == lider else (255, 255, 255), kenar=6)
+                yazi(d, (cx, KUTU_Y - 58), "LİDER", font(28), dolgu=(255, 210, 60), kenar=4)
+            yazi(d, (cx, H - 155), str(puan[i]), font(72), dolgu=(255, 210, 60) if i == lider else (255, 255, 255), kenar=6)
             for sat_no, sat in enumerate(adlar[i].split(" ", 1)):
-                yazi(d, (cx, H - 160 + sat_no * 34), sat, font(28, "Bold"), kenar=4)
+                yazi(d, (cx, H - 88 + sat_no * 32), sat, font(26, "Bold"), kenar=4)
         for u in ucan:
             yazi(d, (u[0], u[1] - (1 - u[4]) * 90), u[2], font(40), dolgu=u[3], kenar=4)
             u[4] -= 0.05
         ucan = [u for u in ucan if u[4] > 0]
         # spikerler ve konuşma balonu
-        im.paste(lev, (18, 250), lev); im.paste(cem, (W - 18 - cem.width, 250), cem)
-        yazi(d, (18 + lev.width / 2, 250 + lev.height + 8), "LEVENT", font(22, "Bold"), kenar=3)
-        yazi(d, (W - 18 - cem.width / 2, 250 + cem.height + 8), "CEMO", font(22, "Bold"), kenar=3)
-        aktif = [b for b in balon if b[2] > t and b[2] - t < 6]
+        aktif = [b for b in balon if b[2] > t and b[2] - t < 6] if t < OYUN else []
         if aktif:
-            kim, metin, _ = aktif[-1]
-            x0, x1 = 170, W - 170
-            d.rounded_rectangle([x0, 262, x1, 362], 24, fill=(255, 255, 255))
-            uc = (x0 - 22, 300) if kim == "L" else (x1 + 22, 300)
-            kok = (x0 + 6, 290, x0 + 6, 330) if kim == "L" else (x1 - 6, 290, x1 - 6, 330)
-            d.polygon([uc, (kok[0], kok[1]), (kok[2], kok[3])], fill=(255, 255, 255))
-            f = font(34 if len(metin) < 32 else 29 if len(metin) < 40 else 25, "Bold")
-            d.text(((x0 + x1) / 2, 312), metin, font=f, fill=(20, 20, 30), anchor="mm")
+            kim, metin, _, _ = aktif[-1]
+            x0, x1, y0, y1 = 70, W - 70, BALON_Y, BALON_Y + 84
+            ux = KONUSAN_X[kim]
+            d.polygon([(ux - 26, y0 + 4), (ux + 26, y0 + 4), (ux, y0 - 34)], fill=(255, 255, 255))
+            d.rounded_rectangle([x0, y0, x1, y1], 26, fill=(255, 255, 255), outline=(255, 210, 60), width=4)
+            ad_ = "LEVENT: " if kim == "L" else "CEMO: "
+            f = font(36 if len(metin) < 34 else 31 if len(metin) < 42 else 27, "Bold")
+            d.text(((x0 + x1) / 2, (y0 + y1) / 2), ad_ + metin, font=f, fill=(20, 20, 30), anchor="mm")
         # açılış kancası: ilk 2.5 sn büyük soru
         if t < 2.5:
             a = 1 - max(0, t - 2.0) / 0.5
-            kat = Image.new("RGBA", (W, 300), (0, 0, 0, int(170 * a)))
-            im.paste(kat, (0, 800), kat)
-            yazi(d, (W / 2, 900), "5 ESNAF · 30 SANİYE", font(64), dolgu=(255, 210, 60), kenar=7)
-            yazi(d, (W / 2, 990), "SENCE KİM KAZANIR?", font(64), kenar=7)
+            kat = Image.new("RGBA", (W, 900), (0, 0, 0, int(150 * a)))
+            im.paste(kat, (0, 560), kat)
+            lg = logo.copy(); lg.putalpha(lg.getchannel("A").point(lambda v: int(v * a)))
+            im.paste(lg, ((W - lg.width) // 2, 600), lg); d = ImageDraw.Draw(im)
+            yazi(d, (W / 2, 1270), "5 ESNAF · 30 SANİYE", font(64), dolgu=(255, 210, 60), kenar=7)
+            yazi(d, (W / 2, 1355), "SENCE KİM KAZANIR?", font(64), kenar=7)
         # bitiş kartı
         if t >= OYUN:
             p = min(1.0, (t - OYUN) / 0.6)
@@ -376,13 +402,13 @@ def mac(gun, tohum, cikti, esnaflar=None, gecici="/tmp", cizme=False):
             k = buyuk[sira[0]]
             sc = 0.6 + 0.4 * p
             kk = k.resize((int(k.width * sc), int(k.height * sc)))
+            im.paste(kupa, ((W - kupa.width) // 2, 110), kupa)
             im.paste(kk, (int(W / 2 - kk.width / 2), int(820 - kk.height / 2)), kk)
             rr = random.Random(kare)
             for _ in range(40):
                 x, y = rr.uniform(0, W), (rr.uniform(0, H) + (t - OYUN) * 400) % H
                 d.rectangle([x, y, x + 12, y + 22], fill=rr.choice([(255, 210, 60), (230, 60, 90), (90, 200, 240), (120, 220, 120)]))
-            yazi(d, (W / 2, 330), "ÇARŞININ ESNAFI", font(80), dolgu=(255, 210, 60), kenar=8)
-            yazi(d, (W / 2, 420), f"{gun}. GÜN", font(46, "Bold"), kenar=5)
+            yazi(d, (W / 2, 470), sampiyon_yazi or f"{gun}. GÜNÜN ŞAMPİYONU", font(50), dolgu=(255, 210, 60), kenar=6)
             yazi(d, (W / 2, 1170), adlar[sira[0]], font(66), kenar=7)
             yazi(d, (W / 2, 1245), f"{puan[sira[0]]} MÜŞTERİ", font(46, "Bold"), dolgu=(255, 210, 60), kenar=5)
             for n_, i in enumerate(sira[1:]):
@@ -391,7 +417,11 @@ def mac(gun, tohum, cikti, esnaflar=None, gecici="/tmp", cizme=False):
             yazi(d, (W / 2, 1710), "FAVORİ ESNAFINI YORUMLARA YAZ", font(40, "Bold"), kenar=5)
         proc.stdin.write(im.tobytes())
     if cizme:
-        return puan
+        return {"puan": puan, "balon": balon}
+    if konusmalar:
+        for (kim, metin, bitis, bas), dalga in zip(balon, konusmalar):
+            if dalga is not None and len(dalga):
+                ses.ekle(bas + 0.05, np.asarray(dalga, np.float32), 1.0)
     proc.stdin.close(); proc.wait()
     ses.kaydet(wav)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", vid, "-i", wav, "-c:v", "copy", "-c:a", "aac", "-b:a", "160k",

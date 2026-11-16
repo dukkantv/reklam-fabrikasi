@@ -1,0 +1,96 @@
+name: Çarşı Ligi
+
+# Dükkan TV'nin yeni serisi: esnaf karakterler (brainrot) müşteri kapışıyor, Levent & Cemo anlatıyor.
+# Tamamen kodla + ücretsiz edge-tts. Dükkan TV günlük stoğunda 2 ya da daha az video kalınca her gün bir maç
+# üretir ve stoğun sonuna ekler (stok her akşam 19:00'da bir video yayınlar). deneme=true: video yalnızca
+# Telegram'a gider, kuyruğa eklenmez, lig durumu değişmez.
+on:
+  schedule:
+    - cron: "23 7 * * *"   # her gün 10:23 (Türkiye)
+  workflow_dispatch:
+    inputs:
+      deneme:
+        description: "Deneme (yalnızca Telegram'a gönder)"
+        type: boolean
+        default: true
+      zorla:
+        description: "Stok dolu olsa da üret"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  mac:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONUNBUFFERED: "1"
+      GH_TOKEN: ${{ github.token }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      DENEME: ${{ github.event_name == 'workflow_dispatch' && inputs.deneme }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stok kontrolü
+        id: stok
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import glob, json
+          n = sum(1 for p in glob.glob("kuyruk/*.json")
+                  for k in [json.load(open(p, encoding="utf-8"))]
+                  if k.get("kanal") == "dukkantv" and k.get("gunluk") and k.get("durum") == "onaylandi")
+          print(f"adet={n}")
+          print("uret=" + ("1" if n <= 2 else "0"))
+          PY
+      - uses: actions/setup-python@v5
+        if: steps.stok.outputs.uret == '1' || github.event_name == 'workflow_dispatch'
+        with:
+          python-version: "3.12"
+      - name: Araçlar
+        if: steps.stok.outputs.uret == '1' || github.event_name == 'workflow_dispatch'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip install -q numpy pillow requests edge-tts
+      - name: Maçı oynat ve seslendir
+        if: steps.stok.outputs.uret == '1' || github.event_name == 'workflow_dispatch' && (inputs.deneme || inputs.zorla)
+        working-directory: arena
+        run: |
+          if [ "$DENEME" = "true" ]; then python3 carsi_lig.py --deneme; else python3 carsi_lig.py; fi
+      - name: Telegram'a gönder
+        if: hashFiles('cikti/carsi/yayin.json') != ''
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess
+          y = json.load(open("cikti/carsi/yayin.json", encoding="utf-8"))
+          ek = "🧪 DENEME (yayınlanmayacak)\n" if os.environ.get("DENEME") == "true" else ""
+          subprocess.run(["curl", "-s", "-F", f"chat_id={os.environ['TELEGRAM_CHAT_ID']}", "-F", f"video=@{y['video']}",
+                          "-F", f"caption={ek}🏪 Çarşı Ligi — {y['baslik']}"[:1000],
+                          f"https://api.telegram.org/bot{os.environ['TELEGRAM_BOT_TOKEN']}/sendVideo"],
+                         check=False, capture_output=True)
+          PY
+      - name: Videoyu inceleme için sakla
+        if: hashFiles('cikti/carsi/yayin.json') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: carsi-video
+          path: cikti/carsi/*.mp4
+          retention-days: 3
+      - name: Dükkan TV stoğuna ekle
+        if: env.DENEME != 'true' && hashFiles('cikti/carsi/yayin.json') != ''
+        run: |
+          python3 - <<'PY'
+          import json, subprocess
+          y = json.load(open("cikti/carsi/yayin.json", encoding="utf-8"))
+          subprocess.run(["python3", "yt_kuyruk.py", "ekle", "dukkantv", y["video"], y["baslik"], y["aciklama"],
+                          y["etiketler"], "1", "", "24"], check=True)
+          PY
+      - name: Kaydet
+        if: env.DENEME != 'true' && hashFiles('cikti/carsi/yayin.json') != ''
+        run: |
+          git config user.name "dukkan-tv-bot"; git config user.email "actions@users.noreply.github.com"
+          git add arena/carsi_lig.json kuyruk
+          git diff --cached --quiet || (git commit -qm "Çarşı Ligi: yeni maç" && (git push || (git pull --rebase origin main && git push)))
