@@ -354,6 +354,43 @@ def yorum_dene():
         print("YORUM HATA", str(e)[:400])
 
 
+def tanitim():
+    """Her kanalın en çok izlenen herkese açık videosunu kanal sayfasının tanıtım videosu (abone olmayanlara
+    gösterilen) yapar. Daha iyi bir video öne geçerse tekrar çalıştırmak yeterli."""
+    for kanal in KANALLAR:
+        try:
+            yuk = yt_get(kanal, "channels?part=contentDetails&mine=true")["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+            idler = [v["contentDetails"]["videoId"] for v in
+                     yt_get(kanal, f"playlistItems?part=contentDetails&maxResults=50&playlistId={yuk}").get("items", [])]
+            if not idler:
+                print(kanal, "video yok"); continue
+            vs = yt_get(kanal, "videos?part=statistics,status,snippet&id=" + ",".join(idler[:50])).get("items", [])
+            vs = [v for v in vs if v["status"].get("privacyStatus") == "public"]
+            if not vs:
+                print(kanal, "herkese açık video yok"); continue
+            en = max(vs, key=lambda v: int(v["statistics"].get("viewCount", 0)))
+            c = yt_get(kanal, "channels?part=brandingSettings&mine=true")["items"][0]
+            ch = c.get("brandingSettings", {}).get("channel", {})
+            if ch.get("unsubscribedTrailer") == en["id"]:
+                print(kanal, "tanıtım videosu zaten:", en["snippet"]["title"][:50]); continue
+            ch["unsubscribedTrailer"] = en["id"]
+            yt_post(kanal, "channels?part=brandingSettings", {"id": c["id"], "brandingSettings": {"channel": ch}}, method="PUT")
+            print(kanal, "tanıtım videosu:", en["snippet"]["title"][:50], en["statistics"].get("viewCount"), "izlenme")
+        except Exception as e:
+            print(kanal, "tanıtım HATA:", str(e)[:300])
+
+
+def eksikleri_tamamla():
+    """16 Kasım 2026 denetimi: tanıtım videoları, eksik oynatma listeleri (Gizli Tarih), Facebook web bağlantıları."""
+    for ad, fn in (("tanıtım", tanitim), ("listeler", listeler), ("facebook", facebook)):
+        print(f"\n######## {ad}")
+        try:
+            fn()
+        except Exception as e:
+            print(ad, "HATA:", str(e)[:300])
+
+
 if __name__ == "__main__":
     {"denetle": denetle, "guncelle": guncelle, "listeler": listeler, "banner": banner,
-     "facebook": facebook, "profil": profil, "esnaf_gizle": esnaf_gizle, "videolar": videolar, "turnuva_profil": turnuva_profil, "fikstur_paylas": fikstur_paylas, "yorum_dene": yorum_dene}[sys.argv[1]]()
+     "facebook": facebook, "profil": profil, "esnaf_gizle": esnaf_gizle, "videolar": videolar, "turnuva_profil": turnuva_profil, "fikstur_paylas": fikstur_paylas, "yorum_dene": yorum_dene,
+     "tanitim": tanitim, "eksikleri_tamamla": eksikleri_tamamla}[sys.argv[1]]()
