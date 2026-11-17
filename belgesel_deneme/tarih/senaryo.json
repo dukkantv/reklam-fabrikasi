@@ -1,17 +1,17 @@
 {
- "baslik": "Fatih Sultan Mehmet Zehirlendi mi? Hünkâr Çayırı'nın Sırrı",
- "kapak_yazi": "ZEHİRLENDİ Mİ?",
- "aciklama": "3 Mayıs 1481. İstanbul'un fatihi, kimseye hedefini söylemediği son seferinin daha ilk günlerinde Gebze yakınlarındaki Hünkâr Çayırı'nda hayatını kaybetti. Hastalık mı, zehir mi? Ölümü neden gizlendi, İstanbul'da neden isyan çıktı, taht kavgası Bursa'ya nasıl uzandı? Kaynakların söylediklerini ve rivayetleri ayırarak anlatıyoruz.",
+ "baslik": "Bir Eskici Padişahı Nasıl Tahttan İndirdi? Patrona Halil İsyanı (1730)",
+ "kapak_yazi": "BİR ESKİCİ PADİŞAHI DEVİRDİ",
+ "aciklama": "1730 sonbaharında İstanbul'da bir eskici, bir avuç arkadaşıyla ayaklandı. Birkaç gün içinde Lale Devri bitmiş, Sadrazam Nevşehirli Damat İbrahim Paşa öldürülmüş, Sultan III. Ahmed tahtı bırakmıştı. Patrona Halil kimdi, isyan neden bu kadar hızlı büyüdü ve sonunda ne oldu? Lale Devri'nin şaşaasından İran cephesindeki yenilgiye, Sadabad'ın yağmasından Patrona'nın sonuna kadar anlatıyoruz.\n\nBu videoda tarihçilerin kabul ettiği bilgiler kullanılmıştır; tartışmalı noktalar \"rivayete göre\" diye belirtilmiştir. Görseller temsilidir.",
  "etiketler": [
-  "Fatih Sultan Mehmet",
-  "Fatih'in ölümü",
-  "Hünkâr Çayırı",
-  "II. Bayezid",
-  "Cem Sultan",
-  "Karamani Mehmed Paşa",
+  "Patrona Halil",
+  "Patrona Halil İsyanı",
+  "Lale Devri",
+  "III. Ahmed",
+  "Nevşehirli Damat İbrahim Paşa",
+  "I. Mahmud",
+  "Sadabad",
   "Osmanlı tarihi",
-  "Osmanlı padişahları",
-  "tarih belgeseli",
+  "1730",
   "Gizli Tarih"
  ],
  "bolumler": [
@@ -21,253 +21,322 @@
   },
   {
    "sahne": 4,
-   "ad": "Fatih kimdi?"
+   "ad": "Lale Devri"
   },
   {
-   "sahne": 9,
-   "ad": "Gizli hedefli son sefer"
+   "sahne": 11,
+   "ad": "İran cephesinden kötü haber"
   },
   {
-   "sahne": 14,
-   "ad": "Hünkâr Çayırı'nda üç gün"
+   "sahne": 15,
+   "ad": "Patrona Halil kimdi?"
   },
   {
-   "sahne": 19,
-   "ad": "Zehir şüphesi"
+   "sahne": 18,
+   "ad": "28 Eylül 1730"
   },
   {
-   "sahne": 26,
-   "ad": "Gizlenen ölüm"
+   "sahne": 24,
+   "ad": "Saraydaki pazarlık"
+  },
+  {
+   "sahne": 28,
+   "ad": "Tahtın el değiştirmesi"
   },
   {
    "sahne": 31,
-   "ad": "İstanbul'da isyan"
+   "ad": "Patrona'nın iktidarı"
   },
   {
-   "sahne": 37,
-   "ad": "Taht kavgası: Bayezid ve Cem"
+   "sahne": 35,
+   "ad": "Saraydaki tuzak"
   },
   {
-   "sahne": 41,
-   "ad": "Cevapsız soru"
+   "sahne": 38,
+   "ad": "Geriye ne kaldı?"
   }
  ],
- "kapak_sahne": 19,
+ "kapak_sahne": 20,
  "sahneler": [
   {
-   "metin": "Mayıs 1481. Dünyanın en korkulan hükümdarı, ordusunun başında sefere çıkıyor. Hedefini kimse bilmiyor. Ve birkaç gün sonra, Gebze yakınlarında bir çadırda, sessizce ölüyor.",
-   "nesne": "Ottoman army marching out at dawn",
-   "resim": "gorseller/fatih/01-yola-cikis.png"
+   "metin": "Eylül 1730. İstanbul'da bir eskici, birkaç arkadaşıyla çarşının ortasında isyan bayrağı açıyor. Birkaç gün sonra imparatorluğun sadrazamı ölmüş, padişah ise tahtını bırakmış olacak.",
+   "nesne": "angry crowd of Ottoman men in turbans raising a plain red ba",
+   "arama": "Patrona Halil revolt",
+   "gorsel": "angry crowd of Ottoman men in turbans raising a plain red banner without any symbols in a covered bazaar street, 1730 Istanbul, men wearing Ottoman turbans and kaftans, no European hats, no tricorn hats, no crowns, no helmets",
+   "resim": "gorseller/patrona-halil/01.jpg"
   },
   {
-   "metin": "Hastalık mı onu aldı, yoksa bir hekimin elindeki küçük bir şişe mi? Beş yüz yılı aşkın süredir bu soru tartışılıyor.",
-   "nesne": "shadowy physician holding a small vial",
-   "resim": "gorseller/fatih/04-supheli-hekim.png"
+   "metin": "Bir hamam tellağı, bir eskici, sıradan bir esnaf. Dünyanın en güçlü devletlerinden birini nasıl dize getirdi?",
+   "nesne": "humble Ottoman street vendor with old clothes",
+   "arama": "Ottoman street vendor 18th century",
+   "gorsel": "humble Ottoman second-hand clothes seller standing in a narrow street, 18th century Ottoman era, historically accurate costumes",
+   "resim": "gorseller/patrona-halil/02.jpg"
   },
   {
-   "metin": "Bu videoda Fatih Sultan Mehmet'in son günlerini, ölümünün neden gizlendiğini ve ardından kopan fırtınayı anlatıyoruz. Kaynakların söylediğini rivayetlerden ayırarak.",
-   "nesne": "old Ottoman documents with wax seals by candlelight",
-   "resim": "gorseller/fatih/08-belgeler.png"
+   "metin": "Bu videoda Patrona Halil isyanını, Lale Devri'nin nasıl bir gecede sona erdiğini ve isyanın elebaşına sonunda ne olduğunu anlatıyoruz.",
+   "nesne": "tulips in a garden of an Ottoman pavilion",
+   "arama": "Tulip Era Ottoman",
+   "gorsel": "red and yellow tulips in front of an elegant Ottoman pavilion, 18th century Ottoman era",
+   "resim": "gorseller/patrona-halil/03.jpg"
   },
   {
-   "metin": "Önce onu hatırlayalım. İkinci Mehmed 1432'de Edirne'de doğdu. Daha yirmi bir yaşındayken, 1453'te İstanbul'u fethetti ve tarihe Fatih olarak geçti.",
-   "nesne": "portrait of Sultan Mehmed II",
-   "resim": "gorseller/fatih/09-genc-fatih.png"
+   "metin": "Hikâyemiz 1718'de başlıyor. Pasarofça Antlaşması ile savaşlar bir süreliğine durmuş, İstanbul uzun bir barış dönemine girmişti.",
+   "nesne": "Ottoman diplomats signing a peace treaty",
+   "arama": "Treaty of Passarowitz",
+   "gorsel": "Ottoman and European diplomats around a table signing a peace treaty, 1718, historically accurate costumes",
+   "resim": "gorseller/patrona-halil/04.jpg"
   },
   {
-   "metin": "Fetih bir çağı kapatıp yenisini açtı. Bizans bin yılı aşkın tarihiyle sona ermiş, İstanbul yeni imparatorluğun başkenti olmuştu.",
-   "nesne": "conquest of Constantinople 1453 painting",
-   "resim": "gorseller/fatih/10-kusatma-toplar.png"
+   "metin": "Tahtta Sultan Üçüncü Ahmed vardı. Devletin işlerini ise damadı, Sadrazam Nevşehirli İbrahim Paşa yönetiyordu.",
+   "nesne": "Ottoman sultan wearing a large white turban seated on a low ",
+   "arama": "Sultan Ahmed III",
+   "gorsel": "Ottoman sultan wearing a large white turban seated on a low divan, grand vizier in a white turban and fur-trimmed kaftan standing beside him, richly decorated Ottoman palace hall, 18th century, men wearing Ottoman turbans and kaftans, no European hats, no tricorn hats, no crowns, no helmets",
+   "resim": "gorseller/patrona-halil/05.jpg"
   },
   {
-   "metin": "Sonraki yıllarda Sırbistan'dan Mora'ya, Trabzon'dan Kırım'a kadar pek çok toprak imparatorluğa katıldı. Ömrünün büyük kısmı at sırtında, ordugâhlarda geçti.",
-   "nesne": "Ottoman campaign miniature",
-   "resim": "gorseller/fatih/11-dag-yolu.png"
+   "metin": "Bu yıllara sonradan Lale Devri adı verildi. Bahçeler, kasırlar, eğlenceler, şiir ve sanat… İstanbul'un yüzü değişiyordu.",
+   "nesne": "Ottoman garden party at dusk",
+   "arama": "Tulip Era garden party",
+   "gorsel": "Ottoman garden party at dusk, musicians with ney and oud sitting on carpets among tulip beds and lanterns, full frame painting edge to edge, 18th century Ottoman era",
+   "resim": "gorseller/patrona-halil/06.jpg"
   },
   {
-   "metin": "Ama bu yorucu hayat bedelini ödetti. Kaynaklar, Fatih'in son yıllarında nikris denen ağrılı bir hastalıktan ve şiddetli karın ağrılarından muzdarip olduğunu yazar.",
-   "nesne": "Sultan Mehmed II portrait late years",
-   "resim": "gorseller/fatih/12-hasta-padisah.png"
+   "metin": "Kağıthane'de Sadabad Kasrı yükseldi. Boğaz kıyısı köşklerle, çeşmelerle doldu. Bir lale soğanının servet değerinde satıldığı anlatılır.",
+   "nesne": "Ottoman summer palace beside a canal",
+   "arama": "Sadabad Palace Kagithane",
+   "gorsel": "graceful Ottoman summer palace beside a marble canal with fountains, Kagithane, 18th century Ottoman era",
+   "resim": "gorseller/patrona-halil/07.jpg"
   },
   {
-   "metin": "Ölümünden sadece birkaç ay önce, Venedikli ressam Gentile Bellini sarayda padişahın bugün en çok bilinen portresini yapmıştı. O portredeki yüz, yorgun ve hasta bir adamı gösterir.",
-   "nesne": "Gentile Bellini portrait of Mehmed II",
-   "resim": "gorseller/fatih/13-ressam.png"
+   "metin": "Geceleri bahçelerde kaplumbağaların sırtına mumlar konulduğu, misafirlerin bu ışıkların arasında gezdiği rivayet edilir.",
+   "nesne": "tortoises carrying small candles in a night garden",
+   "arama": "Tulip Era candle tortoises",
+   "gorsel": "small tortoises carrying lit candles on their shells walking among tulips in a garden at night, 18th century Ottoman era",
+   "resim": "gorseller/patrona-halil/08.jpg"
   },
   {
-   "metin": "1481 baharında, kırk dokuz yaşındaki padişah yeni bir sefer emri verdi. Ordu İstanbul'dan Üsküdar'a geçti.",
-   "nesne": "Ottoman army crossing at Uskudar",
-   "resim": "gorseller/fatih/01-yola-cikis.png"
+   "metin": "Aynı dönemde önemli yenilikler de oldu. İbrahim Müteferrika'nın matbaası 1729'da ilk Türkçe kitabı bastı.",
+   "nesne": "early printing press with a printed book",
+   "arama": "Ibrahim Muteferrika printing press",
+   "gorsel": "18th century wooden printing press in an Ottoman workshop with freshly printed pages, historically accurate",
+   "resim": "gorseller/patrona-halil/09.jpg"
   },
   {
-   "metin": "Bu seferin en tuhaf yanı, hedefinin bilinmemesiydi. Rivayete göre Fatih, planlarını sorana şöyle demişti: Sakalımın bir teli bunu bilse, onu koparır atardım.",
-   "nesne": "Ottoman sultan on horseback",
-   "resim": "gorseller/fatih/25-tepe-padisah.png"
+   "metin": "Ama sarayın dışında herkes aynı şeyi yaşamıyordu. Fiyatlar artıyor, geçim zorlaşıyor, halk bu şatafata öfkeyle bakıyordu.",
+   "nesne": "poor townspeople looking at a lavish palace",
+   "arama": "Ottoman poor people 18th century",
+   "gorsel": "poor Ottoman townspeople in plain clothes looking from a distance at a lavish palace, 18th century Ottoman era, historically accurate costumes",
+   "resim": "gorseller/patrona-halil/10.jpg"
   },
   {
-   "metin": "Tarihçiler hedef konusunda hâlâ tartışıyor. Kimine göre Rodos'tu, kimine göre Memlük toprakları, kimine göre ise İtalya.",
-   "nesne": "map of the Mediterranean in the 15th century",
-   "resim": "gorseller/fatih/14-harita.png"
+   "metin": "Sonra doğudan kötü haberler gelmeye başladı. İran'da yükselen Nadir, Osmanlı'nın elindeki şehirleri birer birer geri alıyordu.",
+   "nesne": "Persian cavalry charging",
+   "arama": "Nader Shah army",
+   "gorsel": "Persian cavalry charging across a dusty plain, 18th century, historically accurate armor",
+   "resim": "gorseller/patrona-halil/11.jpg"
   },
   {
-   "metin": "İtalya ihtimali boş değildi. Bir yıl önce, 1480'de, Gedik Ahmed Paşa İtalya'nın güneyindeki Otranto'yu almıştı. Roma'da büyük bir korku vardı.",
-   "nesne": "Otranto castle in southern Italy",
-   "resim": "gorseller/fatih/15-otranto.png"
+   "metin": "1730 yazında Tebriz'in kaybedildiği haberi İstanbul'a ulaştı. Şehirde öfke büyüdü.",
+   "nesne": "messenger on horseback arriving at city gates",
+   "arama": "Ottoman messenger",
+   "gorsel": "exhausted messenger on horseback arriving at Istanbul city gates, 18th century Ottoman era, historically accurate costumes",
+   "resim": "gorseller/patrona-halil/12.jpg"
   },
   {
-   "metin": "Avrupa nefesini tutmuştu. Ama ordu Anadolu yakasına daha yeni geçmişti ki, beklenmedik bir şey oldu.",
-   "nesne": "Ottoman military camp at dusk with large sultan tent",
-   "resim": "gorseller/fatih/02-ordugah.png"
+   "metin": "Padişah sefer ilan etti, ordu Üsküdar'da toplandı. Ama günler geçti ve ordu bir türlü yola çıkmadı.",
+   "nesne": "Ottoman army camp with tents at Uskudar",
+   "arama": "Ottoman army camp",
+   "gorsel": "large Ottoman army camp with many tents on the Asian shore of the Bosphorus, 18th century Ottoman era",
+   "resim": "gorseller/patrona-halil/13.jpg"
   },
   {
-   "metin": "Ordu, Gebze yakınlarında Hünkâr Çayırı denen yerde konakladı. Padişahın ağrıları burada aniden şiddetlendi.",
-   "nesne": "Ottoman encampment with imperial tent and torches",
-   "resim": "gorseller/fatih/02-ordugah.png"
+   "metin": "Kahvehanelerde, hamamlarda, çarşılarda aynı söz dolaşıyordu: Sınırlar düşerken saray eğlencedeydi. Kıvılcım hazırdı.",
+   "nesne": "crowded Ottoman coffeehouse with men in turbans sitting on l",
+   "arama": "Ottoman coffeehouse",
+   "gorsel": "crowded Ottoman coffeehouse with men in turbans sitting on low benches talking intensely, full frame painting edge to edge, 18th century Ottoman era",
+   "resim": "gorseller/patrona-halil/14.jpg"
   },
   {
-   "metin": "Otağın önünde nöbetçiler bekliyordu. İçeride ise hekimler, padişahı ayağa kaldırmak için çırpınıyordu.",
-   "nesne": "sick sultan in bed with physician by candlelight",
-   "resim": "gorseller/fatih/03-cadir-hekim.png"
+   "metin": "Patrona Halil, Arnavut asıllı eski bir yeniçeriydi. Kaynaklara göre bir dönem hamam tellaklığı yapmış, sonra Beyazıt'ta eskicilik yapmıştı.",
+   "nesne": "Ottoman bathhouse interior with steam",
+   "arama": "Ottoman hammam interior",
+   "gorsel": "steamy interior of an Ottoman bathhouse with marble basins, 18th century Ottoman era",
+   "resim": "gorseller/patrona-halil/15.jpg"
   },
   {
-   "metin": "Padişahın yanında iki önemli hekim vardı. Biri, yıllardır sarayın hekimi olan, İtalyan asıllı Yakub Paşa'ydı.",
-   "nesne": "Ottoman medical manuscript illustration",
-   "resim": "gorseller/fatih/16-iki-hekim.png"
+   "metin": "Lakabının, bir zamanlar donanmada patrona adı verilen gemide hizmet etmesinden geldiği söylenir.",
+   "nesne": "Ottoman sailing warship with plain red pennants anchored in ",
+   "arama": "Ottoman galleon",
+   "gorsel": "Ottoman sailing warship with plain red pennants anchored in the Golden Horn, 18th century",
+   "resim": "gorseller/patrona-halil/16.jpg"
   },
   {
-   "metin": "Diğeri ise İranlı hekim Lârî'ydi. Kaynaklara göre Lârî'nin verdiği bir ilaçtan sonra padişahın durumu daha da kötüleşti.",
-   "nesne": "physician preparing medicine in candlelight",
-   "resim": "gorseller/fatih/04-supheli-hekim.png"
+   "metin": "Yanında yeniçeri Muslu Beşe ve Kel Ali gibi arkadaşları vardı. Plan küçüktü ama zamanlama mükemmeldi.",
+   "nesne": "three men whispering in a dark alley",
+   "arama": "Janissaries",
+   "gorsel": "three Ottoman men in janissary clothes whispering secretly in a dark Istanbul alley at night, 18th century Ottoman era, historically accurate costumes",
+   "resim": "gorseller/patrona-halil/17.jpg"
   },
   {
-   "metin": "3 Mayıs 1481'de, sefere çıkışının üzerinden birkaç gün geçmişken, İstanbul'un fatihi Hünkâr Çayırı'nda hayatını kaybetti.",
-   "nesne": "sultan's deathbed in a tent, candles",
-   "resim": "gorseller/fatih/03-cadir-hekim.png"
+   "metin": "28 Eylül 1730 sabahı Kapalıçarşı'da dükkânlar yeni açılıyordu. Patrona ve arkadaşları kılıçlarını çekip halkı isyana çağırdı.",
+   "nesne": "small group of Ottoman men in turbans raising a plain red ba",
+   "arama": "Beyazit Square Istanbul",
+   "gorsel": "small group of Ottoman men in turbans raising a plain red banner without any symbols in front of a great Ottoman mosque at dawn, 1730 Istanbul, men wearing Ottoman turbans and kaftans, no European hats, no tricorn hats, no crowns, no helmets",
+   "resim": "gorseller/patrona-halil/18.jpg"
   },
   {
-   "metin": "Ve hemen o soru doğdu: Fatih eceliyle mi öldü, yoksa zehirlendi mi? Kaynaklar bu konuda ikiye ayrılır.",
-   "nesne": "mysterious physician holding a bottle",
-   "resim": "gorseller/fatih/04-supheli-hekim.png"
+   "metin": "Esnaf kepenk kapatıp onlara katıldı. Kalabalık her sokakta biraz daha büyüdü.",
+   "nesne": "merchants closing wooden shop shutters",
+   "arama": "Ottoman bazaar",
+   "gorsel": "Ottoman merchants hurriedly closing wooden shop shutters in a bazaar street, 18th century Ottoman era, historically accurate costumes",
+   "resim": "gorseller/patrona-halil/19.jpg"
   },
   {
-   "metin": "Bazı tarihçilere göre ölüm, yıllardır süren hastalığın doğal sonucuydu. Belirtiler, bağırsak hastalığına ya da gutun ağırlaşmasına uyuyordu.",
-   "nesne": "old medical manuscript",
-   "resim": "gorseller/fatih/12-hasta-padisah.png"
+   "metin": "Yeniçerilerin bir kısmı da isyancıların yanına geçti. Bir eskicinin başlattığı hareket, kısa sürede bir orduya dönüştü.",
+   "nesne": "armed janissaries in tall white janissary caps joining an an",
+   "arama": "Janissary cauldron",
+   "gorsel": "dramatic wide street scene filling the entire frame, janissaries in tall white caps marching together with angry Ottoman townsmen in turbans through a narrow Istanbul street, dust and torches, 18th century Ottoman era",
+   "resim": "gorseller/patrona-halil/20.jpg"
   },
   {
-   "metin": "Bazılarına göre ise ilaca bir şey katılmıştı. Şüpheler önce Lârî'ye, sonra Yakub Paşa'ya yöneldi.",
-   "nesne": "small medicine bottle in a dark room",
-   "resim": "gorseller/fatih/04-supheli-hekim.png"
+   "metin": "Padişah ve sadrazam hâlâ Üsküdar'daydı. İsyanı duyunca alelacele saraya döndüler.",
+   "nesne": "royal Ottoman barge crossing the Bosphorus",
+   "arama": "Ottoman imperial barge",
+   "gorsel": "ornate royal Ottoman barge with oarsmen hurriedly crossing the Bosphorus, 18th century Ottoman era",
+   "resim": "gorseller/patrona-halil/21.jpg"
   },
   {
-   "metin": "Yakub Paşa ise yıllarca Fatih'in en güvendiği adamlardan biri olmuş, vezirlik rütbesine kadar yükselmişti. Onu suçlayanlar da oldu, kararlılıkla savunanlar da.",
-   "nesne": "Ottoman court scene miniature",
-   "resim": "gorseller/fatih/21-divan.png"
+   "metin": "İsyancıların istediği belliydi: Başta Sadrazam İbrahim Paşa olmak üzere, kaynaklara göre otuz yedi devlet adamı kendilerine teslim edilecekti.",
+   "nesne": "large shouting crowd of Ottoman men in turbans in front of a",
+   "arama": "Topkapi Palace gate",
+   "gorsel": "large shouting crowd of Ottoman men in turbans in front of a high stone palace gate with plain blank walls, 18th century Istanbul, men wearing Ottoman turbans and kaftans, no European hats, no tricorn hats, no crowns, no helmets",
+   "resim": "gorseller/patrona-halil/22.jpg"
   },
   {
-   "metin": "Şüpheyi büyüten bir şey daha vardı: Venedik. Fatih, Venedik'in yıllarca en büyük düşmanıydı.",
-   "nesne": "Venice Doge's Palace",
-   "resim": "gorseller/fatih/17-venedik-gece.png"
+   "metin": "Sultan Ahmed önce zaman kazanmaya çalıştı. Ama kalabalık her saat büyüyor, şehirde konaklar yağmalanıyordu.",
+   "nesne": "worried sultan at a palace window",
+   "arama": "Ottoman sultan",
+   "gorsel": "worried Ottoman sultan looking out of a palace window at a distant crowd, 18th century Ottoman era, historically accurate costumes",
+   "resim": "gorseller/patrona-halil/23.jpg"
   },
   {
-   "metin": "Tarihçi Franz Babinger, Venedik arşivlerinde padişaha karşı birçok suikast planından söz eden kayıtlar bulunduğunu yazar. Ama bunların hiçbiri kesin bir delil değildir.",
-   "nesne": "Venetian archive documents",
-   "resim": "gorseller/fatih/18-venedik-meclis.png"
+   "metin": "Sarayın içinde zor bir pazarlık başladı. Padişah tahtını kurtarmak için en yakınlarından vazgeçmek zorunda kalacaktı.",
+   "nesne": "tense meeting in an Ottoman palace chamber",
+   "arama": "Ottoman council",
+   "gorsel": "tense meeting of Ottoman officials in a dim palace chamber lit by candles, 18th century Ottoman era, historically accurate costumes",
+   "resim": "gorseller/patrona-halil/24.jpg"
   },
   {
-   "metin": "Rivayete göre ölüm haberi Venedik'e ulaştığında, büyük kartal öldü diye haber verildi. Avrupa'nın birçok şehrinde sevinçle karşılandı.",
-   "nesne": "Venice Saint Mark's Square old painting",
-   "resim": "gorseller/fatih/19-san-marco.png"
+   "metin": "Sonunda karar verildi. 2 Ekim'de Sadrazam İbrahim Paşa ve iki damadı öldürüldü, cesetleri isyancılara teslim edildi. Lale Devri'nin mimarı böyle öldü.",
+   "nesne": "empty grand vizier seal on a table with a candle",
+   "arama": "Ottoman grand vizier seal",
+   "gorsel": "an empty desk with an Ottoman grand vizier's seal and a burnt-out candle in a dark palace room, somber mood",
+   "resim": "gorseller/patrona-halil/25.jpg"
   },
   {
-   "metin": "Asıl tehlike ise çadırın içindeydi. Padişah ölmüştü, ama tahtın kime geçeceği belli değildi.",
-   "nesne": "Ottoman camp at night",
-   "resim": "gorseller/fatih/02-ordugah.png"
+   "metin": "Ama isyancılar durmadı. Artık başka bir şey istiyorlardı: Padişahın kendisinin tahttan inmesini.",
+   "nesne": "empty Ottoman throne in a dark hall",
+   "arama": "Ottoman throne",
+   "gorsel": "empty golden Ottoman throne in a dark hall, dramatic light, 18th century Ottoman era",
+   "resim": "gorseller/patrona-halil/26.jpg"
   },
   {
-   "metin": "Fatih'in iki oğlu vardı. Büyüğü Bayezid Amasya'da, küçüğü Cem ise Konya'da sancakbeyiydi. Başkente ilk ulaşan, tahtı alacaktı.",
-   "nesne": "portrait of Sultan Bayezid II",
-   "resim": "gorseller/fatih/20-iki-sehzade.png"
+   "metin": "Bu arada Sadabad başta olmak üzere pek çok köşk ve kasır yağmalandı. Lale Devri'nin simgeleri günler içinde harabeye döndü.",
+   "nesne": "looted and damaged Ottoman wooden pavilion with broken windo",
+   "arama": "Sadabad",
+   "gorsel": "dark dramatic scene filling the entire frame: an elegant Ottoman waterside mansion being looted at dusk, broken shutters, smoke rising, overturned furniture and trampled tulips in the garden, angry crowd silhouettes, 18th century Istanbul",
+   "resim": "gorseller/patrona-halil/27.jpg"
   },
   {
-   "metin": "Sadrazam Karamanî Mehmed Paşa ölümü gizlemeye karar verdi. Padişahın hasta olduğu söylendi, naaşı kapalı bir arabayla İstanbul'a götürüldü.",
-   "nesne": "Ottoman camp at night with imperial tent",
-   "resim": "gorseller/fatih/02-ordugah.png"
+   "metin": "Ekim'in ilk günlerinde Sultan Üçüncü Ahmed tahtı yeğeni Mahmud'a bıraktı. Yeni padişah Birinci Mahmud oldu.",
+   "nesne": "young Ottoman sultan wearing a large white turban seated on ",
+   "arama": "Sultan Mahmud I",
+   "gorsel": "young Ottoman sultan wearing a large white turban seated on a throne, officials in turbans bowing to him, 18th century Ottoman palace, men wearing Ottoman turbans and kaftans, no European hats, no tricorn hats, no crowns, no helmets",
+   "resim": "gorseller/patrona-halil/28.jpg"
   },
   {
-   "metin": "Kaynaklara göre Paşa, yeniçerileri de başkentten uzak tutmaya çalıştı. Ve gece karanlığında şehzadelere ulaklar gönderildi.",
-   "nesne": "riders galloping at night on a muddy road",
-   "resim": "gorseller/fatih/05-ulaklar.png"
+   "metin": "Üçüncü Ahmed sarayın bir köşesine çekildi ve birkaç yıl sonra orada hayatını kaybetti. Lale Devri resmen bitmişti.",
+   "nesne": "old sultan alone in a quiet palace room",
+   "arama": "Topkapi Palace room",
+   "gorsel": "elderly former Ottoman sultan sitting alone in a quiet palace room, melancholic light, 18th century Ottoman era, historically accurate costumes",
+   "resim": "gorseller/patrona-halil/29.jpg"
   },
   {
-   "metin": "Birçok tarihçiye göre Karamanî, Cem'in tahta geçmesini istiyordu. Ama Cem'e giden ulak yolda, Anadolu beylerbeyi Sinan Paşa'nın adamlarına yakalandı.",
-   "nesne": "horsemen in the night mist",
-   "resim": "gorseller/fatih/05-ulaklar.png"
+   "metin": "Bir eskici, padişah değiştirmişti. İstanbul'da birkaç hafta boyunca gerçek güç onun elindeydi.",
+   "nesne": "rebel leader standing before a crowd",
+   "arama": "Patrona Halil",
+   "gorsel": "confident Ottoman rebel leader in simple clothes standing before a cheering crowd, 1730 Istanbul, historically accurate costumes",
+   "resim": "gorseller/patrona-halil/30.jpg"
   },
   {
-   "metin": "Sır uzun sürmedi. Padişahın öldüğünü öğrenen yeniçeriler, kendilerinden bir şey saklandığını anlayınca öfkeyle İstanbul'a yürüdü.",
-   "nesne": "janissaries with torches in an Istanbul street",
-   "resim": "gorseller/fatih/06-istanbul-isyan.png"
+   "metin": "Patrona Halil devlet toplantılarına katılıyor, atamalara karışıyordu. Rivayete göre bir kasap arkadaşı Yanaki için Boğdan voyvodalığını bile istedi.",
+   "nesne": "rebel leader sitting among Ottoman officials",
+   "arama": "Ottoman divan meeting",
+   "gorsel": "plainly dressed rebel sitting uncomfortably among richly dressed Ottoman officials in a council hall, 18th century Ottoman era, historically accurate costumes",
+   "resim": "gorseller/patrona-halil/31.jpg"
   },
   {
-   "metin": "İsyancılar Karamanî Mehmed Paşa'yı öldürdü. Şehrin bazı mahalleleri yağmalandı. İstanbul günlerce gerilim içinde kaldı.",
-   "nesne": "janissary revolt",
-   "resim": "gorseller/fatih/06-istanbul-isyan.png"
+   "metin": "Devlet adamları sabırla bekledi. Dışarıdan teslim olmuş görünüyorlardı ama içeride bir plan hazırlanıyordu.",
+   "nesne": "two Ottoman officials whispering behind a column",
+   "arama": "Ottoman officials",
+   "gorsel": "two Ottoman officials whispering behind a marble column in a palace corridor, 18th century Ottoman era, historically accurate costumes",
+   "resim": "gorseller/patrona-halil/32.jpg"
   },
   {
-   "metin": "Düzeni sağlamak için İshak Paşa devreye girdi. Bayezid'in oğlu Şehzade Korkut, babası gelene kadar tahtın vekili yapıldı.",
-   "nesne": "Topkapi Palace gate",
-   "resim": "gorseller/fatih/21-divan.png"
+   "metin": "İsyancıların bir kısmı da yorulmuştu. Esnaf dükkânına, yeniçeri kışlasına dönmek istiyordu. Patrona'nın desteği her gün biraz azalıyordu.",
+   "nesne": "Ottoman merchants in turbans calmly reopening wooden shop sh",
+   "arama": "Istanbul bazaar 18th century",
+   "gorsel": "Ottoman merchants in turbans calmly reopening wooden shop shutters in a quiet Istanbul street, 18th century Ottoman era, men wearing Ottoman turbans and kaftans, no European hats, no tricorn hats, no crowns, no helmets",
+   "resim": "gorseller/patrona-halil/33.jpg"
   },
   {
-   "metin": "Haberi alan Bayezid, Amasya'dan hızla yola çıktı. Mayıs ayının sonlarına doğru İstanbul'a ulaştı ve İkinci Bayezid olarak tahta oturdu.",
-   "nesne": "Sultan Bayezid II",
-   "resim": "gorseller/fatih/22-bayezid-giris.png"
+   "metin": "25 Kasım 1730'da Patrona Halil ve yakın adamları bir toplantı ve ödül bahanesiyle saraya çağrıldı.",
+   "nesne": "Ottoman palace courtyard with guards",
+   "arama": "Topkapi Palace courtyard",
+   "gorsel": "Topkapi Palace inner courtyard with guards standing still, cold November light, 18th century Ottoman era, historically accurate costumes",
+   "resim": "gorseller/patrona-halil/34.jpg"
   },
   {
-   "metin": "Bayezid'in ilk işlerinden biri, babasını hak ettiği törenle uğurlamak oldu. İstanbul halkı, şehrin fatihi için günlerce yas tuttu.",
-   "nesne": "Fatih Mosque Istanbul",
-   "resim": "gorseller/fatih/07-cami.png"
+   "metin": "İçeri girdiklerinde onları bekleyen bir ödül değil, bir tuzaktı. Patrona ve arkadaşları orada öldürüldü. Kasap Yanaki da kurtulamadı.",
+   "nesne": "dark palace doorway closing",
+   "arama": "Ottoman palace door",
+   "gorsel": "heavy ornate palace doors closing in a dark corridor, ominous shadows, 18th century Ottoman era",
+   "resim": "gorseller/patrona-halil/35.jpg"
   },
   {
-   "metin": "Fatih Sultan Mehmet, kendi yaptırdığı Fatih Camii'nin yanındaki türbesine defnedildi. Bir çağ, bir çadırda sona ermişti.",
-   "nesne": "Ottoman mosque at sunset with mourners",
-   "resim": "gorseller/fatih/07-cami.png"
+   "metin": "Ardından isyana katılanlar şehirde tek tek arandı. Kısa süre içinde düzen yeniden sağlandı.",
+   "nesne": "Ottoman soldiers in turbans carrying oil lanterns patrolling",
+   "arama": "Ottoman soldiers",
+   "gorsel": "Ottoman soldiers in turbans carrying oil lanterns patrolling a quiet narrow Istanbul street at night, 18th century Ottoman era, men wearing Ottoman turbans and kaftans, no European hats, no tricorn hats, no crowns, no helmets",
+   "resim": "gorseller/patrona-halil/36.jpg"
   },
   {
-   "metin": "Ama hikâye bitmedi. Cem Sultan tahttan vazgeçmedi. Bursa'ya gelerek kendini padişah ilan etti ve adına para bastırdı.",
-   "nesne": "portrait of Cem Sultan",
-   "resim": "gorseller/fatih/23-cem-bursa.png"
+   "metin": "Peki geriye ne kaldı? Patrona isyanı, sarayın halktan ne kadar koptuğunu bütün imparatorluğa gösterdi.",
+   "nesne": "Istanbul skyline with mosques at sunset",
+   "arama": "Istanbul 18th century view",
+   "gorsel": "Istanbul skyline with mosques and minarets at sunset seen from the Bosphorus, 18th century",
+   "resim": "gorseller/patrona-halil/37.jpg"
   },
   {
-   "metin": "Bursa'daki saltanatı kısa sürdü. 1481 yazında Yenişehir yakınlarında iki kardeşin orduları karşılaştı ve Cem yenildi.",
-   "nesne": "Ottoman army on the march",
-   "resim": "gorseller/fatih/01-yola-cikis.png"
+   "metin": "Lale Devri tek bir isyanla bitti. Ama getirdiği yenilikler, özellikle matbaa, sonraki yıllarda yaşamaya devam etti.",
+   "nesne": "old printed Ottoman book on a table",
+   "arama": "Ottoman printed book",
+   "gorsel": "an old printed Ottoman book open on a wooden table beside a single tulip, warm light",
+   "resim": "gorseller/patrona-halil/38.jpg"
   },
   {
-   "metin": "Cem önce Mısır'a, sonra Rodos'a sığındı. Hayatının geri kalanını Avrupa'da, bir kraldan diğerine pazarlık kozu olarak geçirdi.",
-   "nesne": "Rhodes fortress",
-   "resim": "gorseller/fatih/24-cem-gemi.png"
+   "metin": "Bir eskicinin padişah değiştirdiği bu günler, Osmanlı tarihinin en şaşırtıcı sayfalarından biri olarak kaldı.",
+   "nesne": "single wilted tulip on palace steps",
+   "arama": "tulip",
+   "gorsel": "a single wilted red tulip lying on marble palace steps, dramatic light, symbolic",
+   "resim": "gorseller/patrona-halil/39.jpg"
   },
   {
-   "metin": "Ve Avrupa derin bir nefes aldı. Aynı yılın sonbaharında Otranto geri alındı. İtalya seferi, tarihin kapanmamış sayfalarından biri olarak kaldı.",
-   "nesne": "Otranto old town and sea",
-   "resim": "gorseller/fatih/14-harita.png"
-  },
-  {
-   "metin": "Peki Fatih zehirlendi mi? Dürüst cevap şu: Bilmiyoruz. Elimizde kesin bir delil yok, ama şüpheyi besleyen pek çok tesadüf var.",
-   "nesne": "old documents and seals by candlelight",
-   "resim": "gorseller/fatih/08-belgeler.png"
-  },
-  {
-   "metin": "Gizli tutulan bir hedef, yabancı bir hekim, düşmanın sevinci ve aceleyle saklanan bir ölüm. Belki de cevap, o çadırda kalan sırlardan biri.",
-   "nesne": "sultan's tent interior with candles",
-   "resim": "gorseller/fatih/03-cadir-hekim.png"
-  },
-  {
-   "metin": "Sence Fatih eceliyle mi öldü, yoksa zehirlendi mi? Fikrini yorumlara yaz. Tarihin saklanan hikâyeleri için Gizli Tarih'e abone olmayı unutma.",
-   "nesne": "Fatih mosque Istanbul at sunset",
-   "resim": "gorseller/fatih/07-cami.png"
+   "metin": "Sence Patrona Halil bir halk kahramanı mıydı, yoksa fırsatçı bir isyancı mı? Yorumlara yaz. Gizli Tarih'e abone olmayı unutma.",
+   "nesne": "an old blank parchment scroll and a quill on a desk beside a",
+   "arama": "old map of Istanbul",
+   "gorsel": "an old blank parchment scroll and a quill on a desk beside a candle, warm light, completely blank paper",
+   "resim": "gorseller/patrona-halil/40.jpg"
   }
  ]
 }
