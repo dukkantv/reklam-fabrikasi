@@ -95,16 +95,16 @@ def lansman(d, adim, video):
         carsi_sahne.kura_gecesi(video, d["takimlar"])
         aciklama = ("Kura çekildi! 15 esnaf iki takıma ayrıldı: Kırmızı Tente 🔴 ve Mavi Tente 🔵\n"
                     "Senin favorin hangi takımda? Takımını yorumlara yaz 👇\n\n" + HASHTAG)
-    elif adim in (3, 4):
-        if not d["takimlar"]:
-            if "--deneme" not in sys.argv:
-                sys.exit("Önce kura gecesi (lansman 2) üretilmeli")
-            es = list(ESNAF); random.shuffle(es); d["takimlar"] = {"K": es[:8], "M": es[8:]}
+    elif adim >= 3 and not d["takimlar"]:
+        if "--deneme" not in sys.argv:
+            sys.exit("Önce kura gecesi (lansman 2) üretilmeli")
+        es = list(ESNAF); random.shuffle(es); d["takimlar"] = {"K": es[:8], "M": es[8:]}
+    if adim in (3, 4):
         t_ = "K" if adim == 3 else "M"
         carsi_sahne.takim_tanitim(video, t_, d["takimlar"][t_])
-        aciklama = (f"{TAKIM_AD[t_].title()} takımının esnafları: " + ", ".join(ad(e) for e in d["takimlar"][t_]) +
+        aciklama = (f"{tr_ad(TAKIM_AD[t_])} takımının esnafları: " + ", ".join(ad(e) for e in d["takimlar"][t_]) +
                     "\nBu takımı tutuyor musun? Yorumlara yaz 👇\nÇarşı Ligi 26 Kasım 19:00'da başlıyor!\n\n" + HASHTAG)
-    else:
+    elif adim == 5:
         carsi_sahne.fragman(video, d["takimlar"])
         aciklama = ("Çarşı Ligi yarın akşam 19:00'da başlıyor! İlk maç: Ödül Maçı. Kırmızı mı kazanır, Mavi mi?\n"
                     "Her hafta bir esnaf çarşıya veda edecek; konseyde kaderleri senin yorumlarına bağlı!\n\n" + HASHTAG)
