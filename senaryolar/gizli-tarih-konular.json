@@ -1,0 +1,20 @@
+{
+ "aciklama": "Gizli Tarih konu sırası. Yalnızca tarihçe/bilimce kabul görmüş bilgiler; efsaneler 'efsaneye göre' diye anlatılır ve bilimsel açıklamayla kapatılır.",
+ "konular": [
+  {"no": 1, "durum": "bekliyor", "konu": "Mısır piramitleri nasıl yapıldı? Giza'nın işçi köyü ve Merer'in günlüğü", "kanca": "4500 yıl önce, makinesiz, 2 milyondan fazla taş. Nasıl?"},
+  {"no": 2, "durum": "bekliyor", "konu": "Kapadokya'nın yeraltı şehri Derinkuyu: Binlerce kişi yerin altında nasıl yaşadı?", "kanca": "Bir adam evini tamir ederken duvarı yıktı ve arkasında bir şehir buldu."},
+  {"no": 3, "durum": "bekliyor", "konu": "Tutankamon'un laneti: Mezarı açanlar gerçekten öldü mü?", "kanca": "Mezarı açtıran lord birkaç ay sonra öldü. Gazeteler tek kelime yazdı: lanet."},
+  {"no": 4, "durum": "bekliyor", "konu": "Göbeklitepe: Piramitlerden 7000 yıl önce yapılan tapınak", "kanca": "Tarih kitaplarını değiştiren tepe Şanlıurfa'da."},
+  {"no": 5, "durum": "bekliyor", "konu": "Piri Reis haritası: 1513'te çizilen harita neden bu kadar şaşırtıcı?", "kanca": "Bir Osmanlı denizcisinin haritası, 1929'da Topkapı Sarayı'nda bulundu."},
+  {"no": 6, "durum": "bekliyor", "konu": "Pompeii: Bir şehrin bir günde küller altında kalması", "kanca": "Ekmekler fırında, köpek zincirinde, insanlar sokakta... Ve 1700 yıl boyunca kimse bilmedi."},
+  {"no": 7, "durum": "bekliyor", "konu": "Yerebatan Sarnıcı'nın ters Medusa başları", "kanca": "İstanbul'un altında, suyun içinde, baş aşağı duran iki dev yüz."},
+  {"no": 8, "durum": "bekliyor", "konu": "Titanic neden battı? Batmaz denen geminin son saatleri", "kanca": "Batmaz denen gemi ilk seferinde 2 saat 40 dakikada battı."},
+  {"no": 9, "durum": "bekliyor", "konu": "Truva gerçek miydi? Schliemann'ın Çanakkale'deki kazısı", "kanca": "Herkes efsane sandı. Bir tüccar ise bulacağına yemin etti."},
+  {"no": 10, "durum": "bekliyor", "konu": "Nazca çizgileri: Sadece gökyüzünden görülen dev resimler", "kanca": "Çölde, sadece uçaktan görülebilen dev bir maymun ve örümcek."},
+  {"no": 11, "durum": "bekliyor", "konu": "Bermuda Şeytan Üçgeni: Gerçek mi, efsane mi?", "kanca": "Gemiler ve uçaklar iz bırakmadan kayboldu, öyle mi?"},
+  {"no": 12, "durum": "bekliyor", "konu": "Stonehenge: Dev taşlar 200 km öteden nasıl getirildi?", "kanca": "Bazı taşları 200 kilometre öteden geldi. Tekerlek bile yokken."},
+  {"no": 13, "durum": "bekliyor", "konu": "Atlantis: Platon'un anlattığı kayıp kıta", "kanca": "Bütün hikâye tek bir kitaptaki birkaç sayfaya dayanıyor."},
+  {"no": 14, "durum": "bekliyor", "konu": "Voynich el yazması: Kimsenin okuyamadığı kitap", "kanca": "600 yıllık bir kitap. Bilinen hiçbir dilde değil."},
+  {"no": 15, "durum": "bekliyor", "konu": "Kaşıkçı Elması: Topkapı'daki elmasın rivayetleri", "kanca": "Bir çöplükte bulunup üç kaşığa değişildiği anlatılır."}
+ ]
+}
