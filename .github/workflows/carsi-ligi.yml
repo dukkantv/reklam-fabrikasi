@@ -104,9 +104,12 @@ jobs:
           PY
       - name: Deneme videosunu incelemeye koy
         if: env.DENEME == 'true' && hashFiles('cikti/carsi/yayin.json') != ''
+        env:
+          KOMUT: ${{ steps.karar.outputs.komut }}
         run: |
-          python3 -c "import json,shutil;shutil.copy(json.load(open('cikti/carsi/yayin.json'))['video'],'/tmp/carsi-deneme.mp4')"
-          gh release upload kuyruk /tmp/carsi-deneme.mp4 --clobber
+          AD="carsi-deneme-${KOMUT// /-}.mp4"
+          python3 -c "import json,shutil,sys;shutil.copy(json.load(open('cikti/carsi/yayin.json'))['video'],'/tmp/'+sys.argv[1])" "$AD"
+          gh release upload kuyruk "/tmp/$AD" --clobber
       - name: Dükkan TV yayın sırasına ekle
         if: env.DENEME != 'true' && hashFiles('cikti/carsi/yayin.json') != ''
         run: |
