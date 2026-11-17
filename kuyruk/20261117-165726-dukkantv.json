@@ -15,10 +15,12 @@
   "levent ve cemo"
  ],
  "dosya": "20261117-165726-dukkantv.mp4",
- "durum": "onaylandi",
+ "durum": "yuklendi",
  "eklendi": "2026-11-17T16:57:26.223846+03:00",
  "kategori": "24",
  "sabit_yayin": "2026-11-23T13:00:00+03:00",
  "otomatik": true,
- "mesaj_id": 556
+ "mesaj_id": 556,
+ "video_id": "1DYCOIqavBU",
+ "yayin": "2026-11-23T13:00:00+03:00"
 }
