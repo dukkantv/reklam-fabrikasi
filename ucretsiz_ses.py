@@ -20,12 +20,14 @@ TARZLAR = {
     "neseli":   ("neseli", 0.75, 0.35),    # Çarşı Ligi / skeç: hızlı, coşkulu spiker
     "hikaye":   ("hikaye", 0.55, 0.45),    # Drama Bite: sıcak, duygulu
     "dedektif": ("dedektif", 0.5, 0.45),   # Kasa Kurgu: gergin, merak uyandıran
+    "samimi":   ("samimi", 0.55, 0.4),     # Kasa Kurgu günlük seri: arkadaşla konuşur gibi
 }
 
 ORNEK = {
     "belgesel": "Mayıs 1481. Dünyanın en korkulan hükümdarı, ordusunun başında sefere çıkıyor. Hedefini kimse bilmiyor. Ve birkaç gün sonra, bir çadırda, sessizce ölüyor.",
     "neseli": "Ve top bırakıldı! Simitçi Kedi önde, Kokoreç Ejderha hemen arkasında! Bu nasıl bir maç böyle, inanılır gibi değil!",
     "hikaye": "Annesi kapıyı açtığında karşısında yıllardır görmediği oğlunu buldu. Bir an konuşamadı. Sonra gözleri doldu ve sadece sarıldı.",
+    "samimi": "Bugün kasada beş yüz lira var. Hedef elli bin. Biliyorum, çılgınca görünüyor ama dur, sana bugün ne yaptığımı anlatayım.",
     "dedektif": "Kapı içeriden kilitliydi. Anahtar kilitte duruyordu. Peki katil bu odadan nasıl çıktı? Cevap, gözünüzün önündeydi.",
 }
 
