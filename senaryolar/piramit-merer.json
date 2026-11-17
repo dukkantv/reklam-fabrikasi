@@ -1,0 +1,274 @@
+{
+ "baslik": "Mısır Piramitleri Nasıl Yapıldı? 4500 Yıllık İşçi Günlüğü Sırrı Çözdü",
+ "kapak_yazi": "PİRAMİDİN SIRRI ÇÖZÜLDÜ",
+ "aciklama": "Büyük Piramit 2,3 milyon taş bloktan oluşuyor ve 3800 yıl boyunca dünyanın en yüksek yapısıydı. Bu taşlar nereden geldi, nasıl taşındı, piramidi kimler yaptı? 2013'te Kızıldeniz kıyısında bulunan, Merer adlı bir müfettişin 4500 yıllık günlüğü, işçi kasabası, Nil kanalları ve rampa teorileri üzerinden anlatıyoruz.\n\nBu videoda arkeolojik bulgulara dayanan bilgiler kullanılmıştır; tartışmalı konular belirtilmiştir. Görseller temsilidir.",
+ "etiketler": [
+  "Mısır piramitleri",
+  "Büyük Piramit",
+  "Keops",
+  "Merer günlüğü",
+  "piramitler nasıl yapıldı",
+  "Giza",
+  "antik Mısır",
+  "Gizli Tarih",
+  "arkeoloji",
+  "tarih belgeseli"
+ ],
+ "bolumler": [
+  {
+   "sahne": 1,
+   "ad": "Giriş"
+  },
+  {
+   "sahne": 4,
+   "ad": "Büyük Piramit"
+  },
+  {
+   "sahne": 8,
+   "ad": "Köleler mi, işçiler mi?"
+  },
+  {
+   "sahne": 13,
+   "ad": "Mağaradaki papirüsler"
+  },
+  {
+   "sahne": 18,
+   "ad": "Merer'in görevi"
+  },
+  {
+   "sahne": 20,
+   "ad": "Taşlar nasıl taşındı?"
+  },
+  {
+   "sahne": 25,
+   "ad": "Taşlar nasıl yükseldi?"
+  },
+  {
+   "sahne": 30,
+   "ad": "İçerideki gizli boşluk"
+  },
+  {
+   "sahne": 33,
+   "ad": "Sonuç"
+  }
+ ],
+ "kapak_sahne": 1,
+ "sahneler": [
+  {
+   "metin": "4500 yıl önce, ne vinç vardı ne demir alet. Ama Mısır'da bir tepenin üstüne 2 milyon 300 bin taş blok dizildi. Nasıl?",
+   "nesne": "Great Pyramid of Giza at sunrise",
+   "arama": "Great Pyramid of Giza at sunrise",
+   "gorsel": "the Great Pyramid of Giza at sunrise seen from the desert, golden light, majestic"
+  },
+  {
+   "metin": "Yıllarca uzaylılar dendi, kayıp uygarlıklar dendi. Oysa cevap, 2013'te Kızıldeniz kıyısındaki bir mağarada bulundu.",
+   "nesne": "ancient papyrus scroll in a desert cave",
+   "arama": "ancient papyrus scroll in a desert cave",
+   "gorsel": "ancient papyrus scroll lying on sand inside a rocky desert cave, beam of light"
+  },
+  {
+   "metin": "Bu videoda Büyük Piramit'in nasıl yapıldığını, inşa edenlerin kim olduğunu ve 4500 yıllık bir işçi günlüğünün anlattıklarını konuşuyoruz.",
+   "nesne": "three pyramids of Giza panorama",
+   "arama": "three pyramids of Giza panorama",
+   "gorsel": "panorama of the three pyramids of Giza in the desert at golden hour"
+  },
+  {
+   "metin": "Büyük Piramit, firavun Keops için yapıldı. Mısırlılar ona Hufu diyordu. İnşaatın milattan önce 2560 civarında bittiği kabul ediliyor.",
+   "nesne": "Egyptian pharaoh on a throne",
+   "arama": "Egyptian pharaoh on a throne",
+   "gorsel": "ancient Egyptian pharaoh with the nemes headdress seated on a throne in a temple hall, ancient Egypt 2560 BC, historically accurate, Egyptian workers in white linen kilts, no text"
+  },
+  {
+   "metin": "Yüksekliği yaklaşık 146 metreydi. Tam 3800 yıl boyunca dünyanın insan yapımı en yüksek yapısı olarak kaldı.",
+   "nesne": "Great Pyramid towering over tiny people",
+   "arama": "Great Pyramid towering over tiny people",
+   "gorsel": "the Great Pyramid towering over tiny people walking at its base, dramatic scale"
+  },
+  {
+   "metin": "Tabanının her kenarı 230 metreyi aşıyor. Kenarlar arasındaki fark ise sadece birkaç santim. Bu hassasiyet bugün bile şaşırtıyor.",
+   "nesne": "aerial view of the pyramid base",
+   "arama": "aerial view of the pyramid base",
+   "gorsel": "aerial view of the square base of a great pyramid in the desert, precise geometry"
+  },
+  {
+   "metin": "Peki bu kadar taş nereden geldi ve buraya nasıl taşındı? Asıl gizem burada başlıyor.",
+   "nesne": "huge limestone blocks in the sand",
+   "arama": "huge limestone blocks in the sand",
+   "gorsel": "huge rough limestone blocks lying in the desert sand, mysterious mood"
+  },
+  {
+   "metin": "Yıllarca anlatılan en yaygın hikâye şuydu: Piramitleri kırbaç altında çalışan köleler yaptı. Ama arkeoloji başka bir şey söylüyor.",
+   "nesne": "workers resting in the shade",
+   "arama": "workers resting in the shade",
+   "gorsel": "ancient Egyptian workers resting in the shade of a mudbrick wall, ancient Egypt 2560 BC, historically accurate, Egyptian workers in white linen kilts, no text"
+  },
+  {
+   "metin": "1990'da piramitlerin hemen yanında, işçilere ait bir mezarlık bulundu. Bu insanlar firavunun yanına, onurla gömülmüştü.",
+   "nesne": "small mudbrick tombs near pyramids",
+   "arama": "small mudbrick tombs near pyramids",
+   "gorsel": "small mudbrick tombs in the desert with pyramids in the background"
+  },
+  {
+   "metin": "Arkeolog Mark Lehner'in ekibi de yakınlarda koca bir işçi kasabası ortaya çıkardı. Fırınlar, depolar, yatakhaneler…",
+   "nesne": "ancient bakery with clay ovens",
+   "arama": "ancient bakery with clay ovens",
+   "gorsel": "ancient Egyptian bakery with clay ovens and bread moulds, workers baking, ancient Egypt 2560 BC, historically accurate, Egyptian workers in white linen kilts, no text"
+  },
+  {
+   "metin": "Bulunan hayvan kemikleri işçilerin bol bol et yediğini gösteriyor. Yani bu insanlar köle değil, beslenen, ücreti verilen işçilerdi.",
+   "nesne": "workers eating bread and meat",
+   "arama": "workers eating bread and meat",
+   "gorsel": "ancient Egyptian workers eating bread and meat together at long tables, ancient Egypt 2560 BC, historically accurate, Egyptian workers in white linen kilts, no text"
+  },
+  {
+   "metin": "Uzmanlara göre piramitte aynı anda yaklaşık yirmi bin kişi çalışıyordu. Her ekibin kendi adı vardı.",
+   "nesne": "large team pulling a rope",
+   "arama": "large team pulling a rope",
+   "gorsel": "large team of ancient Egyptian workers pulling a thick rope together, ancient Egypt 2560 BC, historically accurate, Egyptian workers in white linen kilts, no text"
+  },
+  {
+   "metin": "Şimdi o mağaraya dönelim. Kızıldeniz kıyısında, Vadi el-Carf denen yerde, eski bir liman vardı.",
+   "nesne": "rocky Red Sea shore with caves",
+   "arama": "rocky Red Sea shore with caves",
+   "gorsel": "rocky Red Sea shoreline with man-made caves cut into the cliff, ancient harbor"
+  },
+  {
+   "metin": "Fransız arkeolog Pierre Tallet ve ekibi 2013'te burada papirüs rulolarını buldu. Bunlar bilinen en eski yazılı papirüslerdi.",
+   "nesne": "archaeologist unrolling papyrus",
+   "arama": "archaeologist unrolling papyrus",
+   "gorsel": "archaeologist carefully unrolling a fragile ancient papyrus on a table in a field tent"
+  },
+  {
+   "metin": "Ruloların bir kısmını Merer adında bir müfettiş yazmıştı. Merer, yaklaşık iki yüz kişilik bir ekibin başındaydı.",
+   "nesne": "Egyptian scribe writing on papyrus",
+   "arama": "Egyptian scribe writing on papyrus",
+   "gorsel": "ancient Egyptian scribe writing on papyrus with a reed pen, sitting cross-legged, ancient Egypt 2560 BC, historically accurate, Egyptian workers in white linen kilts, no text"
+  },
+  {
+   "metin": "Merer günlüğüne her gün ne yaptığını yazıyordu. Bu, Büyük Piramit'in inşasını gören birinin elimizdeki tek kaydı.",
+   "nesne": "papyrus with hieratic writing close up",
+   "arama": "papyrus with hieratic writing close up",
+   "gorsel": "close-up of ancient papyrus covered with faded black hieratic script, no readable letters"
+  },
+  {
+   "metin": "Günlük, Keops'un saltanatının yirmi yedinci yılını anlatıyor. Yani piramidin son aşamasını.",
+   "nesne": "pyramid nearly finished with ramps",
+   "arama": "pyramid nearly finished with ramps",
+   "gorsel": "an almost finished great pyramid with construction ramps and workers, ancient Egypt 2560 BC, historically accurate, Egyptian workers in white linen kilts, no text"
+  },
+  {
+   "metin": "Merer'in ekibinin işi, Tura'daki taş ocaklarından beyaz kireçtaşı alıp Giza'ya taşımaktı.",
+   "nesne": "limestone quarry with workers",
+   "arama": "limestone quarry with workers",
+   "gorsel": "ancient limestone quarry with workers cutting white blocks with copper chisels, ancient Egypt 2560 BC, historically accurate, Egyptian workers in white linen kilts, no text"
+  },
+  {
+   "metin": "Bu parlak beyaz taşlar piramidin dış kaplamasıydı. Piramit ilk yapıldığında, güneşte parıldayan bembeyaz bir dağ gibiydi.",
+   "nesne": "pyramid covered with white casing",
+   "arama": "pyramid covered with white casing",
+   "gorsel": "the Great Pyramid covered with smooth polished white limestone casing shining in the sun"
+  },
+  {
+   "metin": "Peki taşlar nasıl taşındı? Cevap şaşırtıcı derecede basit: Nil'in üzerinden, teknelerle.",
+   "nesne": "wooden boat carrying stone on the Nile",
+   "arama": "wooden boat carrying stone on the Nile",
+   "gorsel": "ancient Egyptian wooden boat carrying large limestone blocks on the Nile, ancient Egypt 2560 BC, historically accurate, Egyptian workers in white linen kilts, no text"
+  },
+  {
+   "metin": "Her yaz Nil taşıyordu. Sular yükselince ekipler kazılmış kanallarla taşları piramidin çok yakınına kadar getiriyordu.",
+   "nesne": "flooded Nile with canals",
+   "arama": "flooded Nile with canals",
+   "gorsel": "flooded Nile valley with canals leading toward pyramids, ancient Egypt"
+  },
+  {
+   "metin": "Merer'in kayıtlarına göre ekip bir seferde onlarca taşı yükleyip birkaç gün içinde Giza'ya ulaştırıyordu.",
+   "nesne": "boats arriving at a harbor near pyramid",
+   "arama": "boats arriving at a harbor near pyramid",
+   "gorsel": "fleet of wooden boats arriving at a busy harbor near a pyramid construction site, ancient Egypt 2560 BC, historically accurate, Egyptian workers in white linen kilts, no text"
+  },
+  {
+   "metin": "Limanda taşlar kızaklara yükleniyor, ipler ve insan gücüyle şantiyeye çekiliyordu.",
+   "nesne": "block on a wooden sledge pulled by men",
+   "arama": "block on a wooden sledge pulled by men",
+   "gorsel": "large stone block on a wooden sledge pulled by many workers with ropes, ancient Egypt 2560 BC, historically accurate, Egyptian workers in white linen kilts, no text"
+  },
+  {
+   "metin": "Bir Mısır mezarındaki resimde, kızağın önüne su döken bir adam görülür. Bilim insanları, ıslak kumun sürtünmeyi azalttığını deneylerle gösterdi.",
+   "nesne": "man pouring water in front of a sledge",
+   "arama": "man pouring water in front of a sledge",
+   "gorsel": "worker pouring water on the sand in front of a sledge carrying a statue, ancient Egypt 2560 BC, historically accurate, Egyptian workers in white linen kilts, no text"
+  },
+  {
+   "metin": "Peki taşlar yukarı nasıl çıkarıldı? İşte bu konu hâlâ tartışılıyor.",
+   "nesne": "workers at the top of a pyramid",
+   "arama": "workers at the top of a pyramid",
+   "gorsel": "workers placing a block on a high level of an unfinished pyramid, ancient Egypt 2560 BC, historically accurate, Egyptian workers in white linen kilts, no text"
+  },
+  {
+   "metin": "En çok kabul gören fikir rampalar. Düz rampa, piramidin etrafında dolanan rampa ya da ikisinin karışımı.",
+   "nesne": "spiral ramp around a pyramid",
+   "arama": "spiral ramp around a pyramid",
+   "gorsel": "unfinished pyramid with a long mudbrick ramp spiraling around it, ancient Egypt 2560 BC, historically accurate, Egyptian workers in white linen kilts, no text"
+  },
+  {
+   "metin": "Bir taş ocağında, iki yanında direk delikleri olan dik bir rampa bulundu. Taşların bu direklerle yukarı çekilmiş olabileceği düşünülüyor.",
+   "nesne": "steep ancient ramp with post holes",
+   "arama": "steep ancient ramp with post holes",
+   "gorsel": "steep ancient stone ramp with stairs and post holes in a desert quarry"
+  },
+  {
+   "metin": "Kesin olan şu: Hiçbir mucize yok. Çok iyi bir organizasyon, binlerce emekçi ve yıllar süren sabır var.",
+   "nesne": "workers organized in teams",
+   "arama": "workers organized in teams",
+   "gorsel": "overseer directing organized teams of workers at a construction site, ancient Egypt 2560 BC, historically accurate, Egyptian workers in white linen kilts, no text"
+  },
+  {
+   "metin": "Merer'in kayıtlarında ekmek, bira ve tahıl hesapları bile tutulmuştu. Bugünkü bir şantiye defteri gibi.",
+   "nesne": "clay jars of grain and beer",
+   "arama": "clay jars of grain and beer",
+   "gorsel": "rows of clay jars and baskets of grain in an ancient storeroom"
+  },
+  {
+   "metin": "Piramidin içinde de bir sır var. Kral odasının üstünde, ağırlığı dağıtmak için yapılmış beş boşluk bulunuyor.",
+   "nesne": "granite chamber inside pyramid",
+   "arama": "granite chamber inside pyramid",
+   "gorsel": "dark granite chamber deep inside a pyramid with an empty stone sarcophagus"
+  },
+  {
+   "metin": "2017'de kozmik ışınlarla yapılan bir taramada, piramidin içinde büyük, gizli bir boşluk daha tespit edildi.",
+   "nesne": "scientists with scanners near pyramid",
+   "arama": "scientists with scanners near pyramid",
+   "gorsel": "scientists with modern detectors near the base of the Great Pyramid at night"
+  },
+  {
+   "metin": "O boşluğun ne olduğu hâlâ bilinmiyor. Belki bir rampa, belki bir yapım tekniği. Araştırmalar sürüyor.",
+   "nesne": "dark empty corridor inside stone",
+   "arama": "dark empty corridor inside stone",
+   "gorsel": "mysterious dark empty corridor inside ancient stone blocks, faint light"
+  },
+  {
+   "metin": "Bugün piramidin parlak beyaz kaplaması yok. Yüzyıllar içinde sökülüp başka binalarda kullanıldı.",
+   "nesne": "weathered pyramid steps",
+   "arama": "weathered pyramid steps",
+   "gorsel": "weathered stepped surface of the Great Pyramid today, rough stones"
+  },
+  {
+   "metin": "Ama Merer'in günlüğü sayesinde artık biliyoruz: Bu dev yapıyı uzaylılar değil, isimleri kayıtlarda yazan insanlar yaptı.",
+   "nesne": "workers looking at a finished pyramid",
+   "arama": "workers looking at a finished pyramid",
+   "gorsel": "ancient Egyptian workers proudly looking at a finished white pyramid at sunset, ancient Egypt 2560 BC, historically accurate, Egyptian workers in white linen kilts, no text"
+  },
+  {
+   "metin": "Antik dünyanın yedi harikasından bugün ayakta kalan tek eser, hâlâ Giza'da duruyor.",
+   "nesne": "pyramid under the stars",
+   "arama": "pyramid under the stars",
+   "gorsel": "the Great Pyramid under a sky full of stars, silent desert night"
+  },
+  {
+   "metin": "Sence bu işin en zor kısmı neydi? Taşı kesmek mi, taşımak mı, yoksa yukarı çıkarmak mı? Yorumlara yaz. Gizli Tarih'e abone olmayı unutma.",
+   "nesne": "old map of Egypt with a candle",
+   "arama": "old map of Egypt with a candle",
+   "gorsel": "old parchment map of the Nile valley on a desk beside a candle, completely blank, no text"
+  }
+ ]
+}
