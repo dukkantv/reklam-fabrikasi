@@ -1,0 +1,302 @@
+{
+ "baslik": "Bir Eskici Padişahı Nasıl Tahttan İndirdi? Patrona Halil İsyanı (1730)",
+ "kapak_yazi": "BİR ESKİCİ PADİŞAHI DEVİRDİ",
+ "aciklama": "1730 sonbaharında İstanbul'da bir eskici, bir avuç arkadaşıyla ayaklandı. Birkaç gün içinde Lale Devri bitmiş, Sadrazam Nevşehirli Damat İbrahim Paşa öldürülmüş, Sultan III. Ahmed tahtı bırakmıştı. Patrona Halil kimdi, isyan neden bu kadar hızlı büyüdü ve sonunda ne oldu? Lale Devri'nin şaşaasından İran cephesindeki yenilgiye, Sadabad'ın yağmasından Patrona'nın sonuna kadar anlatıyoruz.\n\nBu videoda tarihçilerin kabul ettiği bilgiler kullanılmıştır; tartışmalı noktalar \"rivayete göre\" diye belirtilmiştir. Görseller temsilidir.",
+ "etiketler": [
+  "Patrona Halil",
+  "Patrona Halil İsyanı",
+  "Lale Devri",
+  "III. Ahmed",
+  "Nevşehirli Damat İbrahim Paşa",
+  "I. Mahmud",
+  "Sadabad",
+  "Osmanlı tarihi",
+  "1730",
+  "Gizli Tarih"
+ ],
+ "bolumler": [
+  {
+   "sahne": 1,
+   "ad": "Giriş"
+  },
+  {
+   "sahne": 4,
+   "ad": "Lale Devri"
+  },
+  {
+   "sahne": 11,
+   "ad": "İran cephesinden kötü haber"
+  },
+  {
+   "sahne": 15,
+   "ad": "Patrona Halil kimdi?"
+  },
+  {
+   "sahne": 18,
+   "ad": "28 Eylül 1730"
+  },
+  {
+   "sahne": 24,
+   "ad": "Saraydaki pazarlık"
+  },
+  {
+   "sahne": 28,
+   "ad": "Tahtın el değiştirmesi"
+  },
+  {
+   "sahne": 31,
+   "ad": "Patrona'nın iktidarı"
+  },
+  {
+   "sahne": 35,
+   "ad": "Saraydaki tuzak"
+  },
+  {
+   "sahne": 38,
+   "ad": "Geriye ne kaldı?"
+  }
+ ],
+ "kapak_sahne": 20,
+ "sahneler": [
+  {
+   "metin": "Eylül 1730. İstanbul'da bir eskici, birkaç arkadaşıyla çarşının ortasında isyan bayrağı açıyor. Birkaç gün sonra imparatorluğun sadrazamı ölmüş, padişah ise tahtını bırakmış olacak.",
+   "nesne": "angry crowd in an Ottoman bazaar street",
+   "arama": "Patrona Halil revolt",
+   "gorsel": "angry crowd raising a flag in an Ottoman covered bazaar street, 1730 Istanbul, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "Bir hamam tellağı, bir eskici, sıradan bir esnaf. Dünyanın en güçlü devletlerinden birini nasıl dize getirdi?",
+   "nesne": "humble Ottoman street vendor with old clothes",
+   "arama": "Ottoman street vendor 18th century",
+   "gorsel": "humble Ottoman second-hand clothes seller standing in a narrow street, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "Bu videoda Patrona Halil isyanını, Lale Devri'nin nasıl bir gecede sona erdiğini ve isyanın elebaşına sonunda ne olduğunu anlatıyoruz.",
+   "nesne": "tulips in a garden of an Ottoman pavilion",
+   "arama": "Tulip Era Ottoman",
+   "gorsel": "red and yellow tulips in front of an elegant Ottoman pavilion, 18th century Ottoman era"
+  },
+  {
+   "metin": "Hikâyemiz 1718'de başlıyor. Pasarofça Antlaşması ile savaşlar bir süreliğine durmuş, İstanbul uzun bir barış dönemine girmişti.",
+   "nesne": "Ottoman diplomats signing a peace treaty",
+   "arama": "Treaty of Passarowitz",
+   "gorsel": "Ottoman and European diplomats around a table signing a peace treaty, 1718, historically accurate costumes"
+  },
+  {
+   "metin": "Tahtta Sultan Üçüncü Ahmed vardı. Devletin işlerini ise damadı, Sadrazam Nevşehirli İbrahim Paşa yönetiyordu.",
+   "nesne": "Ottoman sultan and grand vizier in a palace hall",
+   "arama": "Sultan Ahmed III",
+   "gorsel": "Ottoman sultan seated on a divan with his grand vizier standing beside him in a richly decorated palace hall, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "Bu yıllara sonradan Lale Devri adı verildi. Bahçeler, kasırlar, eğlenceler, şiir ve sanat… İstanbul'un yüzü değişiyordu.",
+   "nesne": "Ottoman garden party with musicians",
+   "arama": "Tulip Era garden party",
+   "gorsel": "elegant Ottoman garden party with musicians and lanterns among tulip beds, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "Kağıthane'de Sadabad Kasrı yükseldi. Boğaz kıyısı köşklerle, çeşmelerle doldu. Bir lale soğanının servet değerinde satıldığı anlatılır.",
+   "nesne": "Ottoman summer palace beside a canal",
+   "arama": "Sadabad Palace Kagithane",
+   "gorsel": "graceful Ottoman summer palace beside a marble canal with fountains, Kagithane, 18th century Ottoman era"
+  },
+  {
+   "metin": "Geceleri bahçelerde kaplumbağaların sırtına mumlar konulduğu, misafirlerin bu ışıkların arasında gezdiği rivayet edilir.",
+   "nesne": "tortoises carrying small candles in a night garden",
+   "arama": "Tulip Era candle tortoises",
+   "gorsel": "small tortoises carrying lit candles on their shells walking among tulips in a garden at night, 18th century Ottoman era"
+  },
+  {
+   "metin": "Aynı dönemde önemli yenilikler de oldu. İbrahim Müteferrika'nın matbaası 1729'da ilk Türkçe kitabı bastı.",
+   "nesne": "early printing press with a printed book",
+   "arama": "Ibrahim Muteferrika printing press",
+   "gorsel": "18th century wooden printing press in an Ottoman workshop with freshly printed pages, historically accurate"
+  },
+  {
+   "metin": "Ama sarayın dışında herkes aynı şeyi yaşamıyordu. Fiyatlar artıyor, geçim zorlaşıyor, halk bu şatafata öfkeyle bakıyordu.",
+   "nesne": "poor townspeople looking at a lavish palace",
+   "arama": "Ottoman poor people 18th century",
+   "gorsel": "poor Ottoman townspeople in plain clothes looking from a distance at a lavish palace, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "Sonra doğudan kötü haberler gelmeye başladı. İran'da yükselen Nadir, Osmanlı'nın elindeki şehirleri birer birer geri alıyordu.",
+   "nesne": "Persian cavalry charging",
+   "arama": "Nader Shah army",
+   "gorsel": "Persian cavalry charging across a dusty plain, 18th century, historically accurate armor"
+  },
+  {
+   "metin": "1730 yazında Tebriz'in kaybedildiği haberi İstanbul'a ulaştı. Şehirde öfke büyüdü.",
+   "nesne": "messenger on horseback arriving at city gates",
+   "arama": "Ottoman messenger",
+   "gorsel": "exhausted messenger on horseback arriving at Istanbul city gates, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "Padişah sefer ilan etti, ordu Üsküdar'da toplandı. Ama günler geçti ve ordu bir türlü yola çıkmadı.",
+   "nesne": "Ottoman army camp with tents at Uskudar",
+   "arama": "Ottoman army camp",
+   "gorsel": "large Ottoman army camp with many tents on the Asian shore of the Bosphorus, 18th century Ottoman era"
+  },
+  {
+   "metin": "Kahvehanelerde, hamamlarda, çarşılarda aynı söz dolaşıyordu: Sınırlar düşerken saray eğlencedeydi. Kıvılcım hazırdı.",
+   "nesne": "Ottoman coffeehouse full of men talking",
+   "arama": "Ottoman coffeehouse",
+   "gorsel": "crowded Ottoman coffeehouse with men in turbans talking intensely, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "Patrona Halil, Arnavut asıllı eski bir yeniçeriydi. Kaynaklara göre bir dönem hamam tellaklığı yapmış, sonra Beyazıt'ta eskicilik yapmıştı.",
+   "nesne": "Ottoman bathhouse interior with steam",
+   "arama": "Ottoman hammam interior",
+   "gorsel": "steamy interior of an Ottoman bathhouse with marble basins, 18th century Ottoman era"
+  },
+  {
+   "metin": "Lakabının, bir zamanlar donanmada patrona adı verilen gemide hizmet etmesinden geldiği söylenir.",
+   "nesne": "Ottoman sailing warship in the harbor",
+   "arama": "Ottoman galleon",
+   "gorsel": "Ottoman sailing warship anchored in the Golden Horn, 18th century, historically accurate"
+  },
+  {
+   "metin": "Yanında yeniçeri Muslu Beşe ve Kel Ali gibi arkadaşları vardı. Plan küçüktü ama zamanlama mükemmeldi.",
+   "nesne": "three men whispering in a dark alley",
+   "arama": "Janissaries",
+   "gorsel": "three Ottoman men in janissary clothes whispering secretly in a dark Istanbul alley at night, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "28 Eylül 1730 sabahı Kapalıçarşı'da dükkânlar yeni açılıyordu. Patrona ve arkadaşları kılıçlarını çekip halkı isyana çağırdı.",
+   "nesne": "men raising a flag in a city square at dawn",
+   "arama": "Beyazit Square Istanbul",
+   "gorsel": "small group of Ottoman men raising a banner in a city square near a great mosque at dawn, 1730 Istanbul, historically accurate costumes"
+  },
+  {
+   "metin": "Esnaf kepenk kapatıp onlara katıldı. Kalabalık her sokakta biraz daha büyüdü.",
+   "nesne": "merchants closing wooden shop shutters",
+   "arama": "Ottoman bazaar",
+   "gorsel": "Ottoman merchants hurriedly closing wooden shop shutters in a bazaar street, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "Yeniçerilerin bir kısmı da isyancıların yanına geçti. Bir eskicinin başlattığı hareket, kısa sürede bir orduya dönüştü.",
+   "nesne": "janissaries joining an angry crowd",
+   "arama": "Janissary cauldron",
+   "gorsel": "armed janissaries joining an angry crowd in an Istanbul street, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "Padişah ve sadrazam hâlâ Üsküdar'daydı. İsyanı duyunca alelacele saraya döndüler.",
+   "nesne": "royal Ottoman barge crossing the Bosphorus",
+   "arama": "Ottoman imperial barge",
+   "gorsel": "ornate royal Ottoman barge with oarsmen hurriedly crossing the Bosphorus, 18th century Ottoman era"
+  },
+  {
+   "metin": "İsyancıların istediği belliydi: Başta Sadrazam İbrahim Paşa olmak üzere, kaynaklara göre otuz yedi devlet adamı kendilerine teslim edilecekti.",
+   "nesne": "crowd shouting in front of palace gate",
+   "arama": "Topkapi Palace gate",
+   "gorsel": "large shouting crowd in front of the Topkapi Palace imperial gate, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "Sultan Ahmed önce zaman kazanmaya çalıştı. Ama kalabalık her saat büyüyor, şehirde konaklar yağmalanıyordu.",
+   "nesne": "worried sultan at a palace window",
+   "arama": "Ottoman sultan",
+   "gorsel": "worried Ottoman sultan looking out of a palace window at a distant crowd, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "Sarayın içinde zor bir pazarlık başladı. Padişah tahtını kurtarmak için en yakınlarından vazgeçmek zorunda kalacaktı.",
+   "nesne": "tense meeting in an Ottoman palace chamber",
+   "arama": "Ottoman council",
+   "gorsel": "tense meeting of Ottoman officials in a dim palace chamber lit by candles, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "Sonunda karar verildi. 2 Ekim'de Sadrazam İbrahim Paşa ve iki damadı öldürüldü, cesetleri isyancılara teslim edildi. Lale Devri'nin mimarı böyle öldü.",
+   "nesne": "empty grand vizier seal on a table with a candle",
+   "arama": "Ottoman grand vizier seal",
+   "gorsel": "an empty desk with an Ottoman grand vizier's seal and a burnt-out candle in a dark palace room, somber mood"
+  },
+  {
+   "metin": "Ama isyancılar durmadı. Artık başka bir şey istiyorlardı: Padişahın kendisinin tahttan inmesini.",
+   "nesne": "empty Ottoman throne in a dark hall",
+   "arama": "Ottoman throne",
+   "gorsel": "empty golden Ottoman throne in a dark hall, dramatic light, 18th century Ottoman era"
+  },
+  {
+   "metin": "Bu arada Sadabad başta olmak üzere pek çok köşk ve kasır yağmalandı. Lale Devri'nin simgeleri günler içinde harabeye döndü.",
+   "nesne": "looted Ottoman pavilion with broken windows",
+   "arama": "Sadabad",
+   "gorsel": "looted and damaged Ottoman pavilion with broken windows and trampled tulip gardens, smoke in the air, 18th century"
+  },
+  {
+   "metin": "Ekim'in ilk günlerinde Sultan Üçüncü Ahmed tahtı yeğeni Mahmud'a bıraktı. Yeni padişah Birinci Mahmud oldu.",
+   "nesne": "young Ottoman sultan receiving allegiance",
+   "arama": "Sultan Mahmud I",
+   "gorsel": "young Ottoman sultan in a throne room receiving the allegiance of officials, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "Üçüncü Ahmed sarayın bir köşesine çekildi ve birkaç yıl sonra orada hayatını kaybetti. Lale Devri resmen bitmişti.",
+   "nesne": "old sultan alone in a quiet palace room",
+   "arama": "Topkapi Palace room",
+   "gorsel": "elderly former Ottoman sultan sitting alone in a quiet palace room, melancholic light, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "Bir eskici, padişah değiştirmişti. İstanbul'da birkaç hafta boyunca gerçek güç onun elindeydi.",
+   "nesne": "rebel leader standing before a crowd",
+   "arama": "Patrona Halil",
+   "gorsel": "confident Ottoman rebel leader in simple clothes standing before a cheering crowd, 1730 Istanbul, historically accurate costumes"
+  },
+  {
+   "metin": "Patrona Halil devlet toplantılarına katılıyor, atamalara karışıyordu. Rivayete göre bir kasap arkadaşı Yanaki için Boğdan voyvodalığını bile istedi.",
+   "nesne": "rebel leader sitting among Ottoman officials",
+   "arama": "Ottoman divan meeting",
+   "gorsel": "plainly dressed rebel sitting uncomfortably among richly dressed Ottoman officials in a council hall, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "Devlet adamları sabırla bekledi. Dışarıdan teslim olmuş görünüyorlardı ama içeride bir plan hazırlanıyordu.",
+   "nesne": "two Ottoman officials whispering behind a column",
+   "arama": "Ottoman officials",
+   "gorsel": "two Ottoman officials whispering behind a marble column in a palace corridor, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "İsyancıların bir kısmı da yorulmuştu. Esnaf dükkânına, yeniçeri kışlasına dönmek istiyordu. Patrona'nın desteği her gün biraz azalıyordu.",
+   "nesne": "merchants reopening shops in a quiet street",
+   "arama": "Istanbul bazaar 18th century",
+   "gorsel": "Ottoman merchants calmly reopening shops in a quiet street, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "25 Kasım 1730'da Patrona Halil ve yakın adamları bir toplantı ve ödül bahanesiyle saraya çağrıldı.",
+   "nesne": "Ottoman palace courtyard with guards",
+   "arama": "Topkapi Palace courtyard",
+   "gorsel": "Topkapi Palace inner courtyard with guards standing still, cold November light, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "İçeri girdiklerinde onları bekleyen bir ödül değil, bir tuzaktı. Patrona ve arkadaşları orada öldürüldü. Kasap Yanaki da kurtulamadı.",
+   "nesne": "dark palace doorway closing",
+   "arama": "Ottoman palace door",
+   "gorsel": "heavy ornate palace doors closing in a dark corridor, ominous shadows, 18th century Ottoman era"
+  },
+  {
+   "metin": "Ardından isyana katılanlar şehirde tek tek arandı. Kısa süre içinde düzen yeniden sağlandı.",
+   "nesne": "Ottoman soldiers patrolling a night street",
+   "arama": "Ottoman soldiers",
+   "gorsel": "Ottoman soldiers with lanterns patrolling a quiet Istanbul street at night, 18th century Ottoman era, historically accurate costumes"
+  },
+  {
+   "metin": "Peki geriye ne kaldı? Patrona isyanı, sarayın halktan ne kadar koptuğunu bütün imparatorluğa gösterdi.",
+   "nesne": "Istanbul skyline with mosques at sunset",
+   "arama": "Istanbul 18th century view",
+   "gorsel": "Istanbul skyline with mosques and minarets at sunset seen from the Bosphorus, 18th century"
+  },
+  {
+   "metin": "Lale Devri tek bir isyanla bitti. Ama getirdiği yenilikler, özellikle matbaa, sonraki yıllarda yaşamaya devam etti.",
+   "nesne": "old printed Ottoman book on a table",
+   "arama": "Ottoman printed book",
+   "gorsel": "an old printed Ottoman book open on a wooden table beside a single tulip, warm light"
+  },
+  {
+   "metin": "Bir eskicinin padişah değiştirdiği bu günler, Osmanlı tarihinin en şaşırtıcı sayfalarından biri olarak kaldı.",
+   "nesne": "single wilted tulip on palace steps",
+   "arama": "tulip",
+   "gorsel": "a single wilted red tulip lying on marble palace steps, dramatic light, symbolic"
+  },
+  {
+   "metin": "Sence Patrona Halil bir halk kahramanı mıydı, yoksa fırsatçı bir isyancı mı? Yorumlara yaz. Gizli Tarih'e abone olmayı unutma.",
+   "nesne": "old map of Istanbul with a candle",
+   "arama": "old map of Istanbul",
+   "gorsel": "old hand-drawn map of 18th century Istanbul spread on a desk beside a candle, warm light, no text"
+  }
+ ]
+}
