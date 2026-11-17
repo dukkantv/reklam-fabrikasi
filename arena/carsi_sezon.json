@@ -1,6 +1,6 @@
 {
  "sezon": 1,
- "faz": "lansman",
+ "faz": "takim",
  "takimlar": {
   "K": [
    "dondurmaci-keci",
@@ -50,7 +50,8 @@
   1,
   2,
   3,
-  4
+  4,
+  5
  ],
  "hafta_olay": {},
  "bolumler": []
