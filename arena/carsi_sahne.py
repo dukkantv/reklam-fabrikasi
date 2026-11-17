@@ -74,6 +74,13 @@ def ortala(im, r, cx, cy, olcek=1.0, alfa=1.0):
     im.paste(r, (int(cx - r.width / 2), int(cy - r.height / 2)), r)
 
 
+def sigdir(d, xy, metin, en, boy=36, anchor="lm", **k):
+    """Yazıyı 'en' piksel genişliğe sığana kadar küçültür."""
+    while boy > 16 and d.textlength(metin, font=font(boy, "Bold")) > en:
+        boy -= 2
+    yazi(d, xy, metin, font(boy, "Bold"), anchor=anchor, **k)
+
+
 def balon(d, kim, metin, y=1700):
     """Altta konuşma şeridi: kim konuşuyor + söz."""
     ad = {"L": "LEVENT", "C": "CEMO", "B": "ÇARŞI MUHTARI"}[kim]
@@ -199,24 +206,23 @@ def kura_gecesi(cikti, takimlar, sesli=True):
             yazi(d, (x, 215), TAKIM_AD[t_], font(40), kenar=4)
         say = {"K": 0, "M": 0}
         for (t_, e) in gosterilen:
-            x = W * (0.25 if t_ == "K" else 0.75); y = 330 + say[t_] * 160; say[t_] += 1
-            ortala(im, dukkan(e, 150), x - 160, y)
-            yazi(d, (x + 30, y), tr_ad(ESNAF[e][0]), font(36 if len(ESNAF[e][0]) < 14 else 28, "Bold"), kenar=4,
-                 dolgu=(255, 210, 60) if (t_, e) == vurgulu else (255, 255, 255), anchor="lm")
+            x0 = 40 if t_ == "K" else W // 2 + 20; y = 330 + say[t_] * 160; say[t_] += 1
+            ortala(im, dukkan(e, 150), x0 + 75, y)
+            sigdir(d, (x0 + 160, y), tr_ad(ESNAF[e][0]), en=W // 2 - 220, kenar=4,
+                   dolgu=(255, 210, 60) if e in (vurgulu or ()) else (255, 255, 255))
 
     def cekilis(k):
         def ciz(im, d, t, p, i):
-            tablo(im, d, sira[:k], vurgulu=sira[k - 1])
+            tablo(im, d, sira[:k], vurgulu=[e for _, e in sira[max(0, k - 2):k]])
         return ciz
     parcalar = [(3.0, "B", "Kura gecesine hoş geldiniz! On beş esnaf, iki takım. Torbada isimler var.", ac)]
-    yorum = {2: ("C", "Abi kalbim duracak, benim favorim hangi takıma düşecek?"),
-             6: ("L", "Takımlar şekilleniyor, rekabet şimdiden kızıştı!"),
-             10: ("C", "Bu takımda ateş var abi, kokoreç kokusu buraya geliyor!"),
-             14: ("L", "Ve son isimler geliyor!")}
-    for k in range(1, len(sira) + 1):
-        t_, e = sira[k - 1]
-        kim, soz = ("B", f"{tr_ad(ESNAF[e][0])}... {tr_ad(TAKIM_AD[t_])}!")
-        parcalar.append((1.8, kim, soz, cekilis(k)))
+    yorum = {4: ("C", "Abi kalbim duracak, benim favorim hangi takıma düşecek?"),
+             10: ("L", "Takımlar şekilleniyor, rekabet şimdiden kızıştı!")}
+    k = 0
+    while k < len(sira):   # ikişer ikişer: biri Kırmızı'ya, biri Mavi'ye
+        cift = sira[k:k + 2]; k += len(cift)
+        soz = ", ".join(f"{tr_ad(ESNAF[e][0])} {tr_ad(TAKIM_AD[t_])}'ye" for t_, e in cift) + "!"
+        parcalar.append((2.2, "B", soz, cekilis(k)))
         if k in yorum:
             parcalar.append((2.2, *yorum[k], cekilis(k)))
     parcalar.append((4.0, "B", "Takımlar belli oldu! Sence hangisi kazanır? Yorumlara yaz!", cekilis(len(sira))))

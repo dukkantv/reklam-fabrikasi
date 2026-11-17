@@ -52,8 +52,17 @@ jobs:
           stok = sum(1 for p in glob.glob("kuyruk/*.json") for k in [json.load(open(p, encoding="utf-8"))]
                      if k.get("kanal") == "dukkantv" and k.get("gunluk") and k.get("durum") == "onaylandi")
           elle = os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch"
+          # güvenlik ağı: 19 Kasım'dan itibaren eksik lansman videoları her gün birer birer kendiliğinden üretilir
+          import datetime as dt
+          bugun = dt.datetime.now(dt.timezone(dt.timedelta(hours=3))).date()
+          if not elle and d["faz"] == "lansman" and bugun >= dt.date(2026, 11, 19):
+              eksik = [a for a in range(1, 6) if a not in d.get("lansman", [])]
+              if eksik:
+                  komut = f"lansman{eksik[0]}"
+                  with open(os.environ["GITHUB_ENV"], "a") as f:
+                      f.write(f"KOMUT={komut}\n")
           if komut.startswith("lansman"):
-              uret = elle
+              uret = True
           else:
               uret = (elle and os.environ.get("DENEME") == "true") or (d["faz"] not in ("lansman", "bitti") and stok == 0)
           print(f"uret={'1' if uret else '0'}")
