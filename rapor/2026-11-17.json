@@ -1,0 +1,702 @@
+{
+ "tarih": "2026-11-17",
+ "olusturuldu": "2026-11-17T09:47+03:00",
+ "kanallar": {
+  "ilturnuva": {
+   "ad": "81 İl Turnuvası",
+   "abone": 1,
+   "toplam_izlenme": 180,
+   "video_sayisi": 2,
+   "son28": {
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   "son7": {
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0,
+    "averageViewPercentage": 0,
+    "likes": 0,
+    "comments": 0
+   },
+   "onceki7_izlenme": 0,
+   "uzun_video_saat_365": 0.0,
+   "shorts_izlenme_90": 0,
+   "en_iyi_7gun": [],
+   "en_kotu_7gun": [],
+   "son24": {
+    "izlenme": "?",
+    "abone": "?"
+   },
+   "ypp_puan": 0.001
+  },
+  "kasakurgu": {
+   "ad": "Kasa kurgu",
+   "abone": 9,
+   "toplam_izlenme": 11353,
+   "video_sayisi": 27,
+   "son28": {
+    "views": 10805,
+    "estimatedMinutesWatched": 1388,
+    "subscribersGained": 11,
+    "subscribersLost": 1
+   },
+   "son7": {
+    "views": 3342,
+    "estimatedMinutesWatched": 362,
+    "subscribersGained": 2,
+    "subscribersLost": 0,
+    "averageViewPercentage": 31.869999999999997,
+    "likes": 10,
+    "comments": 8
+   },
+   "onceki7_izlenme": 7254,
+   "uzun_video_saat_365": 0.0,
+   "shorts_izlenme_90": 10805,
+   "en_iyi_7gun": [
+    {
+     "video": "tXUx_UW7xhs",
+     "views": 875,
+     "engagedViews": 401,
+     "averageViewDuration": 13,
+     "averageViewPercentage": 29.270000000000003,
+     "likes": 6,
+     "comments": 1,
+     "baslik": "Katil Kim? 🕵️ Dosya #07: Kırmızı Toprak | Yorumlara A, B veya C yaz!"
+    },
+    {
+     "video": "XQX5cLGEGQw",
+     "views": 759,
+     "engagedViews": 307,
+     "averageViewDuration": 9,
+     "averageViewPercentage": 19.21,
+     "likes": 0,
+     "comments": 0,
+     "baslik": "500 TL ile 50.000 TL Hedefi | Gün 9/30 | Kararı Siz Verin! 💸"
+    },
+    {
+     "video": "BE_caQCafpc",
+     "views": 729,
+     "engagedViews": 226,
+     "averageViewDuration": 17,
+     "averageViewPercentage": 40.56,
+     "likes": 0,
+     "comments": 1,
+     "baslik": "Katil Kim? 🕵️ Dosya #06: Kırık Vitrin | Yorumlara A, B veya C yaz!"
+    },
+    {
+     "video": "5MIBRFfAFII",
+     "views": 299,
+     "engagedViews": 85,
+     "averageViewDuration": 12,
+     "averageViewPercentage": 23.95,
+     "likes": 2,
+     "comments": 1,
+     "baslik": "500 TL ile 50.000 TL Hedefi | Gün 11/30 | Kararı Siz Verin! 💸"
+    },
+    {
+     "video": "VYu3PH-zaN8",
+     "views": 205,
+     "engagedViews": 80,
+     "averageViewDuration": 13,
+     "averageViewPercentage": 22.62,
+     "likes": 0,
+     "comments": 2,
+     "baslik": "500 TL ile 50.000 TL Hedefi | Gün 10/30 | Kararı Siz Verin! 💸"
+    }
+   ],
+   "en_kotu_7gun": [
+    {
+     "video": "P1F5Eebf2ZQ",
+     "views": 22,
+     "engagedViews": 13,
+     "averageViewDuration": 14,
+     "averageViewPercentage": 29.520000000000003,
+     "likes": 0,
+     "comments": 1,
+     "baslik": "500 TL ile 50.000 TL Hedefi | Gün 8/30 | Kararı Siz Verin! 💸"
+    }
+   ],
+   "son24": {
+    "izlenme": "+642",
+    "abone": "-1"
+   },
+   "ypp_puan": 0.0100805
+  },
+  "dramabite": {
+   "ad": "Drama Bite",
+   "abone": 16,
+   "toplam_izlenme": 16892,
+   "video_sayisi": 24,
+   "son28": {
+    "views": 16681,
+    "estimatedMinutesWatched": 2496,
+    "subscribersGained": 16,
+    "subscribersLost": 0
+   },
+   "son7": {
+    "views": 910,
+    "estimatedMinutesWatched": 89,
+    "subscribersGained": 2,
+    "subscribersLost": 0,
+    "averageViewPercentage": 38.83,
+    "likes": 9,
+    "comments": 0
+   },
+   "onceki7_izlenme": 5744,
+   "uzun_video_saat_365": 0.0,
+   "shorts_izlenme_90": 16681,
+   "en_iyi_7gun": [
+    {
+     "video": "40WZQ6YAN4A",
+     "views": 330,
+     "engagedViews": 98,
+     "averageViewDuration": 21,
+     "averageViewPercentage": 37.11,
+     "likes": 4,
+     "comments": 0,
+     "baslik": "Tahta Kutudaki Sır #shorts"
+    },
+    {
+     "video": "H3nWU6O9kUM",
+     "views": 226,
+     "engagedViews": 17,
+     "averageViewDuration": 12,
+     "averageViewPercentage": 20.89,
+     "likes": 0,
+     "comments": 0,
+     "baslik": "Babanın Eski Çantası #shorts"
+    },
+    {
+     "video": "63nM-Bg4wyI",
+     "views": 158,
+     "engagedViews": 18,
+     "averageViewDuration": 12,
+     "averageViewPercentage": 20.48,
+     "likes": 0,
+     "comments": 0,
+     "baslik": "Gizli Emanet | Efe sizce sırrı neden on beş yıl boyunca saklamış olabilir? #shorts"
+    },
+    {
+     "video": "pOkrjeRXElY",
+     "views": 57,
+     "engagedViews": 20,
+     "averageViewDuration": 26,
+     "averageViewPercentage": 50.91,
+     "likes": 1,
+     "comments": 0,
+     "baslik": "Kül Olan Anılar #shorts"
+    },
+    {
+     "video": "nUKah7cRv0Q",
+     "views": 42,
+     "engagedViews": 10,
+     "averageViewDuration": 50,
+     "averageViewPercentage": 61.49,
+     "likes": 1,
+     "comments": 0,
+     "baslik": "Kırık Saat ve Gurbet #shorts"
+    }
+   ],
+   "en_kotu_7gun": [
+    {
+     "video": "UNdrv7XlLrg",
+     "views": 3,
+     "engagedViews": 0,
+     "averageViewDuration": 0,
+     "averageViewPercentage": 0,
+     "likes": 0,
+     "comments": 0,
+     "baslik": "Gece 03:20 Borcu"
+    }
+   ],
+   "son24": {
+    "izlenme": "+227",
+    "abone": "+0"
+   },
+   "ypp_puan": 0.0176681
+  },
+  "dukkantv": {
+   "ad": "Dükkan Tv",
+   "abone": 6,
+   "toplam_izlenme": 3309,
+   "video_sayisi": 5,
+   "son28": {
+    "views": 3512,
+    "estimatedMinutesWatched": 391,
+    "subscribersGained": 6,
+    "subscribersLost": 1
+   },
+   "son7": {
+    "views": 1992,
+    "estimatedMinutesWatched": 256,
+    "subscribersGained": 4,
+    "subscribersLost": 0,
+    "averageViewPercentage": 90.11,
+    "likes": 15,
+    "comments": 0
+   },
+   "onceki7_izlenme": 1520,
+   "uzun_video_saat_365": 0.0,
+   "shorts_izlenme_90": 3512,
+   "en_iyi_7gun": [
+    {
+     "video": "o604wSBnG1M",
+     "views": 1653,
+     "engagedViews": 653,
+     "averageViewDuration": 20,
+     "averageViewPercentage": 93.19,
+     "likes": 12,
+     "comments": 0,
+     "baslik": "Bu Bina Ne Zaman Biter? 😂 | Levent & Cemo #shorts"
+    },
+    {
+     "video": "yU-iIEg2d8g",
+     "views": 311,
+     "engagedViews": 35,
+     "averageViewDuration": 16,
+     "averageViewPercentage": 60.51,
+     "likes": 1,
+     "comments": 0,
+     "baslik": "Perde mi lazım? TOPTAN mı? | Öz Getirenler Perde Bursa #shorts"
+    },
+    {
+     "video": "UTq5le3pxT8",
+     "views": 13,
+     "engagedViews": 4,
+     "averageViewDuration": 18,
+     "averageViewPercentage": 66.99,
+     "likes": 1,
+     "comments": 0,
+     "baslik": "Cemo Acile Koştu 😂 | Levent & Cemo #shorts"
+    },
+    {
+     "video": "5Vs9jdCUE5M",
+     "views": 4,
+     "engagedViews": 0,
+     "averageViewDuration": 0,
+     "averageViewPercentage": 0,
+     "likes": 0,
+     "comments": 0,
+     "baslik": "Simitçi Hasan Amca'ya Reklam Çektik, Bütün Bursa Sıraya Girdi! 🥯 #Shorts"
+    },
+    {
+     "video": "ex5YlHYsu60",
+     "views": 4,
+     "engagedViews": 0,
+     "averageViewDuration": 0,
+     "averageViewPercentage": 0,
+     "likes": 0,
+     "comments": 0,
+     "baslik": "Külah bitti, kuyruk kapıya kadar! 🍦 Erkan Abi yetişir | Bursa Yıldırım #shorts"
+    }
+   ],
+   "en_kotu_7gun": [
+    {
+     "video": "smItcUOoEso",
+     "views": 2,
+     "engagedViews": 1,
+     "averageViewDuration": 0,
+     "averageViewPercentage": 0.66,
+     "likes": 0,
+     "comments": 0,
+     "baslik": "Külah bitti, kuyruk kapıya kadar! 🍦 Erkan Abi yetişir | Bursa Yıldırım #shorts"
+    }
+   ],
+   "son24": {
+    "izlenme": "+1076",
+    "abone": "+1"
+   },
+   "ypp_puan": 0.0063512
+  },
+  "gizlitarih": {
+   "ad": "Gizli Tarih",
+   "abone": 5,
+   "toplam_izlenme": 44,
+   "video_sayisi": 2,
+   "son28": {
+    "views": 11,
+    "estimatedMinutesWatched": 26,
+    "subscribersGained": 3,
+    "subscribersLost": 0
+   },
+   "son7": {
+    "views": 11,
+    "estimatedMinutesWatched": 26,
+    "subscribersGained": 3,
+    "subscribersLost": 0,
+    "averageViewPercentage": 30.709999999999997,
+    "likes": 0,
+    "comments": 0
+   },
+   "onceki7_izlenme": 0,
+   "uzun_video_saat_365": 0.4,
+   "shorts_izlenme_90": 0,
+   "en_iyi_7gun": [
+    {
+     "video": "cDsZwDx8Svw",
+     "views": 11,
+     "engagedViews": 10,
+     "averageViewDuration": 157,
+     "averageViewPercentage": 30.709999999999997,
+     "likes": 0,
+     "comments": 0,
+     "baslik": "Kanuni'nin Ölümü 48 Gün Neden Saklandı? Zigetvar'ın Sırrı"
+    }
+   ],
+   "en_kotu_7gun": [],
+   "son24": {
+    "izlenme": "+33",
+    "abone": "+2"
+   },
+   "ypp_puan": 0.0051
+  }
+ },
+ "instagram": {
+  "ilturnuva": {
+   "kullanici": "81ilturnuvasi",
+   "takipci": 1,
+   "gonderi": 3,
+   "son7_gonderi": [
+    {
+     "id": "18652218682000784",
+     "caption": "81 İl Turnuvası · 1. Tur · B Grubu 🏆 Senin şehrin tur atlar mı?\n\n#81ilturnuvası #türkiye #şehirler #simülasyon #topyarışı #ilil",
+     "comments_count": 0,
+     "like_count": 1,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/Dfzui2LgS7w/",
+     "timestamp": "2026-11-16T15:56:23+0000",
+     "views": 135,
+     "reach": 117,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "17932779231424898",
+     "caption": "🗓 81 İl Turnuvası · Sezon 1 fikstürü!\n\n9 grup, 81 il. Her grubun son 3 kalanı tur atlar, 9 il büyük finalde kapışır. Her akşam yeni maç 🏆\n\nŞehrin hangi grupta? Yorumlara yaz, takımını destekle! 👇\n\n#81ilturnuvası #türkiye #fikstür #şehirler #simülasyon #ilil",
+     "comments_count": 0,
+     "like_count": 0,
+     "media_product_type": "FEED",
+     "permalink": "https://www.instagram.com/p/DfxO7D6F-0p/",
+     "timestamp": "2026-11-15T16:41:15+0000",
+     "views": 5,
+     "reach": 3,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18161651818511754",
+     "caption": "81 İl Turnuvası · 1. Tur · A Grubu 🏆 Senin şehrin tur atlar mı?\n\n#81ilturnuvası #türkiye #şehirler #simülasyon #topyarışı #ilil",
+     "comments_count": 0,
+     "like_count": 1,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfxKZ8vjsip/",
+     "timestamp": "2026-11-15T16:02:02+0000",
+     "views": 123,
+     "reach": 109,
+     "saved": 0,
+     "shares": 0
+    }
+   ],
+   "icgoru": true,
+   "son24_takipci": "?",
+   "veri_erisimi_kalan_gun": 88
+  },
+  "kasakurgu": {
+   "kullanici": "kasakurgu.tr",
+   "takipci": 6,
+   "gonderi": 26,
+   "son7_gonderi": [
+    {
+     "id": "18159163012455668",
+     "caption": "500 TL ile 50.000 TL Hedefi | Gün 16/30 | Kararı Siz Verin! 💸\n\n#girişimcilik #parabiriktirme #kurguhikaye #kasa #esnaf #karar",
+     "comments_count": 0,
+     "like_count": 2,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/Dfz9SWvEWxR/",
+     "timestamp": "2026-11-16T18:05:06+0000",
+     "views": 116,
+     "reach": 113,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18008525037006979",
+     "caption": "500 TL ile 50.000 TL Hedefi | Gün 15/30 | Kararı Siz Verin! 💸\n\n#girişimcilik #parabiriktirme #kurguhikaye #kasa #esnaf #karar",
+     "comments_count": 0,
+     "like_count": 1,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfxljJ-kZLb/",
+     "timestamp": "2026-11-15T19:59:20+0000",
+     "views": 136,
+     "reach": 117,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18268458523307354",
+     "caption": "Katil Kim? 🕵️ Dosya #11: Yanlış Yazılmış Not | Yorumlara A, B veya C yaz!\n\n#katilkim #dedektif #gizem #vaka #bilmece #kurgusalhikaye",
+     "comments_count": 0,
+     "like_count": 2,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfxKrNeDp84/",
+     "timestamp": "2026-11-15T16:04:23+0000",
+     "views": 146,
+     "reach": 121,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18454108867125570",
+     "caption": "Katil Kim? 🕵️ Dosya #10: Eksik Düğme | Yorumlara A, B veya C yaz!\n\n#katilkim #dedektif #gizem #vaka #bilmece #kurgusalhikaye",
+     "comments_count": 0,
+     "like_count": 3,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfuxaY7jz9G/",
+     "timestamp": "2026-11-14T17:45:07+0000",
+     "views": 145,
+     "reach": 132,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "17971673975964949",
+     "caption": "500 TL ile 50.000 TL Hedefi | Gün 13/30 | Kararı Siz Verin! 💸\n\n#girişimcilik #parabiriktirme #kurguhikaye #kasa #esnaf #karar",
+     "comments_count": 0,
+     "like_count": 4,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfuxWFxlXFg/",
+     "timestamp": "2026-11-14T17:44:37+0000",
+     "views": 125,
+     "reach": 110,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "17912636388560334",
+     "caption": "Katil Kim? 🕵️ Dosya #09: Dilin Sürçmesi | Yorumlara A, B veya C yaz!\n\n🛒 Dijital ürünlerimiz: dukkantv.github.io/urunler\n\n#katilkim #dedektif #gizem #vaka #bilmece #kurgusalhikaye",
+     "comments_count": 0,
+     "like_count": 2,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfsS3soGWH9/",
+     "timestamp": "2026-11-13T18:39:55+0000",
+     "views": 131,
+     "reach": 125,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18150508852564321",
+     "caption": "500 TL ile 50.000 TL Hedefi | Gün 12/30 | Kararı Siz Verin! 💸\n\n🛒 Dijital ürünlerimiz: dukkantv.github.io/urunler\n\n#girişimcilik #parabiriktirme #kurguhikaye #kasa #esnaf #karar",
+     "comments_count": 0,
+     "like_count": 3,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfsRnFdk172/",
+     "timestamp": "2026-11-13T18:28:56+0000",
+     "views": 146,
+     "reach": 132,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18164937013448360",
+     "caption": "500 TL ile 50.000 TL Hedefi | Gün 11/30 | Kararı Siz Verin! 💸\n\n🛒 Dijital ürünlerimiz: dukkantv.github.io/urunler\n\n#girişimcilik #parabiriktirme #kurguhikaye #kasa #esnaf #karar",
+     "comments_count": 0,
+     "like_count": 1,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfrQ3uGDHRt/",
+     "timestamp": "2026-11-13T09:03:11+0000",
+     "views": 123,
+     "reach": 113,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "17918655951536778",
+     "caption": "Katil Kim? 🕵️ Dosya #08: Havlamayan Köpek | Yorumlara A, B veya C yaz!\n\n#katilkim #dedektif #gizem #vaka #bilmece #kurgusalhikaye",
+     "comments_count": 0,
+     "like_count": 2,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfpoS9xjq93/",
+     "timestamp": "2026-11-12T17:49:21+0000",
+     "views": 138,
+     "reach": 121,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18096021161184341",
+     "caption": "Katil Kim? 🕵️ Dosya #07: Kırmızı Toprak | Yorumlara A, B veya C yaz!\n\n#katilkim #dedektif #gizem #vaka #bilmece #kurgusalhikaye",
+     "comments_count": 0,
+     "like_count": 1,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfnJENkDA5h/",
+     "timestamp": "2026-11-11T18:37:55+0000",
+     "views": 173,
+     "reach": 151,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18377500171214713",
+     "caption": "500 TL ile 50.000 TL Hedefi | Gün 10/30 | Kararı Siz Verin! 💸\n\n#girişimcilik #parabiriktirme #kurguhikaye #kasa #esnaf #karar",
+     "comments_count": 0,
+     "like_count": 2,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfnC2_cElrz/",
+     "timestamp": "2026-11-11T17:43:45+0000",
+     "views": 174,
+     "reach": 163,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18084468101547281",
+     "caption": "Katil Kim? 🕵️ Dosya #06: Kırık Vitrin | Yorumlara A, B veya C yaz!\n\n#katilkim #dedektif #gizem #vaka #bilmece #kurgusalhikaye",
+     "comments_count": 0,
+     "like_count": 3,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfnCzC4ElfI/",
+     "timestamp": "2026-11-11T17:43:08+0000",
+     "views": 163,
+     "reach": 152,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "17896498293682704",
+     "caption": "500 TL ile 50.000 TL Hedefi | Gün 9/30 | Kararı Siz Verin! 💸\n\n#girişimcilik #parabiriktirme #kurguhikaye #kasa #esnaf #karar",
+     "comments_count": 0,
+     "like_count": 3,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/Dfm8Jt1Fd02/",
+     "timestamp": "2026-11-11T16:45:04+0000",
+     "views": 153,
+     "reach": 144,
+     "saved": 0,
+     "shares": 0
+    }
+   ],
+   "icgoru": true,
+   "son24_takipci": "+0",
+   "veri_erisimi_kalan_gun": 88
+  },
+  "dramabite": {
+   "kullanici": "dramabitetr",
+   "takipci": 13,
+   "gonderi": 19,
+   "son7_gonderi": [
+    {
+     "id": "18644948941032366",
+     "caption": "Kül Olan Anılar\n\n#hikaye #duygusal #annebaba #hüzün #kurgu",
+     "comments_count": 0,
+     "like_count": 5,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfnCvE0klys/",
+     "timestamp": "2026-11-11T17:42:35+0000",
+     "views": 1350,
+     "reach": 1279,
+     "saved": 0,
+     "shares": 0
+    }
+   ],
+   "icgoru": true,
+   "son24_takipci": "+0",
+   "veri_erisimi_kalan_gun": 88
+  },
+  "dukkantv": {
+   "kullanici": "dukkan.tv",
+   "takipci": 58,
+   "gonderi": 4,
+   "son7_gonderi": [
+    {
+     "id": "18032951846857670",
+     "caption": "Evde Yoktunuz Abi 😂 | Levent & Cemo\n\n#komedi #mizah #çizgifilm #komikvideo #leventvecemo #dükkantv #kargo #kurye",
+     "comments_count": 0,
+     "like_count": 17,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfzzzE8DhKt/",
+     "timestamp": "2026-11-16T16:42:12+0000",
+     "views": 1569,
+     "reach": 1206,
+     "saved": 1,
+     "shares": 4
+    },
+    {
+     "id": "17889184278689809",
+     "caption": "Berberde Bir Saat 😂 | Levent & Cemo\n\n#komedi #mizah #çizgifilm #komikvideo #leventvecemo #dükkantv #berber #saç",
+     "comments_count": 1,
+     "like_count": 10,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfuouOGF9V2/",
+     "timestamp": "2026-11-14T16:29:13+0000",
+     "views": 1515,
+     "reach": 1200,
+     "saved": 0,
+     "shares": 1
+    },
+    {
+     "id": "18112204781613585",
+     "caption": "Bu Bina Ne Zaman Biter? 😂 | Levent & Cemo\n\n#komedi #mizah #çizgifilm #komikvideo #leventvecemo #dükkantv #inşaat #usta",
+     "comments_count": 0,
+     "like_count": 26,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfsF_-tkoIQ/",
+     "timestamp": "2026-11-13T16:47:19+0000",
+     "views": 2302,
+     "reach": 1677,
+     "saved": 1,
+     "shares": 0
+    },
+    {
+     "id": "18353718634267440",
+     "caption": "Cemo Acile Koştu 😂 | Levent & Cemo\n\n#komedi #mizah #çizgifilm #komikvideo #leventvecemo #dükkantv #hastane #hemşire",
+     "comments_count": 2,
+     "like_count": 9,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DfprqLUjpkM/",
+     "timestamp": "2026-11-12T18:18:41+0000",
+     "views": 2438,
+     "reach": 1882,
+     "saved": 0,
+     "shares": 2
+    }
+   ],
+   "icgoru": true,
+   "son24_takipci": "+3",
+   "veri_erisimi_kalan_gun": 88
+  }
+ },
+ "tiktok": {
+  "ilturnuva": {
+   "bagli": true,
+   "taslak_7gun": 2,
+   "izin_kalan_gun": 363
+  },
+  "kasakurgu": {
+   "bagli": true,
+   "taslak_7gun": 8,
+   "izin_kalan_gun": 360
+  },
+  "dramabite": {
+   "bagli": true,
+   "taslak_7gun": 5,
+   "izin_kalan_gun": 360
+  },
+  "dukkantv": {
+   "bagli": true,
+   "taslak_7gun": 5,
+   "izin_kalan_gun": 357
+  }
+ },
+ "bekleyen": [],
+ "bugun_yayin": [
+  "🕖 17:30 81 İl: 81 İl Turnuvası · 1. Tur · C Grubu 🏆 Sen",
+  "🕖 18:00 Kasa Kurgu: Katil Kim? 🕵️ Dosya #12: Lavanta Kokusu ",
+  "🕖 21:00 Kasa Kurgu: 500 TL ile 50.000 TL Hedefi | Gün 14/30 "
+ ],
+ "uyarilar": []
+}
