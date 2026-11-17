@@ -1,0 +1,75 @@
+{
+  "gun": 17,
+  "toplam_gun": 30,
+  "kasa_basi": 30300,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {
+      "tema": "gece",
+      "gorsel": "tezgah",
+      "gorsel_yazi": "PAZAR MACERASI",
+      "ifade": "mutlu",
+      "baslik": "KARAR VERİLDİ",
+      "anlatim": "Hiç durmadan pazarda yeni bir tezgah açmak için gerekli izinleri aldım, hazırlıklara başladım.",
+      "damga": "Karar"
+    },
+    {
+      "tema": "sabah",
+      "gorsel": "hal",
+      "gorsel_yazi": "ERKEN SAAT",
+      "ifade": "gulen",
+      "baslik": "YENİ YER",
+      "anlatim": "Sabah erkenden pazardaki yeni yerime geçtim, sebzeleri özenle tezgaha yerleştirdim.",
+      "damga": "Emek"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "kalabalik",
+      "gorsel_yazi": "+2500 TL",
+      "ifade": "mutlu",
+      "kasa": 32800,
+      "baslik": "İLK MÜŞTERİ",
+      "anlatim": "Pazar yerinin kalabalığı işime yaradı. Kısa sürede kasaya iki bin beş yüz lira eklendi.",
+      "damga": "Kazanç"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "domates",
+      "gorsel_yazi": "HIZLI SATIŞ",
+      "ifade": "gulen",
+      "baslik": "YOĞUN İLGİ",
+      "anlatim": "Öğleden sonra taze domates ve biberler kapış kapış gitti, tezgahın önü doldu.",
+      "damga": "Hız"
+    },
+    {
+      "tema": "aksam",
+      "gorsel": "para",
+      "gorsel_yazi": "+1900 TL",
+      "ifade": "mutlu",
+      "kasa": 34700,
+      "baslik": "GÜNÜN KARI",
+      "anlatim": "Akşam pazar yerini toplarken sayım yaptım. Bin dokuz yüz lira daha kazandım, toplam otuz dört bin yedi yüz oldu.",
+      "damga": "Başarı"
+    },
+    {
+      "tema": "gece",
+      "gorsel": "defter",
+      "gorsel_yazi": "YENİ FIRSAT",
+      "ifade": "dusunceli",
+      "baslik": "ORTAKLIK TEKLİFİ",
+      "anlatim": "Gece yarısı mahalledeki büyük manavdan ortaklık teklifi geldi. İki yeri idare etmek zor olacak.",
+      "damga": "Hedef"
+    },
+    {
+      "tema": "oylama",
+      "ifade": "mutlu",
+      "secenek": [
+        "Teklifi kabul et",
+        "Kendi yolundan git"
+      ],
+      "baslik": "BÜYÜK TEKLİF",
+      "anlatim": "Manavın ortaklık teklifini kabul edip riske gireyim mi, yoksa sadece kendi tezgahımla devam mı edeyim? Yoruma A veya B yaz. Yarın gün 18!"
+    }
+  ]
+}
