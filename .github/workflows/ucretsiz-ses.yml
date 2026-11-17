@@ -33,4 +33,4 @@ jobs:
       - name: Örnekleri kaydet
         run: |
           cd /tmp/klon && for f in *.wav; do ffmpeg -v error -y -i $f -b:a 128k "klon-${f%.wav}.mp3"; done
-          gh release upload kuyruk /tmp/klon/klon-*.mp3 --clobber
+          gh release upload kuyruk /tmp/klon/klon-*.mp3 --clobber -R ${{ github.repository }}
