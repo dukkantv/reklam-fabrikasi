@@ -24,7 +24,7 @@ on:
         default: ""
       ses:
         description: "Anlatım sesi: klon (Levent, ElevenLabs v3 — kredi yetmezse otomatik Ahmet) / ahmet"
-        default: "klon"
+        default: "ahmet"
 
 jobs:
   uret:

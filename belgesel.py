@@ -367,7 +367,7 @@ def kapak(img, yazi, hedef, tur):
 
 # ---------- SES: Levent'in ElevenLabs klonu (v3), kredi yetmezse tüm video ücretsiz Ahmet sesiyle ----------
 ELEVEN_KEY = "".join(os.environ.get("ELEVENLABS_API_KEY", "").split())
-SES_MOTOR = os.environ.get("BELGESEL_SES_MOTOR", "klon").strip() or "klon"   # klon / ahmet
+SES_MOTOR = os.environ.get("BELGESEL_SES_MOTOR", "ahmet").strip() or "ahmet"   # klon / ahmet
 KLON_TEMPO = float(os.environ.get("KLON_TEMPO", "0.92"))   # klon hızlı okuyor: belgesel için hafif yavaşlat
 
 

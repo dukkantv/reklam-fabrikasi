@@ -1,0 +1,103 @@
+# Ücretsiz ses klonu: Chatterbox Multilingual (Resemble AI, MIT lisans, Türkçe destekli, ticari kullanım serbest).
+# Levent'in kayıtlarından (sesler/klon/<tarz>.wav|mp3) sıfır-örnekli klonla seslendirir. GitHub'ın ücretsiz
+# sunucusunda CPU ile çalışır; ElevenLabs gerekmez.
+# Kullanım:
+#   python ucretsiz_ses.py deneme                 -> her tarz için örnek cümleleri okur, Telegram'a yollar
+#   python ucretsiz_ses.py oku <tarz> "<metin>" cikti.wav
+import os, re, sys, time, glob, subprocess
+
+import torch
+
+_yukle = torch.load
+torch.load = lambda *a, **k: _yukle(*a, **{**k, "map_location": torch.device("cpu")})  # GPU'da kaydedilmiş ağırlıklar
+
+KOK = os.path.dirname(os.path.abspath(__file__))
+KLASOR = os.path.join(KOK, "sesler", "klon")
+
+# Tarz -> (referans dosya adı, exaggeration, cfg_weight). exaggeration: duygu/enerji; cfg: tempo-ritim bağlılığı
+TARZLAR = {
+    "belgesel": ("belgesel", 0.45, 0.5),   # Gizli Tarih: ağır, gizemli anlatıcı
+    "neseli":   ("neseli", 0.75, 0.35),    # Çarşı Ligi / skeç: hızlı, coşkulu spiker
+    "hikaye":   ("hikaye", 0.55, 0.45),    # Drama Bite: sıcak, duygulu
+    "dedektif": ("dedektif", 0.5, 0.45),   # Kasa Kurgu: gergin, merak uyandıran
+}
+
+ORNEK = {
+    "belgesel": "Mayıs 1481. Dünyanın en korkulan hükümdarı, ordusunun başında sefere çıkıyor. Hedefini kimse bilmiyor. Ve birkaç gün sonra, bir çadırda, sessizce ölüyor.",
+    "neseli": "Ve top bırakıldı! Simitçi Kedi önde, Kokoreç Ejderha hemen arkasında! Bu nasıl bir maç böyle, inanılır gibi değil!",
+    "hikaye": "Annesi kapıyı açtığında karşısında yıllardır görmediği oğlunu buldu. Bir an konuşamadı. Sonra gözleri doldu ve sadece sarıldı.",
+    "dedektif": "Kapı içeriden kilitliydi. Anahtar kilitte duruyordu. Peki katil bu odadan nasıl çıktı? Cevap, gözünüzün önündeydi.",
+}
+
+_model = None
+
+
+def model():
+    global _model
+    if _model is None:
+        from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+        torch.set_num_threads(os.cpu_count() or 4)
+        _model = ChatterboxMultilingualTTS.from_pretrained(device="cpu")
+    return _model
+
+
+def referans(tarz):
+    """Tarzın kendi kaydı yoksa genel örneğe (sesler/levent_ornek.mp3) düşer. 16 sn'lik temiz wav'a çevirir."""
+    ad = TARZLAR[tarz][0]
+    adaylar = glob.glob(os.path.join(KLASOR, ad + ".*")) or [os.path.join(KOK, "sesler", "levent_ornek.mp3")]
+    hedef = f"/tmp/ref_{tarz}.wav"
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", adaylar[0], "-t", "16", "-ac", "1", "-ar", "24000",
+                    "-af", "highpass=f=70,loudnorm=I=-18:TP=-2", hedef], check=True)
+    return hedef, os.path.basename(adaylar[0])
+
+
+def cumleler(metin, sinir=220):
+    parca, son = [], ""
+    for c in re.split(r"(?<=[.!?…])\s+", metin.strip()):
+        if son and len(son) + len(c) > sinir:
+            parca.append(son); son = c
+        else:
+            son = (son + " " + c).strip()
+    return parca + ([son] if son else [])
+
+
+def oku(tarz, metin, cikti):
+    import torchaudio as ta
+    m = model()
+    ref, _ = referans(tarz)
+    _, ex, cfg = TARZLAR[tarz]
+    parcalar = []
+    for c in cumleler(metin):
+        w = m.generate(c, language_id="tr", audio_prompt_path=ref, exaggeration=ex, cfg_weight=cfg)
+        parcalar += [w, torch.zeros(1, int(m.sr * 0.25))]
+    ta.save(cikti, torch.cat(parcalar[:-1], dim=1), m.sr)
+    return cikti
+
+
+def telegram(dosya, yazi):
+    import requests
+    t, c = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip(), os.environ.get("TELEGRAM_CHAT_ID", "").strip()
+    if not t:
+        return
+    mp3 = dosya.rsplit(".", 1)[0] + ".mp3"
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", dosya, "-b:a", "128k", mp3], check=True)
+    with open(mp3, "rb") as f:
+        requests.post(f"https://api.telegram.org/bot{t}/sendAudio", data={"chat_id": c, "caption": yazi},
+                      files={"audio": f}, timeout=120)
+
+
+if __name__ == "__main__":
+    if sys.argv[1] == "deneme":
+        os.makedirs("/tmp/klon", exist_ok=True)
+        t0 = time.time(); model(); print(f"Model yüklendi: {time.time() - t0:.0f} sn")
+        for tarz, metin in ORNEK.items():
+            t0 = time.time()
+            f = oku(tarz, metin, f"/tmp/klon/{tarz}.wav")
+            sure = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", f],
+                                        capture_output=True, text=True).stdout)
+            gecen = time.time() - t0
+            _, kaynak = referans(tarz)
+            print(f"{tarz}: {sure:.1f} sn ses, {gecen:.0f} sn sürdü (x{gecen / sure:.1f}) · referans: {kaynak}")
+            telegram(f, f"🎙 Ücretsiz klon · {tarz} (referans: {kaynak}) · {sure:.0f} sn ses {gecen:.0f} sn'de")
+    elif sys.argv[1] == "oku":
+        oku(sys.argv[2], sys.argv[3], sys.argv[4])
