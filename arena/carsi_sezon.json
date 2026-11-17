@@ -1,7 +1,27 @@
 {
  "sezon": 1,
  "faz": "lansman",
- "takimlar": null,
+ "takimlar": {
+  "K": [
+   "dondurmaci-keci",
+   "ayran-penguen",
+   "kokorec-ejderha",
+   "kumpir-ayi",
+   "lokum-fil",
+   "cay-bardagi-tavsan",
+   "borekci-baykus",
+   "lahmacun-kaplumbaga"
+  ],
+  "M": [
+   "simit-kapan-marti",
+   "pide-timsah",
+   "simitci-kedi",
+   "caydanlik-pasa",
+   "tavla-kurbaga",
+   "nazar-baligi",
+   "dolmus-kopek"
+  ]
+ },
  "kalan": [
   "simitci-kedi",
   "borekci-baykus",
@@ -27,7 +47,8 @@
  "adim": 0,
  "bolum_no": 0,
  "lansman": [
-  1
+  1,
+  2
  ],
  "hafta_olay": {},
  "bolumler": []
