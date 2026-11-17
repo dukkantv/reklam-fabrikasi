@@ -177,7 +177,7 @@ def geri_sayim(cikti, tarih_yazi="26 KASIM · 19:00", sesli=True):
         yazi(d, (W / 2, 1210), tarih_yazi, font(80), dolgu=(255, 210, 60), kenar=8)
         yazi(d, (W / 2, 1310), "DÜKKAN TV'DE BAŞLIYOR", font(54), kenar=6)
     parcalar = [
-        (3.0, "L", "Çarşıda kepenkler kapalı... Ama bu sessizlik uzun sürmeyecek.", kepenk),
+        (3.0, "L", "Gece yarısı... Çarşı bomboş. Ama bu sessizlik uzun sürmeyecek.", kepenk),
         (4.0, "C", "Abi on beş esnaf geliyor! Simitçisi, kokoreççisi, dondurmacısı, hepsi!", isiklar),
         (3.5, "L", "İki takım: Kırmızı Tente ve Mavi Tente. Her hafta biri çarşıya veda edecek.", takimlar),
         (3.5, "C", "Çarşı Ligi, yirmi altı Kasım akşam yedide Dükkan TV'de! Kaçırmayın!", son),
