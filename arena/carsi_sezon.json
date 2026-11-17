@@ -1,0 +1,34 @@
+{
+ "sezon": 1,
+ "faz": "lansman",
+ "takimlar": null,
+ "kalan": [
+  "simitci-kedi",
+  "borekci-baykus",
+  "dondurmaci-keci",
+  "kokorec-ejderha",
+  "lahmacun-kaplumbaga",
+  "pide-timsah",
+  "ayran-penguen",
+  "cay-bardagi-tavsan",
+  "caydanlik-pasa",
+  "dolmus-kopek",
+  "kumpir-ayi",
+  "lokum-fil",
+  "nazar-baligi",
+  "simit-kapan-marti",
+  "tavla-kurbaga"
+ ],
+ "elenen": [],
+ "pota": [],
+ "dokunulmaz": null,
+ "duello": null,
+ "hafta": 1,
+ "adim": 0,
+ "bolum_no": 0,
+ "lansman": [
+  1
+ ],
+ "hafta_olay": {},
+ "bolumler": []
+}
