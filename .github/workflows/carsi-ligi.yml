@@ -59,13 +59,12 @@ jobs:
               eksik = [a for a in range(1, 6) if a not in d.get("lansman", [])]
               if eksik:
                   komut = f"lansman{eksik[0]}"
-                  with open(os.environ["GITHUB_ENV"], "a") as f:
-                      f.write(f"KOMUT={komut}\n")
           if komut.startswith("lansman"):
               uret = True
           else:
               uret = (elle and os.environ.get("DENEME") == "true") or (d["faz"] not in ("lansman", "bitti") and stok == 0)
           print(f"uret={'1' if uret else '0'}")
+          print(f"komut={komut}")
           print(f"faz={d['faz']}")
           print(f"stok={stok}")
           PY
@@ -81,6 +80,8 @@ jobs:
       - name: Üret
         if: steps.karar.outputs.uret == '1'
         working-directory: arena
+        env:
+          KOMUT: ${{ steps.karar.outputs.komut }}
         run: |
           EK=""; [ "$DENEME" = "true" ] && EK="--deneme"
           case "$KOMUT" in
