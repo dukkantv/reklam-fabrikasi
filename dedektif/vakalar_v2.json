@@ -598,5 +598,53 @@
     ],
     "dogru": 1,
     "cozum": "Mürekkep izi sağ eldeydi ve bu iz sadece Serkan'da vardı."
+  },
+  {
+    "baslik": "Dağınık Tezgah",
+    "olay": "Terzinin dükkanındaki en özel altın makas ortadan kayboldu.",
+    "ipuclari": [
+      "Hırsız, kaçarken tezgahın üzerindeki un dolu kaseye çarpmış ve parmak izini orada bırakmıştır.",
+      "Şüphelilerin elleri kontrol edildiğinde, sadece Serkan'ın parmaklarında yoğun un tozu olduğu görüldü."
+    ],
+    "supheliler": [
+      {
+        "ad": "Metin",
+        "rol": "kumaşçı"
+      },
+      {
+        "ad": "Serkan",
+        "rol": "çırak"
+      },
+      {
+        "ad": "Canan",
+        "rol": "müşteri"
+      }
+    ],
+    "dogru": 1,
+    "cozum": "Un dolu kaseye çarpan kişinin ellerinde un kalması gerekiyordu. Bu iz sadece Serkan'ın ellerinde vardı."
+  },
+  {
+    "baslik": "Kayıp Oyuncak",
+    "olay": "Oyuncakçı dükkanından yeni gelen pilli robot çalındı.",
+    "ipuclari": [
+      "Hırsız dükkandan çıkarken yere mavi renkli boya damlatmış.",
+      "Şüphelilerden sadece Burak'ın önlüğünün ucunda mavi boya lekesi var."
+    ],
+    "supheliler": [
+      {
+        "ad": "Burak",
+        "rol": "depocu"
+      },
+      {
+        "ad": "Deniz",
+        "rol": "kasiyer"
+      },
+      {
+        "ad": "Kerem",
+        "rol": "müdür"
+      }
+    ],
+    "dogru": 0,
+    "cozum": "Yere mavi boya damlatan hırsızdı. Burak'ın önlüğündeki mavi boya lekesi onun suçlu olduğunu gösterir."
   }
 ]
