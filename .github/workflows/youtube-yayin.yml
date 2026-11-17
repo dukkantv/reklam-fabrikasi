@@ -6,8 +6,8 @@ on:
   schedule:
     - cron: "13 6-14 * * *"    # 09:13–17:13 her saat (onaylar)
     - cron: "3,33 15 * * *"    # 18:03, 18:33
-    - cron: "1,11,21,31,41,51 16-17 * * *" # 19:01–20:51 on dakikada bir (Instagram 19:00 / 19:30 / 20:00 paylaşımları gecikmesin)
-    - cron: "3,33 18 * * *"    # 21:03, 21:33
+    - cron: "1,11,21,31,41,51 16-18 * * *" # 19:01–21:51 on dakikada bir (GitHub bazı tetiklemeleri atlıyor; biri kaçarsa sonraki yetişir)
+    - cron: "7,37 19 * * *"    # 22:07, 22:37 son kontrol
   workflow_dispatch:
     inputs:
       kanal:
