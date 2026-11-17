@@ -1,30 +1,33 @@
 name: Çarşı Ligi
 
-# Dükkan TV'nin yeni serisi: esnaf karakterler (brainrot) müşteri kapışıyor, Levent & Cemo anlatıyor.
-# Tamamen kodla + ücretsiz edge-tts. Dükkan TV günlük stoğunda 2 ya da daha az video kalınca her gün bir maç
-# üretir ve stoğun sonuna ekler (stok her akşam 19:00'da bir video yayınlar). deneme=true: video yalnızca
-# Telegram'a gider, kuyruğa eklenmez, lig durumu değişmez.
+# Dükkan TV — Çarşı Ligi Sezon 1 (Survivor'dan esinlenen esnaf yarışması; ad/logo/müzik kullanılmaz).
+# Her gün 10:23: lansman bittiyse ve Dükkan TV günlük stoğu boşsa sıradaki bölümü üretir, stoğa ekler
+# (stok her akşam 19:00'da bir video yayınlar). Lansman videoları (geri sayım, kura, tanıtımlar, fragman)
+# elle tetiklenir ve 13:00'e sabitlenir. deneme=true: video Telegram'a ve incelemeye gider, yayına girmez.
 on:
   schedule:
-    - cron: "23 7 * * *"   # her gün 10:23 (Türkiye)
+    - cron: "23 7 * * *"
   workflow_dispatch:
     inputs:
+      komut:
+        description: "bolum ya da lansman1..lansman5"
+        default: "bolum"
       deneme:
-        description: "Deneme (yalnızca Telegram'a gönder)"
+        description: "Deneme (yayınlama, durumu değiştirme)"
         type: boolean
         default: true
-      zorla:
-        description: "Stok dolu olsa da üret"
-        type: boolean
-        default: false
 
 permissions:
   contents: write
 
+concurrency:
+  group: carsi-ligi
+  cancel-in-progress: false
+
 jobs:
-  mac:
+  uret:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     env:
       PYTHONUNBUFFERED: "1"
       GH_TOKEN: ${{ github.token }}
@@ -33,33 +36,48 @@ jobs:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       DENEME: ${{ github.event_name == 'workflow_dispatch' && inputs.deneme }}
+      KOMUT: ${{ github.event_name == 'workflow_dispatch' && inputs.komut || 'bolum' }}
     steps:
       - uses: actions/checkout@v4
-      - name: Stok kontrolü
-        id: stok
+      - name: Üretilecek mi?
+        id: karar
         run: |
           python3 - <<'PY' >> "$GITHUB_OUTPUT"
-          import glob, json
-          n = sum(1 for p in glob.glob("kuyruk/*.json")
-                  for k in [json.load(open(p, encoding="utf-8"))]
-                  if k.get("kanal") == "dukkantv" and k.get("gunluk") and k.get("durum") == "onaylandi")
-          print(f"adet={n}")
-          print("uret=" + ("1" if n <= 2 else "0"))
+          import glob, json, os
+          komut = os.environ["KOMUT"]
+          try:
+              d = json.load(open("arena/carsi_sezon.json", encoding="utf-8"))
+          except FileNotFoundError:
+              d = {"faz": "lansman"}
+          stok = sum(1 for p in glob.glob("kuyruk/*.json") for k in [json.load(open(p, encoding="utf-8"))]
+                     if k.get("kanal") == "dukkantv" and k.get("gunluk") and k.get("durum") == "onaylandi")
+          elle = os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch"
+          if komut.startswith("lansman"):
+              uret = elle
+          else:
+              uret = (elle and os.environ.get("DENEME") == "true") or (d["faz"] not in ("lansman", "bitti") and stok == 0)
+          print(f"uret={'1' if uret else '0'}")
+          print(f"faz={d['faz']}")
+          print(f"stok={stok}")
           PY
       - uses: actions/setup-python@v5
-        if: steps.stok.outputs.uret == '1' || github.event_name == 'workflow_dispatch'
+        if: steps.karar.outputs.uret == '1'
         with:
           python-version: "3.12"
       - name: Araçlar
-        if: steps.stok.outputs.uret == '1' || github.event_name == 'workflow_dispatch'
+        if: steps.karar.outputs.uret == '1'
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
           pip install -q numpy pillow requests edge-tts
-      - name: Maçı oynat ve seslendir
-        if: steps.stok.outputs.uret == '1' || github.event_name == 'workflow_dispatch' && (inputs.deneme || inputs.zorla)
+      - name: Üret
+        if: steps.karar.outputs.uret == '1'
         working-directory: arena
         run: |
-          if [ "$DENEME" = "true" ]; then python3 carsi_lig.py --deneme; else python3 carsi_lig.py; fi
+          EK=""; [ "$DENEME" = "true" ] && EK="--deneme"
+          case "$KOMUT" in
+            lansman*) python3 carsi_sezon.py lansman "${KOMUT#lansman}" $EK ;;
+            *) python3 carsi_sezon.py bolum $EK ;;
+          esac
       - name: Telegram'a gönder
         if: hashFiles('cikti/carsi/yayin.json') != ''
         run: |
@@ -67,6 +85,8 @@ jobs:
           import json, os, subprocess
           y = json.load(open("cikti/carsi/yayin.json", encoding="utf-8"))
           ek = "🧪 DENEME (yayınlanmayacak)\n" if os.environ.get("DENEME") == "true" else ""
+          if y.get("sabit_yayin"):
+              ek += f"🕐 Yayın: {y['sabit_yayin'][:16].replace('T', ' ')}\n"
           subprocess.run(["curl", "-s", "-F", f"chat_id={os.environ['TELEGRAM_CHAT_ID']}", "-F", f"video=@{y['video']}",
                           "-F", f"caption={ek}🏪 Çarşı Ligi — {y['baslik']}"[:1000],
                           f"https://api.telegram.org/bot{os.environ['TELEGRAM_BOT_TOKEN']}/sendVideo"],
@@ -75,20 +95,29 @@ jobs:
       - name: Deneme videosunu incelemeye koy
         if: env.DENEME == 'true' && hashFiles('cikti/carsi/yayin.json') != ''
         run: |
-          cp cikti/carsi/carsi_*.mp4 /tmp/carsi-deneme.mp4
+          python3 -c "import json,shutil;shutil.copy(json.load(open('cikti/carsi/yayin.json'))['video'],'/tmp/carsi-deneme.mp4')"
           gh release upload kuyruk /tmp/carsi-deneme.mp4 --clobber
-      - name: Dükkan TV stoğuna ekle
+      - name: Dükkan TV yayın sırasına ekle
         if: env.DENEME != 'true' && hashFiles('cikti/carsi/yayin.json') != ''
         run: |
           python3 - <<'PY'
-          import json, subprocess
+          import glob, json, os, subprocess
           y = json.load(open("cikti/carsi/yayin.json", encoding="utf-8"))
+          env = dict(os.environ)
+          gunluk = "1"
+          if y.get("sabit_yayin"):
+              env["SABIT_YAYIN"] = y["sabit_yayin"]; gunluk = ""
+          once = set(glob.glob("kuyruk/*.json"))
           subprocess.run(["python3", "yt_kuyruk.py", "ekle", "dukkantv", y["video"], y["baslik"], y["aciklama"],
-                          y["etiketler"], "1", "", "24"], check=True)
+                          y["etiketler"], gunluk, "", "24"], check=True, env=env)
+          yeni = sorted(set(glob.glob("kuyruk/*.json")) - once)
+          if yeni and not y.get("sabit_yayin"):
+              kid = json.load(open(yeni[-1], encoding="utf-8"))["id"]
+              subprocess.run(["python3", "arena/carsi_sezon.py", "kid", kid], check=True)
           PY
       - name: Kaydet
         if: env.DENEME != 'true' && hashFiles('cikti/carsi/yayin.json') != ''
         run: |
           git config user.name "dukkan-tv-bot"; git config user.email "actions@users.noreply.github.com"
-          git add arena/carsi_lig.json kuyruk
-          git diff --cached --quiet || (git commit -qm "Çarşı Ligi: yeni maç" && (git push || (git pull --rebase origin main && git push)))
+          git add arena/carsi_sezon.json kuyruk
+          git diff --cached --quiet || (git commit -qm "Çarşı Ligi: yeni bölüm" && (git push || (git pull --rebase origin main && git push)))

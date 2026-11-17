@@ -157,6 +157,8 @@ def ekle(kanal, video, baslik, aciklama="", etiketler="", gunluk="", kapak="", k
         kayit["kategori"] = kategori
     if os.environ.get("DERLEME"):
         kayit.update(derleme=True, sira="0" + kid)
+    if os.environ.get("SABIT_YAYIN"):   # ör. lansman videoları: "2026-11-21T13:00:00+03:00"
+        kayit["sabit_yayin"] = os.environ["SABIT_YAYIN"]
     ad = kanal_bilgi(kanal)["ad"]
     if kanal in YAYIN_KANALLARI:
         # Yayın yetkisi Claude'da: onay beklemeden sıraya girer; Levent isterse yüklenmeden önce durdurabilir
@@ -260,12 +262,21 @@ def yayin_zamani(kanal="dukkantv", gunluk=False):
     return simdi.replace(hour=19, minute=0, second=0, microsecond=0) + dt.timedelta(days=1)
 
 
+def zaman_sec(kayit):
+    """Kayıtta sabit yayın saati varsa (ve en az 30 dk sonraysa) onu, yoksa ilk boş akşam saatini kullan."""
+    if kayit.get("sabit_yayin"):
+        z = dt.datetime.fromisoformat(kayit["sabit_yayin"])
+        if z > dt.datetime.now(TR) + dt.timedelta(minutes=30):
+            return z
+    return yayin_zamani(kayit["kanal"], kayit.get("gunluk", False))
+
+
 def youtube_yukle(kayit):
     token = erisim_anahtari(kayit["kanal"])
     yerel = os.path.join("/tmp", kayit["dosya"])
     gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
     boyut = os.path.getsize(yerel)
-    zaman = yayin_zamani(kayit["kanal"], kayit.get("gunluk", False))
+    zaman = zaman_sec(kayit)
     ust = {"snippet": {"title": kayit["baslik"], "description": urunlu_aciklama(kayit["aciklama"]), "tags": kayit["etiketler"],
                        "categoryId": kayit.get("kategori") or "24", "defaultLanguage": "tr", "defaultAudioLanguage": "tr"},
            "status": {"privacyStatus": "private", "publishAt": zaman.astimezone(dt.timezone.utc).isoformat()
@@ -612,7 +623,7 @@ def yeniden_planla():
     oncelik = {"dukkantv": 0, "kasakurgu": 1, "dramabite": 2}
     satirlar = []
     for p, k in sorted(bekleyen, key=lambda x: (oncelik.get(x[1]["kanal"], 9), x[1]["id"])):
-        zaman = yayin_zamani(k["kanal"], k.get("gunluk", False))
+        zaman = zaman_sec(k)
         token = erisim_anahtari(k["kanal"])
         kod, _, veri = istek("https://www.googleapis.com/youtube/v3/videos?part=status", method="PUT",
                              headers={"Authorization": f"Bearer {token}"},
