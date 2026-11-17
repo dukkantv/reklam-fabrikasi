@@ -1,3 +1,4 @@
 cikti/
 node_modules/
 __pycache__/
+*.kare.jpg

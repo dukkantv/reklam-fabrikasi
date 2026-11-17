@@ -60,9 +60,9 @@
  "sahneler": [
   {
    "metin": "Eylül 1730. İstanbul'da bir eskici, birkaç arkadaşıyla çarşının ortasında isyan bayrağı açıyor. Birkaç gün sonra imparatorluğun sadrazamı ölmüş, padişah ise tahtını bırakmış olacak.",
-   "nesne": "angry crowd in an Ottoman bazaar street",
+   "nesne": "angry crowd of Ottoman men in turbans raising a plain red ba",
    "arama": "Patrona Halil revolt",
-   "gorsel": "angry crowd raising a flag in an Ottoman covered bazaar street, 1730 Istanbul, 18th century Ottoman era, historically accurate costumes"
+   "gorsel": "angry crowd of Ottoman men in turbans raising a plain red banner without any symbols in a covered bazaar street, 1730 Istanbul, men wearing Ottoman turbans and kaftans, no European hats, no tricorn hats, no crowns, no helmets"
   },
   {
    "metin": "Bir hamam tellağı, bir eskici, sıradan bir esnaf. Dünyanın en güçlü devletlerinden birini nasıl dize getirdi?",
@@ -84,15 +84,15 @@
   },
   {
    "metin": "Tahtta Sultan Üçüncü Ahmed vardı. Devletin işlerini ise damadı, Sadrazam Nevşehirli İbrahim Paşa yönetiyordu.",
-   "nesne": "Ottoman sultan and grand vizier in a palace hall",
+   "nesne": "Ottoman sultan wearing a large white turban seated on a low ",
    "arama": "Sultan Ahmed III",
-   "gorsel": "Ottoman sultan seated on a divan with his grand vizier standing beside him in a richly decorated palace hall, 18th century Ottoman era, historically accurate costumes"
+   "gorsel": "Ottoman sultan wearing a large white turban seated on a low divan, grand vizier in a white turban and fur-trimmed kaftan standing beside him, richly decorated Ottoman palace hall, 18th century, men wearing Ottoman turbans and kaftans, no European hats, no tricorn hats, no crowns, no helmets"
   },
   {
    "metin": "Bu yıllara sonradan Lale Devri adı verildi. Bahçeler, kasırlar, eğlenceler, şiir ve sanat… İstanbul'un yüzü değişiyordu.",
-   "nesne": "Ottoman garden party with musicians",
+   "nesne": "Ottoman garden party at dusk",
    "arama": "Tulip Era garden party",
-   "gorsel": "elegant Ottoman garden party with musicians and lanterns among tulip beds, 18th century Ottoman era, historically accurate costumes"
+   "gorsel": "Ottoman garden party at dusk, musicians with ney and oud sitting on carpets among tulip beds and lanterns, full frame painting edge to edge, 18th century Ottoman era"
   },
   {
    "metin": "Kağıthane'de Sadabad Kasrı yükseldi. Boğaz kıyısı köşklerle, çeşmelerle doldu. Bir lale soğanının servet değerinde satıldığı anlatılır.",
@@ -138,9 +138,9 @@
   },
   {
    "metin": "Kahvehanelerde, hamamlarda, çarşılarda aynı söz dolaşıyordu: Sınırlar düşerken saray eğlencedeydi. Kıvılcım hazırdı.",
-   "nesne": "Ottoman coffeehouse full of men talking",
+   "nesne": "crowded Ottoman coffeehouse with men in turbans sitting on l",
    "arama": "Ottoman coffeehouse",
-   "gorsel": "crowded Ottoman coffeehouse with men in turbans talking intensely, 18th century Ottoman era, historically accurate costumes"
+   "gorsel": "crowded Ottoman coffeehouse with men in turbans sitting on low benches talking intensely, full frame painting edge to edge, 18th century Ottoman era"
   },
   {
    "metin": "Patrona Halil, Arnavut asıllı eski bir yeniçeriydi. Kaynaklara göre bir dönem hamam tellaklığı yapmış, sonra Beyazıt'ta eskicilik yapmıştı.",
@@ -150,9 +150,9 @@
   },
   {
    "metin": "Lakabının, bir zamanlar donanmada patrona adı verilen gemide hizmet etmesinden geldiği söylenir.",
-   "nesne": "Ottoman sailing warship in the harbor",
+   "nesne": "Ottoman sailing warship with plain red pennants anchored in ",
    "arama": "Ottoman galleon",
-   "gorsel": "Ottoman sailing warship anchored in the Golden Horn, 18th century, historically accurate"
+   "gorsel": "Ottoman sailing warship with plain red pennants anchored in the Golden Horn, 18th century"
   },
   {
    "metin": "Yanında yeniçeri Muslu Beşe ve Kel Ali gibi arkadaşları vardı. Plan küçüktü ama zamanlama mükemmeldi.",
@@ -162,9 +162,9 @@
   },
   {
    "metin": "28 Eylül 1730 sabahı Kapalıçarşı'da dükkânlar yeni açılıyordu. Patrona ve arkadaşları kılıçlarını çekip halkı isyana çağırdı.",
-   "nesne": "men raising a flag in a city square at dawn",
+   "nesne": "small group of Ottoman men in turbans raising a plain red ba",
    "arama": "Beyazit Square Istanbul",
-   "gorsel": "small group of Ottoman men raising a banner in a city square near a great mosque at dawn, 1730 Istanbul, historically accurate costumes"
+   "gorsel": "small group of Ottoman men in turbans raising a plain red banner without any symbols in front of a great Ottoman mosque at dawn, 1730 Istanbul, men wearing Ottoman turbans and kaftans, no European hats, no tricorn hats, no crowns, no helmets"
   },
   {
    "metin": "Esnaf kepenk kapatıp onlara katıldı. Kalabalık her sokakta biraz daha büyüdü.",
@@ -174,9 +174,9 @@
   },
   {
    "metin": "Yeniçerilerin bir kısmı da isyancıların yanına geçti. Bir eskicinin başlattığı hareket, kısa sürede bir orduya dönüştü.",
-   "nesne": "janissaries joining an angry crowd",
+   "nesne": "armed janissaries in tall white janissary caps joining an an",
    "arama": "Janissary cauldron",
-   "gorsel": "armed janissaries joining an angry crowd in an Istanbul street, 18th century Ottoman era, historically accurate costumes"
+   "gorsel": "armed janissaries in tall white janissary caps joining an angry crowd of Ottoman townsmen in an Istanbul street, 18th century Ottoman era, men wearing Ottoman turbans and kaftans, no European hats, no tricorn hats, no crowns, no helmets"
   },
   {
    "metin": "Padişah ve sadrazam hâlâ Üsküdar'daydı. İsyanı duyunca alelacele saraya döndüler.",
@@ -186,9 +186,9 @@
   },
   {
    "metin": "İsyancıların istediği belliydi: Başta Sadrazam İbrahim Paşa olmak üzere, kaynaklara göre otuz yedi devlet adamı kendilerine teslim edilecekti.",
-   "nesne": "crowd shouting in front of palace gate",
+   "nesne": "large shouting crowd of Ottoman men in turbans in front of a",
    "arama": "Topkapi Palace gate",
-   "gorsel": "large shouting crowd in front of the Topkapi Palace imperial gate, 18th century Ottoman era, historically accurate costumes"
+   "gorsel": "large shouting crowd of Ottoman men in turbans in front of a high stone palace gate with plain blank walls, 18th century Istanbul, men wearing Ottoman turbans and kaftans, no European hats, no tricorn hats, no crowns, no helmets"
   },
   {
    "metin": "Sultan Ahmed önce zaman kazanmaya çalıştı. Ama kalabalık her saat büyüyor, şehirde konaklar yağmalanıyordu.",
@@ -216,15 +216,15 @@
   },
   {
    "metin": "Bu arada Sadabad başta olmak üzere pek çok köşk ve kasır yağmalandı. Lale Devri'nin simgeleri günler içinde harabeye döndü.",
-   "nesne": "looted Ottoman pavilion with broken windows",
+   "nesne": "looted and damaged Ottoman wooden pavilion with broken windo",
    "arama": "Sadabad",
-   "gorsel": "looted and damaged Ottoman pavilion with broken windows and trampled tulip gardens, smoke in the air, 18th century"
+   "gorsel": "looted and damaged Ottoman wooden pavilion with broken windows and trampled tulip gardens, smoke in the air, plain blank walls, 18th century"
   },
   {
    "metin": "Ekim'in ilk günlerinde Sultan Üçüncü Ahmed tahtı yeğeni Mahmud'a bıraktı. Yeni padişah Birinci Mahmud oldu.",
-   "nesne": "young Ottoman sultan receiving allegiance",
+   "nesne": "young Ottoman sultan wearing a large white turban seated on ",
    "arama": "Sultan Mahmud I",
-   "gorsel": "young Ottoman sultan in a throne room receiving the allegiance of officials, 18th century Ottoman era, historically accurate costumes"
+   "gorsel": "young Ottoman sultan wearing a large white turban seated on a throne, officials in turbans bowing to him, 18th century Ottoman palace, men wearing Ottoman turbans and kaftans, no European hats, no tricorn hats, no crowns, no helmets"
   },
   {
    "metin": "Üçüncü Ahmed sarayın bir köşesine çekildi ve birkaç yıl sonra orada hayatını kaybetti. Lale Devri resmen bitmişti.",
@@ -252,9 +252,9 @@
   },
   {
    "metin": "İsyancıların bir kısmı da yorulmuştu. Esnaf dükkânına, yeniçeri kışlasına dönmek istiyordu. Patrona'nın desteği her gün biraz azalıyordu.",
-   "nesne": "merchants reopening shops in a quiet street",
+   "nesne": "Ottoman merchants in turbans calmly reopening wooden shop sh",
    "arama": "Istanbul bazaar 18th century",
-   "gorsel": "Ottoman merchants calmly reopening shops in a quiet street, 18th century Ottoman era, historically accurate costumes"
+   "gorsel": "Ottoman merchants in turbans calmly reopening wooden shop shutters in a quiet Istanbul street, 18th century Ottoman era, men wearing Ottoman turbans and kaftans, no European hats, no tricorn hats, no crowns, no helmets"
   },
   {
    "metin": "25 Kasım 1730'da Patrona Halil ve yakın adamları bir toplantı ve ödül bahanesiyle saraya çağrıldı.",
@@ -270,9 +270,9 @@
   },
   {
    "metin": "Ardından isyana katılanlar şehirde tek tek arandı. Kısa süre içinde düzen yeniden sağlandı.",
-   "nesne": "Ottoman soldiers patrolling a night street",
+   "nesne": "Ottoman soldiers in turbans carrying oil lanterns patrolling",
    "arama": "Ottoman soldiers",
-   "gorsel": "Ottoman soldiers with lanterns patrolling a quiet Istanbul street at night, 18th century Ottoman era, historically accurate costumes"
+   "gorsel": "Ottoman soldiers in turbans carrying oil lanterns patrolling a quiet narrow Istanbul street at night, 18th century Ottoman era, men wearing Ottoman turbans and kaftans, no European hats, no tricorn hats, no crowns, no helmets"
   },
   {
    "metin": "Peki geriye ne kaldı? Patrona isyanı, sarayın halktan ne kadar koptuğunu bütün imparatorluğa gösterdi.",
@@ -294,9 +294,9 @@
   },
   {
    "metin": "Sence Patrona Halil bir halk kahramanı mıydı, yoksa fırsatçı bir isyancı mı? Yorumlara yaz. Gizli Tarih'e abone olmayı unutma.",
-   "nesne": "old map of Istanbul with a candle",
+   "nesne": "an old blank parchment scroll and a quill on a desk beside a",
    "arama": "old map of Istanbul",
-   "gorsel": "old hand-drawn map of 18th century Istanbul spread on a desk beside a candle, warm light, no text"
+   "gorsel": "an old blank parchment scroll and a quill on a desk beside a candle, warm light, completely blank paper"
   }
  ]
 }
