@@ -150,8 +150,8 @@ def geri_sayim(cikti, tarih_yazi="26 KASIM · 19:00", sesli=True):
     rnd = random.Random(7)
 
     def kepenk(im, d, t, p, i):
-        yazi(d, (W / 2, 820), "ÇARŞIDA", font(90), dolgu=(255, 210, 60), kenar=8)
-        yazi(d, (W / 2, 930), "KEPENKLER KAPALI...", font(72), kenar=7)
+        yazi(d, (W / 2, 820), "ÇARŞI", font(90), dolgu=(255, 210, 60), kenar=8)
+        yazi(d, (W / 2, 930), "BOMBOŞ... ŞİMDİLİK!", font(72), kenar=7)
 
     def isiklar(im, d, t, p, i):
         yazi(d, (W / 2, 260), "15 ESNAF", font(90), dolgu=(255, 210, 60), kenar=8)
@@ -262,19 +262,42 @@ def takim_tanitim(cikti, takim, esnaflar, sesli=True):
 
 
 def fragman(cikti, takimlar, sesli=True):
-    def ciz(im, d, t, p, i):
-        for k_, (t_, x) in enumerate((("K", W * 0.27), ("M", W * 0.73))):
+    import math
+
+    def vs(im, d, t, p):
+        for t_, x in (("K", W * 0.27), ("M", W * 0.73)):
             lg = takim_logosu(t_, 380)
             if lg:
                 ortala(im, lg, x, 520)
+        yazi(d, (W / 2, 520), "VS", font(int(110 * (1 + 0.08 * math.sin(t * 6)))), dolgu=(255, 210, 60), kenar=9)
+
+    def esnaflar(im, d, t, p, tek_tek=False):
+        for k_, (t_, x) in enumerate((("K", W * 0.27), ("M", W * 0.73))):
             for j, e in enumerate(takimlar[t_]):
-                ortala(im, dukkan(e, 150), x + (-90 if j % 2 == 0 else 90), 800 + (j // 2) * 170)
-        yazi(d, (W / 2, 520), "VS", font(110), dolgu=(255, 210, 60), kenar=9)
+                g = giris(p, gecikme=j * 0.08, sure=0.15) if tek_tek else 1.0
+                if g > 0:
+                    ortala(im, dukkan(e, 150), x + (-90 if j % 2 == 0 else 90), 800 + (j // 2) * 170, olcek=0.4 + 0.6 * g)
+
+    def ac(im, d, t, p, i):
+        vs(im, d, t, p); esnaflar(im, d, t, p, tek_tek=True)
+
+    def tam(im, d, t, p, i):
+        vs(im, d, t, p); esnaflar(im, d, t, p)
+
+    def muhtar(im, d, t, p, i):
+        ortala(im, resim("muhtar-kursu.png", 760) or resim("carsi-muhtari-bakkal.png", 640), W / 2,
+               820 - (1 - giris(p)) * 120, alfa=giris(p))
+        yazi(d, (W / 2, 330), "HER HAFTA BİR VEDA", font(76), dolgu=(255, 90, 80), kenar=8)
+
+    def son(im, d, t, p, i):
+        vs(im, d, t, p)
+        yazi(d, (W / 2, 900), "YARIN 19:00", font(120), dolgu=(255, 210, 60), kenar=10)
+        yazi(d, (W / 2, 1040), "TAKIMINI YORUMLARA YAZ!", font(60), kenar=6)
     parcalar = [
-        (3.0, "L", "Yarın akşam yedide Çarşı Ligi başlıyor!", ciz),
-        (3.0, "C", "İlk maç ödül maçı abi! Kırmızı mı kazanır, Mavi mi?", ciz),
-        (3.0, "B", "Her hafta bir esnaf çarşıya veda edecek. Kaderleri sizin yorumlarınızda!", ciz),
-        (2.5, "L", "Takımını seç, yorumlara yaz! Yarın 19:00, Dükkan TV!", ciz),
+        (3.0, "L", "Yarın akşam yedide Çarşı Ligi başlıyor!", ac),
+        (3.0, "C", "İlk maç ödül maçı abi! Kırmızı mı kazanır, Mavi mi?", tam),
+        (3.0, "B", "Her hafta bir esnaf çarşıya veda edecek. Kaderleri sizin yorumlarınızda!", muhtar),
+        (2.5, "L", "Takımını seç, yorumlara yaz! Yarın 19:00, Dükkan TV!", son),
     ]
     return render(cikti, parcalar, koyu=160, sesli=sesli, ust="ÇARŞI LİGİ · YARIN BAŞLIYOR")
 
