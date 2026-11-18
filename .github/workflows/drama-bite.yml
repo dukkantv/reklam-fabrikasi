@@ -5,6 +5,7 @@ name: Drama Bite Hikaye
 on:
   schedule:
     - cron: "7 9 * * *"   # her gün 12:07 (Türkiye)
+    - cron: "37 13 * * *" # 16:37 yedek (GitHub tetiklemeyi atlarsa); bugün üretildiyse atlar
   workflow_dispatch:
     inputs:
       konu:
@@ -20,15 +21,24 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+      - name: Bugün üretildi mi?
+        id: k
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ] && ls kuyruk/$(TZ=Europe/Istanbul date +%Y%m%d)-*-dramabite.json kuyruk/arsiv/$(TZ=Europe/Istanbul date +%Y%m%d)-*-dramabite.json >/dev/null 2>&1; then
+            echo "Bugünkü Drama Bite zaten üretildi, atlanıyor"; echo "atla=1" >> $GITHUB_OUTPUT
+          fi
       - uses: actions/setup-python@v5
+        if: steps.k.outputs.atla != '1'
         with:
           python-version: "3.11"
       - name: Gerekli paketler
+        if: steps.k.outputs.atla != '1'
         run: |
           sudo apt-get update
           sudo apt-get install -y fonts-liberation fonts-dejavu-core ffmpeg
           pip install requests pillow edge-tts
       - name: Hikaye üret
+        if: steps.k.outputs.atla != '1'
         env:
           KONU: ${{ github.event.inputs.konu || 'rastgele' }}
           DIL: tr
@@ -38,7 +48,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python hikaye_atolyesi.py
       - name: Yayın kuyruğuna ekle (otomatik yayın, Durdur butonu gelir)
-        if: success() && hashFiles('cikti/yayin.json') != ''
+        if: success() && steps.k.outputs.atla != '1' && hashFiles('cikti/yayin.json') != ''
         env:
           GH_TOKEN: ${{ github.token }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
