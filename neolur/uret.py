@@ -218,6 +218,9 @@ def kuyruga_koy(b, mp4, zaman):
     tt_baslik = b["baslik"].replace(" #shorts", "")
     metin = (f"📱 TikTok'a yüklenecek · Gizli Tarih \"Ne Olur?\"\n🕘 Önerilen saat: {zaman:%d.%m %H:%M} "
              f"(YouTube ile aynı)\n\nAçıklama (kopyala):\n{tt_baslik} Sen olsan ne yapardın? 👇 {TIKTOK_ETIKET}")
+    from tt_ortak import tt_hesap
+    if tt_hesap("gizlitarih"):
+        return  # TikTok bağlı: video yayın saatinde TikTok taslaklarına kendiliğinden gider
     tok, chat = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
     if tok:
         import requests
