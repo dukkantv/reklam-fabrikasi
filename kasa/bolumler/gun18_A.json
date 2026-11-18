@@ -1,0 +1,75 @@
+{
+  "gun": 18,
+  "toplam_gun": 30,
+  "kasa_basi": 34700,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {
+      "tema": "gece",
+      "gorsel": "defter",
+      "gorsel_yazi": "İMZALAR ATILDI",
+      "ifade": "mutlu",
+      "baslik": "BÜYÜK ADIM",
+      "anlatim": "Manavın ortaklık teklifine evet dedim. İki taraf için de şartları belirleyip el sıkıştık.",
+      "damga": "Ortaklık"
+    },
+    {
+      "tema": "sabah",
+      "gorsel": "hal",
+      "gorsel_yazi": "DEV SEVKİYAT",
+      "ifade": "gulen",
+      "baslik": "BİRLİKTE GÜÇLÜ",
+      "anlatim": "Sabah erkenden hale gittik. Ortak sermayeyle toplu alım yapıp ciddi indirim kaptık.",
+      "damga": "Haller"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "kalabalik",
+      "gorsel_yazi": "+2800 TL",
+      "ifade": "mutlu",
+      "kasa": 37500,
+      "baslik": "MÜŞTERİ AKINI",
+      "anlatim": "Büyük manavın reyonu dolup taştı. Öğleye kadar payıma iki bin sekiz yüz lira düştü.",
+      "damga": "Satış"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "domates",
+      "gorsel_yazi": "HIZLI TÜKETİM",
+      "ifade": "gulen",
+      "baslik": "REKOR TALEP",
+      "anlatim": "Taze getirdiğimiz organik ürünler kapış kapış bitti. İki tezgah da arı gibi çalıştı.",
+      "damga": "Bereket"
+    },
+    {
+      "tema": "aksam",
+      "gorsel": "para",
+      "gorsel_yazi": "+2100 TL",
+      "ifade": "mutlu",
+      "kasa": 39600,
+      "baslik": "KASA COŞTU",
+      "anlatim": "Akşam paylaşılan gelirden iki bin yüz lira daha aldım. Toplam otuz dokuz bin altı yüz oldu.",
+      "damga": "Kazanç"
+    },
+    {
+      "tema": "hesap",
+      "gorsel": "etiket",
+      "gorsel_yazi": "YENİ YATIRIM?",
+      "ifade": "dusunceli",
+      "baslik": "SOĞUK HAVA",
+      "anlatim": "Kalan mallar bozulmasın diye ortağım ikinci el küçük bir soğutucu dolap almayı önerdi.",
+      "damga": "Fikir"
+    },
+    {
+      "tema": "oylama",
+      "ifade": "dusunceli",
+      "secenek": [
+        "Dolabı satın al",
+        "Masraf yapma"
+      ],
+      "baslik": "SOĞUTUCU DOLAP",
+      "anlatim": "Soğutucu dolaba para yatırıp ürünleri koruyalım mı, yoksa masraf yapmadan devam mı? Yoruma A veya B yaz. Yarın gün 19!"
+    }
+  ]
+}
