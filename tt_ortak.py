@@ -78,11 +78,12 @@ def kurulum(kanal, kod):
         telegram(f"❌ TikTok bağlantısı kurulamadı ({kanal}): {str(cev)[:300]}")
         sys.exit(f"hata: {cev}")
     os.makedirs(os.path.join(KOK, "tokens"), exist_ok=True)
-    _, _, k = istek(f"{API}/user/info/?fields=display_name,username",
+    _, _, k = istek(f"{API}/user/info/?fields=display_name",
                     headers={"Authorization": f"Bearer {cev['access_token']}"})
     ad = ((k or {}).get("data") or {}).get("user", {})
     isim = f"{ad.get('username', '')} {ad.get('display_name', '')}".lower()
-    if kanal == "gizlitarih" and "gizli" not in isim:
+    print("TikTok hesabı:", isim.strip() or "(okunamadı)")
+    if kanal == "gizlitarih" and isim.strip() and "gizli" not in isim:
         # Yanlış hesapla izin verilmişse (ör. tarayıcıda Kasa Kurgu açıkken) kaydetme
         telegram(f"❌ TikTok izni yanlış hesaptan verilmiş ({isim.strip() or 'bilinmiyor'}). "
                  f"TikTok'ta Gizli Tarih hesabına geçip bağlantıyı yeniden aç.")
