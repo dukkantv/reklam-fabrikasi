@@ -34,4 +34,4 @@ jobs:
       - name: Sesleri kaydet
         run: |
           git config user.name "Dükkan TV Bot"; git config user.email "dukkan.tvstudio@gmail.com"
-          git add elektrik/ses; git diff --cached --quiet || (git commit -qm "Elektriksiz Dünya seslendirme" && (git push || (git pull --rebase origin main && git push)))
+          git add elektrik/ses; git diff --cached --quiet || (git commit -qm "Elektriksiz Dünya seslendirme" && (git push || (git pull --rebase -X theirs origin main && git push)))
