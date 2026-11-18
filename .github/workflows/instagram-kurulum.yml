@@ -3,6 +3,9 @@ name: Instagram Kurulum
 # IG_USER_TOKEN gizli anahtarındaki (60 günlük) kullanıcı anahtarıyla, Facebook sayfalarına bağlı
 # Instagram hesaplarının SÜRESİZ sayfa anahtarlarını alır ve şifreli olarak tokens/ klasörüne kaydeder.
 on:
+  push:
+    branches: [main]
+    paths: ["tokens/ig_kurulum_iste.txt"]   # Claude bu dosyayı değiştirerek kurulumu başlatabilir
   workflow_dispatch:
     inputs:
       video:

@@ -69,6 +69,8 @@ def kurulum():
             eksik.append(s["name"])
             continue
         kanal = KULLANICI_KANAL.get(ig["username"], ig["username"].replace(".", "_"))
+        if "gizli" in ig["username"].lower() and "tarih" in ig["username"].lower():
+            kanal = "gizlitarih"   # Gizli Tarih hangi kullanıcı adıyla açılırsa açılsın YouTube kanalıyla eşleşsin
         _sifrele(s["access_token"], os.path.join(KOK, "tokens", f"ig_{kanal}.enc"))
         json.dump({"kanal": kanal, "kullanici": ig["username"], "ig_id": ig["id"], "sayfa": s["name"],
                    "sayfa_id": s["id"], "fb_izin": fb_izin}, open(os.path.join(KOK, "tokens", f"ig_{kanal}.json"), "w",
