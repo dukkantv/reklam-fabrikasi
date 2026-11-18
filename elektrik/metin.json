@@ -8,7 +8,10 @@
     "s4": "Birinci haftada ilaç bulmak zorlaşır. Temiz su, altından değerli hâle gelir. Taze gıda kalmaz.",
     "s5": "Haftalar sonra, tarım ve üretim durur. Çöpler toplanmaz. Şehir hayatı çöker.",
     "s6": "Peki ne yapmalı? En büyük tehlike karanlık değil. Su! Kişi başı günde en az üç litre içme suyu ayırın.",
-    "s7": "Evde pirinç, bulgur, mercimek, konserve ve kuruyemiş bulunsun. Ve elle açılan bir konserve açacağı!",
+    "s7": "Evde pirinç, bulgur, mercimek, makarna ve konserve bulundurun. Bir de, elektriksiz çalışan bir konserve açacağı alın!",
     "son": "Peki sen, kaç gün dayanırdın? Yorumlara yaz."
-  }
+  },
+  "sadece": [
+    "s7"
+  ]
 }

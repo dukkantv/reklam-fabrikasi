@@ -29,6 +29,8 @@ jobs:
           path: ~/.cache/huggingface
           key: chatterbox-mtl-v1
       - run: python elektrik/seslendir.py
+      - name: Kontrol (yazıya dökme)
+        run: pip install -q faster-whisper && python elektrik/kontrol.py
       - name: Sesleri kaydet
         run: |
           git config user.name "Dükkan TV Bot"; git config user.email "dukkan.tvstudio@gmail.com"

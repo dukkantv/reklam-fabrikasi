@@ -8,6 +8,8 @@ veri = json.load(open(os.path.join(KOK, "elektrik", "metin.json"), encoding="utf
 cikti = os.path.join(KOK, "elektrik", "ses")
 os.makedirs(cikti, exist_ok=True)
 for ad, metin in veri["sahneler"].items():
+    if veri.get("sadece") and ad not in veri["sadece"]:
+        continue
     wav = f"/tmp/{ad}.wav"
     ucretsiz_ses.oku(veri["tarz"], metin, wav)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", wav, "-ac", "1", "-ar", "44100", "-b:a", "160k",
