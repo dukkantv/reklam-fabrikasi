@@ -3,13 +3,16 @@ name: TikTok İzin
 # 1) Kod boş bırakılırsa: TikTok izin bağlantısı Telegram'a gelir.
 # 2) Bağlantıda izin verince açılan sayfadaki kodu buraya yapıştır: bağlantı kurulur.
 on:
+  push:
+    branches: [main]
+    paths: ["tokens/tt_izin_iste.txt"]   # Claude: dosyaya kanal adını yazınca izin bağlantısı Telegram'a gider
   workflow_dispatch:
     inputs:
       kanal:
         description: "Hangi kanalın TikTok hesabı"
         type: choice
         default: dukkantv
-        options: [dukkantv, kasakurgu, dramabite, ilturnuva]
+        options: [dukkantv, kasakurgu, dramabite, ilturnuva, gizlitarih]
       kod:
         description: "İzin sayfasındaki kod (ilk seferde boş bırak)"
         required: false
@@ -37,6 +40,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: İzin bağlantısı ya da kurulum
         run: |
+          if [ -z "$KANAL" ]; then KANAL=$(tr -d '[:space:]' < tokens/tt_izin_iste.txt); fi
           if [ -n "$DURUM" ]; then python3 tt_ortak.py durum "$KANAL" "$DURUM"
           elif [ -z "$KOD" ]; then python3 tt_ortak.py link "$KANAL"
           else python3 tt_ortak.py kurulum "$KANAL" "$KOD"; fi
