@@ -114,3 +114,23 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Yayın kuyruğu güncellendi"
           git pull --rebase -q && git push
+
+  # GitHub planlı tetiklemeleri sık atlıyor: bu iş sıradaki paylaşım saatine kadar bekler ve
+  # "YouTube Yayın"ı yeniden başlatır. Böylece kesintisiz bir zincir oluşur; cron sadece yedek.
+  nobet:
+    needs: yayin
+    if: always() && inputs.kanal == '' && inputs.geri_al == ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Sıradaki paylaşıma kadar bekle
+        run: |
+          SN=$(python3 nobet.py)
+          sleep "$SN"
+      - name: Yayın işini yeniden başlat
+        run: gh workflow run youtube-yayin.yml --ref main -R "$GITHUB_REPOSITORY"
