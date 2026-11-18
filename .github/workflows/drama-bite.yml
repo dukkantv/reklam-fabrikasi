@@ -24,7 +24,7 @@ jobs:
       - name: Bugün üretildi mi?
         id: k
         run: |
-          if [ "${{ github.event_name }}" = "schedule" ] && ls kuyruk/$(TZ=Europe/Istanbul date +%Y%m%d)-*-dramabite.json kuyruk/arsiv/$(TZ=Europe/Istanbul date +%Y%m%d)-*-dramabite.json >/dev/null 2>&1; then
+          if [ "${{ github.event_name }}" = "schedule" ] && ls kuyruk/$(TZ=Europe/Istanbul date +%Y%m%d)-*-dramabite.json kuyruk/arsiv/$(TZ=Europe/Istanbul date +%Y%m%d)-*-dramabite.json 2>/dev/null | grep -q .; then
             echo "Bugünkü Drama Bite zaten üretildi, atlanıyor"; echo "atla=1" >> $GITHUB_OUTPUT
           fi
       - uses: actions/setup-python@v5
