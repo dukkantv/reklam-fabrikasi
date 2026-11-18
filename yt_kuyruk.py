@@ -239,7 +239,20 @@ def gunluk_gunler():
     return gunler
 
 
-def yayin_zamani(kanal="dukkantv", gunluk=False):
+def ayni_tur_gunler(kanal, uzun):
+    """Kanalın aynı türden (uzun belgesel / kısa video) yayın planlanmış günleri."""
+    gunler = set()
+    for p in glob.glob(os.path.join(KUYRUK, "*.json")) + glob.glob(os.path.join(KUYRUK, "arsiv", "*.json")):
+        try:
+            k = json.load(open(p, encoding="utf-8"))
+            if k.get("kanal") == kanal and k.get("yayin") and bool(k.get("uzun")) == bool(uzun):
+                gunler.add(dt.datetime.fromisoformat(k["yayin"]).astimezone(TR).date())
+        except Exception:
+            pass
+    return gunler
+
+
+def yayin_zamani(kanal="dukkantv", gunluk=False, uzun=False):
     simdi = dt.datetime.now(TR)
     dolu = dolu_zamanlar()
     yasak_gunler = gunluk_gunler() if gunluk else set()
@@ -248,8 +261,8 @@ def yayin_zamani(kanal="dukkantv", gunluk=False):
         tarih = (simdi + dt.timedelta(days=gun)).date()
         if tarih in yasak_gunler:
             continue
-        if kanal in GUNDE_BIR and any(k == kanal and z.astimezone(TR).date() == tarih for k, z in dolu):
-            continue  # bu kanala günde en fazla 1 video (turnuva/belgesel takvimi kaymasın)
+        if kanal in GUNDE_BIR and tarih in ayni_tur_gunler(kanal, uzun):
+            continue  # bu kanala günde en fazla 1 video (turnuva/belgesel takvimi kaymasın; Shorts ayrı sayılır)
         for saat in sira:
             hh, mm = map(int, saat.split(":"))
             aday = dt.datetime(tarih.year, tarih.month, tarih.day, hh, mm, tzinfo=TR)
@@ -268,7 +281,7 @@ def zaman_sec(kayit):
         z = dt.datetime.fromisoformat(kayit["sabit_yayin"])
         if z > dt.datetime.now(TR) + dt.timedelta(minutes=30):
             return z
-    return yayin_zamani(kayit["kanal"], kayit.get("gunluk", False))
+    return yayin_zamani(kayit["kanal"], kayit.get("gunluk", False), kayit.get("uzun", False))
 
 
 def youtube_yukle(kayit):

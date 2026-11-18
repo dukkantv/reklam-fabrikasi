@@ -1,0 +1,84 @@
+name: Gizli Tarih - Ne Olur? Shorts
+
+# İki günde bir "Ne Olur?" senaryo Shorts'u: Levent'in ücretsiz klon sesi + kodla çizilen video.
+# Bir gün önceden üretilir, Gizli Tarih YouTube'da akşam saatine planlanır, TikTok için Telegram'a gelir.
+on:
+  schedule:
+    - cron: "47 7 * * *"     # her gün 10:47 (TR): üretim günü mü diye bakar
+  workflow_dispatch:
+    inputs:
+      zorla:
+        description: "Sıradaki bölümü hemen üret"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths: ["neolur/hazir/**"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ne-olur
+
+jobs:
+  uret:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      GH_TOKEN: ${{ github.token }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Ne yapılacak?
+        id: is
+        run: |
+          pip install -q requests numpy pillow
+          if ls neolur/hazir/*.mp4 >/dev/null 2>&1; then echo "hazir=evet" >> $GITHUB_OUTPUT; fi
+          if [ "${{ inputs.zorla }}" = "true" ]; then echo "uret=evet" >> $GITHUB_OUTPUT;
+          else echo "uret=$(python neolur/uret.py gerek)" >> $GITHUB_OUTPUT; fi
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+        if: steps.is.outputs.hazir == 'evet' || steps.is.outputs.uret == 'evet'
+      - name: Oynatma listesi (Ne Olur?)
+        if: steps.is.outputs.hazir == 'evet' || steps.is.outputs.uret == 'evet'
+        run: python -c "from kanal_ayar import kanal_listeleri; print(kanal_listeleri('gizlitarih', olustur=True))" || true
+      - name: Hazır videoyu sıraya koy
+        if: steps.is.outputs.hazir == 'evet'
+        run: |
+          for f in neolur/hazir/*.mp4; do
+            python neolur/uret.py hazir "$f" "$(basename "$f" .mp4)"
+            git rm -q "$f"
+          done
+      - name: Kurulum (ses + kontrol)
+        if: steps.is.outputs.uret == 'evet' && steps.is.outputs.hazir != 'evet'
+        run: |
+          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install -q chatterbox-tts faster-whisper
+      - name: Model önbelleği
+        if: steps.is.outputs.uret == 'evet' && steps.is.outputs.hazir != 'evet'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: chatterbox-mtl-v1
+      - name: Bölümü üret ve sıraya koy
+        if: steps.is.outputs.uret == 'evet' && steps.is.outputs.hazir != 'evet'
+        run: python neolur/uret.py ${{ inputs.zorla && 'zorla' || 'otomatik' }}
+      - name: Kaydet
+        if: always()
+        run: |
+          git config user.name "Dükkan TV Bot"; git config user.email "dukkan.tvstudio@gmail.com"
+          git add -A kuyruk tokens neolur
+          git diff --cached --quiet && exit 0
+          git commit -qm "Ne Olur? serisi güncellendi"
+          git push || (git pull --rebase -X theirs -q origin main && git push)
+      - name: Hata bildirimi
+        if: failure()
+        run: |
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" -d chat_id="${TELEGRAM_CHAT_ID}" \
+            --data-urlencode text="⚠️ Gizli Tarih 'Ne Olur?' bölümü üretilemedi. Claude'a haber ver: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >/dev/null

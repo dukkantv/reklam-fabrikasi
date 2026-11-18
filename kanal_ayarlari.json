@@ -44,13 +44,18 @@
   ]
  },
  "gizlitarih": {
-  "aciklama": "Gizli Tarih — tarihin saklanan hikâyeleri 📜\n\nOsmanlı padişahlarının bilinmeyen anları, büyük savaşların perde arkası, piramitler ve çözülemeyen gizemler. Her hafta yeni bir belgesel.\n\nSahneler kanal için özel hazırlanmış çizimlerdir; tarihî bilgilerin kaynakları her videonun açıklamasında.\n\n📩 İletişim: kasakurgu.tr@gmail.com",
+  "aciklama": "Gizli Tarih — tarihin saklanan hikâyeleri 📜\n\nOsmanlı padişahlarının bilinmeyen anları, büyük savaşların perde arkası, piramitler ve çözülemeyen gizemler. Her hafta yeni belgeseller, iki günde bir \"Ne Olur?\" kısa senaryoları.\n\nSahneler kanal için özel hazırlanmış çizimlerdir; tarihî bilgilerin kaynakları her videonun açıklamasında.\n\n📩 İletişim: kasakurgu.tr@gmail.com",
   "anahtar_kelimeler": "tarih belgesel \"osmanlı tarihi\" \"osmanlı padişahları\" \"tarih belgeseli\" gizem \"tarihi olaylar\" \"kanuni sultan süleyman\" savaş piramitler",
   "listeler": [
    {
     "ad": "Osmanlı'nın Gizli Kalmış Hikâyeleri 🕌",
     "aciklama": "Padişahlar, sadrazamlar, seferler: bilinmeyen anlar.",
-    "kural": "*"
+    "kural": "!Ne Olur"
+   },
+   {
+    "ad": "Ne Olur? 🌍 Kısa Senaryolar",
+    "aciklama": "Elektrik kesilirse, Güneş sönerse, Ay yok olursa… Her iki günde bir yeni \"Ne olur?\" senaryosu.",
+    "kural": "Ne Olur"
    }
   ]
  },
