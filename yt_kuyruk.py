@@ -31,8 +31,9 @@ from tt_ortak import taslak_yukle, tt_hesap
 def deneme_reels_mi(kayit):
     """Deneme Reels (yalnızca takip etmeyenlere önce gösterim) uygulanacak videolar.
     16 Kasım 2026 denemesi: Kasa Kurgu'nun Katil Kim serisi."""
-    # Yalnızca ilk denemede: Instagram bir kez reddettiyse sonraki denemeler normal Reels olur (video takılıp kalmaz)
-    return (kayit.get("kanal") == "kasakurgu" and "Katil Kim" in kayit.get("baslik", "")
+    # 18 Kasım 2026: Meta uygulamaya bu izni vermiyor (kod 10, alt kod 2207081: "Application does not have
+    # permission"). İzin açılana kadar kapalı; videolar normal Reels olarak paylaşılır.
+    return False and (kayit.get("kanal") == "kasakurgu" and "Katil Kim" in kayit.get("baslik", "")
             and not kayit.get("ig_deneme"))
 
 

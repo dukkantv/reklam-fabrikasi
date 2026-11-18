@@ -139,14 +139,14 @@ def reels_yukle(kanal, video_yolu, aciklama, deneme=False):
     if not h:
         raise RuntimeError(f"{kanal} için Instagram bağlı değil")
     tok, ig = h["token"], h["ig_id"]
-    for deneme in range(5):
+    for sira in range(5):  # (eskiden 'deneme' adını kullanıyordu ve Deneme Reels ayarını eziyordu)
         try:
             kap = _kapsayici_yukle(kanal, video_yolu, aciklama, deneme)
             break
         except RuntimeError as e:
-            if "ProcessingFailedError" not in str(e) or deneme == 4:
+            if "ProcessingFailedError" not in str(e) or sira == 4:
                 raise
-            print(f"Instagram yükleme {deneme + 1}. deneme reddedildi, tekrar deneniyor", flush=True)
+            print(f"Instagram yükleme {sira + 1}. deneme reddedildi, tekrar deneniyor", flush=True)
             time.sleep(20)
     for _ in range(60):  # işleme bitene kadar bekle (en çok ~10 dk)
         _, _, d = istek(f"{API}/{kap['id']}?fields=status_code,status&access_token={tok}")
