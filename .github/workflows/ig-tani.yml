@@ -1,0 +1,20 @@
+name: Instagram tanı (yayınlamaz)
+on:
+  workflow_dispatch:
+    inputs:
+      kayit:
+        default: "kuyruk/20261118-130132-dramabite.json"
+permissions:
+  contents: read
+jobs:
+  tani:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - run: pip install -q requests && python3 ig_tani.py "${{ inputs.kayit }}"
