@@ -83,10 +83,13 @@ def ig_bekliyor(kayit):
     """Bu kanal için Instagram bağlıysa ve henüz paylaşılmadıysa True."""
     if kayit.get("ig") in ("paylasildi", "hata") or kayit.get("uzun"):
         return False
-    # Instagram arıza verdiyse en sık saatte bir dene (Meta'nın geçici kesintileri saatler sürebiliyor)
+    # Instagram reddettiyse araları açarak dene: 1., 2., 3. denemeden sonra 2 / 4 / 8 saat bekle.
+    # (Sık deneme Instagram'ın yükleme kısıtlamasını uzatıyordu; 19 Kas 2026'da 19 deneme görüldü.)
     son = kayit.get("ig_son_deneme")
-    if son and dt.datetime.now(dt.timezone.utc) - dt.datetime.fromisoformat(son) < dt.timedelta(minutes=55):
-        return False
+    if son:
+        ara = dt.timedelta(hours=2 ** min(kayit.get("ig_deneme", 1), 3))
+        if dt.datetime.now(dt.timezone.utc) - dt.datetime.fromisoformat(son) < ara:
+            return False
     try:
         return ig_hesap(kayit["kanal"]) is not None
     except Exception:
@@ -453,6 +456,8 @@ def kontrol():
                     try:
                         mid, link = reels_yukle(kayit["kanal"], yol, ig_aciklama(kayit), deneme_reels_mi(kayit))
                     except RuntimeError as e1:
+                        if "Request processing failed" in str(e1):
+                            raise  # yükleme kısıtlaması: yeniden kodlamak işe yaramaz, saatler sonra tekrar denenir
                         # Instagram bazı videoları "ProcessingFailedError" ile reddediyor (ör. çok düşük bit hızı).
                         # Instagram'ın önerdiği ayarlarla yeniden kodlayıp bir kez daha dene.
                         print(f"Instagram ilk deneme ({kayit['id']}):", str(e1)[:300], "→ yeniden kodlanıyor")
@@ -473,9 +478,9 @@ def kontrol():
                     print(f"Instagram hatası ({kayit['id']}):", str(e)[:400])
                     kayit["ig_deneme"] = kayit.get("ig_deneme", 0) + 1
                     kayit["ig_son_deneme"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
-                    if kayit["ig_deneme"] >= 24:  # Instagram'ın geçici "ProcessingFailedError"ları için daha çok deneme
+                    if kayit["ig_deneme"] >= 4:  # 2+4+8 saat aralıklı 4 deneme; sonra bırak (kota yememesi için)
                         kayit["ig"] = "hata"
-                        telegram(f"⚠️ {ad}: Instagram paylaşımı 24 kez başarısız: {str(e)[:200]}")
+                        telegram(f"⚠️ {ad}: Instagram paylaşımı 4 kez başarısız: {str(e)[:200]}")
                     kaydet(kayit)
             if fb_bekliyor(kayit):
                 try:

@@ -139,7 +139,9 @@ def reels_yukle(kanal, video_yolu, aciklama, deneme=False):
     if not h:
         raise RuntimeError(f"{kanal} için Instagram bağlı değil")
     tok, ig = h["token"], h["ig_id"]
-    for sira in range(5):  # (eskiden 'deneme' adını kullanıyordu ve Deneme Reels ayarını eziyordu)
+    # 19 Kas 2026: "ProcessingFailedError" çoğunlukla Instagram'ın yükleme kısıtlaması; arka arkaya denemek kısıtlamayı
+    # uzatıyor. Tek deneme yapılır, tekrar yt_kuyruk'ta saatler sonra yapılır.
+    for sira in range(1):
         try:
             kap = _kapsayici_yukle(kanal, video_yolu, aciklama, deneme)
             break
