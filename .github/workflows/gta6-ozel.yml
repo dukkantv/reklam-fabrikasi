@@ -9,7 +9,7 @@ on:
         description: "onizle = videoyu üret ve depoya koy / yayinla = 5 kanalın kuyruğuna ekle"
         type: choice
         default: onizle
-        options: [onizle, yayinla]
+        options: [onizle, yayinla, eleven, degistir]
 
 permissions:
   contents: write
@@ -27,6 +27,9 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -46,6 +49,28 @@ jobs:
           git add gta6/cikti.mp4
           git commit -m "GTA 6 özel bölüm: önizleme videosu"
           git pull --rebase -q && git push
+      - name: ElevenLabs sesli sürüm
+        if: inputs.asama == 'eleven'
+        env:
+          GTA_SES: eleven
+        run: |
+          pip install -q faster-whisper
+          python gta6/birlestir.py
+          git config user.name "Dükkan TV Bot"
+          git config user.email "dukkan.tvstudio@gmail.com"
+          git add gta6/cikti_eleven.mp4
+          git commit -m "GTA 6 özel bölüm: ElevenLabs sesli sürüm"
+          git pull --rebase -q && git push
+      - name: Planlı videoları ElevenLabs sürümüyle değiştir
+        if: inputs.asama == 'degistir'
+        run: |
+          python gta6/degistir.py
+          git config user.name "Dükkan TV Bot"
+          git config user.email "dukkan.tvstudio@gmail.com"
+          git add -A kuyruk
+          git commit -m "GTA 6 özel bölüm: ElevenLabs sürümüyle yeniden planlandı"
+          git pull --rebase -q && git push
+          gh workflow run youtube-yayin.yml --ref main -R "$GITHUB_REPOSITORY" || true
       - name: 5 kanala 11:00 için kuyruğa ekle
         if: inputs.asama == 'yayinla'
         env:
