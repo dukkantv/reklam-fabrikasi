@@ -1,5 +1,5 @@
 # Gizli Tarih "Ne Olur?" Shorts serisi – 2 günde bir yeni bölüm (uzun belgesellerle aynı güne denk gelmez).
-# Akış: sıradaki bölüm → Levent'in ücretsiz klon sesi (Chatterbox) → yazıya döküp kontrol (faster-whisper)
+# Akış: sıradaki bölüm → Levent'in klon sesi (ElevenLabs kredisi bitene kadar, sonra ücretsiz Chatterbox) → yazıya döküp kontrol (faster-whisper)
 #       → kodla çizilen video → müzik → Gizli Tarih YouTube kuyruğu (sabit saat) → TikTok için Telegram'a video.
 # Kullanım:
 #   python neolur/uret.py otomatik            # bugün üretilmesi gerekiyorsa üretir (her gün çalışır)
@@ -84,9 +84,67 @@ def kirp(src, hedef):
     return sure_olc(hedef)
 
 
+# ---------------- ses: önce ElevenLabs (Levent'in klonu, kredi bitene kadar), sonra ücretsiz Chatterbox ----------------
+ELEVEN_KEY = "".join(os.environ.get("ELEVENLABS_API_KEY", "").split())
+
+
+class ElevenBitti(Exception):
+    pass
+
+
+def eleven_kalan():
+    import requests
+    try:
+        j = requests.get("https://api.elevenlabs.io/v1/user/subscription", headers={"xi-api-key": ELEVEN_KEY}, timeout=60).json()
+        return j["character_limit"] - j["character_count"]
+    except Exception as e:
+        print("ElevenLabs kredi okunamadı:", str(e)[:120])
+        return None
+
+
+def eleven_oku(metin, cikti):
+    import requests, time
+    vid = json.load(open(os.path.join(KOK, "sesler", "levent_klon.json")))["voice_id"]
+    for d in range(5):
+        r = requests.post(f"https://api.elevenlabs.io/v1/text-to-speech/{vid}", headers={"xi-api-key": ELEVEN_KEY},
+                          params={"output_format": "mp3_44100_128"}, timeout=180,
+                          json={"text": metin, "model_id": "eleven_v3", "language_code": "tr",
+                                "voice_settings": {"stability": 0.5, "similarity_boost": 0.85, "use_speaker_boost": True}})
+        if r.ok and len(r.content) > 2000:
+            open(cikti + ".mp3", "wb").write(r.content)
+            sh("ffmpeg", "-v", "error", "-y", "-i", cikti + ".mp3", "-ar", "44100", "-ac", "1", cikti)
+            return
+        print(f"ElevenLabs {r.status_code}: {r.text[:200]}", flush=True)
+        if r.status_code in (401, 402, 403) or "quota" in r.text.lower():
+            raise ElevenBitti(r.text[:200])
+        time.sleep(5 * (d + 1))
+    raise ElevenBitti("ElevenLabs cevap vermedi")
+
+
 def seslendir(bolum, cikti):
-    import ucretsiz_ses
+    """Bölümün tamamı tek sesle çıkar: ElevenLabs kredisi bölüme yetiyorsa o, yetmezse/yarıda biterse Chatterbox."""
+    motor = "chatterbox"
+    if ELEVEN_KEY:
+        gerek = sum(len(m) for s in bolum["sahneler"] for m in s["ses"])
+        kalan = eleven_kalan()
+        print(f"ElevenLabs: bölüm ≈{gerek} kredi, kalan {kalan}", flush=True)
+        if kalan is None or kalan >= gerek * 1.6 + 300:   # tekrar denemeler için pay
+            motor = "eleven"
+        else:
+            print("ElevenLabs kredisi yetmiyor — ücretsiz Chatterbox sesine geçiliyor", flush=True)
+    if motor == "eleven":
+        try:
+            return _seslendir(bolum, cikti, "eleven")
+        except ElevenBitti as e:
+            print("ElevenLabs yarıda kaldı, bölüm baştan Chatterbox ile seslendiriliyor:", e, flush=True)
+    return _seslendir(bolum, cikti, "chatterbox")
+
+
+def _seslendir(bolum, cikti, motor):
     from faster_whisper import WhisperModel
+    if motor == "chatterbox":
+        import ucretsiz_ses
+    print("Anlatım sesi:", "Levent klonu (ElevenLabs v3)" if motor == "eleven" else "Levent klonu (Chatterbox, ücretsiz)", flush=True)
     kulak = WhisperModel("medium", device="cpu", compute_type="int8")
     sureler, sorunlar = {}, []
     for i, s in enumerate(bolum["sahneler"]):
@@ -97,7 +155,10 @@ def seslendir(bolum, cikti):
             en_iyi = (-1, None, "")
             for deneme in range(3):
                 ham = f"/tmp/ham_{ad}_{j}_{deneme}.wav"
-                ucretsiz_ses.oku(bolum.get("tarz", "belgesel"), metin, ham)
+                if motor == "eleven":
+                    eleven_oku(metin, ham)
+                else:
+                    ucretsiz_ses.oku(bolum.get("tarz", "belgesel"), metin, ham)
                 segs, _ = kulak.transcribe(ham, language="tr")
                 duyulan = " ".join(x.text.strip() for x in segs)
                 oran = benzerlik(metin, duyulan)

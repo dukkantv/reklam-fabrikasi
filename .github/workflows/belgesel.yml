@@ -36,7 +36,7 @@ jobs:
       CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
       SENARYO_DOSYA: ${{ inputs.senaryo }}
       ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
-      BELGESEL_SES_MOTOR: ${{ inputs.ses }}
+      BELGESEL_SES_MOTOR: ${{ inputs.kanal == 'gizlitarih' && 'klon' || inputs.ses }}   # Gizli Tarih: ElevenLabs bitene kadar klon
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

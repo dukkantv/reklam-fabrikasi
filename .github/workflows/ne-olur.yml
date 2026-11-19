@@ -1,6 +1,6 @@
 name: Gizli Tarih - Ne Olur? Shorts
 
-# İki günde bir "Ne Olur?" senaryo Shorts'u: Levent'in ücretsiz klon sesi + kodla çizilen video.
+# İki günde bir "Ne Olur?" senaryo Shorts'u: Levent'in klon sesi (ElevenLabs bitene kadar, sonra ücretsiz) + kodla çizilen video.
 # Bir gün önceden üretilir, Gizli Tarih YouTube'da akşam saatine planlanır, TikTok için Telegram'a gelir.
 on:
   schedule:
@@ -33,6 +33,7 @@ jobs:
       TT_CLIENT_SECRET: ${{ secrets.TT_CLIENT_SECRET }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
