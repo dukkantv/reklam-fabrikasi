@@ -13,12 +13,13 @@
   "çizgi film"
  ],
  "dosya": "20261119-063719-dramabite.mp4",
- "durum": "yuklendi",
+ "durum": "onaylandi",
  "eklendi": "2026-11-19T06:37:19.453255+03:00",
  "kategori": "20",
  "sabit_yayin": "2026-11-19T11:00:00+03:00",
  "otomatik": true,
  "mesaj_id": 679,
- "video_id": "WB8nM1lAk6I",
- "yayin": "2026-11-19T11:00:00+03:00"
+ "eski_video_idler": [
+  "WB8nM1lAk6I"
+ ]
 }
