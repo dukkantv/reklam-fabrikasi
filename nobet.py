@@ -30,7 +30,12 @@ def bekleme():
         if z > simdi:
             adaylar.append((z + dt.timedelta(minutes=2), k["id"], "yayın saati"))
         elif paylasilmadi and simdi - z < dt.timedelta(hours=30):
-            adaylar.append((simdi + dt.timedelta(seconds=YENIDEN), k["id"], "paylaşım bekliyor"))
+            son = k.get("ig_son_deneme")
+            sonraki = simdi + dt.timedelta(seconds=YENIDEN)
+            if son:  # yt_kuyruk.ig_bekliyor ile aynı aralık: 2 / 4 / 8 saat
+                sonraki = max(sonraki, dt.datetime.fromisoformat(son).astimezone(TR)
+                              + dt.timedelta(hours=2 ** min(k.get("ig_deneme", 1), 3), minutes=2))
+            adaylar.append((sonraki, k["id"], "Instagram yeniden deneme"))
     # Onay/yükleme kontrolleri için gündüz en az saatte bir çalış
     adaylar.append((simdi + dt.timedelta(hours=1) if 6 <= simdi.hour < 23 else simdi + dt.timedelta(seconds=AZAMI),
                     "-", "düzenli kontrol"))
