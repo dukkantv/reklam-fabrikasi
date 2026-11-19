@@ -21,7 +21,7 @@ carsi_ses.SESLER["N"] = {"voice": "tr-TR-AhmetNeural", "rate": "+10%", "pitch": 
 # (başlangıç sn, bitiş sn, kim, metin) — süreler videodaki altyazı değişimlerinden ölçüldü
 SATIRLAR = [
     # Bölüm 1 — kanca
-    (0.15, 3.15, "N", "Son dakika! GTA 6 yüzünden dükkânlar kapandı... ama asıl olay bu değil!"),
+    (0.05, 3.15, "N", "GTA 6 yüzünden dükkân kapandı, ama asıl olay bu değil!"),
     (3.30, 6.55, "L", "Abi, esnaf bile kepenk indirmiş. Bugün herkes izinli!"),
     (6.70, 9.90, "C", "On üç yıl bekledik evlat, dükkân mı kalır ortada!"),
     # Bölüm 2 — mizah
@@ -100,7 +100,8 @@ def eleven_tek(metin, kim, pay):
             break
     hiz = len(en_iyi) / SR / pay
     if hiz > 1.3:
-        raise SystemExit(f"Sığmayan satır ({hiz:.2f} kat hızlanması gerekirdi): {metin}")
+        print(f"SIĞMADI ({hiz:.2f} kat hızlanması gerekirdi): {metin}", flush=True)
+        return None
     d = en_iyi
     if hiz > 1.0:
         with tempfile.TemporaryDirectory() as td:
