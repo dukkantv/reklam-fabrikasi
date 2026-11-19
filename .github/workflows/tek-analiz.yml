@@ -1,0 +1,29 @@
+name: Tek seferlik analiz
+
+on:
+  workflow_dispatch:
+    inputs:
+      betik:
+        description: "Çalıştırılacak analiz betiği"
+        default: "gta_analiz.py"
+
+permissions:
+  contents: write
+
+jobs:
+  analiz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Analiz
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+        run: python3 "${{ inputs.betik }}"
+      - name: Sonucu kaydet
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gzip -kf /tmp/gta_analiz.json
+          gh release upload kuyruk /tmp/gta_analiz.json.gz --clobber -R "$GITHUB_REPOSITORY"
