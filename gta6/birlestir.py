@@ -124,9 +124,8 @@ def kontrol_et(parcalar):
     norm = lambda m: " ".join(re.sub(r"[^a-zçğıöşü0-9 ]", "", m.lower().replace("'", "").replace("â", "a")).split())
     kotu = []
     for metin, d in parcalar:
-        with tempfile.NamedTemporaryFile(suffix=".wav") as t:
-            wav_yaz(t.name, d)
-            duyulan = " ".join(s.text.strip() for s in kulak.transcribe(t.name, language="tr")[0])
+        x16 = np.interp(np.arange(0, len(d), SR / 16000), np.arange(len(d)), d).astype(np.float32)  # 16 kHz dizi
+        duyulan = " ".join(s.text.strip() for s in kulak.transcribe(x16, language="tr")[0])
         oran = difflib.SequenceMatcher(None, norm(metin), norm(duyulan)).ratio()
         print(f"  %{oran * 100:.0f} | {metin} → {duyulan}", flush=True)
         if oran < 0.8:
