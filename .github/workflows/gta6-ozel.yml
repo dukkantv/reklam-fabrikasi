@@ -1,0 +1,86 @@
+name: GTA 6 Özel Bölüm
+
+# 19 Kasım 2026: Levent'in 3 klibi birleştirilip seslendirilir (onizle), Claude kontrol edince
+# 5 kanala 11:00 sabit saatle yayın kuyruğuna eklenir (yayinla).
+on:
+  workflow_dispatch:
+    inputs:
+      asama:
+        description: "onizle = videoyu üret ve depoya koy / yayinla = 5 kanalın kuyruğuna ekle"
+        type: choice
+        default: onizle
+        options: [onizle, yayinla]
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: kuyruk-yazma
+  cancel-in-progress: false
+
+jobs:
+  is:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Araçlar
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          pip install -q requests numpy edge-tts
+      - name: Videoyu üret
+        if: inputs.asama == 'onizle'
+        run: |
+          python gta6/birlestir.py
+          git config user.name "Dükkan TV Bot"
+          git config user.email "dukkan.tvstudio@gmail.com"
+          git add gta6/cikti.mp4
+          git commit -m "GTA 6 özel bölüm: önizleme videosu"
+          git pull --rebase -q && git push
+      - name: 5 kanala 11:00 için kuyruğa ekle
+        if: inputs.asama == 'yayinla'
+        env:
+          SABIT_YAYIN: "2026-11-19T11:00:00+03:00"
+        run: |
+          test -f gta6/cikti.mp4
+          A1="GTA 6 bugün çıktı, çarşıda kepenkler indi! Ama Levent ile Cemo'nun asıl derdi bambaşka: menüde yine Türkçe dil desteği yok 😅"
+          A2="Sen bugün GTA 6 için işten izin alır mıydın? Yorumlara yaz, orada buluşalım!"
+          python yt_kuyruk.py ekle dukkantv gta6/cikti.mp4 \
+            "GTA 6 Çıktı, Esnaf Kepenk İndirdi! 😂 Asıl Olay Bu Değil #shorts" \
+            "$A1"$'\n\n'"$A2"$'\n\n'"#gta6 #gtavi #dükkantv #leventvecemo #komedi #shorts" \
+            "gta 6,gta vi,gta 6 türkçe,gta 6 çıktı,levent ve cemo,dükkan tv,komedi,esnaf,çizgi film" "" "" "20"
+          sleep 2
+          python yt_kuyruk.py ekle dramabite gta6/cikti.mp4 \
+            "GTA 6 Günü Herkes İzinli! Ama Türkçe Yok 😅 #shorts" \
+            "$A1"$'\n\n'"$A2"$'\n\n'"#gta6 #gtavi #gta6türkçe #mizah #shorts" \
+            "gta 6,gta vi,gta 6 türkçe,gta 6 çıktı,mizah,komik,çizgi film" "" "" "20"
+          sleep 2
+          python yt_kuyruk.py ekle kasakurgu gta6/cikti.mp4 \
+            "13 Yıl Bekledik, Dükkân mı Kalır! GTA 6 Çıktı 😂 #shorts" \
+            "$A1"$'\n\n'"$A2"$'\n\nHikâye kurgusaldır.\n\n'"#gta6 #gtavi #kurgu #mizah #shorts" \
+            "gta 6,gta vi,gta 6 türkçe,gta 6 çıktı,kurgu,mizah,komik" "" "" "20"
+          sleep 2
+          python yt_kuyruk.py ekle gizlitarih gta6/cikti.mp4 \
+            "Tarihe Geçen Gün: GTA 6 Çıktı, Kepenkler İndi! 😂 #shorts" \
+            "13 yıllık bekleyiş bitti: GTA 6 bugün çıktı ve çarşıda kepenkler indi! Ama menüde yine Türkçe dil desteği yok 😅"$'\n\n'"$A2"$'\n\n'"#gta6 #gtavi #tarihibirgün #shorts" \
+            "gta 6,gta vi,gta 6 türkçe,gta 6 çıktı,tarihi gün,mizah" "" "" "20"
+          sleep 2
+          python yt_kuyruk.py ekle ilturnuva gta6/cikti.mp4 \
+            "GTA 6 Çıktı, Şehirde Kimse İşe Gitmedi! 😂 #shorts" \
+            "$A1"$'\n\n'"$A2"$'\n\n'"#gta6 #gtavi #gta6türkçe #oyun #shorts" \
+            "gta 6,gta vi,gta 6 türkçe,gta 6 çıktı,oyun,mizah,komik" "" "" "20"
+          git config user.name "Dükkan TV Bot"
+          git config user.email "dukkan.tvstudio@gmail.com"
+          git add -A kuyruk
+          git commit -m "GTA 6 özel bölüm: 5 kanal, 19.11 11:00"
+          git pull --rebase -q && git push
+          gh workflow run youtube-yayin.yml --ref main -R "$GITHUB_REPOSITORY" || true
