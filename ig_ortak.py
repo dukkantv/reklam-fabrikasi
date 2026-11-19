@@ -141,12 +141,15 @@ def reels_yukle(kanal, video_yolu, aciklama, deneme=False):
     tok, ig = h["token"], h["ig_id"]
     # 19 Kas 2026: "ProcessingFailedError" çoğunlukla Instagram'ın yükleme kısıtlaması; arka arkaya denemek kısıtlamayı
     # uzatıyor. Tek deneme yapılır, tekrar yt_kuyruk'ta saatler sonra yapılır.
-    for sira in range(1):
+    deneme_sayisi = 1
+    for sira in range(deneme_sayisi):
         try:
             kap = _kapsayici_yukle(kanal, video_yolu, aciklama, deneme)
             break
         except RuntimeError as e:
-            if "ProcessingFailedError" not in str(e) or sira == 4:
+            # Son denemede hatayı yukarı ilet (19 Kas 2026: range(1) iken burada 4 yazıyordu, hata yutulup
+            # 'kap' tanımsız kalıyordu → "cannot access local variable 'kap'" ve yeniden kodlama denenmiyordu)
+            if "ProcessingFailedError" not in str(e) or sira == deneme_sayisi - 1:
                 raise
             print(f"Instagram yükleme {sira + 1}. deneme reddedildi, tekrar deneniyor", flush=True)
             time.sleep(20)
