@@ -54,7 +54,7 @@ jobs:
         env:
           GTA_SES: eleven
         run: |
-          pip install -q faster-whisper
+          pip install -q faster-whisper "av<15"
           python gta6/birlestir.py
           git config user.name "Dükkan TV Bot"
           git config user.email "dukkan.tvstudio@gmail.com"
