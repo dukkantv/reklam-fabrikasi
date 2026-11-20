@@ -1,10 +1,15 @@
 {
- "sira": 0,
- "son_tarih": "2026-11-19",
+ "sira": 1,
+ "son_tarih": "2026-11-21",
  "gecmis": [
   {
    "id": "elektrik",
    "tarih": "2026-11-19"
+  },
+  {
+   "id": "internet",
+   "tarih": "2026-11-21",
+   "saat": "20:45"
   }
  ]
 }
