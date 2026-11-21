@@ -1,0 +1,76 @@
+{
+  "gun": 19,
+  "toplam_gun": 30,
+  "kasa_basi": 39600,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {
+      "tema": "sabah",
+      "gorsel": "tezgah",
+      "gorsel_yazi": "DOLAP KURULDU",
+      "ifade": "mutlu",
+      "baslik": "AKILLI YATIRIM",
+      "anlatim": "Dolabı hemen dükkana kurduk. İyi ki almışız, tüm taze sebzeler ilk gün sapasağlam kaldı.",
+      "damga": "Soğuk"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "domates",
+      "gorsel_yazi": "TAZE ÜRÜN",
+      "ifade": "gulen",
+      "baslik": "BOZulma YOK",
+      "anlatim": "Bozulma derdi bitti. Sabah serinliğinde dolaptan çıkardığım taze ürünler müşterileri çekti.",
+      "damga": "Kalite"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "kalabalik",
+      "gorsel_yazi": "+2700 TL",
+      "ifade": "mutlu",
+      "kasa": 42300,
+      "baslik": "SATIŞ PATLAMASI",
+      "anlatim": "Ortaklıkla beraber işler büyüdü. Öğleye kadar payıma iki bin yedi yüz lira eklendi.",
+      "damga": "Kazanç"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "hal",
+      "gorsel_yazi": "UCUZ MAL",
+      "ifade": "gulen",
+      "baslik": "AVANTAJLI ALIM",
+      "anlatim": "Öğleden sonra toptancıdan çok uygun fiyata tropikal meyve stoğu çektik.",
+      "damga": "Fırsat"
+    },
+    {
+      "tema": "aksam",
+      "gorsel": "para",
+      "gorsel_yazi": "+2300 TL",
+      "ifade": "mutlu",
+      "kasa": 44600,
+      "baslik": "KASA 44 BİN",
+      "anlatim": "Akşam sayımda iki bin üç yüz lira daha kazandık. Toplam kırk dört bin altı yüz oldu.",
+      "damga": "Bereket"
+    },
+    {
+      "tema": "hesap",
+      "gorsel": "defter",
+      "gorsel_yazi": "YAKLAŞIYORUZ",
+      "ifade": "dusunceli",
+      "baslik": "SON DÜZLÜK",
+      "anlatim": "Hedefe az kaldı. Büyük bir otel zinciri toplu meyve siparişi vermek istiyor.",
+      "damga": "Teklif"
+    },
+    {
+      "tema": "oylama",
+      "ifade": "dusunceli",
+      "secenek": [
+        "Siparişi kabul et",
+        "Risk alma"
+      ],
+      "baslik": "BÜYÜK SİPARİŞ",
+      "anlatim": "Otel siparişini kabul edip büyük işe gireyim mi, yoksa normal devam mı? Yoruma A veya B yaz. Yarın gün 20!",
+      "damga": "Karar"
+    }
+  ]
+}
