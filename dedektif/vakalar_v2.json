@@ -646,5 +646,29 @@
     ],
     "dogru": 0,
     "cozum": "Yere mavi boya damlatan hırsızdı. Burak'ın önlüğündeki mavi boya lekesi onun suçlu olduğunu gösterir."
+  },
+  {
+    "baslik": "Kayıp Makas",
+    "olay": "Terzinin en değerli altın kaplama dikiş makası masadan kayboldu. Dükkânda başka hiçbir şey çalınmamış.",
+    "ipuclari": [
+      "Makasın alındığı sırada dükkânda sadece solak bir müşteri varmış.",
+      "Şüphelilerden Levent ve Cenk sağ ellerini ustalıkla kullanıyor."
+    ],
+    "supheliler": [
+      {
+        "ad": "Levent",
+        "rol": "kalfa"
+      },
+      {
+        "ad": "Mert",
+        "rol": "çırak"
+      },
+      {
+        "ad": "Cenk",
+        "rol": "müşteri"
+      }
+    ],
+    "dogru": 1,
+    "cozum": "Olay anında dükkânda olan solak kişi çırak Mert'ti."
   }
 ]
