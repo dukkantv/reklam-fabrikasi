@@ -1,6 +1,6 @@
 {
- "sira": 1,
- "son_tarih": "2026-11-21",
+ "sira": 2,
+ "son_tarih": "2026-11-23",
  "gecmis": [
   {
    "id": "elektrik",
@@ -9,6 +9,11 @@
   {
    "id": "internet",
    "tarih": "2026-11-21",
+   "saat": "20:45"
+  },
+  {
+   "id": "gunes",
+   "tarih": "2026-11-23",
    "saat": "20:45"
   }
  ]
