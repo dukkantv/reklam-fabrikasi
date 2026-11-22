@@ -1,0 +1,75 @@
+{
+  "gun": 20,
+  "toplam_gun": 30,
+  "kasa_basi": 44600,
+  "hedef": 50000,
+  "hedef_adi": "Dükkan Kirası",
+  "sahneler": [
+    {
+      "tema": "sabah",
+      "gorsel": "hal",
+      "gorsel_yazi": "OTEL SİPARİŞİ",
+      "ifade": "mutlu",
+      "baslik": "BÜYÜK BAŞLANGIÇ",
+      "anlatim": "Otel teklifine evet dedim. Sabah erkenden devasa meyve kasalarını arabaya yükleyip yola koyulduk.",
+      "damga": "Sevkiyat"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "kalabalik",
+      "gorsel_yazi": "DEV TESLİMAT",
+      "ifade": "gulen",
+      "baslik": "OTELDEYİZ",
+      "anlatim": "Otel mutfağına ürünleri eksiksiz teslim ettim. Yetkililer taze meyvelere bayıldı, işler yolunda.",
+      "damga": "Onay"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "para",
+      "gorsel_yazi": "+3400 TL",
+      "ifade": "mutlu",
+      "kasa": 48000,
+      "baslik": "BÜYÜK KASA",
+      "anlatim": "Öğleden sonra otelin ödemesi kasaya yattı. Payıma üç bin dört yüz lira eklendi.",
+      "damga": "Zirve"
+    },
+    {
+      "tema": "gun",
+      "gorsel": "tezgah",
+      "gorsel_yazi": "HEDEF YAKIN",
+      "ifade": "mutlu",
+      "baslik": "SON ÜRÜNLER",
+      "anlatim": "Dükkandaki kalan diğer meyveleri de uygun fiyata mahalleliye hızlıca sattım.",
+      "damga": "Hız"
+    },
+    {
+      "tema": "aksam",
+      "gorsel": "defter",
+      "gorsel_yazi": "48 BİN TL",
+      "ifade": "gulen",
+      "baslik": "AKŞAM SAYIMI",
+      "anlatim": "Akşam kasayı açıp saydım. Kırk sekiz bin lira oldu. Hedefe çok az kaldı!",
+      "damga": "Mutluluk"
+    },
+    {
+      "tema": "hesap",
+      "gorsel": "etiket",
+      "gorsel_yazi": "SON ADIM",
+      "ifade": "dusunceli",
+      "baslik": "KRİTİK SEÇİM",
+      "anlatim": "Elimde toplu mal kaldı. Hepsini tek seferde toptancıya verip bitireyim mi, yoksa perakende mi?",
+      "damga": "Taktik"
+    },
+    {
+      "tema": "oylama",
+      "ifade": "dusunceli",
+      "secenek": [
+        "Toptancıya ver",
+        "Perakende sat"
+      ],
+      "baslik": "SON KARAR",
+      "anlatim": "Toptancıya toplu verip işi bitireyim mi, yoksa perakende bekleyeyim mi? Yoruma A veya B yaz. Yarın gün 21!",
+      "damga": "Karar"
+    }
+  ]
+}
