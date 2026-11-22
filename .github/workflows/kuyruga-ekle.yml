@@ -1,0 +1,67 @@
+name: Kuyruğa Ekle
+
+# Hazır bir videoyu (indirme adresinden) bir kanalın yayın kuyruğuna ekler.
+# "YouTube Yayın" zinciri nöbette saatlerce beklediği için elle eklemeler onu beklemesin diye ayrı iş.
+# Yükleme (planlı yayın) burada yapılır; saat yt_kuyruk.yayin_zamani ile ilk boş slottan seçilir.
+on:
+  workflow_dispatch:
+    inputs:
+      kanal:
+        description: "Kanal"
+        type: choice
+        default: dukkantv
+        options: [dukkantv, kasakurgu, dramabite, gizlitarih, ilturnuva]
+      video_url:
+        description: "Videonun indirme adresi (mp4)"
+        required: true
+      baslik:
+        description: "Başlık"
+        required: true
+      aciklama:
+        description: "Açıklama"
+        required: false
+      etiketler:
+        description: "Etiketler (virgülle)"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kuyruk-yazma
+  cancel-in-progress: false
+
+jobs:
+  ekle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      ONAY_URL: https://dukkantv-onay.dukkan-tvstudio.workers.dev
+    steps:
+      - uses: actions/checkout@v4
+    # Sadece kuyruğa ekler; yükleme "YouTube Yayın" zincirinin bir sonraki kontrolünde yapılır
+    # (iki iş aynı anda yükleme yapıp videoyu çift göndermesin diye).
+      - name: Ekle
+        env:
+          KANAL: ${{ inputs.kanal }}
+          URL: ${{ inputs.video_url }}
+          BASLIK: ${{ inputs.baslik }}
+          ACIKLAMA: ${{ inputs.aciklama }}
+          ETIKETLER: ${{ inputs.etiketler }}
+        run: |
+          curl -fsSL "$URL" -o /tmp/elle.mp4
+          python3 yt_kuyruk.py ekle "$KANAL" /tmp/elle.mp4 "$BASLIK" "$ACIKLAMA" "$ETIKETLER" ""
+      - name: Kuyruğu kaydet
+        run: |
+          git config user.name "Dükkan TV Bot"
+          git config user.email "dukkan.tvstudio@gmail.com"
+          git add -A kuyruk
+          git diff --cached --quiet && exit 0
+          git commit -m "Kuyruğa elle video eklendi"
+          for i in 1 2 3; do git pull --rebase -q && git push && exit 0; sleep 5; done
+          exit 1
