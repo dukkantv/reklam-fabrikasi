@@ -670,5 +670,125 @@
     ],
     "dogru": 1,
     "cozum": "Olay anında dükkânda olan solak kişi çırak Mert'ti."
+  },
+  {
+    "baslik": "Kayıp Mavi Orkide",
+    "olay": "Çiçekçinin vitrininde sergilenen ödüllü mavi orkide saksısıyla birlikte ortadan kayboldu.",
+    "ipuclari": [
+      "Orkidenin alındığı rafta yoğun sarı çiçek tozu bulaşmış eldiven izi bulundu.",
+      "Sabah dükkanda Burak kaktüsleri budadı, Derya sarı zambakları vazoya yerleştirdi, Kerem ise sadece kırmızı güllerle ilgilendi."
+    ],
+    "supheliler": [
+      {
+        "ad": "Burak",
+        "rol": "bahçıvan"
+      },
+      {
+        "ad": "Derya",
+        "rol": "çırak"
+      },
+      {
+        "ad": "Kerem",
+        "rol": "kurye"
+      }
+    ],
+    "dogru": 1,
+    "cozum": "Raftaki eldiven izinde sarı polen kalıntıları vardı. Dükkanda sarı polen bırakan sarı zambaklarla yalnızca Derya temas etmişti."
+  },
+  {
+    "baslik": "Karışan Sarı Çanta",
+    "olay": "Tren garı bekleme salonundaki sarı evrak çantası alınıp yerine boş bir sırt çantası bırakıldı.",
+    "ipuclari": [
+      "Bırakılan çantanın askısından taze kahve kokusu yayılıyordu ve fermuarında mavi dolma kalem mürekkebi lekesi vardı.",
+      "Salondaki Ferit çay içip gazete okuyordu. Tarık meyve suyu içip telefonuna bakıyordu. Nazlı ise kahve içiyor ve dolma kalemle bulmaca çözüyordu."
+    ],
+    "supheliler": [
+      {
+        "ad": "Ferit",
+        "rol": "emekli öğretmen"
+      },
+      {
+        "ad": "Tarık",
+        "rol": "yolcu"
+      },
+      {
+        "ad": "Nazlı",
+        "rol": "muhasebeci"
+      }
+    ],
+    "dogru": 2,
+    "cozum": "Çantada kahve kokusu ve mavi dolma kalem mürekkebi bulundu. O sırada hem kahve içen hem de dolma kalem kullanan tek kişi Nazlı idi."
+  },
+  {
+    "baslik": "Mavi Boyalı Havuz",
+    "olay": "Yazlık sitenin ortak yüzme havuzuna gece yarısı mavi gıda boyası dökülerek su boyandı.",
+    "ipuclari": [
+      "Havuz kenarındaki ıslak fayanslarda sağ ayakta parmak arası terlik, sol ayakta ise çıplak ayak izi bulundu.",
+      "Sabah bahçede Serdar iki ayağında spor ayakkabıyla koşuyordu; Cemal iki ayağında da terlikle yürüyordu; Buse'nin ise sağında terlik vardı, sol terliği koptuğu için yalınayaktı."
+    ],
+    "supheliler": [
+      {
+        "ad": "Buse",
+        "rol": "öğrenci"
+      },
+      {
+        "ad": "Serdar",
+        "rol": "antrenör"
+      },
+      {
+        "ad": "Cemal",
+        "rol": "site sakini"
+      }
+    ],
+    "dogru": 0,
+    "cozum": "İzler sağ ayağın terlikli, sol ayağın ise çıplak olduğunu gösteriyordu. Sol terliği koptuğu için sol ayağı çıplak gezen tek kişi Buse idi."
+  },
+  {
+    "baslik": "Bozuk Kapı Zili",
+    "olay": "Apartman girişindeki ana zil panosunun kabloları kesilerek tüm sistem devre dışı bırakıldı.",
+    "ipuclari": [
+      "Kesilen kablonun hemen yanındaki duvarda belirgin beyaz un tozu izi bırakılmıştı.",
+      "O dakikalarda binaya giren Harun fırından un çuvalı taşımıştı ve elleri unluydu. Yasemin çiçek saksısı taşımıştı ve elleri çamurluydu. Berk ise bisiklet zinciri yağlamış, elleri kararmıştı."
+    ],
+    "supheliler": [
+      {
+        "ad": "Harun",
+        "rol": "fırıncı kalfası"
+      },
+      {
+        "ad": "Yasemin",
+        "rol": "ev hanımı"
+      },
+      {
+        "ad": "Berk",
+        "rol": "öğrenci"
+      }
+    ],
+    "dogru": 0,
+    "cozum": "Kabloların yanında beyaz un tozu izi vardı. Şüpheliler arasında ellerinde un tozu bulunan tek kişi fırından gelen Harun idi."
+  },
+  {
+    "baslik": "Gümüş Pasta Bıçağı",
+    "olay": "Düğün salonundaki kutlama pastasının kesileceği özel gümüş bıçak törenden önce kayboldu.",
+    "ipuclari": [
+      "Bıçağın alındığı servis sehpasında vişne suyu damlaları ve simli mor bir peçete lifi bulundu.",
+      "Volkan limonata bardağı taşıyordu ve beyaz peçetesi vardı. Aylin portakal suyu içiyordu ve peçetesizdi. Hande ise vişne suyu içiyordu ve elinde simli mor peçete tutuyordu."
+    ],
+    "supheliler": [
+      {
+        "ad": "Volkan",
+        "rol": "garson"
+      },
+      {
+        "ad": "Aylin",
+        "rol": "fotoğrafçı"
+      },
+      {
+        "ad": "Hande",
+        "rol": "organizatör"
+      }
+    ],
+    "dogru": 2,
+    "cozum": "Masada hem vişne suyu izi hem de simli mor peçete parçası vardı. Bu iki eşyayı birden taşıyan tek şüpheli Hande idi."
   }
 ]
