@@ -79,6 +79,11 @@ def tt_aciklama(kayit):
         " ".join("#" + e.replace(" ", "") for e in kayit.get("etiketler", [])[:6]) + " #fyp #keşfet"
 
 
+# Instagram aynı çalışmada art arda yüklemeyi "Request processing failed" ile kısıtlıyor (23 Kas 2026: ilk video
+# geçti, peşindeki 4 video reddedildi). Her çalışmada en fazla 1 Instagram yüklemesi; nöbetçi 10 dk sonra tekrar gelir.
+IG_BU_TUR = 0
+
+
 def ig_kodla(yol):
     """Videoyu Instagram Reels'in önerdiği biçime çevirir: H.264 High, 30 fps, ~3,5 Mbps, AAC 48 kHz stereo, faststart."""
     yeni = yol[:-4] + "_ig.mp4"
@@ -472,7 +477,11 @@ def kontrol():
             # YouTube'a planlı yüklendi; yayın saatinde Instagram'a Reels, TikTok'a taslak olarak gider
             if simdi < dt.datetime.fromisoformat(kayit["yayin"]):
                 continue
-            if ig_bekliyor(kayit):
+            global IG_BU_TUR
+            if ig_bekliyor(kayit) and IG_BU_TUR >= 1:
+                print(f"Instagram: bu turda zaten bir yükleme yapıldı, {kayit['id']} sonraki tura kaldı")
+            elif ig_bekliyor(kayit):
+                IG_BU_TUR += 1
                 # 23 Kas 2026: önce Instagram'ın önerdiği biçime yeniden kodlanmış dosya doğrudan yüklenir
                 # (2207076 / ProcessingFailedError çoğunlukla düşük bit hızı, 24 fps veya mono sesten geliyordu);
                 # o da olmazsa Facebook'taki kopyanın adresiyle denenir. Eskiden Facebook yolu 2207076 verince
