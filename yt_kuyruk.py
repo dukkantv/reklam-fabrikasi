@@ -98,9 +98,27 @@ def ig_kodla(yol):
     return yeni
 
 
+IG_MOLA = os.path.join(KOK, "kuyruk", "ig_mola.json")
+
+
+def ig_molada():
+    """Instagram 'Request processing failed' (yükleme kısıtlaması) verdiyse hiçbir hesaba yükleme yapılmaz;
+    sık deneme kısıtlamayı uzatıyor (23 Kas 2026). Mola bitiş zamanı kuyruk/ig_mola.json'da."""
+    try:
+        return dt.datetime.now(dt.timezone.utc) < dt.datetime.fromisoformat(json.load(open(IG_MOLA))["bitis"])
+    except Exception:
+        return False
+
+
+def ig_mola_baslat(saat=3):
+    bitis = dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=saat)
+    json.dump({"bitis": bitis.isoformat(timespec="seconds"), "sebep": "Request processing failed"}, open(IG_MOLA, "w"))
+    print(f"Instagram yükleme kısıtlaması: {saat} saat mola (bitiş {bitis:%H:%M} UTC)")
+
+
 def ig_bekliyor(kayit):
     """Bu kanal için Instagram bağlıysa ve henüz paylaşılmadıysa True."""
-    if kayit.get("ig") in ("paylasildi", "hata") or kayit.get("uzun"):
+    if kayit.get("ig") in ("paylasildi", "hata") or kayit.get("uzun") or ig_molada():
         return False
     # Instagram reddettiyse araları açarak dene: 1., 2., 3. denemeden sonra 2 / 4 / 8 saat bekle.
     # (Sık deneme Instagram'ın yükleme kısıtlamasını uzatıyordu; 19 Kas 2026'da 19 deneme görüldü.)
@@ -513,11 +531,14 @@ def kontrol():
                     telegram(ig_paylasildi_mesaji(ad, kayit, link))
                 except Exception as e:
                     print(f"Instagram hatası ({kayit['id']}):", str(e)[:400])
-                    kayit["ig_deneme"] = kayit.get("ig_deneme", 0) + 1
-                    kayit["ig_son_deneme"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
-                    if kayit["ig_deneme"] >= 4:  # 2+4+8 saat aralıklı 4 deneme; sonra bırak (kota yememesi için)
-                        kayit["ig"] = "hata"
-                        telegram(f"⚠️ {ad}: Instagram paylaşımı 4 kez başarısız: {str(e)[:200]}")
+                    if "Request processing failed" in str(e):
+                        ig_mola_baslat(3)   # kısıtlama: deneme hakkı yakmadan bütün hesaplar 3 saat bekler
+                    else:
+                        kayit["ig_deneme"] = kayit.get("ig_deneme", 0) + 1
+                        kayit["ig_son_deneme"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+                        if kayit["ig_deneme"] >= 4:  # 2+4+8 saat aralıklı 4 deneme; sonra bırak (kota yememesi için)
+                            kayit["ig"] = "hata"
+                            telegram(f"⚠️ {ad}: Instagram paylaşımı 4 kez başarısız: {str(e)[:200]}")
                     kaydet(kayit)
             if fb_bekliyor(kayit):
                 try:
@@ -556,7 +577,7 @@ def kontrol():
                 continue
             # Instagram denemesi bekleme süresindeyse (saatte bir dener) arşivleme: yoksa paylaşılmadan kalır.
             # 16 Kasım 2026: Drama Bite "Gece Gelen Mesaj" bu yüzden Instagram'a gitmeden arşivlendi.
-            if (kayit.get("ig") not in ("paylasildi", "hata") and not kayit.get("uzun") and kayit.get("ig_son_deneme")
+            if (kayit.get("ig") not in ("paylasildi", "hata") and not kayit.get("uzun") and (kayit.get("ig_son_deneme") or ig_molada())
                     and simdi < dt.datetime.fromisoformat(kayit["yayin"]) + dt.timedelta(hours=30)):
                 continue
             try:

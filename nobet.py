@@ -32,6 +32,11 @@ def bekleme():
         elif paylasilmadi and simdi - z < dt.timedelta(hours=30):
             son = k.get("ig_son_deneme")
             sonraki = simdi + dt.timedelta(seconds=YENIDEN)
+            try:  # Instagram yükleme molası varsa mola bitene kadar bekle
+                bitis = dt.datetime.fromisoformat(json.load(open(os.path.join(KOK, "kuyruk", "ig_mola.json")))["bitis"])
+                sonraki = max(sonraki, bitis.astimezone(TR) + dt.timedelta(minutes=2))
+            except Exception:
+                pass
             if son:  # yt_kuyruk.ig_bekliyor ile aynı aralık: 2 / 4 / 8 saat
                 sonraki = max(sonraki, dt.datetime.fromisoformat(son).astimezone(TR)
                               + dt.timedelta(hours=2 ** min(k.get("ig_deneme", 1), 3), minutes=2))
