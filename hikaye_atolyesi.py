@@ -48,15 +48,43 @@ SERI_ETIKET = {
 }.get(DIL)
 
 # "rastgele" yazilirsa bu listeden biri secilir
+# 23 Kas 2026 (Levent): soyut kelimeler ("umut", "aile") yerine dikkat çekici, gizemli ve hayatın içinden
+# somut durumlar. İzleyici "bu bana da olabilir" desin ve sonunu merak etsin.
 KONULAR = [
-    "pişmanlık", "aile", "dostluk", "anne ve baba", "son mesaj", "af dilemek",
-    "gurbet", "çocukluk anısı", "yalnızlık", "vazgeçmek", "umut", "yaşlılık",
-    "kardeşlik", "ilk aşk", "tutulmayan bir söz", "bir mektup", "öğretmen",
-    "komşuluk", "kaçırılan bir fırsat", "para ve değer", "miras", "kıskançlık",
-    "bayramda boş kalan sofra", "saklanan bir sır", "aile içi kırgınlık",
-    "terk edilmiş bir ev", "eski bir fotoğraf", "yanlış anlaşılan bir davranış",
-    "ihanete uğrayan güven", "gizli yapılan iyilik", "uzaktan sevmek",
-    "geç kalınan bir telefon", "babanın eski çantası", "annenin son yemeği",
+    "kasadan her gece biraz para eksiliyor ve kamera kaydında görülen kişi hiç beklenmedik biri",
+    "yanlış numaradan gelen mesaj, 20 yıl önce olan bir şeyi biliyor",
+    "kiralık evin duvar kâğıdının altından eski bir mektup çıkıyor",
+    "taksiye unutulan çantadan bir fotoğraf ve bir adres çıkıyor",
+    "mahalle bakkalının veresiye defterinde birinin borçları her ay gizlice siliniyor",
+    "esnafın kepengine her sabah isimsiz biri sıcak ekmek bırakıyor",
+    "otobüste her sabah aynı koltuğa küçük bir not bırakılıyor",
+    "apartmanda yıllardır kimsenin girmediği bir daireden gece ışık geliyor",
+    "dedenin sandığından kimsenin bilmediği bir tapu ve bir isim çıkıyor",
+    "annenin eski defterinde hiç bahsetmediği bir isim yazıyor",
+    "çocukken kaybolan köpek 10 yıl sonra kapının önünde beliriyor",
+    "ikinci el alınan telefonda önceki sahibinin bıraktığı tek bir sesli not var",
+    "düğünde masaya bırakılan isimsiz zarftan çıkan şey herkesi susturuyor",
+    "emekli öğretmene 30 yıl önceki bir öğrencisinden paket geliyor",
+    "15 yıl önce ödünç verilen para hiç beklenmedik bir şekilde geri dönüyor",
+    "yolda bulunan cüzdanın sahibi, bulan kişinin geçmişinden biri çıkıyor",
+    "tamirciye bırakılan eski radyonun içinden bir kaset çıkıyor",
+    "asansörde mahsur kalan iki eski arkadaş yıllar önceki kavgayı konuşmak zorunda kalıyor",
+    "kardeşler baba evini satmak üzereyken bodrumda bir şey buluyor",
+    "gece vardiyasındaki bekçi her gece aynı saatte aynı kişiyi görüyor",
+    "pazarda her hafta yaşlı bir adama bedava domates veren manavın sebebi",
+    "bayram harçlığını biriktiren çocuğun parayı aslında kim için biriktirdiği",
+    "düğün masrafı yüzünden ertelenen nikâh ve gelinin sakladığı karar",
+    "gece kuryelik yapan beyaz yakalının kapısına geldiği müşteri tanıdık çıkıyor",
+    "kira artışı isteyen ev sahibiyle yaşlı kiracı arasında ortaya çıkan eski bağ",
+    "hastane bekleme salonunda tanışan iki yabancının aynı kişiyi beklediği ortaya çıkıyor",
+    "mezuniyet töreninde boş kalan sandalyenin hikâyesi",
+    "yıllardır konuşmayan iki komşudan birinin kapısına diğerinin adına mektup geliyor",
+    "hesabına yanlışlıkla yüklü para yatan esnafın verdiği karar",
+    "kayınvalidenin kimseye vermediği tarifin içindeki sır",
+    "askerden dönen oğlun evde fark ettiği tek değişiklik",
+    "eski bir fotoğraftaki yabancı kişinin aslında ailenin bir parçası çıkması",
+    "babanın 30 yıl çalıştığı fabrikadaki son gününde dolabında bulunan not",
+    "her yıl aynı gün kapıya bırakılan çiçeği kimin bıraktığı",
 ]
 
 BICIMLER = {
@@ -112,6 +140,7 @@ TikTok, Instagram ve YouTube Shorts'ta kaydirmali slayt ve kisa video olarak pay
 Kurallar:
 - 8 slayt olsun (en fazla 9). Video 75-100 saniye olsun: hikaye nefes alsin, ortada bir donum noktasi, sonda ters kose ya da duygusal bir kapanis olsun.
 - {kanca}
+- Hikaye hayatin icinden ve gizemli olsun: gunluk bir ortamda (bakkal, otobus, apartman, pazar, is yeri) gecsin, izleyici "bu bana da olabilir" desin ve ilk slayttan itibaren "sonra ne oldu?" diye merak etsin. Gizem dogaustu olmasin; sonunda mantikli bir cevabi olsun.
 - 1. slayt EN FAZLA 18 kelime olsun. "Merhaba" gibi giris, mekan tasvirleriyle yavas acilis yok: dogrudan catismayla ac.
 - "kanca_adaylari" alanina 3 farkli 1. slayt metni yaz; en guclusunu 1. slayt yap.
 - Anlatim bicimi: {bicim}
