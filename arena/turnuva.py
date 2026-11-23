@@ -91,7 +91,7 @@ def oyna():
         baslik = f"81 İl Turnuvası · {m['baslik'].title()} 🏆 Senin şehrin tur atlar mı? #shorts"
     aciklama = (f"Sezon {s['sezon']} · {m['baslik']}\n"
                 f"Katılan iller: {', '.join(p + ' ' + AD[p] for p in m['plakalar'])}\n\n"
-                f"Şehrini yorumlara yaz! Her gün yeni maç 🏆\n\n#81ilturnuvası #türkiye {kim}")
+                f"Şehrin tur atladıysa 👍 beğen, şehrini yorumlara yaz! Her gün yeni maç 🏆\n\n#81ilturnuvası #türkiye {kim}")
     meta = {"video": cikti, "baslik": baslik[:100], "aciklama": aciklama,
             "etiketler": ["81 il turnuvası", "türkiye", "şehirler", "simülasyon", "top yarışı", "il il"],
             "atlayan": atlayan, "sure": round(sure, 1), "mac": m["id"], "sezon": s["sezon"]}

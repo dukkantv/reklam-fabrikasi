@@ -1,0 +1,79 @@
+name: Haftalık Uzun Video
+
+# Ücretsiz: haftanın kısa videoları (arsiv sürümündeki kopyalar) yatay uzun YouTube videosuna dönüştürülür.
+# 81 İl Turnuvası "Haftanın Tüm Maçları" + Drama Bite "Haftanın Hikâyeleri". Uzun video izlenme saati (YPP) için.
+# Pazar 11:23 (TR) üretilir; yayın kuyruğu ilk boş akşam saatine koyar (onaysız yayın kanalları, Durdur butonu gelir).
+on:
+  schedule:
+    - cron: "23 8 * * 0"
+  workflow_dispatch:
+    inputs:
+      kanallar:
+        description: "ilturnuva, dramabite veya ikisi (virgülle)"
+        default: "ilturnuva,dramabite"
+      kuyruga:
+        description: "Bitince yayın kuyruğuna ekle (kapalıysa sadece Telegram'a gönderir)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kuyruk-yazma
+  cancel-in-progress: false
+
+jobs:
+  derle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      GH_TOKEN: ${{ github.token }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      KANALLAR: ${{ github.event_name == 'schedule' && 'ilturnuva,dramabite' || inputs.kanallar }}
+      KUYRUGA: ${{ github.event_name == 'schedule' && 'true' || inputs.kuyruga }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Araçlar
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip install -q pillow requests
+      - name: Derle ve gönder
+        run: |
+          for k in $(echo "$KANALLAR" | tr ',' ' '); do
+            rm -rf cikti/haftalik
+            python haftalik_uzun.py "$k" || { echo "$k derlenemedi"; continue; }
+            [ -f cikti/haftalik/yayin.json ] || continue
+            mkdir -p sonuc && cp cikti/haftalik/haftalik-$k.mp4 cikti/haftalik/kapak.jpg sonuc/ 2>/dev/null || true
+            mv sonuc/kapak.jpg "sonuc/kapak-$k.jpg" 2>/dev/null || true
+            if [ "$KUYRUGA" = "true" ]; then
+              python3 - "$k" <<'PY'
+          import json, subprocess, sys
+          y = json.load(open("cikti/haftalik/yayin.json", encoding="utf-8"))
+          subprocess.run(["python3", "yt_kuyruk.py", "ekle", sys.argv[1], y["video"], y["baslik"], y["aciklama"],
+                          ",".join(y["etiketler"]), "", y["kapak"], y["kategori"]], check=True)
+          PY
+            else
+              curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F photo=@cikti/haftalik/kapak.jpg \
+                --form-string caption="🎬 Haftalık uzun video hazır ($k): $(python3 -c 'import json;print(json.load(open("cikti/haftalik/yayin.json"))["baslik"])')" \
+                "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendPhoto" >/dev/null
+            fi
+          done
+      - name: Kaydet
+        run: |
+          git config user.name "dukkan-tv-bot"; git config user.email "actions@users.noreply.github.com"
+          git add -A kuyruk
+          git diff --cached --quiet || (git commit -qm "Haftalık uzun video: ${{ github.run_id }}" && (git push || (git pull --rebase origin main && git push)))
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: haftalik-uzun
+          path: sonuc/
+          if-no-files-found: ignore
+          retention-days: 7

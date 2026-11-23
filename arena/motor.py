@@ -182,10 +182,10 @@ def mac_oyna(plakalar, mod="kacis", baslik="1. TUR · A GRUBU", tur_atlar=3, son
                 satirlar = [" · ".join(adlar[i:i + 3]) for i in range(0, len(adlar), 3)]
                 for k, s in enumerate(satirlar[:3]):
                     yazi(d, (W / 2, 1630 + k * 55), s, font(38, "Bold"), (200, 210, 255), 4)
-                yazi(d, (W / 2, 1830), "Şehrini yorumlara yaz, takipte kal!", font(40, "Bold"), kenar=4)
+                yazi(d, (W / 2, 1790), "Şehrin tur atladıysa BEĞEN, yorumlara yaz!", font(48), SARI, 5)
             else:
                 yazi(d, (W / 2, 1580), "Yeni sezon yarın başlıyor!", font(50), kenar=5)
-                yazi(d, (W / 2, 1670), "Şehrini yorumlara yaz, takipte kal!", font(42, "Bold"), kenar=4)
+                yazi(d, (W / 2, 1670), "Şampiyon senin şehrin mi? BEĞEN, yorumlara yaz!", font(42, "Bold"), SARI, 4)
         proc.stdin.write(im.tobytes())
 
     for k in range(INTRO):

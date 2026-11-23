@@ -134,6 +134,24 @@ def kaydet(kayit):
               ensure_ascii=False, indent=1)
 
 
+# Haftalık uzun derleme (haftalik_uzun.py) için kısa videoların kalıcı kopyası: "kuyruk" sürümündeki dosya
+# yayından sonra silinir, "arsiv" sürümündeki kopya kalır (Onur Naci tavsiyesi: Shorts + uzun video birlikte, 23.11.2026)
+ARSIV_KANALLAR = {"ilturnuva", "dramabite"}
+
+
+def arsive_koy(yol, baslik):
+    try:
+        try:
+            gh("release", "view", "arsiv")
+        except subprocess.CalledProcessError:
+            gh("release", "create", "arsiv", "--title", "Kısa video arşivi",
+               "--notes", "Haftalık uzun derleme için yayınlanan kısa videoların kopyaları")
+        # Başlık, dosyanın etiketi (label) olarak saklanır; derlemede bölüm adı olur
+        gh("release", "upload", "arsiv", f"{yol}#{baslik[:120]}", "--clobber")
+    except Exception as e:
+        print("Arşive konamadı:", str(e)[:200])
+
+
 def ekle(kanal, video, baslik, aciklama="", etiketler="", gunluk="", kapak="", kategori=""):
     os.makedirs(KUYRUK, exist_ok=True)
     simdi = dt.datetime.now(TR)
@@ -159,6 +177,8 @@ def ekle(kanal, video, baslik, aciklama="", etiketler="", gunluk="", kapak="", k
         kayit.update(kapak=kad, uzun=True)
     if kategori:
         kayit["kategori"] = kategori
+    if kanal in ARSIV_KANALLAR and not kayit.get("uzun") and not os.environ.get("DERLEME"):
+        arsive_koy(kopya, baslik)
     if os.environ.get("DERLEME"):
         kayit.update(derleme=True, sira="0" + kid)
     if os.environ.get("SABIT_YAYIN"):   # ör. lansman videoları: "2026-11-21T13:00:00+03:00"

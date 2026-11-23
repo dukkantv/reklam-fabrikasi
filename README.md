@@ -12,6 +12,13 @@
 - **Uzun Video (Belgesel)** — Gizli Tarih ve uzun dedektif videoları.
 - **Kanal Ayar** — kanal açıklamaları, oynatma listeleri, bannerlar (`kanal_ayarlari.json`, `bannerlar/`).
 
+## Büyüme kuralları (23 Kasım 2026 · Onur Naci Öztürkler "YouTube'a başlamadan önce bilmek istediğim 10 şey" incelemesi)
+- **100 video kuralı:** hiçbir seri 100. videodan önce bırakılmaz, tutan biçim (başlık kalıbı, kanca, süre) sık sık değiştirilmez. 500 TL serisi 30. güne kadar tamamlanır.
+- **Shorts + uzun karışımı:** YPP için 4.000 saat uzun video izlenmesi gerekir (Shorts izlenmesi saymaz). **Haftalık Uzun Video** işi her Pazar 11:23'te 81 İl Turnuvası ("Haftanın Tüm Maçları") ve Drama Bite ("Haftanın Hikâyeleri") için haftanın kısa videolarından ücretsiz yatay uzun video yapar; bölümler (chapters) ve kapak otomatik. Kısa videoların kalıcı kopyası `arsiv` sürümünde tutulur (`yt_kuyruk.py` → `arsive_koy`).
+- **Tutanı tekrarla:** 16–22 Kasım haftasında GTA 6 haber videosu üç kanalda birden en çok izlenen oldu → 11:00 güncel haber kuralı (fayda sağlayacağı kesinse) daha sık kullanılır.
+- **Beğeni çağrısı:** 81 İl maç sonunda "Şehrin tur atladıysa BEĞEN, yorumlara yaz!" (1.592 izlenmeye 10 beğeni vardı).
+- **Başlık ve kanca önce:** Drama Bite 3 kanca adayı yazıp en güçlüsünü seçer; başlıklar kısa ve merak uyandıran tek ifade (15 Kasım analizi).
+
 ## YouTube otomasyonu (bilgisayar gerekmez)
 - **YouTube Rapor** (sabah raporu): her sabah 08:47 üç markanın YouTube, Instagram ve TikTok raporu Telegram'a AYRI mesajlar hâlinde gelir; sonda onay bekleyen Dükkan TV videoları Onayla/Reddet butonlarıyla ve sistem uyarıları (izin süresi vb.) gelir (`rapor/son.json`).
 - **Yayın yetkisi**: Dükkan TV = Levent'in onayı şart. Drama Bite ve Kasa Kurgu = onaysız otomatik yayın (Telegram'a "Durdur" butonlu bilgi gelir).
