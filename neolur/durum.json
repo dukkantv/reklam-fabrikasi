@@ -1,5 +1,5 @@
 {
- "sira": 3,
+ "sira": 4,
  "son_tarih": "2026-11-24",
  "gecmis": [
   {
@@ -20,6 +20,11 @@
    "id": "arilar",
    "tarih": "2026-11-24",
    "saat": "12:30"
+  },
+  {
+   "id": "yanlis-para",
+   "tarih": "2026-11-24",
+   "saat": "20:00"
   }
  ]
 }
