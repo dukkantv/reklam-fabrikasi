@@ -130,7 +130,9 @@ def seslendir(bolum, cikti):
         gerek = sum(len(m) for s in bolum["sahneler"] for m in s["ses"])
         kalan = eleven_kalan()
         print(f"ElevenLabs: bölüm ≈{gerek} kredi, kalan {kalan}", flush=True)
-        if kalan is None or kalan >= gerek * 1.6 + 300:   # tekrar denemeler için pay
+        # 23 Kas 2026 (Levent): ElevenLabs sadece mevcut kredi bitene kadar; kalan okunamazsa ya da yetmezse
+        # ücretsiz sese geçilir (fazla kullanım faturası çıkma ihtimali olmasın)
+        if kalan is not None and kalan >= gerek * 1.6 + 300:   # tekrar denemeler için pay
             motor = "eleven"
         else:
             print("ElevenLabs kredisi yetmiyor — ücretsiz Chatterbox sesine geçiliyor", flush=True)
