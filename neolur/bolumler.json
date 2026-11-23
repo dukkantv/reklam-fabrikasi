@@ -835,6 +835,175 @@
    "not": "Bilgiler genel kabul görmüş kaynaklara dayanır."
   },
   {
+   "id": "hayvan-deniz",
+   "efekt": "sel",
+   "baslik": "Denizin En İnanılmaz 5 Canlısı 🌊 #shorts",
+   "ozet": "Okyanusun derinliklerinde yaşayan, inanması zor özelliklere sahip beş canlı.",
+   "etiketler": [
+    "hayvanlar alemi",
+    "ilginç hayvanlar",
+    "deniz canlıları",
+    "okyanus",
+    "ahtapot",
+    "balina",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "DENİZİN",
+      "EN İNANILMAZ",
+      "*5 CANLISI*",
+      "HAZIR MISIN?"
+     ],
+     "ses": [
+      "Denizin en inanılmaz beş canlısı. Üçüncüsüne inanamayacaksın."
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "AHTAPOT",
+     "satir": [
+      "*Üç kalbi* var.",
+      "Kanı *mavi.*",
+      "Kolları *kendi kendine* düşünür."
+     ],
+     "ses": [
+      "Ahtapotun üç kalbi var ve kanı mavi.",
+      "Sinir hücrelerinin çoğu kollarında bulunur."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "MANTİS KARİDESİ",
+     "satir": [
+      "Yumruğu bir *kurşun* gibi",
+      "ivmelenir.",
+      "*Akvaryum camını* kırabilir."
+     ],
+     "ses": [
+      "Mantis karidesinin yumruğu bir kurşun gibi ivmelenir.",
+      "Akvaryum camını bile kırabilir."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "YUNUS",
+     "satir": [
+      "Her yunusun",
+      "kendine has bir *ıslığı* var.",
+      "Tıpkı bir *isim* gibi."
+     ],
+     "ses": [
+      "Her yunusun kendine has bir ıslığı vardır.",
+      "Birbirlerine tıpkı isimle seslenir gibi kullanırlar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "DENİZ ATI",
+     "satir": [
+      "Yavruları *anne değil,*",
+      "*baba* taşır",
+      "ve dünyaya getirir."
+     ],
+     "ses": [
+      "Deniz atlarında yavruları anne değil, baba taşır ve dünyaya getirir."
+     ],
+     "grup": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "MAVİ BALİNA",
+     "satir": [
+      "Dünyanın *en büyük*",
+      "hayvanı.",
+      "Kalbi *bir araba* boyutunda."
+     ],
+     "ses": [
+      "Mavi balina, dünyada yaşamış en büyük hayvan.",
+      "Kalbi küçük bir araba boyutunda."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "EN ŞAŞIRTICI",
+     "satir": [
+      "Okyanusların büyük kısmı",
+      "hâlâ keşfedilmedi:",
+      "*%80'DEN FAZLASI*",
+      "*bilinmiyor!*"
+     ],
+     "ses": [
+      "En şaşırtıcısı ne biliyor musun? Okyanusların büyük kısmı hâlâ keşfedilmedi...",
+      "yüzde sekseninden fazlası",
+      "bilinmiyor!"
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "Sence en garip",
+      "*hangisi?*"
+     ],
+     "ses": [
+      "Sence en garip hangisi? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ],
+   "seri": "hayvanlar",
+   "not": "Bilgiler genel kabul görmüş kaynaklara dayanır."
+  },
+  {
    "id": "yanlislar1",
    "efekt": "normal",
    "baslik": "Doğru Bildiğin 5 Yanlış 🤯 #shorts",
@@ -863,7 +1032,7 @@
       "DOĞRU",
       "BİLDİĞİN",
       "*5 YANLIŞ*",
-      "🤯"
+      "HAZIR MISIN?"
      ],
      "ses": [
       "Yıllardır doğru bildiğin beş yanlış. Sonuncusuna çok şaşıracaksın."
@@ -1167,6 +1336,176 @@
      ]
     }
    ]
+  },
+  {
+   "id": "hayvan-hava",
+   "efekt": "normal",
+   "baslik": "Gökyüzünün En İnanılmaz 5 Canlısı 🦅 #shorts",
+   "ozet": "Gökyüzünde yaşayan, rekor kıran ve şaşırtan beş canlı.",
+   "etiketler": [
+    "hayvanlar alemi",
+    "ilginç hayvanlar",
+    "kuşlar",
+    "gökdoğan",
+    "baykuş",
+    "karga",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "GÖKYÜZÜNÜN",
+      "EN İNANILMAZ",
+      "*5 CANLISI*",
+      "HAZIR MISIN?"
+     ],
+     "ses": [
+      "Gökyüzünün en inanılmaz beş canlısı. Birincisi dünyanın en hızlı hayvanı."
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "GÖKDOĞAN",
+     "satir": [
+      "Avına dalarken",
+      "saatte *320 km'yi* geçer.",
+      "Dünyanın *en hızlı* hayvanı."
+     ],
+     "ses": [
+      "Gökdoğan avına dalarken saatte üç yüz yirmi kilometreyi geçer.",
+      "Dünyanın en hızlı hayvanıdır."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "KUTUP SUMRUSU",
+     "satir": [
+      "Her yıl",
+      "*70 bin km* uçar.",
+      "Yılda *iki yaz* görür."
+     ],
+     "ses": [
+      "Kutup sumrusu her yıl yaklaşık yetmiş bin kilometre uçar.",
+      "Kutuptan kutba gittiği için yılda iki yaz görür."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "SİNEK KUŞU",
+     "satir": [
+      "*Geri geri* uçabilen",
+      "tek kuş.",
+      "Havada *asılı* durabilir."
+     ],
+     "ses": [
+      "Sinek kuşu geri geri uçabilen tek kuştur.",
+      "Havada asılı bile durabilir."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "BAYKUŞ",
+     "satir": [
+      "Başını",
+      "*270 derece* çevirebilir.",
+      "Neredeyse *arkasını* görür."
+     ],
+     "ses": [
+      "Baykuş başını iki yüz yetmiş dereceye kadar çevirebilir.",
+      "Neredeyse arkasını görür."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "KARGA",
+     "satir": [
+      "İnsanların",
+      "*yüzünü* hatırlar.",
+      "Kötü davranana *yıllarca* kızar."
+     ],
+     "ses": [
+      "Kargalar insanların yüzünü hatırlar.",
+      "Kendilerine kötü davranan birini yıllarca unutmaz."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "BONUS",
+     "satir": [
+      "Yarasa kuş değil,",
+      "bir memeli. Üstelik:",
+      "*GERÇEKTEN UÇABİLEN*",
+      "*tek memeli!*"
+     ],
+     "ses": [
+      "Bonus: yarasa kuş değil, bir memeli. Üstelik...",
+      "gerçekten uçabilen",
+      "tek memeli!"
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "Sen hangisi",
+      "*olmak isterdin?*"
+     ],
+     "ses": [
+      "Sen hangisi olmak isterdin? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ],
+   "seri": "hayvanlar",
+   "not": "Bilgiler genel kabul görmüş kaynaklara dayanır."
   },
   {
    "id": "telefon-bilgi",
@@ -1500,6 +1839,176 @@
      ]
     }
    ]
+  },
+  {
+   "id": "hayvan-kara",
+   "efekt": "normal",
+   "baslik": "Karanın En İnanılmaz 5 Canlısı 🐾 #shorts",
+   "ozet": "Karada yaşayan, şaşırtıcı yetenekleri olan beş hayvan.",
+   "etiketler": [
+    "hayvanlar alemi",
+    "ilginç hayvanlar",
+    "kara hayvanları",
+    "fil",
+    "bukalemun",
+    "çita",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "KARANIN",
+      "EN İNANILMAZ",
+      "*5 CANLISI*",
+      "HAZIR MISIN?"
+     ],
+     "ses": [
+      "Karanın en inanılmaz beş canlısı. Üçüncüsü seni güldürecek."
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "FİL",
+     "satir": [
+      "Ayaklarıyla",
+      "yerdeki *titreşimleri*",
+      "hisseder."
+     ],
+     "ses": [
+      "Filler ayaklarıyla yerdeki titreşimleri hisseder.",
+      "Böylece uzaktaki fillerden haber alırlar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "BUKALEMUN",
+     "satir": [
+      "Dili *vücudundan* bile",
+      "uzun olabilir.",
+      "Saniyenin *kesrinde* fırlar."
+     ],
+     "ses": [
+      "Bukalemunun dili vücudundan bile uzun olabilir.",
+      "Ve saniyenin kesrinde fırlar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "VOMBAT",
+     "satir": [
+      "Avustralya'da yaşar ve",
+      "dışkısı *küp* şeklindedir.",
+      "Evet, *küp!*"
+     ],
+     "ses": [
+      "Avustralya'da yaşayan vombatın dışkısı küp şeklindedir.",
+      "Evet, küp!"
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "ORNİTORENK",
+     "satir": [
+      "*Yumurtlayan* bir memeli.",
+      "Ördek gagası var,",
+      "erkeğinin *zehri* var."
+     ],
+     "ses": [
+      "Ornitorenk yumurtlayan bir memelidir.",
+      "Ördek gibi gagası vardır, erkeğinin ise zehri."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "ÇİTA",
+     "satir": [
+      "En hızlı *kara* hayvanı.",
+      "Saatte *100 km'ye*",
+      "birkaç saniyede çıkar."
+     ],
+     "ses": [
+      "Çita en hızlı kara hayvanıdır.",
+      "Saatte yüz kilometreye birkaç saniyede çıkar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "BİLİYOR MUYDUN?",
+     "satir": [
+      "Zürafalar günde",
+      "sadece birkaç saat uyur:",
+      "*ÇOĞU ZAMAN*",
+      "*ayakta!*"
+     ],
+     "ses": [
+      "Biliyor muydun? Zürafalar günde sadece birkaç saat uyur...",
+      "Hem de çoğu zaman",
+      "ayakta!"
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "Sence en garip",
+      "*hangisi?*"
+     ],
+     "ses": [
+      "Sence en garip hangisi? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ],
+   "seri": "hayvanlar",
+   "not": "Bilgiler genel kabul görmüş kaynaklara dayanır."
   },
   {
    "id": "yanlislar2",
@@ -1837,6 +2346,173 @@
    ]
   },
   {
+   "id": "hayvan-olumsuz",
+   "efekt": "soguk",
+   "baslik": "Neredeyse Ölümsüz 5 Canlı ♾️ #shorts",
+   "ozet": "Yüzlerce yıl yaşayan, gençliğe dönen ya da uzayda hayatta kalan beş canlı.",
+   "etiketler": [
+    "hayvanlar alemi",
+    "ilginç hayvanlar",
+    "ölümsüz canlılar",
+    "uzun yaşayan hayvanlar",
+    "bilim",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "NEREDEYSE",
+      "ÖLÜMSÜZ",
+      "*5 CANLI*",
+      "HAZIR MISIN?"
+     ],
+     "ses": [
+      "Neredeyse ölümsüz beş canlı. Birincisi uzayda bile hayatta kaldı."
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "SU AYISI",
+     "satir": [
+      "Milimetre boyunda.",
+      "*Uzay boşluğunda*",
+      "hayatta kaldı."
+     ],
+     "ses": [
+      "Su ayısı sadece bir milimetre boyunda.",
+      "Ama uzay boşluğunda bile hayatta kaldı."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "ÖLÜMSÜZ DENİZANASI",
+     "satir": [
+      "Yaşlanınca",
+      "*gençliğine*",
+      "geri dönebilir."
+     ],
+     "ses": [
+      "Ölümsüz denizanası yaşlanınca gençliğine geri dönebilir."
+     ],
+     "grup": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "GRÖNLAND KÖPEKBALIĞI",
+     "satir": [
+      "Yaklaşık *400 yıl*",
+      "yaşayabilir.",
+      "*150 yaşında* yetişkin olur."
+     ],
+     "ses": [
+      "Grönland köpekbalığı yaklaşık dört yüz yıl yaşayabilir.",
+      "Yetişkin olması ancak yüz elli yaşını bulur."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "AKSOLOTL",
+     "satir": [
+      "Kopan bacağını",
+      "*yeniden* büyütür.",
+      "Hem de *iz kalmadan.*"
+     ],
+     "ses": [
+      "Aksolotl kopan bacağını yeniden büyütür.",
+      "Hem de iz kalmadan."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "HİDRA",
+     "satir": [
+      "Bu minik canlı",
+      "*yaşlanma* belirtisi",
+      "göstermiyor."
+     ],
+     "ses": [
+      "Hidra adlı minik canlı, bilinen yaşlanma belirtilerini göstermiyor."
+     ],
+     "grup": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "REKOR",
+     "satir": [
+      "Bilinen en yaşlı",
+      "kara hayvanı bir kaplumbağa:",
+      "*JONATHAN*",
+      "*190 yaşını geçti!*"
+     ],
+     "ses": [
+      "Rekor: bilinen en yaşlı kara hayvanı bir kaplumbağa...",
+      "Adı Jonathan.",
+      "Yüz doksan yaşını geçti!"
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "Sen 400 yıl yaşasan",
+      "*ne yapardın?*"
+     ],
+     "ses": [
+      "Sen dört yüz yıl yaşasan ne yapardın? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ],
+   "seri": "hayvanlar",
+   "not": "Bilgiler genel kabul görmüş kaynaklara dayanır."
+  },
+  {
    "id": "zipla",
    "efekt": "normal",
    "baslik": "Herkes Aynı Anda Zıplasa Dünyaya Ne Olur? 🌍 #shorts",
@@ -2166,6 +2842,174 @@
      ]
     }
    ]
+  },
+  {
+   "id": "hayvan-ahtapot",
+   "efekt": "sel",
+   "baslik": "Ahtapot Hakkında 5 İnanılmaz Gerçek 🐙 #shorts",
+   "ozet": "Denizin en zeki canlılarından ahtapot hakkında az bilinen beş gerçek.",
+   "etiketler": [
+    "hayvanlar alemi",
+    "ilginç hayvanlar",
+    "ahtapot",
+    "deniz canlıları",
+    "zeki hayvanlar",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "AHTAPOT",
+      "HAKKINDA",
+      "*5 İNANILMAZ*",
+      "GERÇEK"
+     ],
+     "ses": [
+      "Ahtapot hakkında beş inanılmaz gerçek. Dördüncüsü çok şaşırtıcı."
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "ÜÇ KALP",
+     "satir": [
+      "Ahtapotun",
+      "*üç kalbi* var.",
+      "Kanı ise *mavi.*"
+     ],
+     "ses": [
+      "Ahtapotun üç kalbi var.",
+      "Kanı ise mavi."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "KOLLAR",
+     "satir": [
+      "Sinir hücrelerinin",
+      "*çoğu* kollarında.",
+      "Kollar *ayrı ayrı* karar verir."
+     ],
+     "ses": [
+      "Sinir hücrelerinin çoğu kollarında bulunur.",
+      "Kollar neredeyse ayrı ayrı karar verir."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "RENK",
+     "satir": [
+      "*Saniyeler* içinde",
+      "hem rengini",
+      "hem *dokusunu* değiştirir."
+     ],
+     "ses": [
+      "Ahtapot saniyeler içinde hem rengini hem de derisinin dokusunu değiştirir."
+     ],
+     "grup": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "KAÇIŞ",
+     "satir": [
+      "Kemiği yok.",
+      "*Gagası* sığan",
+      "her delikten geçer."
+     ],
+     "ses": [
+      "Ahtapotun kemiği yoktur.",
+      "Gagası sığan her delikten geçebilir."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "ZEKÂ",
+     "satir": [
+      "*Kavanoz kapağını*",
+      "açabilir.",
+      "Bulmaca *çözebilir.*"
+     ],
+     "ses": [
+      "Ahtapot kavanoz kapağını açabilir.",
+      "Hatta basit bulmacaları çözebilir."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "EN ŞAŞIRTICI",
+     "satir": [
+      "Bu kadar zeki olmasına",
+      "rağmen çoğu tür:",
+      "*1-2 YIL*",
+      "*yaşar, o kadar!*"
+     ],
+     "ses": [
+      "En şaşırtıcısı: bu kadar zeki olmasına rağmen çoğu ahtapot türü...",
+      "sadece bir iki yıl",
+      "yaşar!"
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "Ahtapot bu kadar zekiyse",
+      "*neden kısa yaşıyor?*"
+     ],
+     "ses": [
+      "Sence ahtapot bu kadar zekiyse neden bu kadar kısa yaşıyor? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ],
+   "seri": "hayvanlar",
+   "not": "Bilgiler genel kabul görmüş kaynaklara dayanır."
   },
   {
    "id": "trafik",

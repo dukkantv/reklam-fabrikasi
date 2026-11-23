@@ -23,13 +23,15 @@ GRUP = {  # bölüm id → konu grubu
 }
 # Bölüm listesinde olmayan eski videolar (başlıktaki parça → grup)
 EK_BASLIK = {"Elektrikler Tamamen Kesilirse": "hayatin_icinden"}
-KORUNAN = {"dogru_bilinen_yanlislar", "telefon_bilgi"}   # Levent'in isteği: sürekli denensin
+KORUNAN = {"dogru_bilinen_yanlislar", "telefon_bilgi", "hayvanlar_alemi"}   # Levent'in isteği: sürekli denensin
 
 
 def grup_bul(bid):
     for g, idler in GRUP.items():
         if bid in idler:
             return g
+    if bid.startswith("hayvan"):
+        return "hayvanlar_alemi"
     if bid.startswith("yanlis"):
         return "dogru_bilinen_yanlislar"
     if "telefon" in bid:

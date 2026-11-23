@@ -13,10 +13,11 @@ KOK = os.path.dirname(KLASOR)
 sys.path.insert(0, KOK)
 sys.path.insert(0, KLASOR)
 TR = dt.timezone(dt.timedelta(hours=3))
-ARALIK_GUN = 1   # 23 Kas 2026: en iyi giden format bu, her gün bir bölüm
+ARALIK_GUN = 1
+GUNLUK = 2   # 23 Kas 2026 (Levent): odak kanal, sabah ve akşam → günde 2 bölüm (12:30 ve 20:00)
 # Shorts saati: belgeseller 17:30–18:30 arası çıkıyor; kısa videolar akşam en yoğun saatte, diğer kanallardan 30 dk uzak
 # 23 Kas 2026: öğle kuşağına alındı (Levent: yayınlar daha erken olsun)
-SAAT_TERCIH = ["12:30", "13:30", "15:00", "20:00", "20:30", "21:15"]
+SAAT_TERCIH = ["12:30", "20:00", "15:00", "13:30", "20:30", "21:15"]
 VO, ARA = 0.3, 0.18
 TIKTOK_ETIKET = "#neolur #bilgi #merak #senaryo #keşfet #fyp"
 
@@ -353,7 +354,9 @@ def main():
         kuyruga_koy(b, sys.argv[2], yayin_saati(tarih))
         return
     bugun = dt.datetime.now(TR).date()
-    hedef = dt.date.fromisoformat(d["son_tarih"]) + dt.timedelta(days=ARALIK_GUN)
+    son = dt.date.fromisoformat(d["son_tarih"])
+    o_gun = sum(1 for g in d["gecmis"] if g.get("tarih") == d["son_tarih"])
+    hedef = son if o_gun < GUNLUK else son + dt.timedelta(days=ARALIK_GUN)
     if komut == "gerek":
         print("evet" if (hedef - bugun).days <= 1 and d["sira"] < len(banka) else "hayir")
         return
