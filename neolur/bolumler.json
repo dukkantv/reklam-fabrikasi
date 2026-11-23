@@ -1295,6 +1295,1338 @@
      ]
     }
    ]
+  },
+  {
+   "id": "donme",
+   "efekt": "normal",
+   "baslik": "Dünya Bir Anda Dönmeyi Durdursa Ne Olur? 🌍 #shorts",
+   "ozet": "Dünya dönmeyi bir anda bıraksaydı ilk saniyelerden bir yıl sonrasına kadar neler olurdu?",
+   "etiketler": [
+    "ne olur",
+    "dünya dönmese",
+    "dünya durursa",
+    "bilim",
+    "uzay",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "SANİYELER",
+    "SAATLER",
+    "1. GÜN",
+    "6. AY",
+    "1. YIL"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "DÜNYA",
+      "BİR ANDA",
+      "*DÖNMEYİ*",
+      "BIRAKSA?"
+     ],
+     "ses": [
+      "Dünya bir anda dönmeyi bıraksa ne olur?"
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "SANİYELER",
+     "satir": [
+      "Ekvatorda her şey",
+      "saatte *1600 km* hızla",
+      "*doğuya savrulur.*"
+     ],
+     "ses": [
+      "İlk saniyelerde ekvatordaki her şey saatte bin altı yüz kilometre hızla doğuya savrulur."
+     ],
+     "grup": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "SAATLER",
+     "satir": [
+      "Okyanuslar *kutuplara* akar.",
+      "Dev dalgalar",
+      "*kıyıları* yutar."
+     ],
+     "ses": [
+      "Saatler içinde okyanuslar kutuplara doğru akar.",
+      "Dev dalgalar kıyıları yutar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "1. GÜN",
+     "satir": [
+      "Güneş artık",
+      "*batmaz.*",
+      "Gökyüzü *donar* kalır."
+     ],
+     "ses": [
+      "Birinci gün güneş artık batmaz.",
+      "Gökyüzü olduğu yerde donar kalır."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "6. AY",
+     "satir": [
+      "Bir gün",
+      "artık *bir yıl* sürer.",
+      "Gündüz *altı ay* sürer."
+     ],
+     "ses": [
+      "Altı ay sonra anlaşılır: bir gün artık bir yıl sürüyor.",
+      "Gündüz tam altı ay sürer."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "1. YIL",
+     "satir": [
+      "Bir yüz *kavrulur*,",
+      "öbür yüz *donar.*",
+      "Hayat *ince bir şeride* sıkışır."
+     ],
+     "ses": [
+      "Bir yıl sonra Dünya'nın bir yüzü kavrulur, öbür yüzü donar.",
+      "Hayat aradaki ince bir şeride sıkışır."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "İYİ HABER",
+     "satir": [
+      "Bilim insanlarına göre",
+      "bunun olması:",
+      "*İMKÂNSIZA*",
+      "*yakın.*"
+     ],
+     "ses": [
+      "İyi haber şu: bilim insanlarına göre bunun olması...",
+      "imkânsıza",
+      "yakın."
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "Güneş hiç batmasa",
+      "*sen ne yapardın?*"
+     ],
+     "ses": [
+      "Güneş hiç batmasa sen ne yapardın? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "okyanus",
+   "efekt": "kizil",
+   "baslik": "Bütün Okyanuslar Bir Anda Kurursa Ne Olur? 🐋 #shorts",
+   "ozet": "Dünyadaki bütün okyanuslar bir anda kurusaydı hava, yağmur ve hayat nasıl değişirdi?",
+   "etiketler": [
+    "ne olur",
+    "okyanuslar kurursa",
+    "deniz",
+    "doğa",
+    "bilim",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "İLK DAKİKA",
+    "1. GÜN",
+    "1. HAFTA",
+    "1. AY",
+    "YILLAR"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "BÜTÜN",
+      "OKYANUSLAR",
+      "*KURURSA*",
+      "NE OLUR?"
+     ],
+     "ses": [
+      "Bütün okyanuslar bir anda kurusa ne olur?"
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "İLK DAKİKA",
+     "satir": [
+      "Denizin dibi",
+      "*gün yüzüne* çıkar.",
+      "Gemiler *kuma* oturur."
+     ],
+     "ses": [
+      "İlk dakikada denizin dibi gün yüzüne çıkar.",
+      "Gemiler kuma oturur."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "1. GÜN",
+     "satir": [
+      "Dev *tuz çölleri*",
+      "ve *kilometrelerce*",
+      "derin vadiler belirir."
+     ],
+     "ses": [
+      "Birinci gün dev tuz çölleri ve kilometrelerce derin vadiler belirir."
+     ],
+     "grup": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "1. HAFTA",
+     "satir": [
+      "Bulutlar *azalır.*",
+      "Yağmurlar",
+      "*kesilmeye* başlar."
+     ],
+     "ses": [
+      "Birinci haftada bulutlar azalır.",
+      "Yağmurlar kesilmeye başlar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "1. AY",
+     "satir": [
+      "Gündüzler *kavurur*,",
+      "geceler *dondurur.*",
+      "Rüzgârlar *tuz* taşır."
+     ],
+     "ses": [
+      "Bir ay sonra gündüzler kavurur, geceler dondurur.",
+      "Rüzgârlar tuz taşır."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "YILLAR",
+     "satir": [
+      "Ormanlar *kurur.*",
+      "Dünya *Mars'a*",
+      "benzemeye başlar."
+     ],
+     "ses": [
+      "Yıllar içinde ormanlar kurur.",
+      "Dünya kızıl bir gezegene, Mars'a benzemeye başlar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "ASIL ŞAŞIRTAN",
+     "satir": [
+      "Soluduğumuz havanın",
+      "büyük kısmını üreten:",
+      "*OKYANUSTAKİ*",
+      "*minik canlılar.*"
+     ],
+     "ses": [
+      "Asıl şaşırtan şu: soluduğumuz oksijenin büyük kısmını üreten...",
+      "okyanustaki",
+      "minik canlılar."
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "Sence ilk önce",
+      "*hangi şehir* zor durumda kalır?"
+     ],
+     "ses": [
+      "Sence ilk önce hangi şehir zor durumda kalır? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "agaclar",
+   "efekt": "solgun",
+   "baslik": "Dünyadaki Bütün Ağaçlar Yok Olursa Ne Olur? 🌳 #shorts",
+   "ozet": "Bütün ağaçlar bir anda yok olsaydı toprak, hava ve hayvanlar ne yaşardı?",
+   "etiketler": [
+    "ne olur",
+    "ağaçlar yok olursa",
+    "orman",
+    "doğa",
+    "çevre",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "1. GÜN",
+    "1. HAFTA",
+    "1. AY",
+    "1. YIL",
+    "YILLAR"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "BÜTÜN",
+      "AĞAÇLAR",
+      "*YOK*",
+      "OLURSA?"
+     ],
+     "ses": [
+      "Dünyadaki bütün ağaçlar bir anda yok olursa ne olur?"
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "1. GÜN",
+     "satir": [
+      "Milyonlarca kuş",
+      "*yuvasız* kalır.",
+      "Ormanlar *bomboş.*"
+     ],
+     "ses": [
+      "Birinci gün milyonlarca kuş yuvasız kalır.",
+      "Ormanlar bomboş kalır."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "1. HAFTA",
+     "satir": [
+      "Yağmur yağınca",
+      "toprak *kayar.*",
+      "*Seller* başlar."
+     ],
+     "ses": [
+      "Birinci haftada yağmur yağınca toprak kayar.",
+      "Seller başlar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "1. AY",
+     "satir": [
+      "Şehirler *ısınır.*",
+      "Gölge kalmaz,",
+      "sokaklar *kavrulur.*"
+     ],
+     "ses": [
+      "Bir ay sonra şehirler ısınır.",
+      "Gölge kalmaz, sokaklar kavrulur."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "1. YIL",
+     "satir": [
+      "Kâğıt, mobilya, ilaç...",
+      "*Binlerce ürün*",
+      "üretilemez."
+     ],
+     "ses": [
+      "Bir yıl sonra kâğıt, mobilya, hatta bazı ilaçlar...",
+      "Binlerce ürün üretilemez."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "YILLAR",
+     "satir": [
+      "Havadaki karbon *artar.*",
+      "Topraklar *çölleşir.*",
+      "Hayat *zorlaşır.*"
+     ],
+     "ses": [
+      "Yıllar içinde havadaki karbon artar.",
+      "Topraklar çölleşir ve hayat zorlaşır."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "PEKİ NE YAPABİLİRİZ?",
+     "satir": [
+      "Bir ağaç dikmek",
+      "küçük görünür ama:",
+      "*YÜZYILLARCA*",
+      "*yaşayabilir.*"
+     ],
+     "ses": [
+      "Peki ne yapabiliriz? Bir ağaç dikmek küçük görünür ama...",
+      "yüzyıllarca",
+      "yaşayabilir."
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "Sen hiç",
+      "*ağaç diktin mi?*"
+     ],
+     "ses": [
+      "Sen hiç ağaç diktin mi? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "arabalar",
+   "efekt": "normal",
+   "baslik": "Bütün Araçlar Bir Anda Dursa Ne Olur? 🚗 #shorts",
+   "ozet": "Dünyadaki bütün araba, kamyon ve uçaklar bir anda dursaydı şehirler nasıl değişirdi?",
+   "etiketler": [
+    "ne olur",
+    "araçlar durursa",
+    "trafik",
+    "şehir",
+    "ulaşım",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "DAKİKALAR",
+    "1. GÜN",
+    "3. GÜN",
+    "1. HAFTA",
+    "1. AY"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "BÜTÜN",
+      "ARAÇLAR",
+      "*BİR ANDA*",
+      "DURSA?"
+     ],
+     "ses": [
+      "Dünyadaki bütün araçlar bir anda dursa ne olur?"
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "DAKİKALAR",
+     "satir": [
+      "Yollar *kilitlenir.*",
+      "Herkes",
+      "*yürümeye* başlar."
+     ],
+     "ses": [
+      "İlk dakikalarda yollar kilitlenir.",
+      "Herkes yürümeye başlar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "1. GÜN",
+     "satir": [
+      "Şehirlerde",
+      "*sessizlik* olur.",
+      "Hava *temizlenir.*"
+     ],
+     "ses": [
+      "Birinci gün şehirlerde sessizlik olur.",
+      "Hava temizlenmeye başlar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "3. GÜN",
+     "satir": [
+      "Market rafları",
+      "*boşalır.*",
+      "Çünkü *kamyon* gelmez."
+     ],
+     "ses": [
+      "Üçüncü gün market rafları boşalır.",
+      "Çünkü yükü taşıyan kamyonlar gelmez."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "1. HAFTA",
+     "satir": [
+      "*Bisiklet* altın değerinde.",
+      "At ve eşek",
+      "*yeniden* yola çıkar."
+     ],
+     "ses": [
+      "Bir hafta sonra bisiklet altın değerinde olur.",
+      "At ve eşek yeniden yola çıkar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "1. AY",
+     "satir": [
+      "Mahalleler",
+      "*kendi kendine* yetmeye",
+      "*çalışır.*"
+     ],
+     "ses": [
+      "Bir ay sonra mahalleler kendi kendine yetmeye çalışır."
+     ],
+     "grup": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "EN ÇOK KİM KAZANIR?",
+     "satir": [
+      "Bu dünyada",
+      "en değerli meslek:",
+      "*BİSİKLET*",
+      "*tamircisi!*"
+     ],
+     "ses": [
+      "En çok kim kazanır? Bu dünyada en değerli meslek...",
+      "bisiklet",
+      "tamircisi!"
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "Sen işine",
+      "*yürüyerek gidebilir misin?*"
+     ],
+     "ses": [
+      "Sen işine yürüyerek gidebilir misin? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "yercekimi",
+   "efekt": "uydu",
+   "baslik": "Yerçekimi 5 Saniyeliğine Kaybolsa Ne Olur? 🪐 #shorts",
+   "ozet": "Yerçekimi sadece beş saniyeliğine kaybolsaydı her saniye neler olurdu?",
+   "etiketler": [
+    "ne olur",
+    "yerçekimi",
+    "uzay",
+    "bilim",
+    "fizik",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "1. SANİYE",
+    "2. SANİYE",
+    "3. SANİYE",
+    "4. SANİYE",
+    "5. SANİYE"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "YERÇEKİMİ",
+      "5 SANİYE",
+      "*KAYBOLSA*",
+      "NE OLUR?"
+     ],
+     "ses": [
+      "Yerçekimi sadece beş saniyeliğine kaybolsa ne olur?"
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "1. SANİYE",
+     "satir": [
+      "Ayaklarımız *yerden* kesilir.",
+      "Dünya döndüğü için",
+      "her şey *savrulur.*"
+     ],
+     "ses": [
+      "Birinci saniyede ayaklarımız yerden kesilir.",
+      "Dünya döndüğü için her şey savrulur."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "2. SANİYE",
+     "satir": [
+      "Denizler *kabarır.*",
+      "Su damlaları",
+      "havada *süzülür.*"
+     ],
+     "ses": [
+      "İkinci saniyede denizler kabarır.",
+      "Su damlaları havada süzülür."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "3. SANİYE",
+     "satir": [
+      "Hava *seyrelir.*",
+      "Kulaklar *tıkanır,*",
+      "nefes *zorlaşır.*"
+     ],
+     "ses": [
+      "Üçüncü saniyede hava seyrelmeye başlar.",
+      "Kulaklar tıkanır, nefes zorlaşır."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "4. SANİYE",
+     "satir": [
+      "Arabalar, taşlar, insanlar",
+      "*gökyüzüne*",
+      "doğru yükselir."
+     ],
+     "ses": [
+      "Dördüncü saniyede arabalar, taşlar, insanlar gökyüzüne doğru yükselir."
+     ],
+     "grup": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "5. SANİYE",
+     "satir": [
+      "Yerçekimi *geri döner.*",
+      "Ve her şey",
+      "*aynı anda* düşer!"
+     ],
+     "ses": [
+      "Beşinci saniyede yerçekimi geri döner.",
+      "Ve her şey aynı anda yere düşer!"
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "EN TEHLİKELİ AN",
+     "satir": [
+      "Asıl tehlike",
+      "kaybolması değil:",
+      "*GERİ*",
+      "*gelmesi!*"
+     ],
+     "ses": [
+      "En tehlikeli an hangisi? Asıl tehlike kaybolması değil...",
+      "geri",
+      "gelmesi!"
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "O 5 saniyede",
+      "*sen nerede olmak isterdin?*"
+     ],
+     "ses": [
+      "O beş saniyede sen nerede olmak isterdin? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bocekler",
+   "efekt": "solgun",
+   "baslik": "Dünyadaki Bütün Böcekler Yok Olursa Ne Olur? 🐜 #shorts",
+   "ozet": "Böcekler bir anda yok olsaydı meyveler, kuşlar ve toprak ne yaşardı?",
+   "etiketler": [
+    "ne olur",
+    "böcekler yok olursa",
+    "doğa",
+    "hayvanlar",
+    "bilim",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "1. HAFTA",
+    "1. AY",
+    "3. AY",
+    "1. YIL",
+    "YILLAR"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "BÜTÜN",
+      "BÖCEKLER",
+      "*YOK*",
+      "OLURSA?"
+     ],
+     "ses": [
+      "Dünyadaki bütün böcekler bir anda yok olursa ne olur?"
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "1. HAFTA",
+     "satir": [
+      "İlk başta",
+      "*rahatlarız.*",
+      "Sivrisinek de *yok!*"
+     ],
+     "ses": [
+      "Birinci hafta ilk başta rahatlarız.",
+      "Sivrisinek de yok!"
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "1. AY",
+     "satir": [
+      "Kuşlar ve kurbağalar",
+      "*yiyecek bulamaz.*",
+      "Sesler *azalır.*"
+     ],
+     "ses": [
+      "Bir ay sonra kuşlar ve kurbağalar yiyecek bulamaz.",
+      "Doğadaki sesler azalır."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "3. AY",
+     "satir": [
+      "Çiçekler",
+      "*tozlaşmaz.*",
+      "Meyve ağaçları *boş kalır.*"
+     ],
+     "ses": [
+      "Üç ay sonra çiçekler tozlaşmaz.",
+      "Meyve ağaçları boş kalır."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "1. YIL",
+     "satir": [
+      "Ölü yapraklar",
+      "*çürümez,*",
+      "*birikmeye* başlar."
+     ],
+     "ses": [
+      "Bir yıl sonra ölü yapraklar çürümez.",
+      "Her yerde birikmeye başlar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "YILLAR",
+     "satir": [
+      "Toprak *verimsizleşir.*",
+      "Sofralardan",
+      "*çilek, elma, kahve* gider."
+     ],
+     "ses": [
+      "Yıllar içinde toprak verimsizleşir.",
+      "Sofralardan çilek, elma, kahve gider."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "ŞAŞIRTICI GERÇEK",
+     "satir": [
+      "Dünyada her insan başına",
+      "tahminen düşen böcek:",
+      "*MİLYONLARCA*",
+      "*böcek!*"
+     ],
+     "ses": [
+      "Şaşırtıcı gerçek: dünyada her insan başına tahminen...",
+      "milyonlarca",
+      "böcek düşüyor!"
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "Sence en çok",
+      "*hangi böceği* özlerdik?"
+     ],
+     "ses": [
+      "Sence en çok hangi böceği özlerdik? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gece",
+   "efekt": "soguk",
+   "baslik": "Güneş Bir Hafta Hiç Doğmasa Ne Olur? 🌑 #shorts",
+   "ozet": "Bir hafta boyunca hiç gündüz olmasaydı hava, insanlar ve şehirler neler yaşardı?",
+   "etiketler": [
+    "ne olur",
+    "gece bitmese",
+    "karanlık",
+    "güneş doğmasa",
+    "uzay",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "1. GECE",
+    "2. GÜN",
+    "3. GÜN",
+    "5. GÜN",
+    "7. GÜN"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "GÜNEŞ",
+      "BİR HAFTA",
+      "*HİÇ*",
+      "DOĞMASA?"
+     ],
+     "ses": [
+      "Güneş bir hafta boyunca hiç doğmasa ne olur?"
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "1. GECE",
+     "satir": [
+      "Sabah *olmaz.*",
+      "Alarmlar çalar ama",
+      "dışarısı *kapkaranlık.*"
+     ],
+     "ses": [
+      "İlk gece sabah olmaz.",
+      "Alarmlar çalar ama dışarısı kapkaranlık."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "2. GÜN",
+     "satir": [
+      "Hava *soğur.*",
+      "Şehirler",
+      "*bütün gün* ışıklı."
+     ],
+     "ses": [
+      "İkinci gün hava soğumaya başlar.",
+      "Şehirler bütün gün ışıklı kalır."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "3. GÜN",
+     "satir": [
+      "Elektrik *yetmez.*",
+      "Herkes *ısıtıcıyı*",
+      "aynı anda açar."
+     ],
+     "ses": [
+      "Üçüncü gün elektrik yetmez.",
+      "Çünkü herkes ısıtıcıyı aynı anda açar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "5. GÜN",
+     "satir": [
+      "Göller *donmaya* başlar.",
+      "Bitkiler",
+      "*solar.*"
+     ],
+     "ses": [
+      "Beşinci gün göller donmaya başlar.",
+      "Bitkiler solar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "7. GÜN",
+     "satir": [
+      "Sıcaklık",
+      "*sıfırın* altında.",
+      "Herkes *güneşi* bekler."
+     ],
+     "ses": [
+      "Yedinci gün sıcaklık sıfırın altında.",
+      "Herkes güneşin doğmasını bekler."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "GERÇEKTE YAŞANIYOR",
+     "satir": [
+      "Kuzey Norveç'te",
+      "kışın güneş haftalarca:",
+      "*HİÇ*",
+      "*doğmuyor!*"
+     ],
+     "ses": [
+      "Bu gerçekte yaşanıyor: Kuzey Norveç'te kışın güneş haftalarca...",
+      "hiç",
+      "doğmuyor!"
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "Sen karanlıkta",
+      "*kaç gün dayanırdın?*"
+     ],
+     "ses": [
+      "Sen karanlıkta kaç gün dayanırdın? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "id": "telefon",
+   "efekt": "karartma_yavas",
+   "baslik": "Dünyadaki Bütün Telefonlar Bir Gün Çalışmasa Ne Olur? 📱 #shorts",
+   "ozet": "Bir gün boyunca dünyadaki bütün telefonlar kapansaydı sabahtan geceye neler olurdu?",
+   "etiketler": [
+    "ne olur",
+    "telefonlar çalışmasa",
+    "telefon",
+    "teknoloji",
+    "günlük hayat",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "SABAH",
+    "ÖĞLE",
+    "İKİNDİ",
+    "AKŞAM",
+    "GECE"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "BÜTÜN",
+      "TELEFONLAR",
+      "*BİR GÜN*",
+      "KAPANSA?"
+     ],
+     "ses": [
+      "Dünyadaki bütün telefonlar bir gün çalışmasa ne olur?"
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "SABAH",
+     "satir": [
+      "Alarm *çalmaz.*",
+      "Milyonlarca insan",
+      "işe *geç kalır.*"
+     ],
+     "ses": [
+      "Sabah alarm çalmaz.",
+      "Milyonlarca insan işe geç kalır."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "ÖĞLE",
+     "satir": [
+      "Kartla *ödeme* zorlaşır.",
+      "Kasalarda",
+      "*uzun kuyruklar.*"
+     ],
+     "ses": [
+      "Öğleye doğru kartla ödeme zorlaşır.",
+      "Kasalarda uzun kuyruklar oluşur."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "İKİNDİ",
+     "satir": [
+      "İnsanlar",
+      "*yol sormaya* başlar.",
+      "Harita *kâğıtta.*"
+     ],
+     "ses": [
+      "İkindi vakti insanlar yol sormaya başlar.",
+      "Harita artık kâğıtta."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "AKŞAM",
+     "satir": [
+      "Komşular *kapı çalar.*",
+      "Parklar",
+      "*kalabalıklaşır.*"
+     ],
+     "ses": [
+      "Akşam komşular birbirinin kapısını çalar.",
+      "Parklar kalabalıklaşır."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "GECE",
+     "satir": [
+      "Herkes",
+      "*erkenden* uyur.",
+      "Ve *sohbet* geri döner."
+     ],
+     "ses": [
+      "Gece herkes erkenden uyur.",
+      "Ve uzun zamandır unutulan sohbet geri döner."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "PEKİ NE YAPMALI?",
+     "satir": [
+      "Telefon her şeyi bilse de",
+      "sen ezbere bil:",
+      "*EN ÖNEMLİ*",
+      "*numarayı!*"
+     ],
+     "ses": [
+      "Peki ne yapmalı? Telefon her şeyi bilse de sen ezbere bil...",
+      "en önemli",
+      "numarayı!"
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "Sen kimin numarasını",
+      "*ezbere biliyorsun?*"
+     ],
+     "ses": [
+      "Sen kimin numarasını ezbere biliyorsun? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ]
   }
  ]
 }

@@ -79,6 +79,19 @@ def tt_aciklama(kayit):
         " ".join("#" + e.replace(" ", "") for e in kayit.get("etiketler", [])[:6]) + " #fyp #keşfet"
 
 
+def ig_kodla(yol):
+    """Videoyu Instagram Reels'in önerdiği biçime çevirir: H.264 High, 30 fps, ~3,5 Mbps, AAC 48 kHz stereo, faststart."""
+    yeni = yol[:-4] + "_ig.mp4"
+    if subprocess.run(["which", "ffmpeg"], capture_output=True).returncode != 0:
+        subprocess.run("sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg", shell=True, check=True)
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", yol, "-c:v", "libx264", "-preset", "veryfast",
+                    "-profile:v", "high", "-pix_fmt", "yuv420p", "-r", "30", "-g", "60",
+                    "-b:v", "3500k", "-maxrate", "5000k", "-bufsize", "7000k",
+                    "-c:a", "aac", "-ar", "48000", "-ac", "2", "-b:a", "128k",
+                    "-movflags", "+faststart", yeni], check=True)
+    return yeni
+
+
 def ig_bekliyor(kayit):
     """Bu kanal için Instagram bağlıysa ve henüz paylaşılmadıysa True."""
     if kayit.get("ig") in ("paylasildi", "hata") or kayit.get("uzun"):
@@ -227,13 +240,17 @@ def ekle(kanal, video, baslik, aciklama="", etiketler="", gunluk="", kapak="", k
 # Yayın saatleri: videolar aynı anda çıkmasın, izleyici birinde takılı kalmasın diye aralıklı.
 # Her kanalın tercih ettiği saatler; boş olan ilk saat seçilir. Kanallar arası en az 30 dk,
 # aynı kanalın iki videosu arası en az 60 dk.
-SAATLER = ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30"]
-TERCIH = {"dukkantv": ["19:00", "18:00", "20:00", "21:00"],
-          # Kasa Kurgu'nun günde 2 videosu (500 TL + Katil Kim?) arasında 2,5–3,5 saat olsun (Levent, 15.11.2026)
-          "kasakurgu": ["18:00", "21:00", "17:30", "20:30", "21:30"],
-          "dramabite": ["20:00", "21:00", "18:00", "19:00"],
-          # 81 İl Turnuvası: genç kitle, okul/iş çıkışı (Kasım 2026)
-          "ilturnuva": ["17:30", "18:30", "19:30", "20:30"]}
+# 23 Kas 2026 (Levent): yayınlar daha erken saatlere alındı; öğle (12–14) ve okul/iş çıkışı (16–20) kuşağı.
+# 21:00/21:30 sadece son çare (gün içinde üretim geç kalırsa aynı gün yine çıksın diye).
+SAATLER = ["12:30", "13:30", "14:00", "15:00", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30",
+           "19:00", "19:30", "20:00", "20:30", "21:00", "21:30"]
+TERCIH = {"dukkantv": ["18:00", "17:00", "19:00", "16:30"],
+          # Kasa Kurgu: günde 2 Katil Kim? (23.11.2026'dan itibaren), aralarında en az 2,5 saat
+          "kasakurgu": ["14:00", "17:30", "19:30", "13:30", "20:30"],
+          "dramabite": ["19:00", "18:30", "20:00", "16:30"],
+          # 81 İl Turnuvası: genç kitle, okul çıkışı
+          "ilturnuva": ["16:00", "16:30", "17:00", "15:00"],
+          "gizlitarih": ["12:30", "20:00", "15:00", "13:30"]}
 AYNI_KANAL_ARALIK = {"kasakurgu": 2.5 * 3600}
 GUNDE_BIR = {"ilturnuva", "gizlitarih"}   # turnuva fikstürü günde 1 maç; belgesel günde en fazla 1   # sn; diğer kanallarda aynı kanalın iki videosu arası 1 saat
 
@@ -296,7 +313,7 @@ def yayin_zamani(kanal="dukkantv", gunluk=False, uzun=False):
                           for k, z in dolu)
             if not cakisma:
                 return aday
-    return simdi.replace(hour=19, minute=0, second=0, microsecond=0) + dt.timedelta(days=1)
+    return simdi.replace(hour=18, minute=0, second=0, microsecond=0) + dt.timedelta(days=1)
 
 
 def zaman_sec(kayit):
@@ -455,42 +472,23 @@ def kontrol():
             # YouTube'a planlı yüklendi; yayın saatinde Instagram'a Reels, TikTok'a taslak olarak gider
             if simdi < dt.datetime.fromisoformat(kayit["yayin"]):
                 continue
-            if ig_bekliyor(kayit) and kayit.get("fb_id"):
-                # Doğrudan yükleme daha önce reddedildiyse Facebook'taki kopyanın adresiyle dene
-                try:
-                    mid, link = reels_yukle_fb_kaynak(kayit["kanal"], kayit["fb_id"], ig_aciklama(kayit), deneme_reels_mi(kayit))
-                    kayit.update(ig="paylasildi", ig_id=mid, ig_link=link, ig_yol="fb_kaynak", ig_deneme_reels=ig_ortak.SON_DENEME)
-                    kaydet(kayit)
-                    telegram(ig_paylasildi_mesaji(ad, kayit, link))
-                except Exception as e:
-                    print(f"Instagram (Facebook kaynağı) hatası ({kayit['id']}):", str(e)[:300])
-                    if "2207076" in str(e) or "2207001" in str(e):
-                        # Meta tarafında geçici arıza: doğrudan yüklemeyi de boşuna deneme, bir saat sonra tekrar
-                        kayit["ig_deneme"] = kayit.get("ig_deneme", 0) + 1
-                        kayit["ig_son_deneme"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
-                        kaydet(kayit)
             if ig_bekliyor(kayit):
+                # 23 Kas 2026: önce Instagram'ın önerdiği biçime yeniden kodlanmış dosya doğrudan yüklenir
+                # (2207076 / ProcessingFailedError çoğunlukla düşük bit hızı, 24 fps veya mono sesten geliyordu);
+                # o da olmazsa Facebook'taki kopyanın adresiyle denenir. Eskiden Facebook yolu 2207076 verince
+                # doğrudan yükleme hiç denenmiyordu ve video günlerce takılı kalıyordu.
                 try:
                     gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
                     yol = os.path.join("/tmp", kayit["dosya"])
                     try:
-                        mid, link = reels_yukle(kayit["kanal"], yol, ig_aciklama(kayit), deneme_reels_mi(kayit))
-                    except RuntimeError as e1:
-                        if "Request processing failed" in str(e1):
-                            raise  # yükleme kısıtlaması: yeniden kodlamak işe yaramaz, saatler sonra tekrar denenir
-                        # Instagram bazı videoları "ProcessingFailedError" ile reddediyor (ör. çok düşük bit hızı).
-                        # Instagram'ın önerdiği ayarlarla yeniden kodlayıp bir kez daha dene.
-                        print(f"Instagram ilk deneme ({kayit['id']}):", str(e1)[:300], "→ yeniden kodlanıyor")
-                        yeni = yol[:-4] + "_ig.mp4"
-                        if subprocess.run(["which", "ffmpeg"], capture_output=True).returncode != 0:
-                            subprocess.run("sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg",
-                                           shell=True, check=True)
-                        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", yol, "-c:v", "libx264",
-                                        "-profile:v", "high", "-pix_fmt", "yuv420p", "-r", "30", "-g", "60",
-                                        "-b:v", "3500k", "-maxrate", "5000k", "-bufsize", "7000k",
-                                        "-c:a", "aac", "-ar", "48000", "-ac", "2", "-b:a", "128k",
-                                        "-movflags", "+faststart", yeni], check=True)
-                        mid, link = reels_yukle(kayit["kanal"], yeni, ig_aciklama(kayit), deneme_reels_mi(kayit))
+                        mid, link = reels_yukle(kayit["kanal"], ig_kodla(yol), ig_aciklama(kayit), deneme_reels_mi(kayit))
+                        kayit.update(ig_yol="dogrudan")
+                    except Exception as e1:
+                        if not kayit.get("fb_id") or "Request processing failed" in str(e1):
+                            raise
+                        print(f"Instagram doğrudan yükleme ({kayit['id']}):", str(e1)[:300], "→ Facebook kaynağı deneniyor")
+                        mid, link = reels_yukle_fb_kaynak(kayit["kanal"], kayit["fb_id"], ig_aciklama(kayit), deneme_reels_mi(kayit))
+                        kayit.update(ig_yol="fb_kaynak")
                     kayit.update(ig="paylasildi", ig_id=mid, ig_link=link, ig_deneme_reels=ig_ortak.SON_DENEME)
                     kaydet(kayit)
                     telegram(ig_paylasildi_mesaji(ad, kayit, link))

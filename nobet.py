@@ -39,6 +39,14 @@ def bekleme():
     # Onay/yükleme kontrolleri için gündüz en az saatte bir çalış
     adaylar.append((simdi + dt.timedelta(hours=1) if 6 <= simdi.hour < 23 else simdi + dt.timedelta(seconds=AZAMI),
                     "-", "düzenli kontrol"))
+    # Sabah üretim saatlerinde de uyan (uretim_nobet.py): gece 5,5 saat uyuyup üretimi kaçırmasın
+    try:
+        from uretim_nobet import kalan_saatler
+        ks = kalan_saatler()
+        if ks:
+            adaylar.append((ks[0], "-", "günlük üretim"))
+    except Exception as e:
+        print("Üretim saatleri okunamadı:", e, file=sys.stderr)
     z, kid, neden = min(adaylar)
     sn = max(60, min(AZAMI, int((z - simdi).total_seconds())))
     print(f"Sonraki çalışma: {simdi + dt.timedelta(seconds=sn):%d.%m %H:%M} ({neden}: {kid})", file=sys.stderr)

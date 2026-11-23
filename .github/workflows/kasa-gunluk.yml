@@ -3,8 +3,8 @@ name: Kasa Kurgu Günlük
 # "500 TL ile 50.000 TL Hedefi" dizisi: dünkü videonun yorumlarındaki A/B oylarını sayar,
 # Gemini ile sıradaki günü yazar, videoyu üretir, Telegram'a gönderir ve otomatik yayın kuyruğuna ekler (onaysız).
 on:
-  schedule:
-    - cron: "17 8 * * *"   # her gün 11:17 (Türkiye)
+  # 23 Kas 2026: "500 TL" serisi durduruldu (izleyici tutma %20–32, Katil Kim? %44–46). Kasa Kurgu artık
+  # günde 2 Katil Kim? yayınlıyor. Seriyi bitirmek istenirse elle çalıştırılabilir.
   workflow_dispatch:
 
 permissions:

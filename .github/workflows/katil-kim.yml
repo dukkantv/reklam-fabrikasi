@@ -3,8 +3,7 @@ name: Katil Kim Vakası
 # Kasa kurgu kanalı için sıradaki "Katil Kim?" vaka videosunu üretir, Telegram'a gönderir ve
 # YouTube onay kuyruğuna ekler (Levent onaylarsa 19:00'da yayında).
 on:
-  schedule:
-    - cron: "37 9 * * *"   # her gün 12:37 (Türkiye)
+  # 23 Kas 2026: zamanlama uretim_nobet.py'de (günde 2 vaka, 07:20 ve 10:30). Cron 7-8 saat gecikiyordu.
   workflow_dispatch:
     inputs:
       vaka_no:

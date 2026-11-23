@@ -13,9 +13,10 @@ KOK = os.path.dirname(KLASOR)
 sys.path.insert(0, KOK)
 sys.path.insert(0, KLASOR)
 TR = dt.timezone(dt.timedelta(hours=3))
-ARALIK_GUN = 2
+ARALIK_GUN = 1   # 23 Kas 2026: en iyi giden format bu, her gün bir bölüm
 # Shorts saati: belgeseller 17:30–18:30 arası çıkıyor; kısa videolar akşam en yoğun saatte, diğer kanallardan 30 dk uzak
-SAAT_TERCIH = ["20:45", "21:15", "19:45", "21:45", "20:15", "22:00"]
+# 23 Kas 2026: öğle kuşağına alındı (Levent: yayınlar daha erken olsun)
+SAAT_TERCIH = ["12:30", "13:30", "15:00", "20:00", "20:30", "21:15"]
 VO, ARA = 0.3, 0.18
 TIKTOK_ETIKET = "#neolur #bilgi #merak #senaryo #keşfet #fyp"
 
@@ -358,7 +359,7 @@ def main():
         print(f"Bugün üretim yok. Sıradaki yayın günü: {hedef}")
         return
     if hedef < bugun:
-        hedef = bugun + dt.timedelta(days=1) if dt.datetime.now(TR).hour >= 19 else bugun
+        hedef = bugun + dt.timedelta(days=1) if dt.datetime.now(TR).hour >= 20 else bugun
     if d["sira"] >= len(banka):
         telegram("⚠️ Gizli Tarih \"Ne Olur?\" serisinde yeni bölüm kalmadı. Claude'a yeni senaryolar yazdır.")
         return

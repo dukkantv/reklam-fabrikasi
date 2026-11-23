@@ -100,6 +100,9 @@ jobs:
         if: inputs.urun_kaldir
         run: python3 yt_kuyruk.py urun_kaldir
       # Esnaf başvuru kontrolü 14 Kasım 2026'da kapatıldı (20/B: esnafa reklam hizmeti verilmiyor, site formu kaldırıldı)
+      - name: Günlük üretim nöbeti (geciken üretimleri başlat)
+        if: inputs.kanal == '' && inputs.geri_al == ''
+        run: python3 uretim_nobet.py || true
       - name: Onayları kontrol et ve yükle
         run: python3 yt_kuyruk.py kontrol
       - name: Yayındaki videolara seri yorumu
