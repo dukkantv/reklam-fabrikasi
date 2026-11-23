@@ -51,6 +51,19 @@ SERI_ETIKET = {
 # 23 Kas 2026 (Levent): soyut kelimeler ("umut", "aile") yerine dikkat çekici, gizemli ve hayatın içinden
 # somut durumlar. İzleyici "bu bana da olabilir" desin ve sonunu merak etsin.
 KONULAR = [
+    # 23 Kas 2026 analizi: kanalın en çok izlenenleri (1.200–3.700 izlenme) gece gelen arama/mesaj, kilitli kutu,
+    # anahtar, eski borç ve yıllarca saklanan sır üzerine. Bu temalar listede iki kat yer alır (daha sık seçilir).
+    "gece saat üçte çalan telefonda, yıllar önce ölen babasının numarası görünüyor",
+    "babasının kilitli kutusunun anahtarı, annesinin hiç çıkarmadığı kolyede çıkıyor",
+    "eski bir numaradan gelen tek kelimelik mesaj: “geliyorum”",
+    "cevapsız aramaya geri dönmeyen bir kızın 10 yıl sonra öğrendiği gerçek",
+    "dedesinin ceketinin cebinden çıkan paslı anahtarın açtığı kapı",
+    "gece yarısı kapıya bırakılan zarfta 20 yıllık bir borcun senedi",
+    "durmuş bir saatin hep aynı saati göstermesinin sebebi",
+    "sekiz yıldır her ay aynı tarihte gelen isimsiz para havalesi",
+    "gece gelen arama, unutulan bir sözün hatırlatılması",
+    "annesinin telefonunda hiç silmediği tek bir sesli mesaj",
+    "kilitli çekmeceden çıkan, hiç gönderilmemiş mektuplar",
     "kasadan her gece biraz para eksiliyor ve kamera kaydında görülen kişi hiç beklenmedik biri",
     "yanlış numaradan gelen mesaj, 20 yıl önce olan bir şeyi biliyor",
     "kiralık evin duvar kâğıdının altından eski bir mektup çıkıyor",
@@ -153,7 +166,7 @@ Kurallar:
 - Hikaye tamamen kurgu olsun.
 - Butun metinleri (slayt metinleri, baslik, aciklama, hashtagler, soru, ozet) su dilde yaz: {DIL_ADI}. Konu Turkce verilmis olabilir, hikayeyi yine de bu dilde yaz.
 - "duygu" alani icin hikayeye en uygun olani sec: "huzun" (kayip, pismanlik, ayrilik), "nostalji" (aile, cocukluk, anilar), "umut" (dostluk, af, yeni baslangic) veya "gizem" (yalnizlik, supheli, ters kose).
-- "baslik" alani: 30-55 karakter, hikayenin EN merak uyandiran catismasini one koyan bir cumle olsun (or. "Babam 20 Yil Sonra Kapiyi Caldi", "Kasadaki Eksik Parayi Kim Aldi?"). Tek kelimelik ya da siirsel baslik ("Kutsal Yalan", "Yarim Kalan Piyon") YAZMA; hikayede olmayan bir seyi vaat etme.
+- "baslik" alani: 2-5 kelimelik, SOMUT bir nesne, saat, sayi ya da arama/mesaj iceren gizemli bir baslik olsun. Kanalda en cok izlenenler boyle: "Gece 03:20 Borcu", "Babamin Kilitli Kutusu", "Cevapsiz Arama", "Pasli Anahtar", "Sekiz Yillik Sir", "Eski Bir Numara". Soyut ve siirsel basliklar ("Kutsal Yalan", "Yarim Kalan Piyon") ve uzun cumle basliklar zayif kaldi; yazma. Hikayede olmayan bir seyi vaat etme.
 - "soru" alanina izleyiciyi yorum yazmaya iten, hikayedeki ikilemi soran tek bir kisa soru yaz (en fazla 12 kelime). "Sen olsan ne yapardin?" gibi hazir kalip olmasin.
 - "ozet" alanina, simdiye kadarki tum hikayenin 4-6 cumlelik ozetini yaz (karakter isimleri ve son durum dahil).
 - "aciklama" alaninin sonuna "Kurgu hikayedir." cumlesinin bu dildeki karsiligini yaz.
