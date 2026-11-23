@@ -262,7 +262,7 @@ SAATLER = ["12:30", "13:30", "14:00", "15:00", "16:00", "16:30", "17:00", "17:30
 TERCIH = {"dukkantv": ["18:00", "17:00", "19:00", "16:30"],
           # Kasa Kurgu: günde 2 Katil Kim? (23.11.2026'dan itibaren), aralarında en az 2,5 saat
           "kasakurgu": ["14:00", "17:30", "19:30", "13:30", "20:30"],
-          "dramabite": ["19:00", "18:30", "20:00", "16:30"],
+          "dramabite": ["19:00", "15:00", "20:00", "16:30"],   # günde 2 hikâye (odak kanal)
           # 81 İl Turnuvası: genç kitle, okul çıkışı
           "ilturnuva": ["16:00", "16:30", "17:00", "15:00"],
           "gizlitarih": ["12:30", "20:00", "15:00", "13:30"]}

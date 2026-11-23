@@ -21,7 +21,8 @@ DEPO = os.environ.get("GITHUB_REPOSITORY", "dukkantv/reklam-fabrikasi")
 # Saat sayısı = o iş için günde kaç çalışma isteniyor.
 ISLER = {
     "ne-olur.yml":     (["06:30"], {}),            # Gizli Tarih "Ne Olur?" (her gün; gerek yoksa iş kendisi atlar)
-    "drama-bite.yml":  (["07:00"], {}),            # Drama Bite hikâyesi
+    # 23 Kas 2026 (Levent): odak kanallar Dükkan TV, Drama Bite, Gizli Tarih → Drama Bite günde 2 hikâye
+    "drama-bite.yml":  (["07:00", "11:30"], {}),   # Drama Bite hikâyesi
     "katil-kim.yml":   (["07:20", "10:30"], {}),   # Kasa Kurgu: günde 2 Katil Kim? vakası
     "arena.yml":       (["07:40"], {}),            # 81 İl Turnuvası maçı
 }
