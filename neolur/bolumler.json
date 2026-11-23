@@ -666,6 +666,343 @@
    ]
   },
   {
+   "id": "telefon-yanlis",
+   "efekt": "uydu",
+   "baslik": "Telefonla İlgili Doğru Bilinen 5 Yanlış 📱 #shorts",
+   "ozet": "Herkesin doğru sandığı ama aslında yanlış olan beş telefon bilgisi.",
+   "etiketler": [
+    "ne olur",
+    "doğru bilinen yanlışlar",
+    "telefon",
+    "şarj",
+    "pil",
+    "teknoloji",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "YANLIŞ 1",
+    "YANLIŞ 2",
+    "YANLIŞ 3",
+    "YANLIŞ 4",
+    "YANLIŞ 5"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "TELEFONLA",
+      "İLGİLİ",
+      "*DOĞRU BİLİNEN*",
+      "5 YANLIŞ"
+     ],
+     "ses": [
+      "Telefonla ilgili doğru bilinen beş yanlış. Üçüncüsünü herkes yapıyor."
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "YANLIŞ 1",
+     "satir": [
+      "“Pil bitmeden şarj etme”",
+      "*YANLIŞ!*",
+      "*%20–80* arası en iyisi."
+     ],
+     "ses": [
+      "Pil tamamen bitmeden şarj etme, derler.",
+      "Yanlış! Bu tür piller yüzde yirmi ile seksen arasını sever."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "YANLIŞ 2",
+     "satir": [
+      "“Islak telefonu pirince koy”",
+      "*YANLIŞ!*",
+      "Pirinç tozu *girişe* dolar."
+     ],
+     "ses": [
+      "Islak telefonu pirince koy, derler.",
+      "Yanlış! Pirinç tozu girişleri tıkayabilir, üreticiler önermiyor."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "YANLIŞ 3",
+     "satir": [
+      "“Uygulamaları kapat”",
+      "*YANLIŞ!*",
+      "Yeniden açmak *fazla* harcar."
+     ],
+     "ses": [
+      "Arkadaki uygulamaları kapat, şarj gitmesin, derler.",
+      "Yanlış! Onları yeniden açmak daha çok enerji harcar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "YANLIŞ 4",
+     "satir": [
+      "“Çok megapiksel, iyi fotoğraf”",
+      "*YANLIŞ!*",
+      "*Sensör ve yazılım* önemli."
+     ],
+     "ses": [
+      "Megapiksel ne kadar çoksa fotoğraf o kadar iyi, derler.",
+      "Yanlış! Asıl farkı sensör ve yazılım yapar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "YANLIŞ 5",
+     "satir": [
+      "“Gizli sekme seni gizler”",
+      "*YANLIŞ!*",
+      "Siteler seni *yine görür.*"
+     ],
+     "ses": [
+      "Gizli sekme seni internette tamamen gizler, derler.",
+      "Yanlış! Sadece telefonunda geçmiş tutmaz, siteler seni yine görür."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "PEKİ GECE ŞARJ?",
+     "satir": [
+      "Bütün gece şarjda kalsa?",
+      "Modern telefonlar dolunca:",
+      "*ŞARJI*",
+      "*kendisi keser.*"
+     ],
+     "ses": [
+      "Peki bütün gece şarjda kalırsa? Modern telefonlar pil dolunca...",
+      "şarjı",
+      "kendisi keser."
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "Sen hangisine",
+      "*inanıyordun?*"
+     ],
+     "ses": [
+      "Sen hangisine inanıyordun? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ],
+   "not": "Bilgiler genel kabul görmüş kaynaklara dayanır."
+  },
+  {
+   "id": "yanlislar1",
+   "efekt": "normal",
+   "baslik": "Doğru Bildiğin 5 Yanlış 🤯 #shorts",
+   "ozet": "Yıllardır doğru diye bildiğimiz ama aslında yanlış olan beş bilgi.",
+   "etiketler": [
+    "ne olur",
+    "doğru bilinen yanlışlar",
+    "ilginç bilgiler",
+    "bilim",
+    "hayvanlar",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "YANLIŞ 1",
+    "YANLIŞ 2",
+    "YANLIŞ 3",
+    "YANLIŞ 4",
+    "YANLIŞ 5"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "DOĞRU",
+      "BİLDİĞİN",
+      "*5 YANLIŞ*",
+      "🤯"
+     ],
+     "ses": [
+      "Yıllardır doğru bildiğin beş yanlış. Sonuncusuna çok şaşıracaksın."
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "YANLIŞ 1",
+     "satir": [
+      "“Japon balığı 3 saniye hatırlar”",
+      "*YANLIŞ!*",
+      "Aylarca *hatırlayabilir.*"
+     ],
+     "ses": [
+      "Japon balığının hafızası üç saniyedir, derler.",
+      "Yanlış! Japon balıkları aylarca hatırlayabilir."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "YANLIŞ 2",
+     "satir": [
+      "“Yıldırım aynı yere düşmez”",
+      "*YANLIŞ!*",
+      "Yüksek binalara *defalarca* düşer."
+     ],
+     "ses": [
+      "Yıldırım aynı yere iki kez düşmez, derler.",
+      "Yanlış! Yüksek binalara yılda defalarca düşer."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "YANLIŞ 3",
+     "satir": [
+      "“Çin Seddi uzaydan görülür”",
+      "*YANLIŞ!*",
+      "Çıplak gözle *görülmez.*"
+     ],
+     "ses": [
+      "Çin Seddi uzaydan görülür, derler.",
+      "Yanlış! Uzaydan çıplak gözle görülmez."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "YANLIŞ 4",
+     "satir": [
+      "“Deve hörgücünde su saklar”",
+      "*YANLIŞ!*",
+      "Hörgüçte *yağ* depolanır."
+     ],
+     "ses": [
+      "Develer hörgüçlerinde su saklar, derler.",
+      "Yanlış! Hörgüçte su değil, yağ depolanır."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "YANLIŞ 5",
+     "satir": [
+      "“Boğa kırmızıya sinirlenir”",
+      "*YANLIŞ!*",
+      "Rengi değil, *hareketi* görür."
+     ],
+     "ses": [
+      "Boğalar kırmızı renge sinirlenir, derler.",
+      "Yanlış! Boğa rengi değil, pelerinin hareketini görür."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "BONUS",
+     "satir": [
+      "Devekuşu korkunca",
+      "başını kuma gömer mi?",
+      "*HAYIR!*",
+      "*Yumurtalarını çevirir.*"
+     ],
+     "ses": [
+      "Bonus: devekuşu korkunca başını kuma gömer mi?",
+      "Hayır!",
+      "Yuvadaki yumurtalarını çevirirken öyle görünür."
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "Sen hangisini",
+      "*doğru sanıyordun?*"
+     ],
+     "ses": [
+      "Sen hangisini doğru sanıyordun? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ],
+   "not": "Bilgiler genel kabul görmüş kaynaklara dayanır."
+  },
+  {
    "id": "dogruluk",
    "efekt": "normal",
    "baslik": "Herkes Bir Gün Sadece Doğruyu Söylese Ne Olur? 🤥 #shorts",
@@ -830,6 +1167,172 @@
      ]
     }
    ]
+  },
+  {
+   "id": "telefon-bilgi",
+   "efekt": "uydu",
+   "baslik": "Telefonun Hakkında Bilmediğin 5 Şey 📱 #shorts",
+   "ozet": "Her gün elimizden düşürmediğimiz telefon hakkında çoğu kişinin bilmediği beş ilginç gerçek.",
+   "etiketler": [
+    "ne olur",
+    "telefon",
+    "ilginç bilgiler",
+    "teknoloji",
+    "merak",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "1. SIR",
+    "2. SIR",
+    "3. SIR",
+    "4. SIR",
+    "5. SIR"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "TELEFONUN",
+      "HAKKINDA",
+      "*BİLMEDİĞİN*",
+      "5 ŞEY"
+     ],
+     "ses": [
+      "Her gün elinde tuttuğun telefon hakkında bilmediğin beş şey."
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "1. SIR",
+     "satir": [
+      "İlk cep telefonu",
+      "görüşmesi *1973'te*",
+      "yapıldı."
+     ],
+     "ses": [
+      "İlk cep telefonu görüşmesi bin dokuz yüz yetmiş üçte yapıldı."
+     ],
+     "grup": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "2. SIR",
+     "satir": [
+      "İlk SMS *1992'de*",
+      "gönderildi:",
+      "*“Mutlu Noeller”*"
+     ],
+     "ses": [
+      "İlk kısa mesaj bin dokuz yüz doksan ikide gönderildi.",
+      "Mesajda sadece mutlu Noeller yazıyordu."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "3. SIR",
+     "satir": [
+      "Cebindeki telefon",
+      "Ay'a giden bilgisayardan",
+      "*kat kat güçlü.*"
+     ],
+     "ses": [
+      "Cebindeki telefon, insanları Ay'a götüren bilgisayardan kat kat güçlü."
+     ],
+     "grup": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "4. SIR",
+     "satir": [
+      "Ekran eldivenle",
+      "*çalışmaz,*",
+      "çünkü *elektriğini* algılar."
+     ],
+     "ses": [
+      "Dokunmatik ekran eldivenle çalışmaz.",
+      "Çünkü parmağındaki küçük elektrik yükünü algılar."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "5. SIR",
+     "satir": [
+      "Titremediği halde",
+      "*titredi sandın mı?*",
+      "Buna *hayalet titreşim* denir."
+     ],
+     "ses": [
+      "Telefon titremediği halde titredi sandın mı?",
+      "Buna hayalet titreşim denir ve çok yaygındır."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "BİR KELİME",
+     "satir": [
+      "Telefonsuz kalma korkusunun",
+      "bir adı bile var:",
+      "*NOMOFOBİ*",
+      "*no mobile phobia*"
+     ],
+     "ses": [
+      "Telefonsuz kalma korkusunun bir adı bile var...",
+      "Nomofobi!",
+      "Yani telefonsuz kalma korkusu."
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "Telefonsuz",
+      "*kaç saat dayanırsın?*"
+     ],
+     "ses": [
+      "Sen telefonsuz kaç saat dayanırsın? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ],
+   "not": "Bilgiler genel kabul görmüş kaynaklara dayanır."
   },
   {
    "id": "sessizlik",
@@ -997,6 +1500,174 @@
      ]
     }
    ]
+  },
+  {
+   "id": "yanlislar2",
+   "efekt": "normal",
+   "baslik": "Doğru Bildiğin 5 Yanlış #2 🤯 #shorts",
+   "ozet": "Herkesin doğru sandığı ama aslında yanlış olan beş bilgi daha.",
+   "etiketler": [
+    "ne olur",
+    "doğru bilinen yanlışlar",
+    "ilginç bilgiler",
+    "bilim",
+    "tarih",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "YANLIŞ 1",
+    "YANLIŞ 2",
+    "YANLIŞ 3",
+    "YANLIŞ 4",
+    "YANLIŞ 5"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "DOĞRU",
+      "BİLDİĞİN",
+      "*5 YANLIŞ*",
+      "#2"
+     ],
+     "ses": [
+      "Doğru bildiğin beş yanlış daha. Dördüncüsünü internette herkes paylaştı."
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "YANLIŞ 1",
+     "satir": [
+      "“Beynimizin %10'unu kullanırız”",
+      "*YANLIŞ!*",
+      "Neredeyse *tamamı* çalışır."
+     ],
+     "ses": [
+      "Beynimizin sadece yüzde onunu kullanırız, derler.",
+      "Yanlış! Gün içinde beynin neredeyse tamamı çalışır."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "YANLIŞ 2",
+     "satir": [
+      "“Bukalemun kamuflaj yapar”",
+      "*YANLIŞ!*",
+      "*Ruh hali ve ısıya* göre değişir."
+     ],
+     "ses": [
+      "Bukalemun saklanmak için renk değiştirir, derler.",
+      "Yanlış! Daha çok ruh haline ve sıcaklığa göre değiştirir."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "YANLIŞ 3",
+     "satir": [
+      "“Muz ağaçta yetişir”",
+      "*YANLIŞ!*",
+      "Muz bitkisi *dev bir ottur.*"
+     ],
+     "ses": [
+      "Muz ağaçta yetişir, derler.",
+      "Yanlış! Muz bitkisi aslında dev bir ottur."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "YANLIŞ 4",
+     "satir": [
+      "“Kartal gagasını kırar”",
+      "*YANLIŞ!*",
+      "Bu bir *internet efsanesi.*"
+     ],
+     "ses": [
+      "Kartal kırk yaşında gagasını kırıp yenilenir, derler.",
+      "Yanlış! Bu tamamen bir internet efsanesi."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "YANLIŞ 5",
+     "satir": [
+      "“Napolyon çok kısaydı”",
+      "*YANLIŞ!*",
+      "Döneminin *ortalama* boyundaydı."
+     ],
+     "ses": [
+      "Napolyon çok kısaydı, derler.",
+      "Yanlış! Aslında döneminin ortalama boyundaydı."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "BONUS",
+     "satir": [
+      "Yarasalar",
+      "gerçekten kör mü?",
+      "*HAYIR!*",
+      "*Gayet iyi görürler.*"
+     ],
+     "ses": [
+      "Bonus: yarasalar gerçekten kör mü?",
+      "Hayır!",
+      "Yarasalar gayet iyi görürler."
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "Sıradaki videoda",
+      "*hangi yanlışı* çürütelim?"
+     ],
+     "ses": [
+      "Sıradaki videoda hangi yanlışı çürütelim? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ],
+   "not": "Bilgiler genel kabul görmüş kaynaklara dayanır."
   },
   {
    "id": "telefon",

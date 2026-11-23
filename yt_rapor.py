@@ -110,12 +110,31 @@ def youtube():
                 for r in enler:
                     r["baslik"] = adlar.get(r["video"], r["video"])
 
+            # 23 Kas 2026: konu analizi için son 28 günün bütün videoları (hangi konu daha çok izleniyor?)
+            tum28 = []
+            for metrikler in ("views,engagedViews,averageViewDuration,averageViewPercentage,likes,comments,shares,subscribersGained",
+                              "views,averageViewDuration,averageViewPercentage,likes,comments"):
+                try:
+                    tum28 = tablo(analiz(token, gun(28), gun(0), metrikler,
+                                         dimensions="video", sort="-views", maxResults=50))
+                    break
+                except Exception as e28:
+                    print(k, "28 günlük video tablosu alınamadı:", e28)
+            if tum28:
+                try:
+                    ad28 = {v["id"]: (v["snippet"]["title"], v["snippet"]["publishedAt"][:10]) for v in
+                            yt(token, "videos", part="snippet", id=",".join(r["video"] for r in tum28))["items"]}
+                    for r in tum28:
+                        r["baslik"], r["yayin"] = ad28.get(r["video"], (r["video"], ""))
+                except Exception as e28:
+                    print(k, "28 günlük başlıklar alınamadı:", e28)
+
             abone, izl = int(ist.get("subscriberCount", 0)), int(ist.get("viewCount", 0))
             e = eski.get(k, {})
             sonuc[k] = {"ad": bilgi["ad"], "abone": abone, "toplam_izlenme": izl,
                         "video_sayisi": int(ist.get("videoCount", 0)), "son28": son28, "son7": son7,
                         "onceki7_izlenme": once7.get("views"), "uzun_video_saat_365": saat_uzun,
-                        "shorts_izlenme_90": s90, "en_iyi_7gun": enler[:5],
+                        "shorts_izlenme_90": s90, "en_iyi_7gun": enler[:5], "videolar_28gun": tum28,
                         "en_kotu_7gun": [r for r in enler if r.get("views", 0) > 0][-1:] if len(enler) > 1 else [],
                         "son24": {"izlenme": fark(izl, e.get("toplam_izlenme")),
                                   "abone": fark(abone, e.get("abone"))}}

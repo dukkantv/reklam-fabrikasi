@@ -266,9 +266,11 @@ def yayin_saati(tarih):
 
 
 def aciklama(b):
-    return (f"{b['ozet']}\n\nBu video bir senaryodur; bilgiler genel bilimsel tahminlere dayanır, kesin tahmin değildir. "
+    ilk = ("Bilgiler genel kabul görmüş kaynaklara dayanır. " if b.get("not") else
+           "Bu video bir senaryodur; bilgiler genel bilimsel tahminlere dayanır, kesin tahmin değildir. ")
+    return (f"{b['ozet']}\n\n{ilk}"
             f"Görseller temsilidir, seslendirme yapay zekâ ile üretilmiştir.\n\n"
-            f"🌍 \"Ne Olur?\" serisi: her iki günde bir yeni senaryo. Sıradaki için abone ol!\n\n#shorts #neolur #gizlitarih")
+            f"🌍 Gizli Tarih: her gün yeni bir merak konusu. Sıradaki için abone ol!\n\n#shorts #neolur #gizlitarih")
 
 
 def kuyruga_koy(b, mp4, zaman):
