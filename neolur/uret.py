@@ -379,7 +379,7 @@ def main():
     kalan = len(banka) - d["sira"]
     if sorunlar:
         telegram("🔎 Ne Olur? ses kontrolü: bazı cümleler tam anlaşılmadı, videoyu bir dinle:\n" + "\n".join(sorunlar)[:3500])
-    if kalan <= 2:
+    if kalan in (10, 6, 3, 1):   # günde 2 bölüm: stok azalınca erken haber ver
         telegram(f"ℹ️ Gizli Tarih \"Ne Olur?\" serisinde {kalan} bölüm kaldı. Claude'a yeni senaryolar yazdır.")
 
 
