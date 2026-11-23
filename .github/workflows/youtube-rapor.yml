@@ -20,12 +20,27 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python3 yt_rapor.py
+        # Bağlantı bazen kopuyor (23 Kas 2026: "Connection reset by peer"): 3 deneme
+        run: |
+          for i in 1 2 3; do python3 yt_rapor.py && exit 0; echo "Deneme $i başarısız, 60 sn sonra tekrar"; sleep 60; done
+          exit 1
+      - name: Konu analizi (en çok izlenen konulara ağırlık ver)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 konu_analiz.py || true
+          python3 - <<'PY' || true
+          import json
+          from yt_ortak import telegram
+          k = json.load(open("rapor/konu_analizi.json", encoding="utf-8"))
+          if k.get("degisiklik", "yok") != "yok":
+              telegram("🎯 Konu analizi (Gizli Tarih): " + k["degisiklik"])
+          PY
       - name: Raporu kaydet
-        if: github.event_name == 'schedule'
         run: |
           git config user.name "Dükkan TV Bot"
           git config user.email "dukkan.tvstudio@gmail.com"
-          git add rapor/
+          git add rapor/ neolur/bolumler.json
           git commit -m "YouTube rapor $(date +%F)" || exit 0
           git pull --rebase -q && git push
