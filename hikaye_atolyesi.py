@@ -124,6 +124,7 @@ Kurallar:
 - Hikaye tamamen kurgu olsun.
 - Butun metinleri (slayt metinleri, baslik, aciklama, hashtagler, soru, ozet) su dilde yaz: {DIL_ADI}. Konu Turkce verilmis olabilir, hikayeyi yine de bu dilde yaz.
 - "duygu" alani icin hikayeye en uygun olani sec: "huzun" (kayip, pismanlik, ayrilik), "nostalji" (aile, cocukluk, anilar), "umut" (dostluk, af, yeni baslangic) veya "gizem" (yalnizlik, supheli, ters kose).
+- "baslik" alani: 30-55 karakter, hikayenin EN merak uyandiran catismasini one koyan bir cumle olsun (or. "Babam 20 Yil Sonra Kapiyi Caldi", "Kasadaki Eksik Parayi Kim Aldi?"). Tek kelimelik ya da siirsel baslik ("Kutsal Yalan", "Yarim Kalan Piyon") YAZMA; hikayede olmayan bir seyi vaat etme.
 - "soru" alanina izleyiciyi yorum yazmaya iten, hikayedeki ikilemi soran tek bir kisa soru yaz (en fazla 12 kelime). "Sen olsan ne yapardin?" gibi hazir kalip olmasin.
 - "ozet" alanina, simdiye kadarki tum hikayenin 4-6 cumlelik ozetini yaz (karakter isimleri ve son durum dahil).
 - "aciklama" alaninin sonuna "Kurgu hikayedir." cumlesinin bu dildeki karsiligini yaz.

@@ -75,6 +75,7 @@ def kisa_urun_satiri():
 
 def tt_aciklama(kayit):
     return kayit["baslik"].replace("#shorts", "").replace("#Shorts", "").strip(" |") + "\n\n" + \
+        (GONDER.get(kayit.get("kanal"), "") + "\n\n" if GONDER.get(kayit.get("kanal")) else "") + \
         (kisa_urun_satiri() + "\n\n" if kisa_urun_satiri() else "") + \
         " ".join("#" + e.replace(" ", "") for e in kayit.get("etiketler", [])[:6]) + " #fyp #keşfet"
 
@@ -124,11 +125,20 @@ def fb_bekliyor(kayit):
         return False
 
 
+# Instagram'da yeni kişilere ulaşmada en güçlü sinyal "gönderme" (DM ile paylaşım); doğal bir davet satırı (23 Kas 2026)
+GONDER = {"ilturnuva": "📩 Şehrini savunacak arkadaşına gönder!",
+          "kasakurgu": "📩 Çözemeyeceğini düşündüğün arkadaşına gönder 🕵️",
+          "dramabite": "📩 Bu hikâyeyi okuması gereken birine gönder.",
+          "dukkantv": "📩 Bunu yaşayan arkadaşına gönder 😂",
+          "gizlitarih": "📩 Merak eden bir arkadaşına gönder."}
+
+
 def ig_aciklama(kayit):
     baslik = kayit["baslik"].replace("#shorts", "").replace("#Shorts", "").strip(" |")
     etiket = " ".join("#" + e.replace(" ", "") for e in kayit.get("etiketler", [])[:8])
     urun = kisa_urun_satiri()
-    return f"{baslik}\n\n" + (f"{urun}\n\n" if urun else "") + etiket
+    gonder = GONDER.get(kayit.get("kanal"), "")
+    return f"{baslik}\n\n" + (f"{gonder}\n\n" if gonder else "") + (f"{urun}\n\n" if urun else "") + etiket
 
 # Yayın yetkisi: tüm kanallar onaysız otomatik yayın (Levent, 14 Kasım 2026: reklam/satış olmadığı için Dükkan TV dahil).
 # Her video Telegram'a "Durdur" düğmesiyle gelir; Levent istemezse yüklenmeden önce durdurur.

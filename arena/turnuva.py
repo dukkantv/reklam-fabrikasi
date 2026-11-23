@@ -88,7 +88,9 @@ def oyna():
     if m["tur"] == 3:
         baslik = f"81 İl Turnuvası BÜYÜK FİNAL 🏆 Şampiyon kim oldu? #shorts"
     else:
-        baslik = f"81 İl Turnuvası · {m['baslik'].title()} 🏆 Senin şehrin tur atlar mı? #shorts"
+        # 23 Kas 2026: aranan/ilgi çeken kısım (şehir adları) başlığın başında; YouTube ~60 karakterden sonrasını kesiyor
+        ilk = [AD[p][0] + AD[p][1:].replace("I", "ı").replace("İ", "i").lower() for p in m["plakalar"]][:3]
+        baslik = f"{', '.join(ilk)}… Hangisi Tur Atlar? 🏆 81 İl {m['baslik'].title().replace('1. Tur · ', '').replace('2. Tur · ', '2. Tur ')} #shorts"
     aciklama = (f"Sezon {s['sezon']} · {m['baslik']}\n"
                 f"Katılan iller: {', '.join(p + ' ' + AD[p] for p in m['plakalar'])}\n\n"
                 f"Şehrin tur atladıysa 👍 beğen, şehrini yorumlara yaz! Her gün yeni maç 🏆\n\n#81ilturnuvası #türkiye {kim}")
