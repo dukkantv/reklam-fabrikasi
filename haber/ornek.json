@@ -1,0 +1,162 @@
+{
+ "tarih": "2026-11-24",
+ "saat": "11:00",
+ "kaynaklar": [
+  "https://ornek-haber-sitesi.com/haber"
+ ],
+ "kanallar": {
+  "dukkantv": {
+   "baslik": "ÖRNEK: Haberin merak uyandıran başlığı 📰 #shorts",
+   "etiketler": [
+    "gündem",
+    "haber",
+    "Dükkan TV"
+   ]
+  },
+  "kasakurgu": {
+   "baslik": "ÖRNEK BAŞLIK 2 #shorts"
+  }
+ },
+ "bolum": {
+  "id": "telefon",
+  "efekt": "karartma_yavas",
+  "baslik": "Dünyadaki Bütün Telefonlar Bir Gün Çalışmasa Ne Olur? 📱 #shorts",
+  "ozet": "Bir gün boyunca dünyadaki bütün telefonlar kapansaydı sabahtan geceye neler olurdu?",
+  "etiketler": [
+   "ne olur",
+   "telefonlar çalışmasa",
+   "telefon",
+   "teknoloji",
+   "günlük hayat",
+   "merak",
+   "Gizli Tarih",
+   "shorts"
+  ],
+  "adimlar": [
+   "SABAH",
+   "ÖĞLE",
+   "İKİNDİ",
+   "AKŞAM",
+   "GECE"
+  ],
+  "sahneler": [
+   {
+    "tip": "kanca",
+    "satir": [
+     "BÜTÜN",
+     "TELEFONLAR",
+     "*BİR GÜN*",
+     "KAPANSA?"
+    ],
+    "ses": [
+     "Dünyadaki bütün telefonlar bir gün çalışmasa ne olur?"
+    ]
+   },
+   {
+    "tip": "asama",
+    "adim": 0,
+    "baslik": "SABAH",
+    "satir": [
+     "Alarm *çalmaz.*",
+     "Milyonlarca insan",
+     "işe *geç kalır.*"
+    ],
+    "ses": [
+     "Sabah alarm çalmaz.",
+     "Milyonlarca insan işe geç kalır."
+    ]
+   },
+   {
+    "tip": "asama",
+    "adim": 1,
+    "baslik": "ÖĞLE",
+    "satir": [
+     "Kartla *ödeme* zorlaşır.",
+     "Kasalarda",
+     "*uzun kuyruklar.*"
+    ],
+    "ses": [
+     "Öğleye doğru kartla ödeme zorlaşır.",
+     "Kasalarda uzun kuyruklar oluşur."
+    ]
+   },
+   {
+    "tip": "asama",
+    "adim": 2,
+    "baslik": "İKİNDİ",
+    "satir": [
+     "İnsanlar",
+     "*yol sormaya* başlar.",
+     "Harita *kâğıtta.*"
+    ],
+    "ses": [
+     "İkindi vakti insanlar yol sormaya başlar.",
+     "Harita artık kâğıtta."
+    ]
+   },
+   {
+    "tip": "asama",
+    "adim": 3,
+    "baslik": "AKŞAM",
+    "satir": [
+     "Komşular *kapı çalar.*",
+     "Parklar",
+     "*kalabalıklaşır.*"
+    ],
+    "ses": [
+     "Akşam komşular birbirinin kapısını çalar.",
+     "Parklar kalabalıklaşır."
+    ]
+   },
+   {
+    "tip": "asama",
+    "adim": 4,
+    "baslik": "GECE",
+    "satir": [
+     "Herkes",
+     "*erkenden* uyur.",
+     "Ve *sohbet* geri döner."
+    ],
+    "ses": [
+     "Gece herkes erkenden uyur.",
+     "Ve uzun zamandır unutulan sohbet geri döner."
+    ]
+   },
+   {
+    "tip": "vurgu",
+    "baslik": "PEKİ NE YAPMALI?",
+    "satir": [
+     "Telefon her şeyi bilse de",
+     "sen ezbere bil:",
+     "*EN ÖNEMLİ*",
+     "*numarayı!*"
+    ],
+    "ses": [
+     "Peki ne yapmalı? Telefon her şeyi bilse de sen ezbere bil...",
+     "en önemli",
+     "numarayı!"
+    ],
+    "grup": [
+     0,
+     0,
+     1,
+     2
+    ]
+   },
+   {
+    "tip": "son",
+    "satir": [
+     "Sen kimin numarasını",
+     "*ezbere biliyorsun?*"
+    ],
+    "ses": [
+     "Sen kimin numarasını ezbere biliyorsun? Yorumlara yaz."
+    ],
+    "grup": [
+     0,
+     0
+    ]
+   }
+  ]
+ }
+}

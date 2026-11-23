@@ -1,0 +1,61 @@
+name: Günün Haberi
+
+# Claude her sabah gündemi tarar; uygun ve güvenli bir haber varsa haber/bugun.json yazar.
+# Bu iş o dosyayla tetiklenir: videoyu "Ne Olur?" motoruyla üretir, seçilen kanallara 11:00'e planlar.
+on:
+  push:
+    branches: [main]
+    paths: ["haber/bugun.json"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gunun-haberi
+
+jobs:
+  uret:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      GH_TOKEN: ${{ github.token }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      TT_CLIENT_KEY: ${{ secrets.TT_CLIENT_KEY }}
+      TT_CLIENT_SECRET: ${{ secrets.TT_CLIENT_SECRET }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: |
+          pip install -q requests numpy pillow
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - name: Kurulum (ses + kontrol)
+        run: |
+          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install -q chatterbox-tts faster-whisper
+      - name: Model önbelleği
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: chatterbox-mtl-v1
+      - name: Haberi üret ve kuyruğa koy
+        run: python haber/haber_uret.py
+      - name: Kaydet
+        if: always()
+        run: |
+          git config user.name "Dükkan TV Bot"; git config user.email "dukkan.tvstudio@gmail.com"
+          git add -A kuyruk tokens haber
+          git diff --cached --quiet && exit 0
+          git commit -qm "Günün haberi kuyruğa eklendi"
+          git push || (git pull --rebase -X theirs -q origin main && git push)
+      - name: Hata bildirimi
+        if: failure()
+        run: |
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" -d chat_id="${TELEGRAM_CHAT_ID}" \
+            --data-urlencode text="⚠️ Günün haberi üretilemedi: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >/dev/null
