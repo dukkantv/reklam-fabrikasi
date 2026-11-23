@@ -126,7 +126,9 @@ def eleven_oku(metin, cikti):
 def seslendir(bolum, cikti):
     """Bölümün tamamı tek sesle çıkar: ElevenLabs kredisi bölüme yetiyorsa o, yetmezse/yarıda biterse Chatterbox."""
     motor = "chatterbox"
-    if ELEVEN_KEY:
+    # 23 Kas 2026: ElevenLabs Starter aboneliği iptal edildi, 5 Aralık'ta bitiyor. Ücretsiz planda ses klonu ve
+    # ticari kullanım izni olmadığı için o tarihten sonra ElevenLabs hiç kullanılmaz (Levent: para kazanana kadar ücretsiz).
+    if ELEVEN_KEY and dt.date.today() < dt.date(2026, 12, 5):
         gerek = sum(len(m) for s in bolum["sahneler"] for m in s["ses"])
         kalan = eleven_kalan()
         print(f"ElevenLabs: bölüm ≈{gerek} kredi, kalan {kalan}", flush=True)
