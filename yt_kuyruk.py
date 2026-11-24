@@ -85,6 +85,10 @@ def tt_aciklama(kayit):
 IG_BU_TUR = 0
 
 
+class _ZatenVar(Exception):
+    """Paylaşım zaten yapılmış: tekrar yüklenmez."""
+
+
 def ig_kodla(yol):
     """Videoyu Instagram Reels'in önerdiği biçime çevirir: H.264 High, 30 fps, ~3,5 Mbps, AAC 48 kHz stereo, faststart."""
     yeni = yol[:-4] + "_ig.mp4"
@@ -175,6 +179,33 @@ ONAY_GIZLI = hashlib.sha256(os.environ.get("TELEGRAM_BOT_TOKEN", "").encode()).h
 
 def gh(*arg):
     return subprocess.run(["gh", *arg], check=True, capture_output=True, text=True).stdout
+
+
+def _meta_onceki(kanal, aciklama, platform, gun=3):
+    """Instagram (platform='ig') ya da Facebook sayfasında ('fb') son günlerde aynı açıklamayla paylaşım varsa
+    (id, link) döndürür. Aynı videonun iş çökmesi yüzünden ikinci kez paylaşılmasını önler."""
+    h = ig_hesap(kanal)
+    if not h:
+        return None
+    bas = " ".join((aciklama or "").split())[:60]
+    if not bas:
+        return None
+    sinir = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=gun)
+    if platform == "ig":
+        url = f"{ig_ortak.API}/{h['ig_id']}/media?fields=id,caption,timestamp,permalink&limit=25&access_token={h['token']}"
+        alan, zaman, link = "caption", "timestamp", "permalink"
+    else:
+        url = (f"{ig_ortak.API}/{h['sayfa_id']}/videos?fields=id,description,created_time,permalink_url"
+               f"&limit=25&access_token={h['token']}")
+        alan, zaman, link = "description", "created_time", "permalink_url"
+    kod, _, r = istek(url)
+    if kod != 200:
+        return None
+    for x in (r or {}).get("data", []):
+        t = dt.datetime.strptime(x[zaman][:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=dt.timezone.utc)
+        if t >= sinir and " ".join((x.get(alan) or "").split())[:60] == bas:
+            return x["id"], x.get(link)
+    return None
 
 
 def kaydet(kayit):
@@ -360,8 +391,34 @@ def zaman_sec(kayit):
     return yayin_zamani(kayit["kanal"], kayit.get("gunluk", False), kayit.get("uzun", False))
 
 
+def _yt_onceki(token, baslik, gun=7):
+    """Kanalın son yüklemelerinde aynı başlıklı video varsa (video_id, yayın zamanı) döndürür.
+    24 Kas 2026: iş yükleyip kaydetmeden çöktüğünde aynı video 5-10 kez yüklenmişti; bu kontrol tekrarı engeller."""
+    from yt_ortak import yt
+    up = yt(token, "channels", part="contentDetails", mine="true")["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+    ids = [x["contentDetails"]["videoId"] for x in yt(token, "playlistItems", part="contentDetails",
+                                                        playlistId=up, maxResults=50).get("items", [])]
+    if not ids:
+        return None
+    sinir = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=gun)
+    for v in yt(token, "videos", part="snippet,status", id=",".join(ids))["items"]:
+        yuklendi = dt.datetime.fromisoformat(v["snippet"]["publishedAt"].replace("Z", "+00:00"))
+        if v["snippet"]["title"].strip() == baslik.strip()[:100].strip() and yuklendi >= sinir:
+            plan = v["status"].get("publishAt") or v["snippet"]["publishedAt"]
+            return v["id"], dt.datetime.fromisoformat(plan.replace("Z", "+00:00")).astimezone(TR)
+    return None
+
+
 def youtube_yukle(kayit):
     token = erisim_anahtari(kayit["kanal"])
+    try:
+        onceki = _yt_onceki(token, kayit["baslik"])
+    except Exception as e:
+        onceki = None
+        print("Tekrar kontrolü yapılamadı (yüklemeye devam):", str(e)[:200])
+    if onceki:
+        print(f"{kayit['id']}: bu başlık zaten yüklü ({onceki[0]}), tekrar yüklenmiyor")
+        return onceki
     yerel = os.path.join("/tmp", kayit["dosya"])
     gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
     boyut = os.path.getsize(yerel)
@@ -474,7 +531,11 @@ def kontrol():
                               f"her gün bir tanesi sırayla yayına girer.")
             kaydet(k)
     for kayit in kayitlar.values():
-        ad = kanal_bilgi(kayit["kanal"])["ad"]
+        try:
+            ad = kanal_bilgi(kayit["kanal"])["ad"]
+        except Exception as e:
+            print(f"Kayıt atlandı ({kayit.get('id')}):", str(e)[:200])
+            continue
         if kayit["durum"] == "onaylandi" and kayit.get("gunluk") and kayit["id"] != sradaki:
             continue  # sırası gelmedi
         if kayit["durum"] == "onaylandi":
@@ -520,6 +581,12 @@ def kontrol():
                 try:
                     gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
                     yol = os.path.join("/tmp", kayit["dosya"])
+                    onceki = _meta_onceki(kayit["kanal"], ig_aciklama(kayit), "ig")
+                    if onceki:
+                        print(f"Instagram: {kayit['id']} zaten paylaşılmış ({onceki[0]}), tekrar paylaşılmıyor")
+                        kayit.update(ig="paylasildi", ig_id=onceki[0], ig_link=onceki[1])
+                        kaydet(kayit)
+                        raise _ZatenVar()
                     try:
                         mid, link = reels_yukle(kayit["kanal"], ig_kodla(yol), ig_aciklama(kayit), deneme_reels_mi(kayit))
                         kayit.update(ig_yol="dogrudan")
@@ -532,6 +599,8 @@ def kontrol():
                     kayit.update(ig="paylasildi", ig_id=mid, ig_link=link, ig_deneme_reels=ig_ortak.SON_DENEME)
                     kaydet(kayit)
                     telegram(ig_paylasildi_mesaji(ad, kayit, link))
+                except _ZatenVar:
+                    pass
                 except Exception as e:
                     print(f"Instagram hatası ({kayit['id']}):", str(e)[:400])
                     if "Request processing failed" in str(e):
@@ -545,11 +614,19 @@ def kontrol():
                     kaydet(kayit)
             if fb_bekliyor(kayit):
                 try:
+                    onceki = _meta_onceki(kayit["kanal"], ig_aciklama(kayit), "fb")
+                    if onceki:
+                        print(f"Facebook: {kayit['id']} zaten paylaşılmış ({onceki[0]}), tekrar paylaşılmıyor")
+                        kayit.update(fb="paylasildi", fb_id=onceki[0])
+                        kaydet(kayit)
+                        raise _ZatenVar()
                     gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
                     fid = fb_reels_yukle(kayit["kanal"], os.path.join("/tmp", kayit["dosya"]), ig_aciklama(kayit))
                     kayit.update(fb="paylasildi", fb_id=fid)
                     kaydet(kayit)
                     telegram(f"📘 {ad}: \"{kayit['baslik']}\" Facebook sayfasında Reels olarak paylaşıldı.")
+                except _ZatenVar:
+                    pass
                 except Exception as e:
                     print(f"Facebook hatası ({kayit['id']}):", str(e)[:400])
                     kayit["fb_deneme"] = kayit.get("fb_deneme", 0) + 1

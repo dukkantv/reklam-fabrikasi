@@ -110,13 +110,14 @@ jobs:
       - name: Eksik kapak resimlerini tamamla
         run: python3 yt_kuyruk.py kapaklar || true
       - name: Kuyruğu kaydet
+        if: always()   # 24 Kas 2026: önceki adım çökünce "yüklendi" bilgisi kaybolup aynı video tekrar tekrar yükleniyordu
         run: |
           git config user.name "Dükkan TV Bot"
           git config user.email "dukkan.tvstudio@gmail.com"
           git add -A kuyruk tokens
           git diff --cached --quiet && exit 0
           git commit -m "Yayın kuyruğu güncellendi"
-          git pull --rebase -q && git push
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep $((i * 4)); done
 
   # GitHub planlı tetiklemeleri sık atlıyor: bu iş sıradaki paylaşım saatine kadar bekler ve
   # "YouTube Yayın"ı yeniden başlatır. Böylece kesintisiz bir zincir oluşur; cron sadece yedek.

@@ -5,7 +5,6 @@ Sonuç rapor/tekrar_kontrol.json'a yazılır ve günlüğe basılır.
 Kullanım: python tekrar_kontrol.py
 """
 import datetime as dt
-import difflib
 import json
 import os
 import re
@@ -19,8 +18,8 @@ IG_KANALLAR = ["dukkantv", "dramabite", "kasakurgu", "gizlitarih", "ilturnuva"]
 def norm(s):
     s = (s or "").lower().replace("i̇", "i")
     s = re.sub(r"#\w+", " ", s)
-    s = re.sub(r"[^\wçğıöşü ]", " ", s)
-    return " ".join(s.split())[:120]
+    s = re.sub(r"[^\wçğıöşü/ ]", " ", s)   # "/" kalsın: "Gün 19/30" ile "Gün 20/30" ayrı
+    return " ".join(s.split())[:200]
 
 
 def tekrarlar(liste, anahtar="metin"):
@@ -34,7 +33,7 @@ def tekrarlar(liste, anahtar="metin"):
             b = liste[j]
             if j in kullanildi or not b[anahtar]:
                 continue
-            if a[anahtar] == b[anahtar] or difflib.SequenceMatcher(None, a[anahtar], b[anahtar]).ratio() >= 0.93:
+            if a[anahtar] == b[anahtar]:   # birebir aynı (seri bölümleri "Gün 19/20", "C Grubu" tekrar sayılmaz)
                 g.append(b)
                 kullanildi.add(j)
         if len(g) > 1:
