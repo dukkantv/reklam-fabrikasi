@@ -50,7 +50,8 @@ KANAL = {
         "baslik": "Katil Kim? Haftanın {n} Vakası 🕵️ Hepsini Sadece %1 Çözer! ({aralik})",
         "giris": ("Bu haftanın bütün Katil Kim? dosyaları arka arkaya. Her vakada ipuçlarını izle, şüphelini seç; "
                   "cevap bir sonraki vakanın başında açıklanıyor. Kaçını doğru bildin? Yorumlara yaz!\n\nVakalar kurgusaldır."),
-        "kapanis": ("KAÇINI BİLDİN?", "Beğen · Abone ol · Her gün yeni vaka"),
+        "kapanis": ("KAÇINI BİLDİN?", "0-2 Çaylak · 3-4 Komiser · 5+ Başkomiser"),
+        "dusun": 5,   # her vakadan sonra 5 sn geri sayım kartı (Dedektif Gözü'ndeki "10 saniyen var" oyunu)
         "etiketler": ["katil kim", "dedektif bilmeceleri", "bilmeceler", "gizem", "kim yalan söylüyor",
                       "dikkat testi", "kasa kurgu", "derleme"],
         "kategori": "24",
@@ -173,6 +174,24 @@ def kart_video(resim, saniye, hedef):
              "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-ac", "2", "-shortest", hedef)
 
 
+def geri_sayim_video(arkaplan, renk, saniye, hedef):
+    """'DÜŞÜN · 5…1' kartı; her saniyenin başında kısa tik sesi. kart_video ile aynı kodlama (concat -c copy için)."""
+    resimler = []
+    for i in range(saniye, 0, -1):
+        im = kart_resmi(arkaplan, str(i), "DÜŞÜN · KATİL KİM?", renk, "Cevap bir sonraki vakanın başında")
+        yol = hedef.replace(".mp4", f"_{i}.jpg"); im.save(yol, quality=92); resimler.append(yol)
+    giris, zincir = [], ""
+    for j, yol in enumerate(resimler):
+        giris += ["-loop", "1", "-t", "1", "-i", yol]
+        zincir += f"[{j}:v]fps=30,format=yuv420p,setsar=1[v{j}];"
+    zincir += "".join(f"[v{j}]" for j in range(len(resimler))) + f"concat=n={len(resimler)}:v=1:a=0[v]"
+    tik = "0.35*sin(2*PI*1400*t)*lt(mod(t\\,1)\\,0.06)"
+    calistir(*giris, "-f", "lavfi", "-i", f"aevalsrc={tik}|{tik}:s=44100:d={saniye}",
+             "-filter_complex", zincir, "-map", "[v]", "-map", f"{len(resimler)}:a", "-t", f"{saniye:.2f}",
+             "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+             "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-ac", "2", hedef)
+
+
 def bolum_video(kaynak, etiket_png, hedef):
     """Dikey videoyu ortala, iki yanı aynı videonun bulanık hâli; sol üstte bölüm etiketi."""
     vf = ("[0:v]split[a][b];"
@@ -236,6 +255,10 @@ def main(kanal):
         bolum_video(yol, png, hedef)
         # YouTube bölümleri: ilki 0:00 olmalı, her biri en az 10 sn (giriş kartı ilk bölüme katılır)
         bolumler.append((0.0 if i == 1 else t, ad)); parcalar.append(hedef); t += sure(hedef)
+        if k.get("dusun") and i < len(videolar):
+            ara = os.path.join(CIKTI, f"{i:02d}_dusun.mp4")
+            geri_sayim_video(ab, k["renk"], k["dusun"], ara)
+            parcalar.append(ara); t += sure(ara)
     kapanis = os.path.join(CIKTI, "99_kapanis.mp4")
     kart_video(kart_resmi(arka(kare(videolar[-1][0], 1.0)), k["kapanis"][0], k["kapanis"][1], k["renk"]), 5.0, kapanis)
     parcalar.append(kapanis); t += sure(kapanis)
