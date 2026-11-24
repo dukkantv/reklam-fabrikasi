@@ -414,6 +414,8 @@ def bekleyenler():
     satirlar, butonlar, liste, bugunkuler = [], [], [], []
     for p in sorted(glob.glob(os.path.join(KOK, "kuyruk", "*.json"))):
         r = json.load(open(p, encoding="utf-8"))
+        if not isinstance(r, dict) or "kanal" not in r:
+            continue  # durum dosyası, video kaydı değil
         ad = AD.get(r["kanal"], r["kanal"])
         if r.get("durum") == "bekliyor":
             liste.append({"id": r["id"], "kanal": r["kanal"], "baslik": r["baslik"]})

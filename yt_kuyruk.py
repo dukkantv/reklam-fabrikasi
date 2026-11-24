@@ -98,12 +98,13 @@ def ig_kodla(yol):
     return yeni
 
 
-IG_MOLA = os.path.join(KOK, "kuyruk", "ig_mola.json")
+# Kayıt olmayan durum dosyası kuyruk/*.json dışında durmalı: kontrol() her kuyruk/*.json'u video kaydı sanıyor (24 Kas 2026 KeyError: 'kanal')
+IG_MOLA = os.path.join(KOK, "kuyruk", "durum", "ig_mola.json")
 
 
 def ig_molada():
     """Instagram 'Request processing failed' (yükleme kısıtlaması) verdiyse hiçbir hesaba yükleme yapılmaz;
-    sık deneme kısıtlamayı uzatıyor (23 Kas 2026). Mola bitiş zamanı kuyruk/ig_mola.json'da."""
+    sık deneme kısıtlamayı uzatıyor (23 Kas 2026). Mola bitiş zamanı kuyruk/durum/ig_mola.json'da."""
     try:
         return dt.datetime.now(dt.timezone.utc) < dt.datetime.fromisoformat(json.load(open(IG_MOLA))["bitis"])
     except Exception:
@@ -112,6 +113,7 @@ def ig_molada():
 
 def ig_mola_baslat(saat=3):
     bitis = dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=saat)
+    os.makedirs(os.path.dirname(IG_MOLA), exist_ok=True)
     json.dump({"bitis": bitis.isoformat(timespec="seconds"), "sebep": "Request processing failed"}, open(IG_MOLA, "w"))
     print(f"Instagram yükleme kısıtlaması: {saat} saat mola (bitiş {bitis:%H:%M} UTC)")
 
@@ -410,6 +412,7 @@ def mesaj_guncelle(kayit, metin):
 def kontrol():
     kayitlar = {os.path.basename(p)[:-5]: json.load(open(p, encoding="utf-8"))
                 for p in glob.glob(os.path.join(KUYRUK, "*.json"))}
+    kayitlar = {i: k for i, k in kayitlar.items() if isinstance(k, dict) and "kanal" in k}  # durum dosyalarını atla
     if not kayitlar:
         print("Kuyruk boş.")
         return
