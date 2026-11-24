@@ -3,6 +3,10 @@ name: Tekrar video kontrolü
 # Kanallarda (YouTube, Instagram, Facebook) aynı videonun birden fazla yüklenip yüklenmediğini bulur.
 on:
   workflow_dispatch:
+    inputs:
+      sil:
+        description: "Tekrarlar: bos = sadece kontrol, deneme = neyin silinecegini goster, evet = fazla kopyalari sil"
+        default: ""
 
 permissions:
   contents: write
@@ -20,11 +24,14 @@ jobs:
         env:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
-        run: python tekrar_kontrol.py
+        run: |
+          python tekrar_kontrol.py
+          if [ "${{ inputs.sil }}" = "deneme" ]; then python tekrar_sil.py deneme; fi
+          if [ "${{ inputs.sil }}" = "evet" ]; then python tekrar_sil.py && echo "--- silme sonrası ---" && python tekrar_kontrol.py; fi
       - name: Sonucu kaydet
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add rapor/tekrar_kontrol.json
+          git add rapor/tekrar_kontrol.json rapor/tekrar_sil.json 2>/dev/null || git add rapor/tekrar_kontrol.json
           git commit -qm "Tekrar video kontrolü" || exit 0
           for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
