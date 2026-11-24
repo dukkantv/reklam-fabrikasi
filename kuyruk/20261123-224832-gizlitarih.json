@@ -22,5 +22,10 @@
  "incelendi": "2026-11-24 sorunsuz (kare kare, ses, süre, altyazı, başlık uyumu; satış linki/marka/fiyat yok)",
  "hata": "Yükleme başlatılamadı (400): {'error': {'code': 400, 'message': 'The user has exceeded the number of videos they may upload.', 'errors': [{'message': 'The user has exceeded the number of videos they may upload.', 'domain': 'youtube.video', 'reason': 'uploadLimitExceeded'}]}}",
  "video_id": "44AhYb7EU-4",
- "yayin": "2026-11-24T20:00:00+03:00"
+ "yayin": "2026-11-24T20:00:00+03:00",
+ "fb": "paylasildi",
+ "fb_id": "1534318735421469",
+ "tt": "taslak",
+ "tt_id": "v_inbox_file~v2.7711784398307248149",
+ "yorum": "UgzBSvjwRQwc0tE20BZ4AaABAg"
 }
