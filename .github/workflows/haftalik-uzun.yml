@@ -1,7 +1,7 @@
 name: Haftalık Uzun Video
 
 # Ücretsiz: haftanın kısa videoları (arsiv sürümündeki kopyalar) yatay uzun YouTube videosuna dönüştürülür.
-# 81 İl Turnuvası "Haftanın Tüm Maçları" + Drama Bite "Haftanın Hikâyeleri". Uzun video izlenme saati (YPP) için.
+# 81 İl Turnuvası "Haftanın Tüm Maçları" + Drama Bite "Haftanın Hikâyeleri" + Kasa Kurgu "Katil Kim? Haftanın Vakaları". Uzun video izlenme saati (YPP) için.
 # Pazar 11:23 (TR) üretilir; yayın kuyruğu ilk boş akşam saatine koyar (onaysız yayın kanalları, Durdur butonu gelir).
 on:
   schedule:
@@ -9,8 +9,8 @@ on:
   workflow_dispatch:
     inputs:
       kanallar:
-        description: "ilturnuva, dramabite veya ikisi (virgülle)"
-        default: "ilturnuva,dramabite"
+        description: "ilturnuva, dramabite, kasakurgu (virgülle)"
+        default: "ilturnuva,dramabite,kasakurgu"
       kuyruga:
         description: "Bitince yayın kuyruğuna ekle (kapalıysa sadece Telegram'a gönderir)"
         type: boolean
@@ -33,7 +33,7 @@ jobs:
       YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-      KANALLAR: ${{ github.event_name == 'schedule' && 'ilturnuva,dramabite' || inputs.kanallar }}
+      KANALLAR: ${{ github.event_name == 'schedule' && 'ilturnuva,dramabite,kasakurgu' || inputs.kanallar }}
       KUYRUGA: ${{ github.event_name == 'schedule' && 'true' || inputs.kuyruga }}
     steps:
       - uses: actions/checkout@v4

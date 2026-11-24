@@ -9,6 +9,7 @@
 import datetime as dt
 import json
 import os
+import re
 import subprocess
 import sys
 
@@ -42,6 +43,21 @@ KANAL = {
         "kategori": "24",
         "son": "#hikaye #duygusalhikayeler #dramabite",
     },
+    # Kasa Kurgu: haftanın "Katil Kim?" vakaları tek uzun videoda. Model: Dedektif Gözü kanalı (12-14 dk'lık
+    # "12 dedektif bilmecesi" derlemeleri, başlıkta "Sadece %1 Çözer" kalıbı). 24 Kas 2026, Levent onayıyla.
+    "kasakurgu": {
+        "renk": (220, 60, 60), "ust": "KATİL KİM?", "alt": "HAFTANIN DOSYALARI",
+        "baslik": "Katil Kim? Haftanın {n} Vakası 🕵️ Hepsini Sadece %1 Çözer! ({aralik})",
+        "giris": ("Bu haftanın bütün Katil Kim? dosyaları arka arkaya. Her vakada ipuçlarını izle, şüphelini seç; "
+                  "cevap bir sonraki vakanın başında açıklanıyor. Kaçını doğru bildin? Yorumlara yaz!\n\nVakalar kurgusaldır."),
+        "kapanis": ("KAÇINI BİLDİN?", "Beğen · Abone ol · Her gün yeni vaka"),
+        "etiketler": ["katil kim", "dedektif bilmeceleri", "bilmeceler", "gizem", "kim yalan söylüyor",
+                      "dikkat testi", "kasa kurgu", "derleme"],
+        "kategori": "24",
+        "son": "#katilkim #dedektif #bilmece",
+        "filtre": "katil kim",
+        "birim": "VAKA",
+    },
 }
 
 AY = ["", "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım",
@@ -66,8 +82,9 @@ def ses_var(yol):
                                 "-of", "csv=p=0", yol], capture_output=True, text=True).stdout.strip())
 
 
-def arsivden_al(kanal, gun=7):
-    """Son `gun` günde arşive giren videolar (eski → yeni): [(yol, başlık, tarih)]"""
+def arsivden_al(kanal, gun=7, filtre=None):
+    """Son `gun` günde arşive giren videolar (eski → yeni): [(yol, başlık, tarih)]
+    filtre: başlıkta geçmesi gereken ifade (küçük harf). Aynı başlıklı kopyalar tek sayılır."""
     try:
         veri = json.loads(subprocess.run(
             ["gh", "api", "repos/{owner}/{repo}/releases/tags/arsiv"], capture_output=True, text=True,
@@ -88,6 +105,14 @@ def arsivden_al(kanal, gun=7):
         if z >= sinir:
             secilen.append((z, ad, (a.get("label") or "").strip()))
     secilen.sort()
+    if filtre:
+        secilen = [x for x in secilen if filtre in x[2].lower().replace("İ", "i")]
+    tekil, gorulen = [], set()
+    for x in secilen:   # aynı videonun tekrar kopyaları derlemeye iki kez girmesin
+        if x[2] and x[2] in gorulen:
+            continue
+        gorulen.add(x[2]); tekil.append(x)
+    secilen = tekil
     klasor = os.path.join(CIKTI, "kaynak")
     os.makedirs(klasor, exist_ok=True)
     sonuc = []
@@ -103,6 +128,10 @@ def temiz_baslik(b):
     if b.startswith("81 İl Turnuvası"):
         b = b.replace("81 İl Turnuvası", "", 1).strip(" ·")
         b = b.split("🏆")[0].strip() or "Büyük Final"
+    if "Katil Kim" in b:   # 'Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara…' veya 'Kırmızı Bere: Katil Kim? …'
+        m = re.search(r"Dosya #\d+:\s*([^|]+)", b)
+        b = m.group(1) if m else b.split(":")[0]
+        b = b.split("|")[0].strip()
     b = "".join(c for c in b if c.isalnum() or c in " .,:;!?'’·-/()").strip(" ·-")
     return b or "Bölüm"
 
@@ -185,7 +214,7 @@ def zaman(s):
 def main(kanal):
     k = KANAL[kanal]
     os.makedirs(CIKTI, exist_ok=True)
-    videolar = arsivden_al(kanal)
+    videolar = arsivden_al(kanal, filtre=k.get("filtre"))
     if len(videolar) < EN_AZ:
         print(f"{kanal}: son 7 günde {len(videolar)} video var, en az {EN_AZ} gerekir. Derleme yok.")
         return
@@ -218,7 +247,7 @@ def main(kanal):
     calistir("-f", "concat", "-safe", "0", "-i", liste, "-c", "copy", "-movflags", "+faststart", video)
 
     # Kapak (1280x720): ortada büyük yazı, iki yanında ilk ve son videonun kareleri
-    kapak_im = kart_resmi(ab, k["ust"], k["alt"], k["renk"], f"{len(videolar)} {'MAÇ' if kanal == 'ilturnuva' else 'HİKÂYE'} · {aralik.upper()}")
+    kapak_im = kart_resmi(ab, k["ust"], k["alt"], k["renk"], f"{len(videolar)} {k.get('birim') or ('MAÇ' if kanal == 'ilturnuva' else 'HİKÂYE')} · {aralik.upper()}")
     kapak = os.path.join(CIKTI, "kapak.jpg")
     kapak_im.resize((1280, 720)).save(kapak, quality=90)
 

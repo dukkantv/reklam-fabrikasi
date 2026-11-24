@@ -304,7 +304,9 @@ def main():
     telegram("gunun_vakasi.mp4", v["baslik"], no, v["cozum"])
     # YouTube (Kasa kurgu) onay kuyruğu için bilgi — onaysız yayın olmaz
     json.dump({"video": os.path.abspath("gunun_vakasi.mp4"),
-               "baslik": f"Katil Kim? 🕵️ Dosya #{no:02d}: {v['baslik']} | Yorumlara A, B veya C yaz!"[:100],
+               # Başlık kalıbı Dedektif Gözü kanalından (24 Kas 2026): önce olay adı, sonra meydan okuma + "%1".
+               # Dosya numarası açıklamada kalır; haftalık derleme başlıktaki "Katil Kim"e göre süzer.
+               "baslik": f"{v['baslik']}: Katil Kim? Sadece %1 Çözer! 🕵️ #shorts"[:100],
                "aciklama": (f"Dosya #{no:02d}: {v['baslik']}\n\nİpuçlarını izle, şüphelini seç ve yorumlara A, B ya da C yaz! "
                             "Cevap bir sonraki dosyada açıklanacak. 🕵️\n\n#katilkim #dedektif #gizem #vaka #shorts"),
                "etiketler": "katil kim,dedektif,gizem,vaka,bilmece,kurgusal hikaye"},
