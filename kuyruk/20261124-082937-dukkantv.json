@@ -13,11 +13,14 @@
   "shorts"
  ],
  "dosya": "20261124-082937-dukkantv.mp4",
- "durum": "onaylandi",
+ "durum": "yuklendi",
  "eklendi": "2026-11-24T08:29:37.690605+03:00",
  "sabit_yayin": "2026-11-24T11:00:00+03:00",
  "otomatik": true,
  "mesaj_id": 1021,
  "incelendi": "2026-11-24 sorunsuz (kare kare, ses, süre, altyazı, başlık uyumu; satış linki/marka/fiyat yok)",
- "hata": "Yükleme başlatılamadı (400): {'error': {'code': 400, 'message': 'The user has exceeded the number of videos they may upload.', 'errors': [{'message': 'The user has exceeded the number of videos they may upload.', 'domain': 'youtube.video', 'reason': 'uploadLimitExceeded'}]}}"
+ "hata": "Yükleme başlatılamadı (400): {'error': {'code': 400, 'message': 'The user has exceeded the number of videos they may upload.', 'errors': [{'message': 'The user has exceeded the number of videos they may upload.', 'domain': 'youtube.video', 'reason': 'uploadLimitExceeded'}]}}",
+ "video_id": "GFRhpx39qz8",
+ "yayin": "2026-11-24T11:00:30+03:00",
+ "yorum": "UgzXyOoTjBXqmtFWTkt4AaABAg"
 }
