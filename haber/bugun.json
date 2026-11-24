@@ -1,0 +1,55 @@
+{
+ "tarih": "2026-11-24",
+ "saat": "11:00",
+ "kaynaklar": [
+  "https://www.aksam.com.tr/guncel/istanbulu-ayaga-kaldiran-aslan-ihbarinda-gelisme-gercek-ortaya-cikti/haber-1716801",
+  "https://www.haberturk.com/gundem/sariyer-deki-aslan-ihbariyla-ilgili-valilik-acikladi-goruntudeki-aslan-degil-3929558",
+  "https://gazeteoksijen.com/turkiye/istanbul-valiligi-goruntulerdeki-hayvan-aslan-degil-297024"
+ ],
+ "kanallar": {
+  "gizlitarih": {"baslik": "İstanbul'da Aslan Alarmı: Görüntüdeki Neydi? #shorts",
+                 "etiketler": ["aslan alarmı", "Sarıyer", "Uskumruköy", "gizem", "hayvanlar", "gündem", "Gizli Tarih", "shorts"]},
+  "dukkantv": {"baslik": "Mahallede Aslan Paniği: Valilik Ne Dedi? #shorts",
+               "etiketler": ["aslan", "Sarıyer", "mahalle", "gündem", "haber", "Dükkan TV", "shorts"]}
+ },
+ "bolum": {
+  "id": "aslan-alarmi",
+  "efekt": "karartma_yavas",
+  "baslik": "İstanbul'da Aslan Alarmı: Görüntüdeki Neydi? #shorts",
+  "ozet": "Sarıyer Uskumruköy'de aslan görüldü ihbarı ekipleri harekete geçirdi. Termal dron, yem ve fotokapanlarla süren aramanın sonunda İstanbul Valiliği görüntüdeki hayvanın aslan ya da başka bir büyük kedi olmadığını açıkladı.",
+  "not": "Bilgiler genel kabul görmüş kaynaklara dayanır.",
+  "etiketler": ["aslan alarmı", "Sarıyer aslan", "Uskumruköy", "İstanbul", "gizem", "hayvanlar", "Gizli Tarih", "shorts"],
+  "adimlar": ["İHBAR", "EKİPLER", "GÖKYÜZÜ", "TUZAK", "SONUÇ"],
+  "sahneler": [
+   {"tip": "kanca", "satir": ["İSTANBUL’DA", "BİR *ASLAN*", "*GÖRÜLDÜ*", "MÜ?"],
+    "ses": ["İstanbul'da bir aslan görüldü mü? Bir mahalle ayağa kalktı."]},
+   {"tip": "asama", "adim": 0, "baslik": "İHBAR",
+    "satir": ["Sarıyer *Uskumruköy*.", "Biri ağaçlıkta", "*aslan* gördüğünü söyler."],
+    "ses": ["Yirmi iki Kasım akşamı, Sarıyer Uskumruköy'de biri aslan gördüğünü ihbar eder."],
+    "grup": [0, 0, 0]},
+   {"tip": "asama", "adim": 1, "baslik": "EKİPLER",
+    "satir": ["*Jandarma, AFAD,*", "Milli Parklar ve", "*veterinerler* sahada."],
+    "ses": ["Jandarma, AFAD, Milli Parklar ve veteriner ekipleri bölgeye gelir."],
+    "grup": [0, 0, 0]},
+   {"tip": "asama", "adim": 2, "baslik": "GÖKYÜZÜ",
+    "satir": ["Havada *termal dron.*", "Ekipler ağaçlığı", "*karış karış* tarar."],
+    "ses": ["Havada termal kameralı bir dron dolaşır.", "Ekipler de ağaçlık alanı karış karış tarar."],
+    "grup": [0, 1, 1]},
+   {"tip": "asama", "adim": 3, "baslik": "TUZAK",
+    "satir": ["*Yem* bırakılır.", "Hareket sensörlü", "*fotokapanlar* kurulur."],
+    "ses": ["Yem bırakılır.", "Hareket sensörlü fotokapanlar kurulur."],
+    "grup": [0, 1, 1]},
+   {"tip": "asama", "adim": 4, "baslik": "SONUÇ",
+    "satir": ["*Valilik* açıklar:", "görüntüdeki hayvan", "*aslan değil!*"],
+    "ses": ["Sonunda İstanbul Valiliği açıklama yapar.", "Yeni görüntülere göre hayvan, aslan ya da başka bir büyük kedi değil."],
+    "grup": [0, 1, 1]},
+   {"tip": "vurgu", "baslik": "PEKİ NEYDİ?",
+    "satir": ["Peki görüntüdeki", "hayvan neydi?", "*KÖPEK Mİ,*", "*KEDİ Mİ?*"],
+    "ses": ["Peki görüntüdeki hayvan neydi?", "Köpek mi,", "kedi mi?"],
+    "grup": [0, 0, 1, 2]},
+   {"tip": "son", "satir": ["Sen olsan", "*ne yapardın?*"],
+    "ses": ["Sen o mahallede olsan ne yapardın? Yorumlara yaz."],
+    "grup": [0, 0]}
+  ]
+ }
+}
