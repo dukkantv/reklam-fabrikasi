@@ -14,13 +14,17 @@ torch.load = lambda *a, **k: _yukle(*a, **{**k, "map_location": torch.device("cp
 KOK = os.path.dirname(os.path.abspath(__file__))
 KLASOR = os.path.join(KOK, "sesler", "klon")
 
-# Tarz -> (referans dosya adı, exaggeration, cfg_weight). exaggeration: duygu/enerji; cfg: tempo-ritim bağlılığı
+# Tarz -> (referans dosya adı, exaggeration, cfg_weight, temperature). exaggeration: duygu/enerji; cfg: tempo-ritim bağlılığı
+# 24 Kas 2026: Levent 4 tarzda ayrı kayıt yaptı (sesler/klon/belgesel|neseli|gizemli|spiker.flac). Ayarlar test edildi,
+# Levent beğendi ("daha önceki klondan güzel"). ElevenLabs kredisi bitince bütün anlatımlar bu seslerle yapılır.
 TARZLAR = {
-    "belgesel": ("belgesel", 0.45, 0.5),   # Gizli Tarih: ağır, gizemli anlatıcı
-    "neseli":   ("neseli", 0.75, 0.35),    # Çarşı Ligi / skeç: hızlı, coşkulu spiker
-    "hikaye":   ("hikaye", 0.55, 0.45),    # Drama Bite: sıcak, duygulu
-    "dedektif": ("dedektif", 0.5, 0.45),   # Kasa Kurgu: gergin, merak uyandıran
-    "samimi":   ("samimi", 0.55, 0.4),     # Kasa Kurgu günlük seri: arkadaşla konuşur gibi
+    "belgesel": ("belgesel", 0.40, 0.50, 0.7),   # Gizli Tarih: sakin, ağır belgesel anlatıcı
+    "neseli":   ("neseli", 0.65, 0.35, 0.8),     # Çarşı Ligi / skeç / liste videoları: hızlı, neşeli
+    "gizemli":  ("gizemli", 0.45, 0.50, 0.7),    # gizem, gerilim, "Ne Olur?" karanlık senaryolar
+    "spiker":   ("spiker", 0.80, 0.30, 0.8),     # 81 İl Turnuvası: coşkulu maç spikeri
+    "hikaye":   ("belgesel", 0.55, 0.45, 0.75),  # Drama Bite: sıcak, duygulu (belgesel kaydından)
+    "dedektif": ("gizemli", 0.50, 0.45, 0.7),    # Kasa Kurgu: gergin, merak uyandıran
+    "samimi":   ("neseli", 0.50, 0.40, 0.75),    # Kasa Kurgu günlük seri: arkadaşla konuşur gibi
 }
 
 ORNEK = {
@@ -28,6 +32,8 @@ ORNEK = {
     "neseli": "Ve top bırakıldı! Simitçi Kedi önde, Kokoreç Ejderha hemen arkasında! Bu nasıl bir maç böyle, inanılır gibi değil!",
     "hikaye": "Annesi kapıyı açtığında karşısında yıllardır görmediği oğlunu buldu. Bir an konuşamadı. Sonra gözleri doldu ve sadece sarıldı.",
     "samimi": "Bugün kasada beş yüz lira var. Hedef elli bin. Biliyorum, çılgınca görünüyor ama dur, sana bugün ne yaptığımı anlatayım.",
+    "gizemli": "Kimse o kuleye yıllardır girmemişti. Peki ışığı kim yakmıştı? Ve neden tam o gece?",
+    "spiker": "Ve karşınızda büyük final! Bursa ile Trabzon sahaya çıkıyor! Toplar hazır, tribünler dolu, başlıyoruz!",
     "dedektif": "Kapı içeriden kilitliydi. Anahtar kilitte duruyordu. Peki katil bu odadan nasıl çıktı? Cevap, gözünüzün önündeydi.",
 }
 
@@ -44,6 +50,7 @@ def model():
 
 
 def referans(tarz):
+    tarz = tarz if tarz in TARZLAR else "belgesel"
     """Tarzın kendi kaydı yoksa genel örneğe (sesler/levent_ornek.mp3) düşer. 16 sn'lik temiz wav'a çevirir."""
     ad = TARZLAR[tarz][0]
     adaylar = glob.glob(os.path.join(KLASOR, ad + ".*")) or [os.path.join(KOK, "sesler", "levent_ornek.mp3")]
@@ -65,12 +72,13 @@ def cumleler(metin, sinir=220):
 
 def oku(tarz, metin, cikti):
     import torchaudio as ta
+    tarz = tarz if tarz in TARZLAR else "belgesel"
     m = model()
     ref, _ = referans(tarz)
-    _, ex, cfg = TARZLAR[tarz]
+    _, ex, cfg, sic = TARZLAR[tarz]
     parcalar = []
     for c in cumleler(metin):
-        w = m.generate(c, language_id="tr", audio_prompt_path=ref, exaggeration=ex, cfg_weight=cfg)
+        w = m.generate(c, language_id="tr", audio_prompt_path=ref, exaggeration=ex, cfg_weight=cfg, temperature=sic)
         parcalar += [w, torch.zeros(1, int(m.sr * 0.25))]
     ta.save(cikti, torch.cat(parcalar[:-1], dim=1), m.sr)
     return cikti

@@ -4,7 +4,7 @@
 #   tur=hikaye   → Drama Bite duygusal hikâye: sıcak çizimler
 #   Senaryo: Gemini · Ses: edge-tts · Montaj: ffmpeg · Her resim anlatılan cümleyle Gemini'ye kontrol ettirilir
 # Kullanım: python belgesel.py "konu" [dakika] [tur]
-import asyncio, base64, json, os, re, subprocess, sys, time, urllib.parse
+import asyncio, base64, datetime as dt, json, os, re, subprocess, sys, time, urllib.parse
 
 import requests
 
@@ -365,10 +365,13 @@ def kapak(img, yazi, hedef, tur):
     calistir("-i", img, "-vf", vf, "-frames:v", "1", "-q:v", "2", hedef)
 
 
-# ---------- SES: Levent'in ElevenLabs klonu (v3), kredi yetmezse tüm video ücretsiz Ahmet sesiyle ----------
+# ---------- SES: Levent'in ElevenLabs klonu (v3) kredi bitene kadar; sonra Levent'in ÜCRETSİZ Chatterbox klonu ----------
+# 24 Kas 2026 (Levent): ElevenLabs kredisi bitene kadar o, bitince tamamen ücretsiz Chatterbox klonuna geç.
+# Ahmet (edge-tts) yalnızca Chatterbox da çalışmazsa son çare. Starter abonelik 5 Aralık 2026'da bitiyor.
 ELEVEN_KEY = "".join(os.environ.get("ELEVENLABS_API_KEY", "").split())
 SES_MOTOR = os.environ.get("BELGESEL_SES_MOTOR", "ahmet").strip() or "ahmet"   # klon / ahmet
 KLON_TEMPO = float(os.environ.get("KLON_TEMPO", "0.92"))   # klon hızlı okuyor: belgesel için hafif yavaşlat
+KLON_TARZ = os.environ.get("KLON_TARZ", "belgesel").strip() or "belgesel"   # ücretsiz klon tarzı: belgesel / gizemli
 
 
 def eleven_kalan():
@@ -399,34 +402,64 @@ def klon_seslendir(metin, hedef, vid):
     return False
 
 
+def ucretsiz_seslendir(sahneler, yollar, tarz):
+    """Levent'in ücretsiz Chatterbox klonuyla tüm sahneleri seslendirir. Başarısızsa False döner."""
+    try:
+        import ucretsiz_ses
+    except Exception as e:
+        print("Chatterbox yüklenemedi:", str(e)[:200])
+        return False
+    try:
+        for sc, y in zip(sahneler, yollar):
+            if os.path.exists(y):
+                continue
+            ham = y + ".ham.wav"
+            ucretsiz_ses.oku(tarz, sc["metin"], ham)
+            calistir("-i", ham, "-af", "loudnorm=I=-18:TP=-2", "-ar", "44100", "-b:a", "160k", y)
+            os.remove(ham)
+        return True
+    except Exception as e:
+        print("Chatterbox seslendirme hatası:", str(e)[:300])
+        for x in yollar:
+            if os.path.exists(x):
+                os.remove(x)
+        return False
+
+
 def sesleri_hazirla(sahneler):
-    """Tüm sahnelerin sesini baştan üretir. Video tek sesle çıkar: klon ya hepsine yeter ya hiç kullanılmaz."""
+    """Tüm sahnelerin sesini baştan üretir. Video tek sesle çıkar (yarıda motor değişirse hepsi baştan)."""
     import edge_tts
     yollar = [os.path.join(CIKTI, f"s_{i:03d}.mp3") for i in range(1, len(sahneler) + 1)]
     motor = "ahmet"
-    klon = os.path.join(KOK, "sesler", "levent_klon.json")
-    if SES_MOTOR == "klon" and ELEVEN_KEY and os.path.exists(klon):
-        gerek = sum(len(x["metin"]) for x in sahneler)
-        kalan = eleven_kalan()
-        print(f"Klon ses: gereken ≈ {gerek} kredi, kalan {kalan}")
-        if kalan is None or kalan >= gerek * 1.1 + 500:  # anahtar kredi okuyamıyorsa denenir; yarıda kalırsa Ahmet
-            vid = json.load(open(klon))["voice_id"]
-            motor = "klon"
-            for sc, y in zip(sahneler, yollar):
-                if not os.path.exists(y) and not klon_seslendir(sc["metin"], y, vid):
-                    print("Klon ses yarıda kaldı — tüm video Ahmet sesine çevriliyor")
-                    for x in yollar:
-                        if os.path.exists(x):
-                            os.remove(x)
-                    motor = "ahmet"
-                    break
-        else:
-            print("ElevenLabs kredisi yetmiyor — Ahmet sesi kullanılacak")
+    if SES_MOTOR == "klon":
+        motor = "ucretsiz"
+        klon = os.path.join(KOK, "sesler", "levent_klon.json")
+        if ELEVEN_KEY and os.path.exists(klon) and dt.date.today() < dt.date(2026, 12, 5):
+            gerek = sum(len(x["metin"]) for x in sahneler)
+            kalan = eleven_kalan()
+            print(f"ElevenLabs: gereken ≈ {gerek} kredi, kalan {kalan}")
+            if kalan is not None and kalan >= gerek * 1.1 + 500:
+                vid = json.load(open(klon))["voice_id"]
+                motor = "klon"
+                for sc, y in zip(sahneler, yollar):
+                    if not os.path.exists(y) and not klon_seslendir(sc["metin"], y, vid):
+                        print("ElevenLabs yarıda kaldı — tüm video ücretsiz klonla baştan seslendirilecek")
+                        for x in yollar:
+                            if os.path.exists(x):
+                                os.remove(x)
+                        motor = "ucretsiz"
+                        break
+            else:
+                print("ElevenLabs kredisi yetmiyor ya da okunamadı — ücretsiz klon kullanılacak")
+        if motor == "ucretsiz" and not ucretsiz_seslendir(sahneler, yollar, KLON_TARZ):
+            print("Ücretsiz klon çalışmadı — son çare Ahmet sesi")
+            motor = "ahmet"
     if motor == "ahmet":
         for sc, y in zip(sahneler, yollar):
             if not os.path.exists(y):
                 asyncio.run(edge_tts.Communicate(sc["metin"], SES, rate="-4%").save(y))
-    print("Anlatım sesi:", "Levent klonu (ElevenLabs v3)" if motor == "klon" else "Ahmet (edge-tts)")
+    print("Anlatım sesi:", {"klon": "Levent klonu (ElevenLabs v3)", "ucretsiz": f"Levent klonu (Chatterbox, ücretsiz, {KLON_TARZ})",
+                            "ahmet": "Ahmet (edge-tts)"}[motor])
     return motor
 
 
@@ -580,7 +613,7 @@ SADECE JSON: {{"sahneler": [...]}}"""}])
           with open(tg, "rb") as f:
             print(requests.post(f"https://api.telegram.org/bot{TOKEN}/sendVideo", timeout=900,
                                 data={"chat_id": CHAT, "supports_streaming": "true",
-                                      "caption": f"🎞 PİLOT [{tur}] ({'senin sesin' if SES_KULLANILAN == 'klon' else 'Ahmet sesi'}): {s['baslik']} · {toplam / 60:.1f} dk"},
+                                      "caption": f"🎞 PİLOT [{tur}] ({'senin sesin' if SES_KULLANILAN == 'klon' else 'senin ücretsiz klon sesin' if SES_KULLANILAN == 'ucretsiz' else 'Ahmet sesi'}): {s['baslik']} · {toplam / 60:.1f} dk"},
                                 files={"video": f}).json().get("ok"))
         except Exception as e:
             print("Telegram video gönderilemedi (önemsiz):", str(e)[:120])

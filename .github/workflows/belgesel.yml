@@ -23,7 +23,7 @@ on:
         description: "Hazır senaryo dosyası (ör. senaryolar/kanuni.json) — boşsa Gemini yazar"
         default: ""
       ses:
-        description: "Anlatım sesi: klon (Levent, ElevenLabs v3 — kredi yetmezse otomatik Ahmet) / ahmet"
+        description: "Anlatım sesi: klon (Levent: ElevenLabs kredisi bitene kadar, sonra ücretsiz Chatterbox klonu) / ahmet"
         default: "ahmet"
 
 jobs:
@@ -41,11 +41,22 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.11"   # Chatterbox (ücretsiz klon) 3.11 ile sorunsuz
       - name: Araçlar
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-inter fonts-dejavu-core >/dev/null
           pip install -q edge-tts requests numpy
+      - name: Ücretsiz klon sesi kurulumu (ElevenLabs bitince kullanılır)
+        if: env.BELGESEL_SES_MOTOR == 'klon'
+        run: |
+          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install -q chatterbox-tts
+      - name: Model önbelleği
+        if: env.BELGESEL_SES_MOTOR == 'klon'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: chatterbox-mtl-v1
       - name: Üret
         run: python belgesel.py "${{ inputs.konu }}" "${{ inputs.dakika }}" "${{ inputs.tur }}"
       - name: Yayın kuyruğuna ekle
