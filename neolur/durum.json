@@ -1,6 +1,6 @@
 {
- "sira": 4,
- "son_tarih": "2026-11-24",
+ "sira": 5,
+ "son_tarih": "2026-11-25",
  "gecmis": [
   {
    "id": "elektrik",
@@ -25,6 +25,11 @@
    "id": "yanlis-para",
    "tarih": "2026-11-24",
    "saat": "20:00"
+  },
+  {
+   "id": "telefon-yanlis",
+   "tarih": "2026-11-25",
+   "saat": "12:30"
   }
  ]
 }
