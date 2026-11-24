@@ -25,5 +25,9 @@
  "hata": "Yükleme başlatılamadı (400): {'error': {'code': 400, 'message': 'The user has exceeded the number of videos they may upload.', 'errors': [{'message': 'The user has exceeded the number of videos they may upload.', 'domain': 'youtube.video', 'reason': 'uploadLimitExceeded'}]}}",
  "video_id": "HX82d8his-w",
  "yayin": "2026-11-24T18:00:34+03:00",
- "yorum": "UgwxLOBkBZ2zKrErI5p4AaABAg"
+ "yorum": "UgwxLOBkBZ2zKrErI5p4AaABAg",
+ "fb": "paylasildi",
+ "fb_id": "1181662357742333",
+ "tt": "taslak",
+ "tt_id": "v_inbox_file~v2.7711823651313764372"
 }
