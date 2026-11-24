@@ -19,5 +19,6 @@
  "sabit_yayin": "2026-11-24T20:00:00+03:00",
  "otomatik": true,
  "mesaj_id": 937,
- "incelendi": "2026-11-24 sorunsuz (kare kare, ses, süre, altyazı, başlık uyumu; satış linki/marka/fiyat yok)"
+ "incelendi": "2026-11-24 sorunsuz (kare kare, ses, süre, altyazı, başlık uyumu; satış linki/marka/fiyat yok)",
+ "hata": "Yükleme başlatılamadı (400): {'error': {'code': 400, 'message': 'The user has exceeded the number of videos they may upload.', 'errors': [{'message': 'The user has exceeded the number of videos they may upload.', 'domain': 'youtube.video', 'reason': 'uploadLimitExceeded'}]}}"
 }

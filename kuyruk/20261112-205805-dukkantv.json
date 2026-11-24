@@ -21,5 +21,6 @@
  "mesaj_id": 265,
  "videolu": true,
  "stok_bildirildi": true,
- "incelendi": "2026-11-16 sorunsuz (kare kare, ses, altyazı, başlık uyumu, reklam/satış yok; arka plandaki market tabelalarında anlamsız yazılar var, küçük)"
+ "incelendi": "2026-11-16 sorunsuz (kare kare, ses, altyazı, başlık uyumu, reklam/satış yok; arka plandaki market tabelalarında anlamsız yazılar var, küçük)",
+ "hata": "Yükleme başlatılamadı (429): {'error': {'code': 429, 'message': \"Quota exceeded for quota metric 'Video Uploads' and limit 'Video Uploads per day' of service 'youtube.googleapis.com' for consumer 'project_number:1012697175361'.\", 'errors': [{'message': \"Quota exceeded for quota metric 'Video Uploads"
 }

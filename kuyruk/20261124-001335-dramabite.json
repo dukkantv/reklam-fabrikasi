@@ -15,5 +15,6 @@
  "eklendi": "2026-11-24T00:13:35.641412+03:00",
  "otomatik": true,
  "mesaj_id": 950,
- "incelendi": "2026-11-24 sorunsuz (kare kare, ses, süre, altyazı, başlık uyumu; satış linki/marka/fiyat yok)"
+ "incelendi": "2026-11-24 sorunsuz (kare kare, ses, süre, altyazı, başlık uyumu; satış linki/marka/fiyat yok)",
+ "hata": "Yükleme başlatılamadı (429): {'error': {'code': 429, 'message': \"Quota exceeded for quota metric 'Video Uploads' and limit 'Video Uploads per day' of service 'youtube.googleapis.com' for consumer 'project_number:1012697175361'.\", 'errors': [{'message': \"Quota exceeded for quota metric 'Video Uploads"
 }
