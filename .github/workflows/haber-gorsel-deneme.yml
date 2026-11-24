@@ -1,0 +1,69 @@
+name: Haber görsel denemesi
+
+# Haber videolarının ücretsiz fotoğraf sistemini yayına dokunmadan dener:
+# aday arama + önizleme + seçilen fotoğraflarla örnek kareler → "gorsel-deneme" dalına kaydedilir.
+on:
+  workflow_dispatch:
+    inputs:
+      sorgular:
+        description: "Virgülle ayrılmış İngilizce sorgular"
+        default: "lion zoo,Istanbul Bosphorus"
+
+permissions:
+  contents: write
+
+jobs:
+  deneme:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -q requests numpy pillow
+      - name: Dene
+        env:
+          SORGULAR: ${{ inputs.sorgular }}
+        run: |
+          mkdir -p /tmp/sonuc
+          python - <<'PY'
+          import json, os, sys, shutil
+          sys.path[:0] = [".", "neolur", "haber"]
+          from PIL import Image
+          import haber_uret, gorsel, uret
+          h = haber_uret.dogrula(json.load(open("haber/ornek.json", encoding="utf-8")))
+          b = h["bolum"]
+          b["gorsel_ara"] = [q.strip() for q in os.environ["SORGULAR"].split(",") if q.strip()]
+          assert haber_uret.asama(h) == "aday"
+          liste = gorsel.adaylar(b)
+          assert liste, "aday bulunamadı"
+          shutil.copy(gorsel.ONIZLEME, "/tmp/sonuc/onizleme.jpg")
+          json.dump(liste, open("/tmp/sonuc/adaylar.json", "w"), ensure_ascii=False, indent=1)
+          secim = [liste[0], liste[-1]]
+          for i, s in enumerate(b["sahneler"]):
+              if s["tip"] != "son":
+                  s["gorsel"] = {k: secim[i % 2][k] for k in ("url", "ad", "yazar", "lisans")}
+          assert haber_uret.asama(h) == "uret"
+          kaynak = gorsel.indir(b)
+          print("Kaynakça:", kaynak)
+          print(haber_uret.aciklama(b, h.get("kaynaklar", []), kaynak))
+          sureler = {f"{i:02d}_{s['tip']}": [len(m) / 14.5 for m in s["ses"]] for i, s in enumerate(b["sahneler"])}
+          zaman, _ = uret.zamanla(b, sureler)
+          from render import Video
+          v = Video(b, zaman)
+          ts = [v.sahneler[0]["bas"] + 1.0, v.sahneler[1]["bas"] + 0.3, v.sahneler[3]["bas"] + 1.8,
+                v.sahneler[6]["bas"] + 1.5, v.sahneler[-1]["bas"] + 1]
+          kareler = [v.kare(t).resize((432, 768)) for t in ts]
+          sayfa = Image.new("RGB", (432 * len(kareler), 768))
+          for i, k in enumerate(kareler):
+              sayfa.paste(k, (i * 432, 0))
+          sayfa.save("/tmp/sonuc/kareler.jpg", quality=85)
+          PY
+      - name: Sonucu dala kaydet
+        run: |
+          cd /tmp/sonuc
+          git init -q -b gorsel-deneme
+          git config user.name "github-actions"; git config user.email "actions@github.com"
+          git add . && git commit -qm "Haber görsel denemesi ${{ github.run_id }}"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" gorsel-deneme

@@ -340,9 +340,41 @@ class Video:
             if k > 0:
                 self.satir_ciz(img, x, y, boy, k, dy=(1 - k) * 36, fnt=fn)
 
+    # ------------- fotoğraf arka planı (haber videoları: sahnede "arka" = yerel resim yolu) -------------
+    _foto = {}
+
+    def foto_hazirla(self, yol):
+        """Resmi 9:16'ya kırpar (%12 pay bırakarak, yavaş yakınlaşma için), yazı okunsun diye karartır."""
+        if yol in self._foto:
+            return self._foto[yol]
+        im = Image.open(yol).convert("RGB")
+        GW, GH = int(W * 1.12), int(H * 1.12)
+        o = max(GW / im.width, GH / im.height)
+        im = im.resize((max(GW, round(im.width * o)), max(GH, round(im.height * o))), Image.LANCZOS)
+        x0, y0 = (im.width - GW) // 2, (im.height - GH) // 3   # dikeyde biraz üstten: yüzler/nesneler genelde üstte
+        im = im.crop((x0, y0, x0 + GW, y0 + GH))
+        golge = Image.new("L", (GW, GH))
+        gd = ImageDraw.Draw(golge)
+        for y in range(0, GH, 4):
+            f = y / GH
+            # üstte başlık/zaman çizgisi, ortada yazılar: genel %45, üst ve alt kenarda daha koyu
+            a = 135 + int(60 * max(0.0, 0.25 - f) / 0.25) + int(60 * max(0.0, f - 0.7) / 0.3)
+            gd.rectangle([0, y, GW, y + 4], fill=min(235, a))
+        im = Image.composite(Image.new("RGB", (GW, GH), (6, 8, 16)), im, golge)
+        self._foto[yol] = im
+        return im
+
+    def foto_kare(self, s, tt):
+        im = self.foto_hazirla(s["arka"])
+        k = min(1.0, max(0.0, (tt - s["bas"]) / max(s["sure"], 0.1)))
+        olcek = 1.12 - 0.10 * k                       # sahne boyunca yavaşça yakınlaşır
+        cw, ch = int(W * olcek), int(H * olcek)
+        x0, y0 = (im.width - cw) // 2, (im.height - ch) // 2
+        return im.crop((x0, y0, x0 + cw, y0 + ch)).resize((W, H), Image.BILINEAR)
+
     def kare(self, tt):
         s = next(x for x in self.sahneler if x["bas"] <= tt < x["bas"] + x["sure"] + 1e-6) if tt < self.toplam else self.sahneler[-1]
-        img = self.arka(tt).convert("RGBA")
+        img = (self.foto_kare(s, tt) if s.get("arka") else self.arka(tt)).convert("RGBA")
         lt = tt - s["bas"]
         yaz = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         self.yazilar(yaz, s, lt)

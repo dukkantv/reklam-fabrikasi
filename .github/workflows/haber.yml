@@ -35,16 +35,25 @@ jobs:
       - run: |
           pip install -q requests numpy pillow
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - name: Aşama (önce görsel adayları mı, video mu?)
+        id: asama
+        run: echo "ne=$(python haber/haber_uret.py asama | tail -1)" >> $GITHUB_OUTPUT
+      - name: Görsel adaylarını bul (Claude önizlemeye bakıp seçecek)
+        if: steps.asama.outputs.ne == 'aday'
+        run: python haber/haber_uret.py
       - name: Kurulum (ses + kontrol)
+        if: steps.asama.outputs.ne == 'uret'
         run: |
           pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
           pip install -q chatterbox-tts faster-whisper
       - name: Model önbelleği
+        if: steps.asama.outputs.ne == 'uret'
         uses: actions/cache@v4
         with:
           path: ~/.cache/huggingface
           key: chatterbox-mtl-v1
       - name: Haberi üret ve kuyruğa koy
+        if: steps.asama.outputs.ne == 'uret'
         run: python haber/haber_uret.py
       - name: Kaydet
         if: always()
@@ -52,7 +61,7 @@ jobs:
           git config user.name "Dükkan TV Bot"; git config user.email "dukkan.tvstudio@gmail.com"
           git add -A kuyruk tokens haber
           git diff --cached --quiet && exit 0
-          git commit -qm "Günün haberi kuyruğa eklendi"
+          git commit -qm "${{ steps.asama.outputs.ne == 'aday' && 'Günün haberi: görsel adayları' || 'Günün haberi kuyruğa eklendi' }}"
           git push || (git pull --rebase -X theirs -q origin main && git push)
       - name: Hata bildirimi
         if: failure()
