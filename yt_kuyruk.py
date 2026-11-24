@@ -215,7 +215,7 @@ def kaydet(kayit):
 
 # Haftalık uzun derleme (haftalik_uzun.py) için kısa videoların kalıcı kopyası: "kuyruk" sürümündeki dosya
 # yayından sonra silinir, "arsiv" sürümündeki kopya kalır (Onur Naci tavsiyesi: Shorts + uzun video birlikte, 23.11.2026)
-ARSIV_KANALLAR = {"ilturnuva", "dramabite"}
+ARSIV_KANALLAR = {"ilturnuva", "dramabite", "kasakurgu"}   # kasakurgu: haftalık Katil Kim derlemesi (24.11.2026)
 
 
 def arsive_koy(yol, baslik):
