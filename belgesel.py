@@ -83,10 +83,12 @@ KONTROL_KAPALI = False
 
 
 def alakali_mi(img, metin, nesne):
-    """Gemini resme bakar: anlatılanla alakalı mı? (0-10). Kota biterse kontrolü kapatır, resmi kabul eder."""
+    """Gemini resme bakar: anlatılanla alakalı mı? (0-10). Kontrol yapılamıyorsa None döner.
+    26 Kas 2026: eskiden kontrol kapalıyken 10 dönüyordu; internetten bulunan HER fotoğraf onaylanıyor ve
+    Derinkuyu videosuna Londra metrosu, Kolezyum gibi alakasız fotoğraflar giriyordu."""
     global KONTROL_KAPALI
     if KONTROL_KAPALI or not GEMINI_KEY:
-        return 10
+        return None
     veri = base64.b64encode(open(img, "rb").read()).decode()
     c = gemini([{"inlineData": {"mimeType": "image/jpeg", "data": veri}},
                 {"text": f'Bir belgesel videosunda bu resim şu anlatımın üstünde gösterilecek: "{metin}". '
@@ -95,9 +97,9 @@ def alakali_mi(img, metin, nesne):
                          'SADECE JSON: {"puan": 0-10, "neden": "kısa"}'}],
                modeller=("gemini-flash-lite-latest", "gemini-flash-latest"), deneme=2, zaman=60)
     if c is None:
-        print("Görsel kontrolü kota/hata nedeniyle kapatıldı")
+        print("Görsel kontrolü kota/hata nedeniyle kapatıldı — bundan sonra internet fotoğrafı kullanılmaz, sahneler çizilir")
         KONTROL_KAPALI = True
-        return 10
+        return None
     print(f"   kontrol {c.get('puan')}/10 — {c.get('neden', '')[:70]}")
     try:
         return float(c.get("puan", 0))
@@ -270,12 +272,16 @@ def sahne_resmi(sc, tur, i):
         for d in range(2):
             if ciz(sc, tur, ham, 1000 + i + d * 31):
                 puan = alakali_mi(ham, sc["metin"], sc["nesne"])
+                if puan is None:
+                    puan = 7   # kendi tarifimizden çizildi; kontrol yoksa kabul
                 if puan > en_puan:
                     os.replace(ham, son); en_puan = puan
                 if puan >= 6:
                     return son
     adaylar = []
     sorgular = [sc.get("arama") or sc["nesne"], sc["nesne"], *sc.get("yedek_arama", [])]
+    if KONTROL_KAPALI or not GEMINI_KEY:
+        sorgular = []   # kontrol edilemeyen internet fotoğrafı kullanılmaz; doğrudan çizime geç
     for q in sorgular:
         bulunan = (commons_ara(q, 3) if tur == "tarih" else []) + openverse_ara(q, 3)
         adaylar += [a for a in bulunan if a["baslik"] not in {x["baslik"] for x in adaylar}]
@@ -285,6 +291,8 @@ def sahne_resmi(sc, tur, i):
         if not indir(aday["url"], ham):
             continue
         puan = alakali_mi(ham, sc["metin"], sc["nesne"])
+        if puan is None:
+            break      # kontrol bu sırada kapandı: aday reddedilir, çizime geçilir
         if puan > en_puan:
             os.replace(ham, son); en_iyi, en_puan = aday, puan
         if puan >= 7:
@@ -300,6 +308,8 @@ def sahne_resmi(sc, tur, i):
     for d in range(2):  # çizim, gerekirse bir kez daha
         if ciz(sc, tur, ham, 1000 + i + d * 31):
             puan = alakali_mi(ham, sc["metin"], sc["nesne"])
+            if puan is None:
+                puan = 7
             if puan > en_puan:
                 os.replace(ham, son); en_puan = puan
             if puan >= 6:
