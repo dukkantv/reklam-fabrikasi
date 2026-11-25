@@ -137,4 +137,10 @@ jobs:
           SN=$(python3 nobet.py)
           sleep "$SN"
       - name: Yayın işini yeniden başlat
-        run: gh workflow run youtube-yayin.yml --ref main -R "$GITHUB_REPOSITORY"
+        # 25 Kas 2026: tek bir HTTP 500 zinciri koparıyordu (16:01'den sonra hiç çalışma olmadı) → 6 kez dene
+        run: |
+          for i in 1 2 3 4 5 6; do
+            gh workflow run youtube-yayin.yml --ref main -R "$GITHUB_REPOSITORY" && exit 0
+            sleep $((i * 20))
+          done
+          exit 1

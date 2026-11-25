@@ -24,7 +24,7 @@ import sys
 
 from yt_ortak import KOK, erisim_anahtari, istek, kanal_bilgi, telegram
 import ig_ortak
-from ig_ortak import fb_bekliyor_mu, fb_reels_yukle, ig_hesap, reels_yukle, reels_yukle_fb_kaynak
+from ig_ortak import fb_bekliyor_mu, fb_reels_yukle, ig_hesap, reels_yukle, reels_yukle_fb_kaynak, reels_yukle_url
 from tt_ortak import taslak_yukle, tt_hesap
 
 
@@ -122,19 +122,45 @@ def ig_mola_baslat(saat=3):
     print(f"Instagram yükleme kısıtlaması: {saat} saat mola (bitiş {bitis:%H:%M} UTC)")
 
 
+IG_SON = os.path.join(KOK, "kuyruk", "durum", "ig_son.json")
+IG_ARA = dt.timedelta(minutes=30)   # Levent: paylaşımlar aynı anda değil, 30 dk–1 saat arayla (25 Kas 2026)
+
+
+def ig_son_paylasim():
+    try:
+        return dt.datetime.fromisoformat(json.load(open(IG_SON))["zaman"])
+    except Exception:
+        return None
+
+
+def ig_son_kaydet():
+    os.makedirs(os.path.dirname(IG_SON), exist_ok=True)
+    json.dump({"zaman": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}, open(IG_SON, "w"))
+
+
 def ig_bekliyor(kayit):
     """Bu kanal için Instagram bağlıysa ve henüz paylaşılmadıysa True."""
     if kayit.get("ig") in ("paylasildi", "hata") or kayit.get("uzun") or ig_molada():
         return False
-    # Instagram reddettiyse araları açarak dene: 1., 2., 3. denemeden sonra 2 / 4 / 8 saat bekle.
-    # (Sık deneme Instagram'ın yükleme kısıtlamasını uzatıyordu; 19 Kas 2026'da 19 deneme görüldü.)
+    # Reddedilen video için araları açarak dene: 30 dk, 1 saat, 1,5 saat... (25 Kas 2026: eskiden 2/4/8 saatti
+    # ve "Request processing failed" bütün hesapları 3 saat durduruyordu; tek bir sorunlu video kuyruğu kilitliyordu)
     son = kayit.get("ig_son_deneme")
     if son:
-        ara = dt.timedelta(hours=2 ** min(kayit.get("ig_deneme", 1), 3))
+        ara = dt.timedelta(minutes=30 * max(1, kayit.get("ig_deneme", 1)))
         if dt.datetime.now(dt.timezone.utc) - dt.datetime.fromisoformat(son) < ara:
             return False
     try:
         return ig_hesap(kayit["kanal"]) is not None
+    except Exception:
+        return False
+
+
+SURUM_URL = "https://github.com/dukkantv/reklam-fabrikasi/releases/download/kuyruk"   # depo herkese açık
+
+
+def ig_hesap_var(kanal):
+    try:
+        return ig_hesap(kanal) is not None
     except Exception:
         return False
 
@@ -570,8 +596,9 @@ def kontrol():
             if simdi < dt.datetime.fromisoformat(kayit["yayin"]):
                 continue
             global IG_BU_TUR
-            if ig_bekliyor(kayit) and IG_BU_TUR >= 1:
-                print(f"Instagram: bu turda zaten bir yükleme yapıldı, {kayit['id']} sonraki tura kaldı")
+            _son = ig_son_paylasim()
+            if ig_bekliyor(kayit) and (IG_BU_TUR >= 1 or (_son and dt.datetime.now(dt.timezone.utc) - _son < IG_ARA)):
+                print(f"Instagram: son paylaşımdan 30 dk geçmedi / bu turda deneme yapıldı, {kayit['id']} sonraki tura kaldı")
             elif ig_bekliyor(kayit):
                 IG_BU_TUR += 1
                 # 23 Kas 2026: önce Instagram'ın önerdiği biçime yeniden kodlanmış dosya doğrudan yüklenir
@@ -587,30 +614,50 @@ def kontrol():
                         kayit.update(ig="paylasildi", ig_id=onceki[0], ig_link=onceki[1])
                         kaydet(kayit)
                         raise _ZatenVar()
+                    # 25 Kas 2026: önce video_url yolu (Instagram dosyayı herkese açık GitHub sürüm adresinden kendisi
+                    # indirir). Doğrudan yükleme (rupload) gerçek videolarda sürekli ProcessingFailedError veriyordu.
+                    hatalar = []
+                    mid = link = None
                     try:
-                        mid, link = reels_yukle(kayit["kanal"], ig_kodla(yol), ig_aciklama(kayit), deneme_reels_mi(kayit))
-                        kayit.update(ig_yol="dogrudan")
+                        igk = ig_kodla(yol)
+                        ig_ad = os.path.basename(igk)
+                        gh("release", "upload", "kuyruk", igk, "--clobber")
+                        mid, link = reels_yukle_url(kayit["kanal"], f"{SURUM_URL}/{ig_ad}", ig_aciklama(kayit),
+                                                    deneme_reels_mi(kayit))
+                        kayit.update(ig_yol="github_url")
                     except Exception as e1:
-                        if not kayit.get("fb_id") or "Request processing failed" in str(e1):
-                            raise
-                        print(f"Instagram doğrudan yükleme ({kayit['id']}):", str(e1)[:300], "→ Facebook kaynağı deneniyor")
-                        mid, link = reels_yukle_fb_kaynak(kayit["kanal"], kayit["fb_id"], ig_aciklama(kayit), deneme_reels_mi(kayit))
-                        kayit.update(ig_yol="fb_kaynak")
+                        hatalar.append(f"github_url: {str(e1)[:200]}")
+                        print(f"Instagram video_url ({kayit['id']}):", str(e1)[:300], "→ orijinal dosya adresi deneniyor")
+                    if not mid:
+                        try:
+                            mid, link = reels_yukle_url(kayit["kanal"], f"{SURUM_URL}/{kayit['dosya']}", ig_aciklama(kayit),
+                                                        deneme_reels_mi(kayit))
+                            kayit.update(ig_yol="github_url_orijinal")
+                        except Exception as e2:
+                            hatalar.append(f"orijinal_url: {str(e2)[:200]}")
+                            print(f"Instagram orijinal adres ({kayit['id']}):", str(e2)[:300], "→ doğrudan yükleme deneniyor")
+                    if not mid:
+                        try:
+                            mid, link = reels_yukle(kayit["kanal"], ig_kodla(yol), ig_aciklama(kayit), deneme_reels_mi(kayit))
+                            kayit.update(ig_yol="dogrudan")
+                        except Exception as e3:
+                            hatalar.append(f"dogrudan: {str(e3)[:200]}")
+                            raise RuntimeError(" | ".join(hatalar))
                     kayit.update(ig="paylasildi", ig_id=mid, ig_link=link, ig_deneme_reels=ig_ortak.SON_DENEME)
                     kaydet(kayit)
+                    ig_son_kaydet()
                     telegram(ig_paylasildi_mesaji(ad, kayit, link))
                 except _ZatenVar:
                     pass
                 except Exception as e:
                     print(f"Instagram hatası ({kayit['id']}):", str(e)[:400])
-                    if "Request processing failed" in str(e):
-                        ig_mola_baslat(3)   # kısıtlama: deneme hakkı yakmadan bütün hesaplar 3 saat bekler
-                    else:
-                        kayit["ig_deneme"] = kayit.get("ig_deneme", 0) + 1
-                        kayit["ig_son_deneme"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
-                        if kayit["ig_deneme"] >= 4:  # 2+4+8 saat aralıklı 4 deneme; sonra bırak (kota yememesi için)
-                            kayit["ig"] = "hata"
-                            telegram(f"⚠️ {ad}: Instagram paylaşımı 4 kez başarısız: {str(e)[:200]}")
+                    # 25 Kas 2026: genel mola kaldırıldı (hesaplar kısıtlı değildi, tanı yüklemeleri geçiyordu);
+                    # sadece bu videonun deneme sayısı artar, sıradaki video bir sonraki turda denenir.
+                    kayit["ig_deneme"] = kayit.get("ig_deneme", 0) + 1
+                    kayit["ig_son_deneme"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+                    if kayit["ig_deneme"] >= 5:
+                        kayit["ig"] = "hata"
+                        telegram(f"⚠️ {ad}: \"{kayit['baslik']}\" Instagram'a 5 denemede paylaşılamadı: {str(e)[:200]}")
                     kaydet(kayit)
             if fb_bekliyor(kayit):
                 try:
@@ -657,13 +704,15 @@ def kontrol():
                 continue
             # Instagram denemesi bekleme süresindeyse (saatte bir dener) arşivleme: yoksa paylaşılmadan kalır.
             # 16 Kasım 2026: Drama Bite "Gece Gelen Mesaj" bu yüzden Instagram'a gitmeden arşivlendi.
-            if (kayit.get("ig") not in ("paylasildi", "hata") and not kayit.get("uzun") and (kayit.get("ig_son_deneme") or ig_molada())
-                    and simdi < dt.datetime.fromisoformat(kayit["yayin"]) + dt.timedelta(hours=30)):
+            # 25 Kas 2026: Instagram'a gitmemiş video 72 saat boyunca beklenir (30 saatte arşivlenip kayboluyordu)
+            if (kayit.get("ig") not in ("paylasildi", "hata") and not kayit.get("uzun") and ig_hesap_var(kayit["kanal"])
+                    and simdi < dt.datetime.fromisoformat(kayit["yayin"]) + dt.timedelta(hours=72)):
                 continue
-            try:
-                gh("release", "delete-asset", "kuyruk", kayit["dosya"], "-y")
-            except subprocess.CalledProcessError:
-                pass
+            for _d in (kayit["dosya"], kayit["dosya"][:-4] + "_ig.mp4"):
+                try:
+                    gh("release", "delete-asset", "kuyruk", _d, "-y")
+                except subprocess.CalledProcessError:
+                    pass
             os.makedirs(os.path.join(KUYRUK, "arsiv"), exist_ok=True)
             os.replace(os.path.join(KUYRUK, f"{kayit['id']}.json"),
                        os.path.join(KUYRUK, "arsiv", f"{kayit['id']}.json"))

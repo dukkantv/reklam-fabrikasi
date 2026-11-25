@@ -9,9 +9,9 @@ import sys
 
 TR = dt.timezone(dt.timedelta(hours=3))
 AZAMI = 5 * 3600 + 30 * 60      # bir iş en fazla 6 saat sürebilir; 5,5 saatte bir zincir tazelenir
-YENIDEN = 10 * 60               # paylaşılmayı bekleyen geçmiş video varsa 10 dk sonra tekrar dene
+YENIDEN = 31 * 60               # paylaşılmayı bekleyen geçmiş video varsa ~30 dk sonra (Instagram paylaşımları 30 dk arayla, 25 Kas 2026)
 
-SOSYAL = {"dukkantv", "dramabite", "kasakurgu", "ilturnuva"}  # Instagram/Facebook paylaşımı olan kanallar
+SOSYAL = {"dukkantv", "dramabite", "kasakurgu", "ilturnuva", "gizlitarih"}  # Instagram/Facebook paylaşımı olan kanallar
 KOK = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -29,7 +29,7 @@ def bekleme():
         paylasilmadi = k.get("kanal") in SOSYAL and k.get("ig") not in ("paylasildi", "hata")
         if z > simdi:
             adaylar.append((z + dt.timedelta(minutes=2), k["id"], "yayın saati"))
-        elif paylasilmadi and simdi - z < dt.timedelta(hours=30):
+        elif paylasilmadi and simdi - z < dt.timedelta(hours=72):
             son = k.get("ig_son_deneme")
             sonraki = simdi + dt.timedelta(seconds=YENIDEN)
             try:  # Instagram yükleme molası varsa mola bitene kadar bekle
@@ -37,9 +37,9 @@ def bekleme():
                 sonraki = max(sonraki, bitis.astimezone(TR) + dt.timedelta(minutes=2))
             except Exception:
                 pass
-            if son:  # yt_kuyruk.ig_bekliyor ile aynı aralık: 2 / 4 / 8 saat
+            if son:  # yt_kuyruk.ig_bekliyor ile aynı aralık: 30 dk × deneme sayısı
                 sonraki = max(sonraki, dt.datetime.fromisoformat(son).astimezone(TR)
-                              + dt.timedelta(hours=2 ** min(k.get("ig_deneme", 1), 3), minutes=2))
+                              + dt.timedelta(minutes=30 * max(1, k.get("ig_deneme", 1)) + 2))
             adaylar.append((sonraki, k["id"], "Instagram yeniden deneme"))
     # Onay/yükleme kontrolleri için gündüz en az saatte bir çalış
     adaylar.append((simdi + dt.timedelta(hours=1) if 6 <= simdi.hour < 23 else simdi + dt.timedelta(seconds=AZAMI),

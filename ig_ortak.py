@@ -168,15 +168,14 @@ def reels_yukle(kanal, video_yolu, aciklama, deneme=False):
     return yay["id"], (p or {}).get("permalink", "")
 
 
-def reels_yukle_fb_kaynak(kanal, fb_video_id, aciklama, deneme=False):
-    """Yedek yol: Facebook'a yüklenmiş aynı videonun CDN adresini Instagram'a video_url olarak verir
-    (doğrudan yükleme 'ProcessingFailedError' ile reddedildiğinde)."""
+def reels_yukle_url(kanal, url, aciklama, deneme=False):
+    """Instagram videoyu verilen herkese açık adresten kendisi indirir (video_url).
+    25 Kas 2026: doğrudan yükleme (rupload) gerçek videolarda sürekli 'ProcessingFailedError' veriyordu;
+    aynı video GitHub sürüm adresinden video_url ile sorunsuz işlendi. Döndürür: (medya_id, kalıcı bağlantı)."""
     h = ig_hesap(kanal)
+    if not h:
+        raise RuntimeError(f"{kanal} için Instagram bağlı değil")
     tok, ig = h["token"], h["ig_id"]
-    _, _, v = istek(f"{API}/{fb_video_id}?fields=source&access_token={tok}")
-    url = (v or {}).get("source")
-    if not url:
-        raise RuntimeError(f"Facebook video adresi alınamadı: {v}")
     kod, kap = _kapsayici_ac(ig, {"media_type": "REELS", "video_url": url, "caption": aciklama[:2200],
                                   "share_to_feed": "true", "access_token": tok}, deneme)
     if kod != 200 or "id" not in kap:
@@ -194,6 +193,17 @@ def reels_yukle_fb_kaynak(kanal, fb_video_id, aciklama, deneme=False):
         raise RuntimeError(f"Instagram paylaşım başarısız ({kod}): {yay}")
     _, _, p = istek(f"{API}/{yay['id']}?fields=permalink&access_token={tok}")
     return yay["id"], (p or {}).get("permalink", "")
+
+
+def reels_yukle_fb_kaynak(kanal, fb_video_id, aciklama, deneme=False):
+    """Yedek yol: Facebook'a yüklenmiş aynı videonun CDN adresini Instagram'a video_url olarak verir."""
+    h = ig_hesap(kanal)
+    tok = h["token"]
+    _, _, v = istek(f"{API}/{fb_video_id}?fields=source&access_token={tok}")
+    url = (v or {}).get("source")
+    if not url:
+        raise RuntimeError(f"Facebook video adresi alınamadı: {v}")
+    return reels_yukle_url(kanal, url, aciklama, deneme)
 
 
 def fb_bekliyor_mu(kanal):
