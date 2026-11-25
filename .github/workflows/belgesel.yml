@@ -22,6 +22,9 @@ on:
       senaryo:
         description: "Hazır senaryo dosyası (ör. senaryolar/kanuni.json) — boşsa Gemini yazar"
         default: ""
+      yayin:
+        description: "Sabit yayın zamanı (boş = ilk boş akşam), ör. 2026-11-27T20:00:00+03:00"
+        default: ""
       ses:
         description: "Anlatım sesi: klon (Levent: ElevenLabs kredisi bitene kadar, sonra ücretsiz Chatterbox klonu) / ahmet"
         default: "ahmet"
@@ -69,6 +72,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           KANAL: ${{ inputs.kanal }}
           TUR: ${{ inputs.tur }}
+          SABIT_YAYIN: ${{ inputs.yayin }}
         run: |
           python3 - <<'PY'
           import json, os, subprocess

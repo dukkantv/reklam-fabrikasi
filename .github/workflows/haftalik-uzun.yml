@@ -3,9 +3,9 @@ name: Haftalık Uzun Video
 # Ücretsiz: haftanın kısa videoları (arsiv sürümündeki kopyalar) yatay uzun YouTube videosuna dönüştürülür.
 # 81 İl Turnuvası "Haftanın Tüm Maçları" + Drama Bite "Haftanın Hikâyeleri" + Kasa Kurgu "Katil Kim? Haftanın Vakaları". Uzun video izlenme saati (YPP) için.
 # Pazar 11:23 (TR) üretilir; yayın kuyruğu ilk boş akşam saatine koyar (onaysız yayın kanalları, Durdur butonu gelir).
+# 25 Kas 2026: zamanlama kapatıldı — kısa videoların yan yana derlemesi YouTube'un "tekrarlanan/seri üretim içerik"
+# kuralına takılma riski taşıyor. Uzun videolar artık Gizli Tarih'te özgün belgeseller (Salı + Cuma).
 on:
-  schedule:
-    - cron: "23 8 * * 0"
   workflow_dispatch:
     inputs:
       kanallar:

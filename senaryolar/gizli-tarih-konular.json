@@ -10,9 +10,10 @@
   },
   {
    "no": 2,
-   "durum": "bekliyor",
+   "durum": "sirada (27 Kasım Cuma 20:00)",
    "konu": "Kapadokya'nın yeraltı şehri Derinkuyu: Binlerce kişi yerin altında nasıl yaşadı?",
-   "kanca": "Bir adam evini tamir ederken duvarı yıktı ve arkasında bir şehir buldu."
+   "kanca": "Bir adam evini tamir ederken duvarı yıktı ve arkasında bir şehir buldu.",
+   "senaryo": "senaryolar/derinkuyu.json"
   },
   {
    "no": 3,
@@ -92,5 +93,6 @@
    "konu": "Kaşıkçı Elması: Topkapı'daki elmasın rivayetleri",
    "kanca": "Bir çöplükte bulunup üç kaşığa değişildiği anlatılır."
   }
- ]
+ ],
+ "duzen": "25 Kas 2026 (Levent onayı): Gizli Tarih'te haftada 2 uzun video — Salı ve Cuma 20:00. Kısa videolar uzun videoların fragmanı olur ve 'ilgili video' bağlantısıyla uzun videoya yönlendirir."
 }

@@ -5,7 +5,7 @@ name: Levent & Cemo Derleme
 on:
   schedule:
     - cron: "7 17 * * 6"
-    - cron: "17 6 1 * *"
+    # aylık uzun derleme kapatıldı (25 Kas 2026, tekrarlanan içerik riski)
   workflow_dispatch:
     inputs:
       tur:
