@@ -1,58 +1,28 @@
 {
- "zaman": "2026-11-24T20:59+03:00",
+ "zaman": "2026-11-25T23:00+03:00",
  "youtube": {
   "dramabite": {
-   "video_sayisi": 40,
+   "video_sayisi": 37,
    "videolar": [
     {
-     "id": "ZWh5v80DoXc",
-     "baslik": "Gece 02:15 Mesajı",
-     "yayin": "2026-11-24T17:00:32Z",
+     "id": "a-RqyLbnORI",
+     "baslik": "30 Yıllık Paslı Dolap",
+     "yayin": "2026-11-25T16:00:27Z",
      "durum": "public",
      "planli": null,
-     "sure": "PT1M9S",
+     "sure": "PT1M7S",
      "izlenme": 0,
-     "metin": "gece 02 15 mesajı|PT1M9S"
+     "metin": "30 yıllık paslı dolap|PT1M7S"
     },
     {
-     "id": "-xTs90agxVQ",
-     "baslik": "Gece 02:15 Mesajı",
-     "yayin": "2026-11-24T17:00:31Z",
+     "id": "7-MbILqiqjQ",
+     "baslik": "Gece 03:14 Araması",
+     "yayin": "2026-11-25T12:00:24Z",
      "durum": "public",
      "planli": null,
-     "sure": "PT1M9S",
-     "izlenme": 0,
-     "metin": "gece 02 15 mesajı|PT1M9S"
-    },
-    {
-     "id": "iViZ0t9Wwhg",
-     "baslik": "Gece 02:15 Mesajı",
-     "yayin": "2026-11-24T17:00:31Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT1M9S",
-     "izlenme": 0,
-     "metin": "gece 02 15 mesajı|PT1M9S"
-    },
-    {
-     "id": "jXLt5a8cLX0",
-     "baslik": "Gece 02:15 Mesajı",
-     "yayin": "2026-11-24T17:00:29Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT1M9S",
-     "izlenme": 0,
-     "metin": "gece 02 15 mesajı|PT1M9S"
-    },
-    {
-     "id": "vGydSsu90Zg",
-     "baslik": "Gece 02:15 Mesajı",
-     "yayin": "2026-11-24T17:00:14Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT1M9S",
-     "izlenme": 0,
-     "metin": "gece 02 15 mesajı|PT1M9S"
+     "sure": "PT1M18S",
+     "izlenme": 5,
+     "metin": "gece 03 14 araması|PT1M18S"
     },
     {
      "id": "eGrEur0dUUU",
@@ -61,7 +31,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT1M9S",
-     "izlenme": 0,
+     "izlenme": 58,
      "metin": "gece 02 15 mesajı|PT1M9S"
     },
     {
@@ -71,7 +41,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT1M10S",
-     "izlenme": 87,
+     "izlenme": 111,
      "metin": "yanlış peron|PT1M10S"
     },
     {
@@ -81,7 +51,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT1M13S",
-     "izlenme": 119,
+     "izlenme": 121,
      "metin": "kardeşimin kasadan para çaldığını sanmıştım|PT1M13S"
     },
     {
@@ -121,7 +91,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT1M5S",
-     "izlenme": 396,
+     "izlenme": 397,
      "metin": "tarçın kokulu ceket|PT1M5S"
     },
     {
@@ -131,7 +101,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT31S",
-     "izlenme": 892,
+     "izlenme": 893,
      "metin": "gta 6 günü herkes izinli ama türkçe yok|PT31S"
     },
     {
@@ -351,7 +321,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT1M26S",
-     "izlenme": 1402,
+     "izlenme": 1403,
      "metin": "babamın kilitli kutusu|PT1M26S"
     },
     {
@@ -405,103 +375,30 @@
      "metin": "on saniyelik gecikme|PT1M6S"
     }
    ],
-   "tekrar": [
-    [
-     {
-      "id": "ZWh5v80DoXc",
-      "baslik": "Gece 02:15 Mesajı",
-      "yayin": "2026-11-24T17:00:32Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT1M9S",
-      "izlenme": 0,
-      "metin": "gece 02 15 mesajı|PT1M9S"
-     },
-     {
-      "id": "-xTs90agxVQ",
-      "baslik": "Gece 02:15 Mesajı",
-      "yayin": "2026-11-24T17:00:31Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT1M9S",
-      "izlenme": 0,
-      "metin": "gece 02 15 mesajı|PT1M9S"
-     },
-     {
-      "id": "iViZ0t9Wwhg",
-      "baslik": "Gece 02:15 Mesajı",
-      "yayin": "2026-11-24T17:00:31Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT1M9S",
-      "izlenme": 0,
-      "metin": "gece 02 15 mesajı|PT1M9S"
-     },
-     {
-      "id": "jXLt5a8cLX0",
-      "baslik": "Gece 02:15 Mesajı",
-      "yayin": "2026-11-24T17:00:29Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT1M9S",
-      "izlenme": 0,
-      "metin": "gece 02 15 mesajı|PT1M9S"
-     },
-     {
-      "id": "vGydSsu90Zg",
-      "baslik": "Gece 02:15 Mesajı",
-      "yayin": "2026-11-24T17:00:14Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT1M9S",
-      "izlenme": 0,
-      "metin": "gece 02 15 mesajı|PT1M9S"
-     },
-     {
-      "id": "eGrEur0dUUU",
-      "baslik": "Gece 02:15 Mesajı",
-      "yayin": "2026-11-24T17:00:06Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT1M9S",
-      "izlenme": 0,
-      "metin": "gece 02 15 mesajı|PT1M9S"
-     }
-    ]
-   ]
+   "tekrar": []
   },
   "dukkantv": {
-   "video_sayisi": 35,
+   "video_sayisi": 28,
    "videolar": [
     {
-     "id": "HX82d8his-w",
-     "baslik": "Poşet Pazarlığı 😂 | Levent & Cemo #shorts",
-     "yayin": "2026-11-24T15:00:34Z",
+     "id": "DYXL2TtmG_g",
+     "baslik": "Bursa Dedektifleri: Kaybolan Simitler 🔍 | Levent & Cemo #shorts",
+     "yayin": "2026-11-25T15:00:11Z",
      "durum": "public",
      "planli": null,
-     "sure": "PT22S",
+     "sure": "PT36S",
      "izlenme": 0,
-     "metin": "poşet pazarlığı levent cemo|PT22S"
+     "metin": "bursa dedektifleri kaybolan simitler levent cemo|PT36S"
     },
     {
-     "id": "b99xZ9Kp6-E",
-     "baslik": "Poşet Pazarlığı 😂 | Levent & Cemo #shorts",
-     "yayin": "2026-11-24T15:00:28Z",
+     "id": "dTbYh6XtOF4",
+     "baslik": "Çarşı Ligi Yarın Başlıyor! İlk Maç: Ödül Maçı 🔴🔵 #shorts",
+     "yayin": "2026-11-25T10:00:04Z",
      "durum": "public",
      "planli": null,
-     "sure": "PT22S",
-     "izlenme": 0,
-     "metin": "poşet pazarlığı levent cemo|PT22S"
-    },
-    {
-     "id": "N7NK-fSduaY",
-     "baslik": "Poşet Pazarlığı 😂 | Levent & Cemo #shorts",
-     "yayin": "2026-11-24T15:00:26Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT22S",
-     "izlenme": 0,
-     "metin": "poşet pazarlığı levent cemo|PT22S"
+     "sure": "PT25S",
+     "izlenme": 25,
+     "metin": "çarşı ligi yarın başlıyor ilk maç ödül maçı|PT25S"
     },
     {
      "id": "1rUUI3Rk5xs",
@@ -510,17 +407,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT22S",
-     "izlenme": 0,
-     "metin": "poşet pazarlığı levent cemo|PT22S"
-    },
-    {
-     "id": "ytEN8ZIT6XU",
-     "baslik": "Poşet Pazarlığı 😂 | Levent & Cemo #shorts",
-     "yayin": "2026-11-24T15:00:01Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT22S",
-     "izlenme": 0,
+     "izlenme": 4,
      "metin": "poşet pazarlığı levent cemo|PT22S"
     },
     {
@@ -530,18 +417,8 @@
      "durum": "public",
      "planli": null,
      "sure": "PT57S",
-     "izlenme": 23,
+     "izlenme": 68,
      "metin": "mavi tente takımıyla tanışın çarşı ligi|PT57S"
-    },
-    {
-     "id": "GFRhpx39qz8",
-     "baslik": "Mahallede Aslan Paniği: Valilik Ne Dedi? #shorts",
-     "yayin": "2026-11-24T08:00:30Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT47S",
-     "izlenme": 0,
-     "metin": "mahallede aslan paniği valilik ne dedi|PT47S"
     },
     {
      "id": "VH-zSJu2wpM",
@@ -550,37 +427,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT47S",
-     "izlenme": 196,
-     "metin": "mahallede aslan paniği valilik ne dedi|PT47S"
-    },
-    {
-     "id": "CTrBL_5hJgA",
-     "baslik": "Mahallede Aslan Paniği: Valilik Ne Dedi? #shorts",
-     "yayin": "2026-11-24T08:00:22Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT47S",
-     "izlenme": 97,
-     "metin": "mahallede aslan paniği valilik ne dedi|PT47S"
-    },
-    {
-     "id": "w7THD16QyMc",
-     "baslik": "Mahallede Aslan Paniği: Valilik Ne Dedi? #shorts",
-     "yayin": "2026-11-24T08:00:12Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT47S",
-     "izlenme": 0,
-     "metin": "mahallede aslan paniği valilik ne dedi|PT47S"
-    },
-    {
-     "id": "LgAU2lD6b_o",
-     "baslik": "Mahallede Aslan Paniği: Valilik Ne Dedi? #shorts",
-     "yayin": "2026-11-24T08:00:04Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT47S",
-     "izlenme": 132,
+     "izlenme": 646,
      "metin": "mahallede aslan paniği valilik ne dedi|PT47S"
     },
     {
@@ -590,7 +437,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT22S",
-     "izlenme": 15,
+     "izlenme": 20,
      "metin": "deniz manzaralı daire levent cemo|PT22S"
     },
     {
@@ -610,7 +457,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT31S",
-     "izlenme": 3,
+     "izlenme": 4,
      "metin": "levent ile cemo kaplandan kaçış|PT31S"
     },
     {
@@ -620,7 +467,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT30S",
-     "izlenme": 1,
+     "izlenme": 4,
      "metin": "levent ile cemo kung fu okulunda|PT30S"
     },
     {
@@ -630,7 +477,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT2M2S",
-     "izlenme": 2,
+     "izlenme": 4,
      "metin": "haftanın en komik skeçleri levent cemo|PT2M2S"
     },
     {
@@ -650,7 +497,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT22S",
-     "izlenme": 3328,
+     "izlenme": 3487,
      "metin": "cemo diyette levent cemo|PT22S"
     },
     {
@@ -670,7 +517,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT24S",
-     "izlenme": 7,
+     "izlenme": 8,
      "metin": "arabadaki garip ses levent cemo|PT24S"
     },
     {
@@ -680,7 +527,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT25S",
-     "izlenme": 13,
+     "izlenme": 14,
      "metin": "veli toplantısı levent cemo|PT25S"
     },
     {
@@ -690,7 +537,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT31S",
-     "izlenme": 1021,
+     "izlenme": 1024,
      "metin": "gta 6 çıktı esnaf kepenk indirdi asıl olay bu değil|PT31S"
     },
     {
@@ -700,7 +547,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT22S",
-     "izlenme": 12,
+     "izlenme": 13,
      "metin": "karpuz uzmanı cemo levent cemo|PT22S"
     },
     {
@@ -712,16 +559,6 @@
      "sure": "PT22S",
      "izlenme": 11,
      "metin": "levent dişçide levent cemo|PT22S"
-    },
-    {
-     "id": "dTbYh6XtOF4",
-     "baslik": "Çarşı Ligi Yarın Başlıyor! İlk Maç: Ödül Maçı 🔴🔵 #shorts",
-     "yayin": "2026-11-17T14:28:33Z",
-     "durum": "private",
-     "planli": "2026-11-25T10:00:00Z",
-     "sure": "PT25S",
-     "izlenme": 0,
-     "metin": "çarşı ligi yarın başlıyor ilk maç ödül maçı|PT25S"
     },
     {
      "id": "TI6rW_Oz2vg",
@@ -824,195 +661,60 @@
      "metin": "külah bitti kuyruk kapıya kadar erkan abi yetişir bursa yıldırım|PT24S"
     }
    ],
-   "tekrar": [
-    [
-     {
-      "id": "HX82d8his-w",
-      "baslik": "Poşet Pazarlığı 😂 | Levent & Cemo #shorts",
-      "yayin": "2026-11-24T15:00:34Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT22S",
-      "izlenme": 0,
-      "metin": "poşet pazarlığı levent cemo|PT22S"
-     },
-     {
-      "id": "b99xZ9Kp6-E",
-      "baslik": "Poşet Pazarlığı 😂 | Levent & Cemo #shorts",
-      "yayin": "2026-11-24T15:00:28Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT22S",
-      "izlenme": 0,
-      "metin": "poşet pazarlığı levent cemo|PT22S"
-     },
-     {
-      "id": "N7NK-fSduaY",
-      "baslik": "Poşet Pazarlığı 😂 | Levent & Cemo #shorts",
-      "yayin": "2026-11-24T15:00:26Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT22S",
-      "izlenme": 0,
-      "metin": "poşet pazarlığı levent cemo|PT22S"
-     },
-     {
-      "id": "1rUUI3Rk5xs",
-      "baslik": "Poşet Pazarlığı 😂 | Levent & Cemo #shorts",
-      "yayin": "2026-11-24T15:00:12Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT22S",
-      "izlenme": 0,
-      "metin": "poşet pazarlığı levent cemo|PT22S"
-     },
-     {
-      "id": "ytEN8ZIT6XU",
-      "baslik": "Poşet Pazarlığı 😂 | Levent & Cemo #shorts",
-      "yayin": "2026-11-24T15:00:01Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT22S",
-      "izlenme": 0,
-      "metin": "poşet pazarlığı levent cemo|PT22S"
-     }
-    ],
-    [
-     {
-      "id": "GFRhpx39qz8",
-      "baslik": "Mahallede Aslan Paniği: Valilik Ne Dedi? #shorts",
-      "yayin": "2026-11-24T08:00:30Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT47S",
-      "izlenme": 0,
-      "metin": "mahallede aslan paniği valilik ne dedi|PT47S"
-     },
-     {
-      "id": "VH-zSJu2wpM",
-      "baslik": "Mahallede Aslan Paniği: Valilik Ne Dedi? #shorts",
-      "yayin": "2026-11-24T08:00:24Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT47S",
-      "izlenme": 196,
-      "metin": "mahallede aslan paniği valilik ne dedi|PT47S"
-     },
-     {
-      "id": "CTrBL_5hJgA",
-      "baslik": "Mahallede Aslan Paniği: Valilik Ne Dedi? #shorts",
-      "yayin": "2026-11-24T08:00:22Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT47S",
-      "izlenme": 97,
-      "metin": "mahallede aslan paniği valilik ne dedi|PT47S"
-     },
-     {
-      "id": "w7THD16QyMc",
-      "baslik": "Mahallede Aslan Paniği: Valilik Ne Dedi? #shorts",
-      "yayin": "2026-11-24T08:00:12Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT47S",
-      "izlenme": 0,
-      "metin": "mahallede aslan paniği valilik ne dedi|PT47S"
-     },
-     {
-      "id": "LgAU2lD6b_o",
-      "baslik": "Mahallede Aslan Paniği: Valilik Ne Dedi? #shorts",
-      "yayin": "2026-11-24T08:00:04Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT47S",
-      "izlenme": 132,
-      "metin": "mahallede aslan paniği valilik ne dedi|PT47S"
-     }
-    ]
-   ]
+   "tekrar": []
   },
   "gizlitarih": {
-   "video_sayisi": 21,
+   "video_sayisi": 15,
    "videolar": [
     {
-     "id": "gWwIZvf4v1I",
-     "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-     "yayin": "2026-11-24T17:00:37Z",
+     "id": "VyIokTIijk0",
+     "baslik": "Denizin En İnanılmaz 5 Canlısı 🌊 #shorts",
+     "yayin": "2026-11-25T17:00:23Z",
      "durum": "public",
      "planli": null,
-     "sure": "PT51S",
-     "izlenme": 1,
-     "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-    },
-    {
-     "id": "44AhYb7EU-4",
-     "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-     "yayin": "2026-11-24T17:00:24Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT51S",
-     "izlenme": 1,
-     "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-    },
-    {
-     "id": "k0ydgzCSjTY",
-     "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-     "yayin": "2026-11-24T17:00:22Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT51S",
+     "sure": "PT49S",
      "izlenme": 0,
-     "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
+     "metin": "denizin en inanılmaz 5 canlısı|PT49S"
     },
     {
-     "id": "oj7KYJHEys8",
-     "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-     "yayin": "2026-11-24T17:00:18Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT51S",
+     "id": "09T9ff2VMcU",
+     "baslik": "Herkes Bir Gün Sadece Doğruyu Söylese Ne Olur? 🤥 #shorts",
+     "yayin": "2026-11-25T11:02:57Z",
+     "durum": "private",
+     "planli": "2026-11-26T17:00:00Z",
+     "sure": "PT40S",
      "izlenme": 0,
-     "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
+     "metin": "herkes bir gün sadece doğruyu söylese ne olur|PT40S"
     },
     {
-     "id": "aCKZlyBoeOY",
-     "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-     "yayin": "2026-11-24T17:00:15Z",
+     "id": "E_JA0_Af9wY",
+     "baslik": "İstanbul'da Aslan Alarmı: Görüntüdeki Neydi? #shorts",
+     "yayin": "2026-11-25T09:30:38Z",
      "durum": "public",
      "planli": null,
-     "sure": "PT51S",
+     "sure": "PT47S",
+     "izlenme": 117,
+     "metin": "istanbul da aslan alarmı görüntüdeki neydi|PT47S"
+    },
+    {
+     "id": "TjaQ9jbLkLU",
+     "baslik": "Telefonla İlgili Doğru Bilinen 5 Yanlış 📱 #shorts",
+     "yayin": "2026-11-25T09:30:09Z",
+     "durum": "public",
+     "planli": null,
+     "sure": "PT59S",
+     "izlenme": 108,
+     "metin": "telefonla ilgili doğru bilinen 5 yanlış|PT59S"
+    },
+    {
+     "id": "bQKCfShfeTE",
+     "baslik": "Doğru Bildiğin 5 Yanlış 🤯 #shorts",
+     "yayin": "2026-11-25T04:02:26Z",
+     "durum": "private",
+     "planli": "2026-11-26T09:30:00Z",
+     "sure": "PT56S",
      "izlenme": 0,
-     "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-    },
-    {
-     "id": "xUwtDAxrLPw",
-     "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-     "yayin": "2026-11-24T17:00:11Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT51S",
-     "izlenme": 1,
-     "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-    },
-    {
-     "id": "8i4i-0DdfzY",
-     "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-     "yayin": "2026-11-24T17:00:07Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT51S",
-     "izlenme": 0,
-     "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-    },
-    {
-     "id": "7V-zkY59G14",
-     "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-     "yayin": "2026-11-24T17:00:05Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT51S",
-     "izlenme": 0,
-     "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
+     "metin": "doğru bildiğin 5 yanlış|PT56S"
     },
     {
      "id": "dFV-GBhgTAw",
@@ -1021,38 +723,8 @@
      "durum": "public",
      "planli": null,
      "sure": "PT51S",
-     "izlenme": 1,
+     "izlenme": 94,
      "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-    },
-    {
-     "id": "XNL5kihw_lk",
-     "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-     "yayin": "2026-11-24T17:00:01Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT51S",
-     "izlenme": 0,
-     "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-    },
-    {
-     "id": "TjaQ9jbLkLU",
-     "baslik": "Telefonla İlgili Doğru Bilinen 5 Yanlış 📱 #shorts",
-     "yayin": "2026-11-24T16:02:40Z",
-     "durum": "private",
-     "planli": "2026-11-25T09:30:00Z",
-     "sure": "PT59S",
-     "izlenme": 0,
-     "metin": "telefonla ilgili doğru bilinen 5 yanlış|PT59S"
-    },
-    {
-     "id": "E_JA0_Af9wY",
-     "baslik": "İstanbul'da Aslan Alarmı: Görüntüdeki Neydi? #shorts",
-     "yayin": "2026-11-24T16:02:35Z",
-     "durum": "private",
-     "planli": "2026-11-25T09:30:00Z",
-     "sure": "PT47S",
-     "izlenme": 0,
-     "metin": "istanbul da aslan alarmı görüntüdeki neydi|PT47S"
     },
     {
      "id": "_NrmswsbF0Y",
@@ -1061,7 +733,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT55S",
-     "izlenme": 39,
+     "izlenme": 191,
      "metin": "dünyadaki bütün arılar yok olursa ne olur|PT55S"
     },
     {
@@ -1071,7 +743,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT51S",
-     "izlenme": 590,
+     "izlenme": 604,
      "metin": "güneş bir anda sönerse ne olur|PT51S"
     },
     {
@@ -1081,7 +753,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT53S",
-     "izlenme": 198,
+     "izlenme": 197,
      "metin": "dünyada internet tamamen çökerse ne olur|PT53S"
     },
     {
@@ -1091,7 +763,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT6M12S",
-     "izlenme": 0,
+     "izlenme": 1,
      "metin": "mısır piramitleri nasıl yapıldı 4500 yıllık işçi günlüğü sırrı çözdü|PT6M12S"
     },
     {
@@ -1145,114 +817,31 @@
      "metin": "kanuni nin ölümü 48 gün neden saklandı zigetvar ın sırrı|PT8M32S"
     }
    ],
-   "tekrar": [
-    [
-     {
-      "id": "gWwIZvf4v1I",
-      "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-      "yayin": "2026-11-24T17:00:37Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT51S",
-      "izlenme": 1,
-      "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-     },
-     {
-      "id": "44AhYb7EU-4",
-      "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-      "yayin": "2026-11-24T17:00:24Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT51S",
-      "izlenme": 1,
-      "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-     },
-     {
-      "id": "k0ydgzCSjTY",
-      "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-      "yayin": "2026-11-24T17:00:22Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT51S",
-      "izlenme": 0,
-      "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-     },
-     {
-      "id": "oj7KYJHEys8",
-      "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-      "yayin": "2026-11-24T17:00:18Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT51S",
-      "izlenme": 0,
-      "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-     },
-     {
-      "id": "aCKZlyBoeOY",
-      "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-      "yayin": "2026-11-24T17:00:15Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT51S",
-      "izlenme": 0,
-      "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-     },
-     {
-      "id": "xUwtDAxrLPw",
-      "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-      "yayin": "2026-11-24T17:00:11Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT51S",
-      "izlenme": 1,
-      "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-     },
-     {
-      "id": "8i4i-0DdfzY",
-      "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-      "yayin": "2026-11-24T17:00:07Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT51S",
-      "izlenme": 0,
-      "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-     },
-     {
-      "id": "7V-zkY59G14",
-      "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-      "yayin": "2026-11-24T17:00:05Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT51S",
-      "izlenme": 0,
-      "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-     },
-     {
-      "id": "dFV-GBhgTAw",
-      "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-      "yayin": "2026-11-24T17:00:03Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT51S",
-      "izlenme": 1,
-      "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-     },
-     {
-      "id": "XNL5kihw_lk",
-      "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-      "yayin": "2026-11-24T17:00:01Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT51S",
-      "izlenme": 0,
-      "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur|PT51S"
-     }
-    ]
-   ]
+   "tekrar": []
   },
   "ilturnuva": {
-   "video_sayisi": 11,
+   "video_sayisi": 13,
    "videolar": [
+    {
+     "id": "db328mpGg2g",
+     "baslik": "Konya, Kastamonu, Amasya… Hangisi Tur Atlar? 🏆 81 İl 2. Tur 2. Grup #shorts",
+     "yayin": "2026-11-25T13:00:18Z",
+     "durum": "public",
+     "planli": null,
+     "sure": "PT22S",
+     "izlenme": 629,
+     "metin": "konya kastamonu amasya hangisi tur atlar 81 il 2 tur 2 grup|PT22S"
+    },
+    {
+     "id": "VRM8gPOlVWA",
+     "baslik": "Denizli, Kütahya, Gümüşhane… Hangisi Tur Atlar? 🏆 81 İl 2. Tur 3. Grup #shorts",
+     "yayin": "2026-11-25T05:45:10Z",
+     "durum": "private",
+     "planli": "2026-11-26T13:00:00Z",
+     "sure": "PT17S",
+     "izlenme": 0,
+     "metin": "denizli kütahya gümüşhane hangisi tur atlar 81 il 2 tur 3 grup|PT17S"
+    },
     {
      "id": "QdSauH3Zk_s",
      "baslik": "81 İl Turnuvası · 2. Tur · 1. Grup 🏆 Senin şehrin tur atlar mı? #shorts",
@@ -1260,7 +849,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT28S",
-     "izlenme": 116,
+     "izlenme": 308,
      "metin": "81 il turnuvası 2 tur 1 grup senin şehrin tur atlar mı|PT28S"
     },
     {
@@ -1270,7 +859,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT31S",
-     "izlenme": 898,
+     "izlenme": 1003,
      "metin": "81 il turnuvası 1 tur i grubu senin şehrin tur atlar mı|PT31S"
     },
     {
@@ -1280,7 +869,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT32S",
-     "izlenme": 332,
+     "izlenme": 341,
      "metin": "81 il turnuvası 1 tur h grubu senin şehrin tur atlar mı|PT32S"
     },
     {
@@ -1290,7 +879,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT33S",
-     "izlenme": 294,
+     "izlenme": 303,
      "metin": "81 il turnuvası 1 tur g grubu senin şehrin tur atlar mı|PT33S"
     },
     {
@@ -1300,7 +889,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT24S",
-     "izlenme": 1093,
+     "izlenme": 1101,
      "metin": "81 il turnuvası 1 tur f grubu senin şehrin tur atlar mı|PT24S"
     },
     {
@@ -1310,7 +899,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT34S",
-     "izlenme": 111,
+     "izlenme": 119,
      "metin": "81 il turnuvası 1 tur e grubu senin şehrin tur atlar mı|PT34S"
     },
     {
@@ -1320,7 +909,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT31S",
-     "izlenme": 107,
+     "izlenme": 116,
      "metin": "gta 6 çıktı şehirde kimse işe gitmedi|PT31S"
     },
     {
@@ -1330,7 +919,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT31S",
-     "izlenme": 236,
+     "izlenme": 246,
      "metin": "81 il turnuvası 1 tur d grubu senin şehrin tur atlar mı|PT31S"
     },
     {
@@ -1340,7 +929,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT16S",
-     "izlenme": 1090,
+     "izlenme": 1100,
      "metin": "81 il turnuvası 1 tur c grubu senin şehrin tur atlar mı|PT16S"
     },
     {
@@ -1350,7 +939,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT37S",
-     "izlenme": 57,
+     "izlenme": 66,
      "metin": "81 il turnuvası 1 tur b grubu senin şehrin tur atlar mı|PT37S"
     },
     {
@@ -1360,15 +949,45 @@
      "durum": "public",
      "planli": null,
      "sure": "PT37S",
-     "izlenme": 210,
+     "izlenme": 218,
      "metin": "81 il turnuvası 1 tur a grubu senin şehrin tur atlar mı|PT37S"
     }
    ],
    "tekrar": []
   },
   "kasakurgu": {
-   "video_sayisi": 51,
+   "video_sayisi": 45,
    "videolar": [
+    {
+     "id": "aeioD-17dBk",
+     "baslik": "Çamurlu Lastik: Katil Kim? Sadece %1 Çözer! 🕵️ #shorts",
+     "yayin": "2026-11-25T17:30:11Z",
+     "durum": "public",
+     "planli": null,
+     "sure": "PT44S",
+     "izlenme": 0,
+     "metin": "çamurlu lastik katil kim sadece 1 çözer|PT44S"
+    },
+    {
+     "id": "1jPf-_6jDRY",
+     "baslik": "Bozuk Kamera: Katil Kim? Sadece %1 Çözer! 🕵️ #shorts",
+     "yayin": "2026-11-25T14:30:37Z",
+     "durum": "public",
+     "planli": null,
+     "sure": "PT45S",
+     "izlenme": 0,
+     "metin": "bozuk kamera katil kim sadece 1 çözer|PT45S"
+    },
+    {
+     "id": "88-jYiewbjk",
+     "baslik": "Katil Kim? 🕵️ Dosya #21: Sahte Alibi | Yorumlara A, B veya C yaz!",
+     "yayin": "2026-11-25T11:00:01Z",
+     "durum": "public",
+     "planli": null,
+     "sure": "PT41S",
+     "izlenme": 1,
+     "metin": "katil kim dosya sahte alibi yorumlara a b veya c yaz|PT41S"
+    },
     {
      "id": "ngUpBkDXcXE",
      "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
@@ -1376,97 +995,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT42S",
-     "izlenme": 0,
-     "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-    },
-    {
-     "id": "88-jYiewbjk",
-     "baslik": "Katil Kim? 🕵️ Dosya #21: Sahte Alibi | Yorumlara A, B veya C yaz!",
-     "yayin": "2026-11-24T16:56:39Z",
-     "durum": "private",
-     "planli": "2026-11-25T11:00:00Z",
-     "sure": "PT41S",
-     "izlenme": 0,
-     "metin": "katil kim dosya sahte alibi yorumlara a b veya c yaz|PT41S"
-    },
-    {
-     "id": "TaOlzv-tCCY",
-     "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-     "yayin": "2026-11-24T14:30:33Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT42S",
-     "izlenme": 0,
-     "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-    },
-    {
-     "id": "WR85SV9pOE0",
-     "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-     "yayin": "2026-11-24T14:30:29Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT42S",
-     "izlenme": 0,
-     "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-    },
-    {
-     "id": "zA6QTFumGq0",
-     "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-     "yayin": "2026-11-24T14:30:26Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT42S",
-     "izlenme": 0,
-     "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-    },
-    {
-     "id": "41I4Z3D_qmk",
-     "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-     "yayin": "2026-11-24T14:30:23Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT42S",
-     "izlenme": 0,
-     "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-    },
-    {
-     "id": "8gfafLohPaU",
-     "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-     "yayin": "2026-11-24T14:30:13Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT42S",
-     "izlenme": 0,
-     "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-    },
-    {
-     "id": "Vq3LDJBAsV0",
-     "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-     "yayin": "2026-11-24T14:30:09Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT42S",
-     "izlenme": 0,
-     "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-    },
-    {
-     "id": "CF1U5J_NVaE",
-     "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-     "yayin": "2026-11-24T14:30:06Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT42S",
-     "izlenme": 0,
-     "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-    },
-    {
-     "id": "uI1DpOu4eTE",
-     "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-     "yayin": "2026-11-24T14:30:04Z",
-     "durum": "public",
-     "planli": null,
-     "sure": "PT42S",
-     "izlenme": 0,
+     "izlenme": 349,
      "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
     },
     {
@@ -1476,7 +1005,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT44S",
-     "izlenme": 0,
+     "izlenme": 1,
      "metin": "katil kim dosya açık kapı yorumlara a b veya c yaz|PT44S"
     },
     {
@@ -1486,7 +1015,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT39S",
-     "izlenme": 0,
+     "izlenme": 132,
      "metin": "katil kim dosya uzun boylu hırsız yorumlara a b veya c yaz|PT39S"
     },
     {
@@ -1496,7 +1025,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT39S",
-     "izlenme": 0,
+     "izlenme": 2,
      "metin": "katil kim dosya üç ifade yorumlara a b veya c yaz|PT39S"
     },
     {
@@ -1556,7 +1085,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT45S",
-     "izlenme": 1,
+     "izlenme": 2,
      "metin": "katil kim dosya tek anahtar yorumlara a b veya c yaz|PT45S"
     },
     {
@@ -1576,7 +1105,7 @@
      "durum": "public",
      "planli": null,
      "sure": "PT43S",
-     "izlenme": 1,
+     "izlenme": 2,
      "metin": "katil kim dosya ruj izi yorumlara a b veya c yaz|PT43S"
     },
     {
@@ -1880,106 +1409,34 @@
      "metin": "kurgusal hikayedir|PT2M6S"
     }
    ],
-   "tekrar": [
-    [
-     {
-      "id": "ngUpBkDXcXE",
-      "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-      "yayin": "2026-11-24T17:30:15Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT42S",
-      "izlenme": 0,
-      "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-     },
-     {
-      "id": "TaOlzv-tCCY",
-      "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-      "yayin": "2026-11-24T14:30:33Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT42S",
-      "izlenme": 0,
-      "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-     },
-     {
-      "id": "WR85SV9pOE0",
-      "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-      "yayin": "2026-11-24T14:30:29Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT42S",
-      "izlenme": 0,
-      "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-     },
-     {
-      "id": "zA6QTFumGq0",
-      "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-      "yayin": "2026-11-24T14:30:26Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT42S",
-      "izlenme": 0,
-      "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-     },
-     {
-      "id": "41I4Z3D_qmk",
-      "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-      "yayin": "2026-11-24T14:30:23Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT42S",
-      "izlenme": 0,
-      "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-     },
-     {
-      "id": "8gfafLohPaU",
-      "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-      "yayin": "2026-11-24T14:30:13Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT42S",
-      "izlenme": 0,
-      "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-     },
-     {
-      "id": "Vq3LDJBAsV0",
-      "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-      "yayin": "2026-11-24T14:30:09Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT42S",
-      "izlenme": 0,
-      "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-     },
-     {
-      "id": "CF1U5J_NVaE",
-      "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-      "yayin": "2026-11-24T14:30:06Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT42S",
-      "izlenme": 0,
-      "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-     },
-     {
-      "id": "uI1DpOu4eTE",
-      "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
-      "yayin": "2026-11-24T14:30:04Z",
-      "durum": "public",
-      "planli": null,
-      "sure": "PT42S",
-      "izlenme": 0,
-      "metin": "katil kim dosya kırmızı bere yorumlara a b veya c yaz|PT42S"
-     }
-    ]
-   ]
+   "tekrar": []
   }
  },
  "instagram": {
   "dukkantv": {
-   "gonderi_sayisi": 16,
+   "gonderi_sayisi": 19,
    "gonderiler": [
+    {
+     "id": "18112641995260903",
+     "zaman": "2026-11-25T17:34:27+0000",
+     "link": "https://www.instagram.com/reel/DgLE4R8hb2u/",
+     "baslik": "Mavi Tente Takımıyla Tanışın! 🔵 Çarşı Ligi\n\n📩 Bunu yaşayan arkadaşına gönder 😂\n\n#çarşıligi",
+     "metin": "mavi tente takımıyla tanışın çarşı ligi bunu yaşayan arkadaşına gönder"
+    },
+    {
+     "id": "17894763672458370",
+     "zaman": "2026-11-25T11:53:00+0000",
+     "link": "https://www.instagram.com/reel/DgKd2xDSVXD/",
+     "baslik": "Çarşı Ligi Yarın Başlıyor! İlk Maç: Ödül Maçı 🔴🔵\n\n📩 Bunu yaşayan arkadaşına gönder 😂\n\n#çar",
+     "metin": "çarşı ligi yarın başlıyor ilk maç ödül maçı bunu yaşayan arkadaşına gönder"
+    },
+    {
+     "id": "17922682659308608",
+     "zaman": "2026-11-24T19:59:53+0000",
+     "link": "https://www.instagram.com/reel/DgIwyB4geNV/",
+     "baslik": "Mahallede Aslan Paniği: Valilik Ne Dedi?\n\n📩 Bunu yaşayan arkadaşına gönder 😂\n\n#aslan #Sarı",
+     "metin": "mahallede aslan paniği valilik ne dedi bunu yaşayan arkadaşına gönder"
+    },
     {
      "id": "18078254525760299",
      "zaman": "2026-11-23T17:49:46+0000",
@@ -2096,8 +1553,15 @@
    "tekrar": []
   },
   "dramabite": {
-   "gonderi_sayisi": 21,
+   "gonderi_sayisi": 22,
    "gonderiler": [
+    {
+     "id": "17946690840388945",
+     "zaman": "2026-11-25T18:07:51+0000",
+     "link": "https://www.instagram.com/reel/DgLIuQ1xI5p/",
+     "baslik": "Kardeşimin Kasadan Para Çaldığını Sanmıştım\n\n📩 Bu hikâyeyi okuması gereken birine gönder.\n",
+     "metin": "kardeşimin kasadan para çaldığını sanmıştım bu hikâyeyi okuması gereken birine gönder"
+    },
     {
      "id": "18647453623053189",
      "zaman": "2026-11-19T08:06:35+0000",
@@ -2266,21 +1730,28 @@
    ]
   },
   "kasakurgu": {
-   "gonderi_sayisi": 38,
+   "gonderi_sayisi": 39,
    "gonderiler": [
+    {
+     "id": "18084853982375925",
+     "zaman": "2026-11-25T19:47:14+0000",
+     "link": "https://www.instagram.com/reel/DgLUHZcO-uG/",
+     "baslik": "Katil Kim? 🕵️ Dosya #19: Açık Kapı | Yorumlara A, B veya C yaz!\n\n📩 Çözemeyeceğini düşündüğ",
+     "metin": "katil kim dosya açık kapı yorumlara a b veya c yaz çözemeyeceğini düşündüğün arkadaşına gönder"
+    },
+    {
+     "id": "18133896100833257",
+     "zaman": "2026-11-25T16:53:34+0000",
+     "link": "https://www.instagram.com/reel/DgLAOOPSwiP/",
+     "baslik": "Bozuk Kamera: Katil Kim? Sadece %1 Çözer! 🕵️\n\n📩 Çözemeyeceğini düşündüğün arkadaşına gönde",
+     "metin": "bozuk kamera katil kim sadece 1 çözer çözemeyeceğini düşündüğün arkadaşına gönder"
+    },
     {
      "id": "18039564611906676",
      "zaman": "2026-11-24T07:33:17+0000",
      "link": "https://www.instagram.com/reel/DgHbV-9DJFy/",
      "baslik": "Katil Kim? 🕵️ Dosya #18: Uzun Boylu Hırsız | Yorumlara A, B veya C yaz!\n\n📩 Çözemeyeceğini ",
      "metin": "katil kim dosya uzun boylu hırsız yorumlara a b veya c yaz çözemeyeceğini düşündüğün arkadaşına gönder"
-    },
-    {
-     "id": "17991360954084057",
-     "zaman": "2026-11-24T05:14:59+0000",
-     "link": "https://www.instagram.com/reel/DgHLghoE1nU/",
-     "baslik": "500 TL ile 50.000 TL Hedefi | Gün 20/30 | Kararı Siz Verin! 💸\n\n📩 Çözemeyeceğini düşündüğün",
-     "metin": "500 tl ile 50 000 tl hedefi gün 20/30 kararı siz verin çözemeyeceğini düşündüğün arkadaşına gönder"
     },
     {
      "id": "18095854598700036",
@@ -2538,13 +2009,6 @@
    "tekrar": [
     [
      {
-      "id": "17991360954084057",
-      "zaman": "2026-11-24T05:14:59+0000",
-      "link": "https://www.instagram.com/reel/DgHLghoE1nU/",
-      "baslik": "500 TL ile 50.000 TL Hedefi | Gün 20/30 | Kararı Siz Verin! 💸\n\n📩 Çözemeyeceğini düşündüğün",
-      "metin": "500 tl ile 50 000 tl hedefi gün 20/30 kararı siz verin çözemeyeceğini düşündüğün arkadaşına gönder"
-     },
-     {
       "id": "18095854598700036",
       "zaman": "2026-11-24T04:48:18+0000",
       "link": "https://www.instagram.com/reel/DgHIdYClXrF/",
@@ -2562,47 +2026,33 @@
    ]
   },
   "gizlitarih": {
-   "gonderi_sayisi": 20,
+   "gonderi_sayisi": 12,
    "gonderiler": [
     {
-     "id": "18151121077561549",
-     "zaman": "2026-11-24T07:02:40+0000",
-     "link": "https://www.instagram.com/reel/DgHX1cmjp99/",
-     "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-     "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
+     "id": "17914773555579549",
+     "zaman": "2026-11-25T19:13:35+0000",
+     "link": "https://www.instagram.com/reel/DgLQQwYAGmw/",
+     "baslik": "İstanbul'da Aslan Alarmı: Görüntüdeki Neydi?\n\n📩 Merak eden bir arkadaşına gönder.\n\n#aslana",
+     "metin": "istanbul da aslan alarmı görüntüdeki neydi merak eden bir arkadaşına gönder"
     },
     {
-     "id": "17991238487881106",
-     "zaman": "2026-11-24T06:50:39+0000",
-     "link": "https://www.instagram.com/reel/DgHWdWkAW_f/",
-     "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-     "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
+     "id": "17869251153677300",
+     "zaman": "2026-11-25T02:30:49+0000",
+     "link": "https://www.instagram.com/reel/DgJdhBDSx_O/",
+     "baslik": "Dünyadaki Bütün Arılar Yok Olursa Ne Olur? 🐝\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur",
+     "metin": "dünyadaki bütün arılar yok olursa ne olur merak eden bir arkadaşına gönder"
+    },
+    {
+     "id": "18191875456412357",
+     "zaman": "2026-11-24T23:14:57+0000",
+     "link": "https://www.instagram.com/reel/DgJHGuRAFC5/",
+     "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸\n\n📩 Merak eden bir arkadaşına gönder.\n\n#n",
+     "metin": "hesabına yanlışlıkla 1 milyon tl yatsa ne olur merak eden bir arkadaşına gönder"
     },
     {
      "id": "18500448004110980",
      "zaman": "2026-11-24T06:14:38+0000",
      "link": "https://www.instagram.com/reel/DgHSVtGjVFs/",
-     "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-     "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-    },
-    {
-     "id": "18120581921103439",
-     "zaman": "2026-11-24T04:23:20+0000",
-     "link": "https://www.instagram.com/reel/DgHFmk7jgxy/",
-     "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-     "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-    },
-    {
-     "id": "18115757078235925",
-     "zaman": "2026-11-24T04:03:16+0000",
-     "link": "https://www.instagram.com/reel/DgHDTrLlaEU/",
-     "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-     "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-    },
-    {
-     "id": "17929156137443245",
-     "zaman": "2026-11-24T03:33:18+0000",
-     "link": "https://www.instagram.com/reel/DgG_4Dake0b/",
      "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
      "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
     },
@@ -2621,37 +2071,9 @@
      "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
     },
     {
-     "id": "18351472870254795",
-     "zaman": "2026-11-24T02:40:39+0000",
-     "link": "https://www.instagram.com/reel/DgG52cYob1D/",
-     "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-     "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-    },
-    {
      "id": "17998762800110261",
      "zaman": "2026-11-24T01:49:13+0000",
      "link": "https://www.instagram.com/reel/DgGz9XYj4BD/",
-     "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-     "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-    },
-    {
-     "id": "17911660737578148",
-     "zaman": "2026-11-24T00:21:45+0000",
-     "link": "https://www.instagram.com/reel/DgGp9S_jO3-/",
-     "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-     "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-    },
-    {
-     "id": "17968423491208901",
-     "zaman": "2026-11-24T00:09:59+0000",
-     "link": "https://www.instagram.com/reel/DgGom8yD2Tp/",
-     "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-     "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-    },
-    {
-     "id": "18356765344268740",
-     "zaman": "2026-11-23T23:58:09+0000",
-     "link": "https://www.instagram.com/reel/DgGnQYmDix_/",
      "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
      "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
     },
@@ -2677,20 +2099,6 @@
      "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
     },
     {
-     "id": "18101456927403432",
-     "zaman": "2026-11-23T22:20:28+0000",
-     "link": "https://www.instagram.com/reel/DgGcE2bgEpF/",
-     "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-     "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-    },
-    {
-     "id": "18107008508023451",
-     "zaman": "2026-11-23T22:08:50+0000",
-     "link": "https://www.instagram.com/reel/DgGavlnESgi/",
-     "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-     "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-    },
-    {
      "id": "17905254252378994",
      "zaman": "2026-11-23T21:56:53+0000",
      "link": "https://www.instagram.com/reel/DgGZYBPD5Bh/",
@@ -2708,44 +2116,9 @@
    "tekrar": [
     [
      {
-      "id": "18151121077561549",
-      "zaman": "2026-11-24T07:02:40+0000",
-      "link": "https://www.instagram.com/reel/DgHX1cmjp99/",
-      "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-      "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-     },
-     {
-      "id": "17991238487881106",
-      "zaman": "2026-11-24T06:50:39+0000",
-      "link": "https://www.instagram.com/reel/DgHWdWkAW_f/",
-      "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-      "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-     },
-     {
       "id": "18500448004110980",
       "zaman": "2026-11-24T06:14:38+0000",
       "link": "https://www.instagram.com/reel/DgHSVtGjVFs/",
-      "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-      "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-     },
-     {
-      "id": "18120581921103439",
-      "zaman": "2026-11-24T04:23:20+0000",
-      "link": "https://www.instagram.com/reel/DgHFmk7jgxy/",
-      "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-      "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-     },
-     {
-      "id": "18115757078235925",
-      "zaman": "2026-11-24T04:03:16+0000",
-      "link": "https://www.instagram.com/reel/DgHDTrLlaEU/",
-      "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-      "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-     },
-     {
-      "id": "17929156137443245",
-      "zaman": "2026-11-24T03:33:18+0000",
-      "link": "https://www.instagram.com/reel/DgG_4Dake0b/",
       "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
       "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
      },
@@ -2764,37 +2137,9 @@
       "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
      },
      {
-      "id": "18351472870254795",
-      "zaman": "2026-11-24T02:40:39+0000",
-      "link": "https://www.instagram.com/reel/DgG52cYob1D/",
-      "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-      "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-     },
-     {
       "id": "17998762800110261",
       "zaman": "2026-11-24T01:49:13+0000",
       "link": "https://www.instagram.com/reel/DgGz9XYj4BD/",
-      "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-      "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-     },
-     {
-      "id": "17911660737578148",
-      "zaman": "2026-11-24T00:21:45+0000",
-      "link": "https://www.instagram.com/reel/DgGp9S_jO3-/",
-      "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-      "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-     },
-     {
-      "id": "17968423491208901",
-      "zaman": "2026-11-24T00:09:59+0000",
-      "link": "https://www.instagram.com/reel/DgGom8yD2Tp/",
-      "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-      "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-     },
-     {
-      "id": "18356765344268740",
-      "zaman": "2026-11-23T23:58:09+0000",
-      "link": "https://www.instagram.com/reel/DgGnQYmDix_/",
       "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
       "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
      },
@@ -2820,20 +2165,6 @@
       "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
      },
      {
-      "id": "18101456927403432",
-      "zaman": "2026-11-23T22:20:28+0000",
-      "link": "https://www.instagram.com/reel/DgGcE2bgEpF/",
-      "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-      "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-     },
-     {
-      "id": "18107008508023451",
-      "zaman": "2026-11-23T22:08:50+0000",
-      "link": "https://www.instagram.com/reel/DgGavlnESgi/",
-      "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #güneşsön",
-      "metin": "güneş bir anda sönerse ne olur merak eden bir arkadaşına gönder"
-     },
-     {
       "id": "17905254252378994",
       "zaman": "2026-11-23T21:56:53+0000",
       "link": "https://www.instagram.com/reel/DgGZYBPD5Bh/",
@@ -2844,8 +2175,15 @@
    ]
   },
   "ilturnuva": {
-   "gonderi_sayisi": 11,
+   "gonderi_sayisi": 12,
    "gonderiler": [
+    {
+     "id": "18114604967186403",
+     "zaman": "2026-11-25T18:40:33+0000",
+     "link": "https://www.instagram.com/reel/DgLMgUHJOWQ/",
+     "baslik": "81 İl Turnuvası · 2. Tur · 1. Grup 🏆 Senin şehrin tur atlar mı?\n\n📩 Şehrini savunacak arkad",
+     "metin": "81 il turnuvası 2 tur 1 grup senin şehrin tur atlar mı şehrini savunacak arkadaşına gönder"
+    },
     {
      "id": "18138919531727220",
      "zaman": "2026-11-23T14:32:46+0000",
@@ -2929,8 +2267,36 @@
  },
  "facebook": {
   "dukkantv": {
-   "video_sayisi": 22,
+   "video_sayisi": 26,
    "videolar": [
+    {
+     "id": "1154694350635844",
+     "zaman": "2026-11-25T15:02:27+0000",
+     "link": "/reel/1154694350635844/",
+     "baslik": "Bursa Dedektifleri: Kaybolan Simitler 🔍 | Levent & Cemo\n\n📩 Bunu yaşayan arkadaşına gönder ",
+     "metin": "bursa dedektifleri kaybolan simitler levent cemo bunu yaşayan arkadaşına gönder|35"
+    },
+    {
+     "id": "1121001960774071",
+     "zaman": "2026-11-25T10:02:24+0000",
+     "link": "/reel/1121001960774071/",
+     "baslik": "Çarşı Ligi Yarın Başlıyor! İlk Maç: Ödül Maçı 🔴🔵\n\n📩 Bunu yaşayan arkadaşına gönder 😂\n\n#çar",
+     "metin": "çarşı ligi yarın başlıyor ilk maç ödül maçı bunu yaşayan arkadaşına gönder|25"
+    },
+    {
+     "id": "1181662357742333",
+     "zaman": "2026-11-24T19:35:47+0000",
+     "link": "/reel/1181662357742333/",
+     "baslik": "Poşet Pazarlığı 😂 | Levent & Cemo\n\n📩 Bunu yaşayan arkadaşına gönder 😂\n\n#komedi #mizah #çiz",
+     "metin": "poşet pazarlığı levent cemo bunu yaşayan arkadaşına gönder|22"
+    },
+    {
+     "id": "1537787394855241",
+     "zaman": "2026-11-24T19:35:08+0000",
+     "link": "/reel/1537787394855241/",
+     "baslik": "Mahallede Aslan Paniği: Valilik Ne Dedi?\n\n📩 Bunu yaşayan arkadaşına gönder 😂\n\n#aslan #Sarı",
+     "metin": "mahallede aslan paniği valilik ne dedi bunu yaşayan arkadaşına gönder|46"
+    },
     {
      "id": "1800678574543713",
      "zaman": "2026-11-24T10:02:32+0000",
@@ -3089,8 +2455,22 @@
    "tekrar": []
   },
   "dramabite": {
-   "video_sayisi": 16,
+   "video_sayisi": 18,
    "videolar": [
+    {
+     "id": "1201872589166539",
+     "zaman": "2026-11-25T16:53:43+0000",
+     "link": "/reel/1201872589166539/",
+     "baslik": "30 Yıllık Paslı Dolap\n\n📩 Bu hikâyeyi okuması gereken birine gönder.\n\n#hikaye #duygusal #ku",
+     "metin": "30 yıllık paslı dolap bu hikâyeyi okuması gereken birine gönder|67"
+    },
+    {
+     "id": "1696475432271086",
+     "zaman": "2026-11-25T12:03:59+0000",
+     "link": "/reel/1696475432271086/",
+     "baslik": "Gece 03:14 Araması\n\n📩 Bu hikâyeyi okuması gereken birine gönder.\n\n#hikaye #duygusal #anıla",
+     "metin": "gece 03 14 araması bu hikâyeyi okuması gereken birine gönder|77"
+    },
     {
      "id": "1796655034951213",
      "zaman": "2026-11-24T17:03:03+0000",
@@ -3207,8 +2587,29 @@
    "tekrar": []
   },
   "kasakurgu": {
-   "video_sayisi": 23,
+   "video_sayisi": 26,
    "videolar": [
+    {
+     "id": "1816218862753005",
+     "zaman": "2026-11-25T17:32:28+0000",
+     "link": "/reel/1816218862753005/",
+     "baslik": "Çamurlu Lastik: Katil Kim? Sadece %1 Çözer! 🕵️\n\n📩 Çözemeyeceğini düşündüğün arkadaşına gön",
+     "metin": "çamurlu lastik katil kim sadece 1 çözer çözemeyeceğini düşündüğün arkadaşına gönder|44"
+    },
+    {
+     "id": "1718443986596863",
+     "zaman": "2026-11-25T14:32:32+0000",
+     "link": "/reel/1718443986596863/",
+     "baslik": "Bozuk Kamera: Katil Kim? Sadece %1 Çözer! 🕵️\n\n📩 Çözemeyeceğini düşündüğün arkadaşına gönde",
+     "metin": "bozuk kamera katil kim sadece 1 çözer çözemeyeceğini düşündüğün arkadaşına gönder|44"
+    },
+    {
+     "id": "1825364235210990",
+     "zaman": "2026-11-25T11:02:20+0000",
+     "link": "/reel/1825364235210990/",
+     "baslik": "Katil Kim? 🕵️ Dosya #21: Sahte Alibi | Yorumlara A, B veya C yaz!\n\n📩 Çözemeyeceğini düşünd",
+     "metin": "katil kim dosya sahte alibi yorumlara a b veya c yaz çözemeyeceğini düşündüğün arkadaşına gönder|41"
+    },
     {
      "id": "1654293196737962",
      "zaman": "2026-11-24T17:32:26+0000",
@@ -3374,8 +2775,29 @@
    "tekrar": []
   },
   "gizlitarih": {
-   "video_sayisi": 6,
+   "video_sayisi": 9,
    "videolar": [
+    {
+     "id": "1141526798495904",
+     "zaman": "2026-11-25T17:02:27+0000",
+     "link": "/reel/1141526798495904/",
+     "baslik": "Denizin En İnanılmaz 5 Canlısı 🌊\n\n📩 Merak eden bir arkadaşına gönder.\n\n#hayvanlaralemi #il",
+     "metin": "denizin en inanılmaz 5 canlısı merak eden bir arkadaşına gönder|49"
+    },
+    {
+     "id": "2615702692237702",
+     "zaman": "2026-11-25T09:32:58+0000",
+     "link": "/reel/2615702692237702/",
+     "baslik": "Telefonla İlgili Doğru Bilinen 5 Yanlış 📱\n\n📩 Merak eden bir arkadaşına gönder.\n\n#neolur #d",
+     "metin": "telefonla ilgili doğru bilinen 5 yanlış merak eden bir arkadaşına gönder|59"
+    },
+    {
+     "id": "1154729297301081",
+     "zaman": "2026-11-25T09:32:26+0000",
+     "link": "/reel/1154729297301081/",
+     "baslik": "İstanbul'da Aslan Alarmı: Görüntüdeki Neydi?\n\n📩 Merak eden bir arkadaşına gönder.\n\n#aslana",
+     "metin": "istanbul da aslan alarmı görüntüdeki neydi merak eden bir arkadaşına gönder|46"
+    },
     {
      "id": "1534318735421469",
      "zaman": "2026-11-24T17:02:25+0000",
@@ -3422,8 +2844,15 @@
    "tekrar": []
   },
   "ilturnuva": {
-   "video_sayisi": 11,
+   "video_sayisi": 12,
    "videolar": [
+    {
+     "id": "1126174176871868",
+     "zaman": "2026-11-25T13:02:20+0000",
+     "link": "/reel/1126174176871868/",
+     "baslik": "Konya, Kastamonu, Amasya… Hangisi Tur Atlar? 🏆 81 İl 2. Tur 2. Grup\n\n📩 Şehrini savunacak a",
+     "metin": "konya kastamonu amasya hangisi tur atlar 81 il 2 tur 2 grup şehrini savunacak arkadaşına gönder|21"
+    },
     {
      "id": "1479302877681853",
      "zaman": "2026-11-24T13:02:26+0000",
@@ -3511,14 +2940,14 @@
    {
     "id": "20261112-205805-dukkantv",
     "kanal": "dukkantv",
-    "durum": "onaylandi",
+    "durum": "yuklendi",
     "baslik": "Poşet Pazarlığı 😂 | Levent & Cemo #shorts",
     "metin": "dukkantv:poşet pazarlığı levent cemo"
    },
    {
     "id": "20261114-163100-dukkantv",
     "kanal": "dukkantv",
-    "durum": "onaylandi",
+    "durum": "yuklendi",
     "baslik": "Bursa Dedektifleri: Kaybolan Simitler 🔍 | Levent & Cemo #shorts",
     "metin": "dukkantv:bursa dedektifleri kaybolan simitler levent cemo"
    },
@@ -3528,27 +2957,6 @@
     "durum": "onaylandi",
     "baslik": "Simitçi Hasan Amca 🥯 | Levent & Cemo #shorts",
     "metin": "dukkantv:simitçi hasan amca levent cemo"
-   },
-   {
-    "id": "20261117-165931-dukkantv",
-    "kanal": "dukkantv",
-    "durum": "yuklendi",
-    "baslik": "Mavi Tente Takımıyla Tanışın! 🔵 Çarşı Ligi #shorts",
-    "metin": "dukkantv:mavi tente takımıyla tanışın çarşı ligi"
-   },
-   {
-    "id": "20261117-170104-dukkantv",
-    "kanal": "dukkantv",
-    "durum": "yuklendi",
-    "baslik": "Çarşı Ligi Yarın Başlıyor! İlk Maç: Ödül Maçı 🔴🔵 #shorts",
-    "metin": "dukkantv:çarşı ligi yarın başlıyor ilk maç ödül maçı"
-   },
-   {
-    "id": "20261123-204626-ilturnuva",
-    "kanal": "ilturnuva",
-    "durum": "yuklendi",
-    "baslik": "81 İl Turnuvası · 2. Tur · 1. Grup 🏆 Senin şehrin tur atlar mı? #shorts",
-    "metin": "ilturnuva:81 il turnuvası 2 tur 1 grup senin şehrin tur atlar mı"
    },
    {
     "id": "20261123-204716-dramabite",
@@ -3565,27 +2973,6 @@
     "metin": "kasakurgu:katil kim dosya açık kapı yorumlara a b veya c yaz"
    },
    {
-    "id": "20261123-205147-gizlitarih",
-    "kanal": "gizlitarih",
-    "durum": "yuklendi",
-    "baslik": "Dünyadaki Bütün Arılar Yok Olursa Ne Olur? 🐝 #shorts",
-    "metin": "gizlitarih:dünyadaki bütün arılar yok olursa ne olur"
-   },
-   {
-    "id": "20261123-213444-dramabite",
-    "kanal": "dramabite",
-    "durum": "yuklendi",
-    "baslik": "Kardeşimin Kasadan Para Çaldığını Sanmıştım",
-    "metin": "dramabite:kardeşimin kasadan para çaldığını sanmıştım"
-   },
-   {
-    "id": "20261123-224832-gizlitarih",
-    "kanal": "gizlitarih",
-    "durum": "yuklendi",
-    "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
-    "metin": "gizlitarih:hesabına yanlışlıkla 1 milyon tl yatsa ne olur"
-   },
-   {
     "id": "20261124-001335-dramabite",
     "kanal": "dramabite",
     "durum": "yuklendi",
@@ -3600,20 +2987,6 @@
     "metin": "kasakurgu:katil kim dosya kırmızı bere yorumlara a b veya c yaz"
    },
    {
-    "id": "20261124-082935-gizlitarih",
-    "kanal": "gizlitarih",
-    "durum": "yuklendi",
-    "baslik": "İstanbul'da Aslan Alarmı: Görüntüdeki Neydi? #shorts",
-    "metin": "gizlitarih:istanbul da aslan alarmı görüntüdeki neydi"
-   },
-   {
-    "id": "20261124-082937-dukkantv",
-    "kanal": "dukkantv",
-    "durum": "onaylandi",
-    "baslik": "Mahallede Aslan Paniği: Valilik Ne Dedi? #shorts",
-    "metin": "dukkantv:mahallede aslan paniği valilik ne dedi"
-   },
-   {
     "id": "20261124-103526-kasakurgu",
     "kanal": "kasakurgu",
     "durum": "yuklendi",
@@ -3626,6 +2999,62 @@
     "durum": "yuklendi",
     "baslik": "Telefonla İlgili Doğru Bilinen 5 Yanlış 📱 #shorts",
     "metin": "gizlitarih:telefonla ilgili doğru bilinen 5 yanlış"
+   },
+   {
+    "id": "20261124-222549-gizlitarih",
+    "kanal": "gizlitarih",
+    "durum": "yuklendi",
+    "baslik": "Denizin En İnanılmaz 5 Canlısı 🌊 #shorts",
+    "metin": "gizlitarih:denizin en inanılmaz 5 canlısı"
+   },
+   {
+    "id": "20261124-232017-ilturnuva",
+    "kanal": "ilturnuva",
+    "durum": "yuklendi",
+    "baslik": "Konya, Kastamonu, Amasya… Hangisi Tur Atlar? 🏆 81 İl 2. Tur 2. Grup #shorts",
+    "metin": "ilturnuva:konya kastamonu amasya hangisi tur atlar 81 il 2 tur 2 grup"
+   },
+   {
+    "id": "20261125-021630-dramabite",
+    "kanal": "dramabite",
+    "durum": "yuklendi",
+    "baslik": "30 Yıllık Paslı Dolap",
+    "metin": "dramabite:30 yıllık paslı dolap"
+   },
+   {
+    "id": "20261125-065406-gizlitarih",
+    "kanal": "gizlitarih",
+    "durum": "yuklendi",
+    "baslik": "Doğru Bildiğin 5 Yanlış 🤯 #shorts",
+    "metin": "gizlitarih:doğru bildiğin 5 yanlış"
+   },
+   {
+    "id": "20261125-080315-ilturnuva",
+    "kanal": "ilturnuva",
+    "durum": "yuklendi",
+    "baslik": "Denizli, Kütahya, Gümüşhane… Hangisi Tur Atlar? 🏆 81 İl 2. Tur 3. Grup #shorts",
+    "metin": "ilturnuva:denizli kütahya gümüşhane hangisi tur atlar 81 il 2 tur 3 grup"
+   },
+   {
+    "id": "20261125-104227-kasakurgu",
+    "kanal": "kasakurgu",
+    "durum": "yuklendi",
+    "baslik": "Çamurlu Lastik: Katil Kim? Sadece %1 Çözer! 🕵️ #shorts",
+    "metin": "kasakurgu:çamurlu lastik katil kim sadece 1 çözer"
+   },
+   {
+    "id": "20261125-113435-dramabite",
+    "kanal": "dramabite",
+    "durum": "yuklendi",
+    "baslik": "Gece 03:14 Araması",
+    "metin": "dramabite:gece 03 14 araması"
+   },
+   {
+    "id": "20261125-131829-gizlitarih",
+    "kanal": "gizlitarih",
+    "durum": "yuklendi",
+    "baslik": "Herkes Bir Gün Sadece Doğruyu Söylese Ne Olur? 🤥 #shorts",
+    "metin": "gizlitarih:herkes bir gün sadece doğruyu söylese ne olur"
    }
   ],
   "tekrar": []
