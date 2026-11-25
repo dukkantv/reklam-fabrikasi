@@ -83,6 +83,7 @@ def tt_aciklama(kayit):
 # Instagram aynı çalışmada art arda yüklemeyi "Request processing failed" ile kısıtlıyor (23 Kas 2026: ilk video
 # geçti, peşindeki 4 video reddedildi). Her çalışmada en fazla 1 Instagram yüklemesi; nöbetçi 10 dk sonra tekrar gelir.
 IG_BU_TUR = 0
+IG_SIRADAKI = None
 
 
 class _ZatenVar(Exception):
@@ -133,9 +134,38 @@ def ig_son_paylasim():
         return None
 
 
-def ig_son_kaydet():
+def ig_son_kaydet(kanal=None):
     os.makedirs(os.path.dirname(IG_SON), exist_ok=True)
-    json.dump({"zaman": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}, open(IG_SON, "w"))
+    try:
+        d = json.load(open(IG_SON))
+    except Exception:
+        d = {}
+    simdi = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+    d["zaman"] = simdi
+    if kanal:
+        d.setdefault("kanal", {})[kanal] = simdi
+    json.dump(d, open(IG_SON, "w"), indent=1)
+
+
+def ig_sessiz_saat():
+    """Birikmiş Instagram paylaşımları gece 00:00–08:00 arası yapılmaz (izleyen yok, video boşa gider)."""
+    return dt.datetime.now(dt.timezone(dt.timedelta(hours=3))).hour < 8
+
+
+def ig_sira_sec(kayitlar):
+    """Bu turda Instagram'a gidecek TEK videoyu seçer: yayın saati gelmiş, paylaşılmamış videolar arasından
+    en uzun süredir Instagram paylaşımı yapılmamış kanalınki (kanallar sırayla), o kanalda en eski olanı."""
+    simdi = dt.datetime.now(dt.timezone.utc)
+    try:
+        son_kanal = json.load(open(IG_SON)).get("kanal", {})
+    except Exception:
+        son_kanal = {}
+    adaylar = [k for k in kayitlar.values() if k.get("durum") == "yuklendi" and k.get("yayin")
+               and dt.datetime.fromisoformat(k["yayin"]) <= simdi and ig_bekliyor(k)]
+    if not adaylar:
+        return None
+    adaylar.sort(key=lambda k: (son_kanal.get(k.get("kanal"), ""), k["yayin"]))
+    return adaylar[0]["id"]
 
 
 def ig_bekliyor(kayit):
@@ -556,6 +586,9 @@ def kontrol():
             mesaj_guncelle(k, f"📦 Stoğa alındı: \"{k['baslik']}\" — stokta {len(stok)} video var, "
                               f"her gün bir tanesi sırayla yayına girer.")
             kaydet(k)
+    global IG_SIRADAKI
+    IG_SIRADAKI = ig_sira_sec(kayitlar)
+    print("Instagram sıradaki:", IG_SIRADAKI)
     for kayit in kayitlar.values():
         try:
             ad = kanal_bilgi(kayit["kanal"])["ad"]
@@ -597,8 +630,9 @@ def kontrol():
                 continue
             global IG_BU_TUR
             _son = ig_son_paylasim()
-            if ig_bekliyor(kayit) and (IG_BU_TUR >= 1 or (_son and dt.datetime.now(dt.timezone.utc) - _son < IG_ARA)):
-                print(f"Instagram: son paylaşımdan 30 dk geçmedi / bu turda deneme yapıldı, {kayit['id']} sonraki tura kaldı")
+            if ig_bekliyor(kayit) and (IG_BU_TUR >= 1 or kayit["id"] != IG_SIRADAKI or ig_sessiz_saat()
+                                       or (_son and dt.datetime.now(dt.timezone.utc) - _son < IG_ARA)):
+                print(f"Instagram: sırası değil / 30 dk aralık / gece saati, {kayit['id']} sonraki tura kaldı")
             elif ig_bekliyor(kayit):
                 IG_BU_TUR += 1
                 # 23 Kas 2026: önce Instagram'ın önerdiği biçime yeniden kodlanmış dosya doğrudan yüklenir
@@ -645,7 +679,7 @@ def kontrol():
                             raise RuntimeError(" | ".join(hatalar))
                     kayit.update(ig="paylasildi", ig_id=mid, ig_link=link, ig_deneme_reels=ig_ortak.SON_DENEME)
                     kaydet(kayit)
-                    ig_son_kaydet()
+                    ig_son_kaydet(kayit["kanal"])
                     telegram(ig_paylasildi_mesaji(ad, kayit, link))
                 except _ZatenVar:
                     pass

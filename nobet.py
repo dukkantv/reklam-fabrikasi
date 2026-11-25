@@ -40,6 +40,8 @@ def bekleme():
             if son:  # yt_kuyruk.ig_bekliyor ile aynı aralık: 30 dk × deneme sayısı
                 sonraki = max(sonraki, dt.datetime.fromisoformat(son).astimezone(TR)
                               + dt.timedelta(minutes=30 * max(1, k.get("ig_deneme", 1)) + 2))
+            if sonraki.hour < 8:  # gece paylaşım yok (yt_kuyruk.ig_sessiz_saat)
+                sonraki = sonraki.replace(hour=8, minute=2, second=0)
             adaylar.append((sonraki, k["id"], "Instagram yeniden deneme"))
     # Onay/yükleme kontrolleri için gündüz en az saatte bir çalış
     adaylar.append((simdi + dt.timedelta(hours=1) if 6 <= simdi.hour < 23 else simdi + dt.timedelta(seconds=AZAMI),
