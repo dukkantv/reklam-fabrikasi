@@ -790,5 +790,101 @@
     ],
     "dogru": 2,
     "cozum": "Masada hem vişne suyu izi hem de simli mor peçete parçası vardı. Bu iki eşyayı birden taşıyan tek şüpheli Hande idi."
+  },
+  {
+    "baslik": "Okul Kantinindeki Sakız",
+    "olay": "Kantinin yeni boyanan masasına pembe sakız yapıştırıldı. Müdür, masanın hemen yanında bulunan üç öğrenciyi çağırdı.",
+    "ipuclari": [
+      "Masanın boyası henüz kurumamıştı ve sol köşeye doğru hafifçe silinmişti.",
+      "Can solak olduğu için hep sol elini kullanır, Arda ve Mert ise sağlaktır."
+    ],
+    "supheliler": [
+      {
+        "ad": "Arda",
+        "rol": "futbolcu"
+      },
+      {
+        "ad": "Can",
+        "rol": "müzisyen"
+      },
+      {
+        "ad": "Mert",
+        "rol": "satranççı"
+      }
+    ],
+    "dogru": 1,
+    "cozum": "Masayı sol eliyle silen kişi tek solak olan Can'dı; bu yüzden sakızı yapıştıran da Can oldu."
+  },
+  {
+    "baslik": "Kafe Masasındaki Fincan",
+    "olay": "Kafede oturan bir müşterinin masasında unutulan altın kaplama çay kaşığı kayboldu. Garson hemen yakın masadakileri inceledi.",
+    "ipuclari": [
+      "Kaşığı alan kişinin parmaklarında hafif çilekli el kremi kokusu kalmıştı.",
+      "Şüphelilerden sadece Funda'nın çantasından çilekli krem çıktı, diğerlerinde lavanta ve limon kokusu vardı."
+    ],
+    "supheliler": [
+      {
+        "ad": "Melis",
+        "rol": "ressam"
+      },
+      {
+        "ad": "Funda",
+        "rol": "mimar"
+      },
+      {
+        "ad": "Hakan",
+        "rol": "mühendis"
+      }
+    ],
+    "dogru": 1,
+    "cozum": "Çilekli el kremi kokusu sadece Funda'da olduğu için kaşığı alan odur."
+  },
+  {
+    "baslik": "Oyuncakçı Dükkanı",
+    "olay": "Vitrin önündeki uzaktan kumandalı helikopter raftan yere düşüp pervanesi kırıldı. Dükkan sahibi içerideki üç müşteriye baktı.",
+    "ipuclari": [
+      "Helikopterin üst kısmında yeşil parmak boyası lekesi vardı.",
+      "Müşterilerden sadece resim kursundan gelen Ezgi'nin ellerinde yeşil boya izi görülüyordu."
+    ],
+    "supheliler": [
+      {
+        "ad": "Kaan",
+        "rol": "mühendis"
+      },
+      {
+        "ad": "Ezgi",
+        "rol": "öğrenci"
+      },
+      {
+        "ad": "Cem",
+        "rol": "doktor"
+      }
+    ],
+    "dogru": 1,
+    "cozum": "Pervaneye dokunduğu an boyayı bulaştıran kişi elleri boyalı olan Ezgi'dir."
+  },
+  {
+    "baslik": "Spor Salonundaki Mat",
+    "olay": "Jimnastik salonunda, üzerinde ispiyoncu bir not yazılı olan özel spor matı ortadan kayboldu.",
+    "ipuclari": [
+      "Notu yazan kişi tükenmez kalemi çok sıkı tuttuğu için kağıdın arkasında sol alt köşede derin bir çukur oluşmuştu.",
+      "Şüphelilerden sadece Tuğçe yazarken kağıdı sol alta doğru bastırarak yazar."
+    ],
+    "supheliler": [
+      {
+        "ad": "Yusuf",
+        "rol": "antrenör"
+      },
+      {
+        "ad": "Tuğçe",
+        "rol": "öğrenci"
+      },
+      {
+        "ad": "Aylin",
+        "rol": "resepsiyonist"
+      }
+    ],
+    "dogru": 1,
+    "cozum": "Kağıdın sol alt köşesinde iz bırakacak şekilde yazan kişi Tuğçe'dir."
   }
 ]
