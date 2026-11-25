@@ -13,7 +13,7 @@ import sys
 from yt_ortak import KOK, erisim_anahtari, istek
 
 DENEME = len(sys.argv) > 1 and sys.argv[1] == "deneme"
-SINIR = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=3)
+SINIR = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=40)   # 25 Kas 2026: Levent "silinmesi gerekeni sil"
 
 
 def kuyruk_idleri():
