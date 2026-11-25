@@ -12,9 +12,14 @@ yol = "/tmp/" + kayit["dosya"]
 ff = lambda *a: subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", yol, *a], check=True)
 ff("-c:v", "copy", "-an", "/tmp/sessiz.mp4")
 ff("-c:v", "libx264", "-r", "30", "-g", "60", "-b:v", "3500k", "-c:a", "aac", "-ar", "48000", "-b:a", "128k", "-movflags", "+faststart", "/tmp/kod.mp4")
-tok = ig_hesap(kanal)["token"]
-denemeler = [("orijinal", yol, yt_kuyruk.ig_aciklama(kayit)), ("kisa_aciklama", yol, "test"),
-             ("sessiz", "/tmp/sessiz.mp4", "test"), ("yeniden_kod", "/tmp/kod.mp4", "test")]
+h = ig_hesap(kanal)
+tok = h["token"]
+print("Paylaşım sınırı:", istek(f"{API}/{h['ig_id']}/content_publishing_limit?fields=config,quota_usage&access_token={tok}")[2])
+igk = yt_kuyruk.ig_kodla(yol)
+gercek = yt_kuyruk.ig_aciklama(kayit)
+denemeler = [("igkod_gercek_aciklama", igk, gercek), ("igkod_test", igk, "test"),
+             ("orijinal_test", yol, "test"), ("sessiz_test", "/tmp/sessiz.mp4", "test"),
+             ("yeniden_kod_test", "/tmp/kod.mp4", "test")]
 for ad, dosya, acik in denemeler:
     try:
         kap = _kapsayici_yukle(kanal, dosya, acik)
