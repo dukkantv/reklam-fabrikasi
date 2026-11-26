@@ -1,6 +1,6 @@
 {
- "sira": 8,
- "son_tarih": "2026-11-26",
+ "sira": 9,
+ "son_tarih": "2026-11-27",
  "gecmis": [
   {
    "id": "elektrik",
@@ -45,6 +45,11 @@
    "id": "dogruluk",
    "tarih": "2026-11-26",
    "saat": "20:00"
+  },
+  {
+   "id": "hayvan-hava",
+   "tarih": "2026-11-27",
+   "saat": "12:30"
   }
  ]
 }
