@@ -1,0 +1,204 @@
+{
+ "baslik": "Telefon Neden Yavaşlar? Hızlandırmanın Gerçekten İşe Yarayan 7 Yolu",
+ "kapak_yazi": "TELEFONUN|NEDEN YAVAŞ?",
+ "kapak_rozet": "7 ÇÖZÜM",
+ "aciklama": "Telefonun eskisi gibi hızlı değil mi? Bu videoda telefonları yavaşlatan gerçek sebepleri (dolu hafıza, eski batarya, ısınma, arka plan) ve ücretsiz, gerçekten işe yarayan 7 çözümü anlatıyorum. RAM temizleyici uygulamaların neden işe yaramadığını da öğreneceksin.",
+ "etiketler": "telefon neden yavaşlar,telefon hızlandırma,telefon kasıyor,android hızlandırma,iphone yavaşladı,hafıza doldu,telefon ipuçları",
+ "kaynaklar": [
+  "Apple Destek: iPhone pil ve performans",
+  "Android Yardım: depolama alanını boşaltma"
+ ],
+ "sahneler": [
+  {
+   "tip": "kanca",
+   "baslik": "Telefonun neden yavaşladı?",
+   "alt": "Gerçek sebepler ve işe yarayan çözümler",
+   "metin": "Aldığın ilk gün uçuyordu. Şimdi bir uygulamayı açmak bile bekletiyor. Peki telefonlar neden yavaşlar? Bu videoda **gerçek sebepleri** ve tek kuruş harcamadan uygulayabileceğin **yedi çözümü** anlatacağım. Bir tanesi, çoğu kişinin tam tersini yaptığı bir alışkanlık."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Telefonlar bilerek yavaşlatılıyor!",
+   "damga": "YARI DOĞRU",
+   "metin": "Önce şu meşhur iddia. Telefonlar eskisin diye bilerek mi yavaşlatılıyor? Cevap yarı doğru. Birazdan bunun neden olduğunu açıklayacağım, çünkü bunun arkasında bataryan var."
+  },
+  {
+   "bolum": "Yavaşlamanın 4 sebebi",
+   "bolum_metin": "Önce telefonları yavaşlatan dört gerçek sebebe bakalım.",
+   "tip": "buyuk",
+   "buyuk": "Dolu hafıza",
+   "renk": "kirmizi",
+   "ust": "Sebep 1",
+   "alt": "Depolama dolunca telefon nefes alamaz",
+   "metin": "Birinci sebep dolu hafıza. Telefonun çalışırken geçici dosyalar yazmak için boş alana ihtiyaç duyar. Depolama ağzına kadar dolunca her işlem yavaşlar. Genel bir kural olarak, hafızanın en az yüzde on, mümkünse yüzde yirmisini boş tutmaya çalış."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "Eskiyen batarya",
+   "renk": "sari",
+   "ust": "Sebep 2",
+   "alt": "Yıpranan pil, ani güç ihtiyacını karşılayamaz",
+   "metin": "İkinci sebep eskiyen batarya. Piller zamanla kapasitesini kaybeder ve ani güç ihtiyacını karşılayamaz hâle gelir. Telefon kendini aniden kapatmasın diye bazı modeller performansı biraz düşürür. İşte bilerek yavaşlatma iddiasının arkasındaki gerçek bu. Bu durumda pil değişimi telefonu çoğu zaman yeniden hızlandırır."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "Isınma",
+   "renk": "kirmizi",
+   "ust": "Sebep 3",
+   "alt": "Isınan işlemci kendini korumak için yavaşlar",
+   "metin": "Üçüncü sebep ısınma. İşlemci çok ısınınca kendini korumak için hızını düşürür. Güneşin altında oyun oynamak ya da şarj olurken ağır uygulama kullanmak, telefonun bir anda kasmasının en sık sebeplerinden biridir."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "Ağır uygulamalar",
+   "renk": "beyaz",
+   "ust": "Sebep 4",
+   "alt": "Her güncellemede büyüyen uygulamalar",
+   "metin": "Dördüncü sebep ise uygulamaların zamanla ağırlaşması. Sosyal medya uygulamaları her güncellemede yeni özellik ekler ve daha fazla güç ister. Telefonun aynı kalır ama yükü her yıl artar."
+  },
+  {
+   "bolum": "Yapma!",
+   "bolum_metin": "Çözümlere geçmeden önce, yaptığımız en yaygın hatalara bakalım.",
+   "tip": "efsane",
+   "balon": "RAM temizleyici telefonu hızlandırır!",
+   "damga": "İŞE YARAMAZ",
+   "metin": "En yaygın hata, RAM temizleyici ya da telefon hızlandırıcı uygulamalar indirmek. Modern telefonlar hafızayı zaten kendileri yönetir. Bu uygulamalar çoğu zaman arka planda kendileri çalışıp pil harcar, üstüne bir de reklam gösterir."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Uygulamaları sürekli kapat!",
+   "damga": "TERSİ OLUR",
+   "metin": "İkinci hata, açık uygulamaları sürekli kaydırıp kapatmak. Telefon arkadaki uygulamaları zaten dondurur. Kapatıp yeniden açtığında uygulama sıfırdan yüklenir ve bu daha çok güç harcar. Sadece donan ya da hata veren uygulamayı kapat."
+  },
+  {
+   "bolum": "İşe yarayan 7 çözüm",
+   "bolum_metin": "Şimdi gerçekten işe yarayan yedi çözüme geçiyoruz.",
+   "tip": "adimlar",
+   "baslik": "Çözüm 1-2-3",
+   "adimlar": [
+    "Kullanmadığın uygulamaları sil",
+    "Fotoğraf ve videoları buluta taşı",
+    "WhatsApp medya ayarını düzelt"
+   ],
+   "metin": "Birinci çözüm: son üç ayda hiç açmadığın uygulamaları sil. İkinci çözüm: fotoğraf ve videolarını bir bulut hizmetine yedekleyip telefondan temizle. Üçüncü çözüm: WhatsApp'ta medyanın otomatik indirilmesini kapat. Gruplardan gelen her video, sen fark etmeden hafızanı doldurur."
+  },
+  {
+   "tip": "adimlar",
+   "baslik": "Çözüm 4-5",
+   "adimlar": [
+    "Sistemi ve uygulamaları güncelle",
+    "Haftada bir yeniden başlat"
+   ],
+   "metin": "Dördüncü çözüm: telefonunun sistemini ve uygulamalarını güncel tut. Güncellemeler çoğu zaman hata ve güvenlik düzeltmeleri getirir. Beşinci çözüm: telefonunu haftada bir kez kapatıp aç. Bu basit hareket, birikmiş küçük sorunları temizler."
+  },
+  {
+   "tip": "adimlar",
+   "baslik": "Çözüm 6-7",
+   "adimlar": [
+    "Pil sağlığını kontrol et",
+    "Animasyonları azalt"
+   ],
+   "metin": "Altıncı çözüm: ayarlardan pil sağlığını kontrol et. Pil çok yıprandıysa, yetkili bir serviste pil değişimi telefona ikinci bir hayat verebilir. Yedinci çözüm: ekrandaki geçiş animasyonlarını azalt. Telefon gerçekte daha hızlı olmaz ama sana çok daha çabuk tepki veriyormuş gibi hissettirir."
+  },
+  {
+   "tip": "adimlar",
+   "baslik": "Android: depolamayı temizle",
+   "adimlar": [
+    "Ayarlar > Depolama",
+    "En büyük uygulamayı bul",
+    "“Önbelleği temizle”",
+    "İndirilenler klasörünü boşalt"
+   ],
+   "metin": "Android kullanıyorsan depolamayı şöyle temizleyebilirsin. Ayarlardan depolama bölümüne gir. Hangi uygulamanın en çok yer kapladığına bak. Uygulamanın içine girip önbelleği temizle, bu senin verilerini silmez, sadece geçici dosyaları siler. Son olarak indirilenler klasörünü aç, aylardır unuttuğun dosyaları sil."
+  },
+  {
+   "tip": "adimlar",
+   "baslik": "iPhone: depolamayı temizle",
+   "adimlar": [
+    "Ayarlar > Genel > iPhone Saklama Alanı",
+    "Önerilere bak",
+    "Kullanılmayan uygulamaları kaldır",
+    "Mesaj eklerini temizle"
+   ],
+   "metin": "iPhone kullanıyorsan ayarlardan genel bölümüne, oradan iPhone saklama alanına gir. Telefonun sana önerilerde bulunur, önce onlara bak. Kullanılmayan uygulamaları kaldır seçeneği, uygulamayı silip verilerini saklar. Ve mesajlarda biriken büyük fotoğraf ve videoları buradan toplu silebilirsin."
+  },
+  {
+   "tip": "uyari",
+   "buyuk": "Önce yedek!",
+   "alt": "Fabrika ayarlarına dönmeden önce mutlaka yedek al",
+   "damga": "SON ÇARE",
+   "metin": "Hiçbiri işe yaramazsa son çare fabrika ayarlarına dönmek. Ama bunu yapmadan önce fotoğraflarını, rehberini ve sohbetlerini mutlaka yedekle. Yoksa her şey silinir ve geri gelmez."
+  },
+  {
+   "bolum": "Yeni telefon ne zaman?",
+   "bolum_metin": "Peki ne zaman artık yeni telefon zamanı gelmiştir?",
+   "tip": "madde",
+   "baslik": "Bu işaretler varsa",
+   "maddeler": [
+    "Artık güncelleme gelmiyor",
+    "Pil değişince bile yavaş",
+    "Temel uygulamalar açılmıyor"
+   ],
+   "metin": "Bütün bunları yaptın ama hâlâ çok yavaş mı? Üç işarete bak. Telefonuna artık güvenlik güncellemesi gelmiyorsa. Pili değiştirdiğin hâlde yavaşlık sürüyorsa. Ve günlük kullandığın temel uygulamalar artık açılmıyor ya da desteklenmiyorsa. Bu üçü bir aradaysa, yeni bir telefon düşünmenin zamanı gelmiş olabilir."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Yeni telefon her zaman daha hızlıdır!",
+   "damga": "HER ZAMAN DEĞİL",
+   "metin": "Ama şunu da bil: yeni telefon her zaman daha hızlı değildir. Çok ucuz yeni bir telefon, birkaç yıllık üst seviye bir telefondan daha yavaş olabilir. Alırken sadece yeniliğe değil, işlemciye ve hafıza miktarına da bak."
+  },
+  {
+   "bolum": "Özet",
+   "bolum_metin": "Hepsini bir arada özetleyelim.",
+   "tip": "madde",
+   "baslik": "Bu akşam 5 dakikada yap",
+   "maddeler": [
+    "Hafızada en az %10-20 boş yer",
+    "Hızlandırıcı uygulamaları sil",
+    "WhatsApp otomatik indirmeyi kapat",
+    "Güncelle ve yeniden başlat",
+    "Pil sağlığına bak"
+   ],
+   "metin": "Bu akşam beş dakikanı ayır. Hafızanda en az yüzde on, mümkünse yirmi boş yer bırak. Hızlandırıcı uygulamaları sil. WhatsApp'ta otomatik indirmeyi kapat. Telefonunu güncelle ve yeniden başlat. Son olarak pil sağlığına bir bak."
+  },
+  {
+   "tip": "soru",
+   "soru": "Telefonun kaç yaşında?",
+   "metin": "Senin telefonun kaç yaşında ve en çok nerede kasıyor? Yorumlara yaz, en çok yaşanan soruna özel bir video hazırlayayım."
+  },
+  {
+   "tip": "son",
+   "sonraki": "YouTube kanalı nasıl açılır?",
+   "metin": "Bir sonraki videoda sıfırdan YouTube kanalı açmayı ve para kazanma şartlarını adım adım anlatıyorum. Abone olmayı unutma."
+  }
+ ],
+ "tanitim": {
+  "baslik": "Telefonu Hızlandırma Uygulamaları İşe Yarar mı? 📱 #shorts",
+  "aciklama": "RAM temizleyiciler gerçekten işe yarıyor mu? Tamamı kanaldaki uzun videoda.",
+  "sahneler": [
+   {
+    "tip": "kanca",
+    "ekran": "RAM",
+    "buyuk": "Hızlandırıcı?",
+    "altyazi": "Telefonuna **hızlandırıcı** uygulama mı kurdun?",
+    "seslendirme": "Telefonuna hızlandırıcı ya da RAM temizleyici uygulama mı kurdun? Hemen sil."
+   },
+   {
+    "tip": "uyari",
+    "etiket": "GERÇEK",
+    "baslik": "İşe yaramaz",
+    "rozet": "!",
+    "buyuk": "Ters etki",
+    "damga": "PİL YER",
+    "altyazi": "Telefon hafızayı **zaten** kendisi yönetir.",
+    "seslendirme": "Telefonlar hafızayı zaten kendileri yönetiyor. Bu uygulamalar çoğu zaman arka planda pil yiyor ve reklam gösteriyor."
+   },
+   {
+    "tip": "son",
+    "ust": "TAMAMI KANALDA",
+    "buton": "KANALA GİT",
+    "yarin": "Telefon neden yavaşlar? 7 gerçek çözüm",
+    "seslendirme": "Gerçekten işe yarayan yedi çözümü kanaldaki uzun videoda anlattım."
+   }
+  ]
+ }
+}

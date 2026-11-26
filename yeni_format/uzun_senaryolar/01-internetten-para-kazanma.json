@@ -1,0 +1,285 @@
+{
+ "baslik": "İnternetten Para Kazanma: Gerçekler ve Tuzaklar (2026 Rehberi)",
+ "kapak_yazi": "İNTERNETTEN|PARA KAZANMAK?",
+ "kapak_rozet": "GERÇEKLER",
+ "aciklama": "İnternetten para kazanmak mümkün mü? Hangi yollar gerçekten işe yarıyor, hangileri dolandırıcılık? Görev dolandırıcılığı, sahte yatırım reklamları ve “önce para yatır” tuzağı nasıl anlaşılır? Bu videoda, abartmadan ve süslemeden, gerçekçi bir rehber var.",
+ "etiketler": "internetten para kazanma,evden para kazanma,dolandırıcılık,görev dolandırıcılığı,youtube para kazanma,freelance,ek gelir,2026",
+ "kaynaklar": [
+  "T.C. Ticaret Bakanlığı dolandırıcılık uyarıları",
+  "YouTube İş Ortağı Programı şartları (youtube.com/creators)",
+  "Gelir Vergisi Kanunu 20/B (Gelir İdaresi Başkanlığı)"
+ ],
+ "sahneler": [
+  {
+   "tip": "kanca",
+   "baslik": "İnternetten para kazanmak gerçek mi?",
+   "alt": "Gerçekler, tuzaklar ve işe yarayan yollar",
+   "metin": "Telefonunda bir reklam çıkıyor: günde bir saat çalış, ayda otuz bin lira kazan. Peki bu gerçek mi? Bu videoda internetten para kazanmanın **gerçek** yollarını, en yaygın **tuzakları** ve hiç kimsenin söylemediği bir şeyi anlatacağım. Sonuna kadar izlersen, bir dahaki reklamda neye bakman gerektiğini bileceksin."
+  },
+  {
+   "tip": "soru",
+   "soru": "Sence kaç kişi bu reklamlara inanıyor?",
+   "metin": "Önce şunu düşün. Bu reklamlar neden hâlâ her yerde? Çünkü işe yarıyorlar. Ama kimin işine?"
+  },
+  {
+   "bolum": "En büyük tuzak",
+   "bolum_metin": "Önce en büyük tuzakla başlayalım.",
+   "tip": "efsane",
+   "balon": "Görev yap, para kazan!",
+   "damga": "TUZAK!",
+   "metin": "Sosyal medyada sık gördüğün bir ilan var: video beğen, yorum yap, görev tamamla, para kazan. Buna görev dolandırıcılığı deniyor."
+  },
+  {
+   "tip": "adimlar",
+   "baslik": "Görev dolandırıcılığı böyle işler",
+   "adimlar": [
+    "Küçük, kolay görevler verilir",
+    "İlk günlerde gerçekten para yatar",
+    "“Daha çok kazan” diye para istenir",
+    "Para çekmek isteyince hesap kilitlenir"
+   ],
+   "metin": "Bu sistem dört adımda işler. Önce sana çok kolay görevler veriyorlar. İlk günlerde gerçekten küçük paralar hesabına yatıyor ve güvenin artıyor. Sonra daha büyük kazanç için senden para yatırmanı istiyorlar. Ve paranı çekmek istediğin an hesabın kilitleniyor, kilidi açmak için bir kez daha para istiyorlar."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "4 milyon TL",
+   "ust": "Sadece bir ayda",
+   "alt": "“Görev yap kazan” vurgununun tek bir aylık bilançosu",
+   "metin": "Bu küçük bir mesele değil. Haberlere yansıyan bir örnekte, bu yöntemle sadece bir ay içinde **dört milyon lira** vurgun yapıldı. Ve mağdurların çoğu, ilk küçük ödemeyi aldığı için kandığını söylüyor."
+  },
+  {
+   "tip": "uyari",
+   "buyuk": "Ünlü yüzü = Tuzak",
+   "alt": "Yapay zekâyla yapılmış sahte yatırım reklamları",
+   "damga": "SAHTE VİDEO",
+   "metin": "İkinci büyük tuzak ise sahte yatırım reklamları. Artık yapay zekâyla, tanınmış birinin yüzü ve sesiyle sahte videolar yapılabiliyor. Ticaret Bakanlığı da ünlülerin yatırım tavsiyesi veriyormuş gibi gösterildiği bu reklamlara karşı uyardı. Bir ünlü sana reklamda kesin kazanç vaat ediyorsa, büyük ihtimalle o video sahtedir."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Arkadaşını getir, kazancın katlansın!",
+   "damga": "SAADET ZİNCİRİ",
+   "metin": "Üçüncü tuzak daha eski ama hâlâ çok yaygın: arkadaşını getir, kazancın katlansın. Bu sistemlerde ortada gerçek bir ürün ya da iş yoktur. Yeni gelenlerin parası eskilere dağıtılır. Yeni kişi gelmeyi bıraktığı gün sistem çöker ve en son katılanlar bütün paralarını kaybeder."
+  },
+  {
+   "bolum": "Altın kural",
+   "bolum_metin": "Şimdi seni bütün bu tuzaklardan koruyacak tek bir kurala geçelim.",
+   "tip": "buyuk",
+   "buyuk": "Önce para isteyen",
+   "renk": "kirmizi",
+   "alt": "…sana para kazandırmaz.",
+   "metin": "Altın kural şu: sana para kazandıracağını söyleyip **önce senden para isteyen** her sistem, büyük ihtimalle tuzaktır. Gerçek bir iş, çalışmak için senden ücret istemez."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Tuzağın 5 işareti",
+   "maddeler": [
+    "Kesin ve hızlı kazanç vaadi",
+    "Önce para yatırmanı istemesi",
+    "Acele ettirmesi",
+    "Sadece kripto ya da kişisel hesaba ödeme",
+    "Şirket bilgisinin olmaması"
+   ],
+   "metin": "Bunu beş işaretle hatırlayabilirsin. Birincisi, kesin ve hızlı kazanç vaadi. İkincisi, önce senden para yatırmanı istemesi. Üçüncüsü, acele ettirmesi, mesela son iki kişi kaldı demesi. Dördüncüsü, ödemeyi sadece kripto parayla ya da birinin kişisel hesabına istemesi. Beşincisi, ortada gerçek bir şirket adresi ve bilgisi olmaması."
+  },
+  {
+   "tip": "adimlar",
+   "baslik": "Şüphelendiğinde ne yapmalı?",
+   "adimlar": [
+    "Şirket adını internette ara",
+    "“adı + dolandırıcılık” diye ara",
+    "Kimseye kod ya da şifre verme",
+    "Şüpheliyse ihbar et"
+   ],
+   "metin": "Peki bir teklif şüpheli geldiğinde ne yapmalısın? Önce şirketin adını internette ara. Sonra şirketin adının yanına dolandırıcılık ya da şikâyet yazıp tekrar ara, çoğu zaman cevap ilk sayfada çıkar. Hiç kimseye telefonuna gelen doğrulama kodunu ya da şifreni verme. Ve emin olduğun bir dolandırıcılık varsa, siber suçlarla mücadele birimlerine ihbar et."
+  },
+  {
+   "bolum": "Gerçekten işe yarayan yollar",
+   "bolum_metin": "Peki gerçekten işe yarayan yollar hangileri?",
+   "tip": "buyuk",
+   "buyuk": "Emek + Zaman",
+   "renk": "yesil",
+   "alt": "Gerçek kazancın formülü",
+   "metin": "Önce dürüst olalım. İnternetten para kazanmanın gerçek yolları var ama hiçbiri bir gecede olmuyor. Hepsinin formülü aynı: bir beceri, emek ve zaman."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Gerçek yollar",
+   "maddeler": [
+    "İçerik üretmek (YouTube, Instagram, TikTok)",
+    "Serbest çalışmak (yazı, tasarım, çeviri)",
+    "Mobil uygulama yapmak",
+    "Kendi el emeğini satmak",
+    "Online ders vermek"
+   ],
+   "metin": "En bilinen beş yol şunlar. İçerik üretmek: YouTube, Instagram ya da TikTok'ta video yapmak. Serbest çalışmak: yazı, tasarım, çeviri, video kurgusu gibi işleri internet üzerinden yapmak. Mobil uygulama yapmak ve uygulama mağazasından gelir elde etmek. Kendi el emeğini, mesela örgü ya da takı gibi ürünlerini satmak. Ve iyi bildiğin bir konuda online ders vermek."
+  },
+  {
+   "tip": "karsilastir",
+   "baslik": "Hızlı mı, kalıcı mı?",
+   "sol": {
+    "baslik": "Kısa vadede",
+    "maddeler": [
+     "Serbest çalışma",
+     "Online ders",
+     "El emeği satışı"
+    ]
+   },
+   "sag": {
+    "baslik": "Uzun vadede",
+    "maddeler": [
+     "YouTube kanalı",
+     "Mobil uygulama",
+     "Kendi markan"
+    ]
+   },
+   "sol_renk": "sari",
+   "sag_renk": "yesil",
+   "metin": "Bu yolları ikiye ayırabiliriz. Serbest çalışma, online ders ve el emeği daha kısa sürede para getirebilir, çünkü bir işi yapıp karşılığını alırsın. YouTube kanalı, uygulama ya da kendi markan ise yavaş başlar ama bir kez oturursa sen uyurken bile gelir getirebilir."
+  },
+  {
+   "tip": "adimlar",
+   "baslik": "Serbest çalışmaya başlamak",
+   "adimlar": [
+    "Tek bir hizmet seç (ör. logo, çeviri)",
+    "3 örnek iş hazırla",
+    "Bir platformda profil aç",
+    "Küçük işlerle yorum topla"
+   ],
+   "metin": "Kısa vadeli yollardan serbest çalışmaya nasıl başlanır, onu da anlatayım. Önce tek bir hizmet seç, mesela logo tasarımı ya da çeviri. Sonra kimse istemeden önce kendin üç örnek iş hazırla, bunlar senin vitrinin olacak. Ardından serbest çalışma platformlarından birinde profil aç. İlk işlerini küçük tut ve iyi yorum toplamaya odaklan, çünkü bu işte en büyük sermaye güvendir."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "Aylar sürer",
+   "renk": "sari",
+   "ust": "Gerçekçi beklenti",
+   "alt": "İlk ciddi kazanç çoğu zaman aylar, bazen yıllar sonra gelir",
+   "metin": "Burada dürüst olmam lazım. Kanal açan ya da serbest çalışmaya başlayan çoğu kişi ilk aylarda çok az kazanır. İlk ciddi kazanç çoğu zaman aylar, bazen yıllar sonra gelir. Bunu baştan bilen pes etmez, bilmeyen ilk ay bırakır."
+  },
+  {
+   "bolum": "YouTube'dan para kazanmak",
+   "bolum_metin": "En çok merak edilen yolu biraz açalım: YouTube.",
+   "tip": "buyuk",
+   "buyuk": "1.000 abone",
+   "renk": "beyaz",
+   "ust": "Reklam geliri için ilk şart",
+   "metin": "YouTube'da reklam geliri almak için önce İş Ortağı Programına kabul edilmen gerekiyor. Bunun ilk şartı bin abone."
+  },
+  {
+   "tip": "karsilastir",
+   "baslik": "İkinci şart: ikisinden biri",
+   "sol": {
+    "baslik": "Uzun video",
+    "maddeler": [
+     "Son 12 ayda 4.000 saat izlenme",
+     "1 Şubat 2027'den sonra 8.000 saat"
+    ]
+   },
+   "sag": {
+    "baslik": "Shorts",
+    "maddeler": [
+     "Son 90 günde 10 milyon izlenme",
+     "1 Şubat 2027'den sonra 20 milyon"
+    ]
+   },
+   "sol_renk": "kirmizi",
+   "sag_renk": "sari",
+   "metin": "İkinci şart için iki yol var. Ya uzun videolarda son on iki ayda dört bin saat izlenme, ya da Shorts videolarında son doksan günde on milyon izlenme. Dikkat: YouTube, bir Şubat iki bin yirmi yediden itibaren bu sınırları ikiye katlıyor. Uzun videolarda sekiz bin saat, Shorts'ta yirmi milyon izlenme gerekecek."
+  },
+  {
+   "tip": "madde",
+   "baslik": "YouTube'da büyümenin 3 sırrı",
+   "maddeler": [
+    "Tek bir konuya odaklan",
+    "Düzenli yayınla",
+    "İzleyiciyi geri getir"
+   ],
+   "metin": "Peki kanal nasıl büyür? YouTube her yeni videoyu önce küçük bir kitleye gösterir ve onların tepkisine bakar. Bu yüzden üç şey çok önemli. Birincisi, tek bir konuya odaklan ki YouTube videonu kime göstereceğini bilsin. İkincisi, düzenli yayınla, haftada bir bile olsa aksatma. Üçüncüsü, izleyiciyi geri getir: videonun sonunda bir sonraki videoyu merak ettir."
+  },
+  {
+   "tip": "efsane",
+   "balon": "İlk saatte tutmazsa video ölür!",
+   "damga": "YANLIŞ",
+   "metin": "Bir de şu efsane var: ilk saatte izlenmezse video ölür. Bu doğru değil. YouTube videoları haftalarca, hatta aylarca yeni insanlara göstermeye devam edebilir. Özellikle insanların aradığı konulardaki videolar yıllarca izlenme getirir."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "%15",
+   "renk": "sari",
+   "ust": "Türkiye'de vergi",
+   "alt": "İçerik üreticisi istisnası (GVK 20/B): banka keser, beyanname yok",
+   "metin": "Türkiye'de güzel bir kolaylık da var. Sosyal içerik üreticileri ve mobil uygulama geliştiriciler için özel bir vergi istisnası bulunuyor. Bu gelirler bu iş için açılan özel bir banka hesabına geldiğinde, banka yüzde on beş vergiyi kendisi kesiyor ve belli bir yıllık sınıra kadar beyanname vermen gerekmiyor. Ama kurallar değişebilir, başlamadan önce güncel hâlini mutlaka kontrol et."
+  },
+  {
+   "bolum": "Bugün başlamak için 3 adım",
+   "bolum_metin": "Son olarak, bugün nereden başlayabileceğini anlatayım.",
+   "tip": "adimlar",
+   "baslik": "Bugün başla",
+   "adimlar": [
+    "Bildiğin ya da öğrenebileceğin 1 beceri seç",
+    "Ücretsiz kaynaklarla 30 gün çalış",
+    "İlk küçük işini ya da videonu yayınla"
+   ],
+   "metin": "Üç adım yeterli. Önce bildiğin ya da öğrenebileceğin tek bir beceri seç. Sonra ücretsiz kaynaklarla otuz gün boyunca her gün biraz çalış. Ve otuz günün sonunda ilk küçük işini al ya da ilk videonu yayınla. Mükemmel olmasın, yeter ki başlasın."
+  },
+  {
+   "tip": "uyari",
+   "buyuk": "Tek kural",
+   "alt": "Kazanmak için önce para isteyene asla ödeme yapma",
+   "damga": "UNUTMA",
+   "metin": "Ve bu videodan aklında tek bir şey kalacaksa şu olsun. Sana kazanç vaat edip önce senden para isteyen kim olursa olsun, ödeme yapma. Gerçek kazanç yavaş gelir, ama senin olur."
+  },
+  {
+   "tip": "soru",
+   "soru": "Sen hangi yolu denemek istersin?",
+   "metin": "Şimdi sana soruyorum: bu yollardan hangisini denemek istersin? Yorumlara yaz, en çok istenen konuyu ayrı bir videoda adım adım anlatayım."
+  },
+  {
+   "tip": "son",
+   "sonraki": "Yapay zekâya nasıl soru sorulur?",
+   "metin": "Bir sonraki videoda, yapay zekâyı gerçekten işine yarayacak şekilde nasıl kullanacağını anlatıyorum. Abone olmayı unutma, görüşmek üzere."
+  }
+ ],
+ "tanitim": {
+  "baslik": "“Görev Yap Para Kazan” Nasıl Dolandırıyor? ⚠️ #shorts",
+  "aciklama": "Görev dolandırıcılığı dört adımda nasıl işler? Tamamı kanaldaki uzun videoda.",
+  "sahneler": [
+   {
+    "tip": "kanca",
+    "ekran": "₺",
+    "buyuk": "Görev yap, kazan",
+    "altyazi": "“Görev yap, **para kazan**” ilanı gördün mü?",
+    "seslendirme": "Görev yap, para kazan ilanı gördün mü? Dikkat et, bu en yaygın tuzaklardan biri."
+   },
+   {
+    "tip": "liste",
+    "etiket": "TUZAK",
+    "baslik": "4 adımda",
+    "rozet": "!",
+    "maddeler": [
+     "Kolay görev verilir",
+     "Önce para yatar",
+     "Sonra para istenir"
+    ],
+    "altyazi": "Önce küçük para yatar, sonra **senden** para isterler.",
+    "seslendirme": "Önce kolay görevler veriyorlar, ilk günlerde küçük paralar yatıyor. Sonra daha çok kazan diye senden para istiyorlar."
+   },
+   {
+    "tip": "uyari",
+    "etiket": "SONUÇ",
+    "baslik": "Hesap kilitlenir",
+    "rozet": "!",
+    "buyuk": "Kilitli",
+    "damga": "PARAN GİTTİ",
+    "altyazi": "Para çekmek isteyince hesap **kilitlenir**.",
+    "seslendirme": "Paranı çekmek istediğin an hesabın kilitleniyor ve kilit için bir kez daha para istiyorlar."
+   },
+   {
+    "tip": "son",
+    "ust": "TAMAMI KANALDA",
+    "buton": "KANALA GİT",
+    "yarin": "İnternetten para kazanma: gerçekler ve tuzaklar",
+    "seslendirme": "Gerçekten işe yarayan yolları ve diğer tuzakları kanaldaki uzun videoda anlattım."
+   }
+  ]
+ }
+}

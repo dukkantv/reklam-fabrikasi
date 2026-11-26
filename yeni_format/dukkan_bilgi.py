@@ -235,7 +235,7 @@ def s_liste(img, sc, lt, dur):
 
 def s_son(img, sc, lt, dur):
     a = ease_out(prog(lt, 0.1, 0.5))
-    glow_text(img, (540, 520), "YARIN", font("black", 64), RED, glow=12, strength=1, alpha=a)
+    glow_text(img, (540, 520), sc.get("ust", "YARIN"), font("black", 64), RED, glow=12, strength=1, alpha=a)
     f = font("black", 86)
     for i, ln in enumerate(wrap(sc["yarin"], f, 920)[:3]):
         glow_text(img, (540, 660 + i * 105), ln, f, WHITE, glow=10, strength=0, alpha=clamp(a * 1.2 - i * 0.2))
@@ -245,7 +245,7 @@ def s_son(img, sc, lt, dur):
         w = 520 * b
         d.rounded_rectangle((540 - w / 2, 1050, 540 + w / 2, 1170), radius=60, fill=RED + (255,))
         if b > 0.7:
-            d.text((540, 1110), "TAKİP ET", font=font("black", 60), fill=(255, 255, 255, 255), anchor="mm")
+            d.text((540, 1110), sc.get("buton", "TAKİP ET"), font=font("black", 60), fill=(255, 255, 255, 255), anchor="mm")
         paste_alpha(img, fast_blur(L, 20), 1.0)
         paste_alpha(img, L, 1.0)
     c = prog(lt, 1.6, 0.5)

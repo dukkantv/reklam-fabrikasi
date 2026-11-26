@@ -1,0 +1,101 @@
+name: Dükkan TV - Uzun Eğitim Videosu
+
+# 26 Kas 2026 (Levent: "her gün uzun videolarımız olsun, en büyük ağırlığımız YouTube"): her gün 1 uzun
+# eğitim videosu (16:9, ~6-9 dk, bölümlü, kapaklı, Levent'in klon sesi). Senaryolar yeni_format/uzun_senaryolar,
+# sıra yeni_format/uzun_sira.json. Akşam 20:17'de yayında; tanıtım Shorts'u ertesi gün 12:47'de.
+# Zamanlama uretim_nobet.py'de (sabah erken). Stok, Claude'un sabah görevinde yenilenir.
+on:
+  workflow_dispatch:
+    inputs:
+      senaryo:
+        description: "Senaryo dosyası (boş = sıradaki), ör. uzun_senaryolar/03-telefon-neden-yavaslar.json"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dukkan-uzun
+
+jobs:
+  uret:
+    runs-on: ubuntu-latest
+    timeout-minutes: 200
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Araçlar
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip install -q requests pillow numpy edge-tts
+      - name: Klon ses kurulumu
+        continue-on-error: true
+        run: |
+          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install -q chatterbox-tts
+      - name: Model önbelleği
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: chatterbox-mtl-v1
+      - name: Uzun videoyu üret
+        working-directory: yeni_format
+        timeout-minutes: 170
+        env:
+          PYTHONUNBUFFERED: "1"
+          SENARYO: ${{ inputs.senaryo }}
+        run: python uzun.py
+      - name: Yayın kuyruğuna ekle (uzun 20:17, tanıtım ertesi gün 12:47)
+        if: success() && hashFiles('yeni_format/out/yayin_uzun.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+        run: |
+          python3 - <<'PY'
+          import datetime as dt, json, os, subprocess
+          TR = dt.timezone(dt.timedelta(hours=3))
+          y = json.load(open("yeni_format/out/yayin_uzun.json", encoding="utf-8"))
+          simdi = dt.datetime.now(TR)
+          gun = simdi.date() if simdi.hour * 60 + simdi.minute < 18 * 60 + 30 else simdi.date() + dt.timedelta(days=1)
+          # o gün için zaten bir Dükkan TV uzun videosu planlandıysa bir sonraki güne kaydır
+          import glob
+          dolu = set()
+          for p in glob.glob("kuyruk/*.json") + glob.glob("kuyruk/arsiv/*.json"):
+              try:
+                  k = json.load(open(p, encoding="utf-8"))
+              except Exception:
+                  continue
+              if k.get("kanal") == "dukkantv" and k.get("uzun") and k.get("durum") != "iptal":
+                  z = k.get("sabit_yayin") or k.get("yayin")
+                  if z:
+                      dolu.add(dt.datetime.fromisoformat(z).astimezone(TR).date())
+          while gun in dolu:
+              gun += dt.timedelta(days=1)
+          uz = dt.datetime(gun.year, gun.month, gun.day, 20, 17, tzinfo=TR)
+          env = dict(os.environ, SABIT_YAYIN=uz.isoformat())
+          subprocess.run(["python3", "yt_kuyruk.py", "ekle", "dukkantv", y["video"], y["baslik"], y["aciklama"], y["etiketler"], "", y["kapak"]], check=True, env=env)
+          if y.get("kisa"):
+              k = y["kisa"]; ks = uz + dt.timedelta(days=1)
+              ks = ks.replace(hour=12, minute=47)
+              env = dict(os.environ, SABIT_YAYIN=ks.isoformat())
+              subprocess.run(["python3", "yt_kuyruk.py", "ekle", "dukkantv", k["video"], k["baslik"], k["aciklama"], k["etiketler"]], check=True, env=env)
+          print("Uzun:", uz, "· tanıtım:", ks if y.get("kisa") else "-")
+          PY
+      - name: Kaydet
+        if: always()
+        run: |
+          git config user.name "dukkan-tv-bot"; git config user.email "actions@users.noreply.github.com"
+          git add yeni_format/durum.json kuyruk
+          git diff --cached --quiet || (git commit -qm "Dükkan TV uzun video: sıra / kuyruk" && (git push || (git pull --rebase origin main && git push)))
+      - name: Hata bildirimi
+        if: failure()
+        run: |
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" -d chat_id="${TELEGRAM_CHAT_ID}" \
+            --data-urlencode text="⚠️ Dükkan TV uzun videosu üretilemedi. Claude'a haber ver: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >/dev/null

@@ -28,6 +28,8 @@ ISLER = {
     "arena.yml":       (["07:40"], {}),            # 81 İl Turnuvası maçı
     # 26 Kas 2026: Dükkan TV "Doğru Bilinen Yanlışlar" neon bilgi serisi (günde 1, klon sesli)
     "dukkan-bilgi.yml": (["08:10"], {}),
+    # 26 Kas 2026: Dükkan TV her gün 1 uzun eğitim videosu (üretim ~1–2 saat sürer, akşam 20:17'de yayında)
+    "dukkan-uzun.yml": (["05:20"], {}),
 }
 
 

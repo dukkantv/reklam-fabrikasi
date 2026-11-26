@@ -1,0 +1,234 @@
+{
+ "baslik": "Yapay Zekâya Nasıl Soru Sorulur? ChatGPT, Gemini ve Claude'u Doğru Kullanma Rehberi",
+ "kapak_yazi": "YAPAY ZEKÂYI|DOĞRU KULLAN",
+ "kapak_rozet": "7 KURAL",
+ "aciklama": "Yapay zekâ bazen harika, bazen saçma cevaplar veriyor. Fark çoğu zaman sorduğun sorudan geliyor. Bu videoda ChatGPT, Gemini, Claude gibi yapay zekâ sohbet araçlarından en iyi cevabı almak için 7 kuralı, örnekleriyle anlatıyorum. Ayrıca yapay zekânın nerede yanılabileceğini ve neyi asla paylaşmaman gerektiğini öğreneceksin.",
+ "etiketler": "yapay zeka nasıl kullanılır,chatgpt nasıl kullanılır,gemini,claude,prompt nasıl yazılır,yapay zekaya soru sorma,yapay zeka rehberi",
+ "kaynaklar": [
+  "OpenAI, Google ve Anthropic'in kullanım kılavuzları",
+  "Türkiye yapay zekâ kullanım araştırmaları (TÜİK, AIPA)"
+ ],
+ "sahneler": [
+  {
+   "tip": "kanca",
+   "baslik": "Yapay zekâ neden saçma cevap veriyor?",
+   "alt": "Sorun çoğu zaman soruda",
+   "metin": "Yapay zekâya bir şey soruyorsun, cevap ya çok genel ya da alakasız geliyor. Tanıdık mı? Aslında sorun çoğu zaman yapay zekâda değil, **sorduğumuz soruda**. Bu videoda, aynı yapay zekâdan on kat daha iyi cevap almanı sağlayacak **yedi kuralı** anlatacağım."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "Her 3 kişiden 1'i",
+   "renk": "beyaz",
+   "ust": "Türkiye'de üretken yapay zekâ kullanımı",
+   "alt": "Kullanım bir yılda neredeyse ikiye katlandı",
+   "metin": "Türkiye'de yapay zekâ kullanımı çok hızlı artıyor. Resmî verilere göre üretken yapay zekâ araçlarını kullananların oranı bir yılda neredeyse ikiye katlandı ve gençlerde çok daha yüksek. Yani bu araçları doğru kullanmak artık bir avantaj değil, temel bir beceri."
+  },
+  {
+   "bolum": "Yapay zekâ nasıl çalışır?",
+   "bolum_metin": "Kurallara geçmeden önce, yapay zekânın nasıl düşündüğünü bir dakikada anlatayım.",
+   "tip": "buyuk",
+   "buyuk": "Tahmin makinesi",
+   "renk": "sari",
+   "alt": "Bir sonraki kelimeyi en mantıklı şekilde tahmin eder",
+   "metin": "Bu sohbet araçları, çok büyük miktarda metinle eğitilmiş dil modelleridir. Basitçe söylersek, yazdığın şeye en uygun devamı tahmin ederler. Bu yüzden onlara ne kadar net bir yol gösterirsen, tahminleri o kadar isabetli olur."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Yapay zekâ her şeyi bilir!",
+   "damga": "YANLIŞ",
+   "metin": "Ve şu efsaneyi baştan bozalım: yapay zekâ her şeyi bilmez. Bazen bilmediği bir şeyi çok emin bir dille uydurabilir. Buna halüsinasyon deniyor. Bunu bilmek, onu doğru kullanmanın ilk adımı."
+  },
+  {
+   "bolum": "Daha iyi cevabın 7 kuralı",
+   "bolum_metin": "Şimdi daha iyi cevap almanın yedi kuralına geçelim.",
+   "tip": "adimlar",
+   "baslik": "Kural 1-2",
+   "adimlar": [
+    "Ona bir rol ver",
+    "Bağlamı anlat"
+   ],
+   "metin": "Birinci kural: ona bir rol ver. Mesela, sen deneyimli bir öğretmensin diye başla. Rol, cevabın tonunu ve derinliğini değiştirir. İkinci kural: bağlamı anlat. Kimsin, ne için soruyorsun, kime hitap edeceksin? Lise öğrencisi olduğunu söylersen, cevabı ona göre basitleştirir."
+  },
+  {
+   "tip": "karsilastir",
+   "baslik": "Aynı soru, iki farklı sonuç",
+   "sol": {
+    "baslik": "Kötü soru",
+    "maddeler": [
+     "“Bana diyet listesi yaz.”",
+     "Genel ve herkese uyan cevap"
+    ]
+   },
+   "sag": {
+    "baslik": "İyi soru",
+    "maddeler": [
+     "“Bütçem az, kahvaltıyı atlıyorum, 3 öğünlük haftalık alışveriş listesi hazırla.”",
+     "Sana özel cevap"
+    ]
+   },
+   "sol_renk": "kirmizi",
+   "sag_renk": "yesil",
+   "metin": "Farkı bir örnekle gör. Bana yemek listesi yaz dersen herkese uyan sıradan bir cevap alırsın. Ama bütçemin az olduğunu, kahvaltıyı genelde atladığımı söyleyip üç öğünlük haftalık bir alışveriş listesi istersen, cevap tamamen sana göre olur."
+  },
+  {
+   "tip": "adimlar",
+   "baslik": "Kural 3-4-5",
+   "adimlar": [
+    "Ne istediğini net söyle",
+    "Biçimi belirt (tablo, madde, 100 kelime)",
+    "Örnek göster"
+   ],
+   "metin": "Üçüncü kural: ne istediğini net söyle. Bana yardım et yerine, bu dilekçeyi daha resmî bir dille yeniden yaz de. Dördüncü kural: biçimi belirt. Tablo mu istiyorsun, madde madde mi, yüz kelimeyi geçmesin mi? Beşinci kural: örnek göster. Beğendiğin bir yazıyı yapıştırıp bu tarzda yaz dersen, sonuç çok daha iyi olur."
+  },
+  {
+   "tip": "adimlar",
+   "baslik": "Kural 6-7",
+   "adimlar": [
+    "Adım adım düşünmesini iste",
+    "Sohbeti sürdür, düzelttir"
+   ],
+   "metin": "Altıncı kural: zor bir soruda adım adım düşünmesini iste. Matematik ya da plan gibi konularda, adım adım açıkla demek hataları azaltır. Yedinci kural: ilk cevapla yetinme. Daha kısa yap, örnek ekle, şu kısmı değiştir diyerek sohbeti sürdür. En iyi sonuç genelde üçüncü ya da dördüncü mesajda gelir."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Hazır kalıp: bunu kopyala",
+   "maddeler": [
+    "Sen bir … uzmanısın.",
+    "Durumum şu: …",
+    "Benden istediğin: …",
+    "Biçim: … (tablo / madde / kısa)",
+    "Emin olmadığın yeri belirt."
+   ],
+   "metin": "Bunları tek bir kalıpta toplayalım, ekrana bakıp kopyalayabilirsin. Sen bir alan uzmanısın. Durumum şu. Senden istediğim şu. Cevabı şu biçimde ver. Ve son satır çok önemli: emin olmadığın yeri açıkça belirt."
+  },
+  {
+   "bolum": "Gerçek bir örnek: CV hazırlamak",
+   "bolum_metin": "Şimdi bu kuralları gerçek bir örnekte birlikte uygulayalım.",
+   "tip": "adimlar",
+   "baslik": "Yapay zekâyla CV",
+   "adimlar": [
+    "Rol ver: “İnsan kaynakları uzmanısın”",
+    "Bilgilerini madde madde yaz",
+    "İş ilanını yapıştır",
+    "“İlana göre düzenle, 1 sayfa olsun” de",
+    "Uydurduğu bir şey var mı, kontrol et"
+   ],
+   "metin": "Diyelim ki iş başvurusu için bir CV hazırlayacaksın. Önce ona bir rol ver: sen deneyimli bir insan kaynakları uzmanısın de. Sonra eğitimini, deneyimini ve becerilerini madde madde yaz. Başvuracağın iş ilanını da yapıştır. Ardından, bu ilana göre CV'mi düzenle, bir sayfayı geçmesin de. Ve en önemlisi, sonucu dikkatle oku. Yapmadığın bir işi ya da bilmediğin bir beceriyi eklemiş olabilir, onu mutlaka sil."
+  },
+  {
+   "tip": "karsilastir",
+   "baslik": "Hangi araç?",
+   "sol": {
+    "baslik": "Ortak yanları",
+    "maddeler": [
+     "Soru cevaplar, metin yazar",
+     "Özetler, çevirir",
+     "Bazen yanılabilir"
+    ]
+   },
+   "sag": {
+    "baslik": "Seçerken bak",
+    "maddeler": [
+     "Türkçesi sana doğal geliyor mu?",
+     "Ücretsiz sürüm yetiyor mu?",
+     "Kullandığın uygulamalarla bağlantısı"
+    ]
+   },
+   "sol_renk": "beyaz",
+   "sag_renk": "yesil",
+   "metin": "Hangi yapay zekâyı kullanmalıyım diye soranlar çok. Türkiye'de açık ara en çok kullanılan ChatGPT, ama Gemini ve Claude da benzer işleri yapıyor. Hepsi soru cevaplar, metin yazar, özetler ve çevirir. Hepsi de bazen yanılabilir. Seçerken şuna bak: Türkçesi sana doğal geliyor mu, ücretsiz sürümü işini görüyor mu ve zaten kullandığın uygulamalarla bağlantısı var mı? En iyisi, aynı soruyu ikisine sorup karşılaştırmak."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "Fotoğraf göster",
+   "renk": "sari",
+   "ust": "Az bilinen özellik",
+   "alt": "Fotoğraf yükleyip soru sorabilirsin",
+   "metin": "Az bilinen bir özellik daha var. Çoğu yapay zekâya fotoğraf yükleyip soru sorabilirsin. Bir ödevin fotoğrafını çekip konuyu açıklat, bir yemeğin fotoğrafından tarif iste ya da yabancı dildeki bir tabelayı çevirt. Ama kimlik, kart ya da başkalarının yüzü gibi özel fotoğrafları yüklemekten kaçın."
+  },
+  {
+   "bolum": "Nerede güvenme?",
+   "bolum_metin": "Şimdi en önemli kısma geldik: yapay zekâya nerede güvenmemelisin?",
+   "tip": "uyari",
+   "buyuk": "Kontrol et",
+   "alt": "Rakam, tarih, isim, kanun ve sağlık bilgisi",
+   "damga": "UYDURABİLİR",
+   "metin": "Yapay zekâ rakam, tarih, isim, kanun maddesi ve sağlık bilgisi gibi konularda yanılabilir. Önemli bir kararın parçasıysa, cevabı mutlaka resmî bir kaynaktan kontrol et. İlaç, hastalık ve hukuki işler için son sözü her zaman uzmanlara bırak."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Asla paylaşma",
+   "maddeler": [
+    "Şifreler ve doğrulama kodları",
+    "Kimlik ve kart numaraları",
+    "Başkasının özel bilgileri",
+    "İş yerinin gizli belgeleri"
+   ],
+   "metin": "Bir de paylaşmaman gerekenler var. Şifrelerini ve telefonuna gelen doğrulama kodlarını asla yazma. Kimlik ve kart numaralarını paylaşma. Başkalarının özel bilgilerini izinsiz verme. Ve çalıştığın yerin gizli belgelerini yapay zekâya yükleme."
+  },
+  {
+   "bolum": "Günlük hayatta 5 kullanım",
+   "bolum_metin": "Son olarak, günlük hayatta işine yarayacak beş kullanım göstereyim.",
+   "tip": "madde",
+   "baslik": "Hemen dene",
+   "maddeler": [
+    "Dilekçe ve resmî yazı taslağı",
+    "Ders konusu özetleme",
+    "Haftalık plan ve liste",
+    "Mesajını daha kibar yazma",
+    "Yeni bir beceriye yol haritası"
+   ],
+   "metin": "Birincisi, dilekçe ve resmî yazı taslakları. İkincisi, anlamadığın bir ders konusunu basitçe özetletmek. Üçüncüsü, haftalık plan ve alışveriş listesi. Dördüncüsü, gergin bir mesajı daha kibar bir dille yeniden yazdırmak. Beşincisi, yeni bir beceri öğrenmek için adım adım bir yol haritası çıkarmak."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "Araç, sen ustasın",
+   "renk": "yesil",
+   "alt": "Yapay zekâ seni değil, işini hızlandırır",
+   "metin": "Unutma: yapay zekâ bir araç, usta sensin. Doğru soruyu soran ve cevabı kontrol eden kişi, onu en verimli kullanan kişidir."
+  },
+  {
+   "tip": "soru",
+   "soru": "Yapay zekâyı en çok ne için kullanıyorsun?",
+   "metin": "Sen yapay zekâyı en çok ne için kullanıyorsun? Yorumlara yaz, en ilginç kullanımları bir sonraki videolarda deneyelim."
+  },
+  {
+   "tip": "son",
+   "sonraki": "Telefonun neden yavaşlıyor?",
+   "metin": "Bir sonraki videoda telefonunun neden yavaşladığını ve gerçekten işe yarayan çözümleri anlatıyorum. Abone olmayı unutma."
+  }
+ ],
+ "tanitim": {
+  "baslik": "Yapay Zekâdan 10 Kat İyi Cevap Almanın Sırrı 🤖 #shorts",
+  "aciklama": "Yapay zekâya soru sormanın doğru yolu. Tamamı kanaldaki uzun videoda.",
+  "sahneler": [
+   {
+    "tip": "kanca",
+    "ekran": "AI",
+    "buyuk": "Saçma cevap?",
+    "altyazi": "Yapay zekâ **saçma** mı cevap veriyor?",
+    "seslendirme": "Yapay zekâ sana saçma cevaplar mı veriyor? Sorun büyük ihtimalle soruda."
+   },
+   {
+    "tip": "liste",
+    "etiket": "SIR",
+    "baslik": "3 kural",
+    "rozet": "✓",
+    "maddeler": [
+     "Ona bir rol ver",
+     "Durumunu anlat",
+     "Biçimi söyle"
+    ],
+    "altyazi": "Rol ver, **durumunu** anlat, biçimi söyle.",
+    "seslendirme": "Ona bir rol ver, durumunu anlat ve cevabın biçimini söyle. Tablo mu, madde mi, kısa mı?"
+   },
+   {
+    "tip": "son",
+    "ust": "TAMAMI KANALDA",
+    "buton": "KANALA GİT",
+    "yarin": "Yapay zekâya nasıl soru sorulur? 7 kural",
+    "seslendirme": "Yedi kuralın tamamını ve hazır kalıbı kanaldaki uzun videoda anlattım."
+   }
+  ]
+ }
+}

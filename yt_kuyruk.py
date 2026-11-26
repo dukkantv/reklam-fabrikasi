@@ -366,7 +366,9 @@ def ekle(kanal, video, baslik, aciklama="", etiketler="", gunluk="", kapak="", k
 # 21:00/21:30 sadece son çare (gün içinde üretim geç kalırsa aynı gün yine çıksın diye).
 SAATLER = ["12:30", "13:30", "14:00", "15:00", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30",
            "19:00", "19:30", "20:00", "20:30", "21:00", "21:30"]
-TERCIH = {"dukkantv": ["18:00", "17:00", "19:00", "16:30"],
+# 26 Kas 2026 (Levent: "saate takılma, insanların en yoğun olduğu saatlere göre ayarla"): Dükkan TV kısaları
+# öğle arası ve iş çıkışına, yuvarlak saatlerden kaçarak (herkes :00'da paylaşıyor).
+TERCIH = {"dukkantv": ["12:47", "18:13", "17:07", "16:33"],
           # Kasa Kurgu: günde 2 Katil Kim? (23.11.2026'dan itibaren), aralarında en az 2,5 saat
           "kasakurgu": ["14:00", "17:30", "19:30", "13:30", "20:30"],
           "dramabite": ["19:00", "15:00", "20:00", "16:30"],   # günde 2 hikâye (odak kanal)
@@ -374,6 +376,8 @@ TERCIH = {"dukkantv": ["18:00", "17:00", "19:00", "16:30"],
           "ilturnuva": ["16:00", "16:30", "17:00", "15:00"],
           "gizlitarih": ["12:30", "20:00", "15:00", "13:30"]}
 AYNI_KANAL_ARALIK = {"kasakurgu": 2.5 * 3600}
+# Uzun videolar akşam en yoğun saatte (Türkiye'de YouTube izlenmesi 20–22 arası zirve yapar); kanal başına günde 1 uzun.
+TERCIH_UZUN = {"dukkantv": ["20:17", "20:47", "21:13", "19:43"]}
 GUNDE_BIR = {"ilturnuva", "gizlitarih"}   # turnuva fikstürü günde 1 maç; belgesel günde en fazla 1   # sn; diğer kanallarda aynı kanalın iki videosu arası 1 saat
 
 
@@ -419,12 +423,13 @@ def yayin_zamani(kanal="dukkantv", gunluk=False, uzun=False):
     simdi = dt.datetime.now(TR)
     dolu = dolu_zamanlar()
     yasak_gunler = gunluk_gunler() if gunluk else set()
-    sira = TERCIH.get(kanal, []) + [x for x in SAATLER if x not in TERCIH.get(kanal, [])]
+    tercih = TERCIH_UZUN[kanal] if uzun and kanal in TERCIH_UZUN else TERCIH.get(kanal, [])
+    sira = tercih + [x for x in SAATLER if x not in tercih]
     for gun in range(0, 14):
         tarih = (simdi + dt.timedelta(days=gun)).date()
         if tarih in yasak_gunler:
             continue
-        if kanal in GUNDE_BIR and tarih in ayni_tur_gunler(kanal, uzun):
+        if (kanal in GUNDE_BIR or (uzun and kanal in TERCIH_UZUN)) and tarih in ayni_tur_gunler(kanal, uzun):
             continue  # bu kanala günde en fazla 1 video (turnuva/belgesel takvimi kaymasın; Shorts ayrı sayılır)
         for saat in sira:
             hh, mm = map(int, saat.split(":"))

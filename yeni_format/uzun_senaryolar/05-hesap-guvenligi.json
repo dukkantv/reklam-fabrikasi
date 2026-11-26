@@ -1,0 +1,207 @@
+{
+ "baslik": "WhatsApp ve Instagram Hesabın Çalınmasın! İki Adımlı Doğrulama ve Korunma Rehberi",
+ "kapak_yazi": "HESABIN|ÇALINMASIN!",
+ "kapak_rozet": "5 DAKİKA",
+ "aciklama": "WhatsApp ve Instagram hesapları en çok nasıl çalınıyor? Telif ihlali mesajı, kod isteyen arkadaş, sahte kampanya linki… Bu videoda en yaygın hesap çalma yöntemlerini, iki adımlı doğrulamayı nasıl açacağını ve hesabın çalınırsa ilk 10 dakikada ne yapman gerektiğini anlatıyorum.",
+ "etiketler": "whatsapp hesabım çalındı,instagram hesabım çalındı,iki adımlı doğrulama,hesap güvenliği,dolandırıcılık,whatsapp güvenlik,instagram güvenlik",
+ "kaynaklar": [
+  "WhatsApp Yardım Merkezi: İki adımlı doğrulama",
+  "Instagram Yardım Merkezi: Hesabım saldırıya uğradı",
+  "Siber Suçlarla Mücadele Daire Başkanlığı uyarıları"
+ ],
+ "sahneler": [
+  {
+   "tip": "kanca",
+   "baslik": "Hesabın 1 dakikada gidebilir",
+   "alt": "En yaygın 6 yöntem ve 5 dakikalık korunma",
+   "metin": "Bir arkadaşından mesaj geliyor: yanlışlıkla sana bir kod gönderdim, bana yollar mısın? Yollarsan, hesabın bir dakika içinde gidebilir. Bu videoda hesapların **en çok nasıl çalındığını** ve beş dakikada nasıl **korunacağını** anlatıyorum. Sonunda da hesabın çalınırsa ne yapman gerektiğini söyleyeceğim."
+  },
+  {
+   "bolum": "En yaygın 6 yöntem",
+   "bolum_metin": "Önce dolandırıcıların en sık kullandığı altı yönteme bakalım.",
+   "tip": "efsane",
+   "balon": "Yanlışlıkla sana kod gönderdim, yollar mısın?",
+   "damga": "TUZAK",
+   "metin": "Birinci yöntem, kod isteyen arkadaş. Hesabı zaten çalınmış bir tanıdığından mesaj gelir ve telefonuna gelen altı haneli kodu ister. O kod aslında senin hesabının giriş kodudur. Verdiğin an hesabın onların olur."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Hesabınız telif ihlali nedeniyle 24 saat içinde kapatılacak!",
+   "damga": "SAHTE",
+   "metin": "İkinci yöntem, sahte telif ya da doğrulama mesajı. Özellikle Instagram'da, hesabın kapatılacak, itiraz etmek için linke tıkla diye mesajlar gelir. Link, gerçek sayfaya çok benzeyen sahte bir sayfaya gider ve şifreni çalar."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Bayrama özel 100 GB internet hediye!",
+   "damga": "OLTALAMA",
+   "metin": "Üçüncü yöntem, sahte kampanya ve çekiliş linkleri. Bedava internet, hediye çeki ya da büyük indirim vaat eden linkler, ya şifreni ister ya da telefonuna zararlı bir dosya indirir."
+  },
+  {
+   "tip": "uyari",
+   "buyuk": "Aynı şifre",
+   "alt": "Bir site sızarsa, bütün hesapların açılır",
+   "damga": "TEHLİKE",
+   "metin": "Dördüncü yöntem ise sessiz olanı: her yerde aynı şifreyi kullanmak. Şifreni kullandığın sitelerden biri sızdırılırsa, dolandırıcılar aynı şifreyi diğer hesaplarında da dener."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Kargonuz teslim edilemedi, adresinizi güncelleyin.",
+   "damga": "SAHTE SMS",
+   "metin": "Beşinci yöntem son yılların en yaygınlarından: sahte kargo mesajı. Kargonuz teslim edilemedi, adresinizi güncelleyin diye bir link gelir. Link seni kargo firmasına benzeyen bir sayfaya götürür ve küçük bir ücret bahanesiyle kart bilgilerini ister. Bir kargo beklemiyorsan ya da emin değilsen, linke değil, kargo firmasının kendi uygulamasına bak."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Ben bankadan arıyorum, hesabınız bloke oldu.",
+   "damga": "KAPAT",
+   "metin": "Altıncısı telefonla gelir. Bankadan, polisten ya da savcılıktan aradığını söyleyen biri, hesabının tehlikede olduğunu, paranı güvenli bir hesaba aktarman gerektiğini söyler. Hiçbir resmî kurum seni arayıp para aktarmanı ya da şifreni istemez. Telefonu kapat ve bankanı kendin, kartının arkasındaki numaradan ara."
+  },
+  {
+   "bolum": "Altın kural",
+   "bolum_metin": "Bütün bu yöntemlere karşı tek bir altın kural var.",
+   "tip": "buyuk",
+   "buyuk": "Kodu kimseye verme",
+   "renk": "kirmizi",
+   "alt": "Ne arkadaşına, ne bankaya, ne de “destek ekibine”",
+   "metin": "Telefonuna gelen doğrulama kodunu hiç kimseye verme. Ne arkadaşına, ne de kendini banka ya da destek ekibi olarak tanıtan birine. Gerçek kurumlar bu kodu senden asla istemez."
+  },
+  {
+   "bolum": "5 dakikada korun",
+   "bolum_metin": "Şimdi telefonunu eline al, beş dakikada hesaplarını koruyalım.",
+   "tip": "adimlar",
+   "baslik": "WhatsApp: iki adımlı doğrulama",
+   "adimlar": [
+    "Ayarlar'ı aç",
+    "Hesap'a dokun",
+    "İki adımlı doğrulama'yı seç",
+    "6 haneli bir PIN belirle",
+    "E-posta adresini ekle"
+   ],
+   "metin": "Önce WhatsApp. Ayarları aç. Hesap bölümüne gir. İki adımlı doğrulamayı seç ve aç. Altı haneli, kolay tahmin edilmeyen bir PIN belirle. Ve PIN'i unutursan diye bir e-posta adresi ekle. Artık biri kodunu ele geçirse bile bu PIN olmadan hesabına giremez."
+  },
+  {
+   "tip": "adimlar",
+   "baslik": "Instagram: iki faktörlü doğrulama",
+   "adimlar": [
+    "Profil > menü > Hesaplar Merkezi",
+    "Şifre ve güvenlik",
+    "İki faktörlü doğrulama",
+    "Doğrulama uygulaması ya da SMS seç",
+    "Yedek kodları sakla"
+   ],
+   "metin": "Şimdi Instagram. Profilinden menüyü açıp Hesaplar Merkezi'ne gir. Şifre ve güvenlik bölümüne dokun. İki faktörlü doğrulamayı seç. Mümkünse bir doğrulama uygulaması, değilse SMS seçeneğini kullan. Ve sana verilen yedek kodları güvenli bir yere not et."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Güçlü şifre",
+   "maddeler": [
+    "En az 12 karakter",
+    "Her hesaba farklı şifre",
+    "Şifre yöneticisi kullan",
+    "Doğum tarihi, isim kullanma"
+   ],
+   "metin": "Şifrelerin için dört kural. En az on iki karakter olsun. Her hesabın şifresi farklı olsun. Hepsini aklında tutamıyorsan telefonundaki şifre yöneticisini kullan. Ve doğum tarihi, isim ya da takım adı gibi tahmin edilebilir şeyler kullanma."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Ayda bir kontrol",
+   "maddeler": [
+    "Bağlı cihazlara bak",
+    "Tanımadığın oturumu kapat",
+    "Uygulama izinlerini temizle"
+   ],
+   "metin": "Ayda bir de şu kontrolü yap. Hesabına bağlı cihazlara bak. Tanımadığın bir oturum varsa hemen kapat. Ve hesabına erişim izni verdiğin, artık kullanmadığın uygulamaların iznini kaldır."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "E-posta = anahtar",
+   "renk": "sari",
+   "ust": "En çok unutulan hesap",
+   "alt": "Bütün şifre sıfırlamaları e-postana gelir",
+   "metin": "En çok unutulan hesap ise e-posta hesabın. Bütün diğer hesaplarının şifre sıfırlama bağlantıları oraya gelir. E-postan ele geçirilirse, diğer hesaplarını da kolayca alırlar. Bu yüzden iki adımlı doğrulamayı önce e-posta hesabında aç."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Ailen için",
+   "maddeler": [
+    "Anne-babanın telefonunda da aç",
+    "Çocuklara “kod verme” kuralını öğret",
+    "Şüpheli mesajı önce sana sorsunlar"
+   ],
+   "metin": "Ve bunu sadece kendin için yapma. Anne ve babanın telefonunda da iki adımlı doğrulamayı sen aç. Çocuklara, kimseye kod vermeme kuralını öğret. Ailene de şunu söyle: şüpheli bir mesaj ya da arama gelirse, bir şey yapmadan önce sana sorsunlar."
+  },
+  {
+   "bolum": "Çalınırsa ne yapmalı?",
+   "bolum_metin": "Peki her şeye rağmen hesabın çalınırsa ne yapmalısın?",
+   "tip": "adimlar",
+   "baslik": "İlk 10 dakika",
+   "adimlar": [
+    "Hemen yeniden giriş yapmayı dene",
+    "Resmî kurtarma sayfasını kullan",
+    "Çevrene haber ver",
+    "Diğer şifrelerini değiştir",
+    "Para istenirse ihbar et"
+   ],
+   "metin": "İlk on dakikada şunları yap. Hemen kendi numaranla yeniden giriş yapmayı dene. Giremiyorsan uygulamanın resmî hesap kurtarma sayfasını kullan, Instagram'da yardım merkezindeki hesabım saldırıya uğradı bölümü buna göre hazırlanmış. Ailene ve arkadaşlarına, benden para isteyen mesajlara inanmayın diye haber ver. Aynı şifreyi kullandığın diğer hesaplarının şifresini de değiştir. Ve hesabın üzerinden para istendiyse, siber suçlarla mücadele birimlerine ihbar et."
+  },
+  {
+   "tip": "uyari",
+   "buyuk": "Kurtarıcı yok",
+   "alt": "“Hesabını geri getiririm” diyen ücretli kişilere güvenme",
+   "damga": "İKİNCİ TUZAK",
+   "metin": "Bir uyarı daha. Hesabın çalındıktan sonra, ücret karşılığında hesabını geri getiririm diyen kişiler çıkabilir. Bunlar çoğu zaman ikinci bir dolandırıcılıktır. Sadece resmî kurtarma yollarını kullan."
+  },
+  {
+   "tip": "soru",
+   "soru": "Sana hiç kod isteyen mesaj geldi mi?",
+   "metin": "Sana hiç kod isteyen bir mesaj geldi mi? Yorumlara yaz, böylece başkaları da bu tuzağı tanısın. Bu videoyu ailende en çok ihtiyacı olan kişiye gönder."
+  },
+  {
+   "tip": "son",
+   "sonraki": "İnternetten para kazanma: gerçekler ve tuzaklar",
+   "metin": "Dolandırıcılık konusunda daha fazlası için internetten para kazanma tuzaklarını anlattığım videoya göz at. Abone olmayı unutma."
+  }
+ ],
+ "tanitim": {
+  "baslik": "“Yanlışlıkla Sana Kod Gönderdim” Mesajı Gelirse Dikkat! ⚠️ #shorts",
+  "aciklama": "WhatsApp'ta kod isteyen mesajlar nasıl hesap çalar? Tamamı kanaldaki uzun videoda.",
+  "sahneler": [
+   {
+    "tip": "kanca",
+    "ekran": "6",
+    "buyuk": "Kodu yollar mısın?",
+    "altyazi": "“Yanlışlıkla sana **kod** gönderdim, yollar mısın?”",
+    "seslendirme": "Bir arkadaşından mesaj geldi: yanlışlıkla sana kod gönderdim, yollar mısın? Sakın yollama."
+   },
+   {
+    "tip": "uyari",
+    "etiket": "GERÇEK",
+    "baslik": "O kod senin",
+    "rozet": "!",
+    "buyuk": "Senin kodun",
+    "damga": "HESAP GİDER",
+    "altyazi": "O kod aslında **senin hesabının** giriş kodu.",
+    "seslendirme": "O kod aslında senin hesabının giriş kodu. Verdiğin an hesabın onların olur."
+   },
+   {
+    "tip": "liste",
+    "etiket": "KORUN",
+    "baslik": "Hemen aç",
+    "rozet": "✓",
+    "maddeler": [
+     "Ayarlar > Hesap",
+     "İki adımlı doğrulama",
+     "6 haneli PIN"
+    ],
+    "altyazi": "Hemen **iki adımlı doğrulamayı** aç.",
+    "seslendirme": "Hemen ayarlardan iki adımlı doğrulamayı aç ve altı haneli bir PIN belirle."
+   },
+   {
+    "tip": "son",
+    "ust": "TAMAMI KANALDA",
+    "buton": "KANALA GİT",
+    "yarin": "Hesabın çalınırsa ilk 10 dakikada ne yapmalı?",
+    "seslendirme": "Hesabın çalınırsa ne yapacağını kanaldaki uzun videoda anlattım."
+   }
+  ]
+ }
+}
