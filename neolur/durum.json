@@ -1,5 +1,5 @@
 {
- "sira": 9,
+ "sira": 10,
  "son_tarih": "2026-11-27",
  "gecmis": [
   {
@@ -50,6 +50,11 @@
    "id": "hayvan-hava",
    "tarih": "2026-11-27",
    "saat": "12:30"
+  },
+  {
+   "id": "telefon-bilgi",
+   "tarih": "2026-11-27",
+   "saat": "20:00"
   }
  ]
 }
