@@ -1,12 +1,12 @@
 {
  "tarih": "2026-11-26",
- "olusturuldu": "2026-11-26T08:03+03:00",
+ "olusturuldu": "2026-11-26T18:50+03:00",
  "kanallar": {
   "ilturnuva": {
    "ad": "81 İl Turnuvası",
-   "abone": 3,
-   "toplam_izlenme": 4706,
-   "video_sayisi": 12,
+   "abone": 5,
+   "toplam_izlenme": 5702,
+   "video_sayisi": 13,
    "son28": {
     "views": 4394,
     "estimatedMinutesWatched": 329,
@@ -24,7 +24,7 @@
    },
    "onceki7_izlenme": 1480,
    "uzun_video_saat_365": 0.0,
-   "shorts_izlenme_90": 4395,
+   "shorts_izlenme_90": 4394,
    "en_iyi_7gun": [
     {
      "video": "W8p_Zm3FeLk",
@@ -222,16 +222,16 @@
     }
    ],
    "son24": {
-    "izlenme": "+0",
-    "abone": "+0"
+    "izlenme": "+996",
+    "abone": "+2"
    },
-   "ypp_puan": 0.0034395
+   "ypp_puan": 0.0054394000000000005
   },
   "kasakurgu": {
    "ad": "Kasa kurgu",
-   "abone": 10,
-   "toplam_izlenme": 13171,
-   "video_sayisi": 45,
+   "abone": 12,
+   "toplam_izlenme": 13526,
+   "video_sayisi": 47,
    "son28": {
     "views": 13039,
     "estimatedMinutesWatched": 1633,
@@ -249,7 +249,7 @@
    },
    "onceki7_izlenme": 4179,
    "uzun_video_saat_365": 0.0,
-   "shorts_izlenme_90": 13027,
+   "shorts_izlenme_90": 13026,
    "en_iyi_7gun": [
     {
      "video": "v-oLiq8R-AM",
@@ -837,16 +837,16 @@
     }
    ],
    "son24": {
-    "izlenme": "+131",
-    "abone": "+0"
+    "izlenme": "+486",
+    "abone": "+2"
    },
-   "ypp_puan": 0.0113027
+   "ypp_puan": 0.0133026
   },
   "dramabite": {
    "ad": "Drama Bite",
-   "abone": 18,
-   "toplam_izlenme": 19508,
-   "video_sayisi": 37,
+   "abone": 20,
+   "toplam_izlenme": 19523,
+   "video_sayisi": 38,
    "son28": {
     "views": 18794,
     "estimatedMinutesWatched": 2783,
@@ -1348,16 +1348,16 @@
     }
    ],
    "son24": {
-    "izlenme": "+3",
-    "abone": "+0"
+    "izlenme": "+18",
+    "abone": "+2"
    },
-   "ypp_puan": 0.019922
+   "ypp_puan": 0.021922
   },
   "dukkantv": {
    "ad": "Dükkan Tv",
-   "abone": 9,
-   "toplam_izlenme": 8556,
-   "video_sayisi": 23,
+   "abone": 11,
+   "toplam_izlenme": 8953,
+   "video_sayisi": 25,
    "son28": {
     "views": 9643,
     "estimatedMinutesWatched": 1227,
@@ -1375,7 +1375,7 @@
    },
    "onceki7_izlenme": 3456,
    "uzun_video_saat_365": 0.0,
-   "shorts_izlenme_90": 9645,
+   "shorts_izlenme_90": 9643,
    "en_iyi_7gun": [
     {
      "video": "aA1_m_DunIg",
@@ -1729,16 +1729,16 @@
     }
    ],
    "son24": {
-    "izlenme": "+124",
-    "abone": "+0"
+    "izlenme": "+521",
+    "abone": "+2"
    },
-   "ypp_puan": 0.0099645
+   "ypp_puan": 0.011964299999999999
   },
   "gizlitarih": {
    "ad": "Gizli Tarih",
-   "abone": 13,
-   "toplam_izlenme": 2392,
-   "video_sayisi": 13,
+   "abone": 16,
+   "toplam_izlenme": 2834,
+   "video_sayisi": 14,
    "son28": {
     "views": 2175,
     "estimatedMinutesWatched": 740,
@@ -1756,7 +1756,7 @@
    },
    "onceki7_izlenme": 91,
    "uzun_video_saat_365": 4.1,
-   "shorts_izlenme_90": 1893,
+   "shorts_izlenme_90": 1887,
    "en_iyi_7gun": [
     {
      "video": "n9LlOlqNnV8",
@@ -1928,18 +1928,44 @@
     }
    ],
    "son24": {
-    "izlenme": "+23",
-    "abone": "+3"
+    "izlenme": "+465",
+    "abone": "+6"
    },
-   "ypp_puan": 0.014025
+   "ypp_puan": 0.017025
   }
  },
  "instagram": {
   "ilturnuva": {
    "kullanici": "81ilturnuvasi",
    "takipci": 2,
-   "gonderi": 12,
+   "gonderi": 14,
    "son7_gonderi": [
+    {
+     "id": "18107286596632134",
+     "caption": "Denizli, Kütahya, Gümüşhane… Hangisi Tur Atlar? 🏆 81 İl 2. Tur 3. Grup\n\n📩 Şehrini savunacak arkadaşına gönder!\n\n#81ilturnuvası #türkiye #şehirler #simülasyon #topyarışı #ilil",
+     "comments_count": 0,
+     "like_count": 0,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgNOX6WorUE/",
+     "timestamp": "2026-11-26T13:35:31+0000",
+     "views": 121,
+     "reach": 104,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18121626172806914",
+     "caption": "Konya, Kastamonu, Amasya… Hangisi Tur Atlar? 🏆 81 İl 2. Tur 2. Grup\n\n📩 Şehrini savunacak arkadaşına gönder!\n\n#81ilturnuvası #türkiye #şehirler #simülasyon #topyarışı #ilil",
+     "comments_count": 0,
+     "like_count": 0,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgMT1kUO2Sm/",
+     "timestamp": "2026-11-26T05:04:01+0000",
+     "views": 122,
+     "reach": 113,
+     "saved": 0,
+     "shares": 0
+    },
     {
      "id": "18114604967186403",
      "caption": "81 İl Turnuvası · 2. Tur · 1. Grup 🏆 Senin şehrin tur atlar mı?\n\n📩 Şehrini savunacak arkadaşına gönder!\n\n#81ilturnuvası #türkiye #şehirler #simülasyon #topyarışı #ilil",
@@ -2000,47 +2026,73 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/Df94LHICVaV/",
      "timestamp": "2026-11-20T14:32:50+0000",
-     "views": 143,
-     "reach": 111,
-     "saved": 0,
-     "shares": 0
-    },
-    {
-     "id": "18131166490864792",
-     "caption": "81 İl Turnuvası · 1. Tur · E Grubu 🏆 Senin şehrin tur atlar mı?\n\n#81ilturnuvası #türkiye #şehirler #simülasyon #topyarışı #ilil",
-     "comments_count": 0,
-     "like_count": 0,
-     "media_product_type": "REELS",
-     "permalink": "https://www.instagram.com/reel/Df7TXnNDSxE/",
-     "timestamp": "2026-11-19T14:32:44+0000",
-     "views": 145,
-     "reach": 120,
-     "saved": 0,
-     "shares": 0
-    },
-    {
-     "id": "18084321110725563",
-     "caption": "GTA 6 Çıktı, Şehirde Kimse İşe Gitmedi! 😂\n\n#gta6 #gtavi #gta6türkçe #gta6çıktı #oyun #mizah #komik",
-     "comments_count": 0,
-     "like_count": 4,
-     "media_product_type": "REELS",
-     "permalink": "https://www.instagram.com/reel/Df6ndfCARsS/",
-     "timestamp": "2026-11-19T08:09:04+0000",
-     "views": 446,
-     "reach": 404,
+     "views": 144,
+     "reach": 112,
      "saved": 0,
      "shares": 0
     }
    ],
    "icgoru": true,
    "son24_takipci": "+0",
-   "veri_erisimi_kalan_gun": 82
+   "veri_erisimi_kalan_gun": 81
   },
   "kasakurgu": {
    "kullanici": "kasakurgu.tr",
    "takipci": 7,
-   "gonderi": 39,
+   "gonderi": 43,
    "son7_gonderi": [
+    {
+     "id": "18202390396386054",
+     "caption": "Sessiz Alarm: Katil Kim? Sadece %1 Çözer! 🕵️\n\n📩 Çözemeyeceğini düşündüğün arkadaşına gönder 🕵️\n\n#katilkim #dedektif #gizem #vaka #bilmece #kurgusalhikaye",
+     "comments_count": 0,
+     "like_count": 1,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgNcaxfzmKN/",
+     "timestamp": "2026-11-26T15:38:35+0000",
+     "views": 1,
+     "reach": 0,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18101848850661672",
+     "caption": "Çamurlu Lastik: Katil Kim? Sadece %1 Çözer! 🕵️\n\n📩 Çözemeyeceğini düşündüğün arkadaşına gönder 🕵️\n\n#katilkim #dedektif #gizem #vaka #bilmece #kurgusalhikaye",
+     "comments_count": 0,
+     "like_count": 2,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgNHnZehPSG/",
+     "timestamp": "2026-11-26T12:36:48+0000",
+     "views": 131,
+     "reach": 119,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18403010431201754",
+     "caption": "Katil Kim? 🕵️ Dosya #21: Sahte Alibi | Yorumlara A, B veya C yaz!\n\n📩 Çözemeyeceğini düşündüğün arkadaşına gönder 🕵️\n\n#katilkim #dedektif #gizem #vaka #bilmece #kurgusalhikaye",
+     "comments_count": 0,
+     "like_count": 1,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgMvhInBvLM/",
+     "timestamp": "2026-11-26T09:06:17+0000",
+     "views": 3,
+     "reach": 3,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18083598458394887",
+     "caption": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!\n\n📩 Çözemeyeceğini düşündüğün arkadaşına gönder 🕵️\n\n#katilkim #dedektif #gizem #vaka #bilmece #kurgusalhikaye",
+     "comments_count": 0,
+     "like_count": 2,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgMbclWh7a6/",
+     "timestamp": "2026-11-26T06:10:44+0000",
+     "views": 4,
+     "reach": 3,
+     "saved": 0,
+     "shares": 0
+    },
     {
      "id": "18084853982375925",
      "caption": "Katil Kim? 🕵️ Dosya #19: Açık Kapı | Yorumlara A, B veya C yaz!\n\n📩 Çözemeyeceğini düşündüğün arkadaşına gönder 🕵️\n\n#katilkim #dedektif #gizem #vaka #bilmece #kurgusalhikaye",
@@ -2049,7 +2101,7 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgLUHZcO-uG/",
      "timestamp": "2026-11-25T19:47:14+0000",
-     "views": 3,
+     "views": 6,
      "reach": 3,
      "saved": 0,
      "shares": 0
@@ -2101,8 +2153,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgGxPTqimqi/",
      "timestamp": "2026-11-24T01:25:26+0000",
-     "views": 126,
-     "reach": 114,
+     "views": 128,
+     "reach": 115,
      "saved": 0,
      "shares": 0
     },
@@ -2144,30 +2196,56 @@
      "reach": 115,
      "saved": 0,
      "shares": 0
-    },
-    {
-     "id": "18086316395339783",
-     "caption": "13 Yıl Bekledik, Dükkân mı Kalır! GTA 6 Çıktı 😂\n\n#gta6 #gtavi #gta6türkçe #gta6çıktı #kurgu #mizah #komik",
-     "comments_count": 0,
-     "like_count": 2,
-     "media_product_type": "REELS",
-     "permalink": "https://www.instagram.com/reel/Df6m4mOAa4C/",
-     "timestamp": "2026-11-19T08:04:02+0000",
-     "views": 5,
-     "reach": 6,
-     "saved": 0,
-     "shares": 0
     }
    ],
    "icgoru": true,
    "son24_takipci": "+0",
-   "veri_erisimi_kalan_gun": 82
+   "veri_erisimi_kalan_gun": 81
   },
   "dramabite": {
    "kullanici": "dramabitetr",
    "takipci": 13,
-   "gonderi": 22,
+   "gonderi": 25,
    "son7_gonderi": [
+    {
+     "id": "17887298343525340",
+     "caption": "30 Yıllık Paslı Dolap\n\n📩 Bu hikâyeyi okuması gereken birine gönder.\n\n#hikaye #duygusal #kurgu #anlamlihikayeler #hikayedinle",
+     "comments_count": 0,
+     "like_count": 2,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgNSMjzC0yc/",
+     "timestamp": "2026-11-26T14:09:23+0000",
+     "views": 452,
+     "reach": 412,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18130530187848135",
+     "caption": "Gece 03:14 Araması\n\n📩 Bu hikâyeyi okuması gereken birine gönder.\n\n#hikaye #duygusal #anılar #aile #gece",
+     "comments_count": 0,
+     "like_count": 3,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgM55_UOKHJ/",
+     "timestamp": "2026-11-26T10:37:04+0000",
+     "views": 1129,
+     "reach": 1059,
+     "saved": 1,
+     "shares": 0
+    },
+    {
+     "id": "18101855207551237",
+     "caption": "Gece 02:15 Mesajı\n\n📩 Bu hikâyeyi okuması gereken birine gönder.\n\n#hikaye #duygusal #gece #yaşam #kurguhikaye",
+     "comments_count": 0,
+     "like_count": 1,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgMjILPhzXo/",
+     "timestamp": "2026-11-26T07:17:38+0000",
+     "views": 125,
+     "reach": 121,
+     "saved": 0,
+     "shares": 0
+    },
     {
      "id": "18085181735361433",
      "caption": "Yanlış Peron\n\n📩 Bu hikâyeyi okuması gereken birine gönder.\n\n#hikaye #duygusal #kacirilanfirsat #anlamlihikayeler",
@@ -2176,8 +2254,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgLbvstzDat/",
      "timestamp": "2026-11-25T20:54:03+0000",
-     "views": 1105,
-     "reach": 1003,
+     "views": 1110,
+     "reach": 1010,
      "saved": 0,
      "shares": 0
     },
@@ -2193,40 +2271,66 @@
      "reach": 114,
      "saved": 0,
      "shares": 0
-    },
-    {
-     "id": "18647453623053189",
-     "caption": "GTA 6 Günü Herkes İzinli! Ama Türkçe Yok 😅\n\n#gta6 #gtavi #gta6türkçe #gta6çıktı #mizah #komik #çizgifilm",
-     "comments_count": 0,
-     "like_count": 1,
-     "media_product_type": "REELS",
-     "permalink": "https://www.instagram.com/reel/Df6nLR7gbJZ/",
-     "timestamp": "2026-11-19T08:06:35+0000",
-     "views": 9,
-     "reach": 7,
-     "saved": 0,
-     "shares": 0
     }
    ],
    "icgoru": true,
    "son24_takipci": "+0",
-   "veri_erisimi_kalan_gun": 82
+   "veri_erisimi_kalan_gun": 81
   },
   "dukkantv": {
    "kullanici": "dukkan.tv",
    "takipci": 62,
-   "gonderi": 20,
+   "gonderi": 23,
    "son7_gonderi": [
+    {
+     "id": "17927838180446139",
+     "caption": "Simitçi Hasan Amca 🥯 | Levent & Cemo\n\n📩 Bunu yaşayan arkadaşına gönder 😂\n\n#komedi #mizah #çizgifilm #komikvideo #leventvecemo #dükkantv #simit #simitçi",
+     "comments_count": 0,
+     "like_count": 12,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgNYgYlq6p1/",
+     "timestamp": "2026-11-26T15:04:24+0000",
+     "views": 869,
+     "reach": 304,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18168150118494700",
+     "caption": "Motorine Dört Lira İndirim: Esnafa Ne Değişir? ⛽\n\n📩 Bunu yaşayan arkadaşına gönder 😂\n\n#motorinindirimi #akaryakıtfiyatları #motorin #benzin #esnaf #gündem #haber #DükkanTV",
+     "comments_count": 0,
+     "like_count": 3,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgM2GlWutSO/",
+     "timestamp": "2026-11-26T10:03:28+0000",
+     "views": 134,
+     "reach": 124,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18056924234599257",
+     "caption": "Bursa Dedektifleri: Kaybolan Simitler 🔍 | Levent & Cemo\n\n📩 Bunu yaşayan arkadaşına gönder 😂\n\n#komedi #mizah #çizgifilm #komikvideo #leventvecemo #dükkantv #dedektif #simit",
+     "comments_count": 0,
+     "like_count": 6,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgMfQyAi75Q/",
+     "timestamp": "2026-11-26T06:43:49+0000",
+     "views": 1388,
+     "reach": 1291,
+     "saved": 1,
+     "shares": 0
+    },
     {
      "id": "18190463110415381",
      "caption": "Poşet Pazarlığı 😂 | Levent & Cemo\n\n📩 Bunu yaşayan arkadaşına gönder 😂\n\n#komedi #mizah #çizgifilm #komikvideo #leventvecemo #dükkantv #market #kasiyer",
      "comments_count": 0,
-     "like_count": 22,
+     "like_count": 25,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgLX-9Mp0Rt/",
      "timestamp": "2026-11-25T20:20:54+0000",
-     "views": 4052,
-     "reach": 2851,
+     "views": 4432,
+     "reach": 3117,
      "saved": 0,
      "shares": 0
     },
@@ -2238,8 +2342,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgLE4R8hb2u/",
      "timestamp": "2026-11-25T17:34:27+0000",
-     "views": 149,
-     "reach": 135,
+     "views": 159,
+     "reach": 142,
      "saved": 0,
      "shares": 0
     },
@@ -2251,8 +2355,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgKd2xDSVXD/",
      "timestamp": "2026-11-25T11:53:00+0000",
-     "views": 139,
-     "reach": 136,
+     "views": 143,
+     "reach": 139,
      "saved": 0,
      "shares": 0
     },
@@ -2264,8 +2368,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgIwyB4geNV/",
      "timestamp": "2026-11-24T19:59:53+0000",
-     "views": 1659,
-     "reach": 1464,
+     "views": 1660,
+     "reach": 1466,
      "saved": 0,
      "shares": 0
     },
@@ -2340,8 +2444,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgAnSSqDHPl/",
      "timestamp": "2026-11-21T16:03:01+0000",
-     "views": 2300,
-     "reach": 1614,
+     "views": 2301,
+     "reach": 1615,
      "saved": 0,
      "shares": 7
     },
@@ -2366,8 +2470,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/Df-Cd9ZDH5u/",
      "timestamp": "2026-11-20T16:02:47+0000",
-     "views": 2708,
-     "reach": 1920,
+     "views": 2709,
+     "reach": 1922,
      "saved": 1,
      "shares": 3
     },
@@ -2379,60 +2483,48 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/Df7dr-egkAS/",
      "timestamp": "2026-11-19T16:02:56+0000",
-     "views": 2098,
+     "views": 2100,
      "reach": 1528,
-     "saved": 0,
-     "shares": 0
-    },
-    {
-     "id": "18350247466267585",
-     "caption": "GTA 6 Çıktı, Esnaf Kepenk İndirdi! 😂 Asıl Olay Bu Değil\n\n#gta6 #gtavi #gta6türkçe #gta6çıktı #leventvecemo #dükkantv #komedi #esnaf",
-     "comments_count": 0,
-     "like_count": 16,
-     "media_product_type": "REELS",
-     "permalink": "https://www.instagram.com/reel/Df6mwCFAZ02/",
-     "timestamp": "2026-11-19T08:02:52+0000",
-     "views": 1864,
-     "reach": 1674,
      "saved": 0,
      "shares": 0
     }
    ],
    "icgoru": true,
    "son24_takipci": "+0",
-   "veri_erisimi_kalan_gun": 82
+   "veri_erisimi_kalan_gun": 81
   }
  },
  "tiktok": {
   "ilturnuva": {
    "bagli": true,
-   "taslak_7gun": 7,
-   "izin_kalan_gun": 354
+   "taslak_7gun": 8,
+   "izin_kalan_gun": 353
   },
   "kasakurgu": {
    "bagli": true,
-   "taslak_7gun": 12,
+   "taslak_7gun": 14,
    "izin_kalan_gun": 351
   },
   "dramabite": {
    "bagli": true,
-   "taslak_7gun": 10,
+   "taslak_7gun": 11,
    "izin_kalan_gun": 351
   },
   "dukkantv": {
    "bagli": true,
-   "taslak_7gun": 5,
+   "taslak_7gun": 6,
    "izin_kalan_gun": 348
   }
  },
  "bekleyen": [],
  "bugun_yayin": [
   "🕖 18:00 Dükkan TV: Simitçi Hasan Amca 🥯 | Levent & Cemo #sh",
-  "🕖 12:30 Gizli Tarih: Doğru Bildiğin 5 Yanlış 🤯 #shorts",
-  "🕖 16:00 81 İl: Denizli, Kütahya, Gümüşhane… Hangisi Tur",
   "🕖 20:00 Gizli Tarih: Herkes Bir Gün Sadece Doğruyu Söylese Ne",
   "🕖 19:00 Drama Bite: 10 Yıllık Cevapsız Arama",
-  "🕖 14:00 Kasa Kurgu: Sessiz Alarm: Katil Kim? Sadece %1 Çözer"
+  "🕖 14:00 Kasa Kurgu: Sessiz Alarm: Katil Kim? Sadece %1 Çözer",
+  "🕖 17:30 Kasa Kurgu: Kayıp Kargo: Katil Kim? Sadece %1 Çözer!",
+  "🕖 15:00 Drama Bite: 14 Saniyelik Ses Kaydı",
+  "🕖 19:30 Dükkan TV: Gece Şarjda Bırakmak Bataryayı Bozar mı?"
  ],
  "uyarilar": []
 }
