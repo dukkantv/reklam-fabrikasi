@@ -280,8 +280,11 @@ def sahne_resmi(sc, tur, i):
                     return son
     adaylar = []
     sorgular = [sc.get("arama") or sc["nesne"], sc["nesne"], *sc.get("yedek_arama", [])]
-    if KONTROL_KAPALI or not GEMINI_KEY:
-        sorgular = []   # kontrol edilemeyen internet fotoğrafı kullanılmaz; doğrudan çizime geç
+    if KONTROL_KAPALI or not GEMINI_KEY or os.environ.get("INTERNET_FOTO", "0") != "1":
+        # 26 Kas 2026: internet fotoğrafı varsayılan olarak KAPALI. Kontrol açıkken bile Derinkuyu videosuna
+        # Yeni Zelanda gölü, Yunan heykeli, modern mutfak gibi alakasız fotoğraflar "uygun" diye girdi.
+        # Her sahne senaryodaki tarife göre çizilir (Levent'in istediği gerçekçi yağlı boya tarzı).
+        sorgular = []
     for q in sorgular:
         bulunan = (commons_ara(q, 3) if tur == "tarih" else []) + openverse_ara(q, 3)
         adaylar += [a for a in bulunan if a["baslik"] not in {x["baslik"] for x in adaylar}]
