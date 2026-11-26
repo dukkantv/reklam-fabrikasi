@@ -13,12 +13,15 @@
   "yapay zeka rehberi"
  ],
  "dosya": "20261126-210354-dukkantv.mp4",
- "durum": "onaylandi",
+ "durum": "yuklendi",
  "eklendi": "2026-11-26T21:03:54.485402+03:00",
  "kapak": "20261126-210354-dukkantv-kapak.jpg",
  "uzun": true,
  "sabit_yayin": "2026-11-28T20:17:00+03:00",
  "otomatik": true,
  "mesaj_id": 1419,
- "incelendi": "2026-11-26 sorunsuz (Claude: kare kare + ses kontrolü)"
+ "incelendi": "2026-11-26 sorunsuz (Claude: kare kare + ses kontrolü)",
+ "kapak_tamam": true,
+ "video_id": "ZODngadPTBE",
+ "yayin": "2026-11-28T20:17:00+03:00"
 }
