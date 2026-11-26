@@ -9,7 +9,16 @@
  "kanallar": {
   "dukkantv": {
    "baslik": "Motorine Dört Lira İndirim: Esnafa Ne Değişir? ⛽ #shorts",
-   "etiketler": ["motorin indirimi", "akaryakıt fiyatları", "motorin", "benzin", "esnaf", "gündem", "haber", "Dükkan TV"]
+   "etiketler": [
+    "motorin indirimi",
+    "akaryakıt fiyatları",
+    "motorin",
+    "benzin",
+    "esnaf",
+    "gündem",
+    "haber",
+    "Dükkan TV"
+   ]
   }
  },
  "bolum": {
@@ -18,41 +27,191 @@
   "baslik": "Motorine Dört Lira İndirim: Esnafa Ne Değişir? ⛽ #shorts",
   "ozet": "26 Kasım 2026 gece yarısından itibaren motorinin litresine 4,32 TL indirim geldi. Benzinde indirim, 1 Aralık'ta da vergi artışı bekleniyor.",
   "not": "Fiyatlar şehre ve şirkete göre değişebilir.",
-  "etiketler": ["motorin indirimi", "akaryakıt fiyatları", "motorin", "benzin", "esnaf", "gündem", "shorts"],
-  "gorsel_ara": ["fuel pump nozzle", "diesel truck highway", "petrol station night"],
-  "adimlar": ["GECE YARISI", "İSTANBUL", "BENZİN", "1 ARALIK", "ESNAF"],
+  "etiketler": [
+   "motorin indirimi",
+   "akaryakıt fiyatları",
+   "motorin",
+   "benzin",
+   "esnaf",
+   "gündem",
+   "shorts"
+  ],
+  "gorsel_ara": [
+   "fuel pump nozzle",
+   "diesel truck highway",
+   "petrol station night"
+  ],
+  "adimlar": [
+   "GECE YARISI",
+   "İSTANBUL",
+   "BENZİN",
+   "1 ARALIK",
+   "ESNAF"
+  ],
   "sahneler": [
-   {"tip": "kanca",
-    "satir": ["MOTORİNE", "*DÖRT LİRA*", "İNDİRİM", "*GELDİ!*"],
-    "ses": ["Bu gece motorine dört lirayı aşan indirim geldi; peki kime ne değişir?"]},
-   {"tip": "asama", "adim": 0, "baslik": "GECE YARISI",
-    "satir": ["Gece yarısı", "motorine *4,32 TL*", "*indirim* geldi."],
-    "ses": ["Gece yarısından itibaren motorinin litresi dört lira otuz iki kuruş ucuzladı."],
-    "grup": [0, 0, 0]},
-   {"tip": "asama", "adim": 1, "baslik": "İSTANBUL",
-    "satir": ["İstanbul'da litre", "*84 lira* civarına", "*geriledi.*"],
-    "ses": ["İstanbul'da motorinin litresi seksen dört lira civarına geriledi.", "Ankara ve İzmir'de seksen beş liranın biraz üstünde."],
-    "grup": [0, 1, 1]},
-   {"tip": "asama", "adim": 2, "baslik": "BENZİN",
-    "satir": ["Benzinde bugün", "*değişiklik yok.*", "Yarın *indirim* bekleniyor."],
-    "ses": ["Benzinde bugün değişiklik yok.", "Sektör kaynaklarına göre yarın benzine de indirim bekleniyor."],
-    "grup": [0, 1, 1]},
-   {"tip": "asama", "adim": 3, "baslik": "1 ARALIK",
-    "satir": ["Ama dikkat:", "*1 Aralık'ta*", "*vergi artışı* bekleniyor."],
-    "ses": ["Ama dikkat: haberlere göre bir Aralık'ta akaryakıtta vergi artışı bekleniyor."],
-    "grup": [0, 0, 0]},
-   {"tip": "asama", "adim": 4, "baslik": "ESNAF",
-    "satir": ["Servisçi, kamyoncu,", "nakliyeci için", "*küçük bir nefes.*"],
-    "ses": ["Servisçi, kamyoncu ve nakliyeci için bu indirim küçük bir nefes demek."],
-    "grup": [0, 0, 0]},
-   {"tip": "vurgu", "baslik": "KISACASI",
-    "satir": ["Bu hafta motorin ucuz,", "ama fiyatlar", "*HER AN*", "*DEĞİŞEBİLİR!*"],
-    "ses": ["Kısacası bu hafta motorin ucuzladı, ama fiyatlar", "her an", "değişebilir!"],
-    "grup": [0, 0, 1, 2]},
-   {"tip": "son",
-    "satir": ["Akaryakıt fiyatı", "*senin işini etkiliyor mu?*"],
-    "ses": ["Akaryakıt fiyatları senin işini etkiliyor mu? Yorumlara yaz."],
-    "grup": [0, 0]}
+   {
+    "tip": "kanca",
+    "satir": [
+     "MOTORİNE",
+     "*DÖRT LİRA*",
+     "İNDİRİM",
+     "*GELDİ!*"
+    ],
+    "ses": [
+     "Bu gece motorine dört lirayı aşan indirim geldi; peki kime ne değişir?"
+    ],
+    "gorsel": {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Petrol_pump_mp3h0355.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "ad": "Petrol pump mp3h0355.jpg",
+     "yazar": "Rama",
+     "lisans": "cc by-sa 2.0 fr"
+    }
+   },
+   {
+    "tip": "asama",
+    "adim": 0,
+    "baslik": "GECE YARISI",
+    "satir": [
+     "Gece yarısı",
+     "motorine *4,32 TL*",
+     "*indirim* geldi."
+    ],
+    "ses": [
+     "Gece yarısından itibaren motorinin litresi dört lira otuz iki kuruş ucuzladı."
+    ],
+    "grup": [
+     0,
+     0,
+     0
+    ],
+    "gorsel": {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Petrol_pump_mp3h0354.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "ad": "Petrol pump mp3h0354.jpg",
+     "yazar": "Rama",
+     "lisans": "cc by-sa 2.0 fr"
+    }
+   },
+   {
+    "tip": "asama",
+    "adim": 1,
+    "baslik": "İSTANBUL",
+    "satir": [
+     "İstanbul'da litre",
+     "*84 lira* civarına",
+     "*geriledi.*"
+    ],
+    "ses": [
+     "İstanbul'da motorinin litresi seksen dört lira civarına geriledi.",
+     "Ankara ve İzmir'de seksen beş liranın biraz üstünde."
+    ],
+    "grup": [
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "tip": "asama",
+    "adim": 2,
+    "baslik": "BENZİN",
+    "satir": [
+     "Benzinde bugün",
+     "*değişiklik yok.*",
+     "Yarın *indirim* bekleniyor."
+    ],
+    "ses": [
+     "Benzinde bugün değişiklik yok.",
+     "Sektör kaynaklarına göre yarın benzine de indirim bekleniyor."
+    ],
+    "grup": [
+     0,
+     1,
+     1
+    ],
+    "gorsel": {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Petrol_pump_mp3h0355.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "ad": "Petrol pump mp3h0355.jpg",
+     "yazar": "Rama",
+     "lisans": "cc by-sa 2.0 fr"
+    }
+   },
+   {
+    "tip": "asama",
+    "adim": 3,
+    "baslik": "1 ARALIK",
+    "satir": [
+     "Ama dikkat:",
+     "*1 Aralık'ta*",
+     "*vergi artışı* bekleniyor."
+    ],
+    "ses": [
+     "Ama dikkat: haberlere göre bir Aralık'ta akaryakıtta vergi artışı bekleniyor."
+    ],
+    "grup": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "tip": "asama",
+    "adim": 4,
+    "baslik": "ESNAF",
+    "satir": [
+     "Servisçi, kamyoncu,",
+     "nakliyeci için",
+     "*küçük bir nefes.*"
+    ],
+    "ses": [
+     "Servisçi, kamyoncu ve nakliyeci için bu indirim küçük bir nefes demek."
+    ],
+    "grup": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "tip": "vurgu",
+    "baslik": "KISACASI",
+    "satir": [
+     "Bu hafta motorin ucuz,",
+     "ama fiyatlar",
+     "*HER AN*",
+     "*DEĞİŞEBİLİR!*"
+    ],
+    "ses": [
+     "Kısacası bu hafta motorin ucuzladı, ama fiyatlar",
+     "her an",
+     "değişebilir!"
+    ],
+    "grup": [
+     0,
+     0,
+     1,
+     2
+    ],
+    "gorsel": {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Petrol_pump_mp3h0354.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "ad": "Petrol pump mp3h0354.jpg",
+     "yazar": "Rama",
+     "lisans": "cc by-sa 2.0 fr"
+    }
+   },
+   {
+    "tip": "son",
+    "satir": [
+     "Akaryakıt fiyatı",
+     "*senin işini etkiliyor mu?*"
+    ],
+    "ses": [
+     "Akaryakıt fiyatları senin işini etkiliyor mu? Yorumlara yaz."
+    ],
+    "grup": [
+     0,
+     0
+    ]
+   }
   ]
  }
 }
