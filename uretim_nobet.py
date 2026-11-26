@@ -26,6 +26,8 @@ ISLER = {
     "drama-bite.yml":  (["07:00", "11:30"], {}),   # Drama Bite hikâyesi
     "katil-kim.yml":   (["07:20", "10:30"], {}),   # Kasa Kurgu: günde 2 Katil Kim? vakası
     "arena.yml":       (["07:40"], {}),            # 81 İl Turnuvası maçı
+    # 26 Kas 2026: Dükkan TV "Doğru Bilinen Yanlışlar" neon bilgi serisi (günde 1, klon sesli)
+    "dukkan-bilgi.yml": (["08:10"], {}),
 }
 
 

@@ -1,0 +1,215 @@
+[
+ {
+  "baslik": "Babama “Gelemiyorum” Yazdım… Cevabı Beni Yıktı 💔 #shorts",
+  "aciklama": "Üç yıldır bayramda eve gidemeyen bir oğul ve babasının mesajları.",
+  "kisi": "Babam", "saat": "23:14", "zil": "Kapını aç.",
+  "kanca": ["Babama “gelemiyorum” yazdım…", "Cevabı beni yıktı."],
+  "mesajlar": [
+   ["ben", "Baba bu bayram da gelemiyorum."],
+   ["ben", "İşler çok yoğun, kusura bakma."],
+   ["o", "Olsun oğlum. Sen sağ ol."],
+   ["o", "Annen dolma yapmıştı. Senin sevdiğinden."],
+   ["ben", "Biliyorum baba, üç yıldır gelemedim…"],
+   ["ben", "Seneye kesin geliyorum. Söz."],
+   ["o", "Sen hep “seneye” diyorsun."],
+   ["o", "Ben de bu sefer beklemedim.", 1.2],
+   ["ben", "Ne demek o?"],
+   ["o", "Kapını aç.", 0.6],
+   ["o", "Dolma soğumasın.", 0.8],
+   ["ben", "BABA?!"]
+  ],
+  "son": ["Bazen gelemeyen biz oluruz…", "Gelen onlar olur."],
+  "cagri": "Babana bugün yaz."
+ },
+ {
+  "baslik": "Annem Her Gün “Yemek Yedin mi?” Yazıyordu… Sonra Anladım 💔 #shorts",
+  "aciklama": "Her gün aynı soruyu soran bir anne ve o soruyu geçiştiren bir oğul.",
+  "kisi": "Annem", "saat": "13:02",
+  "kanca": ["Annem her gün aynı şeyi soruyordu.", "Bugün nedenini öğrendim."],
+  "mesajlar": [
+   ["o", "Oğlum yemek yedin mi?"],
+   ["ben", "Anne toplantıdayım, sonra yazarım."],
+   ["o", "Tamam yavrum. Sıcak bir şey ye ama."],
+   ["ben", "Anne her gün aynı şeyi soruyorsun ya…"],
+   ["o", "Haklısın. Kusura bakma."],
+   ["o", "Bugün doktordan çıktım.", 1.0],
+   ["ben", "Ne doktoru? Niye söylemedin?"],
+   ["o", "Üzülme diye. Kontrolmüş, iyi çıktı."],
+   ["o", "Orada beklerken hep seni düşündüm."],
+   ["o", "Sadece sesini duymak istedim aslında.", 0.8],
+   ["ben", "Arıyorum anne. Hemen."]
+  ],
+  "son": ["Bir “yemek yedin mi?”", "bazen “seni özledim” demektir."],
+  "cagri": "Anneni bugün ara."
+ },
+ {
+  "baslik": "Ablamdan Para İstedim, “Yok” Dedi… Sonra Bunu Öğrendim 😢 #shorts",
+  "aciklama": "Sınav ücretini ödeyemeyen bir kardeş ve sessizce fedakârlık yapan bir abla.",
+  "kisi": "Ablam", "saat": "21:40",
+  "kanca": ["Ablamdan para istedim.", "Öğrendiğim şeyi hiç unutmayacağım."],
+  "mesajlar": [
+   ["ben", "Abla, sınav ücreti yarın son gün."],
+   ["ben", "Bin iki yüz lira eksik. Bir yerden bulamadım."],
+   ["o", "Ay sonu canım, bende de yok."],
+   ["ben", "Tamam abla, sorun değil."],
+   ["ben", "Bu sene de giremem artık."],
+   ["o", "Bir şey yapmaya çalışacağım.", 1.4],
+   ["o", "Hesabına attım. Sınava gir."],
+   ["ben", "Abla nereden buldun bu parayı?"],
+   ["o", "Boş ver sen. Çalış yeter."],
+   ["ben", "Annem söyledi abla…"],
+   ["ben", "Bileziğini satmışsın.", 0.6],
+   ["o", "Bilezik yine alınır. Senin yılın geri gelmez."]
+  ],
+  "son": ["Bazı borçlar", "parayla ödenmez."],
+  "cagri": "Kardeşine teşekkür et."
+ },
+ {
+  "baslik": "10 Yıl Sonra Bilmediğim Bir Numara Yazdı… 🥹 #shorts",
+  "aciklama": "Okulda ekmeğinin yarısını verdiği çocuk, yıllar sonra ona yazıyor.",
+  "kisi": "+90 5•• ••• •• 17", "saat": "19:26",
+  "kanca": ["10 yıl sonra tanımadığım bir numara yazdı.", "İlk mesajı beni ağlattı."],
+  "mesajlar": [
+   ["o", "Merhaba. Beni hatırlar mısın bilmiyorum."],
+   ["ben", "Kimsiniz?"],
+   ["o", "İlkokulda arka sırada oturan, beslenmesi olmayan çocuk."],
+   ["o", "Sen her gün ekmeğinin yarısını bana verirdin."],
+   ["ben", "Mehmet? Sen misin?"],
+   ["o", "Benim. Yıllardır seni arıyordum."],
+   ["ben", "İnanamıyorum… Ne yapıyorsun şimdi?"],
+   ["o", "Doktor oldum.", 1.0],
+   ["o", "Hastanede her çocuğa ilk önce “karnın tok mu?” diye soruyorum."],
+   ["o", "Bunu bana sen öğrettin."],
+   ["ben", "Ben sadece ekmek vermiştim…"],
+   ["o", "Sen bana umut vermiştin."]
+  ],
+  "son": ["Küçük bir iyilik,", "birinin hayatı olabilir."],
+  "cagri": "Bugün bir iyilik yap."
+ },
+ {
+  "baslik": "Dedeme WhatsApp Öğrettim… İlk Mesajı Beni Bitirdi 🥹 #shorts",
+  "aciklama": "Telefon kullanmayı yeni öğrenen bir dede ve torununa yazdığı ilk cümle.",
+  "kisi": "Dedem", "saat": "20:05",
+  "kanca": ["Dedeme mesaj yazmayı öğrettim.", "İlk cümlesini kendi başına yazmış."],
+  "mesajlar": [
+   ["ben", "Dede, gördün mü? Mesaj böyle yazılıyor."],
+   ["o", "tmm"],
+   ["ben", "Harika! Şimdi bir cümle yaz bakalım."],
+   ["o", "bu harfler cok kucuk ogulm", 0.6],
+   ["ben", "Büyüttüm dede, şimdi dene."],
+   ["o", "Tamam yazıyorum.", 2.0],
+   ["ben", "Dede? Yarım saattir yazıyorsun :)"],
+   ["o", "Bekle. Hata yapmak istemiyorum.", 1.8],
+   ["o", "Torunum seni çok seviyorum."],
+   ["o", "Bunu 80 yaşında ilk kez yazıyla söyledim."],
+   ["ben", "Ben de seni çok seviyorum dede."]
+  ],
+  "son": ["Bazı cümleler için", "hiçbir yaş geç değildir."],
+  "cagri": "Dedene, ninene yaz."
+ },
+ {
+  "baslik": "Patronuma İzin İçin Yazdım… Cevabını Beklemiyordum 😮 #shorts",
+  "aciklama": "Annesinin ameliyatı için izin isteyen bir çalışan ve patronunun beklenmedik cevabı.",
+  "kisi": "Kemal Bey (Müdür)", "saat": "08:12",
+  "kanca": ["Patronuma izin için yazdım.", "Cevabını hayatım boyunca unutmayacağım."],
+  "mesajlar": [
+   ["ben", "Kemal Bey günaydın. Rahatsız ediyorum."],
+   ["ben", "Annem yarın ameliyat olacak. İki gün izin alabilir miyim?"],
+   ["o", "Bu hafta teslim var biliyorsun.", 0.6],
+   ["ben", "Biliyorum efendim. Ama yanında kimse yok."],
+   ["o", "Hangi hastane?", 1.2],
+   ["ben", "Şehir Hastanesi. Neden sordunuz?"],
+   ["o", "Teslimi ben hallederim."],
+   ["o", "Sen bir hafta izinlisin. Maaşından kesilmeyecek."],
+   ["o", "Ameliyattan sonra bana haber ver."],
+   ["ben", "Ne diyeceğimi bilemiyorum…"],
+   ["o", "Benim annem de o hastanede yatmıştı. Yanında kimse yoktu."]
+  ],
+  "son": ["İyilik bazen", "en beklemediğin yerden gelir."],
+  "cagri": "Birine bugün destek ol."
+ },
+ {
+  "baslik": "Komşu Teyze İki Gündür Işığımın Yanmadığını Fark Etmiş… 🙏 #shorts",
+  "aciklama": "Tek başına yaşayan bir öğrenci ve onu fark eden komşu teyzesi.",
+  "kisi": "Komşu Fatma Teyze", "saat": "22:31",
+  "kanca": ["İki gündür ışığım yanmıyordu.", "Bunu fark eden tek kişi o oldu."],
+  "mesajlar": [
+   ["o", "Oğlum iki gündür ışığın yanmıyor."],
+   ["o", "Kapını çaldım, açmadın. İyi misin?"],
+   ["ben", "Teyze çok hastayım, kalkamıyorum.", 0.8],
+   ["o", "Ateşin var mı?"],
+   ["ben", "Çok yüksek galiba. Başım dönüyor."],
+   ["o", "Kapıyı açabilir misin? Çorba getirdim."],
+   ["ben", "Kalkamıyorum teyze…", 1.0],
+   ["o", "Tamam, sakın korkma."],
+   ["o", "Oğlum yedek anahtarla geliyor. Doktoru da aradım."],
+   ["o", "Sen yalnız değilsin, tamam mı?"],
+   ["ben", "Teşekkür ederim teyze. Annem gibisin."]
+  ],
+  "son": ["Bazı komşular", "aileden yakındır."],
+  "cagri": "Komşunun halini sor."
+ },
+ {
+  "baslik": "Rahmetli Oğlunun Numarasına Her Gece Yazıyordu… O Numara Artık Benim 💔 #shorts",
+  "aciklama": "Yeni aldığı numaraya her gece mesaj gelen bir genç ve mesajları yazan anne.",
+  "kisi": "Bilinmeyen numara", "saat": "23:58",
+  "kanca": ["Yeni numarama her gece mesaj geliyordu.", "Sonunda kim olduğunu öğrendim."],
+  "mesajlar": [
+   ["o", "İyi geceler yavrum. Bugün de seni çok özledim."],
+   ["ben", "Kusura bakmayın, sanırım yanlış numara."],
+   ["o", "Biliyorum.", 1.2],
+   ["o", "Bu numara eskiden oğlumundu. Geçen yıl kaybettik."],
+   ["o", "Her gece yazınca onunla konuşuyormuş gibi oluyorum."],
+   ["o", "Rahatsız ettiysem bırakırım."],
+   ["ben", "Hayır teyze. Lütfen bırakmayın.", 1.0],
+   ["ben", "Oğlunuzun adı neydi?"],
+   ["o", "Emre."],
+   ["ben", "Her gece yazın. Ben de size Emre'nin yerine iyi geceler derim."],
+   ["o", "Allah razı olsun evladım. İyi geceler."]
+  ],
+  "son": ["Bir mesaj,", "birinin gecesini aydınlatabilir."],
+  "cagri": "Bu gece birine iyi geceler yaz."
+ },
+ {
+  "baslik": "Öğretmenime 15 Yıl Sonra Yazdım… Beni Hâlâ Hatırlıyordu 🥹 #shorts",
+  "aciklama": "Herkesin vazgeçtiği bir öğrenci ve ona inanan öğretmeni, 15 yıl sonra.",
+  "kisi": "Ayşe Öğretmenim", "saat": "17:45",
+  "kanca": ["15 yıl sonra öğretmenime yazdım.", "Cevabı beni çocukluğuma götürdü."],
+  "mesajlar": [
+   ["ben", "Ayşe Hocam merhaba. Beni hatırlar mısınız?"],
+   ["ben", "2010'da 4-B'deydim. En arka sıradaki yaramaz çocuk."],
+   ["o", "Kerem! Pencere kenarı, hep resim çizen.", 1.0],
+   ["ben", "Hatırladınız mı gerçekten?"],
+   ["o", "Herkes sana “tembel” derdi. Ben hiç inanmadım."],
+   ["ben", "Biliyorum hocam. Bu yüzden yazıyorum."],
+   ["ben", "Bugün mimar olarak ilk projemi teslim ettim."],
+   ["ben", "Bir okul binası.", 0.6],
+   ["o", "Ağlatma beni Kerem.", 1.0],
+   ["ben", "Sınıflarına büyük pencereler koydum hocam."],
+   ["ben", "Arka sıradaki çocuklar da resim çizebilsin diye."]
+  ],
+  "son": ["Bir öğretmenin inancı,", "bir ömrü değiştirebilir."],
+  "cagri": "Öğretmenine teşekkür et."
+ },
+ {
+  "baslik": "Kardeşimle 3 Yıldır Küstük… Bu Gece Yazdı 😢 #shorts",
+  "aciklama": "Miras yüzünden küsen iki kardeş ve gece yarısı gelen bir mesaj.",
+  "kisi": "Abim", "saat": "02:13",
+  "kanca": ["Abimle 3 yıldır konuşmuyorduk.", "Gece 2'de bir mesaj geldi."],
+  "mesajlar": [
+   ["o", "Uyuyor musun?"],
+   ["ben", "…"],
+   ["ben", "Üç yıl sonra mı aklına geldim?"],
+   ["o", "Haklısın. Çok geç kaldım.", 0.8],
+   ["o", "Babamın evi için kavga ettik ya…"],
+   ["o", "Bugün o evin önünden geçtim."],
+   ["o", "Bahçedeki salıncak hâlâ duruyor.", 1.0],
+   ["ben", "Beni sen sallardın."],
+   ["o", "Sen düşmeyesin diye hep arkanda dururdum."],
+   ["o", "Ev senin olsun. Ben sadece kardeşimi istiyorum.", 1.2],
+   ["ben", "Abi, yarın kahvaltıya gel. Bizim evde."]
+  ],
+  "son": ["Hiçbir miras,", "bir kardeşten değerli değildir."],
+  "cagri": "Küs olduğun birine yaz."
+ }
+]

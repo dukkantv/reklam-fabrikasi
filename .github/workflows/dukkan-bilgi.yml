@@ -1,0 +1,75 @@
+name: Dükkan TV - Doğru Bilinen Yanlışlar
+
+# 26 Kas 2026: Dükkan TV'nin neon bilgi serisi (Kürşat/Youtube Kampı videosunun tarzı). Konular
+# yeni_format/dukkan_konular.json'dan sırayla; anlatım Levent'in ücretsiz klon sesi ("samimi").
+# Zamanlama uretim_nobet.py'de. Video Telegram'a gelir ve yayın kuyruğuna girer (Durdur butonu ile).
+on:
+  workflow_dispatch:
+    inputs:
+      konu_no:
+        description: "Konu numarası (boş = sıradaki)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dukkan-bilgi
+
+jobs:
+  uret:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Araçlar
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip install -q requests pillow numpy edge-tts
+      - name: Klon ses kurulumu
+        continue-on-error: true
+        run: |
+          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install -q chatterbox-tts
+      - name: Model önbelleği
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: chatterbox-mtl-v1
+      - name: Videoyu üret
+        id: uret
+        working-directory: yeni_format
+        env:
+          PYTHONUNBUFFERED: "1"
+          KONU_NO: ${{ inputs.konu_no }}
+        run: python dukkan_bilgi.py
+      - name: Yayın kuyruğuna ekle
+        if: success() && hashFiles('yeni_format/out/yayin.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+        run: |
+          python3 - <<'PY'
+          import json, subprocess
+          y = json.load(open("yeni_format/out/yayin.json", encoding="utf-8"))
+          subprocess.run(["python3", "yt_kuyruk.py", "ekle", "dukkantv", y["video"], y["baslik"], y["aciklama"], y["etiketler"]], check=True)
+          PY
+      - name: Kaydet
+        if: always()
+        run: |
+          git config user.name "dukkan-tv-bot"; git config user.email "actions@users.noreply.github.com"
+          git add yeni_format/durum.json kuyruk
+          git diff --cached --quiet || (git commit -qm "Dükkan TV bilgi serisi: sıra / kuyruk" && (git push || (git pull --rebase origin main && git push)))
+      - name: Hata bildirimi
+        if: failure()
+        run: |
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" -d chat_id="${TELEGRAM_CHAT_ID}" \
+            --data-urlencode text="⚠️ Dükkan TV bilgi videosu üretilemedi. Claude'a haber ver: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >/dev/null

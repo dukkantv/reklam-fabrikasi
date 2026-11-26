@@ -1,0 +1,181 @@
+[
+ {
+  "baslik": "Gece Şarjda Bırakmak Bataryayı Bozar mı? 🔋 Doğru Bilinen Yanlış #shorts",
+  "aciklama": "Telefonu gece boyu şarjda bırakmak bataryayı şişirir mi? Asıl tehlike şarj değil, ısı. Bu gece yapman gereken 3 şey videoda.",
+  "etiketler": "gece şarj,batarya,telefon şarj,doğru bilinen yanlışlar,telefon ipuçları,bilgi",
+  "sahneler": [
+   {"tip": "kanca", "ekran": "⚡", "buyuk": "03:00", "altyazi": "Telefonunu **gece boyu** şarjda mı bırakıyorsun?",
+    "seslendirme": "Telefonunu gece boyu şarjda mı bırakıyorsun? O zaman bunu mutlaka bil."},
+   {"tip": "efsane", "balon": "Bataryayı bozar, şişirir!", "altyazi": "Herkes aynı şeyi söylüyor…",
+    "seslendirme": "Herkes aynı şeyi söylüyor: sabaha kadar şarjda kalırsa batarya bozulur, şişer. Bu büyük ölçüde bir efsane."},
+   {"tip": "gercek", "etiket": "GERÇEK 1", "baslik": "Şarj kendini keser", "rozet": "1", "buyuk": "%100", "renk": "yesil", "bar": 1.0, "cip": "ŞARJ DURDU",
+    "altyazi": "Telefon **%100**'e gelince şarjı kendisi keser.",
+    "seslendirme": "Telefonun içinde bir şarj devresi var. Yüzde yüze gelince şarjı kendisi durduruyor."},
+   {"tip": "gercek", "etiket": "GERÇEK 2", "baslik": "Akıllı şarj", "rozet": "2", "buyuk": "%80", "renk": "yesil", "bar": 0.8, "bar_sol": "23:00", "bar_sag": "07:00",
+    "altyazi": "**Akıllı şarj** %80'de bekler, sen uyanmadan doldurur.",
+    "seslendirme": "Yeni telefonlarda akıllı şarj var. Gece yüzde sekseninde bekliyor, sen uyanmadan doldurup bitiriyor."},
+   {"tip": "uyari", "etiket": "ASIL DÜŞMAN", "baslik": "Isı", "rozet": "!", "buyuk": "42°C", "damga": "YASTIK ALTI = TEHLİKE",
+    "altyazi": "Bataryayı yıpratan şarj değil: **ısı**.",
+    "seslendirme": "Bataryayı asıl yıpratan şey ısı. Şarj olurken telefonu yastığın altına koymak en kötüsü."},
+   {"tip": "liste", "etiket": "YAPMAN GEREKEN", "baslik": "3 kural", "rozet": "✓", "maddeler": ["Akıllı şarjı aç", "Sert zemine koy", "Kalın kılıfı çıkar"],
+    "altyazi": "Bu gece **3 şeyi** yap:",
+    "seslendirme": "Bu gece üç şey yap: akıllı şarjı aç, telefonu sert bir zemine koy, kalın kılıfı çıkar."},
+   {"tip": "son", "yarin": "Uçak modu şarjı hızlandırır mı?",
+    "seslendirme": "Yarın: uçak modu şarjı gerçekten hızlandırır mı? Takip et, kaçırma."}
+  ]
+ },
+ {
+  "baslik": "Uçak Modu Şarjı Hızlandırır mı? ✈️ Doğru Bilinen Yanlış #shorts",
+  "aciklama": "Uçak modunda telefon daha hızlı şarj olur mu? Cevap: evet, ama sandığın kadar değil. Ne zaman işe yarar, videoda.",
+  "etiketler": "uçak modu,hızlı şarj,telefon şarj,doğru bilinen yanlışlar,telefon ipuçları",
+  "sahneler": [
+   {"tip": "kanca", "ekran": "✈", "buyuk": "%5 şarj", "altyazi": "Acelen var, şarj **%5**. Uçak modu kurtarır mı?",
+    "seslendirme": "Evden çıkman lazım, şarj yüzde beş. Uçak modunu açarsan daha hızlı dolar mı?"},
+   {"tip": "efsane", "balon": "Uçak modu şarjı iki kat hızlandırır!", "damga": "ABARTI!", "altyazi": "İnternette **iki kat** diyenler var…",
+    "seslendirme": "İnternette iki kat hızlanır diyenler var. Bu bir abartı."},
+   {"tip": "gercek", "etiket": "GERÇEK", "baslik": "Biraz hızlanır", "rozet": "1", "buyuk": "Biraz hızlı", "renk": "yesil",
+    "altyazi": "Antenler kapanınca telefon **daha az enerji** harcar.",
+    "seslendirme": "Uçak modunda mobil veri ve antenler kapanıyor, telefon daha az enerji harcıyor. O yüzden biraz daha hızlı dolar."},
+   {"tip": "gercek", "etiket": "AMA", "baslik": "Fark küçük", "rozet": "!", "buyuk": "Birkaç dakika", "renk": "sari",
+    "altyazi": "Fark genelde **birkaç dakika**, mucize değil.",
+    "seslendirme": "Ama fark genelde birkaç dakika. Asıl hızı belirleyen şarj aletin ve kablon."},
+   {"tip": "liste", "etiket": "EN HIZLI YOL", "baslik": "3 kural", "rozet": "✓", "maddeler": ["Güçlü adaptör kullan", "Ekranı kapalı tut", "Uçak modu: ufak bonus"],
+    "altyazi": "En hızlı şarj için **3 kural**:",
+    "seslendirme": "En hızlı şarj için: güçlü bir adaptör kullan, ekranı kapalı tut, uçak modu da ufak bir bonus olsun. Ama aranamayacağını unutma."},
+   {"tip": "son", "yarin": "Arka plandaki uygulamaları kapatmak pili korur mu?",
+    "seslendirme": "Yarın: arkadaki uygulamaları kapatmak pili gerçekten korur mu? Cevap seni şaşırtacak."}
+  ]
+ },
+ {
+  "baslik": "Arka Plandaki Uygulamaları Kapatmak Pili Korur mu? 📱 #shorts",
+  "aciklama": "Uygulamaları sürekli yukarı kaydırıp kapatıyor musun? Apple ve Google'a göre bu pil tasarrufu sağlamıyor, hatta tersi olabilir.",
+  "etiketler": "pil tasarrufu,uygulama kapatma,telefon pili,doğru bilinen yanlışlar,iphone,android",
+  "sahneler": [
+   {"tip": "kanca", "ekran": "✕", "buyuk": "Kaydır, kapat", "altyazi": "Uygulamaları **sürekli kapatıyor** musun?",
+    "seslendirme": "Telefonu her açtığında arkadaki uygulamaları tek tek kaydırıp kapatıyor musun?"},
+   {"tip": "efsane", "balon": "Arkada açık kalırsa pili bitirir!", "altyazi": "Pil biter diye mi?",
+    "seslendirme": "Arkada açık kalırsa pili bitirir diye düşünüyorsan, bu bir efsane."},
+   {"tip": "gercek", "etiket": "GERÇEK 1", "baslik": "Uygulama uyur", "rozet": "1", "buyuk": "Donduruluyor", "renk": "yesil",
+    "altyazi": "Arkadaki uygulamayı telefon **dondurur**.",
+    "seslendirme": "Arkada gördüğün uygulamalar aslında çalışmıyor. Telefon onları donduruyor, neredeyse hiç pil harcamıyorlar."},
+   {"tip": "uyari", "etiket": "GERÇEK 2", "baslik": "Ters tepebilir", "rozet": "2", "buyuk": "Sıfırdan aç", "damga": "DAHA ÇOK PİL",
+    "altyazi": "Kapatıp tekrar açmak **daha çok** pil yer.",
+    "seslendirme": "Kapatıp tekrar açtığında uygulama sıfırdan yükleniyor. Bu, açık bırakmaktan daha çok pil yiyebiliyor."},
+   {"tip": "liste", "etiket": "NE ZAMAN KAPAT", "baslik": "Sadece şu durumda", "rozet": "✓", "maddeler": ["Donduysa kapat", "Hata veriyorsa kapat", "Gerisini bırak"],
+    "altyazi": "Sadece **sorun çıkaranı** kapat.",
+    "seslendirme": "Apple da Google da aynı şeyi söylüyor: uygulama donduysa ya da hata veriyorsa kapat. Gerisini rahat bırak."},
+   {"tip": "son", "yarin": "Suya düşen telefonu pirince koymak işe yarar mı?",
+    "seslendirme": "Yarın: suya düşen telefonu pirince koymak gerçekten işe yarar mı? Takip et."}
+  ]
+ },
+ {
+  "baslik": "Suya Düşen Telefonu Pirince Koymak İşe Yarar mı? 💧 #shorts",
+  "aciklama": "Telefon suya düşünce ilk iş pirinç mi? Apple bile pirince koymayın diyor. Doğrusu videoda.",
+  "etiketler": "telefon suya düştü,pirinç,telefon kurtarma,doğru bilinen yanlışlar,telefon ipuçları",
+  "sahneler": [
+   {"tip": "kanca", "ekran": "H₂O", "buyuk": "Şıp!", "altyazi": "Telefon **suya düştü**. İlk iş pirinç mi?",
+    "seslendirme": "Telefon suya düştü. Herkesin ilk aklına gelen: hemen bir kase pirinç."},
+   {"tip": "efsane", "balon": "Pirinç bütün suyu çeker!", "altyazi": "Yıllardır böyle biliyoruz…",
+    "seslendirme": "Pirinç bütün suyu çeker diye biliyoruz. Ama bu doğru değil."},
+   {"tip": "uyari", "etiket": "GERÇEK", "baslik": "Pirinç zarar verebilir", "rozet": "!", "buyuk": "Pirinç = Hata", "alt": "Apple bile önermiyor", "damga": "TOZ GİRER",
+    "altyazi": "Pirinç tozu **girişlere** dolabilir.",
+    "seslendirme": "Apple bile pirince koymayın diyor. Pirincin tozu ve küçük parçaları şarj girişine dolabilir."},
+   {"tip": "liste", "etiket": "DOĞRUSU", "baslik": "3 adım", "rozet": "✓", "maddeler": ["Hemen kapat", "Girişi aşağı tut", "Şarja takma"],
+    "altyazi": "Doğrusu **3 adım**:",
+    "seslendirme": "Doğrusu şu: telefonu hemen kapat, şarj girişi aşağı bakacak şekilde hafifçe silkele ve havalı bir yerde kurumaya bırak."},
+   {"tip": "gercek", "etiket": "UNUTMA", "baslik": "Sabır", "rozet": "!", "buyuk": "En az 1 gün", "renk": "sari",
+    "altyazi": "Kurumadan **şarja takma**.",
+    "seslendirme": "Ve en önemlisi: tamamen kurumadan şarja takma. En az bir gün bekle."},
+   {"tip": "son", "yarin": "Çok çubuk çekiyorsa internet hızlı mıdır?",
+    "seslendirme": "Yarın: telefonda çubuklar doluysa internet hızlı mı demek? Takip et."}
+  ]
+ },
+ {
+  "baslik": "Çubuklar Doluysa İnternet Hızlı mı? 📶 Doğru Bilinen Yanlış #shorts",
+  "aciklama": "Tam çekiyor ama internet açılmıyor mu? Çubuklar hızı değil, sinyal gücünü gösterir. Nedenini videoda anlattım.",
+  "etiketler": "sinyal,mobil internet,internet yavaş,doğru bilinen yanlışlar,telefon ipuçları",
+  "sahneler": [
+   {"tip": "kanca", "ekran": "▂▄▆█", "buyuk": "Tam çekiyor", "altyazi": "Çubuklar **dolu**, ama internet açılmıyor?",
+    "seslendirme": "Çubuklar fulle, ama video bir türlü açılmıyor. Hiç başına geldi mi?"},
+   {"tip": "efsane", "balon": "Çok çubuk = hızlı internet", "altyazi": "Çoğumuz böyle sanıyoruz…",
+    "seslendirme": "Çoğumuz çubuk sayısı internetin hızını gösteriyor sanıyoruz. Göstermiyor."},
+   {"tip": "gercek", "etiket": "GERÇEK 1", "baslik": "Sadece sinyal", "rozet": "1", "buyuk": "Sinyal ≠ Hız", "renk": "beyaz",
+    "altyazi": "Çubuklar **sinyal gücünü** gösterir, hızı değil.",
+    "seslendirme": "Çubuklar sadece en yakın baz istasyonundan gelen sinyalin gücünü gösterir. Hızı değil."},
+   {"tip": "uyari", "etiket": "GERÇEK 2", "baslik": "Kalabalık", "rozet": "2", "buyuk": "Maç günü", "alt": "Herkes aynı istasyonda", "damga": "İSTASYON DOLU",
+    "altyazi": "Aynı istasyonda **çok kişi** varsa hız düşer.",
+    "seslendirme": "Stadyumda, konserde, bayram meydanında herkes aynı istasyona bağlanır. Sinyal tam olsa bile hız düşer."},
+   {"tip": "liste", "etiket": "NE YAPMALI", "baslik": "3 ipucu", "rozet": "✓", "maddeler": ["Uçak modu aç-kapat", "Wi-Fi varsa geç", "Kalabalıktan uzaklaş"],
+    "altyazi": "İnternet takılınca **3 şey** dene:",
+    "seslendirme": "İnternet takılınca şunları dene: uçak modunu açıp kapat, güvenli bir Wi-Fi varsa ona geç, mümkünse kalabalıktan biraz uzaklaş."},
+   {"tip": "son", "yarin": "Gizli sekme seni gerçekten gizler mi?",
+    "seslendirme": "Yarın: gizli sekme seni gerçekten gizliyor mu? Cevap çoğu kişiyi şaşırtıyor."}
+  ]
+ },
+ {
+  "baslik": "Gizli Sekme Seni Gerçekten Gizler mi? 🕶️ Doğru Bilinen Yanlış #shorts",
+  "aciklama": "Gizli sekme sadece senin cihazında geçmiş tutmaz. Siteler, internet sağlayıcın ve okul/iş ağı yine görebilir.",
+  "etiketler": "gizli sekme,incognito,gizlilik,internet güvenliği,doğru bilinen yanlışlar",
+  "sahneler": [
+   {"tip": "kanca", "ekran": "?", "buyuk": "Gizli sekme", "altyazi": "Gizli sekme açınca **kimse görmüyor** mu?",
+    "seslendirme": "Gizli sekmeyi açınca kimse ne yaptığını göremiyor mu sanıyorsun?"},
+   {"tip": "efsane", "balon": "Gizli sekmede iz kalmaz!", "altyazi": "Adı “gizli” ama…",
+    "seslendirme": "Adı gizli, ama sandığın kadar gizli değil."},
+   {"tip": "gercek", "etiket": "NE YAPAR", "baslik": "Sadece cihazında", "rozet": "1", "buyuk": "Geçmiş yok", "renk": "yesil",
+    "altyazi": "Sadece **senin telefonunda** geçmiş tutmaz.",
+    "seslendirme": "Gizli sekme sadece şunu yapar: senin telefonunda geçmişi ve çerezleri kaydetmez. O kadar."},
+   {"tip": "uyari", "etiket": "NE YAPMAZ", "baslik": "Görenler var", "rozet": "!", "buyuk": "Görüyorlar", "alt": "Site · İnternet sağlayıcı · Okul/İş ağı", "damga": "İZ KALIR",
+    "altyazi": "Siteler ve ağ sahibi **yine görür**.",
+    "seslendirme": "Girdiğin site, internet sağlayıcın, okulun ya da iş yerinin ağı ne yaptığını yine görebilir."},
+   {"tip": "liste", "etiket": "BİLMEN GEREKEN", "baslik": "Ne işe yarar", "rozet": "✓", "maddeler": ["Ortak cihazda iyi", "Hediye aramasında iyi", "Gizlilik kalkanı değil"],
+    "altyazi": "Gizli sekme **kalkan değil**.",
+    "seslendirme": "Yani gizli sekme ortak kullanılan bir cihazda ya da sürpriz hediye ararken işe yarar. Ama bir gizlilik kalkanı değil."},
+   {"tip": "son", "yarin": "Megapiksel arttıkça fotoğraf daha mı iyi olur?",
+    "seslendirme": "Yarın: kamerada megapiksel arttıkça fotoğraf gerçekten daha mı iyi olur? Takip et."}
+  ]
+ },
+ {
+  "baslik": "Megapiksel Arttıkça Fotoğraf Daha mı İyi? 📸 Doğru Bilinen Yanlış #shorts",
+  "aciklama": "200 megapiksel yazan telefon, 12 megapiksellik telefondan daha iyi mi çeker? Asıl önemli olan sensör, lens ve yazılım.",
+  "etiketler": "megapiksel,telefon kamerası,fotoğraf,doğru bilinen yanlışlar,telefon alırken",
+  "sahneler": [
+   {"tip": "kanca", "ekran": "MP", "buyuk": "200 MP", "altyazi": "Kutusunda **200 MP** yazıyor. Daha mı iyi?",
+    "seslendirme": "Telefonun kutusunda kocaman iki yüz megapiksel yazıyor. Sence daha iyi mi çeker?"},
+   {"tip": "efsane", "balon": "Megapiksel çoksa kamera iyidir!", "altyazi": "Satıcıların en sevdiği cümle…",
+    "seslendirme": "Megapiksel çoksa kamera iyidir. Bu, satıcıların en sevdiği cümle. Ve doğru değil."},
+   {"tip": "gercek", "etiket": "GERÇEK 1", "baslik": "Sensör boyutu", "rozet": "1", "buyuk": "Büyük sensör", "renk": "yesil",
+    "altyazi": "Asıl önemli olan **sensörün büyüklüğü**.",
+    "seslendirme": "Asıl önemli olan sensörün büyüklüğü. Büyük sensör daha çok ışık toplar, özellikle gece fark eder."},
+   {"tip": "gercek", "etiket": "GERÇEK 2", "baslik": "Yazılım", "rozet": "2", "buyuk": "12 MP", "renk": "sari", "cip": "YİNE ÇOK İYİ",
+    "altyazi": "Bazı en iyi telefonlar **12 MP** ile çekiyor.",
+    "seslendirme": "Dünyanın en iyi çeken telefonlarından bazıları uzun süre on iki megapiksel kullandı. Fark lens ve yazılımda."},
+   {"tip": "liste", "etiket": "TELEFON ALIRKEN", "baslik": "Bunlara bak", "rozet": "✓", "maddeler": ["Gece örneklerine bak", "Sensör boyutunu sor", "MP'ye kanma"],
+    "altyazi": "Telefon alırken **bunlara** bak:",
+    "seslendirme": "Telefon alırken gece çekilmiş örnek fotoğraflara bak, sensör boyutunu sor ve sadece megapiksele kanma."},
+   {"tip": "son", "yarin": "Şarj aleti prizde takılı kalınca elektrik yer mi?",
+    "seslendirme": "Yarın: şarj aleti prizde takılı kalınca elektrik harcar mı? Takip et."}
+  ]
+ },
+ {
+  "baslik": "Prizde Takılı Şarj Aleti Elektrik Yer mi? 🔌 Doğru Bilinen Yanlış #shorts",
+  "aciklama": "Telefona bağlı değilken prizde kalan şarj aleti elektrik harcar mı? Harcar ama çok az. Asıl dikkat etmen gereken şey güvenlik.",
+  "etiketler": "şarj aleti,elektrik faturası,priz,doğru bilinen yanlışlar,ev ipuçları",
+  "sahneler": [
+   {"tip": "kanca", "ekran": "W", "buyuk": "Hep prizde", "altyazi": "Şarj aleti **hep prizde** mi kalıyor?",
+    "seslendirme": "Şarj aletin telefon takılı değilken de hep prizde mi duruyor?"},
+   {"tip": "efsane", "balon": "Faturayı şişirir!", "damga": "YARI DOĞRU", "altyazi": "Faturayı şişirir diyorlar…",
+    "seslendirme": "Faturayı şişirir diyorlar. Bu yarı doğru."},
+   {"tip": "gercek", "etiket": "GERÇEK 1", "baslik": "Çok az harcar", "rozet": "1", "buyuk": "Çok az", "renk": "yesil",
+    "altyazi": "Boştaki modern şarj aleti **çok az** elektrik çeker.",
+    "seslendirme": "Evet, boşta da biraz elektrik çeker. Ama yeni şarj aletlerinde bu çok küçük, faturada neredeyse fark etmez."},
+   {"tip": "uyari", "etiket": "ASIL MESELE", "baslik": "Güvenlik", "rozet": "!", "buyuk": "Ucuz alet", "alt": "Isınan, kablosu açılan", "damga": "FİŞTEN ÇEK",
+    "altyazi": "Asıl tehlike **ucuz ve hasarlı** aletler.",
+    "seslendirme": "Asıl mesele güvenlik. Merdiven altı, ısınan ya da kablosu açılmış bir şarj aletini prizde bırakma."},
+   {"tip": "liste", "etiket": "KURAL", "baslik": "3 madde", "rozet": "✓", "maddeler": ["Orijinal alet kullan", "Isınıyorsa çek", "Açık kabloyu at"],
+    "altyazi": "Şarj aleti için **3 kural**:",
+    "seslendirme": "Kısacası: güvenilir bir alet kullan, ısınıyorsa fişten çek, kablosu açılmışsa hemen değiştir."},
+   {"tip": "son", "yarin": "Bluetooth açık kalırsa pil biter mi?",
+    "seslendirme": "Yarın: Bluetooth açık kalırsa pil gerçekten biter mi? Takip et, kaçırma."}
+  ]
+ }
+]

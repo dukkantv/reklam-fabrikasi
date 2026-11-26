@@ -2,3 +2,5 @@ cikti/
 node_modules/
 __pycache__/
 *.kare.jpg
+out/
+yeni_format/out/

@@ -11,6 +11,9 @@ on:
       konu:
         description: "Konu (rastgele yazarsan listeden seçer)"
         default: "rastgele"
+      bicim:
+        description: "Biçim: otomatik / mesaj / klasik"
+        default: "otomatik"
 
 permissions:
   contents: write
@@ -27,6 +30,16 @@ jobs:
           if [ "${{ github.event_name }}" = "schedule" ] && ls kuyruk/$(TZ=Europe/Istanbul date +%Y%m%d)-*-dramabite.json kuyruk/arsiv/$(TZ=Europe/Istanbul date +%Y%m%d)-*-dramabite.json 2>/dev/null | grep -q .; then
             echo "Bugünkü Drama Bite zaten üretildi, atlanıyor"; echo "atla=1" >> $GITHUB_OUTPUT
           fi
+      - name: "Biçim seç (26 Kas 2026 - mesaj hikâyesi ile klasik hikâye dönüşümlü)"
+        id: b
+        if: steps.k.outputs.atla != '1'
+        run: |
+          B="${{ github.event.inputs.bicim || 'otomatik' }}"
+          if [ "$B" = "otomatik" ]; then
+            # Günün ilk Drama Bite'ı mesaj hikâyesi, ikincisi klasik hikâye
+            if ls kuyruk/$(TZ=Europe/Istanbul date +%Y%m%d)-*-dramabite.json kuyruk/arsiv/$(TZ=Europe/Istanbul date +%Y%m%d)-*-dramabite.json 2>/dev/null | grep -q .; then B=klasik; else B=mesaj; fi
+          fi
+          echo "Biçim: $B"; echo "bicim=$B" >> $GITHUB_OUTPUT
       - uses: actions/setup-python@v5
         if: steps.k.outputs.atla != '1'
         with:
@@ -36,9 +49,19 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y fonts-liberation fonts-dejavu-core ffmpeg
-          pip install requests pillow edge-tts
+          pip install requests pillow numpy edge-tts
+      - name: Mesaj hikâyesi üret
+        id: mesaj
+        if: steps.k.outputs.atla != '1' && steps.b.outputs.bicim == 'mesaj'
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          cd yeni_format && python drama_mesaj.py
+          mkdir -p ../cikti && python3 -c "import json;y=json.load(open('out/yayin.json'));json.dump(y,open('../cikti/yayin.json','w'),ensure_ascii=False)"
       - name: Hikaye üret
-        if: steps.k.outputs.atla != '1'
+        if: steps.k.outputs.atla != '1' && (steps.b.outputs.bicim != 'mesaj' || steps.mesaj.outcome != 'success')
         env:
           KONU: ${{ github.event.inputs.konu || 'rastgele' }}
           DIL: tr
@@ -63,5 +86,5 @@ jobs:
           PY
           git config user.name "dukkan-tv-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add kuyruk
+          git add kuyruk yeni_format/durum.json
           git diff --cached --quiet || (git commit -m "Yayın kuyruğu: Drama Bite hikâyesi" && (git push || (git pull --rebase origin main && git push)))
