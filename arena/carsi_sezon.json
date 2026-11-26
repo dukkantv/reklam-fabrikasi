@@ -44,8 +44,8 @@
  "dokunulmaz": null,
  "duello": null,
  "hafta": 1,
- "adim": 0,
- "bolum_no": 0,
+ "adim": 1,
+ "bolum_no": 1,
  "lansman": [
   1,
   2,
@@ -53,6 +53,17 @@
   4,
   5
  ],
- "hafta_olay": {},
- "bolumler": []
+ "hafta_olay": {
+  "odul": "K"
+ },
+ "bolumler": [
+  {
+   "no": 1,
+   "hafta": 1,
+   "adim": 0,
+   "faz": "takim",
+   "baslik": "Çarşı Ligi 1. Hafta | Ödül Maçı: Kırmızı mı Mavi mi? 🔴🔵 #shorts",
+   "kid": "20261126-205128-dukkantv"
+  }
+ ]
 }
