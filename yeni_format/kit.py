@@ -340,22 +340,31 @@ def _edge(metin, yol, ses="tr-TR-AhmetNeural", hiz="+8%"):
     return yol
 
 
-def _onbellek_yolu(tarz, metin):
+def _onbellek_yolu(tarz, metin, hiz=1.0):
     import hashlib
     d = os.environ.get("SES_ONBELLEK")
     if not d:
         return None
     os.makedirs(d, exist_ok=True)
-    return os.path.join(d, hashlib.md5(f"{tarz}|{metin}".encode()).hexdigest() + ".wav")
+    anahtar = f"{tarz}|{metin}" if hiz == 1.0 else f"{tarz}|{hiz:.2f}|{metin}"
+    return os.path.join(d, hashlib.md5(anahtar.encode()).hexdigest() + ".wav")
 
 
-def seslendir(tarz, metin, yol):
-    """Önbellekte varsa onu kullanır (paralel ses işleri doldurur); yoksa üretir ve önbelleğe de koyar."""
-    ob = _onbellek_yolu(tarz, metin)
+def seslendir(tarz, metin, yol, hiz=1.0):
+    """Önbellekte varsa onu kullanır (paralel ses işleri doldurur); yoksa üretir ve önbelleğe de koyar.
+    hiz: 1.0 normal; 0.93 daha ağır, 1.08 daha tempolu (ses perdesi değişmez, ffmpeg atempo)."""
+    ob = _onbellek_yolu(tarz, metin, hiz)
     if ob and os.path.exists(ob) and not os.environ.get("SESSIZ_TEST"):
         subprocess.run(["cp", ob, yol], check=True)
         return wav_oku(yol), "klon"
     s, k = _seslendir(tarz, metin, yol)
+    if hiz != 1.0 and k != "test":
+        tmp = yol + ".hiz.wav"
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", yol, "-filter:a", f"atempo={hiz:.3f}", tmp], check=True)
+        os.replace(tmp, yol)
+        s = wav_oku(yol)
+    elif hiz != 1.0:
+        s = s[: int(len(s) / hiz)]
     if ob and k != "test":
         subprocess.run(["cp", yol, ob], check=True)
     return s, k

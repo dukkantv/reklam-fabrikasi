@@ -1,0 +1,50 @@
+name: Sohbet Tarzı Anlatım Denemesi
+
+# 26 Kas 2026: Levent'in istediği "sohbet eder gibi" anlatım için örnek. Aynı bölüm eski (tek ton) ve yeni
+# (cümle cümle ton) olarak üretilir, Telegram'a gider ve sesler/deneme/ altına kaydedilir.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  uret:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        tur: [eski, yeni]
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Araçlar
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip install -q requests pillow numpy edge-tts
+          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install -q chatterbox-tts
+      - name: Model önbelleği
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: chatterbox-mtl-v1
+      - name: Üret
+        working-directory: yeni_format
+        env:
+          PYTHONUNBUFFERED: "1"
+          ANLATIM: ${{ matrix.tur == 'yeni' && 'sohbet' || 'duz' }}
+        run: python sohbet_deneme.py ${{ matrix.tur }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: deneme-${{ matrix.tur }}
+          path: yeni_format/out/${{ matrix.tur }}.mp4
+          retention-days: 3

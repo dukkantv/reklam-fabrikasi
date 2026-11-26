@@ -25,6 +25,12 @@ TARZLAR = {
     "hikaye":   ("belgesel", 0.55, 0.45, 0.75),  # Drama Bite: sıcak, duygulu (belgesel kaydından)
     "dedektif": ("gizemli", 0.50, 0.45, 0.7),    # Kasa Kurgu: gergin, merak uyandıran
     "samimi":   ("neseli", 0.50, 0.40, 0.75),    # Kasa Kurgu günlük seri: arkadaşla konuşur gibi
+    # 26 Kas 2026 (Levent: "bazı yerlerde yavaş, bazı yerlerde hızlı, bazı yerlerde heyecanlı, sohbet eder gibi"):
+    # uzun eğitim videolarında her cümlenin tonu ayrı seçilir (yeni_format/uzun.py → ton_sec).
+    "sohbet_sakin":   ("belgesel", 0.38, 0.50, 0.70),  # önemli rakam/bilgi: yavaş, vurgulu
+    "sohbet_merak":   ("gizemli", 0.55, 0.45, 0.75),   # soru: merak uyandıran
+    "sohbet_hizli":   ("neseli", 0.55, 0.35, 0.80),    # sıralama/liste: tempolu
+    "sohbet_heyecan": ("spiker", 0.70, 0.35, 0.80),    # uyarı, şaşırtıcı bilgi: heyecanlı
 }
 
 ORNEK = {

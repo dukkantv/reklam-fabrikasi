@@ -326,6 +326,53 @@ TIPLER = {"kanca": s_kanca, "bolum": s_bolum, "madde": s_madde, "adimlar": s_adi
 OGE = {"madde": "maddeler", "adimlar": "adimlar"}
 
 
+# ---------- sohbet tarzı anlatım: her cümleye ayrı ton (26 Kas 2026) ----------
+# Levent: "bazı yerlerde yavaş, bazı yerlerde hızlı, bazı yerlerde heyecanlı; sohbet eder gibi".
+# (tarz, hız, cümleden sonraki duraklama sn). Cümle başına "[sakin]" gibi etiket yazılırsa o ton zorlanır.
+TONLAR = {
+    "normal":  ("samimi", 1.00, 0.30),
+    "sakin":   ("sohbet_sakin", 0.94, 0.55),
+    "merak":   ("sohbet_merak", 0.97, 0.65),
+    "hizli":   ("sohbet_hizli", 1.07, 0.18),
+    "heyecan": ("sohbet_heyecan", 1.03, 0.40),
+}
+ANLATIM = os.environ.get("ANLATIM", "duz")   # "sohbet" -> tonlu anlatım
+_SIRA = ("birinci", "ikinci", "üçüncü", "dördüncü", "beşinci", "altıncı", "yedinci", "önce ", "sonra ", "ardından", "son olarak")
+_HEYECAN = ("dikkat", "asla", "sakın", "tuzak", "hemen", "bir dakika", "çöker", "kilitlen", "ikiye katl", "inanılmaz")
+_SAKIN = ("altın kural", "unutma", "en önemlisi", "aklında tek", "dürüst ol")
+
+
+def ton_sec(c, tip, j, n):
+    m = re.match(r"\s*\[(\w+)\]\s*", c)
+    if m and m.group(1) in TONLAR:
+        return m.group(1)
+    t = temiz(c).replace("İ", "i").replace("I", "ı").lower()
+    if any(k in t for k in _SAKIN):
+        return "sakin"
+    if t.endswith("?"):
+        return "merak"
+    if "!" in t or any(k in t for k in _HEYECAN):
+        return "heyecan"
+    if tip in ("madde", "adimlar") and t.startswith(_SIRA):
+        return "hizli"
+    if re.search(r"\d|yüzde|bin |milyon|milyar|sekiz|dört|on iki|doksan", t) and tip in ("buyuk", "karsilastir", "uyari"):
+        return "sakin"
+    if tip == "kanca" and j == 0:
+        return "heyecan"
+    if tip == "son" or tip == "soru":
+        return "normal"
+    return "normal"
+
+
+def ton_bilgisi(c, tip, j, n):
+    """(seslendirilecek metin, tarz, hız, duraklama)"""
+    metin = re.sub(r"^\s*\[\w+\]\s*", "", c)
+    if ANLATIM != "sohbet":
+        return temiz(metin), TARZ, 1.0, BOSLUK
+    tz, hz_, gap = TONLAR[ton_sec(c, tip, j, n)]
+    return temiz(metin), tz, hz_, gap
+
+
 # ---------- madde <-> cümle eşleştirme (her madde, kendisinden bahseden cümleyle ekrana gelir) ----------
 def _kokler(t):
     t = re.sub(r"[^\wçğıöşüâîû ]", " ", temiz(t).lower().replace("İ", "i").replace("I", "ı"))
@@ -373,10 +420,12 @@ class Uzun:
             cs = cumleler(sc.get("metin", "")) if sc.get("metin") else []
             seg, ses, tt = [], [], 0.35
             for j, c in enumerate(cs):
-                s = sesler_fn(i, j, temiz(c))
+                metin, tz, hz_, gap = ton_bilgisi(c, sc["tip"], j, len(cs))
+                s = sesler_fn(i, j, metin, tz, hz_)
                 d = len(s) / SR
-                seg.append((tt, tt + d, c)); ses.append((tt, s))
-                tt += d + BOSLUK
+                yazi = re.sub(r"^\s*\[\w+\]\s*", "", c)
+                seg.append((tt, tt + d, yazi)); ses.append((tt, s))
+                tt += d + gap
             sure = max(tt + SAHNE_SON, 2.4 if sc["tip"] == "bolum" else 3.0)
             n_oge = len(sc.get(OGE.get(sc["tip"], ""), [])) if sc["tip"] in OGE else (2 if sc["tip"] == "karsilastir" else 0)
             if n_oge:
@@ -541,8 +590,8 @@ def main(sadece_kare=None):
     os.makedirs("out", exist_ok=True); os.makedirs("/tmp/uz", exist_ok=True)
     kaynak = set()
 
-    def sesler_fn(i, j, metin):
-        s, k = seslendir(TARZ, metin, f"/tmp/uz/s{i:03d}_{j:02d}.wav")
+    def sesler_fn(i, j, metin, tz=TARZ, hz_=1.0):
+        s, k = seslendir(tz, metin, f"/tmp/uz/s{i:03d}_{j:02d}.wav", hz_)
         kaynak.add(k)
         return s
     v = Uzun(sen, sesler_fn)
@@ -588,11 +637,15 @@ def tum_metinler(sen):
     out = []
     for sc in sen["sahneler"]:
         if sc.get("bolum") and sc.get("bolum_metin"):
-            out += [(TARZ, temiz(c)) for c in cumleler(sc["bolum_metin"])]
+            cs = cumleler(sc["bolum_metin"])
+            for j, c in enumerate(cs):
+                m, tz, hz_, _ = ton_bilgisi(c, "bolum", j, len(cs)); out.append((tz, m, hz_))
         if sc.get("metin"):
-            out += [(TARZ, temiz(c)) for c in cumleler(sc["metin"])]
+            cs = cumleler(sc["metin"])
+            for j, c in enumerate(cs):
+                m, tz, hz_, _ = ton_bilgisi(c, sc["tip"], j, len(cs)); out.append((tz, m, hz_))
     for sc in (sen.get("tanitim") or {}).get("sahneler", []):
-        out.append(("samimi", sc["seslendirme"]))
+        out.append(("samimi", sc["seslendirme"], 1.0))
     return out
 
 
@@ -604,8 +657,8 @@ def ses_parcasi(parca, toplam):
     liste = tum_metinler(sen)
     benim = [x for i, x in enumerate(liste) if i % toplam == parca]
     print(f"Parça {parca}/{toplam}: {len(benim)}/{len(liste)} cümle")
-    for i, (tz, m) in enumerate(benim):
-        seslendir(tz, m, f"/tmp/uzp/{i}.wav")
+    for i, (tz, m, hz_) in enumerate(benim):
+        seslendir(tz, m, f"/tmp/uzp/{i}.wav", hz_)
     print("bitti")
 
 
