@@ -340,7 +340,28 @@ def _edge(metin, yol, ses="tr-TR-AhmetNeural", hiz="+8%"):
     return yol
 
 
+def _onbellek_yolu(tarz, metin):
+    import hashlib
+    d = os.environ.get("SES_ONBELLEK")
+    if not d:
+        return None
+    os.makedirs(d, exist_ok=True)
+    return os.path.join(d, hashlib.md5(f"{tarz}|{metin}".encode()).hexdigest() + ".wav")
+
+
 def seslendir(tarz, metin, yol):
+    """Önbellekte varsa onu kullanır (paralel ses işleri doldurur); yoksa üretir ve önbelleğe de koyar."""
+    ob = _onbellek_yolu(tarz, metin)
+    if ob and os.path.exists(ob) and not os.environ.get("SESSIZ_TEST"):
+        subprocess.run(["cp", ob, yol], check=True)
+        return wav_oku(yol), "klon"
+    s, k = _seslendir(tarz, metin, yol)
+    if ob and k != "test":
+        subprocess.run(["cp", yol, ob], check=True)
+    return s, k
+
+
+def _seslendir(tarz, metin, yol):
     """Önce klon ses; o çalışmazsa edge-tts; test modunda (SESSIZ_TEST=1) metin uzunluğunda sessizlik."""
     if os.environ.get("SESSIZ_TEST"):
         n = int(SR * (0.6 + len(metin) / 15))

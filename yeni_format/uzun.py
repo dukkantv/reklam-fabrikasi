@@ -583,7 +583,36 @@ def main(sadece_kare=None):
         json.dump(d, open(os.path.join(BURA, "durum.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 
+def tum_metinler(sen):
+    """Videoda seslendirilecek bütün (tarz, metin) çiftleri — paralel ses işleri için."""
+    out = []
+    for sc in sen["sahneler"]:
+        if sc.get("bolum") and sc.get("bolum_metin"):
+            out += [(TARZ, temiz(c)) for c in cumleler(sc["bolum_metin"])]
+        if sc.get("metin"):
+            out += [(TARZ, temiz(c)) for c in cumleler(sc["metin"])]
+    for sc in (sen.get("tanitim") or {}).get("sahneler", []):
+        out.append(("samimi", sc["seslendirme"]))
+    return out
+
+
+def ses_parcasi(parca, toplam):
+    """Önbelleğe (SES_ONBELLEK) bu işe düşen cümleleri seslendirir: python uzun.py ses 0 4"""
+    yol, _ = senaryo_sec()
+    sen = json.load(open(yol, encoding="utf-8"))
+    os.makedirs("/tmp/uzp", exist_ok=True)
+    liste = tum_metinler(sen)
+    benim = [x for i, x in enumerate(liste) if i % toplam == parca]
+    print(f"Parça {parca}/{toplam}: {len(benim)}/{len(liste)} cümle")
+    for i, (tz, m) in enumerate(benim):
+        seslendir(tz, m, f"/tmp/uzp/{i}.wav")
+    print("bitti")
+
+
 if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] == "ses":
+        ses_parcasi(int(sys.argv[2]), int(sys.argv[3]))
+        sys.exit(0)
     if len(sys.argv) > 1 and sys.argv[1] == "kare":
         os.environ["SESSIZ_TEST"] = "1"
         main([float(x) for x in sys.argv[2:]])

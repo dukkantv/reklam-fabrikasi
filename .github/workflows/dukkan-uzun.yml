@@ -19,7 +19,46 @@ concurrency:
   group: dukkan-uzun
 
 jobs:
+  # Seslendirme en uzun adım: cümleler 4 paralel işe bölünür (her biri ayrı makinede), sonra video tek işte çizilir.
+  ses:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        parca: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Araçlar
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip install -q requests pillow numpy edge-tts
+          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install -q chatterbox-tts
+      - name: Model önbelleği
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: chatterbox-mtl-v1
+      - name: Bu parçanın cümlelerini seslendir
+        working-directory: yeni_format
+        env:
+          PYTHONUNBUFFERED: "1"
+          SENARYO: ${{ inputs.senaryo }}
+          SES_ONBELLEK: /tmp/ses_onbellek
+        run: python uzun.py ses ${{ matrix.parca }} 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ses-${{ matrix.parca }}
+          path: /tmp/ses_onbellek
+          retention-days: 1
+
   uret:
+    needs: ses
+    if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 200
     env:
@@ -44,12 +83,20 @@ jobs:
         with:
           path: ~/.cache/huggingface
           key: chatterbox-mtl-v1
+      - name: Paralel seslendirmeleri al
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: ses-*
+          path: /tmp/ses_onbellek
+          merge-multiple: true
       - name: Uzun videoyu üret
         working-directory: yeni_format
         timeout-minutes: 170
         env:
           PYTHONUNBUFFERED: "1"
           SENARYO: ${{ inputs.senaryo }}
+          SES_ONBELLEK: /tmp/ses_onbellek
         run: python uzun.py
       - name: Yayın kuyruğuna ekle (uzun 20:17, tanıtım ertesi gün 12:47)
         if: success() && hashFiles('yeni_format/out/yayin_uzun.json') != ''
