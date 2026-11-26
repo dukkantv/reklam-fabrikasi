@@ -60,6 +60,12 @@ jobs:
         with:
           path: ~/.cache/huggingface
           key: chatterbox-mtl-v1
+      - name: Çizim önbelleği (aynı tarif yeniden çizilmez)
+        uses: actions/cache@v4
+        with:
+          path: cikti/onbellek
+          key: belgesel-cizim-${{ github.run_id }}
+          restore-keys: belgesel-cizim-
       - name: Üret
         run: python belgesel.py "${{ inputs.konu }}" "${{ inputs.dakika }}" "${{ inputs.tur }}"
       - name: Yayın kuyruğuna ekle

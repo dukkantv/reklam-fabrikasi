@@ -238,9 +238,29 @@ def resim_gemini(prompt, hedef):
     return False
 
 
+ONBELLEK = os.path.join(KOK, "cikti", "onbellek")   # 26 Kas 2026: çizilen resimler saklanır (actions/cache)
+
+
 def ciz(sc, tur, hedef, tohum):
     # Nesne EN BAŞTA: model önce anlatılan şeyi çizsin, stil sonra gelsin
     prompt = f"{sc['nesne']} clearly visible as the main subject. {sc['gorsel']}. {STILLER[tur]}. {ORTAK}"
+    # Aynı tarif + tohum daha önce çizildiyse yeniden çizme: senaryoda tek sahne düzeltilince
+    # diğer sahneler kotayı yemesin (Derinkuyu'da 3 yeniden üretim Cloudflare günlük kotasını bitirdi).
+    import hashlib, shutil
+    anahtar = hashlib.sha1(f"{prompt}|{tohum}".encode()).hexdigest()[:20]
+    kayitli = os.path.join(ONBELLEK, anahtar + ".jpg")
+    if os.path.exists(kayitli) and os.path.getsize(kayitli) > 15000:
+        shutil.copy(kayitli, hedef)
+        print("   önbellekten:", anahtar)
+        return True
+    if _ciz_servis(prompt, hedef, tohum):
+        os.makedirs(ONBELLEK, exist_ok=True)
+        shutil.copy(hedef, kayitli)
+        return True
+    return False
+
+
+def _ciz_servis(prompt, hedef, tohum):
     if resim_cf(prompt, hedef, tohum):
         return True
     for d in range(2):
