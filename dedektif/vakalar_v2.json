@@ -886,5 +886,53 @@
     ],
     "dogru": 1,
     "cozum": "Kağıdın sol alt köşesinde iz bırakacak şekilde yazan kişi Tuğçe'dir."
+  },
+  {
+    "baslik": "Kayıp Altın Kolye",
+    "olay": "Komşunun altın kolyesi salondaki sehpadan alındı. Evde zorlama yok.",
+    "ipuclari": [
+      "Hırsız, öğle saatlerinde gelen kargo görevlisiyle kapıda konuşmuştu.",
+      "Salondaki halıda sadece sol ayağın topuk izi derince basılmıştı, sağ ayak izi yoktu."
+    ],
+    "supheliler": [
+      {
+        "ad": "Kerem",
+        "rol": "kurye"
+      },
+      {
+        "ad": "Derya",
+        "rol": "temizlikçi"
+      },
+      {
+        "ad": "Murat",
+        "rol": "komşu"
+      }
+    ],
+    "dogru": 1,
+    "cozum": "Derya temizlik yaparken sol ayağını kullandığını söylemişti ve halıdaki tek topuk izi ona aitti."
+  },
+  {
+    "baslik": "Pazaryerindeki Cüzdan",
+    "olay": "Tezgahlardan birinde bir kadının cüzdanı çalındı, kalabalıkta kimse fark etmedi.",
+    "ipuclari": [
+      "Hırsız cüzdanı alırken aceleyle sol cebine koymuştu ve cebinden düşen metro kartı ıslanmıştı.",
+      "Şüphelilerden sadece biri yağmurlu yoldan yeni gelmişti."
+    ],
+    "supheliler": [
+      {
+        "ad": "Emre",
+        "rol": "simitçi"
+      },
+      {
+        "ad": "Can",
+        "rol": "sebzeci"
+      },
+      {
+        "ad": "Aslı",
+        "rol": "tezgah sahibi"
+      }
+    ],
+    "dogru": 2,
+    "cozum": "Metro kartının ıslak olması yağmurlu yoldan gelen Aslı'yı işaret ediyordu."
   }
 ]
