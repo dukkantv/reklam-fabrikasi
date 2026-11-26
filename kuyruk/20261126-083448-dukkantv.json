@@ -14,9 +14,11 @@
   "Dükkan TV"
  ],
  "dosya": "20261126-083448-dukkantv.mp4",
- "durum": "onaylandi",
+ "durum": "yuklendi",
  "eklendi": "2026-11-26T08:34:48.190716+03:00",
  "sabit_yayin": "2026-11-26T11:00:00+03:00",
  "otomatik": true,
- "mesaj_id": 1337
+ "mesaj_id": 1337,
+ "video_id": "H4IoM4m_Rn8",
+ "yayin": "2026-11-26T11:00:00+03:00"
 }
