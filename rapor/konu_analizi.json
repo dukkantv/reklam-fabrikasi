@@ -1,12 +1,19 @@
 {
- "tarih": "2026-11-25",
+ "tarih": "2026-11-26",
  "gruplar": {
   "hayatin_icinden": {
    "video": 2,
-   "izlenme": 1316,
+   "izlenme": 1311,
    "yuzde": 110.34,
-   "ortalama": 658.0,
+   "ortalama": 655.5,
    "ort_yuzde": 55.2
+  },
+  "afet_uzay": {
+   "video": 1,
+   "izlenme": 574,
+   "yuzde": 57.42,
+   "ortalama": 574.0,
+   "ort_yuzde": 57.4
   }
  },
  "degisiklik": "yok"
