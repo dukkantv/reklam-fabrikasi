@@ -1,0 +1,28 @@
+name: Artifact Taşı (Claude kontrolü için)
+
+# Bir çalışmanın geçici dosyalarını (artifact) "deneme" sürümüne koyar; Claude oradan indirip inceler.
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Çalışma numarası"
+        required: true
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  tasi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ github.token }}
+          path: a
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view deneme -R ${{ github.repository }} >/dev/null 2>&1 || gh release create deneme -R ${{ github.repository }} --title "Denemeler" --notes "Claude kontrolü için geçici dosyalar"
+          find a -type f -name "*.mp4" -exec gh release upload deneme {} --clobber -R ${{ github.repository }} \;
