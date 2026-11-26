@@ -14,12 +14,15 @@
   "2026"
  ],
  "dosya": "20261126-194014-dukkantv.mp4",
- "durum": "onaylandi",
+ "durum": "yuklendi",
  "eklendi": "2026-11-26T19:40:14.428056+03:00",
  "kapak": "20261126-194014-dukkantv-kapak.jpg",
  "uzun": true,
  "sabit_yayin": "2026-11-27T20:17:00+03:00",
  "otomatik": true,
  "mesaj_id": 1406,
- "incelendi": "2026-11-26 sorunsuz (Claude: kare kare + ses kontrolü)"
+ "incelendi": "2026-11-26 sorunsuz (Claude: kare kare + ses kontrolü)",
+ "kapak_tamam": true,
+ "video_id": "rut9nO9ojBs",
+ "yayin": "2026-11-27T20:17:00+03:00"
 }
