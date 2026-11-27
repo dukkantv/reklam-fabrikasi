@@ -13,11 +13,14 @@
   "telefon ipuçları"
  ],
  "dosya": "20261127-055719-dukkantv.mp4",
- "durum": "onaylandi",
+ "durum": "yuklendi",
  "eklendi": "2026-11-27T05:57:19.299820+03:00",
  "kapak": "20261127-055719-dukkantv-kapak.jpg",
  "uzun": true,
  "sabit_yayin": "2026-11-29T20:17:00+03:00",
  "otomatik": true,
- "mesaj_id": 1437
+ "mesaj_id": 1437,
+ "kapak_tamam": true,
+ "video_id": "Y4Xah_-KtnI",
+ "yayin": "2026-11-29T20:17:00+03:00"
 }
