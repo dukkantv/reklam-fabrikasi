@@ -1,0 +1,262 @@
+{
+ "baslik": "e-Devlet'te Mutlaka Yapman Gereken 7 Kontrol: Adına Hat, Araç ya da Sigorta Açılmış mı?",
+ "kapak_yazi": "E-DEVLET'TE|BUNLARA BAK!",
+ "kapak_rozet": "7 KONTROL",
+ "aciklama": "Adına senin haberin olmadan bir telefon hattı açılmış olabilir mi? Tanımadığın bir işyerinden sigorta girişin var mı? Bu videoda e-Devlet'te herkesin yapması gereken yedi kontrolü anlatıyorum: Mobil Hat Sorgulama, Adıma Tescilli Araç Sorgulama, Tapu Bilgileri Sorgulama, SGK Tescil ve Hizmet Dökümü, İleti Yönetim Sistemi (İYS), iki aşamalı giriş ve Belge Doğrulama. Bir de sahte e-Devlet sayfalarını nasıl anlayacağını.",
+ "etiketler": "e-devlet,e-devlet kontrolleri,mobil hat sorgulama,adıma kayıtlı hat,adıma tescilli araç sorgulama,tapu bilgileri sorgulama,sgk hizmet dökümü,iys,istenmeyen sms engelleme,iki aşamalı giriş,belge doğrulama,dolandırıcılık",
+ "kaynaklar": [
+  "e-Devlet Kapısı: Mobil Hat Sorgulama (Bilgi Teknolojileri ve İletişim Kurumu)",
+  "e-Devlet Kapısı: Adıma Tescilli Araç Sorgulama (Türkiye Noterler Birliği)",
+  "e-Devlet Kapısı: Tapu Bilgileri Sorgulama (Tapu ve Kadastro Genel Müdürlüğü)",
+  "e-Devlet Kapısı: SGK Tescil ve Hizmet Dökümü / İşyeri Ünvan Listesi (Sosyal Güvenlik Kurumu)",
+  "T.C. Ticaret Bakanlığı: İleti Yönetim Sistemi (İYS), iys.org.tr",
+  "e-Devlet Kapısı: İki Aşamalı Giriş Nedir? (turkiye.gov.tr/2fa-tanitim)",
+  "e-Devlet Kapısı: Belge Doğrulama",
+  "e-Devlet Kapısı: Güvenliğiniz İçin bilgilendirme sayfası"
+ ],
+ "sahneler": [
+  {
+   "tip": "kanca",
+   "baslik": "Adına açılmış bir hat olabilir mi?",
+   "alt": "Herkesin yapması gereken 7 e-Devlet kontrolü",
+   "metin": "Senin haberin olmadan adına bir telefon hattı açılmış olabilir mi? Ya da hiç çalışmadığın bir işyerinden sigorta girişin? Bunu öğrenmenin yolu çok basit: e-Devlet. Bu videoda herkesin yapması gereken **yedi kontrolü** sırayla anlatıyorum. Sonunda da sahte e-Devlet sayfalarını nasıl anlayacağını söyleyeceğim. Hepsini bilgisayardan da, telefondaki e-Devlet uygulamasından da yapabilirsin."
+  },
+  {
+   "bolum": "Önce güvenli giriş",
+   "bolum_metin": "Kontrollere geçmeden önce, doğru yere girdiğinden emin olalım.",
+   "tip": "buyuk",
+   "buyuk": "turkiye.gov.tr",
+   "renk": "sari",
+   "ust": "Tek resmî adres",
+   "alt": "e-Devlet Kapısı'nın başka bir adresi yok",
+   "metin": "e-Devlet Kapısı'nın tek bir adresi var: **turkiye.gov.tr**. Kendi açıklamasına göre bunun dışında bir adresi bulunmuyor. Adresi her zaman kendin yaz ya da resmî e-Devlet uygulamasını kullan. Mesajla gelen bir linkten asla giriş yapma."
+  },
+  {
+   "tip": "efsane",
+   "balon": "e-Devlet'ten arıyoruz, şifrenizi doğrulayalım.",
+   "damga": "SAHTE",
+   "metin": "Biri seni arayıp e-Devlet'ten aradığını söyleyip şifreni isterse, telefonu kapat. e-Devlet'in kendi uyarısı açık: görevliler dahil hiç kimse senden şifreni istemez."
+  },
+  {
+   "bolum": "Adına kayıtlı hatlar",
+   "bolum_metin": "Birinci kontrol: adına kayıtlı telefon hatları.",
+   "tip": "adimlar",
+   "baslik": "Mobil Hat Sorgulama",
+   "adimlar": [
+    "turkiye.gov.tr'ye giriş yap",
+    "Mobil Hat Sorgulama'yı arat",
+    "Her operatördeki hatlara bak"
+   ],
+   "metin": "Önce turkiye.gov.tr'ye kendi bilgilerinle giriş yap. Arama kutusuna Mobil Hat Sorgulama yaz, bu hizmeti Bilgi Teknolojileri ve İletişim Kurumu sunuyor. Ekranda her operatörde adına kayıtlı bir hat olup olmadığını ve numaralarını göreceksin."
+  },
+  {
+   "tip": "uyari",
+   "buyuk": "Bilmediğin hat?",
+   "alt": "Vakit kaybetmeden o operatöre başvur",
+   "damga": "HEMEN",
+   "metin": "Listede tanımadığın bir numara varsa bekleme. O hattın bağlı olduğu operatöre hemen başvur. Adına açılmış bir hat, dolandırıcıların en sevdiği araçlardan biridir, çünkü suç senin adınla işlenir. Başvururken hangi numara olduğunu ve o hattı senin açmadığını açıkça söyle. Unutma, bu kontrol özellikle kimliğini kaybettiysen ya da bir yere kimlik fotokopisi verdiysen daha da önemli."
+  },
+  {
+   "bolum": "Araç ve tapu",
+   "bolum_metin": "İkinci ve üçüncü kontrol: adına kayıtlı araçlar ve taşınmazlar.",
+   "tip": "karsilastir",
+   "baslik": "Adına ne kayıtlı?",
+   "sol": {
+    "baslik": "Araç",
+    "maddeler": [
+     "Adıma Tescilli Araç Sorgulama",
+     "Türkiye Noterler Birliği"
+    ]
+   },
+   "sag": {
+    "baslik": "Tapu",
+    "maddeler": [
+     "Tapu Bilgileri Sorgulama",
+     "Tapu ve Kadastro"
+    ]
+   },
+   "sol_renk": "sari",
+   "sag_renk": "yesil",
+   "metin": "Araçlar için Adıma Tescilli Araç Sorgulama hizmetini arat, bu hizmet Türkiye Noterler Birliği'nin. Ev, arsa ya da tarla için de Tapu ve Kadastro Genel Müdürlüğü'nün Tapu Bilgileri Sorgulama hizmetine bak. İkisinde de adına kayıtlı olanları tek ekranda görürsün."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "Bilmediğin kayıt?",
+   "renk": "kirmizi",
+   "alt": "Kendin uğraşma, ilgili kuruma başvur",
+   "metin": "Burada tanımadığın bir araç ya da taşınmaz görürsen, ekran görüntüsünü al ve vakit kaybetmeden ilgili kuruma başvur. Durumu kendi başına çözmeye çalışma, resmî yoldan ilerle."
+  },
+  {
+   "bolum": "SGK hizmet dökümü",
+   "bolum_metin": "Dördüncü kontrol çoğu kişinin aklına bile gelmiyor: sigorta kaydın.",
+   "tip": "adimlar",
+   "baslik": "SGK Tescil ve Hizmet Dökümü",
+   "adimlar": [
+    "Hizmetin adını arat",
+    "İşyeri listesini aç",
+    "Tanımadığın işyeri var mı bak"
+   ],
+   "metin": "Arama kutusuna SGK Tescil ve Hizmet Dökümü yaz. Açılan sayfada adına yapılan sigorta bildirimlerini ve işyerlerinin listesini göreceksin. Bu listede hiç çalışmadığın bir işyeri var mı, dikkatlice bak."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Hiç orada çalışmadım ama sigorta girişim var!",
+   "damga": "DİKKAT",
+   "metin": "Tanımadığın bir işyerinden sigorta girişi görürsen bunu önemse. Kimliğin, senin haberin olmadan kullanılmış olabilir. Döküm sayfasını sakla ve durumu Sosyal Güvenlik Kurumu'na bildir."
+  },
+  {
+   "bolum": "İstenmeyen reklamlar",
+   "bolum_metin": "Beşinci kontrol, her gün telefonunu meşgul eden reklam mesajları.",
+   "tip": "madde",
+   "baslik": "İleti Yönetim Sistemi (İYS)",
+   "maddeler": [
+    "e-Devlet'te İYS bölümü",
+    "ya da iys.org.tr",
+    "Arama, SMS, e-posta izinleri"
+   ],
+   "metin": "Bunun için İleti Yönetim Sistemi, kısaca İYS var. Ona e-Devlet'teki İYS bölümünden ulaşabilirsin. İstersen doğrudan iys.org.tr adresini de kullanabilirsin. Burada firmaların sana arama, kısa mesaj ve e-posta için hangi izinleri aldığını görürsün."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "Sen seç",
+   "renk": "yesil",
+   "ust": "İYS ile",
+   "alt": "Hangi firmanın sana yazabileceğine sen karar ver",
+   "metin": "İstemediğin firmanın iznini reddet. Ticaret Bakanlığı'na göre, tercihlerini dilediğin zaman değiştirebilirsin. Böylece sadece seçtiğin firmalardan ticari mesaj alırsın. Bir firmanın iznini reddettiğinde, o firmaya sana ticari mesaj gönderme iznini geri almış olursun."
+  },
+  {
+   "bolum": "Şifre ve güvenlik",
+   "bolum_metin": "Altıncı kontrol, e-Devlet hesabının kendisi.",
+   "tip": "adimlar",
+   "baslik": "İki aşamalı girişi aç",
+   "adimlar": [
+    "Şifre ve Güvenlik Ayarlarım",
+    "İki Aşamalı Giriş İşlemleri",
+    "Telefonunu kimlikle doğrula",
+    "SMS ya da cihaz onayı seç"
+   ],
+   "metin": "Giriş yaptıktan sonra Şifre ve Güvenlik Ayarlarım sayfasını aç. Oradan İki Aşamalı Giriş İşlemleri menüsüne gir. Bunun için telefon numaranın kimlikle doğrulanmış olması gerekiyor. Sonra ikinci adım olarak SMS ile gelen kodu ya da kayıtlı cihazından onay vermeyi seç. Artık biri şifreni bilse bile bu adımı geçmeden hesabına giremez."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "Şifre sadece senin",
+   "renk": "kirmizi",
+   "alt": "Görevliler dahil kimse şifreni sormaz",
+   "metin": "Ve en önemli kural: **e-Devlet şifren sadece senindir**. Ne bir yakınına, ne de yardım etmek isteyen birine ver. Şifreni bilen biri, senin adına pek çok bilgiye ulaşabilir."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Şüphelenirsen",
+   "maddeler": [
+    "Şifreni hemen değiştir",
+    "İkinci kodu kimseye verme",
+    "Sadece resmî uygulamayı kullan"
+   ],
+   "metin": "Hesabına başkasının girmeye çalıştığından şüphelenirsen üç şey yap. Şifreni hemen daha güçlü bir şifreyle değiştir. Telefonuna gelen ikinci doğrulama kodunu ya da giriş onayını kimseye verme. Ve yalnızca resmî e-Devlet sitesini ve resmî uygulamasını kullan."
+  },
+  {
+   "bolum": "Belge doğrulama",
+   "bolum_metin": "Yedinci kontrol, sana gösterilen belgelerin gerçek olup olmadığı.",
+   "tip": "adimlar",
+   "baslik": "Belge Doğrulama",
+   "adimlar": [
+    "Belge Doğrulama'yı aç",
+    "Barkod numarasını gir",
+    "Çıkan belgeyle karşılaştır"
+   ],
+   "metin": "e-Devlet'ten alınan barkodlu belgeler kolayca doğrulanır. Önce turkiye.gov.tr'de Belge Doğrulama hizmetini aç. Belgenin üzerindeki barkod numarasını gir. Sonra ekrana gelen belgeyi elindekiyle karşılaştır. e-Devlet uygulamasındaki Barkodlu Belge Doğrulama ile karekodu okutarak da yapabilirsin."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Bu da benim belgem, bak işte PDF'i.",
+   "damga": "DOĞRULA",
+   "metin": "Ev kiralarken, iş görüşmesinde ya da bir alışverişte sana e-Devlet belgesi gösterilirse, sadece bakmakla yetinme. Barkodu doğrula. Bir PDF dosyası kolayca değiştirilebilir, ama doğrulama ekranı değiştirilemez. Özellikle büyük bir ödeme yapmadan önce bu kontrolü atlama."
+  },
+  {
+   "tip": "uyari",
+   "buyuk": "Adres çubuğuna bak",
+   "alt": "turkiye.gov.tr değilse giriş yapma",
+   "damga": "SAHTE SAYFA",
+   "metin": "Ve söz verdiğim konu: sahte e-Devlet sayfaları. e-Devlet logosunu ve görüntüsünü kopyalayan sahte siteler var. Giriş yapmadan önce adres çubuğuna bak. Adres turkiye.gov.tr değilse, sayfa ne kadar gerçek görünürse görünsün, hiçbir bilgi girme. Şüphelendiğin bir sayfayı kapat ve adresi kendin yazarak yeniden gir."
+  },
+  {
+   "bolum": "Kısa özet",
+   "bolum_metin": "Şimdi yedi kontrolü bir kez daha hatırlayalım.",
+   "tip": "karsilastir",
+   "baslik": "7 kontrol",
+   "sol": {
+    "baslik": "Adına kayıtlı",
+    "maddeler": [
+     "Mobil hatlar",
+     "Araçlar",
+     "Tapu",
+     "SGK hizmet dökümü"
+    ]
+   },
+   "sag": {
+    "baslik": "Güvenlik",
+    "maddeler": [
+     "İYS izinleri",
+     "İki aşamalı giriş",
+     "Belge doğrulama"
+    ]
+   },
+   "sol_renk": "sari",
+   "sag_renk": "yesil",
+   "metin": "Birincisi, adına kayıtlı mobil hatlar. İkincisi, adına tescilli araçlar. Üçüncüsü, tapu bilgilerin. Dördüncüsü, SGK hizmet dökümün. Beşincisi, İYS'deki reklam izinlerin. Altıncısı, iki aşamalı giriş. Ve yedincisi, barkodlu belge doğrulama."
+  },
+  {
+   "tip": "soru",
+   "soru": "Bilmediğin bir kayıt çıktı mı?",
+   "metin": "Şimdi bu kontrolleri yap ve yorumlara yaz: bilmediğin bir kayıt çıktı mı? Bu videoyu da anne ve babana gönder, bu kontrolleri onların hesabında birlikte yapın."
+  },
+  {
+   "tip": "son",
+   "sonraki": "İnternetten para kazanma: gerçekler ve tuzaklar",
+   "metin": "Dolandırıcıların en sık kullandığı tuzakları merak ediyorsan, internetten para kazanma videosuna göz at. Abone olmayı unutma, görüşmek üzere."
+  }
+ ],
+ "tanitim": {
+  "baslik": "Adına Senden Habersiz Hat Açılmış Olabilir! e-Devlet'ten Kontrol Et #shorts",
+  "aciklama": "e-Devlet'te Mobil Hat Sorgulama ile adına kayıtlı hatları gör. Yedi kontrolün tamamı kanaldaki uzun videoda.",
+  "sahneler": [
+   {
+    "tip": "kanca",
+    "ekran": "?",
+    "buyuk": "Adına hat var mı?",
+    "altyazi": "Adına **senden habersiz** hat açılmış olabilir.",
+    "seslendirme": "Senin haberin olmadan adına bir telefon hattı açılmış olabilir. Bunu e-Devlet’ten hemen kontrol edebilirsin."
+   },
+   {
+    "tip": "liste",
+    "etiket": "KONTROL",
+    "baslik": "e-Devlet'te",
+    "rozet": "✓",
+    "maddeler": [
+     "turkiye.gov.tr'ye gir",
+     "Mobil Hat Sorgulama",
+     "Hatlarına bak"
+    ],
+    "altyazi": "e-Devlet'te **Mobil Hat Sorgulama**'yı arat.",
+    "seslendirme": "turkiye.gov.tr'ye gir, Mobil Hat Sorgulama'yı arat ve adına kayıtlı hatlara bak."
+   },
+   {
+    "tip": "uyari",
+    "etiket": "DİKKAT",
+    "baslik": "Bilmediğin hat?",
+    "rozet": "!",
+    "buyuk": "Operatöre başvur",
+    "damga": "HEMEN",
+    "altyazi": "Tanımadığın bir hat varsa **hemen operatöre** başvur.",
+    "seslendirme": "Tanımadığın bir numara varsa, vakit kaybetmeden o hattın operatörüne başvur."
+   },
+   {
+    "tip": "son",
+    "ust": "TAMAMI KANALDA",
+    "buton": "KANALA GİT",
+    "yarin": "e-Devlet'te yapman gereken 7 kontrol",
+    "seslendirme": "Diğer altı kontrolü kanaldaki uzun videoda anlattım."
+   }
+  ]
+ }
+}

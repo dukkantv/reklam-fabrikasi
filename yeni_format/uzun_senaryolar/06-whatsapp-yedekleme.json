@@ -1,0 +1,251 @@
+{
+ "baslik": "WhatsApp Yedekleme Nasıl Yapılır? Sohbetleri Kaybetmeden Yeni Telefona Taşıma Rehberi",
+ "kapak_yazi": "SOHBETLERİN|KAYBOLMASIN!",
+ "kapak_rozet": "ADIM ADIM",
+ "aciklama": "Telefon değiştirirken WhatsApp sohbetlerin ve fotoğrafların kaybolmasın. Bu videoda Android'de Google hesabına, iPhone'da iCloud'a nasıl yedek alacağını, yedeğin gerçekten alındığını nasıl kontrol edeceğini, yeni telefona nasıl geri yükleyeceğini ve Android ile iPhone arasında sohbetleri resmî yoldan nasıl taşıyacağını anlatıyorum. Uçtan uca şifreli yedekleme, Google depolama alanı ve en sık yapılan hatalar da videoda.",
+ "etiketler": "whatsapp yedekleme,whatsapp yedek nasıl alınır,whatsapp yeni telefona aktarma,whatsapp android iphone aktarma,whatsapp icloud yedek,whatsapp google drive yedek,whatsapp sohbet geri yükleme,whatsapp şifreli yedekleme",
+ "kaynaklar": [
+  "WhatsApp Yardım Merkezi: Sohbet geçmişini yedekleme (whatsapp.com/faq)",
+  "WhatsApp Yardım Merkezi: Telefon numarası değiştirme",
+  "Google Android Yardım: WhatsApp verilerini yeni Android cihaza aktarma",
+  "Google One Yardım: Google depolama alanı nasıl çalışır?",
+  "WhatsApp Blog ve Meta: Uçtan uca şifreli yedekleme",
+  "Samsung Destek: WhatsApp verilerini yedekleme ve geri yükleme",
+  "MacRumors, Tom's Guide, Popular Science, 9to5Google, TechRadar rehberleri"
+ ],
+ "sahneler": [
+  {
+   "tip": "kanca",
+   "baslik": "Telefon değişti, sohbetler gitti",
+   "alt": "Bir dakikalık yedek, yılların anısını kurtarır",
+   "metin": "Yeni telefonu aldın, WhatsApp'ı kurdun ve bütün sohbetlerin, fotoğrafların gitti. Bunu yaşamamak çok kolay. Bu videoda **yedeği doğru almayı**, yedeğin gerçekten alındığını **kontrol etmeyi** ve yeni telefona **kayıpsız taşımayı** adım adım anlatıyorum."
+  },
+  {
+   "bolum": "Yedek nereye gider?",
+   "bolum_metin": "Önce yedeğin nereye gittiğini bilelim.",
+   "tip": "karsilastir",
+   "baslik": "Hangi telefon, hangi bulut?",
+   "sol": {"baslik": "Android", "maddeler": ["Google hesabına", "Telefonda yerel kopya"]},
+   "sag": {"baslik": "iPhone", "maddeler": ["iCloud'a", "Apple hesabına bağlı"]},
+   "sol_renk": "yesil",
+   "sag_renk": "sari",
+   "metin": "Android telefonlarda WhatsApp yedeği Google hesabına gider, ayrıca telefonda yerel bir kopya da oluşur. iPhone'da ise yedek iCloud'a, yani Apple hesabının bulut alanına gider."
+  },
+  {
+   "bolum": "Yedek nasıl alınır?",
+   "bolum_metin": "Şimdi telefonunu eline al, yedeği birlikte alalım.",
+   "tip": "adimlar",
+   "baslik": "Android: Google hesabına yedek",
+   "adimlar": [
+    "Sağ üstteki menüyü aç",
+    "Ayarlar > Sohbetler",
+    "Sohbet yedeği'ne dokun",
+    "Google hesabını ve sıklığı seç",
+    "Yedekle'ye dokun"
+   ],
+   "metin": "Önce Android. WhatsApp'ta sağ üstteki üç noktalı menüyü aç. Ayarlar'a, oradan Sohbetler'e gir. Sohbet yedeği bölümüne dokun. Yedeğin gideceği Google hesabını ve yedekleme sıklığını seç, en iyisi günlük. Son olarak Yedekle'ye dokun."
+  },
+  {
+   "tip": "adimlar",
+   "baslik": "iPhone: iCloud'a yedek",
+   "adimlar": [
+    "iPhone Ayarlar > iCloud",
+    "Listede WhatsApp'ı etkinleştir",
+    "WhatsApp > Ayarlar > Sohbetler",
+    "Sohbet Yedeği > Yedekle",
+    "Otomatik yedeklemeyi aç"
+   ],
+   "metin": "Şimdi iPhone. Telefonun Ayarlar uygulamasında adına dokunup iCloud bölümüne gir. Listede WhatsApp'ın açık olduğundan emin ol. Sonra WhatsApp'ta Ayarlar'a, oradan Sohbetler'e gir. Sohbet Yedeği'ne girip yedekleme düğmesine dokun. Ve otomatik yedeklemeyi günlük ya da haftalık olarak aç."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Yedeklemeden önce",
+   "maddeler": [
+    "Wi-Fi'ye bağlan",
+    "Telefonda boş yer bırak",
+    "Bulutta yer olduğuna bak",
+    "Videoları ekleyip eklememeyi seç"
+   ],
+   "metin": "Yedeklemeden önce dört şeye dikkat et. Wi-Fi'ye bağlan, çünkü yedek büyük olabilir ve mobil verini harcar. Telefonunda boş yer bırak, yedek önce telefonda hazırlanır. Google hesabında ya da iCloud'da yeterli yer olduğuna bak. Ve videoları yedeğe ekleyip eklememeyi seç, videolar en çok yer kaplayan kısımdır."
+  },
+  {
+   "bolum": "Yedek gerçekten alındı mı?",
+   "bolum_metin": "Peki yedeğin gerçekten alındığını nereden bileceksin?",
+   "tip": "buyuk",
+   "buyuk": "Son yedek: Bugün",
+   "renk": "yesil",
+   "ust": "Kontrol et",
+   "alt": "Sohbet yedeği ekranında tarihe ve saate bak",
+   "metin": "Çok basit. Sohbet yedeği ekranına tekrar gir ve son yedeğin tarihine, saatine bak. Orada bugünün tarihi yazıyorsa yedeğin hazır. Eski bir tarih görüyorsan, yedeğin bir süredir alınmıyor demektir."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Otomatik yedek açık, kesin alınmıştır.",
+   "damga": "KONTROL ET",
+   "metin": "En sık duyulan yanılgı şu: otomatik yedek açık, kesin alınmıştır. Değil. Örneğin Google hesabının depolama alanı dolarsa, yeni yedekler alınmaz. Bu yüzden telefonu değiştirmeden hemen önce elle bir yedek al ve tarihini mutlaka kontrol et."
+  },
+  {
+   "bolum": "Yeni telefona geri yükleme",
+   "bolum_metin": "Yedek hazır. Şimdi yeni telefona geri yükleyelim.",
+   "tip": "adimlar",
+   "baslik": "Android'den Android'e",
+   "adimlar": [
+    "Aynı Google hesabıyla giriş yap",
+    "WhatsApp'ı kur",
+    "Aynı numarayı doğrula",
+    "Geri yükle'ye dokun"
+   ],
+   "metin": "Yeni Android telefonda önce eski telefondaki aynı Google hesabıyla giriş yap. Sonra WhatsApp'ı Play Store'dan kur. Eski telefonda kullandığın aynı numarayı doğrula. WhatsApp yedeği bulunca Geri yükle'ye dokun ve bitmesini bekle."
+  },
+  {
+   "tip": "adimlar",
+   "baslik": "iPhone'dan iPhone'a",
+   "adimlar": [
+    "Aynı Apple hesabıyla giriş yap",
+    "WhatsApp'ı kur",
+    "Aynı numarayı doğrula",
+    "Sohbet geçmişini geri yükle"
+   ],
+   "metin": "iPhone'da da mantık aynı. Yeni iPhone'da aynı Apple hesabıyla giriş yap. WhatsApp'ı App Store'dan kur. Aynı numarayı doğrula. Karşına çıkan Sohbet Geçmişini Geri Yükle seçeneğine dokun."
+  },
+  {
+   "bolum": "Android ve iPhone arası",
+   "bolum_metin": "Peki Android'den iPhone'a, ya da tersine geçiyorsan ne olacak?",
+   "tip": "uyari",
+   "buyuk": "Yedek karşıya geçmez",
+   "alt": "Google yedeği iPhone'a, iCloud yedeği Android'e yüklenmez",
+   "damga": "DİKKAT",
+   "metin": "Önce bilmen gereken bir gerçek var. Google hesabındaki yedek iPhone'a, iCloud'daki yedek de Android'e geri yüklenemez. Sistem değiştirirken WhatsApp'ın resmî aktarım yolunu kullanman gerekiyor."
+  },
+  {
+   "tip": "karsilastir",
+   "baslik": "Resmî aktarım yolu",
+   "sol": {"baslik": "Android'den iPhone'a", "maddeler": ["Move to iOS uygulaması", "Yeni ya da sıfırlanmış iPhone", "Aynı telefon numarası"]},
+   "sag": {"baslik": "iPhone'dan Android'e", "maddeler": ["Android'in ilk kurulumunda", "Telefonları kabloyla bağla", "Aynı telefon numarası"]},
+   "sol_renk": "yesil",
+   "sag_renk": "sari",
+   "metin": "Android'den iPhone'a geçiyorsan, Android telefona Apple'ın Move to iOS uygulamasını kur. Aktarım, yeni ya da sıfırlanmış iPhone'un ilk kurulumunda yapılır ve WhatsApp'ı seçmen yeterli. iPhone'dan Android'e geçiyorsan, aktarım yeni Android telefonun ilk kurulumunda, iki telefonu kabloyla bağlayarak yapılır. İki yönde de WhatsApp'ı aynı numarayla açmalısın."
+  },
+  {
+   "bolum": "Şifreli yedekleme",
+   "bolum_metin": "Şimdi yedeğini daha güvenli hâle getirelim.",
+   "tip": "madde",
+   "baslik": "Uçtan uca şifreli yedek",
+   "maddeler": [
+    "Geçiş anahtarı: parmak izi, yüz",
+    "Ya da kendi belirlediğin şifre",
+    "Ya da 64 haneli anahtar"
+   ],
+   "metin": "Sohbet yedeği ekranında uçtan uca şifreli yedekleme seçeneği var. Bunu açarsan yedeğini ne WhatsApp ne de Google ya da Apple okuyabilir. Kilidi açmak için üç yol var. Birincisi geçiş anahtarı, yani parmak izin, yüzün ya da ekran kilidin. İkincisi kendi belirlediğin bir şifre. Üçüncüsü ise altmış dört haneli bir şifreleme anahtarı."
+  },
+  {
+   "tip": "uyari",
+   "buyuk": "Şifreyi unutursan",
+   "alt": "WhatsApp sıfırlayamaz, şifreli yedek açılmaz",
+   "damga": "NOT AL",
+   "metin": "Ama çok önemli bir uyarı. Şifreyi ya da anahtarı unutursan WhatsApp bunu senin için sıfırlayamaz ve o yedeği açamazsın. Çok sayıda yanlış denemeden sonra yedek kalıcı olarak kilitlenebilir. Telefonundaki sohbetler silinmez, yeni bir şifreyle yeni yedek alabilirsin. Ama telefonunu kaybettiysen o yedek gider. Şifreyi güvenli bir yere mutlaka not al."
+  },
+  {
+   "bolum": "Depolama alanı",
+   "bolum_metin": "Gelelim en çok sorulan konuya: yedek ne kadar yer kaplıyor?",
+   "tip": "buyuk",
+   "buyuk": "15 GB",
+   "renk": "sari",
+   "ust": "Google'ın ücretsiz alanı",
+   "alt": "Gmail, Drive ve Google Fotoğraflar ile ortak",
+   "metin": "Her Google hesabıyla on beş gigabayt ücretsiz alan geliyor ve bu alan Gmail, Google Drive ve Google Fotoğraflar arasında paylaşılıyor. Eskiden WhatsApp yedekleri bu alandan sayılmıyordu. Artık Android'de WhatsApp yedeği de bu alandan yer kaplıyor. Alan dolarsa yeni yedekler durur."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Yer açmak için",
+   "maddeler": [
+    "Gereksiz videoları sil",
+    "Videoları yedeğe katma",
+    "Google'da büyük dosyaları temizle",
+    "Gerekirse ek alan satın al"
+   ],
+   "metin": "Yer açmak için dört yol var. WhatsApp'taki gereksiz videoları ve büyük dosyaları sil, sonraki yedek küçülür. Yedek ayarlarında videoları yedeğe katma. Google'ın depolama yönetimi aracıyla büyük dosyaları ve fotoğrafları temizle. Bunlar yetmezse ek depolama alanı satın alabilirsin."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "WhatsApp'ın kendi yedeği",
+   "renk": "beyaz",
+   "ust": "Yeni, test aşamasında",
+   "alt": "Android'de bazı beta kullanıcılarına 2 GB ücretsiz",
+   "metin": "Bir de yeni gelişme var. WhatsApp, Android'de kendi bulut yedeğini deniyor. Şu an sadece bazı beta kullanıcılarında, iki gigabayt ücretsiz alanla ve uçtan uca şifreli olarak sunuluyor. Herkese ne zaman açılacağı henüz belli değil. Google yedeği de seçenek olarak duruyor."
+  },
+  {
+   "bolum": "En sık 3 hata",
+   "bolum_metin": "Son olarak, sohbetleri kaybettiren en sık üç hataya bakalım.",
+   "tip": "efsane",
+   "balon": "Yeni numarayla kurarım, sohbetler gelir.",
+   "damga": "GELMEZ",
+   "metin": "Birinci hata, numara değiştirmek. Yedek, numaraya bağlıdır ve WhatsApp verilerini yeni bir numaraya bu şekilde taşıyamazsın. Numaran değişecekse önce eski telefonda Ayarlar, Hesap, Numara değiştir yolunu kullan. Böylece sohbetlerin ve grupların yeni numarana geçer, sonra yedeğini al."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Eski telefonu sıfırladım, yedeği sonra alırım.",
+   "damga": "GEÇ KALDIN",
+   "metin": "İkinci hata, yedeği almadan silmek. Eski telefonu sıfırladıysan ya da WhatsApp'ı sildiysen, yedeğe girmemiş sohbetler geri gelmez. Kural basit: önce yedek al, tarihini kontrol et, yeni telefonda geri yüklendiğini gör, ancak ondan sonra eski telefonu sıfırla."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Wi-Fi yok ama mobil veriyle hallederim.",
+   "damga": "KOTA BİTER",
+   "metin": "Üçüncü hata, Wi-Fi yokken yedek almaya çalışmak. Fotoğraf ve videolarla yedek birkaç gigabayta çıkabilir. Mobil veriyle denersen kotan biter ya da yedek yarıda kalır. WhatsApp da yedeklemeden önce Wi-Fi'ye bağlanmanı öneriyor."
+  },
+  {
+   "tip": "soru",
+   "soru": "Sohbetlerini hiç kaybettin mi?",
+   "metin": "Sen hiç telefon değiştirirken WhatsApp sohbetlerini kaybettin mi? Yorumlara yaz. Bu videoyu, yakında telefon değiştirecek bir yakınına gönder, belki yıllarca biriktirdiği fotoğrafları kurtarırsın."
+  },
+  {
+   "tip": "son",
+   "sonraki": "Yapay zekâyla CV nasıl hazırlanır?",
+   "metin": "Sıradaki videoda yapay zekâyla adım adım nasıl CV hazırlanır, onu anlatıyorum. Kaçırmamak için abone olmayı unutma."
+  }
+ ],
+ "tanitim": {
+  "baslik": "Telefon Değiştirmeden Önce Bunu Yap, WhatsApp Sohbetlerin Gitmesin! 📱 #shorts",
+  "aciklama": "WhatsApp yedeği nasıl alınır ve nasıl kontrol edilir? Tamamı kanaldaki uzun videoda.",
+  "sahneler": [
+   {
+    "tip": "kanca",
+    "ekran": "!",
+    "buyuk": "Sohbetler gitti mi?",
+    "altyazi": "Telefonu değiştirdin, **sohbetler** gitti mi?",
+    "seslendirme": "Telefonu değiştirdin, WhatsApp'ı kurdun ve bütün sohbetlerin gitti mi? Bunu önlemek bir dakika sürüyor."
+   },
+   {
+    "tip": "liste",
+    "etiket": "YEDEK AL",
+    "baslik": "Hemen yap",
+    "rozet": "✓",
+    "maddeler": [
+     "Ayarlar > Sohbetler",
+     "Sohbet yedeği",
+     "Yedekle'ye dokun"
+    ],
+    "altyazi": "Ayarlar, Sohbetler, **Sohbet yedeği**.",
+    "seslendirme": "WhatsApp'ta Ayarlar'dan Sohbetler'e gir, Sohbet yedeği'ni aç ve Yedekle'ye dokun."
+   },
+   {
+    "tip": "uyari",
+    "etiket": "DİKKAT",
+    "baslik": "Tarihe bak",
+    "rozet": "!",
+    "buyuk": "Son yedek?",
+    "damga": "KONTROL ET",
+    "altyazi": "Son yedeğin **tarihine** mutlaka bak.",
+    "seslendirme": "Sonra son yedeğin tarihine bak. Bugünü göstermiyorsa yedeğin alınmamış demektir."
+   },
+   {
+    "tip": "son",
+    "ust": "TAMAMI KANALDA",
+    "buton": "KANALA GİT",
+    "yarin": "Android ile iPhone arasında sohbet nasıl taşınır?",
+    "seslendirme": "Yeni telefona geri yüklemeyi ve Android ile iPhone arası aktarımı kanaldaki uzun videoda anlattım."
+   }
+  ]
+ }
+}

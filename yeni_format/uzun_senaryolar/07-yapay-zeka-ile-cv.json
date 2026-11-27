@@ -1,0 +1,269 @@
+{
+ "baslik": "Yapay Zekâyla CV Nasıl Hazırlanır? ChatGPT ile Özgeçmiş ve Ön Yazı Rehberi",
+ "kapak_yazi": "YAPAY ZEKÂYLA|CV HAZIRLA",
+ "kapak_rozet": "ADIM ADIM",
+ "aciklama": "ChatGPT, Gemini ya da Claude ile CV ve ön yazı nasıl hazırlanır? Bu videoda doğru istemi (prompt) nasıl yazacağını, yapay zekânın uydurma riskine karşı neleri kontrol etmen gerektiğini, hangi kişisel bilgileri paylaşmaman gerektiğini, aday takip sistemleri (ATS) için sade biçimi ve mülakata yapay zekâyla nasıl hazırlanacağını anlatıyorum. İşe alım uzmanlarının bir CV'ye ilk elemede ne kadar baktığını gösteren göz izleme çalışmasına da değiniyorum.",
+ "etiketler": "yapay zeka ile cv hazırlama,chatgpt cv,cv nasıl hazırlanır,özgeçmiş hazırlama,ön yazı,ats uyumlu cv,mülakat hazırlığı,gemini,claude,iş başvurusu",
+ "kaynaklar": [
+  "Ladders göz izleme çalışması 2018 (HR Dive: hrdive.com/news/eye-tracking-study-shows-recruiters-look-at-resumes-for-7-seconds/541582/; Onrec)",
+  "OpenAI Yardım Merkezi: Does ChatGPT tell the truth? (help.openai.com/en/articles/8313428)",
+  "OpenAI Yardım Merkezi: Data Controls FAQ (help.openai.com/en/articles/7730893)",
+  "Google Gemini Apps Gizlilik Bildirimi (support.google.com/gemini/answer/13594961)",
+  "University at Buffalo ve UMSL kariyer merkezleri: ATS uyumlu özgeçmiş",
+  "Jobscan: Can ATS read tables and columns?",
+  "Georgia Başsavcılığı Tüketici Koruma: iş arayanlar için kimlik hırsızlığı uyarısı",
+  "eleman.net ve jobseeker.com: CV'ye yazılmaması gereken bilgiler"
+ ],
+ "sahneler": [
+  {
+   "tip": "kanca",
+   "baslik": "CV'ni yapay zekâyla hazırla",
+   "alt": "Doğru istem, sade biçim, sıfır uydurma",
+   "metin": "Bir iş ilanına başvuracaksın ama boş bir sayfanın başında oturuyorsun. Yapay zekâ bu sayfayı dakikalar içinde doldurabilir. Ama yanlış kullanırsan, seni hiç yapmadığın işlerin uzmanı gibi gösterebilir. Bu videoda yapay zekâyla **doğru** bir CV ve ön yazıyı nasıl hazırlayacağını ve nelere **dikkat** etmen gerektiğini adım adım anlatıyorum."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "7,4 saniye",
+   "renk": "beyaz",
+   "ust": "CV'ye ilk bakış süresi",
+   "alt": "Ladders göz izleme çalışması, 2018",
+   "metin": "Önce şu rakama bak. Ladders adlı kariyer sitesinin iki bin on sekizde yaptığı göz izleme çalışmasına göre, işe alım uzmanları bir CV'ye ilk elemede ortalama **yedi virgül dört saniye** bakıyor. Yani CV'nin ilk birkaç saniyede derdini anlatması gerekiyor."
+  },
+  {
+   "tip": "soru",
+   "soru": "Senin CV'n yedi saniyede ne anlatıyor?",
+   "metin": "Şimdi kendi CV'ni düşün. Biri ona sadece yedi saniye baksa, aklında ne kalır?"
+  },
+  {
+   "bolum": "Doğru istem",
+   "bolum_metin": "Önce yapay zekâya ne yazacağına bakalım. Soru sormanın genel kurallarını önceki videoda anlatmıştım, burada CV'ye özel kısma odaklanalım.",
+   "tip": "adimlar",
+   "baslik": "CV istemi 4 adımda",
+   "adimlar": [
+    "İş ilanını olduğu gibi yapıştır",
+    "Deneyimini madde madde yaz",
+    "Ölçülebilir sonuç iste",
+    "“Bilgi uydurma, eksiği sor” de"
+   ],
+   "metin": "Birinci adım: başvuracağın iş ilanını olduğu gibi yapıştır, böylece yapay zekâ işverenin ne aradığını görür. İkinci adım: kendi deneyimini, görevlerini ve becerilerini madde madde kendin yaz. Üçüncü adım: her maddeyi mümkünse ölçülebilir bir sonuç olarak yazmasını iste. Dördüncü adım: sadece benim verdiğim bilgileri kullan, eksik olanı bana sor diye ekle."
+  },
+  {
+   "tip": "karsilastir",
+   "baslik": "Görev mi, sonuç mu?",
+   "sol": {
+    "baslik": "Zayıf",
+    "maddeler": [
+     "Müşterilerle ilgilendim",
+     "Sosyal medyayı yönettim"
+    ]
+   },
+   "sag": {
+    "baslik": "Güçlü",
+    "maddeler": [
+     "Günde 40 müşteriye hizmet",
+     "Haftada 5 paylaşım"
+    ]
+   },
+   "sol_renk": "kirmizi",
+   "sag_renk": "yesil",
+   "metin": "Farkı bir örnekle gör. Müşterilerle ilgilendim demek sadece bir görevi anlatır. Günde ortalama kırk müşteriye hizmet verdim demek ise ölçülebilir bir sonucu anlatır. Sosyal medyayı yönettim yerine de haftada beş paylaşım hazırladım diyebilirsin. Ama dikkat: bu rakamlar senin gerçek rakamların olmalı. Bilmiyorsan yapay zekâ uydurmasın, yaklaşık değeri sen hesapla."
+  },
+  {
+   "bolum": "Ön yazı",
+   "bolum_metin": "Aynı yöntem ön yazı için de işe yarar.",
+   "tip": "adimlar",
+   "baslik": "Ön yazı 4 adımda",
+   "adimlar": [
+    "İlanı ve CV'ni birlikte ver",
+    "“Neden bu şirket?” kendin yaz",
+    "Üç kısa paragraf iste",
+    "Kendi sesinle düzelt"
+   ],
+   "metin": "Önce iş ilanını ve hazırladığın CV'yi birlikte ver. Sonra bu şirkette neden çalışmak istediğini kendi cümlelerinle bir iki satır yaz, çünkü bunu yapay zekâ senin yerine bilemez. Ardından üç kısa paragraflık bir ön yazı iste. Son olarak metni kendi sesinle düzelt ve herkesin kullandığı kalıp cümleleri çıkar."
+  },
+  {
+   "bolum": "Uydurma tehlikesi",
+   "bolum_metin": "Şimdi en kritik konuya geldik.",
+   "tip": "efsane",
+   "balon": "Yapay zekâ yazdıysa doğrudur!",
+   "damga": "YANLIŞ",
+   "metin": "Yapay zekâ bazen çok emin bir dille yanlış bilgi üretebilir. OpenAI da yardım sayfasında, ChatGPT'nin ikna edici görünen ama yanlış bilgiler verebileceğini açıkça yazıyor. CV'de bu, hiç almadığın bir sertifikanın ya da hiç yapmadığın bir görevin listeye eklenmesi demek."
+  },
+  {
+   "tip": "uyari",
+   "buyuk": "Yalan yazma",
+   "alt": "Olmayan deneyim mülakatta ortaya çıkar",
+   "damga": "KENDİN SİL",
+   "metin": "Kural çok net: yaşamadığın bir deneyimi, almadığın bir sertifikayı ya da bilmediğin bir dili CV'ne yazma, yapay zekâ önerse bile. Mülakatta o konu sorulduğunda cevap veremezsin ve güvenini kaybedersin. Yapay zekânın eklediği her cümleyi oku, sana ait değilse sil."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Uydurma kontrolü",
+   "maddeler": [
+    "Tarihler doğru mu?",
+    "Unvanlar aynı mı?",
+    "Sertifikalar gerçek mi?",
+    "Rakamlar senin mi?"
+   ],
+   "metin": "Kontrol ederken dört şeye bak. Birincisi, tarihler doğru mu? İkincisi, iş unvanların gerçekte olduğu gibi mi yazılmış? Üçüncüsü, listede sadece gerçekten aldığın sertifikalar mı var? Dördüncüsü, rakamlar senin verdiğin rakamlar mı?"
+  },
+  {
+   "bolum": "Kişisel bilgilerin",
+   "bolum_metin": "Peki yapay zekâya hangi bilgileri vermemelisin?",
+   "tip": "madde",
+   "baslik": "Yapay zekâya verme",
+   "maddeler": [
+    "TC kimlik numarası",
+    "Tam ev adresi",
+    "Referansların telefonu",
+    "Banka ve kart bilgisi"
+   ],
+   "metin": "CV hazırlarken şu dört bilgiyi paylaşma. Birincisi, TC kimlik numaran; zorunlu olmadıkça CV'de bile yer almamalı. İkincisi, tam ev adresin; şehir ve ilçe çoğu zaman yeterli. Üçüncüsü, referans verdiğin kişilerin telefon numaraları. Dördüncüsü, banka ya da kart bilgilerin. İsim ve iletişim kısmını en son, yapay zekâ olmadan kendin ekle."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "İnsan okuyabilir",
+   "renk": "sari",
+   "ust": "Gemini gizlilik bildirimi",
+   "alt": "Sohbetlerin bir kısmını değerlendiriciler inceler",
+   "metin": "Bunun bir sebebi var. Google, Gemini'nin gizlilik bildiriminde sohbetlerin bir kısmının insan değerlendiriciler tarafından incelenebileceğini yazıyor ve görülmesini istemeyeceğin gizli bilgileri girmemeni öneriyor. ChatGPT'de ise ayarlardaki veri kontrolleri bölümünden, sohbetlerinin model eğitiminde kullanılmasını kapatabilirsin."
+  },
+  {
+   "bolum": "ATS için sade biçim",
+   "bolum_metin": "Şimdi CV'nin biçimine geçelim.",
+   "tip": "buyuk",
+   "buyuk": "ATS",
+   "renk": "beyaz",
+   "ust": "Aday takip sistemi",
+   "alt": "CV'ni insandan önce bir yazılım okuyabilir",
+   "metin": "Birçok şirket başvuruları aday takip sistemi denen yazılımlarla topluyor, kısaca ATS deniyor. Bu yazılımlar CV'ndeki metni okuyup bölümlere ayırıyor ve ilandaki anahtar kelimelerle karşılaştırabiliyor. Süslü bir tasarım, bu okumayı bozabilir."
+  },
+  {
+   "tip": "karsilastir",
+   "baslik": "ATS dostu mu?",
+   "sol": {
+    "baslik": "Kaçın",
+    "maddeler": [
+     "Tablo ve çift sütun",
+     "Resim, ikon, grafik",
+     "Üst ve alt bilgi alanı"
+    ]
+   },
+   "sag": {
+    "baslik": "Kullan",
+    "maddeler": [
+     "Tek sütun, düz metin",
+     "Standart başlıklar",
+     "Arial, Calibri gibi font"
+    ]
+   },
+   "sol_renk": "kirmizi",
+   "sag_renk": "yesil",
+   "metin": "Kaçınman gerekenler şunlar: tablolar ve çift sütunlu düzenler, resimler, ikonlar, grafikler ve iletişim bilgisini sayfanın üst ya da alt bilgi alanına koymak. Bunun yerine tek sütunlu düz metin kullan. Deneyim, Eğitim, Beceriler gibi standart başlıklar koy. Ve Arial ya da Calibri gibi yaygın bir yazı tipi seç."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Göz izleme ne diyor?",
+   "maddeler": [
+    "Basit düzen, net başlıklar",
+    "Kalın yazılmış unvanlar",
+    "Altında kısa maddeler",
+    "Bol boşluk"
+   ],
+   "metin": "Göz izleme çalışmasında iyi sonuç alan CV'lerin ortak yanları da benzer. Birincisi, basit bir düzen ve net bölüm başlıkları. İkincisi, kalın yazılmış iş unvanları. Üçüncüsü, her unvanın altında kısa başarı maddeleri. Dördüncüsü, gözü yormayan bol boşluk. Yapay zekâdan da tam olarak bu biçimi iste."
+  },
+  {
+   "bolum": "Son kontrol",
+   "bolum_metin": "Göndermeden önce son bir kontrol yapalım.",
+   "tip": "adimlar",
+   "baslik": "Göndermeden önce",
+   "adimlar": [
+    "Her cümleyi kendin oku",
+    "İlandaki kelimelere bak",
+    "Yazım hatalarını düzelt",
+    "Telefon ve e-postayı kontrol et",
+    "Dosyayı adınla kaydet"
+   ],
+   "metin": "Önce her cümleyi kendin oku ve sana ait olmayanı çıkar. Sonra ilandaki önemli kelimelerin CV'nde geçip geçmediğine bak, ama kelime yığmak yerine onları cümle içinde kullan. Ardından yazım hatalarını düzelt. Telefon numaranın ve e-posta adresinin doğru olduğunu kontrol et. Son olarak dosyayı adın ve soyadınla kaydet."
+  },
+  {
+   "bolum": "Mülakata hazırlık",
+   "bolum_metin": "Yapay zekâ CV'den sonra da işine yarar: mülakata hazırlıkta.",
+   "tip": "adimlar",
+   "baslik": "Mülakat provası",
+   "adimlar": [
+    "İlanı ve CV'ni ver",
+    "“Bana 10 soru sor” de",
+    "Tek tek kendin cevap ver",
+    "Geri bildirim iste"
+   ],
+   "metin": "Önce iş ilanını ve CV'ni ver. Sonra benimle mülakat yapan bir yönetici gibi davran ve bana tek tek on soru sor de. Ardından her soruya kendi cümlelerinle cevap ver. Son olarak her cevabın için geri bildirim iste: nerede belirsiz kaldın, neyi örnekle anlatabilirdin?"
+  },
+  {
+   "tip": "efsane",
+   "balon": "Cevapları yapay zekâ yazsın, ezberlerim!",
+   "damga": "YAPMA",
+   "metin": "Burada bir tuzak var: cevapları yapay zekâya yazdırıp ezberlemek. Ezber cevaplar mülakatta kolayca fark edilir. Yapay zekâyı soru soran taraf olarak kullan, cevaplar senin olsun."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "Gerçek + Sade",
+   "renk": "yesil",
+   "alt": "İyi bir CV'nin formülü",
+   "metin": "Özetle, iyi bir CV'nin formülü basit: gerçek bilgi ve sade bir biçim. Yapay zekâ yazmayı hızlandırır, ama hiçbir araç iş garantisi vermez. Seni anlatan CV, senin gerçek deneyimin olmalı."
+  },
+  {
+   "tip": "soru",
+   "soru": "Yapay zekâyla CV hazırladın mı?",
+   "metin": "Sen hiç yapay zekâyla CV ya da ön yazı hazırladın mı? Sonuç nasıldı? Yorumlara yaz. Bu videoyu iş arayan bir arkadaşına da gönder."
+  },
+  {
+   "tip": "son",
+   "sonraki": "e-Devlet'te herkesin yapması gereken kontroller",
+   "metin": "Bir sonraki videoda, e-Devlet'te herkesin mutlaka yapması gereken kontrolleri anlatıyorum. Abone olmayı unutma, görüşmek üzere."
+  }
+ ],
+ "tanitim": {
+  "baslik": "Yapay Zekâyla CV Hazırlarken Bu Hatayı Yapma! ⚠️ #shorts",
+  "aciklama": "Yapay zekâyla CV hazırlarken nelere dikkat etmeli? Tamamı kanaldaki uzun videoda.",
+  "sahneler": [
+   {
+    "tip": "kanca",
+    "ekran": "CV",
+    "buyuk": "7 saniye",
+    "altyazi": "CV'ne ilk elemede yaklaşık **7 saniye** bakılıyor.",
+    "seslendirme": "Bir göz izleme çalışmasına göre, işe alım uzmanları bir CV'ye ilk elemede ortalama yedi saniye kadar bakıyor."
+   },
+   {
+    "tip": "liste",
+    "etiket": "İSTEM",
+    "baslik": "Yapay zekâya ver",
+    "rozet": "✓",
+    "maddeler": [
+     "İş ilanını",
+     "Kendi deneyimini",
+     "Ölçülebilir sonucu"
+    ],
+    "altyazi": "İlanı ve **kendi deneyimini** ver.",
+    "seslendirme": "Yapay zekâya iş ilanını ve kendi deneyimini ver, her maddeyi ölçülebilir bir sonuç olarak yazmasını iste."
+   },
+   {
+    "tip": "uyari",
+    "etiket": "DİKKAT",
+    "baslik": "Uydurabilir",
+    "rozet": "!",
+    "buyuk": "Yalan yok",
+    "damga": "KENDİN SİL",
+    "altyazi": "Olmayan deneyimi **yazdırma**.",
+    "seslendirme": "Ama dikkat: yapay zekâ olmayan bir deneyim ya da sertifika ekleyebilir. Sana ait değilse sil."
+   },
+   {
+    "tip": "son",
+    "ust": "TAMAMI KANALDA",
+    "buton": "KANALA GİT",
+    "yarin": "Yapay zekâyla CV nasıl hazırlanır?",
+    "seslendirme": "Doğru istemi, ATS için sade biçimi ve mülakat hazırlığını kanaldaki uzun videoda anlattım."
+   }
+  ]
+ }
+}
