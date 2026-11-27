@@ -300,9 +300,27 @@ def ekle(kanal, video, baslik, aciklama="", etiketler="", gunluk="", kapak="", k
     kopya = os.path.join("/tmp", dosya)
     subprocess.run(["cp", video, kopya], check=True)
     gh("release", "upload", "kuyruk", kopya, "--clobber")
+    etiket_listesi = [e.strip() for e in etiketler.split(",") if e.strip()][:15]
+    kisa_kapak = None
+    # 27 Kas 2026 (Levent): her videoya rakiplerden iyi başlık + aranan etiketler + 2-3 kelimelik kapak (kapak_seo.py).
+    # Hata olursa video eski başlık/etiketlerle yine kuyruğa girer. Kapatmak için: KAPAK_SEO=0
+    if os.environ.get("KAPAK_SEO", "1") != "0":
+        try:
+            import kapak_seo
+            uzun_mu = bool(kapak and os.path.exists(kapak))
+            yeni_baslik, yeni_etiket, kisa_kapak, _ = kapak_seo.hazirla(kanal, video, baslik, aciklama, etiket_listesi,
+                                                                       kisa=not uzun_mu)
+            baslik, etiket_listesi = yeni_baslik or baslik, yeni_etiket or etiket_listesi
+        except Exception as e:
+            print("kapak_seo çalışmadı (eski başlık/etiket kullanılıyor):", str(e)[:200])
     kayit = {"id": kid, "kanal": kanal, "baslik": baslik[:100], "aciklama": aciklama[:4900],
-             "etiketler": [e.strip() for e in etiketler.split(",") if e.strip()][:15],
+             "etiketler": etiket_listesi,
              "dosya": dosya, "durum": "bekliyor", "eklendi": simdi.isoformat()}
+    if kisa_kapak and os.path.exists(kisa_kapak):   # Shorts kapağı: YouTube (işlendikten sonra) + Instagram kapak resmi
+        kad = f"{kid}-kapak.jpg"
+        subprocess.run(["cp", kisa_kapak, os.path.join("/tmp", kad)], check=True)
+        gh("release", "upload", "kuyruk", os.path.join("/tmp", kad), "--clobber")
+        kayit.update(kapak=kad, kisa_kapak=True)
     if gunluk:
         kayit["gunluk"] = True
     if kapak and os.path.exists(kapak):  # uzun video: kapak resmi + Reels/TikTok'a gitmez
@@ -501,7 +519,7 @@ def youtube_yukle(kayit):
                              headers={"Authorization": f"Bearer {token}", "Content-Type": "video/mp4"})
     if kod not in (200, 201) or "id" not in veri:
         raise RuntimeError(f"Yükleme bitmedi ({kod}): {str(veri)[:300]}")
-    if kayit.get("kapak"):
+    if kayit.get("kapak") and not kayit.get("kisa_kapak"):   # Shorts kapağı işleme bitince konur (kapaklari_tamamla)
         try:
             gh("release", "download", "kuyruk", "-p", kayit["kapak"], "-D", "/tmp", "--clobber")
             k, _, v = istek(f"https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={veri['id']}",
@@ -662,7 +680,8 @@ def kontrol():
                         ig_ad = os.path.basename(igk)
                         gh("release", "upload", "kuyruk", igk, "--clobber")
                         mid, link = reels_yukle_url(kayit["kanal"], f"{SURUM_URL}/{ig_ad}", ig_aciklama(kayit),
-                                                    deneme_reels_mi(kayit))
+                                                    deneme_reels_mi(kayit),
+                                                    kapak_url=f"{SURUM_URL}/{kayit['kapak']}" if kayit.get("kisa_kapak") else None)
                         kayit.update(ig_yol="github_url")
                     except Exception as e1:
                         hatalar.append(f"github_url: {str(e1)[:200]}")
@@ -972,10 +991,19 @@ def kapaklari_tamamla():
     """Yüklenmiş ama kapak resmi henüz konamamış uzun videolara kapağı yeniden dener (kanal doğrulandıktan sonra)."""
     for p in glob.glob(os.path.join(KUYRUK, "*.json")) + glob.glob(os.path.join(KUYRUK, "arsiv", "*.json")):
         k = json.load(open(p, encoding="utf-8"))
-        if not k.get("kapak") or not k.get("video_id") or k.get("kapak_tamam"):
+        if not k.get("kapak") or not k.get("video_id") or k.get("kapak_tamam") or k.get("kapak_vazgec"):
             continue
         try:
             token = erisim_anahtari(k["kanal"])
+            if k.get("kisa_kapak"):
+                # YouTube, Shorts kapağını ancak video işlendikten sonra kabul ediyor (Kasım 2026 API notu)
+                _, _, d = istek(f"https://www.googleapis.com/youtube/v3/videos?part=processingDetails&id={k['video_id']}",
+                                headers={"Authorization": f"Bearer {token}"})
+                durum = (((d or {}).get("items") or [{}])[0].get("processingDetails") or {}).get("processingStatus")
+                if durum not in ("succeeded", None):
+                    print("Kapak: video henüz işleniyor", k["id"], durum)
+                    continue
+                k["kapak_deneme"] = k.get("kapak_deneme", 0) + 1
             gh("release", "download", "kuyruk", "-p", k["kapak"], "-D", "/tmp", "--clobber")
             kod, _, v = istek(f"https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={k['video_id']}",
                               method="POST", ham=open(os.path.join("/tmp", k["kapak"]), "rb").read(),
@@ -984,7 +1012,12 @@ def kapaklari_tamamla():
             if kod == 200:
                 k["kapak_tamam"] = True
                 json.dump(k, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-                telegram(f"🖼 Kapak resmi yüklendi: {k['baslik']}")
+                if not k.get("kisa_kapak"):
+                    telegram(f"🖼 Kapak resmi yüklendi: {k['baslik']}")
+            elif k.get("kisa_kapak"):
+                if k.get("kapak_deneme", 0) >= 4:   # kanal Shorts kapağına izin vermiyorsa kotayı boşa harcama
+                    k["kapak_vazgec"] = True
+                json.dump(k, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         except Exception as e:
             print("Kapak hatası:", str(e)[:150])
 

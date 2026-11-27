@@ -24,6 +24,7 @@ jobs:
         env:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           python tekrar_kontrol.py
           if [ "${{ inputs.sil }}" = "deneme" ]; then python tekrar_sil.py deneme; fi

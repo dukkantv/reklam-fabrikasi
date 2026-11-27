@@ -168,7 +168,7 @@ def reels_yukle(kanal, video_yolu, aciklama, deneme=False):
     return yay["id"], (p or {}).get("permalink", "")
 
 
-def reels_yukle_url(kanal, url, aciklama, deneme=False):
+def reels_yukle_url(kanal, url, aciklama, deneme=False, kapak_url=None):
     """Instagram videoyu verilen herkese açık adresten kendisi indirir (video_url).
     25 Kas 2026: doğrudan yükleme (rupload) gerçek videolarda sürekli 'ProcessingFailedError' veriyordu;
     aynı video GitHub sürüm adresinden video_url ile sorunsuz işlendi. Döndürür: (medya_id, kalıcı bağlantı)."""
@@ -176,8 +176,14 @@ def reels_yukle_url(kanal, url, aciklama, deneme=False):
     if not h:
         raise RuntimeError(f"{kanal} için Instagram bağlı değil")
     tok, ig = h["token"], h["ig_id"]
-    kod, kap = _kapsayici_ac(ig, {"media_type": "REELS", "video_url": url, "caption": aciklama[:2200],
-                                  "share_to_feed": "true", "access_token": tok}, deneme)
+    veri = {"media_type": "REELS", "video_url": url, "caption": aciklama[:2200], "share_to_feed": "true", "access_token": tok}
+    if kapak_url:   # 27 Kas 2026: profil ızgarasında görünen kapak resmi (2-3 kelimelik kapak)
+        kod, kap = _kapsayici_ac(ig, dict(veri, cover_url=kapak_url), deneme)
+        if kod != 200 or "id" not in kap:
+            print(f"Instagram kapak resmiyle açılamadı ({kod}): {str(kap)[:150]} → kapaksız deneniyor", flush=True)
+            kod, kap = _kapsayici_ac(ig, veri, deneme)
+    else:
+        kod, kap = _kapsayici_ac(ig, veri, deneme)
     if kod != 200 or "id" not in kap:
         raise RuntimeError(f"Instagram kapsayıcı açılamadı ({kod}): {kap}")
     for _ in range(60):

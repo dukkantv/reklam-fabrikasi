@@ -384,6 +384,23 @@ def altyazi_parcala(metin, bas, son):
 
 
 def kapak(img, yazi, hedef, tur):
+    # 27 Kas 2026: rakip araştırmasına göre yeni kapak (dev yazı, kontur, kırmızı kutu vurgusu, sembol) → kapak_seo.py
+    try:
+        import kapak_seo
+        y = re.sub(r"\s+", " ", yazi).strip()
+        kel = y.split()
+        if len(kel) > 3:
+            y = " ".join(kel[:3])
+        yil = re.search(r"\b(1\d{3}|20\d{2})\b", y)
+        if yil and len(y.replace(yil.group(1), "").split()) >= 2:   # yıl rozette dursun, yazıda tekrar etmesin
+            y = re.sub(r"\s+", " ", y.replace(yil.group(1), "")).strip()
+            kel = y.split()
+        kapak_seo.ciz(img, y, hedef, {"tarih": "gizlitarih", "dedektif": "kasakurgu", "hikaye": "dramabite"}.get(tur, "gizlitarih"),
+                      dikey=False, vurgu=max(kel[:3], key=len) if len(kel) > 1 else "",
+                      sembol="soru" if y.endswith("?") else ("rozet" if yil else "yok"), rozet_yazi=yil.group(1) if yil else "")
+        return
+    except Exception as e:
+        print("Yeni kapak çizilemedi, eski kapak:", str(e)[:150])
     renk = {"tarih": "0xF2C14E", "dedektif": "0xE63946", "hikaye": "0xFF9F1C"}[tur]
     k = yazi.upper().replace("'", "’").replace(":", " ").split()[:5]
     satirlar = [" ".join(k)] if len(" ".join(k)) <= 14 else [" ".join(k[:len(k) // 2 + len(k) % 2]), " ".join(k[len(k) // 2 + len(k) % 2:])]
