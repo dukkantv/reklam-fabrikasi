@@ -40,12 +40,14 @@
   "tavla-kurbaga"
  ],
  "elenen": [],
- "pota": [],
+ "pota": [
+  "borekci-baykus"
+ ],
  "dokunulmaz": null,
  "duello": null,
  "hafta": 1,
- "adim": 1,
- "bolum_no": 1,
+ "adim": 2,
+ "bolum_no": 2,
  "lansman": [
   1,
   2,
@@ -54,7 +56,11 @@
   5
  ],
  "hafta_olay": {
-  "odul": "K"
+  "odul": "K",
+  "dok": {
+   "K": 0,
+   "M": 1
+  }
  },
  "bolumler": [
   {
@@ -64,6 +70,14 @@
    "faz": "takim",
    "baslik": "Çarşı Ligi 1. Hafta | Ödül Maçı: Kırmızı mı Mavi mi? 🔴🔵 #shorts",
    "kid": "20261126-205128-dukkantv"
+  },
+  {
+   "no": 2,
+   "hafta": 1,
+   "adim": 1,
+   "faz": "takim",
+   "baslik": "Çarşı Ligi | 1. Dokunulmazlık: Eleme Adayı Kim Oldu? 🔴🔵 #shorts",
+   "kid": "20261127-203550-dukkantv"
   }
  ]
 }
