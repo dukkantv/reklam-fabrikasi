@@ -95,7 +95,7 @@ def main():
     import uret as neolur
     import yt_kuyruk
     from yt_ortak import telegram
-    b = dict(h["bolum"], tarz=h["bolum"].get("tarz", "belgesel"))
+    b = dict(h["bolum"], tarz=h["bolum"].get("tarz", "belgesel"), ust_yazi=h["bolum"].get("ust_yazi", "GÜNDEM"))
     gorsel_kaynak = gorsel.indir(b)
     if gorsel_kaynak:
         print("Fotoğraflı sahne:", sum(1 for s in b["sahneler"] if s.get("arka")), "· kaynak:", gorsel_kaynak)
