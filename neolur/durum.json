@@ -1,6 +1,6 @@
 {
- "sira": 10,
- "son_tarih": "2026-11-27",
+ "sira": 11,
+ "son_tarih": "2026-11-28",
  "gecmis": [
   {
    "id": "elektrik",
@@ -55,6 +55,11 @@
    "id": "telefon-bilgi",
    "tarih": "2026-11-27",
    "saat": "20:00"
+  },
+  {
+   "id": "sessizlik",
+   "tarih": "2026-11-28",
+   "saat": "15:00"
   }
  ]
 }
