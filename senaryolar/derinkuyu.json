@@ -104,9 +104,9 @@
   },
   {
    "metin": "Bu küller zamanla sıkışıp tüf denen bir kayaya dönüşmüş. Tüfün sırrı şu: Taze kazındığında yumuşaktır, basit aletlerle oyulabilir. Havayla temas ettikçe de sertleşir.",
-   "nesne": "old iron chisel and wooden mallet carving soft pale rock",
+   "nesne": "hand holding a rough iron chisel and a wooden mallet",
    "arama": "tuff rock carving",
-   "gorsel": "close-up of a rough hand-forged iron chisel struck by a wooden mallet, carving soft pale tuff rock, rock dust falling, ancient tools only, no modern objects, Cappadocia Turkey, historically accurate"
+   "gorsel": "close-up of a weathered hand holding a rough hand-forged iron chisel while a wooden mallet strikes it, carving soft pale tuff rock, rock dust falling, Cappadocia Turkey, historically accurate"
   },
   {
    "metin": "Yani bu topraklarda yaşayan insanlar için yerin altı, inşa edilmeyi bekleyen bir yapı gibiydi. Taş taşımaya gerek yok; sadece kazmak yeterli.",
@@ -200,21 +200,21 @@
   },
   {
    "metin": "Peki düşman girişi bulursa ne olacaktı? İşte Derinkuyu'nun en ünlü parçası: yuvarlak sürgü taşları.",
-   "nesne": "large round millstone-like door in a tunnel",
+   "nesne": "massive round millstone-shaped stone disc in a rock tunnel",
    "arama": "Derinkuyu rolling stone door",
-   "gorsel": "large round millstone-shaped stone door set in a narrow rock tunnel, heavy and ancient, Cappadocia Turkey, volcanic tuff rock, historically accurate"
+   "gorsel": "a massive round millstone-shaped disc of rough carved stone, about one metre tall and thick, standing upright in a carved groove beside the opening of a narrow rock tunnel, plain stone surfaces, lamplight, Cappadocia Turkey, historically accurate"
   },
   {
    "metin": "Bu taşların çapı bir metreyi buluyor, ağırlıkları yüzlerce kiloyu. Koridorların dar noktalarına yerleştirilmişler.",
-   "nesne": "man pushing a giant round stone door",
+   "nesne": "man rolling a giant millstone-shaped stone disc",
    "arama": "rolling stone door Cappadocia",
-   "gorsel": "medieval man pushing a giant round stone door across a narrow corridor from the inside, straining effort, Cappadocia Turkey, volcanic tuff rock, historically accurate"
+   "gorsel": "a medieval villager in a wool tunic leaning with both hands against a giant round millstone-shaped stone disc, rolling it sideways across a narrow rock tunnel from the inside, straining effort, lamplight, Cappadocia Turkey, historically accurate"
   },
   {
    "metin": "Ve dikkat edin: Taşlar sadece içeriden yuvarlanıp kapatılabiliyordu. Dışarıdan açmak neredeyse imkânsızdı.",
-   "nesne": "closed round stone door seen from the outside",
+   "nesne": "round stone disc blocking a tunnel",
    "arama": "stone door closed",
-   "gorsel": "closed round stone door seen from the outside of a dark tunnel, no handle, impenetrable, Cappadocia Turkey, volcanic tuff rock, historically accurate"
+   "gorsel": "a narrow dark rock tunnel completely blocked by a round millstone-shaped stone disc, plain rough stone, seen from the outside, dim light, Cappadocia Turkey, historically accurate"
   },
   {
    "metin": "Koridorlar da bilerek dar ve alçak yapılmış. İçeri giren biri eğilmek, tek sıra yürümek zorunda kalıyordu. Böylece kalabalık bir saldırı daha girişte dağılıyordu.",
@@ -272,9 +272,9 @@
   },
   {
    "metin": "Şehir yüzyıllar boyunca bölgede yaşayan Kapadokyalı Rumlar tarafından kullanıldı. 1923'teki nüfus mübadelesiyle bölgedeki Rum halk Yunanistan'a göç etti.",
-   "nesne": "old stone village street with horse cart",
+   "nesne": "19th-century painting of a Cappadocian village lane with a donkey",
    "arama": "Cappadocia 1923 population exchange",
-   "gorsel": "quiet Cappadocia village street with old stone houses in the early 1900s, a horse-drawn cart and villagers in traditional clothes, dirt road, NO cars, NO vehicles, NO electric wires, NO poles, NO power pylons, NO towers, NO antennas, NO modern objects, warm muted colors, Cappadocia Turkey, historically accurate"
+   "gorsel": "19th-century orientalist oil painting of a quiet Cappadocian Greek village lane, old stone houses and rock-cut dwellings, villagers in traditional clothes, a donkey carrying baskets, dirt road, clear pale sky, fairy chimneys in the distance, Cappadocia Turkey, historically accurate"
   },
   {
    "metin": "Onlar gidince yeraltı şehirlerinin girişleri unutuldu. Bazıları evlerin altında, bodrumlarda, ahırlarda kaldı. Ta ki 1963'te o duvar yıkılana kadar.",
@@ -284,15 +284,15 @@
   },
   {
    "metin": "Derinkuyu 1965'te ziyarete açıldı ve bugün Kapadokya'nın en çok ziyaret edilen yerlerinden biri.",
-   "nesne": "entrance of a famous underground site with visitors",
+   "nesne": "visitors walking down carved stone steps into an underground city",
    "arama": "Derinkuyu entrance",
-   "gorsel": "entrance area of an underground city in a Cappadocia town with visitors, daylight, stone steps going down, Cappadocia Turkey, volcanic tuff rock, historically accurate"
+   "gorsel": "present-day visitors walking down carved stone steps into the entrance of an underground city, plain carved rock walls, soft daylight from above, Cappadocia Turkey, historically accurate"
   },
   {
    "metin": "Düşünsenize: Makine yok, elektrik yok, sadece kazma, kandil ve sabır. Ve bu insanlar yerin 85 metre altına, havası, suyu, kilisesi, ahırı olan bir şehir sığdırdı.",
-   "nesne": "silhouette of a worker with a lamp in a deep tunnel",
+   "nesne": "silhouette of an ancient worker holding an oil lamp in a deep tunnel",
    "arama": "ancient engineering",
-   "gorsel": "silhouette of a lone worker holding an oil lamp in a deep tunnel, dramatic light, sense of scale, Cappadocia Turkey, volcanic tuff rock, historically accurate"
+   "gorsel": "silhouette of an ancient worker in a simple wool tunic and head cloth holding a small clay oil lamp in a deep carved tunnel, dramatic warm light, sense of scale, Cappadocia Turkey, historically accurate"
   },
   {
    "metin": "Sence hangisi daha etkileyici: Sürgü taşları mı, havalandırma bacaları mı, yoksa gizli kuyular mı? Yorumlara yaz.",
