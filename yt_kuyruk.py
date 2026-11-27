@@ -52,6 +52,35 @@ def tt_bekliyor(kayit):
         return False
 
 
+def tt_gonder(kayit, ad):
+    """Videoyu TikTok'a taslak gönderir; Telegram'a önerilen paylaşma saatiyle haber verir."""
+    try:
+        gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
+        pid = taslak_yukle(kayit["kanal"], os.path.join("/tmp", kayit["dosya"]))
+        kayit.update(tt="taslak", tt_id=pid)
+        kaydet(kayit)
+        try:
+            saat = f"{dt.datetime.fromisoformat(kayit['yayin']).astimezone(TR):%d.%m %H:%M}"
+        except Exception:
+            saat = "-"
+        telegram(f"🎵 {ad}: \"{kayit['baslik']}\" TikTok'a taslak olarak gönderildi.\n"
+                 f"🕖 Önerilen paylaşma saati: {saat} (YouTube ile aynı saat)\n"
+                 f"TikTok'ta taslağı aç → alttaki mesajdaki açıklamaya bir kez dokun (kopyalanır) → yapıştır → Paylaş.")
+        import html
+        telegram(f"<code>{html.escape(tt_aciklama(kayit))}</code>", parse_mode="HTML")
+    except Exception as e:
+        print(f"TikTok hatası ({kayit['id']}):", str(e)[:400])
+        if "pending" in str(e).lower():
+            # TikTok aynı hesapta paylaşılmamış taslak sayısını sınırlıyor; hata sayılmaz, sonraki turda tekrar denenir
+            print("TikTok: bekleyen taslak sınırı, sonraki turda denenecek")
+            return
+        kayit["tt_deneme"] = kayit.get("tt_deneme", 0) + 1
+        if kayit["tt_deneme"] >= 3:
+            kayit["tt"] = "hata"
+            telegram(f"⚠️ {ad}: TikTok gönderimi 3 kez başarısız: {str(e)[:200]}")
+        kaydet(kayit)
+
+
 def urun_bilgisi():
     try:
         return json.load(open(os.path.join(KOK, "urunler.json"), encoding="utf-8"))
@@ -634,6 +663,8 @@ def kontrol():
                          f"🕖 {zaman:%d.%m %H:%M}'da yayına girecek.\nhttps://youtube.com/{'watch?v=' if kayit.get('uzun') else 'shorts/'}{vid}")
                 mesaj_guncelle(kayit, metin)
                 telegram(metin)
+                if tt_bekliyor(kayit):  # TikTok taslağı aynı turda, beklemeden
+                    tt_gonder(kayit, ad)
             except Exception as e:
                 kayit["hata"] = str(e)[:300]
                 kaydet(kayit)
@@ -648,7 +679,10 @@ def kontrol():
                 pass
             os.remove(os.path.join(KUYRUK, f"{kayit['id']}.json"))
         elif kayit["durum"] == "yuklendi" and (ig_bekliyor(kayit) or tt_bekliyor(kayit) or fb_bekliyor(kayit)):
-            # YouTube'a planlı yüklendi; yayın saatinde Instagram'a Reels, TikTok'a taslak olarak gider
+            # YouTube'a planlı yüklendi. 27 Kas 2026 (Levent: "hemen gönder"): TikTok taslağı yayın saatini
+            # beklemeden hemen gider; Instagram/Facebook yine yayın saatinde paylaşılır.
+            if tt_bekliyor(kayit):
+                tt_gonder(kayit, ad)
             if simdi < dt.datetime.fromisoformat(kayit["yayin"]):
                 continue
             global IG_BU_TUR
@@ -738,23 +772,6 @@ def kontrol():
                     if kayit["fb_deneme"] >= 4:
                         kayit["fb"] = "hata"
                         telegram(f"⚠️ {ad}: Facebook Reels paylaşımı 4 kez başarısız: {str(e)[:200]}")
-                    kaydet(kayit)
-            if tt_bekliyor(kayit):
-                try:
-                    gh("release", "download", "kuyruk", "-p", kayit["dosya"], "-D", "/tmp", "--clobber")
-                    pid = taslak_yukle(kayit["kanal"], os.path.join("/tmp", kayit["dosya"]))
-                    kayit.update(tt="taslak", tt_id=pid)
-                    kaydet(kayit)
-                    telegram(f"🎵 {ad}: \"{kayit['baslik']}\" TikTok'a taslak olarak gönderildi.\n"
-                             f"TikTok'ta taslağı aç → alttaki mesajdaki açıklamaya bir kez dokun (kopyalanır) → yapıştır → Paylaş.")
-                    import html
-                    telegram(f"<code>{html.escape(tt_aciklama(kayit))}</code>", parse_mode="HTML")
-                except Exception as e:
-                    print(f"TikTok hatası ({kayit['id']}):", str(e)[:400])
-                    kayit["tt_deneme"] = kayit.get("tt_deneme", 0) + 1
-                    if kayit["tt_deneme"] >= 3:
-                        kayit["tt"] = "hata"
-                        telegram(f"⚠️ {ad}: TikTok gönderimi 3 kez başarısız: {str(e)[:200]}")
                     kaydet(kayit)
         elif kayit["durum"] == "yuklendi":
             # Yayın saatinden önce arşivleme: o arada kanala Instagram/TikTok/Facebook bağlanabilir
