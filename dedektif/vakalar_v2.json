@@ -934,5 +934,77 @@
     ],
     "dogru": 2,
     "cozum": "Metro kartının ıslak olması yağmurlu yoldan gelen Aslı'yı işaret ediyordu."
+  },
+  {
+    "baslik": "Kayıp Cüzdan",
+    "olay": "Trende seyahat eden bir yolcunun deri cüzdanı masanın üzerinden çalındı.",
+    "ipuclari": [
+      "Hırsızlık anında trenden sadece bir kişi inmek için kapıya yöneldi ve saati öğleden sonra 3'ü gösteriyordu.",
+      "Şüphelilerden biri o saatte bilet kontrolü yaptığını söyledi, diğeri ise yemek vagonunda olduğunu belirtti."
+    ],
+    "supheliler": [
+      {
+        "ad": "Metin",
+        "rol": "kondoktör"
+      },
+      {
+        "ad": "Kerem",
+        "rol": "aşçı"
+      },
+      {
+        "ad": "Bora",
+        "rol": "turist"
+      }
+    ],
+    "dogru": 2,
+    "cozum": "Saat 3'te bilet kontrolü yapılmadığı biliniyordu. Bora trenden inmek için kapıya yönelmişti, bu da onun yalan söylediğini ve hırsız olduğunu kanıtlar."
+  },
+  {
+    "baslik": "Düğün Salonundaki Pasta",
+    "olay": "Düğün pastasının en üst katındaki mini figür kimseye haber verilmeden alındı.",
+    "ipuclari": [
+      "Olay anında mutfaktan yoğun bir lavanta kokusu geldiği söylendi.",
+      "Şüphelilerden sadece birinin parfümü lavanta özlüydü ve diğerleri çikolata kokuyordu."
+    ],
+    "supheliler": [
+      {
+        "ad": "Yasemin",
+        "rol": "organizatör"
+      },
+      {
+        "ad": "Can",
+        "rol": "garson"
+      },
+      {
+        "ad": "Funda",
+        "rol": "çiçekçi"
+      }
+    ],
+    "dogru": 0,
+    "cozum": "Mutfakta kalan koku somut bir ipucuydu. Yasemin'in parfümünün lavanta özlü olması figürü onun aldığını kanıtlar."
+  },
+  {
+    "baslik": "Balıkçı Kasabasında Şaka",
+    "olay": "Balıkçı barınağındaki eski bir tekne boyayla kırmızıya boyandı.",
+    "ipuclari": [
+      "Boyanan teknenin hemen yanında boya damlaları sadece sol tarafa sıçramıştı.",
+      "Şüphelilerden biri sağ elini hiç kullanamadığını, diğer ikisi ise sağ elini kullandığını söyledi."
+    ],
+    "supheliler": [
+      {
+        "ad": "Murat",
+        "rol": "balıkçı"
+      },
+      {
+        "ad": "Emre",
+        "rol": "motor tamircisi"
+      },
+      {
+        "ad": "Ali",
+        "rol": "ağ onarıcısı"
+      }
+    ],
+    "dogru": 2,
+    "cozum": "Boya sıçraması sol taraftaydı. Sağ elini kullanamayan Ali, fırçayı sol eliyle tutarak bu işi yapmış olmalıdır."
   }
 ]
