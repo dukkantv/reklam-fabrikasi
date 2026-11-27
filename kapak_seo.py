@@ -48,6 +48,10 @@ KANAL = {
                   "konu": "Türkiye'nin 81 ili toplar hâlinde fizik oyununda yarışıyor (şehirler turnuvası)"},
 }
 
+# Neon kapak (Shorts) renkleri: Dükkan TV neon tarzı (27 Kas 2026, Levent: "kısa videolarda neon tarzı olsun")
+NEON = {"gizlitarih": (255, 190, 40), "kasakurgu": (255, 48, 72), "dramabite": (255, 70, 160),
+        "dukkantv": (0, 229, 255), "ilturnuva": (60, 235, 140)}
+
 # ---------- Etiket havuzu: YouTube arama önerilerinden (27.11.2026, hl=tr gl=tr) ----------
 HAVUZ = {
     "gizlitarih": [
@@ -429,6 +433,120 @@ def ciz(arka, yazi, hedef, kanal="gizlitarih", dikey=False, vurgu="", sembol="yo
     return hedef
 
 
+def ciz_neon(arka, yazi, hedef, kanal="dukkantv", dikey=True, vurgu="", sembol="yok", rozet_yazi=""):
+    """Neon kapak: koyu, kısılmış sahne + kanal renginde neon ışıma, parlayan dev yazı, neon çerçeve ve neon rozet.
+    Yazı ve rozet dikeyde 4:5 kırpmanın (y 285–1635) içinde kalır."""
+    _paketler()
+    import numpy as np
+    from PIL import Image, ImageDraw, ImageEnhance, ImageFilter
+    W, H = (1080, 1920) if dikey else (1280, 720)
+    neon = NEON.get(kanal, (0, 229, 255))
+    im = Image.open(arka).convert("RGB")
+    o = max(W / im.width, H / im.height)
+    im = im.resize((int(im.width * o + 1), int(im.height * o + 1)), Image.LANCZOS)
+    x0, y0 = (im.width - W) // 2, (im.height - H) // 2
+    im = im.crop((x0, y0, x0 + W, y0 + H))
+    im = ImageEnhance.Color(im).enhance(0.75)
+    im = ImageEnhance.Contrast(im).enhance(1.25)
+    yy, xx = np.mgrid[0:H, 0:W]
+    arr = np.asarray(im, dtype=np.float32)
+    # sahne kısılır (gece görünümü), yazı bandı daha da koyu
+    merkez_y = H * (0.60 if dikey else 0.66)
+    bant = np.exp(-((yy - merkez_y) / (H * (0.17 if dikey else 0.30))) ** 2)
+    kis = 0.46 - 0.28 * bant
+    alt_kisim = np.clip((yy - H * 0.68) / (H * 0.14), 0, 1) if dikey else np.zeros_like(bant)
+    kis = kis * (1 - 0.75 * alt_kisim)   # karedeki eski altyazılar kapakla yarışmasın
+    d = np.sqrt(((xx - W / 2) / (W / 2)) ** 2 + ((yy - H / 2) / (H / 2)) ** 2)
+    kis = kis * np.clip(1.15 - 0.55 * d, 0.35, 1)
+    arr = arr * kis[..., None] + np.array([9, 8, 12]) * (1 - kis[..., None])
+    # kanal renginde yumuşak neon ışık havuzu (yazının arkasında)
+    isik = np.exp(-(((xx - W / 2) / (W * 0.55)) ** 2 + ((yy - merkez_y) / (H * (0.20 if dikey else 0.35))) ** 2))
+    arr = arr + isik[..., None] * np.array(neon) * 0.32
+    im = Image.fromarray(arr.clip(0, 255).astype("uint8")).convert("RGBA")
+
+    def isilt(katman, yaricap, guc):
+        b = katman.filter(ImageFilter.GaussianBlur(yaricap))
+        a = np.asarray(b, dtype=np.float32)
+        a[..., 3] = np.clip(a[..., 3] * guc, 0, 255)
+        return Image.fromarray(a.astype("uint8"))
+
+    # neon çerçeve (dikeyde 4:5 alanını da çevreler gibi görünür, kenara yakın)
+    cer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    m = 26
+    ImageDraw.Draw(cer).rounded_rectangle([m, m, W - m, H - m], radius=46, outline=neon + (255,), width=7)
+    im = Image.alpha_composite(im, isilt(cer, 26, 3.5))
+    im = Image.alpha_composite(im, isilt(cer, 8, 2.5))
+    im = Image.alpha_composite(im, cer)
+
+    olcum = ImageDraw.Draw(im)
+    satirlar = _satirla(ust(yazi.strip()), dikey)
+    gen_sinir, yuk_sinir = W * (0.84 if dikey else 0.84), H * (0.32 if dikey else 0.52)
+    boy = 380
+    while boy > 40:
+        f = _font(boy)
+        if max(olcum.textlength(s_, font=f) for s_ in satirlar) <= gen_sinir and len(satirlar) * boy * 1.04 <= yuk_sinir:
+            break
+        boy -= 6
+    f = _font(boy)
+    satir_y = boy * 1.04
+    ust_y = merkez_y - satir_y * len(satirlar) / 2 - boy * 0.08
+    vurgu_u = ust(vurgu.strip()) if vurgu else ""
+    if not vurgu_u or not any(vurgu_u in s_.split() for s_ in satirlar):
+        vurgu_u = satirlar[-1].split()[-1] if len(satirlar) > 1 else ""
+    yazi_k = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    isik_k = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    dy, di = ImageDraw.Draw(yazi_k), ImageDraw.Draw(isik_k)
+    for i, s_ in enumerate(satirlar):
+        x = (W - olcum.textlength(s_, font=f)) / 2
+        y = ust_y + i * satir_y
+        for j, kel in enumerate(s_.split()):
+            renk = neon if kel == vurgu_u else (255, 255, 255)
+            dy.text((x, y), kel, font=f, fill=renk + (255,), stroke_width=max(3, boy // 30), stroke_fill=(10, 8, 14, 255))
+            di.text((x, y), kel, font=f, fill=neon + (255,), stroke_width=max(4, boy // 22), stroke_fill=neon + (255,))
+            x += olcum.textlength(kel + " ", font=f)
+    im = Image.alpha_composite(im, isilt(isik_k, boy * 0.30, 3.0))   # geniş hale
+    im = Image.alpha_composite(im, isilt(isik_k, boy * 0.12, 3.2))   # parlak hale
+    im = Image.alpha_composite(im, isilt(isik_k, boy * 0.04, 2.0))   # tüp ışığı
+    im = Image.alpha_composite(im, yazi_k)
+    # ince neon alt çizgi
+    cz = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    cy_ = ust_y + satir_y * len(satirlar) + boy * 0.12
+    ImageDraw.Draw(cz).rounded_rectangle([W * 0.30, cy_, W * 0.70, cy_ + 10], radius=5, fill=neon + (255,))
+    im = Image.alpha_composite(im, isilt(cz, 14, 2.5))
+    im = Image.alpha_composite(im, cz)
+
+    if sembol and sembol != "yok":
+        r = int(H * 0.075) if dikey else int(H * 0.15)
+        cx, cy = (W - r - 80, 285 + r + 70) if dikey else (W - r - 60, r + 55)
+        rk = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        dr = ImageDraw.Draw(rk)
+        if sembol == "ok":
+            gov = r * 0.42
+            dr.polygon([(cx - gov / 2, cy - r), (cx + gov / 2, cy - r), (cx + gov / 2, cy + r * 0.1), (cx + r * 0.8, cy + r * 0.1),
+                        (cx, cy + r), (cx - r * 0.8, cy + r * 0.1), (cx - gov / 2, cy + r * 0.1)], outline=neon + (255,), width=9)
+        elif sembol == "carpi":
+            k_ = r * 0.7
+            dr.line([(cx - k_, cy - k_), (cx + k_, cy + k_)], fill=neon + (255,), width=int(r * .2))
+            dr.line([(cx + k_, cy - k_), (cx - k_, cy + k_)], fill=neon + (255,), width=int(r * .2))
+        else:
+            metin = {"soru": "?", "unlem": "!"}.get(sembol) or (rozet_yazi or "!")
+            dr.ellipse([cx - r, cy - r, cx + r, cy + r], fill=(12, 10, 18, 235), outline=neon + (255,), width=max(7, r // 11))
+            fb = int(r * (1.25 if len(metin) == 1 else 0.98 if len(metin) == 2 else 0.74 if len(metin) == 3 else 0.58))
+            ff = _font(fb)
+            bb = dr.textbbox((0, 0), metin, font=ff)
+            dr.text((cx - (bb[0] + bb[2]) / 2, cy - (bb[1] + bb[3]) / 2), metin, font=ff, fill=(255, 255, 255, 255))
+        im = Image.alpha_composite(im, isilt(rk, 24, 3.5))
+        im = Image.alpha_composite(im, isilt(rk, 7, 2.5))
+        im = Image.alpha_composite(im, rk)
+    im = im.convert("RGB")
+    q = 92
+    im.save(hedef, quality=q, optimize=True)
+    while os.path.getsize(hedef) > 1_900_000 and q > 60:
+        q -= 8
+        im.save(hedef, quality=q, optimize=True)
+    return hedef
+
+
 def hazirla(kanal, video, baslik, aciklama="", etiketler="", kisa=True):
     """yt_kuyruk.ekle için tek giriş: (yeni_baslik, etiket_listesi, kapak_yolu|None)."""
     mevcut = [e.strip() for e in (etiketler.split(",") if isinstance(etiketler, str) else etiketler) if str(e).strip()]
@@ -439,8 +557,10 @@ def hazirla(kanal, video, baslik, aciklama="", etiketler="", kisa=True):
             kare = kare_sec(video)
             if kare:
                 kapak = os.path.join(tempfile.mkdtemp(), "kapak.jpg")
-                ciz(kare, p["kapak_yazi"], kapak, kanal, dikey=True, vurgu=p.get("vurgu", ""),
-                    sembol=p.get("sembol", "yok"), rozet_yazi=p.get("rozet_yazi", ""))
+                # Shorts kapakları neon tarzında (27 Kas 2026, Levent). Eski tarz için KAPAK_STIL=klasik
+                cizici = ciz if os.environ.get("KAPAK_STIL") == "klasik" else ciz_neon
+                cizici(kare, p["kapak_yazi"], kapak, kanal, dikey=True, vurgu=p.get("vurgu", ""),
+                       sembol=p.get("sembol", "yok"), rozet_yazi=p.get("rozet_yazi", ""))
         except Exception as e:
             print("kapak_seo: kapak çizilemedi:", str(e)[:200])
             kapak = None
@@ -455,5 +575,9 @@ if __name__ == "__main__":
         a = sys.argv[2:]
         ciz(a[0], a[1], a[2], a[3] if len(a) > 3 else "gizlitarih", (a[4] == "1") if len(a) > 4 else False,
             a[5] if len(a) > 5 else "", a[6] if len(a) > 6 else "yok", a[7] if len(a) > 7 else "")
+    elif sys.argv[1] == "neon":   # python kapak_seo.py neon resim.jpg "YAZI" cikti.jpg kanal vurgu sembol rozet
+        a = sys.argv[2:]
+        ciz_neon(a[0], a[1], a[2], a[3] if len(a) > 3 else "dukkantv", True, a[4] if len(a) > 4 else "",
+                 a[5] if len(a) > 5 else "yok", a[6] if len(a) > 6 else "")
     elif sys.argv[1] == "paket":
         print(json.dumps(paket(sys.argv[2], sys.argv[3], sys.argv[4] if len(sys.argv) > 4 else ""), ensure_ascii=False, indent=1))
