@@ -1,89 +1,89 @@
 {
- "tarih": "2026-11-26",
- "olusturuldu": "2026-11-26T18:50+03:00",
+ "tarih": "2026-11-27",
+ "olusturuldu": "2026-11-27T08:03+03:00",
  "kanallar": {
   "ilturnuva": {
    "ad": "81 İl Turnuvası",
    "abone": 5,
-   "toplam_izlenme": 5702,
+   "toplam_izlenme": 6345,
    "video_sayisi": 13,
    "son28": {
-    "views": 4394,
-    "estimatedMinutesWatched": 329,
-    "subscribersGained": 2,
+    "views": 4639,
+    "estimatedMinutesWatched": 364,
+    "subscribersGained": 4,
     "subscribersLost": 1
    },
    "son7": {
-    "views": 2914,
-    "estimatedMinutesWatched": 208,
-    "subscribersGained": 1,
+    "views": 3051,
+    "estimatedMinutesWatched": 238,
+    "subscribersGained": 3,
     "subscribersLost": 1,
-    "averageViewPercentage": 53.53,
+    "averageViewPercentage": 55.2,
     "likes": 7,
-    "comments": 9
+    "comments": 10
    },
-   "onceki7_izlenme": 1480,
+   "onceki7_izlenme": 1588,
    "uzun_video_saat_365": 0.0,
-   "shorts_izlenme_90": 4394,
+   "shorts_izlenme_90": 4639,
    "en_iyi_7gun": [
     {
      "video": "W8p_Zm3FeLk",
-     "views": 1093,
-     "engagedViews": 191,
+     "views": 1095,
+     "engagedViews": 192,
      "averageViewDuration": 14,
-     "averageViewPercentage": 62.24000000000001,
+     "averageViewPercentage": 62.39,
      "likes": 0,
      "comments": 1,
      "baslik": "81 İl Turnuvası · 1. Tur · F Grubu 🏆 Senin şehrin tur atlar mı? #shorts"
     },
     {
      "video": "ycqg2RW_dcA",
-     "views": 901,
-     "engagedViews": 158,
+     "views": 939,
+     "engagedViews": 166,
      "averageViewDuration": 16,
-     "averageViewPercentage": 52.45000000000001,
+     "averageViewPercentage": 52.790000000000006,
      "likes": 1,
      "comments": 1,
      "baslik": "81 İl Turnuvası · 1. Tur · I Grubu 🏆 Senin şehrin tur atlar mı? #shorts"
     },
     {
      "video": "FxMsacuo57A",
-     "views": 296,
-     "engagedViews": 61,
-     "averageViewDuration": 12,
-     "averageViewPercentage": 39.8,
+     "views": 333,
+     "engagedViews": 72,
+     "averageViewDuration": 14,
+     "averageViewPercentage": 45.05,
      "likes": 2,
      "comments": 3,
      "baslik": "81 İl Turnuvası · 1. Tur · H Grubu 🏆 Senin şehrin tur atlar mı? #shorts"
     },
     {
      "video": "XLIQ9alhSS0",
-     "views": 294,
-     "engagedViews": 79,
-     "averageViewDuration": 19,
-     "averageViewPercentage": 59.93999999999999,
-     "likes": 2,
+     "views": 299,
+     "engagedViews": 82,
+     "averageViewDuration": 20,
+     "averageViewPercentage": 61.529999999999994,
+     "likes": 3,
      "comments": 2,
      "baslik": "81 İl Turnuvası · 1. Tur · G Grubu 🏆 Senin şehrin tur atlar mı? #shorts"
     },
     {
-     "video": "fBpiA7CRPfQ",
-     "views": 111,
-     "engagedViews": 14,
-     "averageViewDuration": 11,
-     "averageViewPercentage": 34.32,
+     "video": "QdSauH3Zk_s",
+     "views": 153,
+     "engagedViews": 57,
+     "averageViewDuration": 16,
+     "averageViewPercentage": 58.56,
      "likes": 0,
-     "comments": 1,
-     "baslik": "81 İl Turnuvası · 1. Tur · E Grubu 🏆 Senin şehrin tur atlar mı? #shorts"
+     "comments": 2,
+     "baslik": "81 İl Turnuvası · 2. Tur · 1. Grup 🏆 Senin şehrin tur atlar mı? #shorts"
     }
    ],
    "videolar_28gun": [
     {
      "video": "W8p_Zm3FeLk",
-     "views": 1093,
-     "engagedViews": 191,
+     "views": 1095,
+     "engagedViews": 192,
      "averageViewDuration": 14,
-     "averageViewPercentage": 62.24000000000001,
+     "averageViewPercentage": 62.39,
      "likes": 0,
      "comments": 1,
      "shares": 0,
@@ -93,10 +93,10 @@
     },
     {
      "video": "ogC02c1du5w",
-     "views": 1090,
-     "engagedViews": 333,
+     "views": 1092,
+     "engagedViews": 334,
      "averageViewDuration": 12,
-     "averageViewPercentage": 78.7,
+     "averageViewPercentage": 78.74,
      "likes": 3,
      "comments": 1,
      "shares": 0,
@@ -106,10 +106,10 @@
     },
     {
      "video": "ycqg2RW_dcA",
-     "views": 901,
-     "engagedViews": 158,
+     "views": 939,
+     "engagedViews": 166,
      "averageViewDuration": 16,
-     "averageViewPercentage": 52.45000000000001,
+     "averageViewPercentage": 52.790000000000006,
      "likes": 1,
      "comments": 1,
      "shares": 0,
@@ -119,10 +119,10 @@
     },
     {
      "video": "FxMsacuo57A",
-     "views": 296,
-     "engagedViews": 61,
-     "averageViewDuration": 12,
-     "averageViewPercentage": 39.8,
+     "views": 333,
+     "engagedViews": 72,
+     "averageViewDuration": 14,
+     "averageViewPercentage": 45.05,
      "likes": 2,
      "comments": 3,
      "shares": 0,
@@ -132,23 +132,23 @@
     },
     {
      "video": "XLIQ9alhSS0",
-     "views": 294,
-     "engagedViews": 79,
-     "averageViewDuration": 19,
-     "averageViewPercentage": 59.93999999999999,
-     "likes": 2,
+     "views": 299,
+     "engagedViews": 82,
+     "averageViewDuration": 20,
+     "averageViewPercentage": 61.529999999999994,
+     "likes": 3,
      "comments": 2,
-     "shares": 0,
+     "shares": 8,
      "subscribersGained": 0,
      "baslik": "81 İl Turnuvası · 1. Tur · G Grubu 🏆 Senin şehrin tur atlar mı? #shorts",
      "yayin": "2026-11-21"
     },
     {
      "video": "gxy20c2ug8g",
-     "views": 235,
-     "engagedViews": 19,
-     "averageViewDuration": 11,
-     "averageViewPercentage": 36.12,
+     "views": 238,
+     "engagedViews": 20,
+     "averageViewDuration": 12,
+     "averageViewPercentage": 39.36,
      "likes": 4,
      "comments": 2,
      "shares": 0,
@@ -158,7 +158,7 @@
     },
     {
      "video": "IBiS8dwf2Tk",
-     "views": 210,
+     "views": 211,
      "engagedViews": 54,
      "averageViewDuration": 19,
      "averageViewPercentage": 52.55,
@@ -170,11 +170,24 @@
      "yayin": "2026-11-15"
     },
     {
+     "video": "QdSauH3Zk_s",
+     "views": 153,
+     "engagedViews": 57,
+     "averageViewDuration": 16,
+     "averageViewPercentage": 58.56,
+     "likes": 0,
+     "comments": 2,
+     "shares": 0,
+     "subscribersGained": 0,
+     "baslik": "81 İl Turnuvası · 2. Tur · 1. Grup 🏆 Senin şehrin tur atlar mı? #shorts",
+     "yayin": "2026-11-24"
+    },
+    {
      "video": "fBpiA7CRPfQ",
-     "views": 111,
-     "engagedViews": 14,
-     "averageViewDuration": 11,
-     "averageViewPercentage": 34.32,
+     "views": 112,
+     "engagedViews": 15,
+     "averageViewDuration": 12,
+     "averageViewPercentage": 38.23,
      "likes": 0,
      "comments": 1,
      "shares": 0,
@@ -184,7 +197,7 @@
     },
     {
      "video": "Xf7bOhLArgE",
-     "views": 107,
+     "views": 108,
      "engagedViews": 43,
      "averageViewDuration": 13,
      "averageViewPercentage": 44.16,
@@ -197,10 +210,10 @@
     },
     {
      "video": "8akj6gMxBUk",
-     "views": 57,
-     "engagedViews": 24,
-     "averageViewDuration": 18,
-     "averageViewPercentage": 50.79,
+     "views": 59,
+     "engagedViews": 25,
+     "averageViewDuration": 19,
+     "averageViewPercentage": 52.910000000000004,
      "likes": 1,
      "comments": 1,
      "shares": 25,
@@ -212,7 +225,7 @@
    "en_kotu_7gun": [
     {
      "video": "IBiS8dwf2Tk",
-     "views": 19,
+     "views": 20,
      "engagedViews": 9,
      "averageViewDuration": 17,
      "averageViewPercentage": 47.43,
@@ -222,84 +235,84 @@
     }
    ],
    "son24": {
-    "izlenme": "+996",
-    "abone": "+2"
+    "izlenme": "+643",
+    "abone": "+0"
    },
-   "ypp_puan": 0.0054394000000000005
+   "ypp_puan": 0.0054639
   },
   "kasakurgu": {
    "ad": "Kasa kurgu",
    "abone": 12,
-   "toplam_izlenme": 13526,
+   "toplam_izlenme": 13536,
    "video_sayisi": 47,
    "son28": {
-    "views": 13039,
-    "estimatedMinutesWatched": 1633,
+    "views": 13060,
+    "estimatedMinutesWatched": 1635,
     "subscribersGained": 13,
     "subscribersLost": 3
    },
    "son7": {
-    "views": 1185,
-    "estimatedMinutesWatched": 125,
-    "subscribersGained": 2,
-    "subscribersLost": 1,
-    "averageViewPercentage": 36.06,
-    "likes": 11,
+    "views": 184,
+    "estimatedMinutesWatched": 18,
+    "subscribersGained": 0,
+    "subscribersLost": 0,
+    "averageViewPercentage": 18.28,
+    "likes": 3,
     "comments": 8
    },
-   "onceki7_izlenme": 4179,
+   "onceki7_izlenme": 2725,
    "uzun_video_saat_365": 0.0,
-   "shorts_izlenme_90": 13026,
+   "shorts_izlenme_90": 13047,
    "en_iyi_7gun": [
     {
+     "video": "L0Xr4qmMBLk",
+     "views": 108,
+     "engagedViews": 36,
+     "averageViewDuration": 12,
+     "averageViewPercentage": 25.290000000000003,
+     "likes": 1,
+     "comments": 0,
+     "baslik": "500 TL ile 50.000 TL Hedefi | Gün 18/30 | Kararı Siz Verin! 💸"
+    },
+    {
+     "video": "Zj8eMFuuc44",
+     "views": 20,
+     "engagedViews": 10,
+     "averageViewDuration": 11,
+     "averageViewPercentage": 29.87,
+     "likes": 1,
+     "comments": 1,
+     "baslik": "Katil Kim? 🕵️ Dosya #18: Uzun Boylu Hırsız | Yorumlara A, B veya C yaz!"
+    },
+    {
      "video": "v-oLiq8R-AM",
-     "views": 978,
-     "engagedViews": 399,
-     "averageViewDuration": 13,
-     "averageViewPercentage": 43.32,
-     "likes": 10,
+     "views": 16,
+     "engagedViews": 5,
+     "averageViewDuration": 8,
+     "averageViewPercentage": 26.91,
+     "likes": 1,
      "comments": 0,
      "baslik": "13 Yıl Bekledik, Dükkân mı Kalır! GTA 6 Çıktı 😂 #shorts"
     },
     {
-     "video": "L0Xr4qmMBLk",
-     "views": 147,
-     "engagedViews": 46,
-     "averageViewDuration": 11,
-     "averageViewPercentage": 24.06,
-     "likes": 1,
-     "comments": 1,
-     "baslik": "500 TL ile 50.000 TL Hedefi | Gün 18/30 | Kararı Siz Verin! 💸"
-    },
-    {
      "video": "8yMDlDHC9BI",
-     "views": 11,
-     "engagedViews": 1,
-     "averageViewDuration": 18,
-     "averageViewPercentage": 47.69,
+     "views": 7,
+     "engagedViews": 0,
+     "averageViewDuration": 0,
+     "averageViewPercentage": 0,
      "likes": 0,
      "comments": 0,
      "baslik": "Katil Kim? 🕵️ Dosya #10: Eksik Düğme | Yorumlara A, B veya C yaz!"
     },
     {
      "video": "XgJoveZFRKk",
-     "views": 10,
-     "engagedViews": 6,
-     "averageViewDuration": 15,
-     "averageViewPercentage": 36.8,
+     "views": 7,
+     "engagedViews": 4,
+     "averageViewDuration": 11,
+     "averageViewPercentage": 27.52,
      "likes": 0,
      "comments": 0,
      "baslik": "Katil Kim? 🕵️ Dosya #11: Yanlış Yazılmış Not | Yorumlara A, B veya C yaz!"
-    },
-    {
-     "video": "X9AQOP8sRwQ",
-     "views": 7,
-     "engagedViews": 4,
-     "averageViewDuration": 14,
-     "averageViewPercentage": 31.259999999999998,
-     "likes": 0,
-     "comments": 0,
-     "baslik": "Katil Kim? 🕵️ Dosya #09: Dilin Sürçmesi | Yorumlara A, B veya C yaz!"
     }
    ],
    "videolar_28gun": [
@@ -655,6 +668,19 @@
      "yayin": "2026-11-14"
     },
     {
+     "video": "Zj8eMFuuc44",
+     "views": 20,
+     "engagedViews": 10,
+     "averageViewDuration": 11,
+     "averageViewPercentage": 29.87,
+     "likes": 1,
+     "comments": 1,
+     "shares": 0,
+     "subscribersGained": 0,
+     "baslik": "Katil Kim? 🕵️ Dosya #18: Uzun Boylu Hırsız | Yorumlara A, B veya C yaz!",
+     "yayin": "2026-11-23"
+    },
+    {
      "video": "Cj3WfkqO7hM",
      "views": 13,
      "engagedViews": 8,
@@ -734,7 +760,7 @@
     },
     {
      "video": "_M19JEASRjY",
-     "views": 1,
+     "views": 2,
      "engagedViews": 0,
      "averageViewDuration": 0,
      "averageViewPercentage": 0,
@@ -785,6 +811,19 @@
      "yayin": "2026-11-23"
     },
     {
+     "video": "6CO2aTZw3Eo",
+     "views": 0,
+     "engagedViews": 0,
+     "averageViewDuration": 0,
+     "averageViewPercentage": 0,
+     "likes": 0,
+     "comments": 1,
+     "shares": 0,
+     "subscribersGained": 0,
+     "baslik": "Katil Kim? 🕵️ Dosya #19: Açık Kapı | Yorumlara A, B veya C yaz!",
+     "yayin": "2026-11-24"
+    },
+    {
      "video": "7RLrkzYTo2k",
      "views": 0,
      "engagedViews": 0,
@@ -798,7 +837,7 @@
      "yayin": "2026-11-22"
     },
     {
-     "video": "Zj8eMFuuc44",
+     "video": "ngUpBkDXcXE",
      "views": 0,
      "engagedViews": 0,
      "averageViewDuration": 0,
@@ -807,8 +846,8 @@
      "comments": 1,
      "shares": 0,
      "subscribersGained": 0,
-     "baslik": "Katil Kim? 🕵️ Dosya #18: Uzun Boylu Hırsız | Yorumlara A, B veya C yaz!",
-     "yayin": "2026-11-23"
+     "baslik": "Katil Kim? 🕵️ Dosya #20: Kırmızı Bere | Yorumlara A, B veya C yaz!",
+     "yayin": "2026-11-24"
     },
     {
      "video": "zxPHQErqVHE",
@@ -826,75 +865,85 @@
    ],
    "en_kotu_7gun": [
     {
-     "video": "Cj3WfkqO7hM",
-     "views": 3,
-     "engagedViews": 3,
-     "averageViewDuration": 4,
-     "averageViewPercentage": 0.79,
+     "video": "HbfeNONB5sc",
+     "views": 2,
+     "engagedViews": 1,
+     "averageViewDuration": 6,
+     "averageViewPercentage": 15.810000000000002,
      "likes": 0,
-     "comments": 0,
-     "baslik": "Kilitli Odada Ölen Kuyumcu — Katil Kim? | Bursa Vakası"
+     "comments": 1,
+     "baslik": "Katil Kim? 🕵️ Dosya #15: Yağmurlu Nöbet | Yorumlara A, B veya C yaz!"
     }
    ],
    "son24": {
-    "izlenme": "+486",
-    "abone": "+2"
+    "izlenme": "+10",
+    "abone": "+0"
    },
-   "ypp_puan": 0.0133026
+   "ypp_puan": 0.013304700000000001
   },
   "dramabite": {
    "ad": "Drama Bite",
    "abone": 20,
-   "toplam_izlenme": 19523,
-   "video_sayisi": 38,
+   "toplam_izlenme": 19732,
+   "video_sayisi": 39,
    "son28": {
-    "views": 18794,
-    "estimatedMinutesWatched": 2783,
+    "views": 17960,
+    "estimatedMinutesWatched": 2702,
     "subscribersGained": 16,
     "subscribersLost": 0
    },
    "son7": {
-    "views": 1729,
-    "estimatedMinutesWatched": 211,
-    "subscribersGained": 1,
+    "views": 1209,
+    "estimatedMinutesWatched": 93,
+    "subscribersGained": 0,
     "subscribersLost": 0,
-    "averageViewPercentage": 48.06,
-    "likes": 14,
-    "comments": 5
+    "averageViewPercentage": 36.35,
+    "likes": 3,
+    "comments": 6
    },
-   "onceki7_izlenme": 1623,
+   "onceki7_izlenme": 2358,
    "uzun_video_saat_365": 0.0,
-   "shorts_izlenme_90": 19220,
+   "shorts_izlenme_90": 19537,
    "en_iyi_7gun": [
     {
-     "video": "m6bpILWDC_w",
-     "views": 892,
-     "engagedViews": 423,
-     "averageViewDuration": 16,
-     "averageViewPercentage": 52.83,
-     "likes": 10,
-     "comments": 1,
-     "baslik": "GTA 6 Günü Herkes İzinli! Ama Türkçe Yok 😅 #shorts"
-    },
-    {
      "video": "6qn4KxM32jc",
-     "views": 396,
-     "engagedViews": 82,
-     "averageViewDuration": 31,
-     "averageViewPercentage": 47.83,
-     "likes": 2,
-     "comments": 1,
+     "views": 270,
+     "engagedViews": 59,
+     "averageViewDuration": 30,
+     "averageViewPercentage": 46.28,
+     "likes": 1,
+     "comments": 0,
      "baslik": "Tarçın Kokulu Ceket"
     },
     {
+     "video": "m6bpILWDC_w",
+     "views": 226,
+     "engagedViews": 112,
+     "averageViewDuration": 13,
+     "averageViewPercentage": 43.02,
+     "likes": -1,
+     "comments": 0,
+     "baslik": "GTA 6 Günü Herkes İzinli! Ama Türkçe Yok 😅 #shorts"
+    },
+    {
      "video": "6A-z_CwAcUc",
-     "views": 125,
-     "engagedViews": 15,
-     "averageViewDuration": 20,
-     "averageViewPercentage": 25.83,
+     "views": 123,
+     "engagedViews": 14,
+     "averageViewDuration": 17,
+     "averageViewPercentage": 21.67,
      "likes": 1,
      "comments": 1,
      "baslik": "Kutsal Yalan"
+    },
+    {
+     "video": "1nMX1zmcJag",
+     "views": 121,
+     "engagedViews": 7,
+     "averageViewDuration": 24,
+     "averageViewPercentage": 33.7,
+     "likes": 0,
+     "comments": 1,
+     "baslik": "Kardeşimin Kasadan Para Çaldığını Sanmıştım"
     },
     {
      "video": "1zGu_QcaJNU",
@@ -905,16 +954,6 @@
      "likes": 0,
      "comments": 1,
      "baslik": "Yanık Mektubun Sırrı"
-    },
-    {
-     "video": "h7ramTvr7Js",
-     "views": 107,
-     "engagedViews": 7,
-     "averageViewDuration": 27,
-     "averageViewPercentage": 37.91,
-     "likes": 1,
-     "comments": 1,
-     "baslik": "Yarım Kalan Piyon"
     }
    ],
    "videolar_28gun": [
@@ -959,7 +998,7 @@
     },
     {
      "video": "MVJEDvbV6-M",
-     "views": 1402,
+     "views": 1403,
      "engagedViews": 417,
      "averageViewDuration": 23,
      "averageViewPercentage": 27.74,
@@ -982,19 +1021,6 @@
      "subscribersGained": 1,
      "baslik": "Paslı Anahtar",
      "yayin": "2026-11-02"
-    },
-    {
-     "video": "LWk-r-1ULQs",
-     "views": 1320,
-     "engagedViews": 458,
-     "averageViewDuration": 12,
-     "averageViewPercentage": 15.160000000000002,
-     "likes": 5,
-     "comments": 0,
-     "shares": 2,
-     "subscribersGained": 1,
-     "baslik": "Geç  Kalınmış  Bir  Çağrı",
-     "yayin": "2026-10-29"
     },
     {
      "video": "ve1aLzR2fjY",
@@ -1076,7 +1102,7 @@
     },
     {
      "video": "6qn4KxM32jc",
-     "views": 396,
+     "views": 397,
      "engagedViews": 82,
      "averageViewDuration": 31,
      "averageViewPercentage": 47.83,
@@ -1127,6 +1153,19 @@
      "yayin": "2026-11-13"
     },
     {
+     "video": "LWk-r-1ULQs",
+     "views": 170,
+     "engagedViews": 83,
+     "averageViewDuration": 16,
+     "averageViewPercentage": 19.58,
+     "likes": 1,
+     "comments": 0,
+     "shares": 0,
+     "subscribersGained": 1,
+     "baslik": "Geç  Kalınmış  Bir  Çağrı",
+     "yayin": "2026-10-29"
+    },
+    {
      "video": "TcsicM17Mxc",
      "views": 169,
      "engagedViews": 24,
@@ -1167,16 +1206,29 @@
     },
     {
      "video": "6A-z_CwAcUc",
-     "views": 125,
-     "engagedViews": 15,
-     "averageViewDuration": 20,
-     "averageViewPercentage": 25.83,
+     "views": 123,
+     "engagedViews": 14,
+     "averageViewDuration": 17,
+     "averageViewPercentage": 21.67,
      "likes": 1,
      "comments": 1,
      "shares": 0,
      "subscribersGained": 0,
      "baslik": "Kutsal Yalan",
      "yayin": "2026-11-21"
+    },
+    {
+     "video": "1nMX1zmcJag",
+     "views": 121,
+     "engagedViews": 7,
+     "averageViewDuration": 24,
+     "averageViewPercentage": 33.7,
+     "likes": 0,
+     "comments": 1,
+     "shares": 0,
+     "subscribersGained": 0,
+     "baslik": "Kardeşimin Kasadan Para Çaldığını Sanmıştım",
+     "yayin": "2026-11-24"
     },
     {
      "video": "1zGu_QcaJNU",
@@ -1192,8 +1244,21 @@
      "yayin": "2026-11-20"
     },
     {
+     "video": "DxcKrbYVBwM",
+     "views": 109,
+     "engagedViews": 12,
+     "averageViewDuration": 10,
+     "averageViewPercentage": 14.49,
+     "likes": 0,
+     "comments": 1,
+     "shares": 0,
+     "subscribersGained": 0,
+     "baslik": "Yanlış Peron",
+     "yayin": "2026-11-24"
+    },
+    {
      "video": "h7ramTvr7Js",
-     "views": 107,
+     "views": 106,
      "engagedViews": 7,
      "averageViewDuration": 27,
      "averageViewPercentage": 37.91,
@@ -1229,6 +1294,19 @@
      "subscribersGained": 0,
      "baslik": "Paslı Saat ve Umut #shorts",
      "yayin": "2026-11-15"
+    },
+    {
+     "video": "eGrEur0dUUU",
+     "views": 58,
+     "engagedViews": 6,
+     "averageViewDuration": 7,
+     "averageViewPercentage": 11.18,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "subscribersGained": 0,
+     "baslik": "Gece 02:15 Mesajı",
+     "yayin": "2026-11-24"
     },
     {
      "video": "pOkrjeRXElY",
@@ -1296,19 +1374,6 @@
      "yayin": "2026-11-05"
     },
     {
-     "video": "rfwUHpdfNkI",
-     "views": 5,
-     "engagedViews": 2,
-     "averageViewDuration": 9,
-     "averageViewPercentage": 14.32,
-     "likes": 1,
-     "comments": 0,
-     "shares": 0,
-     "subscribersGained": 0,
-     "baslik": "On Saniyelik Gecikme  #shorts",
-     "yayin": "2026-10-25"
-    },
-    {
      "video": "HWIq1Yuh5ww",
      "views": 4,
      "engagedViews": 2,
@@ -1320,6 +1385,19 @@
      "subscribersGained": 0,
      "baslik": "Son Kutu #hikaye #duygusal #kısahikaye #kurgu #pişmanlık #askhikayesi #hayatdersi",
      "yayin": "2026-10-28"
+    },
+    {
+     "video": "rfwUHpdfNkI",
+     "views": 4,
+     "engagedViews": 1,
+     "averageViewDuration": 3,
+     "averageViewPercentage": 5.91,
+     "likes": 1,
+     "comments": 0,
+     "shares": 0,
+     "subscribersGained": 0,
+     "baslik": "On Saniyelik Gecikme  #shorts",
+     "yayin": "2026-10-25"
     },
     {
      "video": "vmNSYF93YEQ",
@@ -1337,65 +1415,65 @@
    ],
    "en_kotu_7gun": [
     {
-     "video": "63nM-Bg4wyI",
-     "views": 2,
+     "video": "TcsicM17Mxc",
+     "views": 27,
      "engagedViews": 1,
      "averageViewDuration": 4,
-     "averageViewPercentage": 8.24,
+     "averageViewPercentage": 5.38,
      "likes": 0,
      "comments": 0,
-     "baslik": "Gizli Emanet | Efe sizce sırrı neden on beş yıl boyunca saklamış olabilir? #shorts"
+     "baslik": "Kırık Saat"
     }
    ],
    "son24": {
-    "izlenme": "+18",
-    "abone": "+2"
+    "izlenme": "+209",
+    "abone": "+0"
    },
-   "ypp_puan": 0.021922
+   "ypp_puan": 0.0219537
   },
   "dukkantv": {
    "ad": "Dükkan Tv",
    "abone": 11,
-   "toplam_izlenme": 8953,
-   "video_sayisi": 25,
+   "toplam_izlenme": 8994,
+   "video_sayisi": 26,
    "son28": {
-    "views": 9643,
-    "estimatedMinutesWatched": 1227,
+    "views": 10648,
+    "estimatedMinutesWatched": 1330,
     "subscribersGained": 13,
     "subscribersLost": 4
    },
    "son7": {
-    "views": 4415,
-    "estimatedMinutesWatched": 557,
-    "subscribersGained": 5,
-    "subscribersLost": 3,
-    "averageViewPercentage": 68.43,
-    "likes": 35,
-    "comments": 11
+    "views": 4409,
+    "estimatedMinutesWatched": 554,
+    "subscribersGained": 4,
+    "subscribersLost": 2,
+    "averageViewPercentage": 69.79,
+    "likes": 24,
+    "comments": 12
    },
-   "onceki7_izlenme": 3456,
+   "onceki7_izlenme": 4457,
    "uzun_video_saat_365": 0.0,
-   "shorts_izlenme_90": 9643,
+   "shorts_izlenme_90": 10648,
    "en_iyi_7gun": [
     {
      "video": "aA1_m_DunIg",
-     "views": 3292,
-     "engagedViews": 1369,
+     "views": 3422,
+     "engagedViews": 1424,
      "averageViewDuration": 17,
-     "averageViewPercentage": 79.05,
+     "averageViewPercentage": 79.25,
      "likes": 18,
      "comments": 1,
      "baslik": "Cemo Diyette 😂 | Levent & Cemo #shorts"
     },
     {
-     "video": "Z62Rz0eOw2U",
-     "views": 1021,
-     "engagedViews": 397,
-     "averageViewDuration": 13,
-     "averageViewPercentage": 43.07,
-     "likes": 15,
-     "comments": 3,
-     "baslik": "GTA 6 Çıktı, Esnaf Kepenk İndirdi! 😂 Asıl Olay Bu Değil #shorts"
+     "video": "VH-zSJu2wpM",
+     "views": 499,
+     "engagedViews": 140,
+     "averageViewDuration": 19,
+     "averageViewPercentage": 42.45,
+     "likes": 2,
+     "comments": 1,
+     "baslik": "Mahallede Aslan Paniği: Valilik Ne Dedi? #shorts"
     },
     {
      "video": "M8iVDK-a3fc",
@@ -1408,33 +1486,33 @@
      "baslik": "Çarşı Ligi Geliyor! 15 Esnaf, 2 Takım, 1 Şampiyon 🏪 #shorts"
     },
     {
+     "video": "HUA7y9kVGUU",
+     "views": 31,
+     "engagedViews": 5,
+     "averageViewDuration": 24,
+     "averageViewPercentage": 42.15,
+     "likes": 0,
+     "comments": 1,
+     "baslik": "Mavi Tente Takımıyla Tanışın! 🔵 Çarşı Ligi #shorts"
+    },
+    {
      "video": "0UR3tQw3VsM",
-     "views": 18,
+     "views": 19,
      "engagedViews": 4,
      "averageViewDuration": 4,
      "averageViewPercentage": 6.11,
      "likes": 0,
-     "comments": 0,
-     "baslik": "Çarşı Ligi Kura Gecesi: Hangi Esnaf Hangi Takımda? 🎲 #shorts"
-    },
-    {
-     "video": "t3Axe_9Dgas",
-     "views": 13,
-     "engagedViews": 7,
-     "averageViewDuration": 15,
-     "averageViewPercentage": 63.01,
-     "likes": 0,
      "comments": 1,
-     "baslik": "Veli Toplantısı 😂 | Levent & Cemo #shorts"
+     "baslik": "Çarşı Ligi Kura Gecesi: Hangi Esnaf Hangi Takımda? 🎲 #shorts"
     }
    ],
    "videolar_28gun": [
     {
      "video": "aA1_m_DunIg",
-     "views": 3292,
-     "engagedViews": 1369,
+     "views": 3422,
+     "engagedViews": 1424,
      "averageViewDuration": 17,
-     "averageViewPercentage": 79.05,
+     "averageViewPercentage": 79.25,
      "likes": 18,
      "comments": 1,
      "shares": 1,
@@ -1444,10 +1522,10 @@
     },
     {
      "video": "o604wSBnG1M",
-     "views": 3240,
-     "engagedViews": 1379,
+     "views": 3242,
+     "engagedViews": 1380,
      "averageViewDuration": 20,
-     "averageViewPercentage": 92.75,
+     "averageViewPercentage": 92.76,
      "likes": 20,
      "comments": 1,
      "shares": 27,
@@ -1470,16 +1548,29 @@
     },
     {
      "video": "Z62Rz0eOw2U",
-     "views": 1021,
-     "engagedViews": 397,
+     "views": 1023,
+     "engagedViews": 398,
      "averageViewDuration": 13,
-     "averageViewPercentage": 43.07,
+     "averageViewPercentage": 43,
      "likes": 15,
      "comments": 3,
      "shares": 0,
      "subscribersGained": 1,
      "baslik": "GTA 6 Çıktı, Esnaf Kepenk İndirdi! 😂 Asıl Olay Bu Değil #shorts",
      "yayin": "2026-11-19"
+    },
+    {
+     "video": "VH-zSJu2wpM",
+     "views": 499,
+     "engagedViews": 140,
+     "averageViewDuration": 19,
+     "averageViewPercentage": 42.45,
+     "likes": 2,
+     "comments": 1,
+     "shares": 0,
+     "subscribersGained": 0,
+     "baslik": "Mahallede Aslan Paniği: Valilik Ne Dedi? #shorts",
+     "yayin": "2026-11-24"
     },
     {
      "video": "yU-iIEg2d8g",
@@ -1547,17 +1638,43 @@
      "yayin": "2026-11-21"
     },
     {
+     "video": "HUA7y9kVGUU",
+     "views": 31,
+     "engagedViews": 5,
+     "averageViewDuration": 24,
+     "averageViewPercentage": 42.15,
+     "likes": 0,
+     "comments": 1,
+     "shares": 0,
+     "subscribersGained": 0,
+     "baslik": "Mavi Tente Takımıyla Tanışın! 🔵 Çarşı Ligi #shorts",
+     "yayin": "2026-11-24"
+    },
+    {
      "video": "0UR3tQw3VsM",
-     "views": 18,
+     "views": 19,
      "engagedViews": 4,
      "averageViewDuration": 4,
      "averageViewPercentage": 6.11,
      "likes": 0,
-     "comments": 0,
+     "comments": 1,
      "shares": 0,
      "subscribersGained": 0,
      "baslik": "Çarşı Ligi Kura Gecesi: Hangi Esnaf Hangi Takımda? 🎲 #shorts",
      "yayin": "2026-11-22"
+    },
+    {
+     "video": "z7eAXK1Gkhs",
+     "views": 17,
+     "engagedViews": 6,
+     "averageViewDuration": 42,
+     "averageViewPercentage": 192.8,
+     "likes": 0,
+     "comments": 1,
+     "shares": 3,
+     "subscribersGained": 0,
+     "baslik": "Deniz Manzaralı Daire 😂 | Levent & Cemo #shorts",
+     "yayin": "2026-11-23"
     },
     {
      "video": "UTq5le3pxT8",
@@ -1612,19 +1729,6 @@
      "yayin": "2026-11-18"
     },
     {
-     "video": "z7eAXK1Gkhs",
-     "views": 12,
-     "engagedViews": 3,
-     "averageViewDuration": 58,
-     "averageViewPercentage": 267.58,
-     "likes": 0,
-     "comments": 1,
-     "shares": 3,
-     "subscribersGained": 0,
-     "baslik": "Deniz Manzaralı Daire 😂 | Levent & Cemo #shorts",
-     "yayin": "2026-11-23"
-    },
-    {
      "video": "VcDoX7UZCks",
      "views": 11,
      "engagedViews": 3,
@@ -1639,10 +1743,10 @@
     },
     {
      "video": "vcT2isvdv-Q",
-     "views": 7,
-     "engagedViews": 3,
-     "averageViewDuration": 23,
-     "averageViewPercentage": 98.27,
+     "views": 8,
+     "engagedViews": 4,
+     "averageViewDuration": 22,
+     "averageViewPercentage": 94.08,
      "likes": 0,
      "comments": 1,
      "shares": 0,
@@ -1678,7 +1782,7 @@
     },
     {
      "video": "iV5QOTAkPdg",
-     "views": 3,
+     "views": 4,
      "engagedViews": 2,
      "averageViewDuration": 5,
      "averageViewPercentage": 18.43,
@@ -1690,21 +1794,8 @@
      "yayin": "2026-11-22"
     },
     {
-     "video": "dT0Yn-V1wXY",
-     "views": 2,
-     "engagedViews": 0,
-     "averageViewDuration": 0,
-     "averageViewPercentage": 0,
-     "likes": 0,
-     "comments": 1,
-     "shares": 0,
-     "subscribersGained": 0,
-     "baslik": "Haftanın En Komik Skeçleri #2 😂 | Levent & Cemo",
-     "yayin": "2026-11-22"
-    },
-    {
      "video": "oQkIp3C9puU",
-     "views": 1,
+     "views": 4,
      "engagedViews": 0,
      "averageViewDuration": 0,
      "averageViewPercentage": 0,
@@ -1714,67 +1805,106 @@
      "subscribersGained": 0,
      "baslik": "Levent ile Cemo Kung Fu Okulunda 🥋😂 #shorts",
      "yayin": "2026-11-22"
+    },
+    {
+     "video": "1rUUI3Rk5xs",
+     "views": 3,
+     "engagedViews": 1,
+     "averageViewDuration": 55,
+     "averageViewPercentage": 250.09,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "subscribersGained": 0,
+     "baslik": "Poşet Pazarlığı 😂 | Levent & Cemo #shorts",
+     "yayin": "2026-11-24"
+    },
+    {
+     "video": "dT0Yn-V1wXY",
+     "views": 3,
+     "engagedViews": 1,
+     "averageViewDuration": 29,
+     "averageViewPercentage": 23.89,
+     "likes": 0,
+     "comments": 1,
+     "shares": 0,
+     "subscribersGained": 0,
+     "baslik": "Haftanın En Komik Skeçleri #2 😂 | Levent & Cemo",
+     "yayin": "2026-11-22"
+    },
+    {
+     "video": "1DYCOIqavBU",
+     "views": 0,
+     "engagedViews": 0,
+     "averageViewDuration": 0,
+     "averageViewPercentage": 0,
+     "likes": 0,
+     "comments": 0,
+     "shares": 0,
+     "subscribersGained": 0,
+     "baslik": "Kırmızı Tente Takımıyla Tanışın! 🔴 Çarşı Ligi #shorts",
+     "yayin": "2026-11-23"
     }
    ],
    "en_kotu_7gun": [
     {
-     "video": "iV5QOTAkPdg",
-     "views": 3,
-     "engagedViews": 2,
-     "averageViewDuration": 5,
-     "averageViewPercentage": 18.43,
-     "likes": 1,
-     "comments": 1,
-     "baslik": "Levent ile Cemo Kaplandan Kaçış 🐯😱 #shorts"
+     "video": "t3Axe_9Dgas",
+     "views": 11,
+     "engagedViews": 6,
+     "averageViewDuration": 13,
+     "averageViewPercentage": 54.64,
+     "likes": 0,
+     "comments": 0,
+     "baslik": "Veli Toplantısı 😂 | Levent & Cemo #shorts"
     }
    ],
    "son24": {
-    "izlenme": "+521",
-    "abone": "+2"
+    "izlenme": "+41",
+    "abone": "+0"
    },
-   "ypp_puan": 0.011964299999999999
+   "ypp_puan": 0.012064799999999999
   },
   "gizlitarih": {
    "ad": "Gizli Tarih",
    "abone": 16,
-   "toplam_izlenme": 2834,
-   "video_sayisi": 14,
+   "toplam_izlenme": 3231,
+   "video_sayisi": 15,
    "son28": {
-    "views": 2175,
-    "estimatedMinutesWatched": 740,
-    "subscribersGained": 8,
+    "views": 2394,
+    "estimatedMinutesWatched": 785,
+    "subscribersGained": 9,
     "subscribersLost": 0
    },
    "son7": {
-    "views": 2084,
-    "estimatedMinutesWatched": 594,
+    "views": 1883,
+    "estimatedMinutesWatched": 501,
     "subscribersGained": 2,
     "subscribersLost": 0,
-    "averageViewPercentage": 47.2,
-    "likes": 24,
+    "averageViewPercentage": 52.37,
+    "likes": 25,
     "comments": 5
    },
-   "onceki7_izlenme": 91,
+   "onceki7_izlenme": 511,
    "uzun_video_saat_365": 4.1,
-   "shorts_izlenme_90": 1887,
+   "shorts_izlenme_90": 2106,
    "en_iyi_7gun": [
     {
      "video": "n9LlOlqNnV8",
-     "views": 1114,
-     "engagedViews": 507,
+     "views": 783,
+     "engagedViews": 383,
      "averageViewDuration": 36,
-     "averageViewPercentage": 62.66,
-     "likes": 12,
-     "comments": 1,
+     "averageViewPercentage": 63.5,
+     "likes": 7,
+     "comments": 0,
      "baslik": "Dünyada Elektrikler Tamamen Kesilirse Ne Olur? ⚡ #shorts"
     },
     {
      "video": "Ffp-DcYr_cI",
-     "views": 574,
-     "engagedViews": 238,
+     "views": 601,
+     "engagedViews": 246,
      "averageViewDuration": 29,
-     "averageViewPercentage": 57.42,
-     "likes": 8,
+     "averageViewPercentage": 57.830000000000005,
+     "likes": 10,
      "comments": 1,
      "baslik": "Güneş Bir Anda Sönerse Ne Olur? ☀️ #shorts"
     },
@@ -1790,23 +1920,23 @@
     },
     {
      "video": "cz22hKF9eLE",
-     "views": 183,
-     "engagedViews": 70,
-     "averageViewDuration": 78,
-     "averageViewPercentage": 24.02,
+     "views": 100,
+     "engagedViews": 32,
+     "averageViewDuration": 71,
+     "averageViewPercentage": 22,
      "likes": 0,
      "comments": 0,
      "baslik": "Bir Eskici Padişahı Nasıl Tahttan İndirdi? Patrona Halil İsyanı (1730)"
     },
     {
-     "video": "cDsZwDx8Svw",
-     "views": 7,
-     "engagedViews": 0,
-     "averageViewDuration": 0,
-     "averageViewPercentage": 0,
-     "likes": 0,
+     "video": "dFV-GBhgTAw",
+     "views": 94,
+     "engagedViews": 27,
+     "averageViewDuration": 27,
+     "averageViewPercentage": 53.92,
+     "likes": 2,
      "comments": 0,
-     "baslik": "Kanuni'nin Ölümü 48 Gün Neden Saklandı? Zigetvar'ın Sırrı"
+     "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts"
     }
    ],
    "videolar_28gun": [
@@ -1825,11 +1955,11 @@
     },
     {
      "video": "Ffp-DcYr_cI",
-     "views": 574,
-     "engagedViews": 238,
+     "views": 601,
+     "engagedViews": 246,
      "averageViewDuration": 29,
-     "averageViewPercentage": 57.42,
-     "likes": 8,
+     "averageViewPercentage": 57.830000000000005,
+     "likes": 10,
      "comments": 1,
      "shares": 0,
      "subscribersGained": 0,
@@ -1861,6 +1991,32 @@
      "subscribersGained": 0,
      "baslik": "Dünyada İnternet Tamamen Çökerse Ne Olur? 🌐 #shorts",
      "yayin": "2026-11-21"
+    },
+    {
+     "video": "dFV-GBhgTAw",
+     "views": 94,
+     "engagedViews": 27,
+     "averageViewDuration": 27,
+     "averageViewPercentage": 53.92,
+     "likes": 2,
+     "comments": 0,
+     "shares": 7,
+     "subscribersGained": 0,
+     "baslik": "Hesabına Yanlışlıkla 1 Milyon TL Yatsa Ne Olur? 💸 #shorts",
+     "yayin": "2026-11-24"
+    },
+    {
+     "video": "_NrmswsbF0Y",
+     "views": 90,
+     "engagedViews": 38,
+     "averageViewDuration": 37,
+     "averageViewPercentage": 68.33,
+     "likes": 2,
+     "comments": 1,
+     "shares": 0,
+     "subscribersGained": 0,
+     "baslik": "Dünyadaki Bütün Arılar Yok Olursa Ne Olur? 🐝 #shorts",
+     "yayin": "2026-11-24"
     },
     {
      "video": "uNh-60MM1uA",
@@ -1923,13 +2079,13 @@
      "averageViewDuration": 9,
      "averageViewPercentage": 29.68,
      "likes": 0,
-     "comments": 1,
+     "comments": 0,
      "baslik": "Tarihe Geçen Gün: GTA 6 Çıktı, Kepenkler İndi! 😂 #shorts"
     }
    ],
    "son24": {
-    "izlenme": "+465",
-    "abone": "+6"
+    "izlenme": "+397",
+    "abone": "+0"
    },
    "ypp_puan": 0.017025
   }
@@ -1948,8 +2104,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgNOX6WorUE/",
      "timestamp": "2026-11-26T13:35:31+0000",
-     "views": 121,
-     "reach": 104,
+     "views": 123,
+     "reach": 107,
      "saved": 0,
      "shares": 0
     },
@@ -2039,18 +2195,31 @@
   "kasakurgu": {
    "kullanici": "kasakurgu.tr",
    "takipci": 7,
-   "gonderi": 43,
+   "gonderi": 44,
    "son7_gonderi": [
+    {
+     "id": "18454081306124414",
+     "caption": "Kayıp Kargo: Katil Kim? Sadece %1 Çözer! 🕵️\n\n📩 Çözemeyeceğini düşündüğün arkadaşına gönder 🕵️\n\n#katilkim #dedektif #gizem #vaka #bilmece #kurgusalhikaye",
+     "comments_count": 0,
+     "like_count": 3,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgNxjN0B-xb/",
+     "timestamp": "2026-11-26T18:42:47+0000",
+     "views": 149,
+     "reach": 122,
+     "saved": 0,
+     "shares": 0
+    },
     {
      "id": "18202390396386054",
      "caption": "Sessiz Alarm: Katil Kim? Sadece %1 Çözer! 🕵️\n\n📩 Çözemeyeceğini düşündüğün arkadaşına gönder 🕵️\n\n#katilkim #dedektif #gizem #vaka #bilmece #kurgusalhikaye",
      "comments_count": 0,
-     "like_count": 1,
+     "like_count": 2,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgNcaxfzmKN/",
      "timestamp": "2026-11-26T15:38:35+0000",
-     "views": 1,
-     "reach": 0,
+     "views": 116,
+     "reach": 102,
      "saved": 0,
      "shares": 0
     },
@@ -2114,8 +2283,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgLAOOPSwiP/",
      "timestamp": "2026-11-25T16:53:34+0000",
-     "views": 125,
-     "reach": 114,
+     "views": 126,
+     "reach": 115,
      "saved": 0,
      "shares": 0
     },
@@ -2183,19 +2352,6 @@
      "reach": 111,
      "saved": 0,
      "shares": 0
-    },
-    {
-     "id": "18188522722421032",
-     "caption": "500 TL ile 50.000 TL Hedefi | Gün 18/30 | Kararı Siz Verin! 💸\n\n#girişimcilik #parabiriktirme #kurguhikaye #kasa #esnaf #karar",
-     "comments_count": 0,
-     "like_count": 1,
-     "media_product_type": "REELS",
-     "permalink": "https://www.instagram.com/reel/Df7rZwlj8OD/",
-     "timestamp": "2026-11-19T18:02:49+0000",
-     "views": 121,
-     "reach": 115,
-     "saved": 0,
-     "shares": 0
     }
    ],
    "icgoru": true,
@@ -2205,18 +2361,44 @@
   "dramabite": {
    "kullanici": "dramabitetr",
    "takipci": 13,
-   "gonderi": 25,
+   "gonderi": 27,
    "son7_gonderi": [
+    {
+     "id": "18083569088461808",
+     "caption": "10 Yıllık Cevapsız Arama\n\n📩 Bu hikâyeyi okuması gereken birine gönder.\n\n#hikaye #duygusal #pismanlik #anilar #kısahikaye",
+     "comments_count": 0,
+     "like_count": 3,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgN1R3YB7_F/",
+     "timestamp": "2026-11-26T19:15:30+0000",
+     "views": 120,
+     "reach": 113,
+     "saved": 0,
+     "shares": 0
+    },
+    {
+     "id": "18041218880890403",
+     "caption": "14 Saniyelik Ses Kaydı\n\n📩 Bu hikâyeyi okuması gereken birine gönder.\n\n#hikaye #duygusal #kesfet #huzun #anlamli",
+     "comments_count": 0,
+     "like_count": 1,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgNjAgUqvC6/",
+     "timestamp": "2026-11-26T16:36:09+0000",
+     "views": 126,
+     "reach": 116,
+     "saved": 0,
+     "shares": 0
+    },
     {
      "id": "17887298343525340",
      "caption": "30 Yıllık Paslı Dolap\n\n📩 Bu hikâyeyi okuması gereken birine gönder.\n\n#hikaye #duygusal #kurgu #anlamlihikayeler #hikayedinle",
      "comments_count": 0,
-     "like_count": 2,
+     "like_count": 3,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgNSMjzC0yc/",
      "timestamp": "2026-11-26T14:09:23+0000",
-     "views": 452,
-     "reach": 412,
+     "views": 1136,
+     "reach": 1074,
      "saved": 0,
      "shares": 0
     },
@@ -2228,8 +2410,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgM55_UOKHJ/",
      "timestamp": "2026-11-26T10:37:04+0000",
-     "views": 1129,
-     "reach": 1059,
+     "views": 1137,
+     "reach": 1068,
      "saved": 1,
      "shares": 0
     },
@@ -2254,8 +2436,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgLbvstzDat/",
      "timestamp": "2026-11-25T20:54:03+0000",
-     "views": 1110,
-     "reach": 1010,
+     "views": 1112,
+     "reach": 1013,
      "saved": 0,
      "shares": 0
     },
@@ -2279,20 +2461,33 @@
   },
   "dukkantv": {
    "kullanici": "dukkan.tv",
-   "takipci": 62,
-   "gonderi": 23,
+   "takipci": 64,
+   "gonderi": 24,
    "son7_gonderi": [
+    {
+     "id": "17955269157352283",
+     "caption": "Gece Şarjda Bırakmak Bataryayı Bozar mı? 🔋 Doğru Bilinen Yanlış\n\n📩 Bunu yaşayan arkadaşına gönder 😂\n\n#geceşarj #batarya #telefonşarj #doğrubilinenyanlışlar #telefonipuçları #bilgi",
+     "comments_count": 0,
+     "like_count": 10,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgNtsTesUmP/",
+     "timestamp": "2026-11-26T18:09:11+0000",
+     "views": 1272,
+     "reach": 1101,
+     "saved": 4,
+     "shares": 22
+    },
     {
      "id": "17927838180446139",
      "caption": "Simitçi Hasan Amca 🥯 | Levent & Cemo\n\n📩 Bunu yaşayan arkadaşına gönder 😂\n\n#komedi #mizah #çizgifilm #komikvideo #leventvecemo #dükkantv #simit #simitçi",
      "comments_count": 0,
-     "like_count": 12,
+     "like_count": 20,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgNYgYlq6p1/",
      "timestamp": "2026-11-26T15:04:24+0000",
-     "views": 869,
-     "reach": 304,
-     "saved": 0,
+     "views": 1833,
+     "reach": 1659,
+     "saved": 1,
      "shares": 0
     },
     {
@@ -2303,8 +2498,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgM2GlWutSO/",
      "timestamp": "2026-11-26T10:03:28+0000",
-     "views": 134,
-     "reach": 124,
+     "views": 143,
+     "reach": 130,
      "saved": 0,
      "shares": 0
     },
@@ -2312,12 +2507,12 @@
      "id": "18056924234599257",
      "caption": "Bursa Dedektifleri: Kaybolan Simitler 🔍 | Levent & Cemo\n\n📩 Bunu yaşayan arkadaşına gönder 😂\n\n#komedi #mizah #çizgifilm #komikvideo #leventvecemo #dükkantv #dedektif #simit",
      "comments_count": 0,
-     "like_count": 6,
+     "like_count": 7,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgMfQyAi75Q/",
      "timestamp": "2026-11-26T06:43:49+0000",
-     "views": 1388,
-     "reach": 1291,
+     "views": 1431,
+     "reach": 1331,
      "saved": 1,
      "shares": 0
     },
@@ -2325,12 +2520,12 @@
      "id": "18190463110415381",
      "caption": "Poşet Pazarlığı 😂 | Levent & Cemo\n\n📩 Bunu yaşayan arkadaşına gönder 😂\n\n#komedi #mizah #çizgifilm #komikvideo #leventvecemo #dükkantv #market #kasiyer",
      "comments_count": 0,
-     "like_count": 25,
+     "like_count": 27,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgLX-9Mp0Rt/",
      "timestamp": "2026-11-25T20:20:54+0000",
-     "views": 4432,
-     "reach": 3117,
+     "views": 4542,
+     "reach": 3211,
      "saved": 0,
      "shares": 0
     },
@@ -2342,8 +2537,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgLE4R8hb2u/",
      "timestamp": "2026-11-25T17:34:27+0000",
-     "views": 159,
-     "reach": 142,
+     "views": 162,
+     "reach": 145,
      "saved": 0,
      "shares": 0
     },
@@ -2355,8 +2550,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgKd2xDSVXD/",
      "timestamp": "2026-11-25T11:53:00+0000",
-     "views": 143,
-     "reach": 139,
+     "views": 144,
+     "reach": 140,
      "saved": 0,
      "shares": 0
     },
@@ -2368,8 +2563,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgIwyB4geNV/",
      "timestamp": "2026-11-24T19:59:53+0000",
-     "views": 1660,
-     "reach": 1466,
+     "views": 1661,
+     "reach": 1468,
      "saved": 0,
      "shares": 0
     },
@@ -2381,8 +2576,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgF9GbvjNhj/",
      "timestamp": "2026-11-23T17:49:46+0000",
-     "views": 1776,
-     "reach": 1611,
+     "views": 1778,
+     "reach": 1613,
      "saved": 0,
      "shares": 0
     },
@@ -2394,8 +2589,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgFw8XojiTa/",
      "timestamp": "2026-11-23T16:03:36+0000",
-     "views": 2051,
-     "reach": 1548,
+     "views": 2052,
+     "reach": 1549,
      "saved": 1,
      "shares": 0
     },
@@ -2406,8 +2601,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgDhqMmN_F8/",
      "timestamp": "2026-11-22T19:11:58+0000",
-     "views": 221,
-     "reach": 207,
+     "views": 222,
+     "reach": 208,
      "saved": 0,
      "shares": 0
     },
@@ -2418,8 +2613,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgDdJdHti4q/",
      "timestamp": "2026-11-22T18:32:19+0000",
-     "views": 1348,
-     "reach": 1190,
+     "views": 1349,
+     "reach": 1191,
      "saved": 0,
      "shares": 0
     },
@@ -2431,8 +2626,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgDZyV7CZem/",
      "timestamp": "2026-11-22T18:02:55+0000",
-     "views": 2201,
-     "reach": 1704,
+     "views": 2202,
+     "reach": 1707,
      "saved": 0,
      "shares": 0
     },
@@ -2444,8 +2639,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgAnSSqDHPl/",
      "timestamp": "2026-11-21T16:03:01+0000",
-     "views": 2301,
-     "reach": 1615,
+     "views": 2302,
+     "reach": 1616,
      "saved": 0,
      "shares": 7
     },
@@ -2457,8 +2652,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/Df_-D1LkTEk/",
      "timestamp": "2026-11-21T10:02:45+0000",
-     "views": 294,
-     "reach": 235,
+     "views": 295,
+     "reach": 236,
      "saved": 0,
      "shares": 1
     },
@@ -2470,61 +2665,49 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/Df-Cd9ZDH5u/",
      "timestamp": "2026-11-20T16:02:47+0000",
-     "views": 2709,
-     "reach": 1922,
+     "views": 2711,
+     "reach": 1924,
      "saved": 1,
      "shares": 3
-    },
-    {
-     "id": "18058568468804281",
-     "caption": "Veli Toplantısı 😂 | Levent & Cemo\n\n#komedi #mizah #çizgifilm #komikvideo #leventvecemo #dükkantv #öğretmen #okul",
-     "comments_count": 0,
-     "like_count": 9,
-     "media_product_type": "REELS",
-     "permalink": "https://www.instagram.com/reel/Df7dr-egkAS/",
-     "timestamp": "2026-11-19T16:02:56+0000",
-     "views": 2100,
-     "reach": 1528,
-     "saved": 0,
-     "shares": 0
     }
    ],
    "icgoru": true,
-   "son24_takipci": "+0",
+   "son24_takipci": "+2",
    "veri_erisimi_kalan_gun": 81
   }
  },
  "tiktok": {
   "ilturnuva": {
    "bagli": true,
-   "taslak_7gun": 8,
+   "taslak_7gun": 6,
    "izin_kalan_gun": 353
   },
   "kasakurgu": {
    "bagli": true,
-   "taslak_7gun": 14,
-   "izin_kalan_gun": 351
+   "taslak_7gun": 13,
+   "izin_kalan_gun": 350
   },
   "dramabite": {
    "bagli": true,
-   "taslak_7gun": 11,
-   "izin_kalan_gun": 351
+   "taslak_7gun": 10,
+   "izin_kalan_gun": 350
   },
   "dukkantv": {
    "bagli": true,
    "taslak_7gun": 6,
-   "izin_kalan_gun": 348
+   "izin_kalan_gun": 347
   }
  },
  "bekleyen": [],
  "bugun_yayin": [
-  "🕖 18:00 Dükkan TV: Simitçi Hasan Amca 🥯 | Levent & Cemo #sh",
-  "🕖 20:00 Gizli Tarih: Herkes Bir Gün Sadece Doğruyu Söylese Ne",
-  "🕖 19:00 Drama Bite: 10 Yıllık Cevapsız Arama",
-  "🕖 14:00 Kasa Kurgu: Sessiz Alarm: Katil Kim? Sadece %1 Çözer",
-  "🕖 17:30 Kasa Kurgu: Kayıp Kargo: Katil Kim? Sadece %1 Çözer!",
-  "🕖 15:00 Drama Bite: 14 Saniyelik Ses Kaydı",
-  "🕖 19:30 Dükkan TV: Gece Şarjda Bırakmak Bataryayı Bozar mı?"
+  "🕖 12:30 Gizli Tarih: Gökyüzünün En İnanılmaz 5 Canlısı 🦅 #sho",
+  "🕖 16:00 81 İl: 81 İl Turnuvası BÜYÜK FİNAL 🏆 Şampiyon k",
+  "🕖 20:00 Gizli Tarih: Telefonun Hakkında Bilmediğin 5 Şey 📱 #s",
+  "🕖 20:17 Dükkan TV: İnternetten Para Kazanma: Gerçekler ve T",
+  "🕖 18:13 Dükkan TV: Çarşı Ligi 1. Hafta | Ödül Maçı: Kırmızı",
+  "🕖 19:00 Drama Bite: Babama “Gelemiyorum” Yazdım… Cevabı Beni",
+  "🕖 20:00 Gizli Tarih: Derinkuyu Yeraltı Şehri: Duvarı Yıktı, A",
+  "🕖 14:00 Kasa Kurgu: Dağınık Tezgah: Katil Kim? Sadece %1 Çöz"
  ],
  "uyarilar": []
 }

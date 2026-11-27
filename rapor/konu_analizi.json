@@ -1,20 +1,20 @@
 {
- "tarih": "2026-11-26",
+ "tarih": "2026-11-27",
  "gruplar": {
   "hayatin_icinden": {
-   "video": 2,
-   "izlenme": 1311,
-   "yuzde": 110.34,
-   "ortalama": 655.5,
-   "ort_yuzde": 55.2
+   "video": 3,
+   "izlenme": 1405,
+   "yuzde": 164.26,
+   "ortalama": 468.3,
+   "ort_yuzde": 54.8
   },
   "afet_uzay": {
-   "video": 1,
-   "izlenme": 574,
-   "yuzde": 57.42,
-   "ortalama": 574.0,
-   "ort_yuzde": 57.4
+   "video": 2,
+   "izlenme": 691,
+   "yuzde": 126.16,
+   "ortalama": 345.5,
+   "ort_yuzde": 63.1
   }
  },
- "degisiklik": "yok"
+ "degisiklik": "en çok izlenen grup 'hayatin_icinden' (468.3/video) öne alındı; sıradaki: telefon, zipla, sifreler, hayvan-kara"
 }
