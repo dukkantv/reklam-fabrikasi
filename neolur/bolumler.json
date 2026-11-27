@@ -2339,6 +2339,172 @@
    ]
   },
   {
+   "id": "trafik",
+   "efekt": "normal",
+   "baslik": "İstanbul'da Bir Gün Hiç Trafik Olmasa Ne Olur? 🚦 #shorts",
+   "ozet": "İstanbul'da bir gün hiç trafik olmasaydı sabahtan geceye şehir nasıl değişirdi?",
+   "etiketler": [
+    "ne olur",
+    "trafik olmasa",
+    "istanbul",
+    "şehir",
+    "günlük hayat",
+    "merak",
+    "Gizli Tarih",
+    "shorts"
+   ],
+   "adimlar": [
+    "SABAH",
+    "ÖĞLE",
+    "İKİNDİ",
+    "AKŞAM",
+    "GECE"
+   ],
+   "sahneler": [
+    {
+     "tip": "kanca",
+     "satir": [
+      "İSTANBUL'DA",
+      "BİR GÜN",
+      "*HİÇ TRAFİK*",
+      "OLMASA?"
+     ],
+     "ses": [
+      "İstanbul'da bir gün hiç trafik olmasa ne olur?"
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 0,
+     "baslik": "SABAH",
+     "satir": [
+      "İşe *erken* varırsın.",
+      "Patron",
+      "*şüphelenir.*"
+     ],
+     "ses": [
+      "Sabah işe erken varırsın.",
+      "Patron bile şüphelenir."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 1,
+     "baslik": "ÖĞLE",
+     "satir": [
+      "Öğle arasında",
+      "*karşı yakaya* geçip",
+      "*dönebilirsin.*"
+     ],
+     "ses": [
+      "Öğle arasında karşı yakaya geçip geri dönebilirsin."
+     ],
+     "grup": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 2,
+     "baslik": "İKİNDİ",
+     "satir": [
+      "Kuryeler",
+      "*on dakikada* gelir.",
+      "Yemek *sıcacık.*"
+     ],
+     "ses": [
+      "İkindi vakti kuryeler on dakikada gelir.",
+      "Yemek sıcacık kalır."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 3,
+     "baslik": "AKŞAM",
+     "satir": [
+      "Akşam yemeğine",
+      "*herkes* yetişir.",
+      "Sofra *eksiksiz.*"
+     ],
+     "ses": [
+      "Akşam yemeğine herkes yetişir.",
+      "Sofra eksiksiz kurulur."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "asama",
+     "adim": 4,
+     "baslik": "GECE",
+     "satir": [
+      "Şehir *sakin.*",
+      "Ve herkes yarını",
+      "*merakla* bekler."
+     ],
+     "ses": [
+      "Gece şehir sakin.",
+      "Ve herkes yarının da böyle olup olmayacağını merak eder."
+     ],
+     "grup": [
+      0,
+      1,
+      1
+     ]
+    },
+    {
+     "tip": "vurgu",
+     "baslik": "GERÇEK ŞU",
+     "satir": [
+      "İstanbullular yılda",
+      "trafikte kaybediyor:",
+      "*GÜNLERCE*",
+      "*zaman!*"
+     ],
+     "ses": [
+      "Gerçek şu: araştırmalara göre büyük şehirlerde insanlar yılda trafikte...",
+      "günlerce",
+      "zaman kaybediyor!"
+     ],
+     "grup": [
+      0,
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "tip": "son",
+     "satir": [
+      "O gün kazandığın vakti",
+      "*ne yapardın?*"
+     ],
+     "ses": [
+      "O gün kazandığın vakitle ne yapardın? Yorumlara yaz."
+     ],
+     "grup": [
+      0,
+      0
+     ]
+    }
+   ]
+  },
+  {
    "id": "hayvan-kara",
    "efekt": "normal",
    "baslik": "Karanın En İnanılmaz 5 Canlısı 🐾 #shorts",
@@ -2507,172 +2673,6 @@
    ],
    "seri": "hayvanlar",
    "not": "Bilgiler genel kabul görmüş kaynaklara dayanır."
-  },
-  {
-   "id": "trafik",
-   "efekt": "normal",
-   "baslik": "İstanbul'da Bir Gün Hiç Trafik Olmasa Ne Olur? 🚦 #shorts",
-   "ozet": "İstanbul'da bir gün hiç trafik olmasaydı sabahtan geceye şehir nasıl değişirdi?",
-   "etiketler": [
-    "ne olur",
-    "trafik olmasa",
-    "istanbul",
-    "şehir",
-    "günlük hayat",
-    "merak",
-    "Gizli Tarih",
-    "shorts"
-   ],
-   "adimlar": [
-    "SABAH",
-    "ÖĞLE",
-    "İKİNDİ",
-    "AKŞAM",
-    "GECE"
-   ],
-   "sahneler": [
-    {
-     "tip": "kanca",
-     "satir": [
-      "İSTANBUL'DA",
-      "BİR GÜN",
-      "*HİÇ TRAFİK*",
-      "OLMASA?"
-     ],
-     "ses": [
-      "İstanbul'da bir gün hiç trafik olmasa ne olur?"
-     ]
-    },
-    {
-     "tip": "asama",
-     "adim": 0,
-     "baslik": "SABAH",
-     "satir": [
-      "İşe *erken* varırsın.",
-      "Patron",
-      "*şüphelenir.*"
-     ],
-     "ses": [
-      "Sabah işe erken varırsın.",
-      "Patron bile şüphelenir."
-     ],
-     "grup": [
-      0,
-      1,
-      1
-     ]
-    },
-    {
-     "tip": "asama",
-     "adim": 1,
-     "baslik": "ÖĞLE",
-     "satir": [
-      "Öğle arasında",
-      "*karşı yakaya* geçip",
-      "*dönebilirsin.*"
-     ],
-     "ses": [
-      "Öğle arasında karşı yakaya geçip geri dönebilirsin."
-     ],
-     "grup": [
-      0,
-      0,
-      0
-     ]
-    },
-    {
-     "tip": "asama",
-     "adim": 2,
-     "baslik": "İKİNDİ",
-     "satir": [
-      "Kuryeler",
-      "*on dakikada* gelir.",
-      "Yemek *sıcacık.*"
-     ],
-     "ses": [
-      "İkindi vakti kuryeler on dakikada gelir.",
-      "Yemek sıcacık kalır."
-     ],
-     "grup": [
-      0,
-      1,
-      1
-     ]
-    },
-    {
-     "tip": "asama",
-     "adim": 3,
-     "baslik": "AKŞAM",
-     "satir": [
-      "Akşam yemeğine",
-      "*herkes* yetişir.",
-      "Sofra *eksiksiz.*"
-     ],
-     "ses": [
-      "Akşam yemeğine herkes yetişir.",
-      "Sofra eksiksiz kurulur."
-     ],
-     "grup": [
-      0,
-      1,
-      1
-     ]
-    },
-    {
-     "tip": "asama",
-     "adim": 4,
-     "baslik": "GECE",
-     "satir": [
-      "Şehir *sakin.*",
-      "Ve herkes yarını",
-      "*merakla* bekler."
-     ],
-     "ses": [
-      "Gece şehir sakin.",
-      "Ve herkes yarının da böyle olup olmayacağını merak eder."
-     ],
-     "grup": [
-      0,
-      1,
-      1
-     ]
-    },
-    {
-     "tip": "vurgu",
-     "baslik": "GERÇEK ŞU",
-     "satir": [
-      "İstanbullular yılda",
-      "trafikte kaybediyor:",
-      "*GÜNLERCE*",
-      "*zaman!*"
-     ],
-     "ses": [
-      "Gerçek şu: araştırmalara göre büyük şehirlerde insanlar yılda trafikte...",
-      "günlerce",
-      "zaman kaybediyor!"
-     ],
-     "grup": [
-      0,
-      0,
-      1,
-      2
-     ]
-    },
-    {
-     "tip": "son",
-     "satir": [
-      "O gün kazandığın vakti",
-      "*ne yapardın?*"
-     ],
-     "ses": [
-      "O gün kazandığın vakitle ne yapardın? Yorumlara yaz."
-     ],
-     "grup": [
-      0,
-      0
-     ]
-    }
-   ]
   },
   {
    "id": "arabalar",

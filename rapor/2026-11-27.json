@@ -1,12 +1,12 @@
 {
  "tarih": "2026-11-27",
- "olusturuldu": "2026-11-27T08:03+03:00",
+ "olusturuldu": "2026-11-27T18:38+03:00",
  "kanallar": {
   "ilturnuva": {
    "ad": "81 İl Turnuvası",
    "abone": 5,
    "toplam_izlenme": 6345,
-   "video_sayisi": 13,
+   "video_sayisi": 14,
    "son28": {
     "views": 4639,
     "estimatedMinutesWatched": 364,
@@ -244,7 +244,7 @@
    "ad": "Kasa kurgu",
    "abone": 12,
    "toplam_izlenme": 13536,
-   "video_sayisi": 47,
+   "video_sayisi": 48,
    "son28": {
     "views": 13060,
     "estimatedMinutesWatched": 1635,
@@ -885,7 +885,7 @@
    "ad": "Drama Bite",
    "abone": 20,
    "toplam_izlenme": 19732,
-   "video_sayisi": 39,
+   "video_sayisi": 40,
    "son28": {
     "views": 17960,
     "estimatedMinutesWatched": 2702,
@@ -1434,8 +1434,8 @@
   "dukkantv": {
    "ad": "Dükkan Tv",
    "abone": 11,
-   "toplam_izlenme": 8994,
-   "video_sayisi": 26,
+   "toplam_izlenme": 8997,
+   "video_sayisi": 28,
    "son28": {
     "views": 10648,
     "estimatedMinutesWatched": 1330,
@@ -1859,7 +1859,7 @@
     }
    ],
    "son24": {
-    "izlenme": "+41",
+    "izlenme": "+44",
     "abone": "+0"
    },
    "ypp_puan": 0.012064799999999999
@@ -1868,7 +1868,7 @@
    "ad": "Gizli Tarih",
    "abone": 16,
    "toplam_izlenme": 3231,
-   "video_sayisi": 15,
+   "video_sayisi": 16,
    "son28": {
     "views": 2394,
     "estimatedMinutesWatched": 785,
@@ -2094,8 +2094,21 @@
   "ilturnuva": {
    "kullanici": "81ilturnuvasi",
    "takipci": 2,
-   "gonderi": 14,
+   "gonderi": 15,
    "son7_gonderi": [
+    {
+     "id": "18292844362294007",
+     "caption": "81 İl Turnuvası BÜYÜK FİNAL 🏆 Şampiyon kim oldu?\n\n📩 Şehrini savunacak arkadaşına gönder!\n\n#81ilturnuvası #türkiye #şehirler #simülasyon #topyarışı #ilil",
+     "comments_count": 0,
+     "like_count": 0,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgPve5GAyzE/",
+     "timestamp": "2026-11-27T13:03:22+0000",
+     "views": 123,
+     "reach": 106,
+     "saved": 0,
+     "shares": 0
+    },
     {
      "id": "18107286596632134",
      "caption": "Denizli, Kütahya, Gümüşhane… Hangisi Tur Atlar? 🏆 81 İl 2. Tur 3. Grup\n\n📩 Şehrini savunacak arkadaşına gönder!\n\n#81ilturnuvası #türkiye #şehirler #simülasyon #topyarışı #ilil",
@@ -2104,8 +2117,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgNOX6WorUE/",
      "timestamp": "2026-11-26T13:35:31+0000",
-     "views": 123,
-     "reach": 107,
+     "views": 124,
+     "reach": 108,
      "saved": 0,
      "shares": 0
     },
@@ -2117,8 +2130,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgMT1kUO2Sm/",
      "timestamp": "2026-11-26T05:04:01+0000",
-     "views": 122,
-     "reach": 113,
+     "views": 123,
+     "reach": 114,
      "saved": 0,
      "shares": 0
     },
@@ -2130,8 +2143,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgLMgUHJOWQ/",
      "timestamp": "2026-11-25T18:40:33+0000",
-     "views": 118,
-     "reach": 109,
+     "views": 120,
+     "reach": 110,
      "saved": 0,
      "shares": 0
     },
@@ -2143,8 +2156,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgFmjNEAIPD/",
      "timestamp": "2026-11-23T14:32:46+0000",
-     "views": 126,
-     "reach": 111,
+     "views": 128,
+     "reach": 112,
      "saved": 0,
      "shares": 0
     },
@@ -2156,8 +2169,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgDBwGyFv-d/",
      "timestamp": "2026-11-22T14:32:44+0000",
-     "views": 117,
-     "reach": 104,
+     "views": 119,
+     "reach": 105,
      "saved": 0,
      "shares": 0
     },
@@ -2169,34 +2182,34 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgAc84lgPbo/",
      "timestamp": "2026-11-21T14:32:41+0000",
-     "views": 149,
-     "reach": 119,
-     "saved": 0,
-     "shares": 0
-    },
-    {
-     "id": "18124850561291099",
-     "caption": "81 İl Turnuvası · 1. Tur · F Grubu 🏆 Senin şehrin tur atlar mı?\n\n#81ilturnuvası #türkiye #şehirler #simülasyon #topyarışı #ilil",
-     "comments_count": 0,
-     "like_count": 0,
-     "media_product_type": "REELS",
-     "permalink": "https://www.instagram.com/reel/Df94LHICVaV/",
-     "timestamp": "2026-11-20T14:32:50+0000",
-     "views": 144,
-     "reach": 112,
+     "views": 151,
+     "reach": 120,
      "saved": 0,
      "shares": 0
     }
    ],
    "icgoru": true,
    "son24_takipci": "+0",
-   "veri_erisimi_kalan_gun": 81
+   "veri_erisimi_kalan_gun": 80
   },
   "kasakurgu": {
    "kullanici": "kasakurgu.tr",
    "takipci": 7,
-   "gonderi": 44,
+   "gonderi": 45,
    "son7_gonderi": [
+    {
+     "id": "18122533664099580",
+     "caption": "Dağınık Tezgah: Katil Kim? Sadece %1 Çözer! 🕵️\n\n📩 Çözemeyeceğini düşündüğün arkadaşına gönder 🕵️\n\n#katilkim #dedektif #gizem #vaka #bilmece #kurgusalhikaye",
+     "comments_count": 0,
+     "like_count": 1,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgPhxsXIEHb/",
+     "timestamp": "2026-11-27T11:03:32+0000",
+     "views": 37,
+     "reach": 36,
+     "saved": 0,
+     "shares": 0
+    },
     {
      "id": "18454081306124414",
      "caption": "Kayıp Kargo: Katil Kim? Sadece %1 Çözer! 🕵️\n\n📩 Çözemeyeceğini düşündüğün arkadaşına gönder 🕵️\n\n#katilkim #dedektif #gizem #vaka #bilmece #kurgusalhikaye",
@@ -2356,13 +2369,26 @@
    ],
    "icgoru": true,
    "son24_takipci": "+0",
-   "veri_erisimi_kalan_gun": 81
+   "veri_erisimi_kalan_gun": 80
   },
   "dramabite": {
    "kullanici": "dramabitetr",
    "takipci": 13,
-   "gonderi": 27,
+   "gonderi": 28,
    "son7_gonderi": [
+    {
+     "id": "17892696846476588",
+     "caption": "On Yıllık Cevapsız Arama\n\n📩 Bu hikâyeyi okuması gereken birine gönder.\n\n#hikaye #duygusal #kardeslik #hayatindersi #kesfet",
+     "comments_count": 0,
+     "like_count": 1,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgPotOjhMLX/",
+     "timestamp": "2026-11-27T12:04:25+0000",
+     "views": 119,
+     "reach": 110,
+     "saved": 0,
+     "shares": 0
+    },
     {
      "id": "18083569088461808",
      "caption": "10 Yıllık Cevapsız Arama\n\n📩 Bu hikâyeyi okuması gereken birine gönder.\n\n#hikaye #duygusal #pismanlik #anilar #kısahikaye",
@@ -2371,8 +2397,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgN1R3YB7_F/",
      "timestamp": "2026-11-26T19:15:30+0000",
-     "views": 120,
-     "reach": 113,
+     "views": 123,
+     "reach": 115,
      "saved": 0,
      "shares": 0
     },
@@ -2398,7 +2424,7 @@
      "permalink": "https://www.instagram.com/reel/DgNSMjzC0yc/",
      "timestamp": "2026-11-26T14:09:23+0000",
      "views": 1136,
-     "reach": 1074,
+     "reach": 1076,
      "saved": 0,
      "shares": 0
     },
@@ -2410,8 +2436,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgM55_UOKHJ/",
      "timestamp": "2026-11-26T10:37:04+0000",
-     "views": 1137,
-     "reach": 1068,
+     "views": 1138,
+     "reach": 1069,
      "saved": 1,
      "shares": 0
     },
@@ -2457,23 +2483,36 @@
    ],
    "icgoru": true,
    "son24_takipci": "+0",
-   "veri_erisimi_kalan_gun": 81
+   "veri_erisimi_kalan_gun": 80
   },
   "dukkantv": {
    "kullanici": "dukkan.tv",
    "takipci": 64,
-   "gonderi": 24,
+   "gonderi": 25,
    "son7_gonderi": [
+    {
+     "id": "17954439237344154",
+     "caption": "Uçak Modu Şarjı Hızlandırır mı? ✈️ Doğru Bilinen Yanlış\n\n📩 Bunu yaşayan arkadaşına gönder 😂\n\n#uçakmodu #hızlışarj #telefonşarj #doğrubilinenyanlışlar #telefonipuçları",
+     "comments_count": 0,
+     "like_count": 2,
+     "media_product_type": "REELS",
+     "permalink": "https://www.instagram.com/reel/DgP3NJsBCj_/",
+     "timestamp": "2026-11-27T14:11:09+0000",
+     "views": 131,
+     "reach": 112,
+     "saved": 0,
+     "shares": 0
+    },
     {
      "id": "17955269157352283",
      "caption": "Gece Şarjda Bırakmak Bataryayı Bozar mı? 🔋 Doğru Bilinen Yanlış\n\n📩 Bunu yaşayan arkadaşına gönder 😂\n\n#geceşarj #batarya #telefonşarj #doğrubilinenyanlışlar #telefonipuçları #bilgi",
      "comments_count": 0,
-     "like_count": 10,
+     "like_count": 11,
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgNtsTesUmP/",
      "timestamp": "2026-11-26T18:09:11+0000",
-     "views": 1272,
-     "reach": 1101,
+     "views": 1293,
+     "reach": 1124,
      "saved": 4,
      "shares": 22
     },
@@ -2485,8 +2524,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgNYgYlq6p1/",
      "timestamp": "2026-11-26T15:04:24+0000",
-     "views": 1833,
-     "reach": 1659,
+     "views": 1837,
+     "reach": 1661,
      "saved": 1,
      "shares": 0
     },
@@ -2498,8 +2537,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgM2GlWutSO/",
      "timestamp": "2026-11-26T10:03:28+0000",
-     "views": 143,
-     "reach": 130,
+     "views": 144,
+     "reach": 131,
      "saved": 0,
      "shares": 0
     },
@@ -2511,8 +2550,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgMfQyAi75Q/",
      "timestamp": "2026-11-26T06:43:49+0000",
-     "views": 1431,
-     "reach": 1331,
+     "views": 1440,
+     "reach": 1341,
      "saved": 1,
      "shares": 0
     },
@@ -2524,8 +2563,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgLX-9Mp0Rt/",
      "timestamp": "2026-11-25T20:20:54+0000",
-     "views": 4542,
-     "reach": 3211,
+     "views": 4566,
+     "reach": 3245,
      "saved": 0,
      "shares": 0
     },
@@ -2576,8 +2615,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgF9GbvjNhj/",
      "timestamp": "2026-11-23T17:49:46+0000",
-     "views": 1778,
-     "reach": 1613,
+     "views": 1779,
+     "reach": 1614,
      "saved": 0,
      "shares": 0
     },
@@ -2613,8 +2652,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgDdJdHti4q/",
      "timestamp": "2026-11-22T18:32:19+0000",
-     "views": 1349,
-     "reach": 1191,
+     "views": 1351,
+     "reach": 1192,
      "saved": 0,
      "shares": 0
     },
@@ -2639,8 +2678,8 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/DgAnSSqDHPl/",
      "timestamp": "2026-11-21T16:03:01+0000",
-     "views": 2302,
-     "reach": 1616,
+     "views": 2303,
+     "reach": 1617,
      "saved": 0,
      "shares": 7
     },
@@ -2665,49 +2704,48 @@
      "media_product_type": "REELS",
      "permalink": "https://www.instagram.com/reel/Df-Cd9ZDH5u/",
      "timestamp": "2026-11-20T16:02:47+0000",
-     "views": 2711,
-     "reach": 1924,
+     "views": 2713,
+     "reach": 1926,
      "saved": 1,
      "shares": 3
     }
    ],
    "icgoru": true,
    "son24_takipci": "+2",
-   "veri_erisimi_kalan_gun": 81
+   "veri_erisimi_kalan_gun": 80
   }
  },
  "tiktok": {
   "ilturnuva": {
    "bagli": true,
-   "taslak_7gun": 6,
-   "izin_kalan_gun": 353
+   "taslak_7gun": 7,
+   "izin_kalan_gun": 352
   },
   "kasakurgu": {
    "bagli": true,
-   "taslak_7gun": 13,
+   "taslak_7gun": 14,
    "izin_kalan_gun": 350
   },
   "dramabite": {
    "bagli": true,
-   "taslak_7gun": 10,
+   "taslak_7gun": 11,
    "izin_kalan_gun": 350
   },
   "dukkantv": {
    "bagli": true,
-   "taslak_7gun": 6,
+   "taslak_7gun": 7,
    "izin_kalan_gun": 347
   }
  },
  "bekleyen": [],
  "bugun_yayin": [
-  "🕖 12:30 Gizli Tarih: Gökyüzünün En İnanılmaz 5 Canlısı 🦅 #sho",
-  "🕖 16:00 81 İl: 81 İl Turnuvası BÜYÜK FİNAL 🏆 Şampiyon k",
   "🕖 20:00 Gizli Tarih: Telefonun Hakkında Bilmediğin 5 Şey 📱 #s",
   "🕖 20:17 Dükkan TV: İnternetten Para Kazanma: Gerçekler ve T",
   "🕖 18:13 Dükkan TV: Çarşı Ligi 1. Hafta | Ödül Maçı: Kırmızı",
   "🕖 19:00 Drama Bite: Babama “Gelemiyorum” Yazdım… Cevabı Beni",
   "🕖 20:00 Gizli Tarih: Derinkuyu Yeraltı Şehri: Duvarı Yıktı, A",
-  "🕖 14:00 Kasa Kurgu: Dağınık Tezgah: Katil Kim? Sadece %1 Çöz"
+  "🕖 17:07 Dükkan TV: Uçak Modu Şarjı Hızlandırır mı? ✈️ Doğru",
+  "🕖 19:30 Kasa Kurgu: Kayıp Oyuncak: Katil Kim? Sadece %1 Çöze"
  ],
  "uyarilar": []
 }
