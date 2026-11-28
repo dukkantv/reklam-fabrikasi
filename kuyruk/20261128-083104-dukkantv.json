@@ -1,7 +1,7 @@
 {
  "id": "20261128-083104-dukkantv",
  "kanal": "dukkantv",
- "baslik": "Balkan soğukları geliyor: Hazırlık yapmayan YANDI! #shorts",
+ "baslik": "Balkan Soğukları Pazar Geliyor: Montunu Hazırla! 🧥 #shorts",
  "aciklama": "Meteoroloji'ye göre Balkanlar üzerinden gelen soğuk hava Pazar günü etkili oluyor: sıcaklıklar mevsim normallerinin altına iniyor, Marmara'da rüzgâr saatte 90 kilometreye çıkabiliyor.\n\nGörseller temsilidir, seslendirme yapay zekâ ile üretilmiştir.\nKaynak: https://www.gzt.com/gundem/balkanlar-uzerinden-geliyor-meteoroloji-sicakliklarin-dusecegi-tarihi-acikladi-4283803 · https://www.tgrthaber.com/gundem/28-kasim-2026-hava-durumu-hafta-sonu-sonbahar-havasina-veda-balkan-soguklari-kapiya-3373951\nFotoğraflar: Storm clouds over the Solent - geograph.org.uk - 4943097.jpg — Rob Farrow (cc by-sa 2.0) · Malapascua, Silence, Sea of heavy storm clouds over Visayan Sea, Philippines.jpg — Vyacheslav Argenberg (cc by 4.0)",
  "etiketler": [
   "hava durumu",
@@ -33,5 +33,6 @@
  "kisa_kapak": true,
  "sabit_yayin": "2026-11-28T11:00:00+03:00",
  "otomatik": true,
- "mesaj_id": 1556
+ "mesaj_id": 1556,
+ "incelendi": "2026-11-28 sorunsuz (Claude: kareler + ses -17 dB, 39 sn; abartılı otomatik başlık düzeltildi)"
 }
