@@ -18,6 +18,7 @@ KLASOR = os.path.join(KOK, "sesler", "klon")
 # 24 Kas 2026: Levent 4 tarzda ayrı kayıt yaptı (sesler/klon/belgesel|neseli|gizemli|spiker.flac). Ayarlar test edildi,
 # Levent beğendi ("daha önceki klondan güzel"). ElevenLabs kredisi bitince bütün anlatımlar bu seslerle yapılır.
 TARZLAR = {
+    "rakam":    ("belgesel", 0.40, 0.50, 0.7),   # sadece deneme: tarih/rakam okuma testi (belgesel sesiyle)
     "belgesel": ("belgesel", 0.40, 0.50, 0.7),   # Gizli Tarih: sakin, ağır belgesel anlatıcı
     "neseli":   ("neseli", 0.65, 0.35, 0.8),     # Çarşı Ligi / skeç / liste videoları: hızlı, neşeli
     "gizemli":  ("gizemli", 0.45, 0.50, 0.7),    # gizem, gerilim, "Ne Olur?" karanlık senaryolar
@@ -34,6 +35,7 @@ TARZLAR = {
 }
 
 ORNEK = {
+    "rakam": "29 Mayıs 1453'te II. Mehmet İstanbul'u fethetti. XIX. yüzyılda nüfus %40 arttı. 1914-1918 arasında 2. Dünya Savaşı değil, I. Dünya Savaşı yaşandı. M.Ö. 2560 yılında piramit bitti. Saat 19:30'da 1,5 milyon kişi izledi.",
     "belgesel": "Mayıs 1481. Dünyanın en korkulan hükümdarı, ordusunun başında sefere çıkıyor. Hedefini kimse bilmiyor. Ve birkaç gün sonra, bir çadırda, sessizce ölüyor.",
     "neseli": "Ve top bırakıldı! Simitçi Kedi önde, Kokoreç Ejderha hemen arkasında! Bu nasıl bir maç böyle, inanılır gibi değil!",
     "hikaye": "Annesi kapıyı açtığında karşısında yıllardır görmediği oğlunu buldu. Bir an konuşamadı. Sonra gözleri doldu ve sadece sarıldı.",
@@ -82,6 +84,8 @@ def oku(tarz, metin, cikti):
     m = model()
     ref, _ = referans(tarz)
     _, ex, cfg, sic = TARZLAR[tarz]
+    from turkce_sayi import duzelt  # klon rakam okuyamaz: "1453" -> "bin dört yüz elli üç" (28 Kas 2026)
+    metin = duzelt(metin)
     parcalar = []
     for c in cumleler(metin):
         w = m.generate(c, language_id="tr", audio_prompt_path=ref, exaggeration=ex, cfg_weight=cfg, temperature=sic)
@@ -106,7 +110,10 @@ if __name__ == "__main__":
     if sys.argv[1] == "deneme":
         os.makedirs("/tmp/klon", exist_ok=True)
         t0 = time.time(); model(); print(f"Model yüklendi: {time.time() - t0:.0f} sn")
+        secim = sys.argv[2:]  # örn. "python ucretsiz_ses.py deneme rakam" -> sadece o örnek
         for tarz, metin in ORNEK.items():
+            if secim and tarz not in secim:
+                continue
             t0 = time.time()
             f = oku(tarz, metin, f"/tmp/klon/{tarz}.wav")
             sure = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", f],

@@ -5,6 +5,10 @@ permissions:
 
 on:
   workflow_dispatch:
+    inputs:
+      ornek:
+        description: "Sadece bu örnek(ler) (örn. rakam). Boş = hepsi + belgesel testi"
+        default: ""
 
 jobs:
   deneme:
@@ -29,8 +33,9 @@ jobs:
         with:
           path: ~/.cache/huggingface
           key: chatterbox-mtl-v1
-      - run: python ucretsiz_ses.py deneme
+      - run: python ucretsiz_ses.py deneme ${{ inputs.ornek }}
       - name: Belgesel geçiş testi (ElevenLabs yokken ücretsiz klona düşüyor mu?)
+        if: ${{ inputs.ornek == '' }}
         env:
           BELGESEL_SES_MOTOR: klon
           ELEVENLABS_API_KEY: ""
