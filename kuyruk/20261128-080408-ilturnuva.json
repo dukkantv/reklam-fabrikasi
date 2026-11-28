@@ -24,11 +24,15 @@
   "şehirler savaşıyor"
  ],
  "dosya": "20261128-080408-ilturnuva.mp4",
- "durum": "onaylandi",
+ "durum": "yuklendi",
  "eklendi": "2026-11-28T08:04:08.370203+03:00",
  "kapak": "20261128-080408-ilturnuva-kapak.jpg",
  "kisa_kapak": true,
  "kategori": "24",
  "otomatik": true,
- "mesaj_id": 1550
+ "mesaj_id": 1550,
+ "video_id": "JSz9ka-BWuY",
+ "yayin": "2026-11-29T16:00:00+03:00",
+ "tt": "taslak",
+ "tt_id": "v_inbox_file~v2.7713085382878824469"
 }
