@@ -34,6 +34,18 @@ jobs:
           path: ~/.cache/huggingface
           key: chatterbox-mtl-v1
       - run: python ucretsiz_ses.py deneme ${{ inputs.ornek }}
+      - name: Kulak kontrolü (sesi yazıya döküp ne okunduğunu gösterir)
+        if: ${{ inputs.ornek != '' }}
+        run: |
+          pip install -q faster-whisper
+          python - <<'PY'
+          import glob
+          from faster_whisper import WhisperModel
+          m = WhisperModel("small", device="cpu", compute_type="int8")
+          for f in sorted(glob.glob("/tmp/klon/*.wav")):
+              s, _ = m.transcribe(f, language="tr")
+              print("DUYULAN", f, "::", " ".join(x.text.strip() for x in s))
+          PY
       - name: Belgesel geçiş testi (ElevenLabs yokken ücretsiz klona düşüyor mu?)
         if: ${{ inputs.ornek == '' }}
         env:
