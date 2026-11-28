@@ -1,6 +1,6 @@
 {
- "sira": 12,
- "son_tarih": "2026-11-28",
+ "sira": 13,
+ "son_tarih": "2026-11-29",
  "gecmis": [
   {
    "id": "elektrik",
@@ -65,6 +65,11 @@
    "id": "telefon",
    "tarih": "2026-11-28",
    "saat": "13:30"
+  },
+  {
+   "id": "zipla",
+   "tarih": "2026-11-29",
+   "saat": "15:00"
   }
  ]
 }
