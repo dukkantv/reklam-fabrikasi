@@ -1,350 +1,316 @@
 {
- "baslik": "Derinkuyu Yeraltı Şehri: Duvarı Yıktı, Arkasından 18 Katlı Bir Şehir Çıktı",
- "kapak_yazi": "DUVARIN ARKASINDA ŞEHİR",
- "aciklama": "1963'te Derinkuyu'da evini tamir eden bir adam bodrumdaki duvarı yıktı ve arkasında yerin altına kat kat inen bir şehir buldu. Derinkuyu Yeraltı Şehri'ni kim kazdı, insanlar neden yerin altına indi, binlerce kişi orada nasıl nefes aldı ve su içti? Havalandırma bacaları, gizli kuyular, yuvarlak sürgü taşları, kilise ve şaraphaneleriyle Kapadokya'nın en büyük yeraltı şehrini anlatıyoruz.\n\nBu videoda tarihçilerin ve arkeologların kabul ettiği bilgiler kullanılmıştır; kesin olmayan sayılar \"tahminlere göre\" diye belirtilmiştir. Görseller temsilidir.\n\n#derinkuyu #kapadokya #yeraltışehri #gizlitarih",
- "etiketler": [
-  "Derinkuyu",
-  "Derinkuyu Yeraltı Şehri",
-  "Kapadokya",
-  "yeraltı şehri",
-  "Nevşehir",
-  "Kaymaklı",
-  "Kapadokya yeraltı şehirleri",
-  "sürgü taşı",
-  "tarih belgeseli",
-  "Gizli Tarih"
- ],
- "bolumler": [
-  {
-   "sahne": 1,
-   "ad": "Giriş: 1963'teki duvar"
-  },
-  {
-   "sahne": 6,
-   "ad": "Kapadokya'nın yumuşak kayası"
-  },
-  {
-   "sahne": 9,
-   "ad": "Şehri kim kazdı?"
-  },
-  {
-   "sahne": 13,
-   "ad": "Bizans çağı ve akınlar"
-  },
-  {
-   "sahne": 16,
-   "ad": "Ahırlar ve mutfaklar"
-  },
-  {
-   "sahne": 19,
-   "ad": "Havalandırma ve gizli kuyular"
-  },
-  {
-   "sahne": 23,
-   "ad": "Sürgü taşları"
-  },
-  {
-   "sahne": 27,
-   "ad": "Şaraphane, okul, kilise"
-  },
-  {
-   "sahne": 30,
-   "ad": "Kaymaklı tüneli ve diğer şehirler"
-  },
-  {
-   "sahne": 33,
-   "ad": "20 bin kişi gerçek mi?"
-  },
-  {
-   "sahne": 35,
-   "ad": "1923 ve unutuluş"
-  },
-  {
-   "sahne": 38,
-   "ad": "Kapanış"
-  }
- ],
- "kapak_sahne": 1,
- "sahneler": [
-  {
-   "metin": "1963 yılı. Kapadokya'da, Derinkuyu kasabasında bir adam evini tamir ediyor. Balyozu bir duvara vuruyor ve duvarın arkasında karanlık bir boşluk açılıyor.",
-   "nesne": "man with a sledgehammer breaking a stone wall in a village house basement",
-   "arama": "Derinkuyu 1963 discovery",
-   "gorsel": "man with a sledgehammer breaking a stone wall in a dim village house basement, 1960s Anatolian village clothes, dust in the air, dark hole behind the wall, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/01.jpg"
-  },
-  {
-   "metin": "O boşluk bir tünele, tünel bir odaya, oda da yerin altında kat kat inen koca bir şehre açılıyordu.",
-   "nesne": "dark narrow tunnel carved into soft rock lit by a lantern",
-   "arama": "Derinkuyu tunnel",
-   "gorsel": "dark narrow tunnel carved into soft beige rock, lit only by an old oil lantern, leading downward into darkness, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/02.jpg"
-  },
-  {
-   "metin": "Bugün tahminlere göre 18 ila 20 kat, yaklaşık 85 metre derinlik. Yerin altında binlerce kişinin aylarca yaşayabildiği bir şehir.",
-   "nesne": "cross-section view of a multi-level underground city",
-   "arama": "Derinkuyu underground city levels",
-   "gorsel": "cross-section illustration of a multi-level underground city carved in rock, many floors connected by stairs and shafts, tiny people with oil lamps, warm earthy colors, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/03.jpg"
-  },
-  {
-   "metin": "Peki bu şehri kim kazdı? İnsanlar neden yerin altına indi? Ve binlerce kişi orada nasıl nefes aldı, nasıl su içti, nasıl yemek pişirdi?",
-   "nesne": "oil lamp glowing in a rock-cut room",
-   "arama": "Derinkuyu room",
-   "gorsel": "single clay oil lamp glowing on a rock shelf in a dark rock-cut room, mysterious atmosphere, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/04.jpg"
-  },
-  {
-   "metin": "Bu videoda Derinkuyu'nun hikâyesini, yerin altındaki hayatı ve bu şehrin neden yüzyıllarca saklı kaldığını anlatıyoruz.",
-   "nesne": "panorama of Cappadocia valley with fairy chimneys at dawn",
-   "arama": "Cappadocia landscape",
-   "gorsel": "wide panorama of a Cappadocia valley with fairy chimneys at dawn, soft golden light, no balloons, no modern buildings, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/05.jpg"
-  },
-  {
-   "metin": "Önce yere bakalım. Kapadokya'nın toprağı milyonlarca yıl önce Erciyes, Hasan Dağı ve Göllüdağ gibi yanardağların püskürttüğü küllerle örtülmüş.",
-   "nesne": "erupting volcano covering a plain with ash",
-   "arama": "Erciyes volcano ancient eruption",
-   "gorsel": "ancient volcano erupting and covering a wide plain with ash clouds, prehistoric landscape, dramatic sky, no people",
-   "resim": "gorseller/derinkuyu/06.jpg"
-  },
-  {
-   "metin": "Bu küller zamanla sıkışıp tüf denen bir kayaya dönüşmüş. Tüfün sırrı şu: Taze kazındığında yumuşaktır, basit aletlerle oyulabilir. Havayla temas ettikçe de sertleşir.",
-   "nesne": "hand holding a rough iron chisel and a wooden mallet",
-   "arama": "tuff rock carving",
-   "gorsel": "close-up of a weathered hand holding a rough hand-forged iron chisel while a wooden mallet strikes it, carving soft pale tuff rock, rock dust falling, Cappadocia Turkey, historically accurate",
-   "resim": "gorseller/derinkuyu/07.jpg"
-  },
-  {
-   "metin": "Yani bu topraklarda yaşayan insanlar için yerin altı, inşa edilmeyi bekleyen bir yapı gibiydi. Taş taşımaya gerek yok; sadece kazmak yeterli.",
-   "nesne": "ancient workers digging a corridor with picks",
-   "arama": "ancient tunnel digging",
-   "gorsel": "ancient workers with simple iron picks digging a corridor into rock by lamplight, baskets of rubble, simple wool tunics, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/08.jpg"
-  },
-  {
-   "metin": "Derinkuyu'yu kimin başlattığı kesin bilinmiyor. Pek çok araştırmacı ilk odaların Frigler zamanında, yani yaklaşık 2700-2800 yıl önce açıldığını tahmin ediyor.",
-   "nesne": "Phrygian man in a pointed cap holding a pick",
-   "arama": "Phrygians Anatolia",
-   "gorsel": "ancient Phrygian man wearing a soft pointed Phrygian cap holding a pick near a rock entrance, Iron Age Anatolia, historically accurate clothing",
-   "resim": "gorseller/derinkuyu/09.jpg"
-  },
-  {
-   "metin": "Ama bu bir tahmin. Kesin olan şu: Şehir tek seferde yapılmadı. Yüzyıllar boyunca farklı dönemlerde, farklı ihtiyaçlarla, kat kat genişletildi.",
-   "nesne": "layers of tunnels carved at different depths",
-   "arama": "underground city expansion",
-   "gorsel": "layered rock tunnels at different depths showing different chisel marks, some old and smooth, some rough and new, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/10.jpg"
-  },
-  {
-   "metin": "Bölgede yeraltında yaşayan insanlardan söz eden eski bir kaynak bile var. Yunanlı yazar Ksenofon, yaklaşık 2400 yıl önce Anadolu'da toprağın altına oyulmuş evlerden bahseder.",
-   "nesne": "ancient Greek writer with a scroll",
-   "arama": "Xenophon Anabasis",
-   "gorsel": "ancient Greek writer in a himation reading a papyrus scroll by an oil lamp, classical era",
-   "resim": "gorseller/derinkuyu/11.jpg"
-  },
-  {
-   "metin": "Ksenofon'un anlattığı evlerde insanlar, hayvanları ve yiyecekleriyle birlikte yaşıyordu. Bu da yeraltında yaşamın burada çok eski bir gelenek olduğunu gösteriyor.",
-   "nesne": "goats and baskets of grain inside a rock dwelling",
-   "arama": "ancient underground dwelling animals",
-   "gorsel": "goats and woven baskets of grain inside a dim rock-cut dwelling, ancient Anatolian village life, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/12.jpg"
-  },
-  {
-   "metin": "Derinkuyu'nun asıl büyüdüğü dönem ise Bizans çağı. 7. yüzyıldan itibaren Anadolu uzun süre akınlar ve savaşlarla sarsıldı.",
-   "nesne": "Byzantine village watchtower on a hill at dusk",
-   "arama": "Byzantine Cappadocia",
-   "gorsel": "small Byzantine-era village with a stone watchtower on a hill at dusk, smoke rising in the distance, worried villagers, medieval Byzantine clothing, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/13.jpg"
-  },
-  {
-   "metin": "Ufukta toz bulutu görüldüğünde köylülerin kaçacak bir yeri olmalıydı. Kale yapmak pahalıydı. Ama yerin altı hep oradaydı.",
-   "nesne": "villagers hurrying with baskets toward a rock entrance",
-   "arama": "Cappadocia refuge",
-   "gorsel": "medieval villagers hurrying with baskets, children and goats toward a hidden rock entrance, dust cloud on the horizon, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/14.jpg"
-  },
-  {
-   "metin": "Ve böylece Derinkuyu bir sığınaktan çok daha fazlası oldu: Gerektiğinde bütün bir kasabanın yerin altına inip hayatına devam edebileceği bir şehir.",
-   "nesne": "many people with lamps descending carved stairs",
-   "arama": "Derinkuyu stairs",
-   "gorsel": "many medieval villagers carrying oil lamps descending narrow carved rock stairs into the earth, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/15.jpg"
-  },
-  {
-   "metin": "Şimdi o merdivenlerden biz de inelim. İlk katlarda en çok ihtiyaç duyulan şeyler var: ahırlar, erzak depoları, mutfaklar.",
-   "nesne": "rock-cut stable with feeding troughs",
-   "arama": "Derinkuyu stables",
-   "gorsel": "rock-cut stable with feeding troughs carved into the walls, a donkey and goats, dim lamplight, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/16.jpg"
-  },
-  {
-   "metin": "Hayvanlar yukarıya yakın tutulurdu. Hem kokusu ve havası daha kolay dışarı çıksın diye, hem de ağır yükler aşağıya taşınmasın diye.",
-   "nesne": "donkey standing in a rock-cut chamber",
-   "arama": "Cappadocia underground stable",
-   "gorsel": "donkey standing calmly in a rock-cut chamber near a sloping exit tunnel, soft daylight from above, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/17.jpg"
-  },
-  {
-   "metin": "Mutfaklarda tandıra benzeyen ocaklar vardı. Peki yerin altında ateş yakınca duman nereye gidiyordu? Bu, şehrin en akıllıca çözümlerinden birine götürüyor bizi.",
-   "nesne": "clay oven fire in a rock kitchen",
-   "arama": "underground kitchen oven",
-   "gorsel": "clay tandoor-like oven with a small fire in a rock-cut kitchen, smoke rising toward a narrow shaft in the ceiling, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/18.jpg"
-  },
-  {
-   "metin": "Havalandırma bacaları. Derinkuyu'da yüzeyden en alt katlara kadar inen dikey bacalar var. Temiz hava bu bacalardan aşağıya iniyor, şehrin her köşesine dağılıyordu.",
-   "nesne": "vertical ventilation shaft seen from below",
-   "arama": "Derinkuyu ventilation shaft",
-   "gorsel": "looking up a deep vertical ventilation shaft carved in rock, small circle of daylight at the top, rough walls, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/19.jpg"
-  },
-  {
-   "metin": "Ana bacalardan biri yaklaşık 55 metre derinliğe iniyor ve aynı zamanda kuyu olarak kullanılmış olabilir. Derinkuyu, yani 'derin kuyu' adının buradan geldiği düşünülüyor.",
-   "nesne": "deep stone well with a rope and bucket",
-   "arama": "Derinkuyu well",
-   "gorsel": "deep stone well in rock with a rope and wooden bucket, darkness below, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/20.jpg"
-  },
-  {
-   "metin": "Akıllıca olan şu: Bazı kuyular yüzeye kadar çıkmıyordu. Dışarıdaki bir düşman suyu zehirleyemesin diye, suya sadece içeriden ulaşılabiliyordu.",
-   "nesne": "hand lowering a bucket into a hidden underground well",
-   "arama": "hidden well underground",
-   "gorsel": "hand lowering a wooden bucket into a hidden well inside a dark rock chamber, lamplight reflecting on water, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/21.jpg"
-  },
-  {
-   "metin": "Aşağı indikçe sıcaklık sabitleniyor. Yerin altı yazın serin, kışın ılık kalıyor. Kapadokya'nın sert kışında bu, yukarıdan bile daha rahat bir hayat demekti.",
-   "nesne": "family sitting around a lamp in a rock room",
-   "arama": "underground living room",
-   "gorsel": "medieval family sitting on rugs around an oil lamp in a cozy rock-cut room, calm atmosphere, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/22.jpg"
-  },
-  {
-   "metin": "Peki düşman girişi bulursa ne olacaktı? İşte Derinkuyu'nun en ünlü parçası: yuvarlak sürgü taşları.",
-   "nesne": "massive round millstone-shaped stone disc in a rock tunnel",
-   "arama": "Derinkuyu rolling stone door",
-   "gorsel": "a massive round millstone-shaped disc of rough carved stone, about one metre tall and thick, standing upright in a carved groove beside the opening of a narrow rock tunnel, plain stone surfaces, lamplight, Cappadocia Turkey, historically accurate",
-   "resim": "gorseller/derinkuyu/23.jpg"
-  },
-  {
-   "metin": "Bu taşların çapı bir metreyi buluyor, ağırlıkları yüzlerce kiloyu. Koridorların dar noktalarına yerleştirilmişler.",
-   "nesne": "man rolling a giant millstone-shaped stone disc",
-   "arama": "rolling stone door Cappadocia",
-   "gorsel": "a medieval villager in a wool tunic leaning with both hands against a giant round millstone-shaped stone disc, rolling it sideways across a narrow rock tunnel from the inside, straining effort, lamplight, Cappadocia Turkey, historically accurate",
-   "resim": "gorseller/derinkuyu/24.jpg"
-  },
-  {
-   "metin": "Ve dikkat edin: Taşlar sadece içeriden yuvarlanıp kapatılabiliyordu. Dışarıdan açmak neredeyse imkânsızdı.",
-   "nesne": "round stone disc blocking a tunnel",
-   "arama": "stone door closed",
-   "gorsel": "a narrow dark rock tunnel completely blocked by a round millstone-shaped stone disc, plain rough stone, seen from the outside, dim light, Cappadocia Turkey, historically accurate",
-   "resim": "gorseller/derinkuyu/25.jpg"
-  },
-  {
-   "metin": "Koridorlar da bilerek dar ve alçak yapılmış. İçeri giren biri eğilmek, tek sıra yürümek zorunda kalıyordu. Böylece kalabalık bir saldırı daha girişte dağılıyordu.",
-   "nesne": "narrow low corridor carved in rock",
-   "arama": "Derinkuyu narrow corridor",
-   "gorsel": "very narrow and low corridor carved in rock where a person must bend down, single file, lamplight, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/26.jpg"
-  },
-  {
-   "metin": "Daha aşağıda şaraphaneler ve yağhaneler var. Üzüm ve keten tohumu ezilip saklanıyordu. Yani bu şehir sadece saklanmak için değil, üretmek için de kurulmuştu.",
-   "nesne": "stone press basin for grapes",
-   "arama": "Cappadocia wine press",
-   "gorsel": "stone press basin carved in rock with grapes being crushed, clay jars nearby, warm lamplight, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/27.jpg"
-  },
-  {
-   "metin": "Okul olarak kullanıldığı düşünülen tonozlu bir oda, toplantı alanları, mezarlar... Ve yedinci katta, haç planlı bir kilise.",
-   "nesne": "cross-shaped rock-cut church chamber",
-   "arama": "Derinkuyu church",
-   "gorsel": "simple cross-shaped rock-cut chapel chamber deep underground, plain walls, a few oil lamps, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/28.jpg"
-  },
-  {
-   "metin": "Bütün bu katlar birbirine merdivenlerle, rampalarla ve bacalarla bağlanıyor. Bugün ziyaretçiler şehrin sadece bir kısmını gezebiliyor; arkeolojik çalışması tamamlanmış ilk sekiz kat.",
-   "nesne": "tourists with modern lights in a rock passage",
-   "arama": "Derinkuyu visitors",
-   "gorsel": "modern tourists walking through a lit rock passage of an underground city, electric lights along the wall, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/29.jpg"
-  },
-  {
-   "metin": "Bir de tünel meselesi var. Derinkuyu'yu yaklaşık 9 kilometre uzaktaki Kaymaklı yeraltı şehrine bağlayan bir tünelden söz ediliyor. Bu tünel ziyarete kapalı.",
-   "nesne": "long dark tunnel stretching into distance",
-   "arama": "Kaymakli Derinkuyu tunnel",
-   "gorsel": "very long dark tunnel stretching into the distance, carved rock, a single lamp far away, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/30.jpg"
-  },
-  {
-   "metin": "Ve şaşırtıcı olan, Derinkuyu yalnız değil. Kapadokya'da şimdiye kadar yüzlerce yeraltı yerleşimi tespit edildi. Kaymaklı, Özkonak, Mazı... Bölge adeta yerin altında bir ağ.",
-   "nesne": "map of Cappadocia with marked underground sites",
-   "arama": "Cappadocia underground cities map",
-   "gorsel": "old parchment style map of Cappadocia showing many small marked underground sites connected by dotted lines, no modern text, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/31.jpg"
-  },
-  {
-   "metin": "2014'te Nevşehir'de bir kentsel dönüşüm çalışması sırasında yeni ve çok büyük bir yeraltı yerleşimi daha bulundu. Yani bu topraklar hâlâ sır vermeye devam ediyor.",
-   "nesne": "bulldozer revealing a hidden rock cavity",
-   "arama": "Nevsehir underground city 2014",
-   "gorsel": "construction site on a hill with a bulldozer revealing a hidden rock cavity entrance, archaeologists looking in, modern day, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/32.jpg"
-  },
-  {
-   "metin": "Peki bir şehirde aynı anda kaç kişi yaşayabiliyordu? En sık söylenen sayı 20 bin. Ama dürüst olalım: Bu bir tahmin. Kesin bir sayım yok.",
-   "nesne": "crowd of medieval people in a large rock hall",
-   "arama": "underground city population",
-   "gorsel": "large rock-cut hall crowded with medieval villagers, families and elders, lamps everywhere, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/33.jpg"
-  },
-  {
-   "metin": "Uzmanlar daha çok şunu vurgular: İnsanlar burada yıllarca kesintisiz yaşamadı. Tehlike geldiğinde günler, belki haftalarca indiler; tehlike geçince yukarıdaki evlerine döndüler.",
-   "nesne": "family climbing up stairs toward daylight",
-   "arama": "leaving underground city",
-   "gorsel": "medieval family climbing up carved stairs toward bright daylight at the exit, relief on their faces, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/34.jpg"
-  },
-  {
-   "metin": "Şehir yüzyıllar boyunca bölgede yaşayan Kapadokyalı Rumlar tarafından kullanıldı. 1923'teki nüfus mübadelesiyle bölgedeki Rum halk Yunanistan'a göç etti.",
-   "nesne": "19th-century painting of a Cappadocian village lane with a donkey",
-   "arama": "Cappadocia 1923 population exchange",
-   "gorsel": "19th-century orientalist oil painting of a quiet Cappadocian Greek village lane, old stone houses and rock-cut dwellings, villagers in traditional clothes, a donkey carrying baskets, dirt road, clear pale sky, fairy chimneys in the distance, Cappadocia Turkey, historically accurate",
-   "resim": "gorseller/derinkuyu/35.jpg"
-  },
-  {
-   "metin": "Onlar gidince yeraltı şehirlerinin girişleri unutuldu. Bazıları evlerin altında, bodrumlarda, ahırlarda kaldı. Ta ki 1963'te o duvar yıkılana kadar.",
-   "nesne": "forgotten stone doorway covered by a wall in a cellar",
-   "arama": "hidden entrance basement",
-   "gorsel": "forgotten stone doorway partly covered by a newer wall in a dusty cellar, cobwebs, single light beam, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/36.jpg"
-  },
-  {
-   "metin": "Derinkuyu 1965'te ziyarete açıldı ve bugün Kapadokya'nın en çok ziyaret edilen yerlerinden biri.",
-   "nesne": "visitors walking down carved stone steps into an underground city",
-   "arama": "Derinkuyu entrance",
-   "gorsel": "present-day visitors walking down carved stone steps into the entrance of an underground city, plain carved rock walls, soft daylight from above, Cappadocia Turkey, historically accurate",
-   "resim": "gorseller/derinkuyu/37.jpg"
-  },
-  {
-   "metin": "Düşünsenize: Makine yok, elektrik yok, sadece kazma, kandil ve sabır. Ve bu insanlar yerin 85 metre altına, havası, suyu, kilisesi, ahırı olan bir şehir sığdırdı.",
-   "nesne": "silhouette of an ancient worker holding an oil lamp in a deep tunnel",
-   "arama": "ancient engineering",
-   "gorsel": "silhouette of an ancient worker in a simple wool tunic and head cloth holding a small clay oil lamp in a deep carved tunnel, dramatic warm light, sense of scale, Cappadocia Turkey, historically accurate",
-   "resim": "gorseller/derinkuyu/38.jpg"
-  },
-  {
-   "metin": "Sence hangisi daha etkileyici: Sürgü taşları mı, havalandırma bacaları mı, yoksa gizli kuyular mı? Yorumlara yaz.",
-   "nesne": "round stone door, shaft and well side by side",
-   "arama": "Derinkuyu engineering",
-   "gorsel": "three rock-cut features side by side: a round stone door, a vertical shaft and a well, soft lamplight, Cappadocia Turkey, volcanic tuff rock, historically accurate",
-   "resim": "gorseller/derinkuyu/39.jpg"
-  },
-  {
-   "metin": "Gizli Tarih'te her hafta tarihin saklı kalmış bir sayfasını açıyoruz. Abone ol, bir sonraki sırda görüşelim.",
-   "nesne": "old book opening with light coming out",
-   "arama": "mystery history book",
-   "gorsel": "old leather book opening on a wooden table with warm light rising from its pages, dark background",
-   "resim": "gorseller/derinkuyu/40.jpg"
-  }
- ]
+  "baslik": "Piri Reis Haritası: 1513'te Çizilen Harita Neden Bu Kadar Şaşırtıcı?",
+  "kapak_yazi": "KOLOMB'UN KAYIP HARİTASI",
+  "aciklama": "1929'da Topkapı Sarayı'nda tozlu bir destenin içinden ceylan derisine çizilmiş bir harita çıktı. 1513'te Gelibolu'da Piri Reis'in çizdiği bu harita neden bu kadar şaşırtıcı? Haritanın nasıl bulunduğunu, Piri Reis'in yaklaşık 20 kaynaktan nasıl yararlandığını, Kolomb'un kayıp haritasıyla bağlantısını, Antarktika ve kayıp uygarlık iddialarını ve bilim insanlarının bu iddialara verdiği cevapları anlatıyoruz.\n\nBu videoda tarihçilerin kabul ettiği bilgiler kullanılmıştır; kesin olmayan bilgiler \"tahminlere göre\" ya da \"rivayete göre\" diye belirtilmiştir. Antarktika ve ileri uygarlık iddiaları bilim insanlarının çoğu tarafından kabul görmemektedir. Görseller temsilidir.\n\n#pirireis #pirireisharitası #osmanlıtarihi #gizlitarih",
+  "etiketler": [
+    "Piri Reis",
+    "Piri Reis haritası",
+    "Piri Reis haritası 1513",
+    "Kitab-ı Bahriye",
+    "Kemal Reis",
+    "Kolomb'un kayıp haritası",
+    "Topkapı Sarayı",
+    "Gelibolu",
+    "Osmanlı denizcilik tarihi",
+    "Gizli Tarih"
+  ],
+  "bolumler": [
+    {
+      "sahne": 1,
+      "ad": "Giriş: Topkapı'daki deri parçası"
+    },
+    {
+      "sahne": 4,
+      "ad": "1929'daki keşif"
+    },
+    {
+      "sahne": 10,
+      "ad": "Piri Reis kimdi?"
+    },
+    {
+      "sahne": 14,
+      "ad": "Haritanın kaynakları"
+    },
+    {
+      "sahne": 17,
+      "ad": "Kolomb'un kayıp haritası"
+    },
+    {
+      "sahne": 26,
+      "ad": "Antarktika iddiası"
+    },
+    {
+      "sahne": 30,
+      "ad": "Bilim ne diyor?"
+    },
+    {
+      "sahne": 38,
+      "ad": "Kitab-ı Bahriye ve 1528 haritası"
+    },
+    {
+      "sahne": 41,
+      "ad": "Kapanış"
+    }
+  ],
+  "kapak_sahne": 2,
+  "sahneler": [
+    {
+      "metin": "1929 yılı, sonbahar. İstanbul'da, Topkapı Sarayı'nın kütüphanesinde tozlu bir deste eski belge açılıyor. İçinden katlanmış, solgun bir deri parçası çıkıyor.",
+      "nesne": "folded faded parchment emerging from a dusty bundle of old documents",
+      "arama": "Topkapi Palace library 1929",
+      "gorsel": "folded faded parchment emerging from a dusty bundle of old documents on a wooden table, dim light through a palace library window, Ottoman tiled walls in the background, 1920s Istanbul, men in 1920s suits and fedora hats, historically accurate, NO modern objects, NO cars, NO electric wires, NO text, NO letters, no faces visible"
+    },
+    {
+      "metin": "Üzerinde rengârenk kıyılar, gemiler, hayvan figürleri ve notlar var. Tarih 1513. Çizen ise bir Osmanlı denizcisi: Piri Reis.",
+      "nesne": "close-up of an old hand-painted portolan map on parchment",
+      "arama": "Piri Reis map 1513",
+      "gorsel": "close-up of an old hand-painted portolan map on gazelle-skin parchment, colorful coastlines, small sailing ships and animal figures, compass rose lines, warm candlelight, decorative marks only, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "Bu harita neden bütün dünyanın dikkatini çekti? Kayıp bir haritanın izini mi taşıyordu, yoksa bazılarının iddia ettiği gibi büyük bir sır mı? Bu videoda haritanın nasıl bulunduğunu, ardındaki gizemleri ve bilimin cevaplarını anlatıyoruz.",
+      "nesne": "mysterious old parchment map lit by a single candle",
+      "arama": "Piri Reis map mystery",
+      "gorsel": "mysterious old parchment map lying on a dark wooden desk lit by a single candle, deep shadows, sense of secrecy, NO readable text, NO letters, NO logos, NO modern objects"
+    },
+    {
+      "metin": "Önce 1929'a dönelim. Cumhuriyet'in ilk yıllarında Topkapı Sarayı müzeye dönüştürülmüş, kütüphanedeki eserler tek tek elden geçiriliyordu.",
+      "nesne": "Topkapi Palace courtyard with plane trees in the 1920s",
+      "arama": "Topkapi Palace 1920s",
+      "gorsel": "Topkapi Palace inner courtyard with old plane trees and domed pavilions, quiet autumn day, sepia tones, 1920s Istanbul, men in 1920s suits and fedora hats, historically accurate, NO modern objects, NO cars, NO electric wires, NO text, NO letters, no faces visible"
+    },
+    {
+      "metin": "Alman bilim insanı Gustav Adolf Deissmann, saraydaki yabancı dilde yazılmış eserlerin kataloğunu hazırlıyordu.",
+      "nesne": "scholar's hands writing in a catalogue ledger beside old books",
+      "arama": "Topkapi library catalogue 1920s",
+      "gorsel": "scholar's hands writing in a blank catalogue ledger with a fountain pen beside stacks of old leather books, palace library interior, seen from behind, 1920s Istanbul, men in 1920s suits and fedora hats, historically accurate, NO modern objects, NO cars, NO electric wires, NO text, NO letters, no faces visible"
+    },
+    {
+      "metin": "Müze müdürü Halil Edhem Bey'in ortaya çıkardığı eski bir destenin içinde bu harita parçası vardı. Deissmann, ne kadar önemli olduğunu hemen fark etti.",
+      "nesne": "two men in 1920s suits looking at an unfolded parchment, seen from behind",
+      "arama": "Piri Reis map discovery 1929",
+      "gorsel": "two men in 1920s suits seen from behind leaning over an unfolded old parchment map on a library table, faces not visible, warm lamp light, 1920s Istanbul, men in 1920s suits and fedora hats, historically accurate, NO modern objects, NO cars, NO electric wires, NO text, NO letters, no faces visible"
+    },
+    {
+      "metin": "Kısa süre sonra Alman şarkiyatçı Paul Kahle haritayı inceledi. 1931'deki yayınlarla haritanın varlığı bütün dünyaya duyuruldu.",
+      "nesne": "stack of 1930s scholarly journals and a magnifying glass on a desk",
+      "arama": "Paul Kahle Piri Reis 1931",
+      "gorsel": "stack of plain-covered 1930s scholarly journals and a brass magnifying glass on a wooden desk, an old map partly visible, blank covers, 1930s study room, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Harita, ceylan derisinden yapılmış bir parşömene çizilmişti. Yaklaşık 87'ye 63 santimetre. Ama bu, haritanın tamamı değildi.",
+      "nesne": "irregular-shaped piece of gazelle-skin parchment with a torn edge",
+      "arama": "gazelle skin parchment map",
+      "gorsel": "irregular-shaped piece of gazelle-skin parchment with a torn and damaged edge lying flat, soft museum light, painted coastlines faintly visible, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "Tahminlere göre elimizdeki parça, bütün dünyayı gösteren büyük bir haritanın yalnızca üçte biri. Doğuyu gösteren kısımlar kayıp.",
+      "nesne": "torn map fragment with an empty space where the rest is missing",
+      "arama": "Piri Reis map fragment",
+      "gorsel": "torn old map fragment on the left side of a dark table with an empty dark space on the right where the rest is missing, dramatic lighting, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "Peki bu haritayı çizen denizci kimdi? Piri Reis, tahminlere göre 1465 ile 1470 arasında Gelibolu'da doğdu.",
+      "nesne": "small harbour town of Gallipoli with wooden houses and boats",
+      "arama": "Gelibolu 16th century",
+      "gorsel": "small harbour town of Gallipoli on the Dardanelles with wooden houses, a stone tower and wooden boats, late 15th century, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Gençliğinde amcası Kemal Reis'in yanında denize açıldı. Kemal Reis, Akdeniz'in tanınmış denizcilerinden biriydi, sonra Osmanlı donanmasında kaptan oldu.",
+      "nesne": "Ottoman sailors on the deck of a galley, seen from behind",
+      "arama": "Kemal Reis Ottoman fleet",
+      "gorsel": "Ottoman sailors in turbans and simple kaftans working on the deck of a wooden galley, a captain seen from behind at the bow, no faces visible, open sea, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Piri Reis yıllarca amcasıyla birlikte Akdeniz'in limanlarını, adalarını, rüzgârlarını ve akıntılarını yakından öğrendi.",
+      "nesne": "young Ottoman sailor silhouette looking at a rocky Mediterranean island",
+      "arama": "Mediterranean islands sailing",
+      "gorsel": "silhouette of a young Ottoman sailor in a turban seen from behind, standing at the rail of a galley looking at a rocky Mediterranean island, wind in the sails, face not visible, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Amcası 1511 civarında bir fırtınada hayatını kaybedince Piri Reis Gelibolu'ya döndü ve kendini bambaşka bir işe verdi: harita çizmek.",
+      "nesne": "galley in a stormy sea under dark clouds",
+      "arama": "Ottoman ship storm",
+      "gorsel": "wooden Ottoman galley tossed in a stormy sea under dark clouds, huge waves, dramatic light, no people visible, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Ama bu haritanın asıl sırrı, köşelerine yazılmış notlarda saklıydı. Çünkü Piri Reis, haritayı hangi kaynaklardan derlediğini tek tek yazmıştı.",
+      "nesne": "corner of an old map with decorative painted panels",
+      "arama": "Piri Reis map notes",
+      "gorsel": "corner of an old parchment map with small decorative painted panels and ink flourishes, extreme close-up, candlelight, illegible ornaments only, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "1513 yılının ilkbaharı. Gelibolu'da bir oda, masada açılmış eski haritalar. Piri Reis bunları tek bir büyük haritada birleştirmeye çalışıyor.",
+      "nesne": "Ottoman mapmaker seen from behind at a table covered with old maps",
+      "arama": "Piri Reis drawing map",
+      "gorsel": "Ottoman mapmaker in a turban and kaftan seen from behind, silhouette only, bent over a wooden table covered with old maps, ink pots, reed pens and dividers, oil lamp light, stone room in Gallipoli, face not visible, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Kendi notuna göre yaklaşık 20 kaynak kullanmıştı. Aralarında Büyük İskender çağından kaldığı söylenen 8 harita, bir Arap Hindistan haritası ve Portekizlilerin yeni çizdiği 4 harita vardı.",
+      "nesne": "several old maps of different styles spread on a table",
+      "arama": "medieval maps Ptolemy Portuguese",
+      "gorsel": "several old hand-drawn maps of different styles spread out and overlapping on a wooden table, ancient-looking scrolls, Arabic-style and Portuguese-style charts, 16th century, NO readable text, NO letters, NO logos, NO modern objects"
+    },
+    {
+      "metin": "Ve bir tane daha. Notta açıkça şöyle yazıyordu: Bu kıyılar ve adalar, Kolomb'un haritasından alınmıştır.",
+      "nesne": "old map of Caribbean islands with a tiny caravel",
+      "arama": "Columbus map Caribbean",
+      "gorsel": "old hand-painted map of scattered Caribbean islands with a tiny caravel ship drawn on the sea, parchment texture, candlelight, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "İşte haritanın en şaşırtıcı yanı bu. Çünkü Kolomb'un Amerika kıyılarını gösteren o haritası bugün kayıp. Hiçbir arşivde bulunamadı.",
+      "nesne": "empty archive shelves with dust and a single beam of light",
+      "arama": "lost Columbus map",
+      "gorsel": "old empty archive shelves with dust in the air and a single beam of light, a missing space where a scroll should be, mysterious mood, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Yani Piri Reis haritası, belki de Kolomb'un kayıp haritasından bize ulaşan en önemli iz.",
+      "nesne": "caravel ship sailing toward an unknown coast",
+      "arama": "Columbus caravel",
+      "gorsel": "Spanish caravel with square sails sailing toward an unknown green coastline, late 15th century, calm sea, no flags with symbols, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Peki bir Osmanlı denizcisi Kolomb'un haritasını nereden bulmuş olabilir? Yaygın açıklamaya göre iz, Kemal Reis'in Akdeniz'de ele geçirdiği İspanyol gemilerine çıkıyor.",
+      "nesne": "Ottoman galleys approaching Spanish ships at sea",
+      "arama": "Kemal Reis Spanish ships",
+      "gorsel": "Ottoman galleys approaching two Spanish sailing ships on the open Mediterranean, around 1500, smoke on the horizon, no flags with symbols, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Rivayete göre esir düşen denizcilerden biri daha önce Kolomb'la birlikte okyanusu geçmişti ve onun çizdiği bir haritadan söz ediyordu.",
+      "nesne": "captured European sailor seen from behind on a galley deck",
+      "arama": "Spanish sailor 1500",
+      "gorsel": "captured European sailor in a simple linen shirt seen from behind sitting on a galley deck, Ottoman sailors around, a rolled map in his hands, faces not visible, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Haritaya dikkatle bakınca bu iz görülüyor. Karayipler'deki adalar tuhaf biçimde çizilmiş; Küba sanki bir ada değil de büyük bir kıtanın parçası gibi duruyor.",
+      "nesne": "old map detail of strangely shaped Caribbean islands",
+      "arama": "Piri Reis map Caribbean Cuba",
+      "gorsel": "detail of an old parchment map showing strangely shaped Caribbean islands and a long coastline, painted in faded red and green, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "Bu, Kolomb'un kendi düşüncesiyle örtüşüyor. Kolomb, Küba'nın Asya kıtasının bir parçası olduğuna inanıyordu.",
+      "nesne": "caravel near a green tropical coast at dusk",
+      "arama": "Columbus Cuba Asia",
+      "gorsel": "caravel anchored near a green tropical coast at dusk, palm trees, calm water, late 15th century, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Haritada İspanya, Portekiz ve Batı Afrika kıyıları da var. Okyanusun ortasında gemiler, adalar ve o çağın hayal gücünden çıkmış yaratıklar çizilmiş.",
+      "nesne": "painted sea creatures and ships on an old Atlantic map",
+      "arama": "Piri Reis map creatures",
+      "gorsel": "painted sea creatures, small ships and islands on an old Atlantic map, Iberian and African coastlines, rich colors on parchment, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "1517'de Osmanlılar Mısır'ı aldığında Piri Reis bu haritayı Yavuz Sultan Selim'e sundu. Padişahın haritayla ne yaptığını ise bilmiyoruz.",
+      "nesne": "rolled parchment map presented on a cushion in an Ottoman tent",
+      "arama": "Selim I Egypt 1517",
+      "gorsel": "rolled parchment map presented on a red velvet cushion inside an Ottoman imperial tent, hands only, no faces visible, Cairo 1517, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Ama hikâye burada bitmiyor. Yıllar sonra bazı yazarlar bu haritada çok daha büyük bir sır gördüklerini iddia ettiler.",
+      "nesne": "old map under a magnifying glass with a dramatic shadow",
+      "arama": "Piri Reis map theories",
+      "gorsel": "old parchment map under a large magnifying glass with a dramatic shadow, dark background, suspenseful mood, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "Haritanın en altında, güneyde, doğuya doğru kıvrılan uzun bir kıyı var. 1950'lerde Amerikalı Arlington Mallery bu kıyının Antarktika olduğunu öne sürdü.",
+      "nesne": "bottom edge of an old map with a long coastline curving east",
+      "arama": "Piri Reis map southern coast",
+      "gorsel": "bottom edge of an old parchment map with a long coastline curving sharply to the east, faded paint, soft side light, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "Üstelik buzla kaplı olmayan bir Antarktika. 1966'da Charles Hapgood bu fikri bir kitapla geniş kitlelere yaydı.",
+      "nesne": "imaginary ice-free polar coastline with green hills",
+      "arama": "ice free Antarctica theory",
+      "gorsel": "imaginary ice-free polar coastline with green hills and bare rocks under a pale sky, dreamlike speculative illustration, no people, NO text, NO letters"
+    },
+    {
+      "metin": "Bu iddiaya göre Piri Reis'in kaynakları, buzlar oluşmadan önce yaşamış bilinmeyen ileri bir uygarlığa aitti. Kimisi işin içine uzaylıları bile kattı.",
+      "nesne": "mysterious ancient ruins under a starry sky",
+      "arama": "ancient civilization theory",
+      "gorsel": "mysterious ancient stone ruins on a cliff under a starry night sky, fantasy mood, no people, NO text, NO letters, NO logos"
+    },
+    {
+      "metin": "Kulağa heyecan verici geliyor, değil mi? Ama bilim insanlarının çoğu bu iddiaya katılmıyor. Nedenlerine tek tek bakalım.",
+      "nesne": "scales of justice weighing an old map and a book",
+      "arama": "Piri Reis map science",
+      "gorsel": "brass balance scale weighing an old rolled map against a closed leather book, dark background, warm light, NO text, NO letters"
+    },
+    {
+      "metin": "Birincisi, Antarktika milyonlarca yıldır kalın bir buz örtüsünün altında. İnsanlar ortaya çıkmadan çok önce de buzla kaplıydı.",
+      "nesne": "vast Antarctic ice sheet under a low sun",
+      "arama": "Antarctic ice sheet",
+      "gorsel": "vast Antarctic ice sheet stretching to the horizon under a low sun, blue ice cliffs, no people, NO text, NO letters"
+    },
+    {
+      "metin": "İkincisi, bu iddia jeolojik verilerle çelişiyor. Üstelik böyle bir uygarlığa ait tek bir eser, tek bir kalıntı bile bulunamadı.",
+      "nesne": "empty archaeological trench with tools and nothing found",
+      "arama": "archaeology excavation",
+      "gorsel": "empty archaeological trench with old wooden tools and brushes, nothing found, overcast light, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Üçüncüsü, güneydeki kıyıda yazan yer adları, Portekizce ve İspanyolca adların Osmanlıcaya aktarılmış hâlleri. Yani bilgi, o çağın denizcilerinden geliyor.",
+      "nesne": "Portuguese ship sailing along a tropical South American coast",
+      "arama": "Portuguese ship Brazil 1500",
+      "gorsel": "Portuguese carrack sailing along a tropical South American coastline with green mountains, around 1500, no flags with symbols, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Tarihçilerin çoğuna göre o kıyı, Brezilya'nın bilinen kıyıları. Bazı araştırmacılara göre de doğuya kıvrılan kısım, o çağda var olduğu düşünülen hayalî bir güney kıtasının çizimi.",
+      "nesne": "coast of Brazil with green mountains meeting the ocean",
+      "arama": "Brazil coast",
+      "gorsel": "wild coast of Brazil with green mountains meeting the Atlantic ocean, untouched nature, early 16th century, no people, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Antarktika'nın kıyıları ise ilk kez 1820'de görüldü. Yani Piri Reis'in haritasından 300 yıldan fazla sonra.",
+      "nesne": "wooden sailing ship among icebergs",
+      "arama": "Antarctica discovery 1820",
+      "gorsel": "wooden sailing ship of the early 19th century among icebergs in cold grey sea, 1820, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Tarihçi Gregory McIntosh haritayı ayrıntılı biçimde inceledi ve kayıp uygarlık ya da uzaylı iddialarını çürüttü. Ona göre haritanın gerçek değeri başka yerde.",
+      "nesne": "historian's desk with an open book and an old map copy",
+      "arama": "Gregory McIntosh Piri Reis",
+      "gorsel": "historian's wooden desk with an open book with blank pages and a faded old map copy, warm reading lamp, seen from above, no people, NO text, NO letters"
+    },
+    {
+      "metin": "Piri Reis'in asıl başarısı şu: 1513 gibi erken bir tarihte Doğu'nun ve Batı'nın bilgisini tek bir haritada buluşturmak.",
+      "nesne": "old world map glowing between East and West",
+      "arama": "Piri Reis map achievement",
+      "gorsel": "old parchment map glowing softly on a table, half lit by warm eastern lamp light and half by cool western window light, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "Sonra Kitab-ı Bahriye'yi yazdı. Akdeniz'in kıyılarını, limanlarını ve adalarını anlatan bu denizcilik kitabını 1521'de bitirdi, 1526'da Kanuni Sultan Süleyman'a sundu.",
+      "nesne": "illuminated Ottoman manuscript open on a wooden stand",
+      "arama": "Kitab-i Bahriye",
+      "gorsel": "illuminated Ottoman manuscript open on a wooden stand, painted harbour maps on both pages, gold decoration, soft light, illegible decoration only, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "1528'de ikinci bir dünya haritası çizdi. Ondan da yalnızca bir parça kaldı; Kuzey Atlantik'i ve Kuzey ile Orta Amerika kıyılarını gösteriyor.",
+      "nesne": "fragment of a second old map showing North Atlantic coastlines",
+      "arama": "Piri Reis 1528 map",
+      "gorsel": "fragment of an old parchment map showing North Atlantic coastlines with empty unexplored areas, faded colors, museum light, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "Piri Reis ömrü boyunca denizlerde görev yaptı; ileri yaşında, 1550'lerin başında Mısır'da idam edildi.",
+      "nesne": "lone galley silhouette at sunset on the Nile delta",
+      "arama": "Piri Reis Egypt",
+      "gorsel": "lone galley silhouette at sunset near the Nile delta, calm water, melancholic mood, no people visible, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Bugün 1513 haritası Topkapı Sarayı'nda korunuyor. Işığa ve neme karşı çok hassas olduğu için yalnızca zaman zaman sergileniyor.",
+      "nesne": "old parchment map in a dim museum display case",
+      "arama": "Piri Reis map Topkapi museum",
+      "gorsel": "old parchment map inside a dim glass museum display case with soft protective lighting, dark room, no people, NO text, NO letters, NO logos"
+    },
+    {
+      "metin": "Ceylan derisinden bir parça, kayıp bir Kolomb haritasının izi ve 500 yıldır süren bir merak. Belki de asıl sır, haritanın kendisi değil, onu çizen denizcinin merakıydı.",
+      "nesne": "Ottoman sailor silhouette at the bow of a galley looking at the horizon",
+      "arama": "Piri Reis legacy",
+      "gorsel": "silhouette of an Ottoman sailor in a turban seen from behind at the bow of a galley, looking at a wide horizon at sunset, face not visible, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Sence Piri Reis haritasının en şaşırtıcı yanı ne: Kolomb'un kayıp haritasının izi mi, yoksa hakkında anlatılan efsaneler mi? Yorumlara yaz. Gizli Tarih'e abone olmayı unutma.",
+      "nesne": "old book opening with light coming out next to a rolled map",
+      "arama": "mystery history book",
+      "gorsel": "old leather book opening on a wooden table with warm light rising from its pages next to a rolled parchment map, dark background, NO text, NO letters"
+    }
+  ]
 }
