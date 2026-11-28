@@ -110,9 +110,9 @@
     },
     {
       "metin": "Peki bu haritayı çizen denizci kimdi? Piri Reis, tahminlere göre 1465 ile 1470 arasında Gelibolu'da doğdu.",
-      "nesne": "small harbour town of Gallipoli with wooden houses and boats",
+      "nesne": "wooden sailing ships moored at a small stone quay",
       "arama": "Gelibolu 16th century",
-      "gorsel": "small harbour town of Gallipoli on the Dardanelles with wooden houses, a stone tower and wooden boats, late 15th century, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+      "gorsel": "close view of wooden sailing ships and rowing boats moored at a small stone quay of a 15th century Ottoman harbour town, ropes, barrels, a few wooden houses with tiled roofs close behind, painted like an old oil painting, NO sky-line, NO towers with antennas, NO cars, NO electric wires, NO power pylons, NO poles, NO modern objects, NO text, NO letters"
     },
     {
       "metin": "Gençliğinde amcası Kemal Reis'in yanında denize açıldı. Kemal Reis, Akdeniz'in tanınmış denizcilerinden biriydi, sonra Osmanlı donanmasında kaptan oldu.",
@@ -154,7 +154,7 @@
       "metin": "Ve bir tane daha. Notta açıkça şöyle yazıyordu: Bu kıyılar ve adalar, Kolomb'un haritasından alınmıştır.",
       "nesne": "old map of Caribbean islands with a tiny caravel",
       "arama": "Columbus map Caribbean",
-      "gorsel": "old hand-painted map of scattered Caribbean islands with a tiny caravel ship drawn on the sea, parchment texture, candlelight, NO readable text, NO letters, NO logos"
+      "gorsel": "old hand-painted chart of scattered tropical islands with a tiny caravel ship drawn on the sea, pure illustration WITHOUT any writing, no labels, no place names, no lettering, parchment texture, candlelight, NO text, NO letters, NO logos"
     },
     {
       "metin": "İşte haritanın en şaşırtıcı yanı bu. Çünkü Kolomb'un Amerika kıyılarını gösteren o haritası bugün kayıp. Hiçbir arşivde bulunamadı.",
@@ -184,7 +184,7 @@
       "metin": "Haritaya dikkatle bakınca bu iz görülüyor. Karayipler'deki adalar tuhaf biçimde çizilmiş; Küba sanki bir ada değil de büyük bir kıtanın parçası gibi duruyor.",
       "nesne": "old map detail of strangely shaped Caribbean islands",
       "arama": "Piri Reis map Caribbean Cuba",
-      "gorsel": "detail of an old parchment map showing strangely shaped Caribbean islands and a long coastline, painted in faded red and green, NO readable text, NO letters, NO logos"
+      "gorsel": "detail of an old parchment chart showing strangely shaped islands and a long coastline, painted in faded red and green, pure illustration WITHOUT any writing, no labels, no place names, no lettering, NO text, NO letters, NO logos"
     },
     {
       "metin": "Bu, Kolomb'un kendi düşüncesiyle örtüşüyor. Kolomb, Küba'nın Asya kıtasının bir parçası olduğuna inanıyordu.",
