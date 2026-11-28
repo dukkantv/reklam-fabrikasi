@@ -25,11 +25,14 @@
   "yapay zeka"
  ],
  "dosya": "20261128-060046-dukkantv.mp4",
- "durum": "onaylandi",
+ "durum": "yuklendi",
  "eklendi": "2026-11-28T06:00:46.173626+03:00",
  "kapak": "20261128-060046-dukkantv-kapak.jpg",
  "uzun": true,
  "sabit_yayin": "2026-11-30T20:17:00+03:00",
  "otomatik": true,
- "mesaj_id": 1532
+ "mesaj_id": 1532,
+ "kapak_tamam": true,
+ "video_id": "mFVTSwVSGuM",
+ "yayin": "2026-11-30T20:17:00+03:00"
 }
