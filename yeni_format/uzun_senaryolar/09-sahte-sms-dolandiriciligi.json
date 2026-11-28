@@ -1,0 +1,248 @@
+{
+ "baslik": "Sahte SMS Dolandırıcılığı: Nasıl Anlaşılır, Linke Tıklarsan Ne Yapmalı?",
+ "kapak_yazi": "BU SMS'E|TIKLAMA!",
+ "kapak_rozet": "SAHTE SMS",
+ "aciklama": "“Kargonuz teslim edilemedi”, “HGS borcunuz var”, “Adınıza iade bulunuyor”… Telefonuna gelen bu mesajların çoğu oltalama (phishing) tuzağı. Bu videoda sahte kargo, e-Devlet ve banka SMS'lerini nasıl anlayacağını, resmî kurumların senden neleri asla istemediğini ve linke tıkladıysan ya da kart bilgini girdiysen ilk dakikalarda ne yapman gerektiğini anlatıyorum. Şüpheli bağlantıları nereye bildirebileceğini de öğreneceksin.",
+ "etiketler": "sahte sms,sms dolandırıcılığı,oltalama,phishing,kargo dolandırıcılığı,kargonuz teslim edilemedi,e-devlet dolandırıcılığı,banka dolandırıcılığı,hgs borcu sms,linke tıkladım ne yapmalıyım,usom,dolandırıcılık",
+ "kaynaklar": [
+  "https://www.turkiye.gov.tr/bilgilendirme?konu=guvenlik",
+  "https://www.usom.gov.tr/bildirim",
+  "https://www.hurriyet.com.tr/gundem/btkdan-sahte-sosyal-konut-sitelerine-erisim-engeli-43009940",
+  "https://www.cnnturk.com/ekonomi/turkiye-bankalar-birliginden-dijital-dolandiricilik-uyarisi-2165502",
+  "https://www.bloomberght.com/tbb-den-dolandiricilik-olaylarina-yonelik-guvenlik-uyarisi-2339292",
+  "https://www.isbank.com.tr/TR/guvenlik/guvenlik-ipuclari/Sayfalar/guvenlik-ipuclari.aspx",
+  "https://www.garantibbva.com.tr/blog/dolandiricilikta-yeni-yontem-kargonuz-teslim-edilemedi",
+  "https://www.cnnturk.com/turkiye/sanal-dolandiricilar-is-basinda-guvenliginiz-icin-bunlara-dikkat-edin-video-2163718",
+  "https://www.cumhuriyet.com.tr/turkiye/adresiniz-hatali-ve-paketiniz-teslim-edilemedi-mesajlarina-dikkat-ptt-ve-buyuk-kargo-sirketlerinin-adini-kullaniyorlar-2474980",
+  "https://www.ntv.com.tr/turkiye/dolandiricilardan-hgs-ve-ispark-tuzagi-bu-linklere-tiklamayin,SXe5TDQeokS08peSr29CjA",
+  "https://www.ntv.com.tr/turkiye/ptt-kargo-ve-hgs-borcu-tuzagina-dikkat-145-milyon-gsm-verisi-ele-gecirildi-1729236",
+  "https://www.gzt.com/gundem/telefonunuza-boyle-bir-sms-geldiyse-sakin-o-linke-tiklamayin-panik-yaptirip-hesaplari-bosaltiyorlar-4251677",
+  "https://www.yenisafak.com/gundem/e-devlet-linki-gelse-bile-sakin-tiklamayin-dolandiricilarin-yeni-yontemi-desifre-oldu-4784309",
+  "https://www.milliyet.com.tr/gundem/icisleri-bakanligi-duyurdu-tum-turkiyede-tek-acil-numaraya-gecildi-6616677"
+ ],
+ "sahneler": [
+  {
+   "tip": "kanca",
+   "baslik": "Bu SMS'e tıklama!",
+   "alt": "Sahte kargo, e-Devlet ve banka mesajları",
+   "metin": "Telefonuna bir mesaj geliyor: kargonuz teslim edilemedi, adresinizi güncellemek için tıklayın. Bir tık, birkaç bilgi ve kartından para çekilmeye başlıyor. Bu videoda **sahte SMS'leri nasıl anlayacağını** ve linke tıkladıysan **ilk dakikalarda ne yapman gerektiğini** anlatıyorum."
+  },
+  {
+   "bolum": "En yaygın 4 tuzak",
+   "bolum_metin": "Önce en sık gelen dört sahte mesaja bakalım.",
+   "tip": "efsane",
+   "balon": "Kargonuz teslim edilemedi, adresinizi güncelleyin.",
+   "damga": "SAHTE KARGO",
+   "metin": "Birincisi, sahte kargo mesajı. Link, gerçek bir kargo firmasına benzeyen bir sayfa açar. Önce adresini, sonra yeniden gönderim ücreti bahanesiyle kart bilgilerini ister. Kartını girdiğin an, dolandırıcılar o kartla harcama yapabilir."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Ödenmemiş HGS borcunuz var, icra başlamadan ödeyin.",
+   "damga": "SAHTE BORÇ",
+   "metin": "İkincisi, sahte borç mesajı. HGS geçiş borcu, otopark borcu ya da prim borcu var diye gelir ve hemen ödemezsen icra başlayacağını, hesabına bloke konacağını söyler. Link, kurumun resmî sayfasının kopyasına gider."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Adınıza iade bulunuyor, başvurmak için tıklayın.",
+   "damga": "SAHTE E-DEVLET",
+   "metin": "Üçüncüsü, sahte e-Devlet mesajı. Para iadesi, destek ödemesi ya da konut başvurusu vaat eder. Açılan sayfa e-Devlet'e çok benzer ama amacı şifreni ve kimlik bilgilerini çalmaktır."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Hesabınız askıya alındı, bilgilerinizi doğrulayın.",
+   "damga": "SAHTE BANKA",
+   "metin": "Dördüncüsü, banka adına gelen mesaj. Hesabın kapanacak, kartın bloke oldu diye korkutur ve seni bankanın sahte sayfasına götürür. Orada müşteri numaranı, şifreni ve telefonuna gelen onay kodunu ister."
+  },
+  {
+   "bolum": "Nasıl anlaşılır?",
+   "bolum_metin": "Peki sahte bir mesajı nasıl anlarsın? Beş işarete bak.",
+   "tip": "madde",
+   "baslik": "Sahte SMS'in 5 işareti",
+   "maddeler": [
+    "Acele ettiriyor, korkutuyor",
+    "Ödül ya da iade vaat ediyor",
+    "Bir linke tıklatmak istiyor",
+    "Ödeme, kart ya da kod istiyor",
+    "Kişisel IBAN'a para istiyor"
+   ],
+   "metin": "Birincisi, acele ettirir ve korkutur: hemen ödemezsen icra, hesabın kapanacak der. İkincisi, ödül, hediye ya da para iadesi vaat eder. Üçüncüsü, seni mutlaka bir linke tıklatmak ister. Dördüncüsü, küçük bir ödeme, kart bilgisi ya da telefonuna gelen onay kodunu ister. Beşincisi, parayı birinin kişisel IBAN'ına göndermeni ister. Bu işaretlerden biri bile varsa, dur."
+  },
+  {
+   "tip": "uyari",
+   "buyuk": "Adres çubuğuna bak",
+   "alt": "Resmî kurumlar gov.tr ile biter",
+   "damga": "KONTROL ET",
+   "metin": "Bir de sayfanın adresine bak. e-Devlet'in adresi turkiye.gov.tr'dir. Resmî kurumların adresleri gov.tr ile biter. Sonu nokta tc olan ya da harfleri biraz değiştirilmiş adresler resmî değildir. Ama unutma, adres doğru görünse bile en güvenlisi linke hiç tıklamamaktır."
+  },
+  {
+   "bolum": "Resmî kurumlar ne istemez?",
+   "bolum_metin": "Şimdi gerçek kurumla sahtesini yan yana koyalım.",
+   "tip": "karsilastir",
+   "baslik": "Gerçek mi, sahte mi?",
+   "sol": {
+    "baslik": "Gerçek kurum",
+    "maddeler": [
+     "Şifreni sormaz",
+     "Kişisel IBAN'a para istemez",
+     "Kendi uygulamasında görünür"
+    ]
+   },
+   "sag": {
+    "baslik": "Sahte mesaj",
+    "maddeler": [
+     "Linkle acele ettirir",
+     "Kart ve kod ister",
+     "Kişisel hesaba ödeme ister"
+    ]
+   },
+   "sol_renk": "yesil",
+   "sag_renk": "kirmizi",
+   "metin": "Bankalar ve devlet kurumları telefonla ya da mesajla senden şifre istemez. e-Devlet de kendi sayfasında, çalışanları dahil hiç kimsenin şifreni istemeyeceğini yazar. Kamu kurumları kişisel bir IBAN'a para göndermeni de istemez. Gerçek bir borcun ya da kargon varsa, onu kurumun kendi uygulamasında ya da sitesinde de görürsün."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "Linke değil, kaynağa git",
+   "renk": "sari",
+   "ust": "Altın kural",
+   "alt": "Uygulamayı kendin aç, adresi kendin yaz",
+   "metin": "Bu yüzden altın kural şu: linke değil, kaynağa git. Mesaj kargo diyorsa kargo firmasının resmî uygulamasını aç. Borç diyorsa e-Devlet'e adresi kendin yazarak gir. Banka diyorsa bankanın uygulamasına bak."
+  },
+  {
+   "tip": "adimlar",
+   "baslik": "Şüpheli SMS gelince",
+   "adimlar": [
+    "Linke tıklama",
+    "Resmî uygulamadan kontrol et",
+    "Ekran görüntüsü al",
+    "Numarayı not et",
+    "Bildir ve sil"
+   ],
+   "metin": "Şüpheli bir mesaj gelince beş adım. Birincisi, linke tıklama. İkincisi, durumu kurumun resmî uygulamasından ya da sitesinden kontrol et. Üçüncüsü, mesajın ekran görüntüsünü al. Dördüncüsü, gönderen numarayı not et. Beşincisi, bildir ve sonra mesajı sil."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Bunları asla verme",
+   "olumsuz": true,
+   "maddeler": [
+    "Kart bilgileri",
+    "SMS onay kodu",
+    "Banka ve e-Devlet şifresi",
+    "Kişisel IBAN'a ödeme"
+   ],
+   "metin": "Ve hangi bahaneyle olursa olsun, şunları asla verme. Birincisi, kart bilgilerini. İkincisi, telefonuna gelen onay kodunu. Bankanın kendi sitesi de bu kodu banka çalışanları dahil kimseyle paylaşmamanı söylüyor. Üçüncüsü, banka ve e-Devlet şifreni. Dördüncüsü, kişisel bir IBAN'a ödeme yapma."
+  },
+  {
+   "bolum": "Tıkladıysan ne yapmalı?",
+   "bolum_metin": "Peki linke tıkladıysan ve bilgilerini girdiysen ne yapmalısın?",
+   "tip": "adimlar",
+   "baslik": "Hemen, sırayla",
+   "adimlar": [
+    "Bankanı hemen ara",
+    "Kartını kullanıma kapattır",
+    "İtiraz kaydı aç",
+    "Şifrelerini değiştir",
+    "e-Devlet'te iki aşamalı giriş"
+   ],
+   "metin": "Panik yapma ama vakit de kaybetme. Birincisi, bankanı hemen ara, numarayı mesajdan değil kartının arkasından al. İkincisi, kartını ve internet bankacılığını kullanıma kapattır. Üçüncüsü, yapmadığın işlemler için bankayla itiraz kaydı oluştur. Dördüncüsü, girdiğin bütün şifreleri değiştir. Beşincisi, e-Devlet şifreni de değiştir ve iki aşamalı girişi aç."
+  },
+  {
+   "tip": "uyari",
+   "buyuk": "Uygulama kurduysan",
+   "alt": "İnterneti kes, uygulamayı sil, bankanı ara",
+   "damga": "ACİL",
+   "metin": "Linkten telefonuna bir uygulama kurduysan durum daha ciddi. Bu tür uygulamalar telefonuna uzaktan erişebilir. Emniyet'in siber birimleri bu durumda önce telefonun internet bağlantısını kesmeni öneriyor. Sonra uygulamayı sil, gerekirse telefonu fabrika ayarlarına döndür ve bankana haber ver. Bu arada telefondan banka ya da e-Devlet işlemi yapma."
+  },
+  {
+   "bolum": "Nereye bildirilir?",
+   "bolum_metin": "Son olarak, şüpheli mesajı ve dolandırıcılığı nereye bildireceksin?",
+   "tip": "madde",
+   "baslik": "Bildirim yerleri",
+   "maddeler": [
+    "Bankanın müşteri hizmetleri",
+    "Siber Güvenlik Başkanlığı (USOM)",
+    "Emniyet ya da savcılık",
+    "Acil durumda 112"
+   ],
+   "metin": "Birincisi, para ya da kart söz konusuysa önce bankanın müşteri hizmetleri. İkincisi, şüpheli linkleri USOM'a bildirebilirsin. USOM artık Siber Güvenlik Başkanlığı bünyesinde ve hizmetleri siberguvenlik nokta gov nokta tr adresine taşınıyor. Üçüncüsü, dolandırıldıysan en yakın emniyet birimine ya da Cumhuriyet Başsavcılığı'na şikâyette bulun. Dördüncüsü, acil bir durumda 112'yi ara, polis imdat da artık bu numarada."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "Kanıtları sakla",
+   "renk": "sari",
+   "ust": "Şikâyet ederken",
+   "alt": "Ekran görüntüsü, numara, dekont",
+   "metin": "Şikâyet ederken elinde kanıt olsun. Mesajın ekran görüntüsünü, gönderen numarayı ve banka dekontlarını sakla. Bunlar hem bankadaki itirazında hem de soruşturmada işine yarar."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Ailen için",
+   "maddeler": [
+    "Bu videoyu ailene göster",
+    "Şüpheli mesajı sana sorsunlar",
+    "e-Devlet iki aşamalı girişi aç"
+   ],
+   "metin": "Bu tuzaklara en çok, internete yeni alışanlar düşüyor. Birincisi, bu videoyu anne ve babana göster. İkincisi, şüpheli bir mesaj gelince bir şey yapmadan önce sana sorsunlar. Üçüncüsü, onların e-Devlet hesabında da iki aşamalı girişi birlikte açın."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "Tıklama, kendin gir",
+   "renk": "kirmizi",
+   "ust": "Akılda kalsın",
+   "alt": "Acele ettiren her mesajdan şüphelen",
+   "metin": "Bu videodan aklında tek bir cümle kalsın: tıklama, kendin gir. Seni acele ettiren, korkutan ya da ödül vaat eden her mesajdan şüphelen. Gerçek bir kurum, sana düşünmek için zaman tanır."
+  },
+  {
+   "tip": "soru",
+   "soru": "Sana en son hangi sahte SMS geldi?",
+   "metin": "Sana en son hangi sahte mesaj geldi? Yorumlara yaz, böylece başkaları da tanısın. Bu videoyu ailende en çok ihtiyacı olan kişiye gönder."
+  },
+  {
+   "tip": "son",
+   "sonraki": "Kredi kartında asgari ödeme: sadece asgariyi ödersen ne olur?",
+   "metin": "Bir sonraki videoda kredi kartında asgari ödemeyi anlatıyorum: sadece asgariyi ödersen ne olur? Abone olmayı unutma, görüşmek üzere."
+  }
+ ],
+ "tanitim": {
+  "baslik": "“Kargonuz Teslim Edilemedi” SMS'i Geldiyse Sakın Tıklama! ⚠️ #shorts",
+  "aciklama": "Sahte kargo SMS'i nasıl dolandırıyor, tıkladıysan ne yapmalı? Tamamı kanaldaki uzun videoda.",
+  "sahneler": [
+   {
+    "tip": "kanca",
+    "ekran": "!",
+    "buyuk": "Kargonuz bekliyor?",
+    "altyazi": "“Kargonuz teslim edilemedi, **tıklayın**” mesajı mı geldi?",
+    "seslendirme": "Kargonuz teslim edilemedi, adresinizi güncelleyin diye bir mesaj mı geldi? Sakın tıklama."
+   },
+   {
+    "tip": "uyari",
+    "etiket": "TUZAK",
+    "baslik": "Sahte sayfa",
+    "rozet": "!",
+    "buyuk": "Kartını ister",
+    "damga": "SAHTE",
+    "altyazi": "Link, ücret bahanesiyle **kart bilgini** ister.",
+    "seslendirme": "Link, kargo firmasına benzeyen sahte bir sayfa açar ve küçük bir ücret bahanesiyle kart bilgini ister."
+   },
+   {
+    "tip": "liste",
+    "etiket": "TIKLADIYSAN",
+    "baslik": "Hemen yap",
+    "rozet": "✓",
+    "maddeler": [
+     "Bankanı ara",
+     "Kartını kapattır",
+     "Şifreleri değiştir"
+    ],
+    "altyazi": "Tıkladıysan **hemen bankanı** ara.",
+    "seslendirme": "Tıkladıysan hemen bankanı ara, kartını kullanıma kapattır ve şifrelerini değiştir."
+   },
+   {
+    "tip": "son",
+    "ust": "TAMAMI KANALDA",
+    "buton": "KANALA GİT",
+    "yarin": "Sahte SMS dolandırıcılığı: nasıl anlaşılır?",
+    "seslendirme": "Sahte mesajın altı işaretini ve nereye bildireceğini kanaldaki uzun videoda anlattım."
+   }
+  ]
+ }
+}

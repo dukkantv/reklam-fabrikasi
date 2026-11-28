@@ -1,0 +1,266 @@
+{
+ "baslik": "Kredi Kartı Asgari Ödeme Nedir? Sadece Asgariyi Ödersen Ne Olur? Faiz ve Kredi Notu",
+ "kapak_yazi": "SADECE|ASGARİYİ ÖDERSEN?",
+ "kapak_rozet": "KREDİ KARTI",
+ "aciklama": "Kredi kartında asgari ödeme nedir, oranı neden kart limitine göre değişir? Sadece asgariyi ödersen kalan borca ne olur? Akdi faiz ile gecikme faizi arasındaki fark, asgarinin altında ödemenin ve üst üste ödememenin sonuçları, kartın kullanıma kapanması ve kredi notuna etkisi bu videoda sade bir dille anlatılıyor. Örnek hesaplama yuvarlak sayılarla yapılmıştır. Oranlar Kasım 2026 itibarıyladır ve değişebilir. Bu video yatırım ya da kişisel finans tavsiyesi değildir.",
+ "etiketler": "kredi kartı asgari ödeme,asgari ödeme nedir,asgari ödeme tutarı,akdi faiz,gecikme faizi,kredi kartı faizi,kredi notu,findeks,kredi kartı borcu,kart kapanması",
+ "kaynaklar": [
+  "https://www.tcmb.gov.tr/wps/wcm/connect/TR/TCMB%2BTR/Main%2BMenu/Istatistikler/Bankacilik%2BVerileri/Kredi_Karti_Islemlerinde_Uygulanacak_Azami_Faiz_Oranlari",
+  "https://www.cnnturk.com/ekonomi/galeri/merkez-bankasi-kredi-kartlari-faiz-oranlari-mb-kredi-karti-faizleri-ne-kadar-oldu-iste-1-ocak-2026-nakit-avans-faizi-ve-degisen-2372003",
+  "https://www.alomaliye.com/2026/10/05/bddk-kredi-kartlarinda-asgari-odeme-oranlarini-belirledi/",
+  "https://bloomberght.com/bddk-dan-cep-telefonu-kredileri-ve-kredi-karti-asgari-odemelerine-guncelleme-3790241",
+  "https://www.lexpera.com.tr/mevzuat/kanunlar/banka-kartlari-ve-kredi-kartlari-kanunu-5464",
+  "https://alomaliye.com/2007/03/10/banka-kartlari-ve-kredi-kartlari-hakkinda-yonetmelik/",
+  "https://www.garantibbva.com.tr/tr/bireysel/krediler/kredi-notu-nedir.page",
+  "https://hesap.com/hesap-defteri/findeks-kredi-notu-nedir-nasil-hesaplanir"
+ ],
+ "sahneler": [
+  {
+   "tip": "kanca",
+   "baslik": "Asgariyi ödedim, sorun yok mu?",
+   "alt": "Asgari ödeme, faiz ve kredi notu",
+   "metin": "Ekstre geliyor, en altta küçük bir rakam var: asgari ödeme tutarı. Onu ödüyorsun ve rahatlıyorsun. Peki geri kalan borca ne oluyor? Bu videoda asgari ödemenin **ne olduğunu**, sadece asgariyi ödemenin **neye mal olduğunu** ve ödenmezse neler olduğunu anlatıyorum. Bu bir tavsiye videosu değil, kavramları bilmek için hazırlandı."
+  },
+  {
+   "bolum": "Asgari ödeme nedir?",
+   "bolum_metin": "Önce temel soruyla başlayalım: asgari ödeme nedir?",
+   "tip": "buyuk",
+   "buyuk": "Asgari ödeme",
+   "renk": "beyaz",
+   "ust": "Tanım",
+   "alt": "Dönem borcunun en az ödenmesi gereken kısmı",
+   "metin": "Asgari ödeme, kart borcunun son ödeme tarihine kadar en az ödenmesi gereken kısmıdır. Yani borcun tamamı değil, sadece bir parçasıdır."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Ekstredeki 3 kavram",
+   "maddeler": [
+    "Dönem borcu",
+    "Asgari ödeme tutarı",
+    "Son ödeme tarihi"
+   ],
+   "metin": "Ekstrede üç kavram yan yana durur. Dönem borcu, o ay kartla yaptığın harcamaların toplamıdır. Asgari ödeme tutarı, bu borcun en az ödenmesi gereken kısmıdır. Son ödeme tarihi ise bu ödemenin yapılması gereken son gündür."
+  },
+  {
+   "bolum": "Oran neye göre değişir?",
+   "bolum_metin": "Peki asgari ödeme tutarı nasıl belirleniyor?",
+   "tip": "karsilastir",
+   "baslik": "Kart limitine göre",
+   "sol": {
+    "baslik": "Limit 100 bin TL ve altı",
+    "maddeler": [
+     "Dönem borcunun %20'si"
+    ]
+   },
+   "sag": {
+    "baslik": "Limit 100 bin TL üstü",
+    "maddeler": [
+     "Dönem borcunun %40'ı"
+    ]
+   },
+   "sol_renk": "sari",
+   "sag_renk": "kirmizi",
+   "metin": "Asgari ödeme oranı, kartın limitine göre değişir. Kasım iki bin yirmi altı itibarıyla, BDDK kararına göre limiti yüz bin lira ve altında olan kartlarda asgari ödeme, dönem borcunun yüzde yirmisidir. Limiti yüz bin liranın üzerinde olan kartlarda ise bu oran yüzde kırktır. Bu oranlar zaman zaman değişebilir."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Asgariyi ödedim, borcum bitti.",
+   "damga": "YANLIŞ",
+   "metin": "En yaygın yanlış anlama şu: asgariyi ödedim, borcum bitti. Oysa ödenmeyen kısım ortadan kalkmaz. Bir sonraki aya devreder ve üzerine faiz işler."
+  },
+  {
+   "bolum": "Sadece asgariyi ödersen",
+   "bolum_metin": "Şimdi asıl soruya gelelim: sadece asgariyi ödersen ne olur?",
+   "tip": "buyuk",
+   "buyuk": "Akdi faiz",
+   "renk": "sari",
+   "ust": "Kalan borca işleyen faiz",
+   "alt": "Asgari ya da üstü ödenince kalana uygulanır",
+   "metin": "Asgari tutarı ya da daha fazlasını ödersen, kalan borca akdi faiz uygulanır. Akdi faiz, kart sözleşmesinde yazan, yani anlaşmalı faizdir."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "Üst sınır: TCMB",
+   "renk": "sari",
+   "ust": "Akdi faizin tavanını kim belirler?",
+   "alt": "Güncel oran: TCMB sitesi ve hesap özeti",
+   "metin": "Bu faizin bir üst sınırı var ve onu Merkez Bankası belirliyor. Dönem borcu büyüdükçe bu sınır biraz daha yükselir. Merkez Bankası bu oranları düzenli olarak günceller. Güncel oranı Merkez Bankası'nın sitesinde ve kartının hesap özetinde görebilirsin."
+  },
+  {
+   "tip": "adimlar",
+   "baslik": "Örnek hesap (yuvarlak sayılar)",
+   "adimlar": [
+    "Dönem borcu: 10.000 TL",
+    "Asgari (%20): 2.000 TL",
+    "Devreden borç: 8.000 TL",
+    "Örnek %3 faiz: 240 TL"
+   ],
+   "metin": "Yuvarlak sayılarla bir örnek yapalım. Dönem borcun on bin lira olsun. Yüzde yirmi asgari ödeme, iki bin lira eder. Sekiz bin lira bir sonraki aya devreder. Örnek olarak aylık yüzde üç faiz alırsak, bu sekiz bin liraya bir ayda iki yüz kırk lira faiz işler. Vergiler bu örneğe dahil değil."
+  },
+  {
+   "tip": "buyuk",
+   "buyuk": "~1.230 TL faiz",
+   "renk": "kirmizi",
+   "ust": "Örnek: 12 ay sadece asgari",
+   "alt": "Hiç harcama yapmasan bile borç bitmez",
+   "metin": "Bu örneği sürdürelim. Hiç yeni harcama yapmadan, on iki ay boyunca sadece asgariyi ödediğini düşün. Bu sürede toplam yaklaşık bin iki yüz otuz lira faiz ödenir ve on ikinci ayın sonunda hâlâ yaklaşık dokuz yüz seksen lira borç kalır. Asgari ödeme, borcu küçültür ama çok yavaş küçültür."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Faizi büyüten şeyler",
+   "maddeler": [
+    "Dönem borcunun büyüklüğü",
+    "Nakit çekim",
+    "Borcun kaç ay devrettiği"
+   ],
+   "metin": "Ödenen faizi büyüten üç şey var. Birincisi dönem borcunun büyüklüğü, çünkü borç kademesi yükseldikçe azami oran da yükselir. İkincisi nakit çekim, çünkü nakit kullanımda oran daha yüksektir ve faiz işlem gününden başlar. Üçüncüsü borcun kaç ay devrettiği, çünkü her ay kalan borca yeniden faiz işler."
+  },
+  {
+   "bolum": "Asgarinin altında kalırsan",
+   "bolum_metin": "Peki asgari tutarın bile altında ödeme yaparsan ne olur?",
+   "tip": "buyuk",
+   "buyuk": "Gecikme faizi",
+   "renk": "kirmizi",
+   "ust": "Asgarinin altında ödeme",
+   "alt": "Akdi faizden daha yüksek bir oran",
+   "metin": "Asgari tutarın altında ödeme yapılırsa işin içine gecikme faizi girer. Gecikme faizi, akdi faizden daha yüksek bir orandır ve onun da üst sınırını Merkez Bankası belirler."
+  },
+  {
+   "tip": "karsilastir",
+   "baslik": "Asgari çizgisi",
+   "sol": {
+    "baslik": "Asgari ve üstü",
+    "maddeler": [
+     "Kalana akdi faiz",
+     "Gecikme sayılmaz"
+    ]
+   },
+   "sag": {
+    "baslik": "Asgarinin altı",
+    "maddeler": [
+     "Gecikme faizi",
+     "Gecikme kaydı oluşur"
+    ]
+   },
+   "sol_renk": "sari",
+   "sag_renk": "kirmizi",
+   "metin": "Yani asgari tutar bir çizgi gibidir. Çizginin üstünde kalırsan kalan borca akdi faiz işler ve ödeme gecikmiş sayılmaz. Çizginin altında kalırsan daha yüksek olan gecikme faizi devreye girer ve bu bir gecikme olarak kayda geçer."
+  },
+  {
+   "bolum": "Üst üste ödenmezse",
+   "bolum_metin": "Asgari ödeme birkaç kez yapılmazsa işler daha da ciddileşir.",
+   "tip": "madde",
+   "baslik": "Asgari ödenmezse",
+   "olumsuz": true,
+   "maddeler": [
+    "Yılda 3 kez: nakit kullanım kapanır",
+    "Üst üste 3 dönem: kart kapanır",
+    "Limit artırımı yapılamaz"
+   ],
+   "metin": "Yönetmelikte üç kural var. Bir takvim yılı içinde asgari ödeme toplam üç kez yapılmazsa, kart nakit kullanıma kapatılır. Asgari ödeme üst üste üç dönem yapılmazsa, kart alışverişe de kapatılır. Ve bu kartlarda, dönem borcunun tamamı ödenene kadar limit artırılamaz."
+  },
+  {
+   "tip": "uyari",
+   "buyuk": "Kart iptali",
+   "alt": "Borcun tamamı ödenene kadar yeni kart verilmez",
+   "damga": "KANUN",
+   "metin": "Kanunda bir adım daha var. Asgari tutar son ödeme tarihinden sonraki üç ay içinde ödenmez ve bankanın bildiriminden sonraki bir ay içinde de ödeme yapılmazsa, kartlar iptal edilir. Borcun tamamı ödenene kadar da yeni kredi kartı verilemez."
+  },
+  {
+   "bolum": "Kredi notuna etkisi",
+   "bolum_metin": "Bütün bunların bir de görünmeyen tarafı var: kredi notu.",
+   "tip": "buyuk",
+   "buyuk": "Ödeme alışkanlığı",
+   "renk": "sari",
+   "ust": "Kredi notunda en etkili faktör",
+   "alt": "Kayıtlar Kredi Kayıt Bürosu verilerine dayanır",
+   "metin": "Kredi notunu en çok etkileyen şey, kredi ve kart ödemelerinin zamanında yapılıp yapılmadığıdır. Bu not, Kredi Kayıt Bürosu'nda tutulan kayıtlara dayanır ve bankalar yeni bir kredi ya da kart başvurusunda bu nota bakar."
+  },
+  {
+   "tip": "madde",
+   "baslik": "Notu düşürebilenler",
+   "olumsuz": true,
+   "maddeler": [
+    "Son ödeme tarihini kaçırmak",
+    "Limitin hep dolu olması",
+    "Kısa sürede çok başvuru"
+   ],
+   "metin": "Notu düşürebilen üç durum öne çıkar. Son ödeme tarihini kaçırmak, tek bir gün bile olsa gecikme sayılabilir. Kart limitinin sürekli dolu olması, borç yükünün ağır olduğu izlenimi verir. Kısa sürede çok sayıda kredi ya da kart başvurusu yapmak da risk olarak değerlendirilir."
+  },
+  {
+   "tip": "efsane",
+   "balon": "Asgariyi ödüyorum, notum hiç etkilenmez.",
+   "damga": "YARIM DOĞRU",
+   "metin": "Bir de şu cümle sık duyulur: asgariyi ödüyorum, notum hiç etkilenmez. Bu yarım doğru. Asgari zamanında ödenirse gecikme kaydı oluşmaz. Ama borcu ay ay devretmek ve limiti dolu tutmak, notu yine olumsuz etkileyebilir."
+  },
+  {
+   "bolum": "Bilmekte fayda var",
+   "bolum_metin": "Son olarak, akılda tutulması önemli iki bilgi.",
+   "tip": "buyuk",
+   "buyuk": "Tam ödeme = faiz yok",
+   "renk": "yesil",
+   "alt": "Alışveriş borcunun tamamı ödenince faiz işlemez",
+   "metin": "Dönem borcunun tamamı son ödeme tarihine kadar ödendiğinde, alışveriş harcamalarına faiz işlemez. Faiz, sadece ödenmeyen kalan borç üzerinden hesaplanır. Nakit çekim ise bu kuralın dışındadır."
+  },
+  {
+   "tip": "uyari",
+   "buyuk": "Oranlar değişir",
+   "alt": "Güncel oran: TCMB duyurusu ve kart ekstresi",
+   "damga": "DİKKAT",
+   "metin": "Ve bu videodaki oranlar Kasım iki bin yirmi altı itibarıyladır. Faiz oranları ve asgari ödeme oranları sık değişir. Kartına uygulanan güncel oran, her ay ekstrede ve Merkez Bankası'nın duyurularında yer alır."
+  },
+  {
+   "tip": "soru",
+   "soru": "Ekstrendeki faiz oranına hiç baktın mı?",
+   "metin": "Sen ekstrendeki faiz oranına hiç dikkat ettin mi? Yorumlara yaz. Bu videoyu, kredi kartını yeni kullanmaya başlayan birine gönderebilirsin."
+  },
+  {
+   "tip": "son",
+   "sonraki": "Instagram hesabı nasıl büyütülür?",
+   "metin": "Bir sonraki videoda Instagram hesabının nasıl büyütüldüğünü ve sıfırdan takipçi kazanmanın gerçeklerini anlatıyorum. Abone olmayı unutma, görüşmek üzere."
+  }
+ ],
+ "tanitim": {
+  "baslik": "Kredi Kartında Sadece Asgariyi Ödersen Ne Olur? #shorts",
+  "aciklama": "Asgari ödeme borcu bitirmez: kalan borca ne olur? Tamamı kanaldaki uzun videoda.",
+  "sahneler": [
+   {
+    "tip": "kanca",
+    "ekran": "%",
+    "buyuk": "Asgariyi ödedim",
+    "altyazi": "“Asgariyi ödedim, **borcum bitti**” mi?",
+    "seslendirme": "Asgariyi ödedim, borcum bitti mi? Aslında bitmedi."
+   },
+   {
+    "tip": "liste",
+    "etiket": "ÖRNEK",
+    "baslik": "10.000 TL borç",
+    "rozet": "!",
+    "maddeler": [
+     "Asgari: 2.000 TL",
+     "Devreden: 8.000 TL",
+     "Örnek faiz: 240 TL"
+    ],
+    "altyazi": "Kalan borç **devreder** ve faiz işler.",
+    "seslendirme": "On bin lira borcun varsa ve asgari olarak iki bin lira ödersen, sekiz bin lira devreder. Örnek yüzde üç faizle bir ayda iki yüz kırk lira faiz işler."
+   },
+   {
+    "tip": "uyari",
+    "etiket": "DİKKAT",
+    "baslik": "Üst üste 3 dönem",
+    "rozet": "!",
+    "buyuk": "Kart kapanır",
+    "damga": "KAPANIR",
+    "altyazi": "Asgari **üst üste 3 dönem** ödenmezse kart kapanır.",
+    "seslendirme": "Asgari ödeme üst üste üç dönem yapılmazsa kart alışverişe de kapatılır."
+   },
+   {
+    "tip": "son",
+    "ust": "TAMAMI KANALDA",
+    "buton": "KANALA GİT",
+    "yarin": "Akdi faiz, gecikme faizi ve kredi notu",
+    "seslendirme": "Akdi faizi, gecikme faizini ve kredi notuna etkisini kanaldaki uzun videoda anlattım."
+   }
+  ]
+ }
+}
