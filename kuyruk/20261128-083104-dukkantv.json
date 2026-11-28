@@ -27,12 +27,14 @@
   "youtube shorts izlenme arttırma"
  ],
  "dosya": "20261128-083104-dukkantv.mp4",
- "durum": "onaylandi",
+ "durum": "yuklendi",
  "eklendi": "2026-11-28T08:31:04.531720+03:00",
  "kapak": "20261128-083104-dukkantv-kapak.jpg",
  "kisa_kapak": true,
  "sabit_yayin": "2026-11-28T11:00:00+03:00",
  "otomatik": true,
  "mesaj_id": 1556,
- "incelendi": "2026-11-28 sorunsuz (Claude: kareler + ses -17 dB, 39 sn; abartılı otomatik başlık düzeltildi)"
+ "incelendi": "2026-11-28 sorunsuz (Claude: kareler + ses -17 dB, 39 sn; abartılı otomatik başlık düzeltildi)",
+ "video_id": "GrtbZ7hf0LU",
+ "yayin": "2026-11-28T11:00:00+03:00"
 }
