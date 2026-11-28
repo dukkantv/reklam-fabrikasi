@@ -112,7 +112,8 @@
       "metin": "Peki bu haritayı çizen denizci kimdi? Piri Reis, tahminlere göre bin dört yüz altmış beş ile bin dört yüz yetmiş arasında Gelibolu'da doğdu.",
       "nesne": "wooden ship models and a rolled parchment on a workbench",
       "arama": "Gelibolu 16th century",
-      "gorsel": "interior of a dim 15th century Ottoman shipwright workshop, wooden ship models, coiled ropes and a rolled parchment on a rough wooden workbench, a young sailor in period clothes seen from behind, oil lamp light, painted like an old oil painting, indoor scene only, NO windows with views, NO modern objects, NO electric wires, NO text, NO letters"
+      "gorsel": "interior of a dim 15th century Ottoman shipwright workshop, wooden ship models, coiled ropes and a rolled parchment on a rough wooden workbench, a young sailor in period clothes seen from behind, oil lamp light, painted like an old oil painting, indoor scene only, NO windows with views, NO modern objects, NO electric wires, NO text, NO letters",
+      "resim": "gorseller/piri-reis/10.jpg"
     },
     {
       "metin": "Gençliğinde amcası Kemal Reis'in yanında denize açıldı. Kemal Reis, Akdeniz'in tanınmış denizcilerinden biriydi, sonra Osmanlı donanmasında kaptan oldu.",
@@ -166,7 +167,8 @@
       "metin": "Yani Piri Reis haritası, belki de Kolomb'un kayıp haritasından bize ulaşan en önemli iz.",
       "nesne": "a single wooden caravel on the open sea",
       "arama": "Columbus caravel",
-      "gorsel": "a single 16th century wooden caravel with cream sails on the open sea, only water and sky, empty horizon, NO land, NO coast, NO buildings, NO towers, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+      "gorsel": "a single 16th century wooden caravel with cream sails on the open sea, only water and sky, empty horizon, NO land, NO coast, NO buildings, NO towers, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters",
+      "resim": "gorseller/piri-reis/19.jpg"
     },
     {
       "metin": "Peki bir Osmanlı denizcisi Kolomb'un haritasını nereden bulmuş olabilir? Yaygın açıklamaya göre iz, Kemal Reis'in Akdeniz'de ele geçirdiği İspanyol gemilerine çıkıyor.",
