@@ -36,5 +36,7 @@
  "mesaj_id": 1556,
  "incelendi": "2026-11-28 sorunsuz (Claude: kareler + ses -17 dB, 39 sn; abartılı otomatik başlık düzeltildi)",
  "video_id": "GrtbZ7hf0LU",
- "yayin": "2026-11-28T11:00:00+03:00"
+ "yayin": "2026-11-28T11:00:00+03:00",
+ "kapak_deneme": 1,
+ "kapak_tamam": true
 }
