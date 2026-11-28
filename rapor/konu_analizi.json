@@ -1,20 +1,34 @@
 {
- "tarih": "2026-11-27",
+ "tarih": "2026-11-28",
  "gruplar": {
   "hayatin_icinden": {
    "video": 3,
-   "izlenme": 1405,
-   "yuzde": 164.26,
-   "ortalama": 468.3,
-   "ort_yuzde": 54.8
+   "izlenme": 1412,
+   "yuzde": 163.26000000000002,
+   "ortalama": 470.7,
+   "ort_yuzde": 54.4
   },
   "afet_uzay": {
    "video": 2,
-   "izlenme": 691,
-   "yuzde": 126.16,
-   "ortalama": 345.5,
-   "ort_yuzde": 63.1
+   "izlenme": 845,
+   "yuzde": 113.25,
+   "ortalama": 422.5,
+   "ort_yuzde": 56.6
+  },
+  "dogru_bilinen_yanlislar": {
+   "video": 1,
+   "izlenme": 151,
+   "yuzde": 37.94,
+   "ortalama": 151.0,
+   "ort_yuzde": 37.9
+  },
+  "hayvanlar_alemi": {
+   "video": 1,
+   "izlenme": 13,
+   "yuzde": 36.64,
+   "ortalama": 13.0,
+   "ort_yuzde": 36.6
   }
  },
- "degisiklik": "en çok izlenen grup 'hayatin_icinden' (468.3/video) öne alındı; sıradaki: zipla, sifreler, trafik, hayvan-kara"
+ "degisiklik": "en çok izlenen grup 'hayatin_icinden' (470.7/video) öne alındı; sıradaki: sifreler, trafik, arabalar, hayvan-kara"
 }
