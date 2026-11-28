@@ -193,8 +193,14 @@ def s_madde(img, sc, lt, olaylar):
         cy = y + h / 2
         tk = prog(lt, t0 + 0.3, 0.3)
         r = h * 0.3
-        d.ellipse((x + 40, cy - r, x + 40 + 2 * r, cy + r), fill=(GREEN if tk > 0 else (60, 58, 70)) + (255,))
-        if tk > 0:
+        olumsuz = sc.get("olumsuz")   # "yapma / verme" listeleri: yeşil tik yerine kırmızı çarpı
+        d.ellipse((x + 40, cy - r, x + 40 + 2 * r, cy + r),
+                  fill=((RED if olumsuz else GREEN) if tk > 0 else (60, 58, 70)) + (255,))
+        if tk > 0 and olumsuz:
+            a = r * 0.42; cx = x + 40 + r; w = max(6, int(r * 0.22))
+            d.line((cx - a, cy - a, cx + a, cy + a), fill=WHITE + (255,), width=w)
+            d.line((cx - a, cy + a, cx + a, cy - a), fill=WHITE + (255,), width=w)
+        elif tk > 0:
             d.line((x + 40 + r * 0.55, cy + 2, x + 40 + r * 0.9, cy + r * 0.4, x + 40 + r * 1.5, cy - r * 0.45),
                    fill=(10, 30, 20, 255), width=max(6, int(r * 0.22)), joint="curve")
         f = font("xbold", int(min(56, h * 0.46)))

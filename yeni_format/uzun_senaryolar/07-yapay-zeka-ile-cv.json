@@ -118,7 +118,8 @@
     "Referansların telefonu",
     "Banka ve kart bilgisi"
    ],
-   "metin": "CV hazırlarken şu dört bilgiyi paylaşma. Birincisi, TC kimlik numaran; zorunlu olmadıkça CV'de bile yer almamalı. İkincisi, tam ev adresin; şehir ve ilçe çoğu zaman yeterli. Üçüncüsü, referans verdiğin kişilerin telefon numaraları. Dördüncüsü, banka ya da kart bilgilerin. İsim ve iletişim kısmını en son, yapay zekâ olmadan kendin ekle."
+   "metin": "CV hazırlarken şu dört bilgiyi paylaşma. Birincisi, TC kimlik numaran; zorunlu olmadıkça CV'de bile yer almamalı. İkincisi, tam ev adresin; şehir ve ilçe çoğu zaman yeterli. Üçüncüsü, referans verdiğin kişilerin telefon numaraları. Dördüncüsü, banka ya da kart bilgilerin. İsim ve iletişim kısmını en son, yapay zekâ olmadan kendin ekle.",
+   "olumsuz": true
   },
   {
    "tip": "buyuk",
