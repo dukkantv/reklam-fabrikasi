@@ -446,7 +446,10 @@ def ciz_neon(arka, yazi, hedef, kanal="dukkantv", dikey=True, vurgu="", sembol="
     im = im.resize((int(im.width * o + 1), int(im.height * o + 1)), Image.LANCZOS)
     x0, y0 = (im.width - W) // 2, (im.height - H) // 2
     im = im.crop((x0, y0, x0 + W, y0 + H))
-    im = ImageEnhance.Color(im).enhance(0.75)
+    # 28 Kas 2026: karedeki videonun kendi büyük yazıları kapak yazısıyla yarışmasın diye sahne yumuşatılır
+    # (renk ve şekiller kalır, eski yazılar okunmaz)
+    im = im.filter(ImageFilter.GaussianBlur(24 if dikey else 14))
+    im = ImageEnhance.Color(im).enhance(0.8)
     im = ImageEnhance.Contrast(im).enhance(1.25)
     yy, xx = np.mgrid[0:H, 0:W]
     arr = np.asarray(im, dtype=np.float32)

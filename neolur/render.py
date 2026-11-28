@@ -464,8 +464,11 @@ class Video:
                 ImageDraw.Draw(img).polygon([(W / 2 - 40, oy), (W / 2 + 40, oy), (W / 2, oy + 50)], fill=YEL + (int(255 * k3),))
             k4 = ease((lt - g[1] - 1.1) / 0.4)
             if k4 > 0:
-                self.satir_ciz(img, self.b.get("not", "Bu bir senaryodur, kesin tahmin değildir."), 1300, 38,
-                               0.8 * k4, fnt=F_BOLD, renk=(200, 200, 215))
+                notu = self.b.get("not", "Bu bir senaryodur, kesin tahmin değildir.")
+                gen = font(F_BOLD, 38).getlength(notu)
+                ImageDraw.Draw(img).rounded_rectangle([(W - gen) / 2 - 28, 1286, (W + gen) / 2 + 28, 1352], radius=30,
+                                                      fill=(10, 8, 20, int(215 * k4)))   # binaların önünde okunsun
+                self.satir_ciz(img, notu, 1300, 38, 0.9 * k4, fnt=F_BOLD, renk=(215, 215, 228))
             return
         self.baslik_ciz(img, s["baslik"], lt, s.get("adim"))
         if tip == "vurgu":
