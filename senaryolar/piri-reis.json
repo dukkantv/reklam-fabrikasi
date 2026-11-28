@@ -1,0 +1,316 @@
+{
+  "baslik": "Piri Reis Haritası: 1513'te Çizilen Harita Neden Bu Kadar Şaşırtıcı?",
+  "kapak_yazi": "KOLOMB'UN KAYIP HARİTASI",
+  "aciklama": "1929'da Topkapı Sarayı'nda tozlu bir destenin içinden ceylan derisine çizilmiş bir harita çıktı. 1513'te Gelibolu'da Piri Reis'in çizdiği bu harita neden bu kadar şaşırtıcı? Haritanın nasıl bulunduğunu, Piri Reis'in yaklaşık 20 kaynaktan nasıl yararlandığını, Kolomb'un kayıp haritasıyla bağlantısını, Antarktika ve kayıp uygarlık iddialarını ve bilim insanlarının bu iddialara verdiği cevapları anlatıyoruz.\n\nBu videoda tarihçilerin kabul ettiği bilgiler kullanılmıştır; kesin olmayan bilgiler \"tahminlere göre\" ya da \"rivayete göre\" diye belirtilmiştir. Antarktika ve ileri uygarlık iddiaları bilim insanlarının çoğu tarafından kabul görmemektedir. Görseller temsilidir.\n\n#pirireis #pirireisharitası #osmanlıtarihi #gizlitarih",
+  "etiketler": [
+    "Piri Reis",
+    "Piri Reis haritası",
+    "Piri Reis haritası 1513",
+    "Kitab-ı Bahriye",
+    "Kemal Reis",
+    "Kolomb'un kayıp haritası",
+    "Topkapı Sarayı",
+    "Gelibolu",
+    "Osmanlı denizcilik tarihi",
+    "Gizli Tarih"
+  ],
+  "bolumler": [
+    {
+      "sahne": 1,
+      "ad": "Giriş: Topkapı'daki deri parçası"
+    },
+    {
+      "sahne": 4,
+      "ad": "1929'daki keşif"
+    },
+    {
+      "sahne": 10,
+      "ad": "Piri Reis kimdi?"
+    },
+    {
+      "sahne": 14,
+      "ad": "Haritanın kaynakları"
+    },
+    {
+      "sahne": 17,
+      "ad": "Kolomb'un kayıp haritası"
+    },
+    {
+      "sahne": 26,
+      "ad": "Antarktika iddiası"
+    },
+    {
+      "sahne": 30,
+      "ad": "Bilim ne diyor?"
+    },
+    {
+      "sahne": 38,
+      "ad": "Kitab-ı Bahriye ve 1528 haritası"
+    },
+    {
+      "sahne": 41,
+      "ad": "Kapanış"
+    }
+  ],
+  "kapak_sahne": 2,
+  "sahneler": [
+    {
+      "metin": "1929 yılı, sonbahar. İstanbul'da, Topkapı Sarayı'nın kütüphanesinde tozlu bir deste eski belge açılıyor. İçinden katlanmış, solgun bir deri parçası çıkıyor.",
+      "nesne": "folded faded parchment emerging from a dusty bundle of old documents",
+      "arama": "Topkapi Palace library 1929",
+      "gorsel": "folded faded parchment emerging from a dusty bundle of old documents on a wooden table, dim light through a palace library window, Ottoman tiled walls in the background, 1920s Istanbul, men in 1920s suits and fedora hats, historically accurate, NO modern objects, NO cars, NO electric wires, NO text, NO letters, no faces visible"
+    },
+    {
+      "metin": "Üzerinde rengârenk kıyılar, gemiler, hayvan figürleri ve notlar var. Tarih 1513. Çizen ise bir Osmanlı denizcisi: Piri Reis.",
+      "nesne": "close-up of an old hand-painted portolan map on parchment",
+      "arama": "Piri Reis map 1513",
+      "gorsel": "close-up of an old hand-painted portolan map on gazelle-skin parchment, colorful coastlines, small sailing ships and animal figures, compass rose lines, warm candlelight, decorative marks only, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "Bu harita neden bütün dünyanın dikkatini çekti? Kayıp bir haritanın izini mi taşıyordu, yoksa bazılarının iddia ettiği gibi büyük bir sır mı? Bu videoda haritanın nasıl bulunduğunu, ardındaki gizemleri ve bilimin cevaplarını anlatıyoruz.",
+      "nesne": "mysterious old parchment map lit by a single candle",
+      "arama": "Piri Reis map mystery",
+      "gorsel": "mysterious old parchment map lying on a dark wooden desk lit by a single candle, deep shadows, sense of secrecy, NO readable text, NO letters, NO logos, NO modern objects"
+    },
+    {
+      "metin": "Önce 1929'a dönelim. Cumhuriyet'in ilk yıllarında Topkapı Sarayı müzeye dönüştürülmüş, kütüphanedeki eserler tek tek elden geçiriliyordu.",
+      "nesne": "Topkapi Palace courtyard with plane trees in the 1920s",
+      "arama": "Topkapi Palace 1920s",
+      "gorsel": "Topkapi Palace inner courtyard with old plane trees and domed pavilions, quiet autumn day, sepia tones, 1920s Istanbul, men in 1920s suits and fedora hats, historically accurate, NO modern objects, NO cars, NO electric wires, NO text, NO letters, no faces visible"
+    },
+    {
+      "metin": "Alman bilim insanı Gustav Adolf Deissmann, saraydaki yabancı dilde yazılmış eserlerin kataloğunu hazırlıyordu.",
+      "nesne": "scholar's hands writing in a catalogue ledger beside old books",
+      "arama": "Topkapi library catalogue 1920s",
+      "gorsel": "scholar's hands writing in a blank catalogue ledger with a fountain pen beside stacks of old leather books, palace library interior, seen from behind, 1920s Istanbul, men in 1920s suits and fedora hats, historically accurate, NO modern objects, NO cars, NO electric wires, NO text, NO letters, no faces visible"
+    },
+    {
+      "metin": "Müze müdürü Halil Edhem Bey'in ortaya çıkardığı eski bir destenin içinde bu harita parçası vardı. Deissmann, ne kadar önemli olduğunu hemen fark etti.",
+      "nesne": "two men in 1920s suits looking at an unfolded parchment, seen from behind",
+      "arama": "Piri Reis map discovery 1929",
+      "gorsel": "two men in 1920s suits seen from behind leaning over an unfolded old parchment map on a library table, faces not visible, warm lamp light, 1920s Istanbul, men in 1920s suits and fedora hats, historically accurate, NO modern objects, NO cars, NO electric wires, NO text, NO letters, no faces visible"
+    },
+    {
+      "metin": "Kısa süre sonra Alman şarkiyatçı Paul Kahle haritayı inceledi. 1931'deki yayınlarla haritanın varlığı bütün dünyaya duyuruldu.",
+      "nesne": "stack of 1930s scholarly journals and a magnifying glass on a desk",
+      "arama": "Paul Kahle Piri Reis 1931",
+      "gorsel": "stack of plain-covered 1930s scholarly journals and a brass magnifying glass on a wooden desk, an old map partly visible, blank covers, 1930s study room, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Harita, ceylan derisinden yapılmış bir parşömene çizilmişti. Yaklaşık 87'ye 63 santimetre. Ama bu, haritanın tamamı değildi.",
+      "nesne": "irregular-shaped piece of gazelle-skin parchment with a torn edge",
+      "arama": "gazelle skin parchment map",
+      "gorsel": "irregular-shaped piece of gazelle-skin parchment with a torn and damaged edge lying flat, soft museum light, painted coastlines faintly visible, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "Tahminlere göre elimizdeki parça, bütün dünyayı gösteren büyük bir haritanın yalnızca üçte biri. Doğuyu gösteren kısımlar kayıp.",
+      "nesne": "torn map fragment with an empty space where the rest is missing",
+      "arama": "Piri Reis map fragment",
+      "gorsel": "torn old map fragment on the left side of a dark table with an empty dark space on the right where the rest is missing, dramatic lighting, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "Peki bu haritayı çizen denizci kimdi? Piri Reis, tahminlere göre 1465 ile 1470 arasında Gelibolu'da doğdu.",
+      "nesne": "small harbour town of Gallipoli with wooden houses and boats",
+      "arama": "Gelibolu 16th century",
+      "gorsel": "small harbour town of Gallipoli on the Dardanelles with wooden houses, a stone tower and wooden boats, late 15th century, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Gençliğinde amcası Kemal Reis'in yanında denize açıldı. Kemal Reis, Akdeniz'in tanınmış denizcilerinden biriydi, sonra Osmanlı donanmasında kaptan oldu.",
+      "nesne": "Ottoman sailors on the deck of a galley, seen from behind",
+      "arama": "Kemal Reis Ottoman fleet",
+      "gorsel": "Ottoman sailors in turbans and simple kaftans working on the deck of a wooden galley, a captain seen from behind at the bow, no faces visible, open sea, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Piri Reis yıllarca amcasıyla birlikte Akdeniz'in limanlarını, adalarını, rüzgârlarını ve akıntılarını yakından öğrendi.",
+      "nesne": "young Ottoman sailor silhouette looking at a rocky Mediterranean island",
+      "arama": "Mediterranean islands sailing",
+      "gorsel": "silhouette of a young Ottoman sailor in a turban seen from behind, standing at the rail of a galley looking at a rocky Mediterranean island, wind in the sails, face not visible, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Amcası 1511 civarında bir fırtınada hayatını kaybedince Piri Reis Gelibolu'ya döndü ve kendini bambaşka bir işe verdi: harita çizmek.",
+      "nesne": "galley in a stormy sea under dark clouds",
+      "arama": "Ottoman ship storm",
+      "gorsel": "wooden Ottoman galley tossed in a stormy sea under dark clouds, huge waves, dramatic light, no people visible, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Ama bu haritanın asıl sırrı, köşelerine yazılmış notlarda saklıydı. Çünkü Piri Reis, haritayı hangi kaynaklardan derlediğini tek tek yazmıştı.",
+      "nesne": "corner of an old map with decorative painted panels",
+      "arama": "Piri Reis map notes",
+      "gorsel": "corner of an old parchment map with small decorative painted panels and ink flourishes, extreme close-up, candlelight, illegible ornaments only, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "1513 yılının ilkbaharı. Gelibolu'da bir oda, masada açılmış eski haritalar. Piri Reis bunları tek bir büyük haritada birleştirmeye çalışıyor.",
+      "nesne": "Ottoman mapmaker seen from behind at a table covered with old maps",
+      "arama": "Piri Reis drawing map",
+      "gorsel": "Ottoman mapmaker in a turban and kaftan seen from behind, silhouette only, bent over a wooden table covered with old maps, ink pots, reed pens and dividers, oil lamp light, stone room in Gallipoli, face not visible, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Kendi notuna göre yaklaşık 20 kaynak kullanmıştı. Aralarında Büyük İskender çağından kaldığı söylenen 8 harita, bir Arap Hindistan haritası ve Portekizlilerin yeni çizdiği 4 harita vardı.",
+      "nesne": "several old maps of different styles spread on a table",
+      "arama": "medieval maps Ptolemy Portuguese",
+      "gorsel": "several old hand-drawn maps of different styles spread out and overlapping on a wooden table, ancient-looking scrolls, Arabic-style and Portuguese-style charts, 16th century, NO readable text, NO letters, NO logos, NO modern objects"
+    },
+    {
+      "metin": "Ve bir tane daha. Notta açıkça şöyle yazıyordu: Bu kıyılar ve adalar, Kolomb'un haritasından alınmıştır.",
+      "nesne": "old map of Caribbean islands with a tiny caravel",
+      "arama": "Columbus map Caribbean",
+      "gorsel": "old hand-painted map of scattered Caribbean islands with a tiny caravel ship drawn on the sea, parchment texture, candlelight, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "İşte haritanın en şaşırtıcı yanı bu. Çünkü Kolomb'un Amerika kıyılarını gösteren o haritası bugün kayıp. Hiçbir arşivde bulunamadı.",
+      "nesne": "empty archive shelves with dust and a single beam of light",
+      "arama": "lost Columbus map",
+      "gorsel": "old empty archive shelves with dust in the air and a single beam of light, a missing space where a scroll should be, mysterious mood, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Yani Piri Reis haritası, belki de Kolomb'un kayıp haritasından bize ulaşan en önemli iz.",
+      "nesne": "caravel ship sailing toward an unknown coast",
+      "arama": "Columbus caravel",
+      "gorsel": "Spanish caravel with square sails sailing toward an unknown green coastline, late 15th century, calm sea, no flags with symbols, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Peki bir Osmanlı denizcisi Kolomb'un haritasını nereden bulmuş olabilir? Yaygın açıklamaya göre iz, Kemal Reis'in Akdeniz'de ele geçirdiği İspanyol gemilerine çıkıyor.",
+      "nesne": "Ottoman galleys approaching Spanish ships at sea",
+      "arama": "Kemal Reis Spanish ships",
+      "gorsel": "Ottoman galleys approaching two Spanish sailing ships on the open Mediterranean, around 1500, smoke on the horizon, no flags with symbols, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Rivayete göre esir düşen denizcilerden biri daha önce Kolomb'la birlikte okyanusu geçmişti ve onun çizdiği bir haritadan söz ediyordu.",
+      "nesne": "captured European sailor seen from behind on a galley deck",
+      "arama": "Spanish sailor 1500",
+      "gorsel": "captured European sailor in a simple linen shirt seen from behind sitting on a galley deck, Ottoman sailors around, a rolled map in his hands, faces not visible, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Haritaya dikkatle bakınca bu iz görülüyor. Karayipler'deki adalar tuhaf biçimde çizilmiş; Küba sanki bir ada değil de büyük bir kıtanın parçası gibi duruyor.",
+      "nesne": "old map detail of strangely shaped Caribbean islands",
+      "arama": "Piri Reis map Caribbean Cuba",
+      "gorsel": "detail of an old parchment map showing strangely shaped Caribbean islands and a long coastline, painted in faded red and green, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "Bu, Kolomb'un kendi düşüncesiyle örtüşüyor. Kolomb, Küba'nın Asya kıtasının bir parçası olduğuna inanıyordu.",
+      "nesne": "caravel near a green tropical coast at dusk",
+      "arama": "Columbus Cuba Asia",
+      "gorsel": "caravel anchored near a green tropical coast at dusk, palm trees, calm water, late 15th century, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Haritada İspanya, Portekiz ve Batı Afrika kıyıları da var. Okyanusun ortasında gemiler, adalar ve o çağın hayal gücünden çıkmış yaratıklar çizilmiş.",
+      "nesne": "painted sea creatures and ships on an old Atlantic map",
+      "arama": "Piri Reis map creatures",
+      "gorsel": "painted sea creatures, small ships and islands on an old Atlantic map, Iberian and African coastlines, rich colors on parchment, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "1517'de Osmanlılar Mısır'ı aldığında Piri Reis bu haritayı Yavuz Sultan Selim'e sundu. Padişahın haritayla ne yaptığını ise bilmiyoruz.",
+      "nesne": "rolled parchment map presented on a cushion in an Ottoman tent",
+      "arama": "Selim I Egypt 1517",
+      "gorsel": "rolled parchment map presented on a red velvet cushion inside an Ottoman imperial tent, hands only, no faces visible, Cairo 1517, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Ama hikâye burada bitmiyor. Yıllar sonra bazı yazarlar bu haritada çok daha büyük bir sır gördüklerini iddia ettiler.",
+      "nesne": "old map under a magnifying glass with a dramatic shadow",
+      "arama": "Piri Reis map theories",
+      "gorsel": "old parchment map under a large magnifying glass with a dramatic shadow, dark background, suspenseful mood, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "Haritanın en altında, güneyde, doğuya doğru kıvrılan uzun bir kıyı var. 1950'lerde Amerikalı Arlington Mallery bu kıyının Antarktika olduğunu öne sürdü.",
+      "nesne": "bottom edge of an old map with a long coastline curving east",
+      "arama": "Piri Reis map southern coast",
+      "gorsel": "bottom edge of an old parchment map with a long coastline curving sharply to the east, faded paint, soft side light, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "Üstelik buzla kaplı olmayan bir Antarktika. 1966'da Charles Hapgood bu fikri bir kitapla geniş kitlelere yaydı.",
+      "nesne": "imaginary ice-free polar coastline with green hills",
+      "arama": "ice free Antarctica theory",
+      "gorsel": "imaginary ice-free polar coastline with green hills and bare rocks under a pale sky, dreamlike speculative illustration, no people, NO text, NO letters"
+    },
+    {
+      "metin": "Bu iddiaya göre Piri Reis'in kaynakları, buzlar oluşmadan önce yaşamış bilinmeyen ileri bir uygarlığa aitti. Kimisi işin içine uzaylıları bile kattı.",
+      "nesne": "mysterious ancient ruins under a starry sky",
+      "arama": "ancient civilization theory",
+      "gorsel": "mysterious ancient stone ruins on a cliff under a starry night sky, fantasy mood, no people, NO text, NO letters, NO logos"
+    },
+    {
+      "metin": "Kulağa heyecan verici geliyor, değil mi? Ama bilim insanlarının çoğu bu iddiaya katılmıyor. Nedenlerine tek tek bakalım.",
+      "nesne": "scales of justice weighing an old map and a book",
+      "arama": "Piri Reis map science",
+      "gorsel": "brass balance scale weighing an old rolled map against a closed leather book, dark background, warm light, NO text, NO letters"
+    },
+    {
+      "metin": "Birincisi, Antarktika milyonlarca yıldır kalın bir buz örtüsünün altında. İnsanlar ortaya çıkmadan çok önce de buzla kaplıydı.",
+      "nesne": "vast Antarctic ice sheet under a low sun",
+      "arama": "Antarctic ice sheet",
+      "gorsel": "vast Antarctic ice sheet stretching to the horizon under a low sun, blue ice cliffs, no people, NO text, NO letters"
+    },
+    {
+      "metin": "İkincisi, bu iddia jeolojik verilerle çelişiyor. Üstelik böyle bir uygarlığa ait tek bir eser, tek bir kalıntı bile bulunamadı.",
+      "nesne": "empty archaeological trench with tools and nothing found",
+      "arama": "archaeology excavation",
+      "gorsel": "empty archaeological trench with old wooden tools and brushes, nothing found, overcast light, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Üçüncüsü, güneydeki kıyıda yazan yer adları, Portekizce ve İspanyolca adların Osmanlıcaya aktarılmış hâlleri. Yani bilgi, o çağın denizcilerinden geliyor.",
+      "nesne": "Portuguese ship sailing along a tropical South American coast",
+      "arama": "Portuguese ship Brazil 1500",
+      "gorsel": "Portuguese carrack sailing along a tropical South American coastline with green mountains, around 1500, no flags with symbols, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Tarihçilerin çoğuna göre o kıyı, Brezilya'nın bilinen kıyıları. Bazı araştırmacılara göre de doğuya kıvrılan kısım, o çağda var olduğu düşünülen hayalî bir güney kıtasının çizimi.",
+      "nesne": "coast of Brazil with green mountains meeting the ocean",
+      "arama": "Brazil coast",
+      "gorsel": "wild coast of Brazil with green mountains meeting the Atlantic ocean, untouched nature, early 16th century, no people, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Antarktika'nın kıyıları ise ilk kez 1820'de görüldü. Yani Piri Reis'in haritasından 300 yıldan fazla sonra.",
+      "nesne": "wooden sailing ship among icebergs",
+      "arama": "Antarctica discovery 1820",
+      "gorsel": "wooden sailing ship of the early 19th century among icebergs in cold grey sea, 1820, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Tarihçi Gregory McIntosh haritayı ayrıntılı biçimde inceledi ve kayıp uygarlık ya da uzaylı iddialarını çürüttü. Ona göre haritanın gerçek değeri başka yerde.",
+      "nesne": "historian's desk with an open book and an old map copy",
+      "arama": "Gregory McIntosh Piri Reis",
+      "gorsel": "historian's wooden desk with an open book with blank pages and a faded old map copy, warm reading lamp, seen from above, no people, NO text, NO letters"
+    },
+    {
+      "metin": "Piri Reis'in asıl başarısı şu: 1513 gibi erken bir tarihte Doğu'nun ve Batı'nın bilgisini tek bir haritada buluşturmak.",
+      "nesne": "old world map glowing between East and West",
+      "arama": "Piri Reis map achievement",
+      "gorsel": "old parchment map glowing softly on a table, half lit by warm eastern lamp light and half by cool western window light, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "Sonra Kitab-ı Bahriye'yi yazdı. Akdeniz'in kıyılarını, limanlarını ve adalarını anlatan bu denizcilik kitabını 1521'de bitirdi, 1526'da Kanuni Sultan Süleyman'a sundu.",
+      "nesne": "illuminated Ottoman manuscript open on a wooden stand",
+      "arama": "Kitab-i Bahriye",
+      "gorsel": "illuminated Ottoman manuscript open on a wooden stand, painted harbour maps on both pages, gold decoration, soft light, illegible decoration only, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "1528'de ikinci bir dünya haritası çizdi. Ondan da yalnızca bir parça kaldı; Kuzey Atlantik'i ve Kuzey ile Orta Amerika kıyılarını gösteriyor.",
+      "nesne": "fragment of a second old map showing North Atlantic coastlines",
+      "arama": "Piri Reis 1528 map",
+      "gorsel": "fragment of an old parchment map showing North Atlantic coastlines with empty unexplored areas, faded colors, museum light, NO readable text, NO letters, NO logos"
+    },
+    {
+      "metin": "Piri Reis ömrü boyunca denizlerde görev yaptı; ileri yaşında, 1550'lerin başında Mısır'da idam edildi.",
+      "nesne": "lone galley silhouette at sunset on the Nile delta",
+      "arama": "Piri Reis Egypt",
+      "gorsel": "lone galley silhouette at sunset near the Nile delta, calm water, melancholic mood, no people visible, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Bugün 1513 haritası Topkapı Sarayı'nda korunuyor. Işığa ve neme karşı çok hassas olduğu için yalnızca zaman zaman sergileniyor.",
+      "nesne": "old parchment map in a dim museum display case",
+      "arama": "Piri Reis map Topkapi museum",
+      "gorsel": "old parchment map inside a dim glass museum display case with soft protective lighting, dark room, no people, NO text, NO letters, NO logos"
+    },
+    {
+      "metin": "Ceylan derisinden bir parça, kayıp bir Kolomb haritasının izi ve 500 yıldır süren bir merak. Belki de asıl sır, haritanın kendisi değil, onu çizen denizcinin merakıydı.",
+      "nesne": "Ottoman sailor silhouette at the bow of a galley looking at the horizon",
+      "arama": "Piri Reis legacy",
+      "gorsel": "silhouette of an Ottoman sailor in a turban seen from behind at the bow of a galley, looking at a wide horizon at sunset, face not visible, 16th century Ottoman era, historically accurate costumes, NO cars, NO electric wires, NO power pylons, NO modern objects, NO text, NO letters"
+    },
+    {
+      "metin": "Sence Piri Reis haritasının en şaşırtıcı yanı ne: Kolomb'un kayıp haritasının izi mi, yoksa hakkında anlatılan efsaneler mi? Yorumlara yaz. Gizli Tarih'e abone olmayı unutma.",
+      "nesne": "old book opening with light coming out next to a rolled map",
+      "arama": "mystery history book",
+      "gorsel": "old leather book opening on a wooden table with warm light rising from its pages next to a rolled parchment map, dark background, NO text, NO letters"
+    }
+  ]
+}

@@ -29,9 +29,10 @@
   },
   {
    "no": 5,
-   "durum": "bekliyor",
+   "durum": "sirada (29 Kasım Pazar 20:00)",
    "konu": "Piri Reis haritası: 1513'te çizilen harita neden bu kadar şaşırtıcı?",
-   "kanca": "Bir Osmanlı denizcisinin haritası, 1929'da Topkapı Sarayı'nda bulundu."
+   "kanca": "Bir Osmanlı denizcisinin haritası, 1929'da Topkapı Sarayı'nda bulundu.",
+   "senaryo": "senaryolar/piri-reis.json"
   },
   {
    "no": 6,
