@@ -1,0 +1,42 @@
+{
+ "tarih": "2026-11-28",
+ "saat": "11:00",
+ "kaynaklar": [
+  "https://www.gzt.com/gundem/balkanlar-uzerinden-geliyor-meteoroloji-sicakliklarin-dusecegi-tarihi-acikladi-4283803",
+  "https://www.tgrthaber.com/gundem/28-kasim-2026-hava-durumu-hafta-sonu-sonbahar-havasina-veda-balkan-soguklari-kapiya-3373951"
+ ],
+ "kanallar": {
+  "dukkantv": {
+   "baslik": "Pazar Günü Balkan Soğukları Geliyor: Montunu Hazırla! #shorts",
+   "etiketler": ["hava durumu", "soğuk hava", "Balkan soğukları", "Meteoroloji", "Marmara", "fırtına", "gündem", "Dükkan TV"]
+  }
+ },
+ "bolum": {
+  "id": "balkan-soguk",
+  "efekt": "soguk",
+  "baslik": "Pazar Günü Balkan Soğukları Geliyor: Montunu Hazırla! #shorts",
+  "ozet": "Meteoroloji'ye göre Balkanlar üzerinden gelen soğuk hava Pazar günü etkili oluyor: sıcaklıklar mevsim normallerinin altına iniyor, Marmara'da rüzgâr saatte 90 kilometreye çıkabiliyor.",
+  "not": "Bilgiler Meteoroloji Genel Müdürlüğü açıklamalarına dayanır.",
+  "etiketler": ["hava durumu", "soğuk hava", "Balkan soğukları", "Meteoroloji", "Marmara", "fırtına", "gündem", "shorts"],
+  "gorsel_ara": ["autumn rain umbrella street", "storm clouds over sea", "cold windy city autumn"],
+  "adimlar": ["PAZAR", "NEREDEN?", "SICAKLIK", "RÜZGÂR", "YAĞMUR"],
+  "sahneler": [
+   {"tip": "kanca", "satir": ["BU HAFTA SONU", "*SONBAHARA*", "VEDA", "*EDİYORUZ!*"],
+    "ses": ["Bu hafta sonu sonbahara veda ediyoruz, soğuk hava kapıda!"]},
+   {"tip": "asama", "adim": 0, "baslik": "PAZAR", "satir": ["Soğuk hava", "*Pazar günü*", "geliyor."],
+    "ses": ["Meteoroloji'ye göre soğuk hava Pazar günü geliyor."], "grup": [0, 0, 0]},
+   {"tip": "asama", "adim": 1, "baslik": "NEREDEN?", "satir": ["Soğuk dalga", "*Balkanlar*", "üzerinden giriyor."],
+    "ses": ["Soğuk hava dalgası Balkanlar üzerinden giriyor."], "grup": [0, 0, 0]},
+   {"tip": "asama", "adim": 2, "baslik": "SICAKLIK", "satir": ["Önce *kuzeybatı*,", "sonra iç ve batı:", "*normalin altı.*"],
+    "ses": ["Sıcaklıklar önce kuzeybatıda düşecek.", "Sonra iç ve batı kesimlerde mevsim normallerinin altına inecek."], "grup": [0, 1, 1]},
+   {"tip": "asama", "adim": 3, "baslik": "RÜZGÂR", "satir": ["Marmara’da", "*saatte 90 km’ye*", "varan rüzgâr."],
+    "ses": ["Marmara'da rüzgârın hızı yer yer saatte doksan kilometreye çıkabilir."], "grup": [0, 0, 0]},
+   {"tip": "asama", "adim": 4, "baslik": "YAĞMUR", "satir": ["Marmara’da", "*sağanak* bekleniyor.", "Şemsiye *hazır olsun.*"],
+    "ses": ["Marmara'da sağanak yağış bekleniyor.", "Şemsiyen yanında olsun."], "grup": [0, 0, 1]},
+   {"tip": "vurgu", "baslik": "PEKİ NE YAPMALI?", "satir": ["Montunu, şemsiyeni", "bugünden hazırla:", "*KIŞ*", "*KAPIDA!*"],
+    "ses": ["Peki ne yapmalı? Montunu, şemsiyeni bugünden hazırla...", "kış", "kapıda!"], "grup": [0, 0, 1, 2]},
+   {"tip": "son", "satir": ["Sen montunu", "*çıkardın mı?*"],
+    "ses": ["Sen montunu dolaptan çıkardın mı? Yorumlara yaz."], "grup": [0, 0]}
+  ]
+ }
+}
